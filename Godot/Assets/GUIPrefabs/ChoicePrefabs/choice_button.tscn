@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu7kunew4a70o"]
+
+[ext_resource type="Script" uid="uid://bbgikh6kb6t1u" path="res://Assets/GUIPrefabs/ChoicePrefabs/choice_button_script.gd" id="1_hh3i1"]
+
+[sub_resource type="FontFile" id="FontFile_85jfh"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nme6o"]
+
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("button", "text_label")]
+y_sort_enabled = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+mouse_default_cursor_shape = 1
+theme_override_constants/margin_top = 5
+script = ExtResource("1_hh3i1")
+button = NodePath("ChoiceButton")
+text_label = NodePath("Text")
+
+[node name="ChoiceButton" type="Button" parent="."]
+z_index = 1
+y_sort_enabled = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = SubResource("FontFile_85jfh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nme6o")
+flat = true
+alignment = 0
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+bbcode_enabled = true
+text = "refoijoijiojoijjojijijijijijijiijijijijijijijj"
+fit_content = true
+scroll_active = false

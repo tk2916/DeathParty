@@ -1,0 +1,3 @@
+The Assets file should have generic assets that might not go anywhere. Likely we will put things such as fonts, audio files, etc here.
+Additionally we can put specific asset files (such as large art sheets) that might not belong anywhere else.
+Avoid putting specific (like a single image) art here that could be placed alongside the object that depends on it.

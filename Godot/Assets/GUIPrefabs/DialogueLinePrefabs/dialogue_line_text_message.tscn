@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://jwdi6yghs0j5"]
+
+[ext_resource type="Script" uid="uid://buutas4n7320a" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_script.gd" id="1_enggq"]
+[ext_resource type="Script" uid="uid://bdg71a0j8566i" path="res://resize_to_text.gd" id="2_0kl2h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ealrb"]
+bg_color = Color(0.568973, 0.568973, 0.568973, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Control" type="Control" node_paths=PackedStringArray("Text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_enggq")
+Text = NodePath("Panel/MarginContainer/RichTextLabel")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ealrb")
+script = ExtResource("2_0kl2h")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=black]aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa[/color]"
+fit_content = true
+scroll_active = false

@@ -1,0 +1,172 @@
+{
+  "inkVersion": 21,
+  "root": [
+    [
+      "^Once upon a time...",
+      "\n",
+      "ev",
+      "str",
+      "^There were two choices.",
+      "/str",
+      "/ev",
+      {
+        "*": "0.c-0",
+        "flg": 4
+      },
+      "ev",
+      "str",
+      "^This is the second one.",
+      "/str",
+      "/ev",
+      {
+        "*": "0.c-1",
+        "flg": 4
+      },
+      {
+        "c-0": [
+          "^ ",
+          {
+            "->": "one"
+          },
+          "\n",
+          {
+            "->": "0.g-0"
+          },
+          {
+            "#f": 5
+          }
+        ],
+        "c-1": [
+          "^ ",
+          {
+            "->": "two"
+          },
+          "\n",
+          {
+            "->": "0.g-0"
+          },
+          {
+            "#f": 5
+          }
+        ],
+        "g-0": [
+          "done",
+          {
+            "#f": 5
+          }
+        ]
+      }
+    ],
+    "done",
+    {
+      "one": [
+        [
+          [
+            "^You chose the first choice!",
+            "\n",
+            "ev",
+            "str",
+            "^Another choice",
+            "/str",
+            "/ev",
+            {
+              "*": ".^.c-0",
+              "flg": 4
+            },
+            "ev",
+            "str",
+            "^Choice number 4",
+            "/str",
+            "/ev",
+            {
+              "*": ".^.c-1",
+              "flg": 4
+            },
+            {
+              "c-0": [
+                "^ ",
+                {
+                  "->": "three"
+                },
+                "\n",
+                {
+                  "#f": 5
+                }
+              ],
+              "c-1": [
+                "^ ",
+                {
+                  "->": "four"
+                },
+                "\n",
+                "end",
+                {
+                  "#f": 5
+                }
+              ],
+              "#f": 5,
+              "#n": "g-0"
+            }
+          ],
+          null
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "two": [
+        [
+          [
+            "^You chose the second choice!",
+            "\n",
+            "end",
+            {
+              "#f": 5,
+              "#n": "g-0"
+            }
+          ],
+          null
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "three": [
+        [
+          [
+            "^You chose the third choice!",
+            "\n",
+            "end",
+            {
+              "#f": 5,
+              "#n": "g-0"
+            }
+          ],
+          null
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "four": [
+        [
+          [
+            "^You chose the fourth choice!",
+            "\n",
+            "end",
+            {
+              "#f": 5,
+              "#n": "g-0"
+            }
+          ],
+          null
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "#f": 1
+    }
+  ],
+  "listDefs": {}
+}
