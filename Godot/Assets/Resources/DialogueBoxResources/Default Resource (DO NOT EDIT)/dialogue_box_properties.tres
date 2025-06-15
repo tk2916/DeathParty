@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dgekftwhhq2cp"]
+
+[ext_resource type="PackedScene" uid="uid://cu7kunew4a70o" path="res://Assets/GUIPrefabs/ChoicePrefabs/choice_button.tscn" id="1_h1h0a"]
+[ext_resource type="PackedScene" uid="uid://b1vqeofabh56y" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/diag_line.tscn" id="2_lwyni"]
+[ext_resource type="Script" uid="uid://ckddp2g3xeuu0" path="res://Assets/Resources/DialogueBoxResources/Default Resource (DO NOT EDIT)/dialogue_properties_script.gd" id="3_58mov"]
+
+[resource]
+script = ExtResource("3_58mov")
+dialogue_line = ExtResource("2_lwyni")
+choice_button = ExtResource("1_h1h0a")
+text_size = 15
+name_size = 15
+choice_size = 15
+default_text_color = "white"
+default_name_color = "yellow"
+default_choice_color = "yellow"
+include_speaker_in_text = true
+clear_box_after_each_dialogue = true
+text_animation = "typewriter"
+image_key = "full"

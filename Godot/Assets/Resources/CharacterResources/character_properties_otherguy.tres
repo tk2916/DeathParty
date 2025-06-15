@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bpephsvb7c542"]
+
+[ext_resource type="Texture2D" uid="uid://c71sk8xt3ey78" path="res://Assets/CharacterAssets/CharacterTextures/kai_jax.png" id="1_fdcyo"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="2_fdcyo"]
+[ext_resource type="Texture2D" uid="uid://cpfano2e135hr" path="res://Assets/CharacterAssets/CharacterTextures/kai_jax_waistup.png" id="3_miu7s"]
+
+[resource]
+script = ExtResource("2_fdcyo")
+name = "Other Guy"
+image_full = ExtResource("1_fdcyo")
+image_torso = ExtResource("3_miu7s")
+name_color = "blue"
+text_color = "green"
