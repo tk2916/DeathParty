@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="1_a0tk4"]
 [ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/InknutAntiqua-Regular.ttf" id="2_r3fl7"]
-[ext_resource type="PackedScene" path="res://phone_gui.tscn" id="3_jka67"]
+[ext_resource type="PackedScene" uid="uid://cekjgwkgsty2h" path="res://phone_gui.tscn" id="3_jka67"]
 
 [node name="Node3D" type="Node3D"]
 
