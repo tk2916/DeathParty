@@ -1,0 +1,4 @@
+The Dialogue file should contain things strictly related to Dialogic and the Dialogue.
+This is just a good way to reference Timelines, and etc. 
+
+Characters should be placed with the corresponding entity so it's easier to locate them, but this will have things such as the customized styles.

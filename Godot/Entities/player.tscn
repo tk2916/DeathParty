@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8kaqd0dtqsp1"]
+
+[ext_resource type="Script" uid="uid://btdxsedihjw8m" path="res://Utilities/scripts/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://CharacterAssets/Olivia/olivia.tscn" id="2_gb1tc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gb1tc"]
+radius = 0.2
+height = 1.71
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pvmex"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gb1tc"]
+animation = &"Turn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_488j3"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ov2v6"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gb1tc"]
+graph_offset = Vector2(-234.346, 18.6468)
+"nodes/Idle Anim/node" = SubResource("AnimationNodeAnimation_pvmex")
+"nodes/Idle Anim/position" = Vector2(160, 100)
+"nodes/Turn Anim/node" = SubResource("AnimationNodeAnimation_gb1tc")
+"nodes/Turn Anim/position" = Vector2(620, 280)
+"nodes/Walk Anim/node" = SubResource("AnimationNodeAnimation_488j3")
+"nodes/Walk Anim/position" = Vector2(160, 280)
+"nodes/Walk Blend/node" = SubResource("AnimationNodeBlend2_ov2v6")
+"nodes/Walk Blend/position" = Vector2(420, 140)
+nodes/output/position = Vector2(660, 140)
+node_connections = [&"Walk Blend", 0, &"Idle Anim", &"Walk Blend", 1, &"Walk Anim", &"output", 0, &"Walk Blend"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 2
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0347884, 0.85, 0)
+shape = SubResource("CapsuleShape3D_gb1tc")
+
+[node name="PlayerCameraLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8.6)
+
+[node name="PlayerModel" parent="." instance=ExtResource("2_gb1tc")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="PlayerModel" index="1"]
+autoplay = "RESET"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../PlayerModel")
+tree_root = SubResource("AnimationNodeBlendTree_gb1tc")
+anim_player = NodePath("../PlayerModel/AnimationPlayer")
+"parameters/Walk Blend/blend_amount" = 0
+
+[node name="FootstepSounds" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/footsteps"
+event_guid = "{a434b914-a600-404d-b1ec-780f1a8849c1}"
+
+[editable path="PlayerModel"]

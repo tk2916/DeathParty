@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="Workspace" id="{e4c93b79-c0c1-46c2-9a6c-b381fb15d4a8}">
+		<property name="builtBanksOutputDirectory">
+			<value>../godot/audio/fmod banks</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{2eaff166-939c-4264-a05d-2dfe42472786}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{08c2647c-e449-4ca1-99f8-c70db2d5a174}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{895cfd54-57b2-40ca-9541-ec1735b5c386}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{27ba4a98-1d2c-4d56-ac43-0841e0a82a48}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{df4c86b7-7432-4518-9037-60adbdbe407b}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{99836a96-7c13-41d2-a338-5295c14031dc}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{b578e7d4-82c2-4011-885a-6204f61f86c8}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{cb49706f-c0dd-4c45-8544-57eaf08c02a1}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{4b9bb92d-de82-46ba-a9a4-18baa8404470}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{e0b8e5ee-b7c0-4e99-b24c-0baf6811edee}</destination>
+		</relationship>
+	</object>
+</objects>

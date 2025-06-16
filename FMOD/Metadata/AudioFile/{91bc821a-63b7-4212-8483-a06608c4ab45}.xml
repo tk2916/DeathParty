@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{91bc821a-63b7-4212-8483-a06608c4ab45}">
+		<property name="assetPath">
+			<value>outdoor ambience/birds/amb_bird_call_05.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>3.0806666666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b578e7d4-82c2-4011-885a-6204f61f86c8}</destination>
+		</relationship>
+	</object>
+</objects>

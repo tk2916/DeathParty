@@ -1,0 +1,3 @@
+Utilities AND Autoloaders
+The utilities file should contain any utility system such as the save system, the SignalBus etc.
+Most of these will likely be Autoloaders (Global Objects).

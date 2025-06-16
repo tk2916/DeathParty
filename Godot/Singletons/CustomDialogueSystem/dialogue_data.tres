@@ -1,19 +1,37 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://5vyoy0xeqs3x"]
+[gd_resource type="Resource" load_steps=9 format=3 uid="uid://5vyoy0xeqs3x"]
 
-[ext_resource type="Resource" uid="uid://bpephsvb7c542" path="res://Assets/Resources/CharacterResources/character_properties_otherguy.tres" id="1_gpueq"]
-[ext_resource type="Resource" uid="uid://dq27ktygpdh35" path="res://Assets/Resources/CharacterResources/character_properties_creepypikachu.tres" id="2_iwic5"]
-[ext_resource type="Resource" uid="uid://fl5cg4jaw48p" path="res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres" id="3_48s1t"]
+[ext_resource type="Texture2D" uid="uid://chy5h4pn5nw5" path="res://CharacterAssets/kai_pikachu.png" id="1_48s1t"]
+[ext_resource type="Texture2D" uid="uid://s742yxoo5vvv" path="res://CharacterAssets/kai_pikachu_waistup.png" id="2_6va8v"]
+[ext_resource type="Texture2D" uid="uid://c71sk8xt3ey78" path="res://CharacterAssets/kai_jax.png" id="2_j607w"]
+[ext_resource type="PackedScene" uid="uid://hi0l7rskcppb" path="res://Singletons/CustomDialogueSystem/DialogueBoxes/dialogue_box.tscn" id="3_6va8v"]
+[ext_resource type="Texture2D" uid="uid://cpfano2e135hr" path="res://CharacterAssets/kai_jax_waistup.png" id="4_6va8v"]
+[ext_resource type="PackedScene" uid="uid://cvfedraxvd5hc" path="res://Singletons/CustomDialogueSystem/DialogueBoxes/dialogue_box_2.tscn" id="4_kgomc"]
+[ext_resource type="PackedScene" uid="uid://cl1d2mi5mkumf" path="res://Singletons/CustomDialogueSystem/DialogueBoxes/dialogue_box_3.tscn" id="5_nli62"]
 
 [sub_resource type="GDScript" id="GDScript_qceoa"]
 script/source = "extends Resource
 
-@export var dialogue_boxes : Array[Resource] = []
-@export var characters : Array[Resource] = []
-
-var character_dictionary : Dictionary[String, Resource] = {}
+@export var dialogue_boxes : Array
+@export var character_properties : Dictionary
 "
 
 [resource]
 script = SubResource("GDScript_qceoa")
-dialogue_boxes = Array[Resource]([ExtResource("3_48s1t")])
-characters = Array[Resource]([ExtResource("1_gpueq"), ExtResource("2_iwic5")])
+dialogue_boxes = [ExtResource("3_6va8v"), ExtResource("4_kgomc"), ExtResource("5_nli62"), null]
+character_properties = {
+"Creepy Pikachu": {
+"image": {
+"full": ExtResource("1_48s1t"),
+"torso": ExtResource("2_6va8v")
+},
+"name_color": "black"
+},
+"Other Guy": {
+"image": {
+"full": ExtResource("2_j607w"),
+"torso": ExtResource("4_6va8v")
+},
+"name_color": "blue",
+"text_color": "green"
+}
+}

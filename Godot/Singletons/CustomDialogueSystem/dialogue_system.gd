@@ -2,28 +2,29 @@ extends Node
 
 @onready var canvas_layer : CanvasLayer =  get_tree().root.get_node("Node3D/CanvasLayer")
 
-var in_dialogue : bool = false
 #DIALOGUE STYLES
-var dialogue_boxes : Array[Resource]
+var dialogue_boxes : Array
 var dialogue_container : VBoxContainer
 var choice_container : VBoxContainer
 var image_container : TextureRect
 var name_container : RichTextLabel
+var special_font : FontFile
 
-var dialogue_box_properties : Resource
-var dialogue_box_id : int
+var text_properties : Dictionary
 
 #CHARACTERS
-var character_properties : Dictionary[String, Resource]
+var character_properties : Dictionary
 var current_dialogue_box : Control
 
 var current_choices : Array
-var current_choice_labels : Array[Node]
+var current_choice_labels : Array
 
 const FILE_PATH = "res://Singletons/CustomDialogueSystem/dialogue_data.tres"
 @onready var dialogue_data:Resource = load(FILE_PATH)
 
 # DIALOGUE PROCESSING
+var diag_line : PackedScene
+var choice_button : PackedScene
 
 #DIALOGUES (FULL CHARACTER SENTENCES)
 var all_dialogues : Array = []
@@ -37,45 +38,46 @@ var json_file : Dictionary
 
 var are_choices = false
 
-func load_properties():
-	#transfer array of resource files into Dictionary with character names as keys
-	for item in dialogue_data.characters:
-		print("Going through array")
-		dialogue_data.character_dictionary[item.name] = item
-	print("Character dictionaryy!: ", dialogue_data.character_dictionary)
-	dialogue_boxes = dialogue_data["dialogue_boxes"]
-	character_properties = dialogue_data["character_dictionary"]
-
 #in case we want to switch dialogue box mid conversation
+
+
+func load_properties():
+	dialogue_boxes = dialogue_data["dialogue_boxes"]
+	character_properties = dialogue_data["character_properties"]
+	
 func transferBoxProperties():
-	dialogue_box_properties = dialogue_boxes[dialogue_box_id]#current_dialogue_box.dialogue_box_properties
+	diag_line = current_dialogue_box.dialogue_line
+	choice_button = current_dialogue_box.choice_button
 	dialogue_container = current_dialogue_box.dialogue_container
 	choice_container = current_dialogue_box.choice_container
 	image_container = current_dialogue_box.image_container
 	name_container = current_dialogue_box.name_container # might be null
+	text_properties = current_dialogue_box.text_properties
+	special_font = current_dialogue_box.text_font
 	if name_container:
-		dialogue_box_properties["include_speaker_in_text"] = false
+		text_properties["name_in_separate_container"] = false
 	if dialogue_container == choice_container:
 		#Decides whether to prefix choices with "YOU:"
-		dialogue_box_properties["prefix_choices_with_player_name"] = true
+		text_properties["prefix_choices"] = true
 	else:
-		dialogue_box_properties["prefix_choices_with_player_name"] = false
+		text_properties["prefix_choices"] = false
 	
 	current_dialogue_box.visible = false
 	
 func transferDialogueBox(new_box : Control):
 	print("Transferring dialogue box: ", new_box)
 	current_dialogue_box = new_box
-	dialogue_box_id = new_box.resource_id
 	#Transfer all properties over
 	transferBoxProperties()
 
 func setDialogueBox(index : int):
 	print("Setting dialogue box: ", index)
-	dialogue_box_id = index
+	#get all current dialogue/choices/images/names, if any
+	
 	if current_dialogue_box:
 		current_dialogue_box.queue_free()
-	var diag_box_inst = dialogue_boxes[dialogue_box_id].dialogue_box.instantiate()
+	
+	var diag_box_inst = dialogue_boxes[index].instantiate()
 	current_dialogue_box = diag_box_inst
 	canvas_layer.add_child(current_dialogue_box)
 	#Transfer all properties over
@@ -90,50 +92,51 @@ func clear_children(container):
 		n.queue_free() 
 
 func add_new_line(speaker : String, line_text :String):
-	var newline = dialogue_box_properties.dialogue_line.instantiate()
+	var newline = diag_line.instantiate()
 	newline.line_text = line_text
 	newline.line_speaker = speaker
-	newline.text_color = dialogue_box_properties["default_text_color"]
-	newline.name_color = dialogue_box_properties["default_name_color"]
+	newline.text_color = text_properties["default_text_color"]
+	newline.name_color = text_properties["default_name_color"]
 	
-	if dialogue_box_properties.text_font:
-		print("special font detected: ", dialogue_box_properties.text_font)
-		newline.special_font = dialogue_box_properties.text_font
+	if special_font:
+		print("special font detected: ", special_font)
+		newline.special_font = special_font
 		#dialogue_container.add_theme_font_override("normal_font", special_font)
 	
 	if character_properties.has(speaker): #if there is an entry for this character, get its properties
-		if image_container:
-			var image_key : String = "image_" + dialogue_box_properties["image_key"]
-			var image : CompressedTexture2D = character_properties[speaker][image_key]
-			if image == null:
-				#default to "full" if full is not null
-				image = character_properties[speaker]["image_full"]
-			if image != null:
-				image_container.texture = image
-		if character_properties[speaker]["text_color"] != "":
+		var image_key = "full"
+		if text_properties.has("image_key"):
+			image_key = text_properties["image_key"]
+		var image : CompressedTexture2D
+		if character_properties[speaker]["image"].has(image_key):
+			image = character_properties[speaker]["image"][image_key]
+		else:
+			image = character_properties[speaker]["image"]["full"]
+		image_container.texture = image
+		if character_properties[speaker].has("text_color"):
 			newline.text_color = character_properties[speaker]["text_color"]
-		if character_properties[speaker]["name_color"] != "":
+		if character_properties[speaker].has("name_color"):
 			newline.name_color = character_properties[speaker]["name_color"]
 	else:
 		print("No speaker ", speaker)
 	
 	if name_container:
 		newline.line_speaker = "" #we aren't putting the speaker in the text, we are putting it in the name container
-		name_container.add_theme_font_size_override("normal_font_size", dialogue_box_properties["name_size"])
+		name_container.add_theme_font_size_override("normal_font_size", text_properties["name_size"])
 		name_container.text = "[color="+newline.name_color+"]"+speaker.to_upper()+"[/color]"
-	newline.text_properties = dialogue_box_properties
+	newline.text_properties = text_properties
 	current_line_label = newline
 	current_line_label.initialize()
 	dialogue_container.add_child(current_line_label)
 
 func display_current_dialogue():
 	#clear any old dialogue
-	if dialogue_box_properties["clear_box_after_each_dialogue"]:
+	if text_properties.has("clear_box_after_each_dialogue") and text_properties["clear_box_after_each_dialogue"]:
 		clear_children(dialogue_container)
 	var speaker = all_dialogues[current_dialogue_index]["speaker"]
 	var line_text = all_dialogues[current_dialogue_index]["text"]
 	add_new_line(speaker, line_text)
-	#current_line_label.done.connect(check_for_choices)
+	current_line_label.done.connect(check_for_choices)
 
 func check_for_choices():
 	if current_dialogue_index == all_dialogues.size()-1: #if at the end of the dialogue, check for choices or exit
@@ -144,36 +147,19 @@ func skip_dialogue_animation():
 	current_line_label.skip()
 
 func say(dialogues : Array):
-	in_dialogue = true
 	current_dialogue_box.visible = true
 	all_dialogues=dialogues
 	current_dialogue_index = 0
 	display_current_dialogue()
-
-func match_command(text_ : String):
-	var parameters_array : PackedStringArray = text_.split(" ")
-	match(parameters_array[0]):
-		"/give_item":
-			SaveSystem.add_item(parameters_array[1])
-		"/remove_item":
-			#alerts if you don't have enough items
-			var result : int = SaveSystem.remove_item(parameters_array[1])
-			if result == 0:
-				SaveSystem.set_key("remove_item_flag", false)
-			else:
-				SaveSystem.set_key("remove_item_flag", true)
-		"/has_item":
-			var result : int = SaveSystem.item_count(parameters_array[1])
-			if result == 0: #does not have item
-				SaveSystem.set_key("has_item_flag", false)
-			else:
-				SaveSystem.set_key("has_item_flag", true)
-		"/change_image":
-			image_container.image = character_properties[parameters_array[1]][parameters_array[2]]
 	
 func advance_dialogue():
 	if current_line_label.done_state == true:
-			display_current_container()
+		if current_dialogue_index < all_dialogues.size()-1: #within scope
+			current_dialogue_index += 1
+			display_current_dialogue()
+		elif are_choices == false:
+			#if you've finished all the dialogues, close the box
+			current_dialogue_box.visible = false
 	else:
 		skip_dialogue_animation()
 		
@@ -182,13 +168,12 @@ func _input(event):
 	if current_dialogue_box:
 		if current_dialogue_box.visible == true:
 			if event is InputEventMouseButton:
-				if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and are_choices == false:
+				if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 					advance_dialogue()
 
 func change_container(redirect:String, choice_text:String):
-	print("Called change_containerr")
 	are_choices = false
-	if dialogue_box_properties["clear_box_after_each_dialogue"] == false:
+	if text_properties.has("clear_box_after_each_dialogue") and text_properties["clear_box_after_each_dialogue"] == false:
 		for choice in current_choice_labels:
 			choice.queue_free()
 		current_choice_labels = []
@@ -200,44 +185,33 @@ func set_choices(choices:Array):
 	print("Choices: ", choices)
 	are_choices = true
 	for choice in choices:
-		var newchoice = dialogue_box_properties.choice_button.instantiate()
+		var newchoice = choice_button.instantiate()
 		newchoice.choice_text = choice.text
 		newchoice.redirect = choice.jump
-		newchoice.text_properties = dialogue_box_properties
-		
+		newchoice.text_properties = current_dialogue_box.text_properties
 		newchoice.selected.connect(change_container)
-		print("sonnected change_container")
 		choice_container.add_child(newchoice)
 		current_choice_labels.push_back(newchoice)
 
 ################################################################################################
 #JSON RELATED
 func display_current_container():
-	if dialogue_box_properties["clear_box_after_each_dialogue"]:
+	if text_properties.has("clear_box_after_each_dialogue") and text_properties["clear_box_after_each_dialogue"]:
 		#check that it's loaded
 		clear_children(choice_container)
 	#if json_file:
 	var content = Ink.get_content()
-	print("CONTENT GOT: ", content)
-	if content is int:
-		if content == 405: #end of story
-			current_dialogue_box.visible = false
-			in_dialogue = false
-			return
+	#print("Content = ", content)
 	are_choices = false
-	if content.size() == 1: #dialogue line
-		if content[0].text[0] == "/":
-			match_command(content[0].text)
-			display_current_container()
-		else:
-			say(content)
-	elif content.size() > 1: #choices
+	if content.choices.size() > 0:
 		are_choices = true
-		current_choices = content
-		set_choices(current_choices)
+		current_choices = content.choices
+	if content.dialogue.size() > 0:
+		say(content.dialogue)#json_file[current_container].text)
+	else:
+		current_dialogue_box.visible = false #if there's no extra dialogue (such as an option to end dialogue)
 
-func from_JSON(file : JSON):
-	assert(file != null, "You forgot to assign a JSON file!")
+func from_JSON(file:String):
 	Ink.from_JSON(file)
 	display_current_container()
 
