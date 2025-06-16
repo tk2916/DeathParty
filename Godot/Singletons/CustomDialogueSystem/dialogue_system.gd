@@ -4,7 +4,7 @@ extends Node
 
 var in_dialogue : bool = false
 #DIALOGUE STYLES
-var dialogue_boxes : Array[Resource]
+#var dialogue_boxes : Array[Resource]
 var dialogue_container : VBoxContainer
 var choice_container : VBoxContainer
 var image_container : TextureRect
@@ -20,14 +20,14 @@ var current_dialogue_box : Control
 var current_choices : Array
 var current_choice_labels : Array[Node]
 
-const FILE_PATH = "res://Singletons/CustomDialogueSystem/dialogue_data.tres"
-@onready var dialogue_data:Resource = load(FILE_PATH)
+const FILE_PATH : String = "res://Singletons/CustomDialogueSystem/dialogue_data.tres"
+@onready var dialogue_data : Resource = load(FILE_PATH)
 
 # DIALOGUE PROCESSING
 
 #DIALOGUES (FULL CHARACTER SENTENCES)
 var all_dialogues : Array = []
-var current_dialogue_index = 0
+var current_dialogue_index : int = 0
 
 #LINES (THE ACTUAL LINES ON THE TEXTBOX THAT GET UNCOVERED ONE BY ONE)
 var current_line_label : Control
@@ -35,49 +35,63 @@ var current_line_label : Control
 #FROM JSON
 var json_file : Dictionary
 
-var are_choices = false
+var are_choices : bool = false
+
+var char_directory_address : String = "res://Assets/Resources/CharacterResources/"
+var diagbox_directory_address : String = "res://Assets/Resources/DialogueBoxResources/"
+
+func load_directory(address : String):
+	var dir : DirAccess = DirAccess.open(address)
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	if dir:
+		while file_name != "":
+			if !dir.current_is_dir():
+				print("Found file: " + file_name)
+				var file = load(address + file_name)
+				#if address == diagbox_directory_address:
+					#dialogue_data.dialogue_boxes.push_back(file)
+				if address == char_directory_address:
+					dialogue_data.character_dictionary[file.name] = file
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access the directory " + address)
 
 func load_properties():
-	#transfer array of resource files into Dictionary with character names as keys
-	for item in dialogue_data.characters:
-		print("Going through array")
-		dialogue_data.character_dictionary[item.name] = item
-	print("Character dictionaryy!: ", dialogue_data.character_dictionary)
-	dialogue_boxes = dialogue_data["dialogue_boxes"]
+	#loading character & dialogue box directories
+	load_directory(char_directory_address)
+	print("Character dictionary: ", dialogue_data.character_dictionary)
 	character_properties = dialogue_data["character_dictionary"]
 
 #in case we want to switch dialogue box mid conversation
 func transferBoxProperties():
-	dialogue_box_properties = dialogue_boxes[dialogue_box_id]#current_dialogue_box.dialogue_box_properties
+	#current_dialogue_box.dialogue_box_properties
 	dialogue_container = current_dialogue_box.dialogue_container
 	choice_container = current_dialogue_box.choice_container
 	image_container = current_dialogue_box.image_container
 	name_container = current_dialogue_box.name_container # might be null
 	if name_container:
 		dialogue_box_properties["include_speaker_in_text"] = false
-	if dialogue_container == choice_container:
-		#Decides whether to prefix choices with "YOU:"
-		dialogue_box_properties["prefix_choices_with_player_name"] = true
-	else:
-		dialogue_box_properties["prefix_choices_with_player_name"] = false
-	
-	current_dialogue_box.visible = false
 	
 func transferDialogueBox(new_box : Control):
-	print("Transferring dialogue box: ", new_box)
+	print("Transferring dialogue box: ", new_box.resource_file)
 	current_dialogue_box = new_box
-	dialogue_box_id = new_box.resource_id
+	#print("All dialogue boxes: ", dialogue_boxes)
+	dialogue_box_properties = new_box.resource_file
+	print("Box ID is: ", dialogue_box_id)
 	#Transfer all properties over
 	transferBoxProperties()
 
-func setDialogueBox(index : int):
-	print("Setting dialogue box: ", index)
-	dialogue_box_id = index
+func setDialogueBox(new_resource : Resource):
+	#print("Setting dialogue box: ", index)
+	#dialogue_box_id = index
 	if current_dialogue_box:
 		current_dialogue_box.queue_free()
-	var diag_box_inst = dialogue_boxes[dialogue_box_id].dialogue_box.instantiate()
+	var diag_box_inst = new_resource.dialogue_box.instantiate()
 	current_dialogue_box = diag_box_inst
+	dialogue_box_properties = new_resource
 	canvas_layer.add_child(current_dialogue_box)
+	current_dialogue_box.visible = false
 	#Transfer all properties over
 	transferBoxProperties()
 
@@ -90,7 +104,11 @@ func clear_children(container):
 		n.queue_free() 
 
 func add_new_line(speaker : String, line_text :String):
-	var newline = dialogue_box_properties.dialogue_line.instantiate()
+	var newline : Control
+	if speaker == "Olivia":
+		newline = dialogue_box_properties.protagonist_dialogue_line.instantiate()
+	else:
+		newline = dialogue_box_properties.dialogue_line.instantiate()
 	newline.line_text = line_text
 	newline.line_speaker = speaker
 	newline.text_color = dialogue_box_properties["default_text_color"]
@@ -130,7 +148,13 @@ func display_current_dialogue():
 	#clear any old dialogue
 	if dialogue_box_properties["clear_box_after_each_dialogue"]:
 		clear_children(dialogue_container)
-	var speaker = all_dialogues[current_dialogue_index]["speaker"]
+	var speaker : String = ""
+	if all_dialogues[current_dialogue_index].has("speaker"):
+		speaker = all_dialogues[current_dialogue_index]["speaker"]
+	if all_dialogues[current_dialogue_index].has("jump"):
+		print("This line has jump: ", all_dialogues[current_dialogue_index])
+		pass
+		#Ink.make_choice(all_dialogues[current_dialogue_index]["jump"])
 	var line_text = all_dialogues[current_dialogue_index]["text"]
 	add_new_line(speaker, line_text)
 	#current_line_label.done.connect(check_for_choices)
@@ -192,7 +216,6 @@ func change_container(redirect:String, choice_text:String):
 		for choice in current_choice_labels:
 			choice.queue_free()
 		current_choice_labels = []
-		add_new_line("YOU", choice_text)
 	Ink.make_choice(redirect)
 	display_current_container()
 

@@ -23,3 +23,10 @@ func _ready() -> void:
 	else:
 		text_label.text = "[color="+choice_text_color+"]"+choice_text+"[/color]"
 	button.pressed.connect(_button_pressed)
+
+func _process(delta):
+	var content_height : int = text_label.get_content_height()
+	var content_width : int = text_label.get_content_width()
+	
+	self.custom_minimum_size.y = content_height
+	self.custom_minimum_size.x = content_width

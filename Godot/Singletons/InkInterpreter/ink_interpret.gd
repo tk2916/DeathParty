@@ -6,6 +6,7 @@ var json_file : Dictionary
 #var current_index : int = -1
 var turn : int = 0 #advances each time Inky presents a choice to the player	
 var redirect_table : Dictionary
+var redirect_table_address : int
 var current_array : Array
 
 var all_evaluation_stacks : Array = [[]] #when threading, tehre are multiple eval stacks
@@ -47,7 +48,7 @@ func already_chosen(h1:Array):
 			return true
 	return false
 
-func push_hierarchy(item:String): # can be string or index
+func push_hierarchy(item : String): # can be string or index
 	if item.is_valid_int():
 	#if item is String:
 		hierarchy.push_back(int(item)) #new index is zero
@@ -88,28 +89,26 @@ func set_current_array():
 		##print("JUMPING to ", current_index())
 		
 		if redirect_table.has(current_index()): # otherwise, invalid address
-			#print("founding redirect")
+			var redirect_value : String = current_index()
+			print("Redirect table has ", redirect_value)
 			backup_hierarchy.pop_back()
 			current_array = redirect_table[current_index()]
-			push_hierarchy("0") #start at 0th index
+			
 		else:
-			#print("Invalid address: ", hierarchy)
 			hierarchy = backup_hierarchy.pop_back()
 			increment_current_index()
-			#pop_hierarchy()
-			#increment_current_index()
-			##print("New hierarchy: ", hierarchy)
-			#set_current_array()
 		return
 	var current_scope = json_file
 	for n in range(hierarchy.size()-1): # exclude last element
 		var path_item = hierarchy[n]
 		#if current_scope.has(path_item):
+		print("Current scope: ", " ", hierarchy, " ", current_scope is Array, " ", current_scope.has(path_item), " ", path_item)
 		current_scope = current_scope[path_item]
 		
 	current_array = current_scope
 	if current_array.back() is Dictionary:
 		redirect_table = current_array.back()
+		redirect_table_address = current_array.size()-1
 	##print("Setting array for ", hierarchy)
 	
 func into_array():
@@ -145,19 +144,41 @@ func jump_to_container(path:String): # for ->
 				pop_hierarchy()
 				##print("Going up parent directory: ", hierarchy)
 			else:
+				var redirect_item : bool = false
+				if !item.is_valid_int():
+					redirect_item = true
+					#it's a redirect cute
+					push_hierarchy(str(redirect_table_address))
 				push_hierarchy(item)
+				if redirect_item == true:
+					push_hierarchy("0")
 	else: #absolute path
 		if path_array.size() == 1 and !path_array.back().is_valid_int():
 			#if it is just referring to a container alone, e.g. "two",
 			#specify that you want the first index of the container (the dialogue)
 			path_array.push_back("0")
 		var initial_index = 2
-		if path_array[0].is_valid_int():
-			initial_index = int(path_array.pop_front())
-		hierarchy = ["root", initial_index] # set hierarchy to the 2nd element of root (where all the containers are stored)
-		
-		for item in path_array:
-			push_hierarchy(item)
+		if path_array[0].is_valid_int(): #redirect value
+			print("path array [0] is valid int: ", path_array, hierarchy)
+			#initial_index = int(path_array.pop_front())
+			hierarchy = ["root"]
+			for n in range(0,path_array.size()-1): #skip the last one
+				var item = path_array.pop_front()
+				push_hierarchy(item)
+			print("Hierarchy now: ", hierarchy)
+			if !path_array.back().is_valid_int():
+				push_hierarchy(str(redirect_table_address))
+				push_hierarchy(path_array.back())
+				print("Current index " + path_array.back() + " is string")
+				push_hierarchy("0") #start at 0th index
+			else:
+				push_hierarchy(path_array.pop_back())
+			print("Hierarchy at the end: ", hierarchy)
+		else:
+			print("Down here: ", path_array)
+			hierarchy = ["root", initial_index] # set hierarchy to the 2nd element of root (where all the containers are stored)
+			for item in path_array:
+				push_hierarchy(item)
 		
 	set_current_array() #sets current_array & current_index to the path specified in hierarchy
 
@@ -170,9 +191,13 @@ func from_JSON(file : JSON):
 	#var json_as_dict : Dictionary = JSON.parse_string(json_as_text)
 	if json_as_dict:
 		json_file = json_as_dict
-		jump_to_container("global decl")
 		for container in json_file:
 			containerDict[container] = {"visits":0, "last_turn_visited":0}
+		if json_as_dict.has("global decl"):
+			jump_to_container("global decl")
+		else:
+			jump_to_container("0.0")
+		
 
 func push(value):
 	evaluation_stack.push_back(value)
@@ -385,12 +410,13 @@ func next_line():
 		if next is Dictionary:
 			if next.has("*"):
 				if next["flg"] == 20:
+					pass
 					#print("Has flag 20")
-					if already_chosen(hierarchy): #make option disappear if player has already selected it
+					#if already_chosen(hierarchy): #make option disappear if player has already selected it
 						##print("Not chosen yet")
-						return
-					else:
-						disappearing_choices.push_back(hierarchy)
+						#return
+					#else:
+						#disappearing_choices.push_back(hierarchy)
 						##print("pushed:", disappearing_choices)
 				elif int(next["flg"])&1 == 1: #check if 1 bit is set 
 					#Means it is conditional text
@@ -431,7 +457,7 @@ func next_line():
 	return
 
 func make_choice(redirect:String):
-	print("jumping to ", redirect, " from ", hierarchy, " and ", redirect_table)
+	#print("jumping to ", redirect, " from ", hierarchy, " and ", redirect_table)
 	jump_to_container(redirect)
 
 func get_content():

@@ -1,4 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cekjgwkgsty2h"]
+[gd_scene load_steps=9 format=3 uid="uid://bm1q5w4b7f5ma"]
+
+[ext_resource type="Texture2D" uid="uid://d1jn2toe7x8cs" path="res://Assets/PNGAssets/messages_white.png" id="1_plgr2"]
+[ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="2_eotbu"]
+[ext_resource type="PackedScene" uid="uid://ibs6xbf36j7" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/message_app.tscn" id="3_635d1"]
+[ext_resource type="Script" uid="uid://bqkuvvcygqkbe" path="res://Assets/GUIFunctionalityScripts/home_button.gd" id="5_hnfnb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlxy5"]
 bg_color = Color(0, 0, 0, 1)
@@ -25,7 +30,6 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [node name="Phone" type="Panel"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.4
 anchor_top = 0.028
@@ -80,9 +84,10 @@ offset_left = 1.19209e-05
 offset_right = 1.14441e-05
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_plgr2")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="Screen/Background/Messages"]
+[node name="Button" type="Button" parent="Screen/Background/Messages" node_paths=PackedStringArray("show_element")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,6 +95,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
+script = ExtResource("2_eotbu")
+show_element = NodePath("../../MessageApp")
 
 [node name="OtherApp" type="Panel" parent="Screen/Background"]
 layout_mode = 1
@@ -121,6 +128,15 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
+[node name="MessageApp" parent="Screen/Background" instance=ExtResource("3_635d1")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+
 [node name="HomeButton" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -134,7 +150,7 @@ offset_right = 0.139542
 offset_bottom = 0.126953
 color = Color(0.244776, 0.244776, 0.244776, 1)
 
-[node name="Button" type="Button" parent="HomeButton"]
+[node name="Button" type="Button" parent="HomeButton" node_paths=PackedStringArray("phone", "apps")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,3 +158,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
+script = ExtResource("5_hnfnb")
+phone = NodePath("../..")
+apps = [NodePath("../../Screen/Background/MessageApp")]
+
+[editable path="Screen/Background/MessageApp"]
