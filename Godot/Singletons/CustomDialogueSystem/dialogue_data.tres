@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c8qh28bp3e5x3"]
+
+[sub_resource type="GDScript" id="GDScript_2s1rr"]
+script/source = "extends Resource
+
+var character_dictionary : Dictionary[String, Resource] = {}
+"
+
+[resource]
+script = SubResource("GDScript_2s1rr")

@@ -29,12 +29,16 @@ General/banks_path="res://audio/fmod banks/Desktop"
 [application]
 
 config/name="Death Party"
-run/main_scene="uid://bcbpgaqf020eb"
+run/main_scene="uid://bdw28hmsvnwb0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
+DialogueSystem="*res://Singletons/CustomDialogueSystem/dialogue_system.gd"
+Ink="*res://Singletons/InkInterpreter/ink_interpret.gd"
+Interact="*res://Singletons/Interact/interact.gd"
+SaveSystem="*res://Singletons/SaveSystem/save_system.gd"
 GlobalCameraScript="*res://Utilities/global_scripts/global_camera_script.gd"
 GlobalPlayerScript="*res://Utilities/global_scripts/global_player_script.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
