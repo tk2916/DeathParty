@@ -1,0 +1,2 @@
+Entites should contain any "thing" that the player can interact or may interact with the player.
+This will mostly be NPCs and the player itself, however it could also include items.

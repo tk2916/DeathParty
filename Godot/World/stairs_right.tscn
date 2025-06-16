@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c47pd0yp0lc3e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_angvv"]
+size = Vector3(1, 4.94934, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_johpr"]
+size = Vector3(2, 1.5, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_tbtqk"]
+left_to_right = 1.0
+size = Vector3(3.5, 3.5, 1)
+
+[node name="StairsRight" type="StaticBody3D"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -1.39646, 1.396, 0)
+shape = SubResource("BoxShape3D_angvv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.75, 0)
+shape = SubResource("BoxShape3D_johpr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1.75, 0)
+layers = 3
+mesh = SubResource("PrismMesh_tbtqk")

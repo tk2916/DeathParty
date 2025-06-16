@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://csddlxbt5psnk"]
+
+[node name="MainCamera" type="Camera3D"]
+fov = 35.0

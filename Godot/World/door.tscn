@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://bc888yk804ya"]
+
+[ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="1_ba8gm"]
+[ext_resource type="Script" uid="uid://cl4wf7f6onj2j" path="res://Utilities/scripts/door.gd" id="1_v6xrn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wo5c"]
+transparency = 1
+albedo_color = Color(0.709804, 0.462745, 0.368627, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v6xrn"]
+material = SubResource("StandardMaterial3D_3wo5c")
+size = Vector3(1, 1.8, 0.25)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gi1q2"]
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3wo5c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hyo0w"]
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_v6xrn")
+
+[node name="DoorModel" type="Node3D" parent="."]
+
+[node name="DoorMesh" type="MeshInstance3D" parent="DoorModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.9, 0)
+mesh = SubResource("BoxMesh_v6xrn")
+skeleton = NodePath("")
+
+[node name="EntranceArea" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntranceArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.896947, 0)
+shape = SubResource("SphereShape3D_gi1q2")
+
+[node name="EntranceDetector" parent="." instance=ExtResource("1_ba8gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.9, 2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntranceDetector"]
+shape = SubResource("SphereShape3D_3wo5c")
+
+[node name="ExitDetector" parent="." instance=ExtResource("1_ba8gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.9, -2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitDetector"]
+shape = SubResource("SphereShape3D_hyo0w")
+
+[node name="ExitLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -1.5)
+
+[node name="EntranceLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 2.5)
+
+[node name="DoorSound" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/door"
+event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
+
+[connection signal="body_entered" from="EntranceArea" to="." method="_on_entrance_area_body_entered"]
+[connection signal="body_exited" from="EntranceArea" to="." method="_on_entrance_area_body_exited"]
