@@ -1,7 +1,7 @@
 extends ColorRect
 
 @export var vbox : VBoxContainer
-var item_gui = preload("res://test_inventory_item.tscn")
+var item_gui = preload("res://Assets/GUIPrefabs/OtherPrefabs/test_inventory_item.tscn")
 
 var item_to_label = {}
 

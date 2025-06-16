@@ -189,8 +189,10 @@ func match_command(text_ : String):
 		"/has_item":
 			var result : int = SaveSystem.item_count(parameters_array[1])
 			if result == 0: #does not have item
+				print("User does not have item: ", parameters_array[1])
 				SaveSystem.set_key("has_item_flag", false)
 			else:
+				print("User has item: ", parameters_array[1])
 				SaveSystem.set_key("has_item_flag", true)
 		"/change_image":
 			image_container.image = character_properties[parameters_array[1]][parameters_array[2]]
