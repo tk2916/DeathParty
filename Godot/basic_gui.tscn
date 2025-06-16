@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqgpdpfplj5ph"]
+[gd_scene load_steps=7 format=3 uid="uid://cq11ej8bkkdtu"]
 
 [ext_resource type="Texture2D" uid="uid://b3ccuqe753650" path="res://Assets/PNGAssets/settings_icon_white.png" id="1_at3un"]
 [ext_resource type="Texture2D" uid="uid://bd80fmaj65x6k" path="res://Assets/PNGAssets/backpack_white.png" id="2_2nnue"]
