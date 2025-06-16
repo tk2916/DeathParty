@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cfn5yvo0kg0up" path="res://World/floor.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://oji083qkjua5" path="res://World/wall.tscn" id="9_dg77c"]
 [ext_resource type="Script" uid="uid://bq22deee5mwhr" path="res://World/WorldScripts/back_room.gd" id="11_efxa6"]
-[ext_resource type="Script" uid="uid://dttgmpnsxdkf2" path="res://music.gd" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://c12oqimxpau4x" path="res://music.gd" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://bn07hwlvtlb6h" path="res://World/WorldScripts/room2.gd" id="13_w48qg"]
 [ext_resource type="Script" uid="uid://dmejjh2fyets1" path="res://World/WorldScripts/hallway.gd" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://b6tahrgqxdvcq" path="res://audio/fmod bank loader.tscn" id="17_yaehf"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpvw2tdryoikm"
-path="res://.godot/imported/kai_jax.png-ed7d4fb475b4d6247e55672052efa5cf.ctex"
+uid="uid://dbk62f36d24r"
+path="res://.godot/imported/kai_jax.png-b45203f059552637569278b3c7d0edb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/CharacterTextures/kai_jax.png"
-dest_files=["res://.godot/imported/kai_jax.png-ed7d4fb475b4d6247e55672052efa5cf.ctex"]
+source_file="res://Assets/CharacterAssets/CharacterTextures/Olivia/kai_jax.png"
+dest_files=["res://.godot/imported/kai_jax.png-b45203f059552637569278b3c7d0edb6.ctex"]
 
 [params]
 

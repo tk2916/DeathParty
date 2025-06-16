@@ -35,10 +35,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GlobalCameraScript="*res://Utilities/global_scripts/global_camera_script.gd"
-FmodManager="*res://addons/fmod/FmodManager.gd"
 GlobalPlayerScript="*res://Utilities/global_scripts/global_player_script.gd"
+FmodManager="*res://addons/fmod/FmodManager.gd"
 
 [debug]
 
