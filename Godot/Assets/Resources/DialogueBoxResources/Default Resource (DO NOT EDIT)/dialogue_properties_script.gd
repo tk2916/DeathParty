@@ -3,6 +3,7 @@ extends Resource
 @export var dialogue_box : PackedScene
 @export var dialogue_line : PackedScene = preload("res://Assets/GUIPrefabs/DialogueLinePrefabs/diag_line.tscn")
 @export var choice_button : PackedScene = preload("res://Assets/GUIPrefabs/ChoicePrefabs/choice_button.tscn")
+@export var protagonist_dialogue_line : PackedScene = preload("res://Assets/GUIPrefabs/DialogueLinePrefabs/diag_line.tscn")
 @export var text_font : FontFile
 @export var name_font : FontFile
 

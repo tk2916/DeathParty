@@ -28,7 +28,7 @@ General/banks_path="res://audio/fmod banks/Desktop"
 
 [application]
 
-config/name="Death-Party"
+config/name="Death Party"
 run/main_scene="uid://bcbpgaqf020eb"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

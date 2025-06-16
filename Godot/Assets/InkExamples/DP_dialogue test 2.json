@@ -1,0 +1,336 @@
+{
+	"inkVersion": 21.0,
+	"root": [
+		[
+			"^[Caleb] Are you really planning to go down there?",
+			"\n",
+			"ev",
+			"str",
+			"^Yea, of course",
+			"/str",
+			"/ev",
+			{
+				"*": "0.c-0",
+				"flg": 20.0
+			},
+			"ev",
+			"str",
+			"^We might as well.",
+			"/str",
+			"/ev",
+			{
+				"*": "0.c-1",
+				"flg": 20.0
+			},
+			"ev",
+			"str",
+			"^You don't think we should?",
+			"/str",
+			"/ev",
+			{
+				"*": "0.c-2",
+				"flg": 20.0
+			},
+			{
+				"c-0": [
+					"\n",
+					"^[Olivia] Yea, of course we are.",
+					"\n",
+					"^[Sam] Yup. We're going into the super dangerous sub-basement. And it's definitely not a rash decision.",
+					"\n",
+					[
+						"ev",
+						"str",
+						"^It isn't rash!",
+						"/str",
+						"/ev",
+						{
+							"*": ".^.c-0",
+							"flg": 20.0
+						},
+						"ev",
+						"str",
+						"^Ignore him.",
+						"/str",
+						"/ev",
+						{
+							"*": ".^.c-1",
+							"flg": 20.0
+						},
+						{
+							"c-0": [
+								"\n",
+								"^[Olivia] I'm not being rash.",
+								"\n",
+								"^[Sam] That's what I said.",
+								"\n",
+								"^You gave it a whole 10 seconds of thought. That's the opposite of being impulsive.",
+								"\n",
+								"^[Olivia] Whatever, I'm still going.",
+								"\n",
+								{
+									"->": "basement_cult_convo1"
+								},
+								{
+									"->": "0.g-0"
+								},
+								{
+									"#f": 5.0
+								}
+							],
+							"c-1": [
+								"\n",
+								"^[Olivia]...",
+								"\n",
+								"^[Sam] Ooh, the silent treatment. That's almost nostalgic.",
+								"\n",
+								"^[Olivia] Give it a rest, Sam.",
+								"\n",
+								{
+									"->": "basement_cult_convo1"
+								},
+								{
+									"->": "0.g-0"
+								},
+								{
+									"#f": 5.0
+								}
+							]
+						}
+					],
+					{
+						"#f": 5.0
+					}
+				],
+				"c-1": [
+					"\n",
+					"^[Olivia] We're already here, we might as well.",
+					"\n",
+					"^I can't think of anything else I'd rather do than climb into that musky under-basement.",
+					"\n",
+					"^[Rowan] I could think of a few things...but I'll keep them to myself.",
+					"\n",
+					[
+						"ev",
+						"str",
+						"^What could be more important?",
+						"/str",
+						"/ev",
+						{
+							"*": ".^.c-0",
+							"flg": 20.0
+						},
+						"ev",
+						"str",
+						"^Would you rather?",
+						"/str",
+						"/ev",
+						{
+							"*": ".^.c-1",
+							"flg": 20.0
+						},
+						{
+							"c-0": [
+								"\n",
+								"^[Olivia] Something more important than solving the mystery of your missing friend?",
+								"\n",
+								"^[Rowan] Well, when you put it like that...",
+								"\n",
+								{
+									"->": "basement_cult_convo1"
+								},
+								{
+									"->": "0.g-0"
+								},
+								{
+									"#f": 5.0
+								}
+							],
+							"c-1": [
+								"\n",
+								"^[Olivia] That sounds like a set up for a traumatizing game of \"would you rather.\"",
+								"\n",
+								"^[Rowan] It does, doesn't it?",
+								"\n",
+								"^Should we play that instead?",
+								"\n",
+								"^[Olivia] How about we compromise and play on the way?",
+								"\n",
+								{
+									"->": "basement_cult_convo1"
+								},
+								{
+									"->": "0.g-0"
+								},
+								{
+									"#f": 5.0
+								}
+							]
+						}
+					],
+					{
+						"#f": 5.0
+					}
+				],
+				"c-2": [
+					"\n",
+					"^[Olivia] You don't think we should?",
+					"\n",
+					"^[Nora] Don't worry so much, Caleb. We'll be fine.",
+					"\n",
+					[
+						"ev",
+						"str",
+						"^If you're that worried...",
+						"/str",
+						"/ev",
+						{
+							"*": ".^.c-0",
+							"flg": 20.0
+						},
+						"ev",
+						"str",
+						"^Nora, maybe you should stay behind.",
+						"/str",
+						"/ev",
+						{
+							"*": ".^.c-1",
+							"flg": 20.0
+						},
+						{
+							"c-0": [
+								"\n",
+								"^[Olivia] If you're that worried, why don't you just come with us?",
+								"\n",
+								"^[Caleb] I would, but...",
+								"\n",
+								"^[Nora] I really don't think he needs to?",
+								"\n",
+								{
+									"->": "basement_cult_convo1"
+								},
+								{
+									"->": "0.g-0"
+								},
+								{
+									"#f": 5.0
+								}
+							],
+							"c-1": [
+								"\n",
+								"^[Olivia] Nora, maybe you should stay behind? Caleb's obviously worried about you.",
+								"\n",
+								"^[Nora] No way, I'm coming with you! Kyle was my friend, and so are you.",
+								"\n",
+								{
+									"->": "basement_cult_convo1"
+								},
+								{
+									"->": "0.g-0"
+								},
+								{
+									"#f": 5.0
+								}
+							]
+						}
+					],
+					{
+						"#f": 5.0
+					}
+				],
+				"g-0": [
+					"done",
+					{
+						"#f": 5.0
+					}
+				]
+			}
+		],
+		"done",
+		{
+			"basement_cult_convo1": [
+				[
+					"^[Caleb] I guess I can't stop you, but I also can't go with you.",
+					"\n",
+					"^I mean, I liked the guy and all. He was great! One of the best of us. But I can't be gone from the party for that long.",
+					"\n",
+					"^Plus, that place gives me the creeps.",
+					"\n",
+					"^[Rowan] We get it, Caleb. Don't worry about it.",
+					"\n",
+					"^[Sam] It's probably not a cult, anyway. You should probably start thinking about how the frat can repay us for proving it's all rumors.",
+					"\n",
+					"^[Caleb] Haha...yea, you're right. I'll give it some thought.",
+					"\n",
+					"^...",
+					"\n",
+					"^Nora, do you have a minute? I was hoping we could talk about...",
+					"\n",
+					"^[Nora]...?",
+					"\n",
+					"ev",
+					"str",
+					"^We can all hear you.",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-0",
+						"flg": 20.0
+					},
+					"ev",
+					"str",
+					"^Do you need some privacy?",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-1",
+						"flg": 20.0
+					},
+					{
+						"c-0": [
+							"\n",
+							"^[Olivia] *clears throat*",
+							"\n",
+							"^We can still hear you guys...",
+							"\n",
+							{
+								"->": "basement_cult_convo2"
+							},
+							{
+								"#f": 5.0
+							}
+						],
+						"c-1": [
+							"\n",
+							"^[Olivia] We can give you two some privacy if you want?",
+							"\n",
+							{
+								"->": "basement_cult_convo2"
+							},
+							{
+								"#f": 5.0
+							}
+						]
+					}
+				],
+				{
+					"#f": 1.0
+				}
+			],
+			"basement_cult_convo2": [
+				"^[Caleb] Uh...nevermind.",
+				"\n",
+				"^[Nora] So much for a proper convo.",
+				"\n",
+				"end",
+				{
+					"#f": 1.0
+				}
+			],
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
+}

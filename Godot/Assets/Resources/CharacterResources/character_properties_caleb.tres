@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://clfvsvp2igosb"]
+
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="1_5gmr0"]
+
+[resource]
+script = ExtResource("1_5gmr0")
+name = "Caleb"
+name_color = ""
+text_color = ""
