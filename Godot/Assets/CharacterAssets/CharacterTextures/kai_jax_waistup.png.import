@@ -3,16 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://o2chsr07oeqs"
-path="res://.godot/imported/kai_jax_waistup.png-dbe653f977c31dd4a8e8ca7be0ace573.ctex"
+path="res://.godot/imported/kai_jax_waistup.png-17b0e6474b28bec31e9bacb0a9b0c0a6.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CharacterAssets/kai_jax_waistup.png"
-dest_files=["res://.godot/imported/kai_jax_waistup.png-dbe653f977c31dd4a8e8ca7be0ace573.ctex"]
+source_file="res://Assets/CharacterAssets/CharacterTextures/kai_jax_waistup.png"
+dest_files=["res://.godot/imported/kai_jax_waistup.png-17b0e6474b28bec31e9bacb0a9b0c0a6.ctex"]
 
 [params]
 
