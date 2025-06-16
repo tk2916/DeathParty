@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1oueoveq813v"]
+[gd_scene load_steps=7 format=3 uid="uid://bdw28hmsvnwb0"]
 
-[ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="1_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://cq11ej8bkkdtu" path="res://basic_gui.tscn" id="1_a0tk4"]
 [ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/InknutAntiqua-Regular.ttf" id="2_r3fl7"]
-[ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="3_jka67"]
+[ext_resource type="PackedScene" path="res://phone_gui.tscn" id="3_jka67"]
 [ext_resource type="Resource" uid="uid://dfsf66usc4sbb" path="res://Assets/Resources/DialogueBoxResources/phone_dialogue_box.tres" id="4_i5arm"]
-[ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="4_r3fl7"]
+[ext_resource type="Script" path="res://game_logic.gd" id="4_r3fl7"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.json" id="5_jka67"]
 
 [node name="Node3D" type="Node3D"]
@@ -22,6 +22,7 @@ theme_override_fonts/normal_font = ExtResource("2_r3fl7")
 [node name="Phone" parent="CanvasLayer" instance=ExtResource("3_jka67")]
 
 [node name="MessageApp" parent="CanvasLayer/Phone/Screen/Background" index="2"]
+visible = false
 resource_file = ExtResource("4_i5arm")
 
 [node name="Camera3D" type="Camera3D" parent="."]

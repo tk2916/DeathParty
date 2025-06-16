@@ -147,7 +147,7 @@ func jump_to_container(path:String): # for ->
 				var redirect_item : bool = false
 				if !item.is_valid_int():
 					redirect_item = true
-					#it's a redirect cute
+					#it's a redirect type
 					push_hierarchy(str(redirect_table_address))
 				push_hierarchy(item)
 				if redirect_item == true:
