@@ -103,6 +103,7 @@ func typewriter():
 func skip():
 	text_index = text_contents.length()
 	if timer:
+		timer.stop()
 		timer.queue_free()
 	Text.text = text_prefix+line_text+text_suffix
 	finish()
