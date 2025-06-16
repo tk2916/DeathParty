@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://s742yxoo5vvv"
-path="res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.ctex"
+path="res://.godot/imported/kai_pikachu_waistup.png-1e4973e2a02aff31502b65210448abd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png"
-dest_files=["res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.ctex"]
+source_file="res://CharacterAssets/kai_pikachu_waistup.png"
+dest_files=["res://.godot/imported/kai_pikachu_waistup.png-1e4973e2a02aff31502b65210448abd2.ctex"]
 
 [params]
 

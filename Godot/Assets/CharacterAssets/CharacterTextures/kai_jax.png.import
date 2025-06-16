@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c71sk8xt3ey78"
-path="res://.godot/imported/kai_jax.png-ed7d4fb475b4d6247e55672052efa5cf.ctex"
+uid="uid://dj1kag4aeg58t"
+path="res://.godot/imported/kai_jax.png-3c61cc9d86e42f30e2a986b011e976c1.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/CharacterTextures/kai_jax.png"
-dest_files=["res://.godot/imported/kai_jax.png-ed7d4fb475b4d6247e55672052efa5cf.ctex"]
+source_file="res://CharacterAssets/kai_jax.png"
+dest_files=["res://.godot/imported/kai_jax.png-3c61cc9d86e42f30e2a986b011e976c1.ctex"]
 
 [params]
 
