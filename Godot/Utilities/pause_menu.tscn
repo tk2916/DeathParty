@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8jbowdnorp1f"]
+[gd_scene load_steps=3 format=3 uid="uid://b8jbowdnorp1f"]
 
 [ext_resource type="Script" uid="uid://dkwxukji4mmmu" path="res://Utilities/pause_menu.gd" id="1_52f8u"]
+[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="2_qpukh"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -22,15 +23,18 @@ layout_mode = 2
 
 [node name="PausedText" type="Label" parent="MarginContainer/MainPauseMenu"]
 layout_mode = 2
+theme = ExtResource("2_qpukh")
 text = "paused"
 horizontal_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="MarginContainer/MainPauseMenu"]
 layout_mode = 2
+theme = ExtResource("2_qpukh")
 text = "resume"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/MainPauseMenu"]
 layout_mode = 2
+theme = ExtResource("2_qpukh")
 text = "quit"
 
 [node name="QuitMenu" type="VBoxContainer" parent="MarginContainer"]
@@ -39,6 +43,7 @@ layout_mode = 2
 
 [node name="AreYouSureText" type="Label" parent="MarginContainer/QuitMenu"]
 layout_mode = 2
+theme = ExtResource("2_qpukh")
 text = "are you sure you want to quit?"
 horizontal_alignment = 1
 
@@ -48,10 +53,12 @@ size_flags_horizontal = 4
 
 [node name="YesQuitButton" type="Button" parent="MarginContainer/QuitMenu/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_qpukh")
 text = "yes"
 
 [node name="NoQuitButton" type="Button" parent="MarginContainer/QuitMenu/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_qpukh")
 text = "no"
 
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
