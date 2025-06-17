@@ -29,4 +29,4 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "resume"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

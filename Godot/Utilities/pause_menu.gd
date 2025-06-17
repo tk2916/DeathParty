@@ -17,5 +17,5 @@ func toggle_pause():
 	#toggle_pause()
 
 
-func _on_button_pressed() -> void:
+func _on_resume_button_pressed() -> void:
 	toggle_pause()
