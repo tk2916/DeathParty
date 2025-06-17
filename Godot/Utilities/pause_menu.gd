@@ -6,7 +6,11 @@ extends CanvasLayer
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		toggle_pause()
+		if main_pause_menu.visible:
+			toggle_pause()
+		elif quit_menu.visible:
+			quit_menu.hide()
+			main_pause_menu.show()
 
 
 func toggle_pause():
