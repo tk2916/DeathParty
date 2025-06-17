@@ -15,3 +15,7 @@ func toggle_pause():
 # its commented out because right now it only works for pausing and not unpausing
 #func _on_button_2_pressed() -> void:
 	#toggle_pause()
+
+
+func _on_button_pressed() -> void:
+	toggle_pause()

@@ -6,16 +6,27 @@
 process_mode = 3
 script = ExtResource("1_52f8u")
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 500
+theme_override_constants/margin_bottom = 250
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 text = "paused"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "resume"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
