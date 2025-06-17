@@ -42,6 +42,7 @@ SaveSystem="*res://Singletons/SaveSystem/save_system.gd"
 GlobalCameraScript="*res://Utilities/global_scripts/global_camera_script.gd"
 GlobalPlayerScript="*res://Utilities/global_scripts/global_player_script.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
+GlobalFmodBankLoader="*res://audio/fmod bank loader.tscn"
 
 [debug]
 
