@@ -3,17 +3,15 @@ extends CanvasLayer
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		if get_tree().paused == false:
-			pause()
-		else:
-			resume()
+		toggle_pause()
 
 
-func pause():
-	get_tree().paused = true
-	show()
+func toggle_pause():
+	get_tree().paused = !get_tree().paused
+	visible = !visible
 
 
-func resume():
-	get_tree().paused = false
-	hide()
+# this connects the ⚙️ button in the bottom bar ui to the pause menu
+# its commented out because right now it only works for pausing and not unpausing
+#func _on_button_2_pressed() -> void:
+	#toggle_pause()
