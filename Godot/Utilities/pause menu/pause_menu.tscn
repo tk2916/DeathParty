@@ -98,10 +98,10 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/QuitMenu"]
 layout_mode = 2
-size_flags_horizontal = 4
 
 [node name="YesQuitButton" type="Button" parent="MarginContainer/QuitMenu/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../NoQuitButton")
 focus_neighbor_right = NodePath("../NoQuitButton")
 theme = ExtResource("2_qpukh")
@@ -109,6 +109,7 @@ text = "yes"
 
 [node name="NoQuitButton" type="Button" parent="MarginContainer/QuitMenu/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../YesQuitButton")
 focus_neighbor_right = NodePath("../YesQuitButton")
 theme = ExtResource("2_qpukh")
