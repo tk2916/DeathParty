@@ -44,6 +44,8 @@ jobs:
           
   generate-release:
     needs: build
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current branch
