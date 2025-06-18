@@ -1,0 +1,92 @@
+name: Verify Feature
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    types: [opened, reopened, synchronize, ready_for_review]
+
+env:
+  GODOT_VERSION: 4.4.1
+  GODOT_DIR: ./Godot
+  GODOT_FILE: Godot/project.godot
+  GODOT_REGEX: config\/features=.*\"\K4\.[0-9.\-A-z]*
+  VERSION_FILE: Godot/project.godot
+  VERSION_REGEX: config\/version=\"\K[0-9.\-A-z]*
+
+jobs:
+  check-godot-version:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+
+      - name: Extract Godot version string
+        uses: Sunday-Studio-Team/version-actions/extract-version@main
+        with:
+          version-file: ${{ env.GODOT_FILE }}
+          version-regex: ${{ env.GODOT_REGEX }}
+        id: extract-version-godot
+
+      - name: Convert Godot version to feature version
+        shell: bash
+        run: echo "GODOT_VERSION_FEATURE=$(echo $GODOT_VERSION | cut -c1-3)" >> $GITHUB_ENV
+
+      - name: Compare feature versions
+        if: ${{ steps.extract-version-godot.outputs.version-number != env.GODOT_VERSION_FEATURE }}
+        shell: bash
+        run: echo "Godot version mismatch. Expected $GODOT_VERSION_FEATURE, found ${{ steps.extract-version-godot.outputs.version-number }}." >&2 && exit 1
+  
+  build:
+    if: ${{ !github.event.pull_request.draft }}
+    needs: check-godot-version
+    runs-on: macos-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+
+      - name: Install Godot
+        uses: Sunday-Studio-Team/godot-actions/install-godot@main
+        with:
+          godot-version: ${{ env.GODOT_VERSION }}
+          install-templates: true
+        id: install-godot
+
+      - name: Open Godot editor for reimport
+        working-directory: ${{ env.GODOT_DIR }}
+        shell: bash
+        run: ${{ steps.install-godot.outputs.godot-executable }} --editor --headless --quit || true
+
+      - name: Build and upload artifacts for all platforms
+        uses: Sunday-Studio-Team/godot-actions/build-godot@main
+        with:
+          working-directory: ${{ env.GODOT_DIR }}
+          godot-executable: ${{ steps.install-godot.outputs.godot-executable }}
+          build-dir: build
+          upload-artifacts: false
+        
+  verify-execution:
+    if: ${{ !github.event.pull_request.draft }}
+    needs: build
+    runs-on: macos-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+
+      - name: Install Godot
+        uses: Sunday-Studio-Team/godot-actions/install-godot@main
+        with:
+          godot-version: ${{ env.GODOT_VERSION }}
+        id: install-godot
+
+      - name: Open Godot editor for reimport
+        working-directory: ${{ env.GODOT_DIR }}
+        shell: bash
+        run: ${{ steps.install-godot.outputs.godot-executable }} --editor --headless --quit || true
+
+      - name: Run verification script
+        working-directory: ${{ env.GODOT_DIR }}
+        shell: bash
+        run: ${{ steps.install-godot.outputs.godot-executable }} --headless verification.tscn
