@@ -45,8 +45,11 @@ func _on_volume_slider_value_changed(value: float) -> void:
 
 
 func _on_volume_slider_drag_ended(value_changed: bool) -> void:
-	print(volume_slider.value)
-
+	var bus = FmodServer.get_bus("bus:/")
+	
+	# i think the volume for the bus goes from 0 to 1, so im dividing the
+	# slider percentage by 100 - it might not actually work like that though lol
+	bus.set_volume(volume_slider.value / 100)
 
 func _on_settings_back_button_pressed() -> void:
 	settings_menu.hide()
