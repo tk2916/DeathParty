@@ -40,7 +40,7 @@ jobs:
           godot-executable: ${{ steps.install-godot.outputs.godot-executable }}
           build-dir: build
           upload-artifacts: true
-          retention-days: 14
+          retention-days: 1
           
   generate-release:
     needs: build
@@ -72,8 +72,17 @@ jobs:
         with:
           tag: v0.0.${{ github.run_number }}
           commit: ${{ github.sha }}
-          allowUpdates: false
+          allowUpdates: true
+          updateOnlyUnreleased: true
           artifactErrorsFailBuild: true
           prerelease: true
           artifacts: artifacts/*/*
+          
+      - name: Remove artifacts
+        uses: geekyeggo/delete-artifact@v5
+        with:
+          name: |
+            macos
+            windows
+            linux
         
