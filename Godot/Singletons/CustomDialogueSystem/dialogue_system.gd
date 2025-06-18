@@ -40,6 +40,8 @@ var are_choices : bool = false
 var char_directory_address : String = "res://Assets/Resources/CharacterResources/"
 var diagbox_directory_address : String = "res://Assets/Resources/DialogueBoxResources/"
 
+var new_content
+
 func load_directory(address : String):
 	var dir : DirAccess = DirAccess.open(address)
 	dir.list_dir_begin()
@@ -199,7 +201,7 @@ func match_command(text_ : String):
 	
 func advance_dialogue():
 	if current_line_label.done_state == true:
-			display_current_container()
+			display_current_container(null)
 	else:
 		skip_dialogue_animation()
 		
@@ -219,7 +221,7 @@ func change_container(redirect:String, choice_text:String):
 			choice.queue_free()
 		current_choice_labels = []
 	Ink.make_choice(redirect)
-	display_current_container()
+	display_current_container(null)
 
 func set_choices(choices:Array):
 	#print("Choices: ", choices)
@@ -237,26 +239,45 @@ func set_choices(choices:Array):
 
 ################################################################################################
 #JSON RELATED
-func display_current_container():
+func display_current_container(content):
 	if dialogue_box_properties["clear_box_after_each_dialogue"]:
 		#check that it's loaded
 		clear_children(choice_container)
 	#if json_file:
-	var content = Ink.get_content()
-	#print("CONTENT GOT: ", content)
+	if content == null:
+		content = Ink.get_content()
+	else:
+		content = new_content
+	print("CONTENT GOT: ", content)
 	if content is int:
 		if content == 405: #end of story
 			current_dialogue_box.visible = false
 			in_dialogue = false
 			return
 	are_choices = false
-	if content.size() == 1: #dialogue line
+	if content.size() == 1 and !content[0].has("jump"): #dialogue line
 		if content[0].text[0] == "/":
 			match_command(content[0].text)
-			display_current_container()
+			display_current_container(null)
 		else:
 			say(content)
-	elif content.size() > 1: #choices
+	elif content.size() == 1 and content[0].has("jump"): #single choice (keep going to get more)
+		var temp_choices_arr = content
+		are_choices = true
+		current_choices = temp_choices_arr
+		set_choices(current_choices)
+		#while true: #get the rest of the choices (cometimes it only initially comes up with one)
+			#new_content = Ink.get_content()
+			#if (new_content is int) or !new_content[0].has("jump"): #no more choices
+				#are_choices = true
+				#current_choices = temp_choices_arr
+				#set_choices(current_choices)
+				#display_current_container(new_content)
+				#break
+			#else:
+				#temp_choices_arr.push_back(content[0])
+		
+	elif content.size() > 1: #multiple choices
 		are_choices = true
 		current_choices = content
 		set_choices(current_choices)
@@ -264,7 +285,7 @@ func display_current_container():
 func from_JSON(file : JSON):
 	assert(file != null, "You forgot to assign a JSON file!")
 	Ink.from_JSON(file)
-	display_current_container()
+	display_current_container(null)
 
 #reset dialogue array
 func _on_visibility_changed(visible_state):

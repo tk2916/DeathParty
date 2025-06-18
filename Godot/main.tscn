@@ -7,9 +7,9 @@
 [ext_resource type="Resource" uid="uid://fl5cg4jaw48p" path="res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres" id="5_0odxb"]
 [ext_resource type="Material" uid="uid://dohto33r7xal3" path="res://Assets/Materials/color1.tres" id="5_d13ii"]
 [ext_resource type="Script" uid="uid://b5yrwvs426aci" path="res://World/WorldScripts/outside.gd" id="5_ycdy4"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/example.ink6.json" id="6_1u8w0"]
 [ext_resource type="Script" uid="uid://bc2ilamjayd16" path="res://World/WorldScripts/room.gd" id="6_4c57u"]
 [ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="6_272bh"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="6_lswn8"]
 [ext_resource type="PackedScene" uid="uid://dr2o8ey3n88sr" path="res://World/room.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://b775wvigqexbq" path="res://World/stairs_left.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bc888yk804ya" path="res://World/door.tscn" id="7_kek77"]
@@ -138,7 +138,7 @@ collision_layer = 9
 collision_mask = 0
 script = ExtResource("4_ryguw")
 dialogue_box = ExtResource("5_0odxb")
-json_file = ExtResource("6_1u8w0")
+json_file = ExtResource("6_lswn8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPC"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

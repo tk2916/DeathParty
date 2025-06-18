@@ -17,13 +17,13 @@ func _init() -> void:
 	var property_list : Array = player_data.get_property_list()
 	for n in range(9, property_list.size()-1): # gets variables listed in Resource
 		var item : String = property_list[n].name # gets variable name
-		print(item)
+		#print(item)
 		if item == "VariableDict":
 			continue
 		if !player_data["VariableDict"].has(item):
 			player_data["VariableDict"][item] = player_data[item] #add if not already defined (from pervious save)
 	load_inventory()
-	print(player_data["name"], " | Inventory: ", player_data["inventory"])
+	#print(player_data["name"], " | Inventory: ", player_data["inventory"])
 	loaded.emit()
 
 func load_inventory(): #Make sure player has an entry for each possible item
