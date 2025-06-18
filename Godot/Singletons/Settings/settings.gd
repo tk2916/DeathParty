@@ -28,8 +28,8 @@ func save_settings():
 	config.save("user://settings.cfg")
 
 
-func set_volume(value):
-	var bus = FmodServer.get_bus("bus:/")
+func set_volume(value : float):
+	var bus : FmodBus = FmodServer.get_bus("bus:/")
 	
 	# i think the volume for the bus goes from 0 to 1, so im dividing the
 	# slider percentage by 100 - it might not actually work like that though lol
