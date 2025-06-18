@@ -1,0 +1,45 @@
+GDScript:
+- changed-files:
+  - any-glob-to-any-file: '**/*.gd'
+
+Scene:
+- changed-files:
+  - any-glob-to-any-file: '**/*.tscn'
+
+Resource:
+- changed-files:
+  - any-glob-to-any-file: '**/*.tres'
+
+Asset:
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/*.import'
+    - '**/*.json'
+    - '**/*.ink'
+    - '**/*.png'
+    - '**/*.ttf'
+    - '**/*.ogg'
+
+Addons:
+- changed-files:
+  - any-glob-to-any-file:
+    - 'Godot/addons/**'
+
+Project Config:
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/*.godot'
+    - '**/*.cfg'
+
+FMOD:
+- changed-files:
+  - any-glob-to-any-file:
+    - 'FMOD/**'
+
+Git:
+- changed-files:
+  - any-glob-to-any-file:
+    - '.git/**'
+    - '.github/**'
+    - '**/.gitignore'
+    - '**/.gitattributes'
