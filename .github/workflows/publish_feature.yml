@@ -40,7 +40,7 @@ jobs:
           godot-executable: ${{ steps.install-godot.outputs.godot-executable }}
           build-dir: build
           upload-artifacts: true
-          retention-days: 7
+          retention-days: 14
           
   generate-release:
     needs: build
