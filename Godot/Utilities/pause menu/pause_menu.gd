@@ -3,11 +3,16 @@ extends CanvasLayer
 
 @onready var main_pause_menu: VBoxContainer = $MarginContainer/MainPauseMenu
 
+@onready var resume_button: Button = $MarginContainer/MainPauseMenu/ResumeButton
+@onready var settings_button: Button = $MarginContainer/MainPauseMenu/SettingsButton
+@onready var quit_button: Button = $MarginContainer/MainPauseMenu/QuitButton
+
 @onready var settings_menu: VBoxContainer = $MarginContainer/SettingsMenu
 @onready var volume_slider: HSlider = $MarginContainer/SettingsMenu/GridContainer/VolumeSlider
 @onready var volume_number: Label = $MarginContainer/SettingsMenu/GridContainer/VolumeNumber
 
 @onready var quit_menu: VBoxContainer = $MarginContainer/QuitMenu
+@onready var yes_quit_button: Button = $MarginContainer/QuitMenu/HBoxContainer/YesQuitButton
 
 
 func _ready():
@@ -18,15 +23,24 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if main_pause_menu.visible:
 			toggle_pause()
-		elif quit_menu.visible or settings_menu.visible:
+
+		elif settings_menu.visible:
 			settings_menu.hide()
+			main_pause_menu.show()
+			settings_button.grab_focus()
+
+		elif quit_menu.visible:
 			quit_menu.hide()
 			main_pause_menu.show()
+			quit_button.grab_focus()
 
 
 func toggle_pause():
 	get_tree().paused = !get_tree().paused
 	visible = !visible
+	
+	if visible:
+		resume_button.grab_focus()
 
 
 # this connects the ⚙️ button in the bottom bar ui to the pause menu
@@ -42,6 +56,7 @@ func _on_resume_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	main_pause_menu.hide()
 	settings_menu.show()
+	volume_slider.grab_focus()
 
 
 func _on_volume_slider_value_changed(value: float) -> void:
@@ -57,14 +72,17 @@ func _on_volume_slider_value_changed(value: float) -> void:
 func _on_volume_slider_drag_ended(value_changed: bool) -> void:
 	Settings.set_volume(volume_slider.value)
 
+
 func _on_settings_back_button_pressed() -> void:
 	settings_menu.hide()
 	main_pause_menu.show()
+	settings_button.grab_focus()
 
 
 func _on_quit_button_pressed() -> void:
 	main_pause_menu.hide()
 	quit_menu.show()
+	yes_quit_button.grab_focus()
 
 
 func _on_yes_quit_button_pressed() -> void:
@@ -74,3 +92,4 @@ func _on_yes_quit_button_pressed() -> void:
 func _on_no_quit_button_pressed() -> void:
 	quit_menu.hide()
 	main_pause_menu.show()
+	quit_button.grab_focus()

@@ -29,16 +29,22 @@ horizontal_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="MarginContainer/MainPauseMenu"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
 theme = ExtResource("2_qpukh")
 text = "resume"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/MainPauseMenu"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 theme = ExtResource("2_qpukh")
 text = "settings"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/MainPauseMenu"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
 theme = ExtResource("2_qpukh")
 text = "quit"
 
@@ -58,6 +64,8 @@ layout_mode = 2
 [node name="VolumeSlider" type="HSlider" parent="MarginContainer/SettingsMenu/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_top = NodePath("../../SettingsBackButton")
+focus_neighbor_bottom = NodePath("../../SettingsBackButton")
 value = 75.0
 rounded = true
 tick_count = 10
@@ -66,12 +74,15 @@ ticks_on_borders = true
 [node name="VolumeNumber" type="Label" parent="MarginContainer/SettingsMenu/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
+focus_neighbor_bottom = NodePath("../../SettingsBackButton")
 theme = ExtResource("2_qpukh")
 theme_override_font_sizes/font_size = 20
 text = "75"
 
 [node name="SettingsBackButton" type="Button" parent="MarginContainer/SettingsMenu"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../GridContainer/VolumeSlider")
+focus_neighbor_bottom = NodePath("../GridContainer/VolumeSlider")
 theme = ExtResource("2_qpukh")
 text = "back"
 
@@ -91,11 +102,15 @@ size_flags_horizontal = 4
 
 [node name="YesQuitButton" type="Button" parent="MarginContainer/QuitMenu/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../NoQuitButton")
+focus_neighbor_right = NodePath("../NoQuitButton")
 theme = ExtResource("2_qpukh")
 text = "yes"
 
 [node name="NoQuitButton" type="Button" parent="MarginContainer/QuitMenu/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../YesQuitButton")
+focus_neighbor_right = NodePath("../YesQuitButton")
 theme = ExtResource("2_qpukh")
 text = "no"
 
