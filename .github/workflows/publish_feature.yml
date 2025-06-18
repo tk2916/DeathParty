@@ -41,4 +41,38 @@ jobs:
           build-dir: build
           upload-artifacts: true
           retention-days: 7
+          
+  generate-release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+      
+      - name: Download macOS artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: macos
+          path: artifacts/macos
+
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: windows
+          path: artifacts/windows
+
+      - name: Download Linux artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: linux
+          path: artifacts/linux
+
+      - name: Tag and upload artifacts to release
+        uses: ncipollo/release-action@v1
+        with:
+          commit: ${{ github.sha }}
+          allowUpdates: false
+          artifactErrorsFailBuild: true
+          prerelease: true
+          artifacts: artifacts/*/*
         
