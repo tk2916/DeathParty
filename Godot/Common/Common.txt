@@ -1,2 +1,4 @@
 The Common file contains generic items that you might use outside this project. This will have thigns like lighting, shaders, UI, input managers, etc.
 Things that do not depend on anything within the game and can be removed from the game without causing problems. 
+
+Minor Change #TODO: Edit this out.
