@@ -3,10 +3,13 @@ extends RichTextLabel
 func update_clock(key : String, value):
 	if key == "time":
 		var am_pm : String = " a.m."
-		var hour : int = int(value)
-		var minutes : int = int((value - hour)*60) #isolate decimal
+		var hour : int = int(value)%24
+		var minutes : int = int((value - hour)*60)%60 #isolate decimal
 		var mins_string : String = str(minutes)
-		if hour > 12:
+		if hour == 0:
+			hour = 12
+			am_pm = " a.m."
+		elif hour > 12:
 			hour -= 12
 			am_pm = " p.m."
 		
