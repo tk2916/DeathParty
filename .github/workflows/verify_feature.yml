@@ -7,9 +7,10 @@ on:
 
 env:
   GODOT_VERSION: 4.4.1
-  GODOT_FILE: godot/project.godot
+  GODOT_DIR: ./Godot
+  GODOT_FILE: Godot/project.godot
   GODOT_REGEX: config\/features=.*\"\K4\.[0-9.\-A-z]*
-  VERSION_FILE: godot/project.godot
+  VERSION_FILE: Godot/project.godot
   VERSION_REGEX: config\/version=\"\K[0-9.\-A-z]*
 
 jobs:
@@ -53,14 +54,14 @@ jobs:
         id: install-godot
 
       - name: Open Godot editor for reimport
-        working-directory: ./godot
+        working-directory: ${{ env.GODOT_DIR }}
         shell: bash
         run: ${{ steps.install-godot.outputs.godot-executable }} --editor --headless --quit || true
 
       - name: Build and upload artifacts for all platforms
         uses: Sunday-Studio-Team/godot-actions/build-godot@main
         with:
-          working-directory: ./godot
+          working-directory: ${{ env.GODOT_DIR }}
           godot-executable: ${{ steps.install-godot.outputs.godot-executable }}
           build-dir: build
           upload-artifacts: false
@@ -81,11 +82,11 @@ jobs:
         id: install-godot
 
       - name: Open Godot editor for reimport
-        working-directory: ./godot
+        working-directory: ${{ env.GODOT_DIR }}
         shell: bash
         run: ${{ steps.install-godot.outputs.godot-executable }} --editor --headless --quit || true
 
       - name: Run verification script
-        working-directory: ./godot
+        working-directory: ${{ env.GODOT_DIR }}
         shell: bash
         run: ${{ steps.install-godot.outputs.godot-executable }} --headless verification.tscn
