@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cfn5yvo0kg0up" path="res://World/floor.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://oji083qkjua5" path="res://World/wall.tscn" id="9_dg77c"]
 [ext_resource type="Script" uid="uid://bq22deee5mwhr" path="res://World/WorldScripts/back_room.gd" id="11_efxa6"]
-[ext_resource type="Script" path="res://music.gd" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://c12oqimxpau4x" path="res://music.gd" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://bn07hwlvtlb6h" path="res://World/WorldScripts/room2.gd" id="13_w48qg"]
 [ext_resource type="Script" uid="uid://dmejjh2fyets1" path="res://World/WorldScripts/hallway.gd" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://b6tahrgqxdvcq" path="res://audio/fmod bank loader.tscn" id="17_yaehf"]
@@ -131,6 +131,16 @@ floor_constant_speed = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.444, 2, 9.6)
 
 [node name="FmodListener3D" type="FmodListener3D" parent="MainCamera"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
 
 [node name="NPC" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.184765, -1)
@@ -376,6 +386,15 @@ shape = SubResource("ConcavePolygonShape3D_ycdy4")
 [node name="Audio" type="Node" parent="."]
 
 [node name="Music" type="FmodEventEmitter3D" parent="Audio"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 event_name = "event:/music"
 event_guid = "{736a96ee-aebb-4593-a094-6f5e9ab9f738}"
 autoplay = true
@@ -383,18 +402,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
 script = ExtResource("12_dg77c")
 
 [node name="CrowdSounds" type="FmodEventEmitter3D" parent="Audio"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 event_name = "event:/crowd"
 event_guid = "{9e4d86e6-afa7-406e-ba12-08656547d254}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
+script = null
 
 [node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="Audio"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -2)
+script = null
 
 [node name="FmodBankLoader" parent="." instance=ExtResource("17_yaehf")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
