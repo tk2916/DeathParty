@@ -45,7 +45,13 @@ func _on_settings_button_pressed() -> void:
 
 
 func _on_volume_slider_value_changed(value: float) -> void:
-	volume_number.text = str(volume_slider.value)
+	# im doing str(int()) cos without converting to an int first, it adds
+	# a decimal after the float when its concatenated
+	# and i think the other way to convert to an int uses % in the syntax
+	# which would maybe look weird/hard to read since this is a percentage
+	
+	# (if anyone knows a nicer way to do this feel free to replace it lol)
+	volume_number.text = str(int(volume_slider.value)) + "%"
 
 
 func _on_volume_slider_drag_ended(value_changed: bool) -> void:
