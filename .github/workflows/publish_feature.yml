@@ -1,0 +1,44 @@
+name: Publish Feature
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  GODOT_VERSION: 4.4.1
+  GODOT_DIR: ./Godot
+  GODOT_FILE: Godot/project.godot
+  GODOT_REGEX: config\/features=.*\"\K4\.[0-9.\-A-z]*
+  VERSION_FILE: Godot/project.godot
+  VERSION_REGEX: config\/version=\"\K[0-9.\-A-z]*
+
+jobs:
+  build:
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: macos-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+
+      - name: Install Godot
+        uses: Sunday-Studio-Team/godot-actions/install-godot@main
+        with:
+          godot-version: ${{ env.GODOT_VERSION }}
+          install-templates: true
+        id: install-godot
+
+      - name: Open Godot editor for reimport
+        working-directory: ${{ env.GODOT_DIR }}
+        shell: bash
+        run: ${{ steps.install-godot.outputs.godot-executable }} --editor --headless --quit || true
+
+      - name: Build and upload artifacts for all platforms
+        uses: Sunday-Studio-Team/godot-actions/build-godot@main
+        with:
+          working-directory: ${{ env.GODOT_DIR }}
+          godot-executable: ${{ steps.install-godot.outputs.godot-executable }}
+          build-dir: build
+          upload-artifacts: true
+          retention-days: 7
+        
