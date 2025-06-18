@@ -376,20 +376,23 @@ shape = SubResource("ConcavePolygonShape3D_ycdy4")
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Music" type="FmodEventEmitter3D" parent="Audio"]
+[node name="Ambience" type="Node" parent="Audio"]
+process_mode = 3
+
+[node name="Music" type="FmodEventEmitter3D" parent="Audio/Ambience"]
 event_name = "event:/music"
 event_guid = "{736a96ee-aebb-4593-a094-6f5e9ab9f738}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
 script = ExtResource("12_dg77c")
 
-[node name="CrowdSounds" type="FmodEventEmitter3D" parent="Audio"]
+[node name="CrowdSounds" type="FmodEventEmitter3D" parent="Audio/Ambience"]
 event_name = "event:/crowd"
 event_guid = "{9e4d86e6-afa7-406e-ba12-08656547d254}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
 
-[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="Audio"]
+[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="Audio/Ambience"]
 event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
 autoplay = true
@@ -438,7 +441,7 @@ visible = false
 
 [connection signal="body_entered" from="Outside" to="Outside" method="_on_body_entered"]
 [connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
-[connection signal="body_entered" from="Room" to="Audio/Music" method="_on_room_body_entered"]
+[connection signal="body_entered" from="Room" to="Audio/Ambience/Music" method="_on_room_body_entered"]
 [connection signal="body_exited" from="Room" to="Room" method="_on_body_exited"]
 [connection signal="body_entered" from="BackRoom" to="BackRoom" method="_on_body_entered"]
 [connection signal="body_entered" from="UpperRoom" to="UpperRoom" method="_on_body_entered"]
