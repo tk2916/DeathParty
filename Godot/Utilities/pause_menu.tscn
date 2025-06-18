@@ -32,10 +32,48 @@ layout_mode = 2
 theme = ExtResource("2_qpukh")
 text = "resume"
 
+[node name="SettingsButton" type="Button" parent="MarginContainer/MainPauseMenu"]
+layout_mode = 2
+theme = ExtResource("2_qpukh")
+text = "settings"
+
 [node name="QuitButton" type="Button" parent="MarginContainer/MainPauseMenu"]
 layout_mode = 2
 theme = ExtResource("2_qpukh")
 text = "quit"
+
+[node name="SettingsMenu" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VolumeText" type="Label" parent="MarginContainer/SettingsMenu"]
+layout_mode = 2
+theme = ExtResource("2_qpukh")
+text = "volume"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/SettingsMenu"]
+layout_mode = 2
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/SettingsMenu/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 75.0
+rounded = true
+tick_count = 10
+ticks_on_borders = true
+
+[node name="VolumeNumber" type="Label" parent="MarginContainer/SettingsMenu/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_qpukh")
+theme_override_font_sizes/font_size = 20
+text = "75"
+
+[node name="SettingsBackButton" type="Button" parent="MarginContainer/SettingsMenu"]
+layout_mode = 2
+theme = ExtResource("2_qpukh")
+text = "back"
 
 [node name="QuitMenu" type="VBoxContainer" parent="MarginContainer"]
 visible = false
@@ -62,6 +100,10 @@ theme = ExtResource("2_qpukh")
 text = "no"
 
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainPauseMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="drag_ended" from="MarginContainer/SettingsMenu/GridContainer/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
+[connection signal="value_changed" from="MarginContainer/SettingsMenu/GridContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/SettingsMenu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
 [connection signal="pressed" from="MarginContainer/QuitMenu/HBoxContainer/YesQuitButton" to="." method="_on_yes_quit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/QuitMenu/HBoxContainer/NoQuitButton" to="." method="_on_no_quit_button_pressed"]
