@@ -12,7 +12,11 @@ func _ready():
 	var err = config.load("user://settings.cfg")
 	
 	# if it loads, set each setting to the value from the cfg
-	# (or the default if it isnt set in the cfg)
+	# (or the default if it isnt set in the cfg) - this is also where the
+	# fmod volume is actually set, but if we think its simpler to set most
+	# settings from elsewhere then we can move this to the pause menu script
+	# and have this singleton just read and set cfg values and not handle any
+	# logic
 	if err == OK:
 		volume = config.get_value("audio", "volume", 75)
 		set_volume(volume)
@@ -34,6 +38,10 @@ func set_volume(value : float):
 	# slider percentage by 100 - it might not actually work like that though lol
 	bus.set_volume(value / 100)
 	
+	# this doesnt do anything on the initial set_volume in _ready() (i think)
+	# but when you call this func by changing volume in the settings menu this
+	# writes it to the cfg and saves it - if this is weird we can break it into
+	# 2 different functions like set_initial_volume() and set_volume() but 
+	# keeping them together felt neater for now
 	volume = value
-	
 	save_settings()
