@@ -14,7 +14,6 @@ func _ready():
 	# if it loads, set each setting to the value from the cfg
 	# (or the default if it isnt set in the cfg)
 	if err == OK:
-		# audio
 		volume = config.get_value("audio", "volume", 75)
 		set_volume(volume)
 	
