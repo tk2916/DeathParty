@@ -1,11 +1,25 @@
-extends Node
+var config = ConfigFile.new()
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+# audio
+var volume: float = 75
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _ready():
+	# check if the cfg will load
+	var err = config.load("user://settings.cfg")
+	
+	# if it loads, set each setting to the value from the cfg
+	# (or the default if it isnt set in the cfg)
+	if err == OK:
+		# audio
+		volume = config.get_value("audio", "volume", 75)
+	
+	# if it doesnt load, save a new cfg with the current settings
+	else:
+		save_settings()
+
+
+func save_settings():
+	config.set_value("audio", "volume", volume)
+	config.save("user://settings.cfg")
