@@ -14,6 +14,7 @@ func load_past_chats(parent : Node):
 	pass
 	
 func load_chat(json : JSON):
+	print("Loaded chat")
 	upcoming_chats.push_back(json)
 	unread_status = true
 	last_message_timestamp = SaveSystem.get_key("time")

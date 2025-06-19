@@ -4,6 +4,7 @@ extends Node
 @export var message_box : Control
 	
 func _ready() -> void:
-	print("Message box: ", message_box, " ", message_box.resource_file)
-	DialogueSystem.transferDialogueBox(message_box)
-	DialogueSystem.from_JSON(json_file)
+	#print("Message box: ", message_box, " ", message_box.resource_file)
+	#DialogueSystem.transferDialogueBox(message_box)
+	#DialogueSystem.from_JSON(json_file)
+	DialogueSystem.to_phone(json_file, "Jax")

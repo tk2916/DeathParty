@@ -1,6 +1,8 @@
 extends Node
 
-var canvas_layer : CanvasLayer
+@onready var main = get_tree().root.get_node("Main")
+@onready var canvas_layer : CanvasLayer = main.get_node("CanvasLayer")
+@onready var text_message_box : MarginContainer = canvas_layer.get_node("Phone/Screen/Background/MessageApp")
 
 var in_dialogue : bool = false #other scripts check this
 const FILE_PATH : String = "res://Singletons/CustomDialogueSystem/dialogue_data.tres"
@@ -42,8 +44,11 @@ func _init() -> void: #loading files
 	dialogue_data = load(FILE_PATH)
 	load_properties()
 
-func _ready() -> void: #loading a node in the tree
-	canvas_layer = get_tree().root.get_node("Main/CanvasLayer")
+func emit_contacts():
+	print("Emitting contacts")
+	for key in phone_messages:
+		print("Emitted: ", phone_messages[key])
+		loaded_new_contact.emit(phone_messages[key])
 	
 var new_content
 
@@ -53,16 +58,13 @@ func load_directory(address : String):
 	var file_name = dir.get_next()
 	if dir:
 		while file_name != "":
-			print("Filename : ", address, file_name)
 			if !dir.current_is_dir():
 				var file = load(address + file_name)
-				print("File: ", address, file)
 				if file == null: break
 				if address == char_directory_address:
 					dialogue_data.character_dictionary[file.name] = file
 				elif address == messages_directory_address:
 					phone_messages[file.name] = file
-					loaded_new_contact.emit(file)
 					
 			file_name = dir.get_next()
 	else:
@@ -194,7 +196,7 @@ func match_command(text_ : String):
 	
 func advance_dialogue():
 	if current_line_label.done_state == true:
-			display_current_container(null)
+			display_current_container()
 	else:
 		skip_dialogue_animation()
 		
@@ -213,7 +215,7 @@ func change_container(redirect:String, choice_text:String):
 			choice.queue_free()
 		current_choice_labels = []
 	Ink.make_choice(redirect)
-	display_current_container(null)
+	display_current_container()
 
 func set_choices(choices:Array):
 	are_choices = true
@@ -244,7 +246,7 @@ func display_current_container():
 	if content.size() == 1 and !content[0].has("jump"): #dialogue line
 		if content[0].text[0] == "/":
 			match_command(content[0].text)
-			display_current_container(null)
+			display_current_container()
 		else:
 			say(content)
 	elif content.size() == 1 and content[0].has("jump"): #single choice (keep going to get more)
@@ -267,10 +269,12 @@ func find_contact(chat_name:String):
 		return phone_messages[chat_name]
 
 func to_phone(file : JSON, chat_name : String):
+	print("To phone")
 	var chat = find_contact(chat_name)
 	chat.load_chat(file)
 
 func start_text_convo(chat_name : String):
+	transferDialogueBox(text_message_box)
 	var chat = find_contact(chat_name)
 	chat.start_chat()
 
