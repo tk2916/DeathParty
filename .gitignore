@@ -34,3 +34,4 @@ mono_crash.*.json
 
 # Custom ignores
 build/
+Godot/addons/fmod/libs/windows/~libGodotFmod.windows.editor.x86_64.dll
