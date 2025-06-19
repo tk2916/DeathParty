@@ -120,27 +120,22 @@ size = Vector3(17, 0.5, 3)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ycdy4"]
 data = PackedVector3Array(-8.5, 0.25, 1.5, 8.5, 0.25, 1.5, -8.5, -0.25, 1.5, 8.5, 0.25, 1.5, 8.5, -0.25, 1.5, -8.5, -0.25, 1.5, 8.5, 0.25, -1.5, -8.5, 0.25, -1.5, 8.5, -0.25, -1.5, -8.5, 0.25, -1.5, -8.5, -0.25, -1.5, 8.5, -0.25, -1.5, 8.5, 0.25, 1.5, 8.5, 0.25, -1.5, 8.5, -0.25, 1.5, 8.5, 0.25, -1.5, 8.5, -0.25, -1.5, 8.5, -0.25, 1.5, -8.5, 0.25, -1.5, -8.5, 0.25, 1.5, -8.5, -0.25, -1.5, -8.5, 0.25, 1.5, -8.5, -0.25, 1.5, -8.5, -0.25, -1.5, 8.5, 0.25, 1.5, -8.5, 0.25, 1.5, 8.5, 0.25, -1.5, -8.5, 0.25, 1.5, -8.5, 0.25, -1.5, 8.5, 0.25, -1.5, -8.5, -0.25, 1.5, 8.5, -0.25, 1.5, -8.5, -0.25, -1.5, 8.5, -0.25, 1.5, 8.5, -0.25, -1.5, -8.5, -0.25, -1.5)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("main_camera", "camera_location_node")]
 script = ExtResource("1_1bvp3")
+main_camera = NodePath("MainCamera")
+camera_location_node = NodePath("Player/PlayerCameraLocation")
 
 [node name="Player" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
 floor_constant_speed = true
 
+[node name="AnimationTree" parent="Player" index="3"]
+root_node = NodePath("%PlayerModel")
+
 [node name="MainCamera" parent="." instance=ExtResource("3_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.444, 2, 9.6)
 
 [node name="FmodListener3D" type="FmodListener3D" parent="MainCamera"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
 
 [node name="NPC" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.184765, -1)
@@ -193,9 +188,11 @@ debug_color = Color(0, 0.6, 0.701961, 0.270588)
 mesh = SubResource("BoxMesh_06yk2")
 skeleton = NodePath("../..")
 
-[node name="Room" parent="." instance=ExtResource("7_4c57u")]
+[node name="Room" parent="." node_paths=PackedStringArray("room_area", "things_to_hide") instance=ExtResource("7_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
 script = ExtResource("6_4c57u")
+room_area = NodePath("RoomArea")
+things_to_hide = NodePath("ThingsToHide")
 
 [node name="RoomArea" type="CollisionShape3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -310,10 +307,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68692, 2.34777, 0.893448)
 shadow_enabled = true
 omni_range = 15.0
 
-[node name="UpperRoom" parent="." instance=ExtResource("7_4c57u")]
+[node name="UpperRoom" parent="." node_paths=PackedStringArray("things_to_hide") instance=ExtResource("7_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3.5, 0)
 collision_layer = 2
 script = ExtResource("13_w48qg")
+things_to_hide = NodePath("ThingsToHide")
 
 [node name="RoomArea" type="CollisionShape3D" parent="UpperRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -386,15 +384,6 @@ shape = SubResource("ConcavePolygonShape3D_ycdy4")
 [node name="Audio" type="Node" parent="."]
 
 [node name="Music" type="FmodEventEmitter3D" parent="Audio"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 event_name = "event:/music"
 event_guid = "{736a96ee-aebb-4593-a094-6f5e9ab9f738}"
 autoplay = true
@@ -402,48 +391,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
 script = ExtResource("12_dg77c")
 
 [node name="CrowdSounds" type="FmodEventEmitter3D" parent="Audio"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 event_name = "event:/crowd"
 event_guid = "{9e4d86e6-afa7-406e-ba12-08656547d254}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
-script = null
 
 [node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="Audio"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -2)
-script = null
 
 [node name="FmodBankLoader" parent="." instance=ExtResource("17_yaehf")]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -489,6 +448,8 @@ grow_vertical = 2
 [connection signal="body_entered" from="UpperRoom" to="UpperRoom" method="_on_body_entered"]
 [connection signal="body_entered" from="Hallway" to="Hallway" method="_on_body_entered"]
 
+[editable path="Player"]
+[editable path="Player/PlayerModel"]
 [editable path="CanvasLayer/BasicGUI"]
 [editable path="CanvasLayer/Phone"]
 [editable path="CanvasLayer/Phone/Screen/Background/MessageApp"]
