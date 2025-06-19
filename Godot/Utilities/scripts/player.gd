@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@onready var model : Node3D = $PlayerModel
-@onready var animation_tree : AnimationTree = $AnimationTree
+@onready var model : Node3D = %PlayerModel
+@onready var animation_tree : AnimationTree = %AnimationTree
 @onready var previous_position : Vector3 = global_position
 @onready var footstep_sounds : FmodEventEmitter3D = $FootstepSounds
 
@@ -10,9 +10,10 @@ extends CharacterBody3D
 @export var jump_power : float = 12.0
 @export var horizontal_offset : float = 1.75
 
+@export var player_camera_location : Node3D
+
 var player_velocity : Vector3 = Vector3.ZERO
 var original_camera_position : Vector3 = Vector3.ZERO
-var player_camera_location : Node3D
 
 var facing: int = 0
 var movement_direction: int = 0
@@ -32,7 +33,6 @@ var stride_length : float = 1
 var distance_since_step : float = 0
 
 func _ready() -> void:
-	player_camera_location = $PlayerCameraLocation
 	original_camera_position = player_camera_location.position
 
 func _physics_process(_delta: float) -> void:
