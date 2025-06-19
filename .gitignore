@@ -30,7 +30,7 @@ mono_crash.*.json
 
 # Temporary file ignores
 *.tmp
-~*
+**~*
 
 # Custom ignores
 build/
