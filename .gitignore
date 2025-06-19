@@ -28,6 +28,9 @@ mono_crash.*.json
 /fmod/.unsaved/
 /fmod/.user
 
+# Temporary file ignores
+*.tmp
+~*
+
 # Custom ignores
 build/
-*.tmp
