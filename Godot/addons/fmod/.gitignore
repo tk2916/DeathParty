@@ -5,3 +5,6 @@
 *.so
 *.xcframework
 !libs/**
+
+# Temporary files
+~*
