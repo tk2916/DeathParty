@@ -91,16 +91,6 @@ func item_count(item:String):
 	item_exists(item)
 	return player_data["inventory"][item]
 
-#INK VARIABLES
-'''
-func set_variable(variable : String, new_value):
-	player_data["variableDict"][variable] = new_value
-
-func get_variable(variable : String):
-	return player_data["variableDict"][variable]
-'''
-	#return player_data["variableDict"].has(variable)
-
 #SAVING
 func save_data():
 	var error = ResourceSaver.save(player_data, FILE_PATH)
@@ -108,3 +98,23 @@ func save_data():
 		print("Error saving resource:", error)
 	else:
 		print("Resource saved successfully!")
+		
+#PARSE TIME
+func parse_time(value : float):
+	var am_pm : String = " a.m."
+	var hour : int = int(value)%24
+	var minutes : int = int((value - hour)*60)%60 #isolate decimal
+	var mins_string : String = str(minutes)
+	if hour == 0:
+		hour = 12
+		am_pm = " a.m."
+	elif hour > 12:
+		hour -= 12
+		am_pm = " p.m."
+	
+	if minutes == 0:
+		mins_string = "00"
+	elif minutes < 10:
+		mins_string = "0"+mins_string
+	
+	return str(hour) + ":" + mins_string + am_pm

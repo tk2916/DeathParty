@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d1jn2toe7x8cs" path="res://Assets/PNGAssets/messages_white.png" id="1_plgr2"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="2_eotbu"]
-[ext_resource type="PackedScene" uid="uid://ibs6xbf36j7" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/message_app.tscn" id="3_635d1"]
+[ext_resource type="PackedScene" uid="uid://ibs6xbf36j7" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/message_app.tscn" id="3_635d1"]
 [ext_resource type="Script" uid="uid://bqkuvvcygqkbe" path="res://Assets/GUIFunctionalityScripts/home_button.gd" id="5_hnfnb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlxy5"]
@@ -53,6 +53,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3v7ru")
 
 [node name="Background" type="TextureRect" parent="Screen"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,9 +65,9 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.051
-anchor_top = 0.034
+anchor_top = 0.07
 anchor_right = 0.247
-anchor_bottom = 0.151
+anchor_bottom = 0.191
 offset_left = 0.173337
 offset_top = -0.352019
 offset_right = 0.0355759
@@ -102,9 +103,9 @@ show_element = NodePath("../../MessageApp")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.324
-anchor_top = 0.034
+anchor_top = 0.07
 anchor_right = 0.519
-anchor_bottom = 0.151
+anchor_bottom = 0.191
 offset_left = -0.132454
 offset_top = 0.077981
 offset_right = 0.00088501
@@ -129,13 +130,13 @@ grow_vertical = 2
 flat = true
 
 [node name="MessageApp" parent="Screen/Background" instance=ExtResource("3_635d1")]
+visible = false
+clip_contents = true
 layout_mode = 1
-anchors_preset = 15
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 1.0
+anchor_right = 2.0
 anchor_bottom = 1.0
-offset_left = 0.0
 
 [node name="HomeButton" type="ColorRect" parent="."]
 layout_mode = 1

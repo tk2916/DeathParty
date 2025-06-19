@@ -4,9 +4,8 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnwmqxbq5qfou"
 path.s3tc="res://.godot/imported/Olivia Animated(bag)_bag.png-eda8b89caca7db355b6f055f5e41a8d3.s3tc.ctex"
-path.etc2="res://.godot/imported/Olivia Animated(bag)_bag.png-eda8b89caca7db355b6f055f5e41a8d3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -16,7 +15,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/CharacterAssets/CharacterTextures/Olivia/Olivia Animated(bag)_bag.png"
-dest_files=["res://.godot/imported/Olivia Animated(bag)_bag.png-eda8b89caca7db355b6f055f5e41a8d3.s3tc.ctex", "res://.godot/imported/Olivia Animated(bag)_bag.png-eda8b89caca7db355b6f055f5e41a8d3.etc2.ctex"]
+dest_files=["res://.godot/imported/Olivia Animated(bag)_bag.png-eda8b89caca7db355b6f055f5e41a8d3.s3tc.ctex"]
 
 [params]
 

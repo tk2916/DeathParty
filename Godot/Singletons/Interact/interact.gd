@@ -6,6 +6,8 @@ const DIST : int = 1000
 var grabbed_object : Node3D = null
 var outline_mesh : MeshInstance3D = null
 
+@onready var camera3d : Camera3D = get_viewport().get_camera_3d()
+
 func _input(event: InputEvent) -> void:
 	if !DialogueSystem.in_dialogue:
 		if event is InputEventMouseMotion:
@@ -20,10 +22,11 @@ func _input(event: InputEvent) -> void:
 					outline_mesh = null
 			
 func get_mouse_world_pos():
+	if camera3d == null: return
 	var space : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	#we will check if there's anything between the start and end points of the ray DIST long
-	var start : Vector3 = get_viewport().get_camera_3d().project_ray_origin(mouse)
-	var end : Vector3 = get_viewport().get_camera_3d().project_position(mouse, DIST)
+	var start : Vector3 = camera3d.project_ray_origin(mouse)
+	var end : Vector3 = camera3d.project_position(mouse, DIST)
 	var params : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
 	params.from = start
 	params.to = end

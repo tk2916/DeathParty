@@ -36,3 +36,4 @@ message_box = NodePath("../CanvasLayer/Phone/Screen/Background/MessageApp")
 [editable path="CanvasLayer/BasicGUI"]
 [editable path="CanvasLayer/Phone"]
 [editable path="CanvasLayer/Phone/Screen/Background/MessageApp"]
+[editable path="CanvasLayer/Phone/Screen/Background/MessageApp/HSplitContainer/ContactsPanel/ScrollContainer/VBoxContainer2/AllContacts/ContactPanel"]
