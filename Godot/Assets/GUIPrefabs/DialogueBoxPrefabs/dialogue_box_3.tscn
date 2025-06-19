@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl1d2mi5mkumf"]
+[gd_scene load_steps=5 format=3 uid="uid://cl1d2mi5mkumf"]
 
 [ext_resource type="Script" uid="uid://gpb0xf78x74g" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/dialogue_box_properties.gd" id="1_gvu50"]
-[ext_resource type="Texture2D" uid="uid://s742yxoo5vvv" path="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png" id="2_jmud6"]
 [ext_resource type="Texture2D" uid="uid://c7bp4jjudj4ce" path="res://Assets/PNGAssets/dialogue_box_4.png" id="3_juo5n"]
 [ext_resource type="Script" uid="uid://bffdpcyyowj58" path="res://Assets/GUIDesignScripts/scroll_container.gd" id="4_0e8cm"]
 [ext_resource type="FontFile" uid="uid://d38ksrs1tr8ej" path="res://Assets/Fonts/InknutAntiqua-ExtraBold.ttf" id="4_f4b68"]
@@ -57,7 +56,6 @@ anchor_bottom = 0.885
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
-texture = ExtResource("2_jmud6")
 expand_mode = 3
 stretch_mode = 5
 

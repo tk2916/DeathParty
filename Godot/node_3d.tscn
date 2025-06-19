@@ -22,6 +22,7 @@ theme_override_fonts/normal_font = ExtResource("2_r3fl7")
 [node name="Phone" parent="CanvasLayer" instance=ExtResource("3_jka67")]
 
 [node name="MessageApp" parent="CanvasLayer/Phone/Screen/Background" index="2"]
+visible = false
 resource_file = ExtResource("4_i5arm")
 
 [node name="Camera3D" type="Camera3D" parent="."]

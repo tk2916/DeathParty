@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1ft6mlcm67xv"]
+
+[ext_resource type="PackedScene" uid="uid://bl2eft3dp4trq" path="res://CharacterAssets/Olivia/olivia_model.glb" id="1_06yk2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06yk2"]
+size = Vector3(10, 2.5, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bv50f"]
+size = Vector3(11, 0.5, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_06yk2"]
+size = Vector3(11, 0.5, 3)
+
+[node name="Outside" type="Area3D"]
+
+[node name="RoomArea" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25, 2, 0)
+shape = SubResource("BoxShape3D_06yk2")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -0.25, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_bv50f")
+debug_color = Color(0, 0.6, 0.701961, 0.270588)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_06yk2")
+skeleton = NodePath("../..")
+
+[node name="Olivia Walking Animation" parent="Floor" instance=ExtResource("1_06yk2")]

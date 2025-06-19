@@ -1,0 +1,7 @@
+!libs/
+*.dll
+*.a
+*.dylib
+*.so
+*.xcframework
+!libs/**

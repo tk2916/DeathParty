@@ -45,6 +45,8 @@ func _init() -> void: #loading files
 func _ready() -> void: #loading a node in the tree
 	canvas_layer = get_tree().root.get_node("Main/CanvasLayer")
 	
+var new_content
+
 func load_directory(address : String):
 	var dir : DirAccess = DirAccess.open(address)
 	dir.list_dir_begin()
@@ -182,15 +184,17 @@ func match_command(text_ : String):
 		"/has_item":
 			var result : int = SaveSystem.item_count(parameters_array[1])
 			if result == 0: #does not have item
+				print("User does not have item: ", parameters_array[1])
 				SaveSystem.set_key("has_item_flag", false)
 			else:
+				print("User has item: ", parameters_array[1])
 				SaveSystem.set_key("has_item_flag", true)
 		"/change_image":
 			image_container.image = character_properties[parameters_array[1]][parameters_array[2]]
 	
 func advance_dialogue():
 	if current_line_label.done_state == true:
-			display_current_container()
+			display_current_container(null)
 	else:
 		skip_dialogue_animation()
 		
@@ -209,7 +213,7 @@ func change_container(redirect:String, choice_text:String):
 			choice.queue_free()
 		current_choice_labels = []
 	Ink.make_choice(redirect)
-	display_current_container()
+	display_current_container(null)
 
 func set_choices(choices:Array):
 	are_choices = true
@@ -237,10 +241,10 @@ func display_current_container():
 			in_dialogue = false
 			return
 	are_choices = false
-	if content.size() == 1: #dialogue line
+	if content.size() == 1 and !content[0].has("jump"): #dialogue line
 		if content[0].text[0] == "/":
 			match_command(content[0].text)
-			display_current_container()
+			display_current_container(null)
 		else:
 			say(content)
 	elif content.size() == 1 and content[0].has("jump"): #single choice (keep going to get more)
@@ -256,6 +260,7 @@ func from_JSON(file : JSON):
 	assert(file != null, "You forgot to assign a JSON file!")
 	Ink.from_JSON(file)
 	display_current_container()
+	
 #PHONE-RELATED
 func find_contact(chat_name:String):
 	if phone_messages.has(chat_name):

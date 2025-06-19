@@ -16,6 +16,8 @@ func _input(event: InputEvent) -> void:
 				if outline_mesh: #this means something is currently selected & interactable
 					outline_mesh.visible = false
 					grabbed_object.interact()
+					grabbed_object = null
+					outline_mesh = null
 			
 func get_mouse_world_pos():
 	var space : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
@@ -26,7 +28,7 @@ func get_mouse_world_pos():
 	params.from = start
 	params.to = end
 	#params.set_collision_mask_value(2, true) # layer 2 is for interactables
-	params.collision_mask = 3
+	params.collision_mask = 5
 	
 	var result : Dictionary = space.intersect_ray(params)
 	if result.is_empty() == false:
@@ -36,7 +38,7 @@ func get_mouse_world_pos():
 			outline_mesh.visible = true
 	else:
 		#turn off highlight
-		if grabbed_object:
+		if outline_mesh:
 			outline_mesh.visible = false
 			grabbed_object = null
 			outline_mesh = null

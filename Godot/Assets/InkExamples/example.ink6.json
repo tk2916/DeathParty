@@ -1,362 +1,365 @@
 {
-  "inkVersion": 21,
-  "root": [
-    [
-      "^[Creepy Pikachu] Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "\n",
-      "^/give_item Key",
-      "\n",
-      "^[Other Guy] There was a story to be told!",
-      "\n",
-      "ev",
-      "str",
-      "^First choice.",
-      "/str",
-      "/ev",
-      {
-        "*": "0.c-0",
-        "flg": 4
-      },
-      "ev",
-      "str",
-      "^Second choice.",
-      "/str",
-      "/ev",
-      {
-        "*": "0.c-1",
-        "flg": 4
-      },
-      {
-        "c-0": [
-          "^ ",
-          {
-            "->": "one"
-          },
-          "\n",
-          {
-            "->": "0.g-0"
-          },
-          {
-            "#f": 5
-          }
-        ],
-        "c-1": [
-          "^ ",
-          {
-            "->": "two"
-          },
-          "\n",
-          {
-            "->": "0.g-0"
-          },
-          {
-            "#f": 5
-          }
-        ],
-        "g-0": [
-          "done",
-          {
-            "#f": 5
-          }
-        ]
-      }
-    ],
-    "done",
-    {
-      "one": [
-        [
-          "^[Creepy Pikachu] You chose the first choice! Great job.",
-          "\n",
-          "^/has_item Key",
-          "\n",
-          "^Amazing.",
-          "\n",
-          "ev",
-          "str",
-          "^Choice number 3",
-          "/str",
-          "/ev",
-          {
-            "*": ".^.c-0",
-            "flg": 20
-          },
-          "ev",
-          "str",
-          "^Choice number 4",
-          "/str",
-          {
-            "VAR?": "has_item_flag"
-          },
-          false,
-          "==",
-          "/ev",
-          {
-            "*": ".^.c-1",
-            "flg": 5
-          },
-          "ev",
-          "str",
-          "^Go to choice 2",
-          "/str",
-          "/ev",
-          {
-            "*": ".^.c-2",
-            "flg": 4
-          },
-          {
-            "c-0": [
-              "^ ",
-              {
-                "->": "three"
-              },
-              "\n",
-              {
-                "#f": 5
-              }
-            ],
-            "c-1": [
-              "^ ",
-              {
-                "->": "four"
-              },
-              "\n",
-              {
-                "#f": 5
-              }
-            ],
-            "c-2": [
-              "^ ",
-              {
-                "->": "two"
-              },
-              "\n",
-              "end",
-              {
-                "#f": 5
-              }
-            ]
-          }
-        ],
-        {
-          "#f": 1
-        }
-      ],
-      "two": [
-        [
-          "ev",
-          {
-            "VAR?": "number_of_twos"
-          },
-          2,
-          "<",
-          {
-            "VAR?": "other_num"
-          },
-          3,
-          "==",
-          "&&",
-          {
-            "VAR?": "number_of_twos"
-          },
-          2,
-          "<",
-          {
-            "VAR?": "other_num"
-          },
-          "!",
-          3,
-          "==",
-          "&&",
-          "||",
-          "/ev",
-          [
-            {
-              "->": ".^.b",
-              "c": true
-            },
-            {
-              "b": [
-                "^ You chose the second choice!",
-                {
-                  "->": "two.0.20"
-                },
-                null
-              ]
-            }
-          ],
-          [
-            {
-              "->": ".^.b"
-            },
-            {
-              "b": [
-                "^You've chosen this option 2+ times >:(",
-                {
-                  "->": "two.0.20"
-                },
-                null
-              ]
-            }
-          ],
-          "nop",
-          "\n",
-          "ev",
-          {
-            "VAR?": "number_of_twos"
-          },
-          1,
-          "==",
-          "/ev",
-          [
-            {
-              "->": ".^.b",
-              "c": true
-            },
-            {
-              "b": [
-                "^ This is your second time choosing it.",
-                {
-                  "->": "two.0.28"
-                },
-                null
-              ]
-            }
-          ],
-          "nop",
-          "\n",
-          "ev",
-          {
-            "VAR?": "number_of_twos"
-          },
-          1,
-          "+",
-          {
-            "VAR=": "number_of_twos",
-            "re": true
-          },
-          "/ev",
-          "^This is 2.",
-          "\n",
-          "ev",
-          "str",
-          "^End",
-          "/str",
-          "/ev",
-          {
-            "*": ".^.c-0",
-            "flg": 20
-          },
-          "ev",
-          "str",
-          "^Go back",
-          "/str",
-          "/ev",
-          {
-            "*": ".^.c-1",
-            "flg": 4
-          },
-          {
-            "c-0": [
-              "^ ",
-              "end",
-              "\n",
-              {
-                "#f": 5
-              }
-            ],
-            "c-1": [
-              "^ ",
-              {
-                "->": "one"
-              },
-              "\n",
-              {
-                "#f": 5
-              }
-            ]
-          }
-        ],
-        {
-          "#f": 1
-        }
-      ],
-      "three": [
-        [
-          "^You chose the third choice!",
-          "\n",
-          "ev",
-          "str",
-          "^End",
-          "/str",
-          "/ev",
-          {
-            "*": ".^.c-0",
-            "flg": 20
-          },
-          "ev",
-          "str",
-          "^Go back",
-          "/str",
-          "/ev",
-          {
-            "*": ".^.c-1",
-            "flg": 4
-          },
-          {
-            "c-0": [
-              "^ ",
-              "end",
-              "\n",
-              {
-                "#f": 5
-              }
-            ],
-            "c-1": [
-              "^ ",
-              {
-                "->": "one"
-              },
-              "\n",
-              {
-                "#f": 5
-              }
-            ]
-          }
-        ],
-        {
-          "#f": 1
-        }
-      ],
-      "four": [
-        "^You chose the fourth choice!",
-        "\n",
-        "^This choice automatically ends the dialogue.",
-        "\n",
-        "end",
-        {
-          "#f": 1
-        }
-      ],
-      "global decl": [
-        "ev",
-        0,
-        {
-          "VAR=": "number_of_twos"
-        },
-        3,
-        {
-          "VAR=": "other_num"
-        },
-        false,
-        {
-          "VAR=": "has_item_flag"
-        },
-        "/ev",
-        "end",
-        null
-      ],
-      "#f": 1
-    }
-  ],
-  "listDefs": {}
+	"inkVersion": 21.0,
+	"root": [
+		[
+			"^[Creepy Pikachu] Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			"\n",
+			"^/give_item Key",
+			"\n",
+			"^[Other Guy] There was a story to be told!",
+			"\n",
+			"ev",
+			"str",
+			"^First choice.",
+			"/str",
+			"/ev",
+			{
+				"*": "0.c-0",
+				"flg": 4.0
+			},
+			"ev",
+			"str",
+			"^Second choice.",
+			"/str",
+			"/ev",
+			{
+				"*": "0.c-1",
+				"flg": 4.0
+			},
+			{
+				"c-0": [
+					"^ ",
+					{
+						"->": "one"
+					},
+					"\n",
+					{
+						"->": "0.g-0"
+					},
+					{
+						"#f": 5.0
+					}
+				],
+				"c-1": [
+					"^ ",
+					{
+						"->": "two"
+					},
+					"\n",
+					{
+						"->": "0.g-0"
+					},
+					{
+						"#f": 5.0
+					}
+				],
+				"g-0": [
+					"done",
+					{
+						"#f": 5.0
+					}
+				]
+			}
+		],
+		"done",
+		{
+			"one": [
+				[
+					"^[Creepy Pikachu] You chose the first choice! Great job.",
+					"\n",
+					"^/has_item Key",
+					"\n",
+					"^Amazing.",
+					"\n",
+					"ev",
+					"str",
+					"^Choice number 3",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-0",
+						"flg": 20.0
+					},
+					"ev",
+					"str",
+					"^Choice number 4",
+					"/str",
+					{
+						"VAR?": "has_item_flag"
+					},
+					"!",
+					"/ev",
+					{
+						"*": ".^.c-1",
+						"flg": 5.0
+					},
+					"ev",
+					"str",
+					"^Go to choice 2",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-2",
+						"flg": 4.0
+					},
+					{
+						"c-0": [
+							"^ ",
+							{
+								"->": "three"
+							},
+							"\n",
+							{
+								"#f": 5.0
+							}
+						],
+						"c-1": [
+							"^ ",
+							{
+								"->": "four"
+							},
+							"\n",
+							{
+								"#f": 5.0
+							}
+						],
+						"c-2": [
+							"^ ",
+							{
+								"->": "two"
+							},
+							"\n",
+							"end",
+							{
+								"#f": 5.0
+							}
+						]
+					}
+				],
+				{
+					"#f": 1.0
+				}
+			],
+			"two": [
+				[
+					"ev",
+					{
+						"VAR?": "number_of_twos"
+					},
+					2.0,
+					"<",
+					{
+						"VAR?": "other_num"
+					},
+					3.0,
+					"==",
+					"&&",
+					{
+						"VAR?": "number_of_twos"
+					},
+					2.0,
+					"<",
+					{
+						"VAR?": "other_num"
+					},
+					"!",
+					3.0,
+					"==",
+					"&&",
+					"||",
+					"/ev",
+					[
+						{
+							"->": ".^.b",
+							"c": true
+						},
+						{
+							"b": [
+								"^ You chose the second choice!",
+								{
+									"->": "two.0.20"
+								},
+								null
+							]
+						}
+					],
+					[
+						{
+							"->": ".^.b"
+						},
+						{
+							"b": [
+								"^You've chosen this option 2+ times >:(",
+								{
+									"->": "two.0.20"
+								},
+								null
+							]
+						}
+					],
+					"nop",
+					"\n",
+					"ev",
+					{
+						"VAR?": "number_of_twos"
+					},
+					1.0,
+					"==",
+					"/ev",
+					[
+						{
+							"->": ".^.b",
+							"c": true
+						},
+						{
+							"b": [
+								"^ This is your second time choosing it.",
+								{
+									"->": "two.0.28"
+								},
+								null
+							]
+						}
+					],
+					"nop",
+					"\n",
+					"ev",
+					{
+						"VAR?": "number_of_twos"
+					},
+					1.0,
+					"+",
+					{
+						"VAR=": "number_of_twos",
+						"re": true
+					},
+					"/ev",
+					"^This is 2.",
+					"\n",
+					"ev",
+					"str",
+					"^End",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-0",
+						"flg": 20.0
+					},
+					"ev",
+					"str",
+					"^Go back",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-1",
+						"flg": 4.0
+					},
+					{
+						"c-0": [
+							"^ ",
+							"end",
+							"\n",
+							{
+								"#f": 5.0
+							}
+						],
+						"c-1": [
+							"^ ",
+							{
+								"->": "one"
+							},
+							"\n",
+							{
+								"#f": 5.0
+							}
+						]
+					}
+				],
+				{
+					"#f": 1.0
+				}
+			],
+			"three": [
+				[
+					"^You chose the third choice!",
+					"\n",
+					"ev",
+					"str",
+					"^End",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-0",
+						"flg": 20.0
+					},
+					"ev",
+					"str",
+					"^Go back",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-1",
+						"flg": 4.0
+					},
+					{
+						"c-0": [
+							"^ ",
+							"end",
+							"\n",
+							{
+								"#f": 5.0
+							}
+						],
+						"c-1": [
+							"^ ",
+							{
+								"->": "one"
+							},
+							"\n",
+							{
+								"#f": 5.0
+							}
+						]
+					}
+				],
+				{
+					"#f": 1.0
+				}
+			],
+			"four": [
+				"^/remove_item Key",
+				"\n",
+				"^You chose the fourth choice!",
+				"\n",
+				"^This choice automatically ends the dialogue.",
+				"\n",
+				"end",
+				{
+					"#f": 1.0
+				}
+			],
+			"global decl": [
+				"ev",
+				0.0,
+				{
+					"VAR=": "number_of_twos"
+				},
+				3.0,
+				{
+					"VAR=": "other_num"
+				},
+				false,
+				{
+					"VAR=": "has_item_flag"
+				},
+				"/ev",
+				"end",
+				null
+			],
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
 }

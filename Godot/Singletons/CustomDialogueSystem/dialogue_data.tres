@@ -1,19 +1,10 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://5vyoy0xeqs3x"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c8qh28bp3e5x3"]
 
-[ext_resource type="Resource" uid="uid://bpephsvb7c542" path="res://Assets/Resources/CharacterResources/character_properties_otherguy.tres" id="1_gpueq"]
-[ext_resource type="Resource" uid="uid://dq27ktygpdh35" path="res://Assets/Resources/CharacterResources/character_properties_creepypikachu.tres" id="2_iwic5"]
-[ext_resource type="Resource" uid="uid://fl5cg4jaw48p" path="res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres" id="3_48s1t"]
-
-[sub_resource type="GDScript" id="GDScript_qceoa"]
+[sub_resource type="GDScript" id="GDScript_2s1rr"]
 script/source = "extends Resource
-
-@export var dialogue_boxes : Array[Resource] = []
-@export var characters : Array[Resource] = []
 
 var character_dictionary : Dictionary[String, Resource] = {}
 "
 
 [resource]
-script = SubResource("GDScript_qceoa")
-dialogue_boxes = Array[Resource]([ExtResource("3_48s1t")])
-characters = Array[Resource]([ExtResource("1_gpueq"), ExtResource("2_iwic5")])
+script = SubResource("GDScript_2s1rr")

@@ -1,0 +1,2 @@
+The World file contains all the thigns relating to the "stage" or "setting" of the game. 
+This includes the models for the map, collisions and those kinds of things. Basically the background.
