@@ -5,7 +5,8 @@ signal player_present(new_camera_location: Vector3)
 
 
 func _on_body_entered(_body: Node3D) -> void:
-	GlobalCameraScript.move_camera_smooth.emit($RoomCameraLocation.global_position)
+	var camera_location : Node3D = $RoomCameraLocation
+	GlobalCameraScript.move_camera_smooth.emit(camera_location)
 	GlobalCameraScript.camera_on_player.emit(false)
 
 

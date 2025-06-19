@@ -1,16 +1,17 @@
 extends CharacterBody3D
 
-@onready var model: Node3D = $PlayerModel
-@onready var animation_tree: AnimationTree = $AnimationTree
-@onready var previous_position: Vector3 = global_position
+@onready var model : Node3D = $PlayerModel
+@onready var animation_tree : AnimationTree = $AnimationTree
+@onready var previous_position : Vector3 = global_position
+@onready var footstep_sounds : FmodEventEmitter3D = $FootstepSounds
 
-@export var gravity: float = 2.0
-@export var player_speed: float = 2.0
-@export var jump_power: float = 12.0
-@export var horizontal_offset: float = 1.75
+@export var gravity : float = 2.0
+@export var player_speed : float = 2.0
+@export var jump_power : float = 12.0
+@export var horizontal_offset : float = 1.75
 
-var player_velocity: Vector3 = Vector3.ZERO
-var original_camera_position: Vector3 = Vector3.ZERO
+var player_velocity : Vector3 = Vector3.ZERO
+var original_camera_position : Vector3 = Vector3.ZERO
 var player_camera_location : Node3D
 
 var facing: int = 0
@@ -93,7 +94,7 @@ func _physics_process(_delta: float) -> void:
 		previous_position = global_position
 
 
-func handle_animations(delta):
+func handle_animations(delta: float) -> void:
 	# set anim state to IDLE if player not moving
 	if movement_direction == 0:
 		current_animation = AnimationState.IDLE
@@ -114,7 +115,7 @@ func handle_animations(delta):
 	#prev_movement_direction = movement_direction
 
 
-func rotate_model(delta):
+func rotate_model(delta: float) -> void:
 	# rotate model slightly towards camera while idle
 	if current_animation == AnimationState.IDLE:
 		if facing == -1:
@@ -130,7 +131,7 @@ func rotate_model(delta):
 			model.rotation.y = lerp_angle(model.rotation.y, PI/2, blend_speed * delta)
 
 
-func handle_footstep_sounds():
+func handle_footstep_sounds() -> void:
 	# plays footsteps as the node moves based on distance travelled on floor
 
 	# once we have animated 3D models, this could probably be replaced with
@@ -159,7 +160,7 @@ func handle_footstep_sounds():
 			# if total distance since last step exceeds stride length,
 			# play step sound and reset cycle
 			if distance_since_step >= stride_length:
-				$FootstepSounds.play()
+				footstep_sounds.play()
 				distance_since_step = 0
 
 		# if player stopped moving this frame, reset cycle
