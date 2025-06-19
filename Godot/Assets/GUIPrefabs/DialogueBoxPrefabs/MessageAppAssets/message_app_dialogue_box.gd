@@ -26,6 +26,7 @@ func _ready() -> void:
 	DialogueSystem.loaded_new_contact.connect(instantiateContact)
 
 func instantiateContact(contact : Resource):
+	print("Instantiating with contact: ", contact)
 	var new_contact = contact_panel_scene.instantiate()
 	new_contact.message_app = self
 	new_contact.contact = contact

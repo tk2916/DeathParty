@@ -162,3 +162,4 @@ phone = NodePath("../..")
 apps = [NodePath("../../Screen/Background/MessageApp")]
 
 [editable path="Screen/Background/MessageApp"]
+[editable path="Screen/Background/MessageApp/HSplitContainer/ContactsPanel/ScrollContainer/VBoxContainer2/AllContacts/ContactPanel"]

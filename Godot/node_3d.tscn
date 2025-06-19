@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1oueoveq813v"]
+[gd_scene load_steps=7 format=3 uid="uid://bdw28hmsvnwb0"]
 
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="1_a0tk4"]
 [ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/InknutAntiqua-Regular.ttf" id="2_r3fl7"]
@@ -35,3 +35,4 @@ message_box = NodePath("../CanvasLayer/Phone/Screen/Background/MessageApp")
 [editable path="CanvasLayer/BasicGUI"]
 [editable path="CanvasLayer/Phone"]
 [editable path="CanvasLayer/Phone/Screen/Background/MessageApp"]
+[editable path="CanvasLayer/Phone/Screen/Background/MessageApp/HSplitContainer/ContactsPanel/ScrollContainer/VBoxContainer2/AllContacts/ContactPanel"]
