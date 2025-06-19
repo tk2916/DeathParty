@@ -51,8 +51,11 @@ func load_directory(address : String):
 	var file_name = dir.get_next()
 	if dir:
 		while file_name != "":
+			print("Filename : ", address, file_name)
 			if !dir.current_is_dir():
 				var file = load(address + file_name)
+				print("File: ", address, file)
+				if file == null: break
 				if address == char_directory_address:
 					dialogue_data.character_dictionary[file.name] = file
 				elif address == messages_directory_address:
