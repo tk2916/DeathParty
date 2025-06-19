@@ -226,6 +226,10 @@ func display_current_container():
 	if dialogue_box_properties["clear_box_after_each_dialogue"]:
 		#check that it's loaded
 		clear_children(choice_container)
+<<<<<<< Updated upstream
+=======
+	#if content == null:
+>>>>>>> Stashed changes
 	var content = Ink.get_content()
 	print("CONTENT GOT: ", content)
 	if content is int:
@@ -242,7 +246,12 @@ func display_current_container():
 			say(content)
 	elif content.size() == 1 and content[0].has("jump"): #single choice (keep going to get more)
 		are_choices = true
+<<<<<<< Updated upstream
 		set_choices(content)
+=======
+		current_choices = temp_choices_arr
+		set_choices(current_choices)
+>>>>>>> Stashed changes
 		
 	elif content.size() > 1: #multiple choices
 		are_choices = true
@@ -253,6 +262,10 @@ func from_JSON(file : JSON):
 	assert(file != null, "You forgot to assign a JSON file!")
 	Ink.from_JSON(file)
 	display_current_container()
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 #PHONE-RELATED
 func find_contact(chat_name:String):
 	if phone_messages.has(chat_name):
