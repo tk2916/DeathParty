@@ -1,6 +1,7 @@
 extends RichTextLabel
 
 func update_clock(key : String, value):
+<<<<<<< Updated upstream
 	if key == "time":
 		var am_pm : String = " a.m."
 		var hour : int = int(value)
@@ -16,6 +17,10 @@ func update_clock(key : String, value):
 			mins_string = "0"+mins_string
 		
 		text = str(hour) + ":" + mins_string + am_pm
+=======
+	if key != "time": return
+	text = SaveSystem.parse_time(value)
+>>>>>>> Stashed changes
 
 func _ready() -> void:
 	#text = SaveSystem.get_key("time")
