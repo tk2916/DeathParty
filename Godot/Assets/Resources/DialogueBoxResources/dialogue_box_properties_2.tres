@@ -10,6 +10,7 @@ script = ExtResource("3_guo27")
 dialogue_box = ExtResource("2_guo27")
 dialogue_line = ExtResource("2_etktb")
 choice_button = ExtResource("1_c5pd7")
+protagonist_dialogue_line = ExtResource("2_etktb")
 text_size = 15
 name_size = 15
 choice_size = 15

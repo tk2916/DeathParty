@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://br8euj271narl"]
 
-[ext_resource type="Texture2D" uid="uid://djx0yq4hfer6g" path="res://Assets/CharacterAssets/CharacterTextures/kai_jax_waistup.png" id="1_fnffg"]
+[ext_resource type="Texture2D" uid="uid://cpfano2e135hr" path="res://Assets/CharacterAssets/CharacterTextures/kai_jax_waistup.png" id="1_fnffg"]
 [ext_resource type="Script" uid="uid://ceow5wxh8w4ea" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/contact_panel_script.gd" id="2_2kose"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3pgq"]

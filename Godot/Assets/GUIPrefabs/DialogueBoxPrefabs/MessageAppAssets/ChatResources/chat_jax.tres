@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://brenjykl581va"]
 
 [ext_resource type="Script" uid="uid://b3w5yn7owert6" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/Chat.gd" id="1_inhtf"]
-[ext_resource type="Texture2D" uid="uid://djx0yq4hfer6g" path="res://Assets/CharacterAssets/CharacterTextures/kai_jax_waistup.png" id="1_q0in7"]
+[ext_resource type="Texture2D" uid="uid://cpfano2e135hr" path="res://Assets/CharacterAssets/CharacterTextures/kai_jax_waistup.png" id="1_q0in7"]
 
 [resource]
 script = ExtResource("1_inhtf")
