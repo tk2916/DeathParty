@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://yory4i5rrii2"]
+
+[ext_resource type="Script" uid="uid://c5se664fk8jqq" path="res://Common/InventoryUI/Object Viewer/object_viewer.gd" id="1_o3r5r"]
+[ext_resource type="Shader" uid="uid://d1ykg5uvliag8" path="res://Common/InventoryUI/Object Viewer/object_viewer_blur.gdshader" id="2_q47p1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jmsev"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2cfm7"]
+energy_multiplier = 5.0
+
+[sub_resource type="Sky" id="Sky_jmsev"]
+sky_material = SubResource("ProceduralSkyMaterial_2cfm7")
+
+[sub_resource type="Environment" id="Environment_iatgy"]
+background_mode = 2
+sky = SubResource("Sky_jmsev")
+ambient_light_energy = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cfm7"]
+shader = ExtResource("2_q47p1")
+shader_parameter/lod = 4.0
+
+[node name="ObjectViewer" type="Control" node_paths=PackedStringArray("item")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o3r5r")
+item = NodePath("SubViewportContainer/SubViewport/Node3D/MeshInstance3D")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 340.0
+offset_top = 54.0
+offset_right = -300.0
+offset_bottom = -81.965
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Node3D"]
+mesh = SubResource("BoxMesh_jmsev")
+skeleton = NodePath("../../../..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Node3D"]
+environment = SubResource("Environment_iatgy")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114569, 2.12623)
+
+[node name="Blur" type="Panel" parent="SubViewportContainer/SubViewport"]
+material = SubResource("ShaderMaterial_2cfm7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
