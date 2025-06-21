@@ -51,7 +51,7 @@ autoplay = "RESET"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
-root_node = NodePath("../PlayerModel")
+root_node = NodePath("%PlayerModel")
 tree_root = SubResource("AnimationNodeBlendTree_gb1tc")
 anim_player = NodePath("../PlayerModel/AnimationPlayer")
 "parameters/Walk Blend/blend_amount" = 0

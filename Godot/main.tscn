@@ -307,11 +307,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68692, 2.34777, 0.893448)
 shadow_enabled = true
 omni_range = 15.0
 
-[node name="UpperRoom" parent="." node_paths=PackedStringArray("things_to_hide") instance=ExtResource("7_4c57u")]
+[node name="UpperRoom" parent="." instance=ExtResource("7_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3.5, 0)
 collision_layer = 2
 script = ExtResource("13_w48qg")
-things_to_hide = NodePath("ThingsToHide")
 
 [node name="RoomArea" type="CollisionShape3D" parent="UpperRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
