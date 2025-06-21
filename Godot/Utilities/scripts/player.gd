@@ -34,31 +34,31 @@ func _ready() -> void:
 	player_camera_location = $PlayerCameraLocation
 	original_camera_position = player_camera_location.position
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	player_camera_location.position = original_camera_position
 	
 	# Direction of movement in the X axis
 	# Also, adding horizontal camera offset
-	var movement_direction_x: int = 0
+	var movement_direction_x: Vector3 = Vector3.ZERO
 	if Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right"):
 		pass
 	elif Input.is_action_pressed("move_left"):
 		facing = -1
-		movement_direction_x = -1
+		movement_direction_x = -basis.x
 		player_camera_location.position.x -= horizontal_offset
 	elif  Input.is_action_pressed("move_right"):
 		facing = 1
-		movement_direction_x = 1
+		movement_direction_x = basis.x
 		player_camera_location.position.x += horizontal_offset
 	
 	# Z axis movement
-	var movement_direction_z: int = 0
+	var movement_direction_z: Vector3 = Vector3.ZERO
 	if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_down"):
 		pass
 	elif Input.is_action_pressed("move_up"):
-		movement_direction_z = 1
+		movement_direction_z = -basis.z
 	elif Input.is_action_pressed("move_down"):
-		movement_direction_z = -1
+		movement_direction_z = basis.z
 	# Jump
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
@@ -67,21 +67,19 @@ func _physics_process(_delta: float) -> void:
 			# This line only exists to make slopes work after the player jumps
 			player_velocity.y = 0
 	
-	movement_direction = movement_direction_x
-	
 	# Move on x axis
-	player_velocity.x = movement_direction_x * player_speed
-	player_velocity.z = movement_direction_z * player_speed
+	player_velocity = movement_direction_x + movement_direction_z
+	player_velocity = player_velocity.normalized() * player_speed
 	
 	# Fall
 	if not is_on_floor():
 		player_velocity.y -= gravity
 	
-	velocity = player_velocity * global_transform.basis * Basis.FLIP_Z
+	velocity = player_velocity
 
-	handle_animations(_delta)
+	handle_animations(delta)
 
-	rotate_model(_delta)
+	rotate_model(delta)
 
 	handle_footstep_sounds()
 
@@ -93,13 +91,14 @@ func _physics_process(_delta: float) -> void:
 		previous_position = global_position
 
 
+
 func handle_animations(delta):
 	# set anim state to IDLE if player not moving
-	if movement_direction == 0:
+	if player_velocity == Vector3.ZERO:
 		current_animation = AnimationState.IDLE
 
 	# set anim state to WALK if player moving
-	elif movement_direction != 0:
+	elif player_velocity != Vector3.ZERO:
 		current_animation = AnimationState.WALK
 
 	# interpolate blend between IDLE and WALK anim states
@@ -122,13 +121,9 @@ func rotate_model(delta):
 		if facing == 1:
 			model.rotation.y = lerp_angle(model.rotation.y, PI/5, blend_speed * delta)
 
-	# rotate model left and right while walking
+	# rotate while walking
 	if current_animation == AnimationState.WALK:
-		if facing == -1:
-			model.rotation.y = lerp_angle(model.rotation.y, -PI/2, blend_speed * delta)
-		if facing == 1:
-			model.rotation.y = lerp_angle(model.rotation.y, PI/2, blend_speed * delta)
-
+		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
 
 func handle_footstep_sounds():
 	# plays footsteps as the node moves based on distance travelled on floor

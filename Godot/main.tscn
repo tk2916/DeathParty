@@ -1,5 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://beuct1pjdlayy"]
-
+[gd_scene load_steps=55 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -377,23 +376,18 @@ shape = SubResource("ConcavePolygonShape3D_ycdy4")
 [node name="Audio" type="Node" parent="."]
 
 [node name="Music" type="FmodEventEmitter3D" parent="Audio"]
-
 event_name = "event:/music"
-
 event_guid = "{736a96ee-aebb-4593-a094-6f5e9ab9f738}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
 
 [node name="CrowdSounds" type="FmodEventEmitter3D" parent="Audio"]
-
 event_name = "event:/crowd"
-
 event_guid = "{9e4d86e6-afa7-406e-ba12-08656547d254}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
 
 [node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="Audio"]
-
 event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
 autoplay = true
