@@ -33,11 +33,11 @@ func save_settings():
 
 func set_volume(value : float):
 	var bus : FmodBus = FmodServer.get_bus("bus:/")
-	
+
 	# i think the volume for the bus goes from 0 to 1, so im dividing the
 	# slider percentage by 100 - it might not actually work like that though lol
 	bus.set_volume(value / 100)
-	
+
 	# this doesnt do anything on the initial set_volume in _ready() (i think)
 	# but when you call this func by changing volume in the settings menu this
 	# writes it to the cfg and saves it - if this is weird we can break it into
