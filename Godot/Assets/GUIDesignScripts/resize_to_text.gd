@@ -2,16 +2,7 @@ extends Control
 
 @export var label : RichTextLabel
 
-func _ready() -> void:
-	ResizableControl.new(self, label)
+@onready var resize_control = ResizableControl.new(self, label)
 
-#func _process(delta):
-	#var content_height : int = label.get_content_height()
-	#var content_width : int = label.get_content_width()
-	#var line_count : int = label.get_line_count()
-	#
-	#self.custom_minimum_size.y = content_height
-	#self.custom_minimum_size.x = content_width
-	#if line_count > 1:
-		#print("Adjusting width: ", content_width)
-		
+func _process(delta: float) -> void:
+	resize_control.resize()

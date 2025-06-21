@@ -8,6 +8,8 @@ var in_dialogue : bool = false #other scripts check this
 const FILE_PATH : String = "res://Singletons/CustomDialogueSystem/dialogue_data.tres"
 var dialogue_data : Resource
 
+var mouse_contained_within_gui : bool = true
+
 #DIALOGUE BOX PROPERTIES
 var dialogue_container : VBoxContainer
 var choice_container : VBoxContainer
@@ -38,6 +40,9 @@ var char_directory_address : String = "res://Assets/Resources/CharacterResources
 var messages_directory_address : String = "res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/ChatResources/"
 var phone_messages : Dictionary[String, Resource]
 
+#PHONE CONVERSATIONS CAN BE PAUSED AND RETURNED TO
+var current_phone_resource : Resource = null
+
 signal loaded_new_contact
 
 func _init() -> void: #loading files
@@ -49,8 +54,6 @@ func emit_contacts():
 	for key in phone_messages:
 		print("Emitted: ", phone_messages[key])
 		loaded_new_contact.emit(phone_messages[key])
-	
-var new_content
 
 func load_directory(address : String):
 	var dir : DirAccess = DirAccess.open(address)
@@ -77,7 +80,13 @@ func load_properties():
 	load_directory(messages_directory_address)
 
 #in case we want to switch dialogue box mid conversation
+func mouse_entered():
+	mouse_contained_within_gui = true
+func mouse_exited():
+	mouse_contained_within_gui = false
+
 func transferBoxProperties():
+	mouse_contained_within_gui = true
 	dialogue_container = current_dialogue_box.dialogue_container
 	choice_container = current_dialogue_box.choice_container
 	image_container = current_dialogue_box.image_container
@@ -86,14 +95,18 @@ func transferBoxProperties():
 		dialogue_box_properties["include_speaker_in_text"] = false
 	
 func transferDialogueBox(new_box : Control):
+	if current_dialogue_box && current_dialogue_box == text_message_box: #disconnect signals
+		text_message_box.back_button.mouse_entered.disconnect(mouse_exited) 
+		text_message_box.back_button.mouse_exited.disconnect(mouse_entered)
 	current_dialogue_box = new_box
 	dialogue_box_properties = new_box.resource_file
 	#Transfer all properties over
 	transferBoxProperties()
 
 func setDialogueBox(new_resource : Resource):
-	if current_dialogue_box:
-		current_dialogue_box.queue_free()
+	#if current_dialogue_box:
+		#print("Freeing current dialoguebox: ", current_dialogue_box)
+		#current_dialogue_box.queue_free()
 	var diag_box_inst = new_resource.dialogue_box.instantiate()
 	current_dialogue_box = diag_box_inst
 	dialogue_box_properties = new_resource
@@ -202,11 +215,12 @@ func advance_dialogue():
 		
 #CLICK TO ADVANCE DIALOGUE
 func _input(event):
-	if current_dialogue_box:
-		if current_dialogue_box.visible == true:
+	if current_dialogue_box && in_dialogue == true:
 			if event is InputEventMouseButton:
 				if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and are_choices == false:
-					advance_dialogue()
+					#if Rect2(Vector2(0,0), size).has_point(event.position):
+					if mouse_contained_within_gui:
+						advance_dialogue()
 
 func change_container(redirect:String, choice_text:String):
 	are_choices = false
@@ -239,7 +253,11 @@ func display_current_container():
 	print("CONTENT GOT: ", content)
 	if content is int:
 		if content == 405: #end of story
-			current_dialogue_box.visible = false
+			if current_dialogue_box == text_message_box: #if focused dialogue box is message app
+				current_phone_resource.end_chat()
+			else:
+				current_dialogue_box.visible = false
+				current_dialogue_box.queue_free()
 			in_dialogue = false
 			return
 	are_choices = false
@@ -258,9 +276,10 @@ func display_current_container():
 		current_choices = content
 		set_choices(current_choices)
 
-func from_JSON(file : JSON):
+func from_JSON(file : JSON, resume_from_hierarchy : Array = []): #non-phone dialoguebox
+	#current_phone_resource = null
 	assert(file != null, "You forgot to assign a JSON file!")
-	Ink.from_JSON(file)
+	Ink.from_JSON(file, resume_from_hierarchy)
 	display_current_container()
 	
 #PHONE-RELATED
@@ -268,15 +287,25 @@ func find_contact(chat_name:String):
 	if phone_messages.has(chat_name):
 		return phone_messages[chat_name]
 
-func to_phone(file : JSON, chat_name : String):
-	print("To phone")
+func to_phone(file : JSON, chat_name : String): # called to load json into phone
 	var chat = find_contact(chat_name)
-	chat.load_chat(file)
+	current_phone_resource = chat
+	current_phone_resource.load_chat(file)
 
-func start_text_convo(chat_name : String):
+func start_text_convo(chat_name : String): # called when player opens chat
+	# opens the first loaded conversation or resumes the current one
 	transferDialogueBox(text_message_box)
-	var chat = find_contact(chat_name)
-	chat.start_chat()
+	mouse_contained_within_gui = true
+	text_message_box.back_button.mouse_entered.connect(mouse_exited) 
+	text_message_box.back_button.mouse_exited.connect(mouse_entered)
+	#var chat = find_contact(chat_name)
+	current_phone_resource.start_chat() # either starts new one of resumes old one
+
+func pause_text_convo():
+	current_phone_resource.pause_chat() # stores Inky hierarchy
+	in_dialogue = false
+	dialogue_container.mouse_entered.disconnect(mouse_entered) 
+	dialogue_container.mouse_exited.disconnect(mouse_exited)
 
 #reset dialogue array
 func _on_visibility_changed(visible_state):

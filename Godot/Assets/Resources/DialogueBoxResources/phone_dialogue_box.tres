@@ -2,16 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://bbdcge3tqhcpw" path="res://Assets/GUIPrefabs/ChoicePrefabs/choice_button_text_message.tscn" id="1_vxqh5"]
 [ext_resource type="PackedScene" uid="uid://ibs6xbf36j7" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/message_app.tscn" id="2_i082f"]
-[ext_resource type="PackedScene" uid="uid://b1vqeofabh56y" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/diag_line.tscn" id="2_qyn4s"]
 [ext_resource type="PackedScene" uid="uid://jwdi6yghs0j5" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_text_message.tscn" id="3_8nqjv"]
 [ext_resource type="Script" uid="uid://ckddp2g3xeuu0" path="res://Assets/Resources/DialogueBoxResources/Default Resource (DO NOT EDIT)/dialogue_properties_script.gd" id="3_gd076"]
+[ext_resource type="PackedScene" uid="uid://g8mue586ud5x" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_text_message_protag.tscn" id="4_i082f"]
 
 [resource]
 script = ExtResource("3_gd076")
 dialogue_box = ExtResource("2_i082f")
 dialogue_line = ExtResource("3_8nqjv")
 choice_button = ExtResource("1_vxqh5")
-protagonist_dialogue_line = ExtResource("2_qyn4s")
+protagonist_dialogue_line = ExtResource("4_i082f")
 text_size = 15
 name_size = 15
 choice_size = 15

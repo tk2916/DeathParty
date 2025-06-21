@@ -55,11 +55,11 @@ func skip():
 func initialize():
 	text_prefix = "[color="+text_color+"]"
 	if Name:
-		Name.text = name_contents
 		Name.bbcode_enabled = true
 		#if text_properties["name_in_separate_container"] == true:
 		Name.add_theme_font_size_override("normal_font_size", text_properties["name_size"])
-		name_contents = "[color="+name_color+"]"+line_speaker+":[/color]";
+		name_contents = "[color="+name_color+"]"+line_speaker+"[/color]";
+		Name.text = name_contents
 			#text_prefix = "[color="+text_color+"]"
 	elif text_properties["include_speaker_in_text"]:
 		Name.size_flags_stretch_ratio = 0

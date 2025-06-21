@@ -24,9 +24,9 @@ var containerDict : Dictionary = {}
 
 var tempVariableDict : Dictionary = {}
 
-var condition_flag : bool = false #used for checks
-
 var hierarchy:Array = []
+var resumed_hierarchy:Array = []
+
 var backup_hierarchy:Array = []
 var redirect_hierarchy:Array = []
 var player_choices:Array = []
@@ -89,13 +89,13 @@ func decrement_current_index():
 func set_current_container(arr:Array, index:int):
 	current_container_arr = arr
 	current_container_i = index
-	print("New container name: ", current_container_name())
+	#print("New container name: ", current_container_name())
 func current_container_name():
 	return hierarchy[current_container_i]
 func current_container_size():
 	return current_container_arr.size()
 func current_container_inner_index():
-	print("Current container name: ", current_container_name())
+	#print("Current container name: ", current_container_name())
 	if current_container_name() is String:
 		if current_container_name() == "root":
 			return hierarchy[current_container_i+2]
@@ -119,19 +119,19 @@ func get_scope(final_index : int):
 				# FOUND REDIRECT TABLE
 				redirect_table = final_element
 				redirect_table_address = current_scope.size()-1
-				print("Set redirect table: ", redirect_table_address)
+				#print("Set redirect table: ", redirect_table_address)
 				
 				if redirect_table.has("c-0"): #real redirect table
 					#print("Redirect table has c-0: ", redirect_table)
 					set_current_container(current_scope, n)
 			elif second_to_last is String and second_to_last == "end": #second to last element is end
-				print("Hierarchy for end: ", hierarchy)
-				print("Scope for end: ", current_scope)
+				#print("Hierarchy for end: ", hierarchy)
+				#print("Scope for end: ", current_scope)
 				set_current_container(current_scope, n)
 			#END REDIRECT TABLE
 	#default in case no valid container is found
 	if current_container_i > hierarchy.size()-1:
-		print("DEFAULT USED: ", hierarchy, " | ", hierarchy.size()-2, " | ", current_container_i)
+		#print("DEFAULT USED: ", hierarchy, " | ", hierarchy.size()-2, " | ", current_container_i)
 		set_current_container(current_scope, hierarchy.size()-2)
 	#print("Last scope: ", current_scope)
 	return current_scope
@@ -153,6 +153,7 @@ func set_current_array():#redirect_item : bool):
 			push_hierarchy("0")
 			current_array = redirect_table[redirect_value]
 		else:
+			print("Setting array and incrementing index: ", resumed_hierarchy.size())
 			hierarchy = backup_hierarchy.pop_back()
 			increment_current_index()
 		return
@@ -183,15 +184,18 @@ func exit_array():
 	set_current_array()
 
 func jump_to_container(path:String): # for ->
-	print("jumping to ", path)
+	print("jumping to ", path, " from ", hierarchy)
+	print("Current container index: ", current_container_i)
 	push_backup_hierarchy()
 	var path_array = Array(path.split('.'))
 	var directly_to_container : bool = false #if it's a redirect item, it has to be sent to the LOCAL redirect table (not necessarily the current one)
-	if path[0] == '.': #dddive path
+	if path[0] == '.': #relative path
 		for n in range(1, path_array.size()): # exclude last element, skip first element (empty space)
 			var item = path_array[n]
-			if item == "^": #go up a parent in hierarchy
+			if item == "^": #go up a parent in hierarchy (nearest ARRAY, not dict)
 				pop_hierarchy()
+				if (current_index() is String) and (current_index() == "b"): #nested inside a dictionary that you need to additionally pop
+					pop_hierarchy()
 			else:
 				push_hierarchy(item)
 	else: #absolute path
@@ -205,7 +209,6 @@ func jump_to_container(path:String): # for ->
 				push_hierarchy(item)
 			push_hierarchy(path_array.back())
 		else:
-			##print("Down here: ", path_array)
 			hierarchy = ["root", 2] # set hierarchy to the 2nd element of root (where all the containers are stored)
 			for item in path_array:
 				push_hierarchy(item)
@@ -270,9 +273,7 @@ func operate(op, arg1, arg2):
 			result = max(arg1,arg2)
 		_:
 			result = "No operation: " + op
-	if result is bool:
-		condition_flag = result
-		###print("result: ", condition_flag)
+			
 	push(result)
 	return result
 
@@ -315,15 +316,18 @@ func break_up_dialogue(dialogue:String):
 
 func redirect(next):
 	var redirect_location = next["->"]
+	var condition_flag = pop() #condition_flag is pushed to the stack immediately preceding the check
 	if next.has("c") and condition_flag != next["c"]: #checks condition if redirect calls for one
-		#condition_flag is set by evaluation mode immediately preceding the check
-		print("Condition failed: ", SaveSystem.get_key("catchup_Nora"))
+		#print("Condition failed: ", redirect_location, SaveSystem.get_key("argue_SAM"), SaveSystem.get_key("catchup_Nora"))
+		#print("Condition failed2: ", condition_flag, next["c"])
 		return
 	else:
+		if next.has("c"):
+			print("Condition succeeded: ", redirect_location)
 		if redirect_location[0] != "$":
 			print("Pushing redirect hierarchy and jumping to ", redirect_location)
 			push_redirect_hierarchy()
-			print("Redirect hierarchy now: ", redirect_hierarchy)
+			#print("Redirect hierarchy now: ", redirect_hierarchy)
 			jump_to_container(redirect_location)
 
 func match_cmd(next):
@@ -384,7 +388,7 @@ func next_line():
 		print("Array index surpassed")
 		return 404
 	var next = current_array[current_index()]
-	print("Next: ", hierarchy, " ", next)
+	print("Next: ", hierarchy)
 	
 	var cmd_result : int = match_cmd(next)
 	if cmd_result == 1: #command has been executed, break
@@ -471,10 +475,13 @@ func get_content():
 	var og_container = current_container_name()
 	var og_hierarchy_size = hierarchy.size()
 	var result = next_line()
-	print("Current container index: ", current_container_i)
+	#print("Current container index: ", current_container_i)
 	if result != 404 and typeof(current_container_name()) == typeof(og_container) and (current_container_name() == og_container) and (hierarchy.size() == og_hierarchy_size):
 		#ONLY increment if you are in the same location as before
-		increment_current_index() #next line
+		if resumed_hierarchy.size() > 0 && !(current_container_name() is String and current_container_name() == "global decl"):
+			resumed_hierarchy = [] #don't increment if you just arrived here from unpausing dialogue
+		else:
+			increment_current_index() #next line
 	#elif result == 404:
 		#decrement_current_index()
 	'''
@@ -485,9 +492,9 @@ func get_content():
 		print("404 warnihg!")
 		if current_container_name() is String:
 			if current_container_name() == "global decl": #it just finished assigning variables, time to send it to main dialogue
-				###print("Jumping back")
-				jump_to_container("0.0")
-				#print("404!!")
+				#jump_to_container("0.0")
+				#hierarchy = []
+				initialize_hierarchy()
 				return get_content()
 		'''
 		if the third to last hierarchy element is a number, that means we are in a nested array and 
@@ -498,26 +505,26 @@ func get_content():
 
 		'''
 		print("Result: ", result, " Hierarchy: ", hierarchy)
-		print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
-		print("Current index: ", current_index(), " | size: ", current_array.size(), " | redirect hierarchy: ", redirect_hierarchy.size())
+		#print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
+		#print("Current index: ", current_index(), " | size: ", current_array.size(), " | redirect hierarchy: ", redirect_hierarchy.size())
 		#if current_index() > current_array.size()-1 and redirect_hierarchy.size() == 0:#current_container_inner_index() > current_container_size()-1:
 		if current_container_inner_index() > current_container_size()-1:
 		#if current_index() > current_array.size()-1:
 			#if we have reached the end of the array
-			print("Passed all conditions")
+			#print("Passed all conditions")
 			if player_choices.size() > 0:
 				var return_choices = player_choices
 				#output_stream = []
 				player_choices = []
-				print("Returning choices")
+				#print("Returning choices")
 				return return_choices
 		if result == 405:
-			print("Ending: ", player_choices)
+			#print("Ending: ", player_choices)
 			return result
 		else:
 			var exit_array_return = exit_array()
 			if exit_array_return != null:
-				print("Exit array return not null")
+				#print("Exit array return not null")
 				return exit_array_return
 	elif result == 200: #returned a string
 		if output_stream.size() > 0:
@@ -527,17 +534,27 @@ func get_content():
 	
 	return get_content()
 
-func reset_defaults():
-	hierarchy = []
+func reset_defaults(resume_from_hierarchy):
+	hierarchy = [] #default empty array
+	resumed_hierarchy = resume_from_hierarchy
 	backup_hierarchy = []
 	redirect_hierarchy = []
 	player_choices = []
 	evaluation_stack = []
 	all_evaluation_stacks = []
 
-func from_JSON(file : JSON):
+func initialize_hierarchy():
+	if resumed_hierarchy.size() > 0:
+		print("RESUMING FROM OLD INK: ", hierarchy)
+		hierarchy = resumed_hierarchy
+		set_current_array()
+	else:
+		jump_to_container("0.0")
+	
+
+func from_JSON(file : JSON, resume_from_hierarchy : Array = []):
 	#reset variables
-	reset_defaults()
+	reset_defaults(resume_from_hierarchy)
 	var filepath = file.resource_path
 	var json_as_text : String = FileAccess.get_file_as_string(filepath)
 	var json_as_dict : Dictionary = JSON.parse_string(json_as_text)
@@ -546,8 +563,8 @@ func from_JSON(file : JSON):
 		for container in json_file:
 			containerDict[container] = {"visits":0, "last_turn_visited":0}
 		if json_as_dict["root"][2].has("global decl"):
-			print("jumping for global decl")
 			jump_to_container("global decl")
 		else:
-			jump_to_container("0.0")
+			initialize_hierarchy()
+			#jump_to_container("0.0")
 	

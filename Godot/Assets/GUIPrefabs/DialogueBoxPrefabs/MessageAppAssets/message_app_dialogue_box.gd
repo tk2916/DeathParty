@@ -51,4 +51,9 @@ func onContactPress(contact : Resource):
 	tweenForward()
 	
 func onBackPressed():
-	tweenBackward()
+	if !DialogueSystem.are_choices: #only allows you to leave if you aren't at a choice point
+		DialogueSystem.pause_text_convo()
+		tweenBackward()
+		for n in dialogue_container.get_children(): #clear messages
+			dialogue_container.remove_child(n)
+			n.queue_free()
