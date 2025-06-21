@@ -1,5 +1,6 @@
 extends "res://Utilities/scripts/define_camera_bounds.gd"
 
+@export var things_to_hide : Node3D
 
 func _on_body_entered(body: Node3D) -> void:
 	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
@@ -9,8 +10,8 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func _on_door_enter_door() -> void:
-	$ThingsToHide.visible = false
+	things_to_hide.visible = false
 
 
 func _on_door_return_through_door() -> void:
-	$ThingsToHide.visible = true
+	things_to_hide.visible = true
