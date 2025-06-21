@@ -21,7 +21,7 @@ var prev_movement_direction: int = 0
 
 # animation enum and vars
 enum AnimationState {IDLE, WALK, TURN} # TURN currently unused
-var blend_speed : float = 5
+var blend_speed : float = 8
 var walk_blend : float = 0
 var current_animation : AnimationState = AnimationState.IDLE
 
