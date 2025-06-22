@@ -16,6 +16,8 @@ const duration : float = .5
 
 var contact_panel_scene : PackedScene = load("res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/contact_panel.tscn")
 
+var contact_pressed = false
+
 func _ready() -> void:
 	left_anchor_before = anchor_left
 	right_anchor_before = anchor_right
@@ -27,7 +29,7 @@ func _ready() -> void:
 	DialogueSystem.emit_contacts()
 
 func instantiateContact(contact : Resource):
-	print("Instantiating with contact: ", contact)
+	print("Instantiating with contact: ", contact.name)
 	var new_contact = contact_panel_scene.instantiate()
 	new_contact.message_app = self
 	new_contact.contact = contact
@@ -46,9 +48,13 @@ func tweenBackward():
 	return tween
 
 func onContactPress(contact : Resource):
+	print("Contact pressed! :", contact.name)
+	if contact_pressed: return # prevent multiple presses
+	contact_pressed = true
 	contact_name_label.text = "[color=black]"+contact.name+"[/color]"
 	DialogueSystem.start_text_convo(contact.name)
 	tweenForward()
+	contact_pressed = false
 	
 func onBackPressed():
 	if !DialogueSystem.are_choices: #only allows you to leave if you aren't at a choice point

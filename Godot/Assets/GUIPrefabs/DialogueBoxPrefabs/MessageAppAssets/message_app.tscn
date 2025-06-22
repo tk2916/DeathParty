@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ibs6xbf36j7"]
+[gd_scene load_steps=6 format=3 uid="uid://ibs6xbf36j7"]
 
 [ext_resource type="Script" uid="uid://hxb8rnfqqsl" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/message_app_dialogue_box.gd" id="1_pesbb"]
 [ext_resource type="Script" uid="uid://bffdpcyyowj58" path="res://Assets/GUIDesignScripts/scroll_container.gd" id="4_q2qpm"]
@@ -12,6 +12,8 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8bu3"]
 
 [node name="MessageApp" type="MarginContainer" node_paths=PackedStringArray("contact_name_label", "back_button", "all_contacts", "dialogue_container", "choice_container")]
 anchors_preset = -1
@@ -116,6 +118,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r8bu3")
 flat = true
 
 [node name="ContactName" type="RichTextLabel" parent="HBoxContainer/MessagePanel"]

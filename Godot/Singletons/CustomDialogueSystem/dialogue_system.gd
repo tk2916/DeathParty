@@ -39,9 +39,11 @@ var current_choice_labels : Array[Node]
 var char_directory_address : String = "res://Assets/Resources/CharacterResources/"
 var messages_directory_address : String = "res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/ChatResources/"
 var phone_messages : Dictionary[String, Resource]
+var blank_ink_interpret_resource : Resource = load("res://Singletons/InkInterpreter/ink_interpret_resource_blank.tres").duplicate(true)
 
 #PHONE CONVERSATIONS CAN BE PAUSED AND RETURNED TO
 var current_phone_resource : Resource = null
+var current_conversation : Array[Dictionary]
 
 signal loaded_new_contact
 
@@ -50,28 +52,14 @@ func _init() -> void: #loading files
 	load_properties()
 
 func emit_contacts():
-	print("Emitting contacts")
 	for key in phone_messages:
-		print("Emitted: ", phone_messages[key])
 		loaded_new_contact.emit(phone_messages[key])
 
 func load_directory(address : String):
-	var dir : DirAccess = DirAccess.open(address)
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	if dir:
-		while file_name != "":
-			if !dir.current_is_dir():
-				var file = load(address + file_name)
-				if file == null: break
-				if address == char_directory_address:
-					dialogue_data.character_dictionary[file.name] = file
-				elif address == messages_directory_address:
-					phone_messages[file.name] = file
-					
-			file_name = dir.get_next()
-	else:
-		print("An error occurred when trying to access the directory " + address)
+	if address == char_directory_address:
+		SaveSystem.load_directory_into_dictionary(address, dialogue_data.character_dictionary)
+	elif address == messages_directory_address:
+		SaveSystem.load_directory_into_dictionary(address, phone_messages)
 
 func load_properties():
 	#loading character & dialogue box directories
@@ -104,9 +92,6 @@ func transferDialogueBox(new_box : Control):
 	transferBoxProperties()
 
 func setDialogueBox(new_resource : Resource):
-	#if current_dialogue_box:
-		#print("Freeing current dialoguebox: ", current_dialogue_box)
-		#current_dialogue_box.queue_free()
 	var diag_box_inst = new_resource.dialogue_box.instantiate()
 	current_dialogue_box = diag_box_inst
 	dialogue_box_properties = new_resource
@@ -120,7 +105,7 @@ func clear_children(container):
 		container.remove_child(n)
 		n.queue_free() 
 
-func add_new_line(speaker : String, line_text :String):
+func add_new_line(speaker : String, line_text : String, no_animation : bool = false):
 	var newline : Control
 	if speaker == "Olivia":
 		newline = dialogue_box_properties.protagonist_dialogue_line.instantiate()
@@ -130,6 +115,8 @@ func add_new_line(speaker : String, line_text :String):
 	newline.line_speaker = speaker
 	newline.text_color = dialogue_box_properties["default_text_color"]
 	newline.name_color = dialogue_box_properties["default_name_color"]
+	
+	newline.no_animation = no_animation
 	
 	if dialogue_box_properties.text_font:
 		newline.special_font = dialogue_box_properties.text_font
@@ -167,6 +154,7 @@ func display_current_dialogue():
 	if all_dialogues[current_dialogue_index].has("speaker"):
 		speaker = all_dialogues[current_dialogue_index]["speaker"]
 	var line_text = all_dialogues[current_dialogue_index]["text"]
+	current_conversation.push_back({"speaker": speaker, "text": line_text})
 	add_new_line(speaker, line_text)
 
 func check_for_choices():
@@ -254,11 +242,12 @@ func display_current_container():
 	if content is int:
 		if content == 405: #end of story
 			if current_dialogue_box == text_message_box: #if focused dialogue box is message app
-				current_phone_resource.end_chat()
+				current_phone_resource.end_chat(current_conversation)
 			else:
 				current_dialogue_box.visible = false
 				current_dialogue_box.queue_free()
 			in_dialogue = false
+			current_conversation = []
 			return
 	are_choices = false
 	if content.size() == 1 and !content[0].has("jump"): #dialogue line
@@ -276,10 +265,14 @@ func display_current_container():
 		current_choices = content
 		set_choices(current_choices)
 
-func from_JSON(file : JSON, resume_from_hierarchy : Array = []): #non-phone dialoguebox
-	#current_phone_resource = null
+func get_first_message(json : JSON):
+	return Ink.get_first_message(json)
+
+
+func from_JSON(file : JSON, saved_ink_resource : Resource = blank_ink_interpret_resource):#resume_from_hierarchy : Array = []): #non-phone dialoguebox
 	assert(file != null, "You forgot to assign a JSON file!")
-	Ink.from_JSON(file, resume_from_hierarchy)
+	print("Starting chat json: ", saved_ink_resource.output_stream)
+	Ink.from_JSON(file, saved_ink_resource)
 	display_current_container()
 	
 #PHONE-RELATED
@@ -298,14 +291,22 @@ func start_text_convo(chat_name : String): # called when player opens chat
 	mouse_contained_within_gui = true
 	text_message_box.back_button.mouse_entered.connect(mouse_exited) 
 	text_message_box.back_button.mouse_exited.connect(mouse_entered)
-	#var chat = find_contact(chat_name)
+	var chat = find_contact(chat_name)
+	current_phone_resource = chat
 	current_phone_resource.start_chat() # either starts new one of resumes old one
 
 func pause_text_convo():
-	current_phone_resource.pause_chat() # stores Inky hierarchy
+	current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy
 	in_dialogue = false
 	dialogue_container.mouse_entered.disconnect(mouse_entered) 
 	dialogue_container.mouse_exited.disconnect(mouse_exited)
+	
+func load_past_messages(past_chats : Array[Dictionary]):
+	#print("Loading past messages: ", past_chats)
+	current_conversation = past_chats
+	for n in range(current_conversation.size()):
+		var chat = current_conversation[n]
+		add_new_line(chat.speaker, chat.text, true)
 
 #reset dialogue array
 func _on_visibility_changed(visible_state):

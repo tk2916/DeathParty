@@ -23,6 +23,8 @@ var text_index : int = 0
 var done_state = false
 var timer : Timer
 
+var no_animation : bool = false
+
 signal done
 
 ''' OLD TWEEN CODE
@@ -76,17 +78,20 @@ func initialize():
 		Text.add_theme_constant_override("line_separation", text_properties["line_separation"])
 			
 	#SET/ANIMATE TEXT
-	if text_properties["text_animation"] == "typewriter":
-		Text.text = ""
-		#timer that will execute typewriter animation
-		timer = Timer.new()
-		timer.wait_time = char_delay
-		timer.autostart = true
-		timer.timeout.connect(typewriter)
-		add_child(timer)
-	elif text_properties["text_animation"] == "sliding":
-		Text.text = text_prefix+line_text+text_suffix
-		#TO BE ADDED: animate mask over each line that tweens to 0 width
+	if !no_animation:
+		if text_properties["text_animation"] == "typewriter":
+			Text.text = ""
+			#timer that will execute typewriter animation
+			timer = Timer.new()
+			timer.wait_time = char_delay
+			timer.autostart = true
+			timer.timeout.connect(typewriter)
+			add_child(timer)
+		elif text_properties["text_animation"] == "sliding":
+			Text.text = text_prefix+line_text+text_suffix
+			#TO BE ADDED: animate mask over each line that tweens to 0 width
+		else:
+			skip()
 	else:
 		skip()
 
