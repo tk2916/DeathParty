@@ -1,18 +1,21 @@
-[gd_scene load_steps=53 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=71 format=4 uid="uid://beuct1pjdlayy"]
+
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/InventoryUI/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
-[ext_resource type="Script" uid="uid://bs0rj4iwntxge" path="res://Singletons/Interact/click_to_talk.gd" id="4_ryguw"]
+[ext_resource type="Script" uid="uid://bs0rj4iwntxge" path="res://Singletons/Interact/npc_script.gd" id="4_ryguw"]
 [ext_resource type="Resource" uid="uid://fl5cg4jaw48p" path="res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres" id="5_0odxb"]
 [ext_resource type="Material" uid="uid://dohto33r7xal3" path="res://Assets/Materials/color1.tres" id="5_d13ii"]
 [ext_resource type="Script" uid="uid://b5yrwvs426aci" path="res://World/WorldScripts/outside.gd" id="5_ycdy4"]
 [ext_resource type="Script" uid="uid://bc2ilamjayd16" path="res://World/WorldScripts/room.gd" id="6_4c57u"]
 [ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="6_272bh"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="6_lswn8"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/example.ink6.json" id="6_lswn8"]
 [ext_resource type="PackedScene" uid="uid://dr2o8ey3n88sr" path="res://World/room.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://b775wvigqexbq" path="res://World/stairs_left.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bc888yk804ya" path="res://World/door.tscn" id="7_kek77"]
+[ext_resource type="Resource" uid="uid://clfvsvp2igosb" path="res://Assets/Resources/CharacterResources/character_properties_caleb.tres" id="7_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://cfn5yvo0kg0up" path="res://World/floor.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://oji083qkjua5" path="res://World/wall.tscn" id="9_dg77c"]
 [ext_resource type="Script" uid="uid://bq22deee5mwhr" path="res://World/WorldScripts/back_room.gd" id="11_efxa6"]
@@ -21,9 +24,22 @@
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
 [ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/InknutAntiqua-Regular.ttf" id="19_ryguw"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
-[ext_resource type="Resource" uid="uid://dfsf66usc4sbb" path="res://Assets/Resources/DialogueBoxResources/phone_dialogue_box.tres" id="21_1u8w0"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
+[ext_resource type="Script" uid="uid://s411vv6436kp" path="res://character_info_button.gd" id="23_4k2k6"]
+[ext_resource type="Resource" uid="uid://dpimopfo1hkq5" path="res://Assets/Resources/CharacterResources/character_properties_kyle.tres" id="24_0rl1p"]
+[ext_resource type="Script" uid="uid://bqrg06p5aek3u" path="res://character_profile.gd" id="24_htxhm"]
+[ext_resource type="PackedScene" uid="uid://c1sy3m64ne2ae" path="res://Assets/GUIPrefabs/TaskPrefabs/task_display.tscn" id="24_kq58d"]
+[ext_resource type="Texture2D" uid="uid://s742yxoo5vvv" path="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png" id="24_seu75"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
+[ext_resource type="PackedScene" uid="uid://bjm0d63pqk4j2" path="res://Assets/GUIPrefabs/CharProfilePrefabs/char_note.tscn" id="25_jq2sk"]
+[ext_resource type="Resource" uid="uid://dy2offscqhpxg" path="res://Assets/Resources/CharacterResources/character_properties_sam.tres" id="25_ok6jj"]
+[ext_resource type="Texture2D" uid="uid://d2gcrhcr20py4" path="res://Assets/PNGAssets/scissors.png" id="25_seu75"]
+[ext_resource type="Resource" uid="uid://dfsf66usc4sbb" path="res://Assets/Resources/DialogueBoxResources/phone_dialogue_box.tres" id="25_xuqvo"]
+[ext_resource type="Resource" uid="uid://f3wwrax8f4lf" path="res://Assets/Resources/CharacterResources/character_properties_jack.tres" id="26_facbu"]
+[ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
+[ext_resource type="Script" uid="uid://pwimu8stushh" path="res://journal_info_panel.gd" id="27_b1qrp"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1bvp3"]
 
@@ -118,7 +134,19 @@ size = Vector3(17, 0.5, 3)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ycdy4"]
 data = PackedVector3Array(-8.5, 0.25, 1.5, 8.5, 0.25, 1.5, -8.5, -0.25, 1.5, 8.5, 0.25, 1.5, 8.5, -0.25, 1.5, -8.5, -0.25, 1.5, 8.5, 0.25, -1.5, -8.5, 0.25, -1.5, 8.5, -0.25, -1.5, -8.5, 0.25, -1.5, -8.5, -0.25, -1.5, 8.5, -0.25, -1.5, 8.5, 0.25, 1.5, 8.5, 0.25, -1.5, 8.5, -0.25, 1.5, 8.5, 0.25, -1.5, 8.5, -0.25, -1.5, 8.5, -0.25, 1.5, -8.5, 0.25, -1.5, -8.5, 0.25, 1.5, -8.5, -0.25, -1.5, -8.5, 0.25, 1.5, -8.5, -0.25, 1.5, -8.5, -0.25, -1.5, 8.5, 0.25, 1.5, -8.5, 0.25, 1.5, 8.5, 0.25, -1.5, -8.5, 0.25, 1.5, -8.5, 0.25, -1.5, 8.5, 0.25, -1.5, -8.5, -0.25, 1.5, 8.5, -0.25, 1.5, -8.5, -0.25, -1.5, 8.5, -0.25, 1.5, 8.5, -0.25, -1.5, -8.5, -0.25, -1.5)
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("main_camera", "camera_location_node")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsp4k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsp4k"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seu75"]
+bg_color = Color(0.412532, 0.368595, 0.290578, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htxhm"]
+bg_color = Color(0.912289, 0.912289, 0.912289, 1)
+
+[node name="Main" type="Node3D"]
+
 script = ExtResource("1_1bvp3")
 main_camera = NodePath("MainCamera")
 camera_location_node = NodePath("Player/PlayerCameraLocation")
@@ -142,6 +170,7 @@ collision_mask = 0
 script = ExtResource("4_ryguw")
 dialogue_box = ExtResource("5_0odxb")
 json_file = ExtResource("6_lswn8")
+character_resource = ExtResource("7_xuqvo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPC"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -399,6 +428,9 @@ event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -2)
 
+[node name="ObjectViewer" parent="." instance=ExtResource("2_a6jrf")]
+visible = false
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BasicGUI" parent="CanvasLayer" instance=ExtResource("18_getpj")]
@@ -407,18 +439,417 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -2)
 script = ExtResource("22_lswn8")
 show_element = NodePath("../../../../TestInventory")
 
+[node name="Button3" parent="CanvasLayer/BasicGUI/Panel2/Panel3" index="1" node_paths=PackedStringArray("show_element")]
+script = ExtResource("22_lswn8")
+show_element = NodePath("../../../../Journal")
+
 [node name="Button4" parent="CanvasLayer/BasicGUI/Panel2/Panel4" index="1" node_paths=PackedStringArray("show_element")]
 show_element = NodePath("../../../../Phone")
 
 [node name="Clock" parent="CanvasLayer/BasicGUI" index="2"]
 theme_override_fonts/normal_font = ExtResource("19_ryguw")
 
+[node name="Journal" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Journal"]
+layout_mode = 2
+
+[node name="TopTabs" type="Panel" parent="CanvasLayer/Journal/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qsp4k")
+
+[node name="TopTabsContainer" type="HBoxContainer" parent="CanvasLayer/Journal/VBoxContainer/TopTabs"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.123
+anchor_right = 0.456
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Tasks" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsp4k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer/Tasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=black]Tasks[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer/Tasks" node_paths=PackedStringArray("show_element")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("22_lswn8")
+show_element = NodePath("../../../../Bottom/Center/HSplitContainer/InfoPanel/Tasks")
+
+[node name="Clues" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsp4k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer/Clues"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=black]Clues[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer/Clues"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Polaroids" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsp4k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer/Polaroids"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=black]Polaroids[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer/Polaroids"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Notes" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsp4k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer/Notes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=black]Notes[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Journal/VBoxContainer/TopTabs/TopTabsContainer/Notes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Bottom" type="HBoxContainer" parent="CanvasLayer/Journal/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.64
+
+[node name="SideBookmarks" type="Control" parent="CanvasLayer/Journal/VBoxContainer/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SideTabs" type="VBoxContainer" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.061
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Kyle" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks/SideTabs"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsp4k")
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks/SideTabs/Kyle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=black]Kyle[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks/SideTabs/Kyle" node_paths=PackedStringArray("character_profile")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("23_4k2k6")
+character_profile = NodePath("../../../../Center/HSplitContainer/InfoPanel/CharacterProfile")
+char_resource = ExtResource("24_0rl1p")
+
+[node name="Sam" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks/SideTabs"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsp4k")
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks/SideTabs/Sam"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=black]Sam[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks/SideTabs/Sam" node_paths=PackedStringArray("character_profile")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("23_4k2k6")
+character_profile = NodePath("../../../../Center/HSplitContainer/InfoPanel/CharacterProfile")
+char_resource = ExtResource("25_ok6jj")
+
+[node name="Jack" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks/SideTabs"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsp4k")
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks/SideTabs/Jack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=black]Jack[/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Journal/VBoxContainer/Bottom/SideBookmarks/SideTabs/Jack" node_paths=PackedStringArray("character_profile")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("23_4k2k6")
+character_profile = NodePath("../../../../Center/HSplitContainer/InfoPanel/CharacterProfile")
+char_resource = ExtResource("26_facbu")
+
+[node name="Center" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.83
+theme_override_styles/panel = SubResource("StyleBoxFlat_seu75")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoPanel" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer" node_paths=PackedStringArray("journal_pages")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_htxhm")
+script = ExtResource("27_b1qrp")
+journal_pages = [NodePath("Tasks"), NodePath("CharacterProfile")]
+
+[node name="Tasks" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel" instance=ExtResource("24_kq58d")]
+layout_mode = 1
+
+[node name="CharacterProfile" type="ScrollContainer" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel" node_paths=PackedStringArray("char_image", "char_name", "char_descriptors", "char_notes_container")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("24_htxhm")
+char_image = NodePath("Control/Image")
+char_name = NodePath("Control/Name")
+char_descriptors = NodePath("Control/BasicInfo")
+char_notes_container = NodePath("Control/Notes")
+char_note_scene = ExtResource("25_jq2sk")
+
+[node name="Control" type="Control" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel/CharacterProfile"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Image" type="TextureRect" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel/CharacterProfile/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.419
+anchor_bottom = 0.454
+texture = ExtResource("24_seu75")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel/CharacterProfile/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_right = 1.0
+anchor_bottom = 0.1
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=black]Creepy Pikachu"
+scroll_active = false
+
+[node name="BasicInfo" type="RichTextLabel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel/CharacterProfile/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.5
+bbcode_enabled = true
+text = "[color=black]Creepy Pikachu
+<brief character descriptors>"
+scroll_active = false
+
+[node name="Notes" type="VBoxContainer" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel/CharacterProfile/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+
+[node name="Scissors" type="Panel" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_htxhm")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/Scissors"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_seu75")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="Phone" parent="CanvasLayer" instance=ExtResource("20_d13ii")]
 visible = false
 
 [node name="MessageApp" parent="CanvasLayer/Phone/Screen/Background" index="2"]
-visible = false
-resource_file = ExtResource("21_1u8w0")
+resource_file = ExtResource("25_xuqvo")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Phone/Screen/Background" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.05
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Phone/Screen/Background/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+
+[node name="Time" type="RichTextLabel" parent="CanvasLayer/Phone/Screen/Background/HSplitContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[color=black]10:00 pm"
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Phone/Screen/Background/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 10
+
+[node name="Charge" type="RichTextLabel" parent="CanvasLayer/Phone/Screen/Background/HSplitContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[color=black]100%"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="TestInventory" type="ColorRect" parent="CanvasLayer" node_paths=PackedStringArray("vbox")]
 visible = false
@@ -435,6 +866,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="GameLogic" type="Node" parent="."]
+script = ExtResource("26_lswn8")
+json_file = ExtResource("27_a6jrf")
+json_file2 = ExtResource("27_xuqvo")
+
 [connection signal="body_entered" from="Outside" to="Outside" method="_on_body_entered"]
 [connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
 [connection signal="body_entered" from="Room" to="Audio/Music" method="_on_room_body_entered"]
@@ -446,5 +882,6 @@ grow_vertical = 2
 [editable path="Player"]
 [editable path="Player/PlayerModel"]
 [editable path="CanvasLayer/BasicGUI"]
+[editable path="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel/Tasks"]
 [editable path="CanvasLayer/Phone"]
 [editable path="CanvasLayer/Phone/Screen/Background/MessageApp"]
