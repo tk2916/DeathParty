@@ -1,6 +1,7 @@
 extends Node
 
 @export var json_file : JSON
+
 @export var json_file2 : JSON
 @export var message_box : Control
 	

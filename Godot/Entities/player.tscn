@@ -19,7 +19,6 @@ animation = &"Walk"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ov2v6"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gb1tc"]
-graph_offset = Vector2(-234.346, 18.6468)
 "nodes/Idle Anim/node" = SubResource("AnimationNodeAnimation_pvmex")
 "nodes/Idle Anim/position" = Vector2(160, 100)
 "nodes/Turn Anim/node" = SubResource("AnimationNodeAnimation_gb1tc")
@@ -31,9 +30,10 @@ graph_offset = Vector2(-234.346, 18.6468)
 nodes/output/position = Vector2(660, 140)
 node_connections = [&"Walk Blend", 0, &"Idle Anim", &"Walk Blend", 1, &"Walk Anim", &"output", 0, &"Walk Blend"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("player_camera_location")]
 collision_mask = 2
 script = ExtResource("1_4flbx")
+player_camera_location = NodePath("PlayerCameraLocation")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0347884, 0.85, 0)
@@ -43,13 +43,15 @@ shape = SubResource("CapsuleShape3D_gb1tc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8.6)
 
 [node name="PlayerModel" parent="." instance=ExtResource("2_gb1tc")]
+unique_name_in_owner = true
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 
 [node name="AnimationPlayer" parent="PlayerModel" index="1"]
 autoplay = "RESET"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../PlayerModel")
+unique_name_in_owner = true
+root_node = NodePath("%PlayerModel")
 tree_root = SubResource("AnimationNodeBlendTree_gb1tc")
 anim_player = NodePath("../PlayerModel/AnimationPlayer")
 "parameters/Walk Blend/blend_amount" = 0
