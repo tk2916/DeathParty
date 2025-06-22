@@ -1,39 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://jwdi6yghs0j5"]
+[gd_scene load_steps=4 format=3 uid="uid://g8mue586ud5x"]
 
-[ext_resource type="Script" uid="uid://buutas4n7320a" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_script.gd" id="1_0kl2h"]
-[ext_resource type="Script" uid="uid://bfr8xxiuuihhi" path="res://Assets/GUIDesignScripts/resize_to_text.gd" id="2_yl38p"]
+[ext_resource type="Script" uid="uid://buutas4n7320a" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_script.gd" id="1_xrgtu"]
+[ext_resource type="Script" uid="uid://bfr8xxiuuihhi" path="res://Assets/GUIDesignScripts/resize_to_text.gd" id="2_qauwv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ealrb"]
-bg_color = Color(0.568973, 0.568973, 0.568973, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6auod"]
+bg_color = Color(0.0627451, 0.211765, 1, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="VBoxContainer" type="VBoxContainer" node_paths=PackedStringArray("Name", "Text")]
+[node name="MarginContainer2" type="VBoxContainer" node_paths=PackedStringArray("Text")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0kl2h")
-Name = NodePath("Name")
+script = ExtResource("1_xrgtu")
 Text = NodePath("Panel2/MarginContainer/Text")
-
-[node name="Name" type="RichTextLabel" parent="."]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-fit_content = true
 
 [node name="Panel2" type="Panel" parent="." node_paths=PackedStringArray("label")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ealrb")
-script = ExtResource("2_yl38p")
+size_flags_vertical = 3
+size_flags_stretch_ratio = 13.11
+theme_override_styles/panel = SubResource("StyleBoxFlat_6auod")
+script = ExtResource("2_qauwv")
 label = NodePath("MarginContainer/Text")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel2"]

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cdgdvrjb2tnih"]
+
+[ext_resource type="Script" uid="uid://cfgpx3c1rc8kb" path="res://Singletons/InkInterpreter/ink_interpret_resource_script.gd" id="1_iadoh"]
+
+[resource]
+script = ExtResource("1_iadoh")

@@ -13,6 +13,3 @@ func resize():
 	
 	control.custom_minimum_size.y = content_height
 	control.custom_minimum_size.x = content_width
-
-#func _process(delta):
-	#resize()
