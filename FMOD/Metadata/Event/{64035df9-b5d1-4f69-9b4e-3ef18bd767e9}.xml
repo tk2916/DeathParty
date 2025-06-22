@@ -191,6 +191,9 @@
 		<property name="startOffset">
 			<value>25</value>
 		</property>
+		<property name="volume">
+			<value>-5</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{7b0b48d1-fc81-4ddd-a125-ed17856b050f}</destination>
 		</relationship>
@@ -198,6 +201,9 @@
 	<object class="SingleSound" id="{6f59638e-b010-4fd6-8ed9-854f25376d99}">
 		<property name="startOffset">
 			<value>25</value>
+		</property>
+		<property name="volume">
+			<value>-5</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{e2e4fe2f-0d6c-4598-acaf-e939b54ca977}</destination>
