@@ -139,9 +139,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_58yhs"]
 _data = {
 &"RESET": SubResource("Animation_m3tgj"),
-&"buzz": SubResource("Animation_58yhs"),
 &"fade out": SubResource("Animation_bnw21"),
-&"fade up": SubResource("Animation_nul8u")
+&"play one shot": SubResource("Animation_nul8u"),
+&"play sustained": SubResource("Animation_58yhs")
 }
 
 [node name="Caption" type="Node3D"]
