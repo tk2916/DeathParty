@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=73 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -39,6 +39,7 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
 [ext_resource type="Script" uid="uid://pwimu8stushh" path="res://journal_info_panel.gd" id="27_b1qrp"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1bvp3"]
 
@@ -404,19 +405,22 @@ shape = SubResource("ConcavePolygonShape3D_ycdy4")
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Music" type="FmodEventEmitter3D" parent="Audio"]
+[node name="Ambience" type="Node" parent="Audio"]
+process_mode = 3
+
+[node name="Music" type="FmodEventEmitter3D" parent="Audio/Ambience"]
 event_name = "event:/music"
 event_guid = "{736a96ee-aebb-4593-a094-6f5e9ab9f738}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
 
-[node name="CrowdSounds" type="FmodEventEmitter3D" parent="Audio"]
+[node name="CrowdSounds" type="FmodEventEmitter3D" parent="Audio/Ambience"]
 event_name = "event:/crowd"
 event_guid = "{9e4d86e6-afa7-406e-ba12-08656547d254}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.5)
 
-[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="Audio"]
+[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="Audio/Ambience"]
 event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
 autoplay = true
@@ -860,6 +864,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="PauseMenu" parent="." instance=ExtResource("37_h8e4i")]
+visible = false
+
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource("26_lswn8")
 json_file = ExtResource("27_a6jrf")
@@ -867,7 +874,7 @@ json_file2 = ExtResource("27_xuqvo")
 
 [connection signal="body_entered" from="Outside" to="Outside" method="_on_body_entered"]
 [connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
-[connection signal="body_entered" from="Room" to="Audio/Music" method="_on_room_body_entered"]
+[connection signal="body_entered" from="Room" to="Audio/Ambience/Music" method="_on_room_body_entered"]
 [connection signal="body_exited" from="Room" to="Room" method="_on_body_exited"]
 [connection signal="body_entered" from="BackRoom" to="BackRoom" method="_on_body_entered"]
 [connection signal="body_entered" from="UpperRoom" to="UpperRoom" method="_on_body_entered"]
