@@ -1,25 +1,25 @@
 extends CanvasLayer
 
 
-@onready var main_pause_menu: VBoxContainer = $MarginContainer/MainPauseMenu
+@onready var main_pause_menu : VBoxContainer = $MarginContainer/MainPauseMenu
 
-@onready var resume_button: Button = $MarginContainer/MainPauseMenu/ResumeButton
-@onready var settings_button: Button = $MarginContainer/MainPauseMenu/SettingsButton
-@onready var quit_button: Button = $MarginContainer/MainPauseMenu/QuitButton
+@onready var resume_button : Button = $MarginContainer/MainPauseMenu/ResumeButton
+@onready var settings_button : Button = $MarginContainer/MainPauseMenu/SettingsButton
+@onready var quit_button : Button = $MarginContainer/MainPauseMenu/QuitButton
 
-@onready var settings_menu: VBoxContainer = $MarginContainer/SettingsMenu
-@onready var volume_slider: HSlider = $MarginContainer/SettingsMenu/GridContainer/VolumeSlider
-@onready var volume_number: Label = $MarginContainer/SettingsMenu/GridContainer/VolumeNumber
+@onready var settings_menu : VBoxContainer = $MarginContainer/SettingsMenu
+@onready var volume_slider : HSlider = $MarginContainer/SettingsMenu/GridContainer/VolumeSlider
+@onready var volume_number : Label = $MarginContainer/SettingsMenu/GridContainer/VolumeNumber
 
-@onready var quit_menu: VBoxContainer = $MarginContainer/QuitMenu
-@onready var yes_quit_button: Button = $MarginContainer/QuitMenu/HBoxContainer/YesQuitButton
+@onready var quit_menu : VBoxContainer = $MarginContainer/QuitMenu
+@onready var yes_quit_button : Button = $MarginContainer/QuitMenu/HBoxContainer/YesQuitButton
 
 
 func _ready():
 	volume_slider.value = Settings.volume
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta : float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if main_pause_menu.visible:
 			toggle_pause()
@@ -59,7 +59,7 @@ func _on_settings_button_pressed() -> void:
 	volume_slider.grab_focus()
 
 
-func _on_volume_slider_value_changed(value: float) -> void:
+func _on_volume_slider_value_changed(value : float) -> void:
 	# im doing str(int()) cos without converting to an int first, it adds
 	# a decimal after the float when its concatenated
 	# and i think the other way to convert to an int uses % in the syntax
@@ -69,7 +69,7 @@ func _on_volume_slider_value_changed(value: float) -> void:
 	volume_number.text = str(int(volume_slider.value)) + "%"
 
 
-func _on_volume_slider_drag_ended(value_changed: bool) -> void:
+func _on_volume_slider_drag_ended(value_changed : bool) -> void:
 	Settings.set_volume(volume_slider.value)
 
 
