@@ -53,9 +53,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -1.5)
 [node name="EntranceLocation" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 2.5)
 
-[node name="DoorSound" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/door"
-event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
-
 [connection signal="body_entered" from="EntranceArea" to="." method="_on_entrance_area_body_entered"]
 [connection signal="body_exited" from="EntranceArea" to="." method="_on_entrance_area_body_exited"]
