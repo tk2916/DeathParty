@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bjm0d63pqk4j2"]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+bbcode_enabled = true
+text = "[color=black]Note: blah blah blah"
+fit_content = true
