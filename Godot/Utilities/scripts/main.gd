@@ -4,7 +4,6 @@ var PLAYER_CAMERA_FOLLOW_SPEED : float = 3.5
 var CAMERA_TRANSITION_SPEED : float = 2
 var camera_speed: float = PLAYER_CAMERA_FOLLOW_SPEED
 
-var camera_location_node : Node3D
 var camera_location : Vector3
 var camera_on_player : bool = true
 var camera_smooth: bool = true
@@ -18,12 +17,11 @@ var camera_bound_y: bool = false
 var camera_lower_bound_y: float = 0.0
 var camera_upper_bound_y: float = 0.0
 
-var main_camera : Camera3D
+@export var main_camera : Camera3D
+@export var camera_location_node : Node3D
 
 # Constantly moves the camera's location
 func _ready() -> void:
-	main_camera = $MainCamera
-	camera_location_node = $Player/PlayerCameraLocation
 	camera_location = camera_location_node.global_position
 	main_camera.make_current()
 	
