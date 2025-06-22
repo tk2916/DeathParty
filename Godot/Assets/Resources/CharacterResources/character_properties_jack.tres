@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://f3wwrax8f4lf"]
+
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="1_70gww"]
+
+[resource]
+script = ExtResource("1_70gww")
+name = "Jack"
+name_color = ""
+text_color = ""
+character_notes = Array[String]([])
+character_description = ""

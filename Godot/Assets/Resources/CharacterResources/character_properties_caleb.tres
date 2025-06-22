@@ -7,3 +7,4 @@ script = ExtResource("1_5gmr0")
 name = "Caleb"
 name_color = ""
 text_color = ""
+character_notes = Array[String]([])

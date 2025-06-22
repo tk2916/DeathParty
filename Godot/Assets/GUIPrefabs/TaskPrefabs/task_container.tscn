@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://brymdlq6vnbli"]
+
+[ext_resource type="Script" uid="uid://bpm4a31sjdhmq" path="res://Assets/GUIPrefabs/TaskPrefabs/task_container.gd" id="1_wu1ax"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq58d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="TaskContainer" type="MarginContainer" node_paths=PackedStringArray("title_label", "description_label")]
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_wu1ax")
+title_label = NodePath("MarginContainer/VBoxContainer/Title")
+description_label = NodePath("MarginContainer/VBoxContainer/Description")
+
+[node name="Outline" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kq58d")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "[color=black]Panic! At the Photography club"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[color=2b2b2b]Macie is missing her camera! Maybe Gerson took it? Recover it before midnight!"
+fit_content = true

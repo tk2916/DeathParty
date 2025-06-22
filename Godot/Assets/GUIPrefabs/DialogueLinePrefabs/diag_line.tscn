@@ -248,13 +248,12 @@ cache/0/25/0/glyphs/71/size = Vector2(16, 21)
 cache/0/25/0/glyphs/71/uv_rect = Rect2(1, 23, 16, 21)
 cache/0/25/0/glyphs/71/texture_idx = 0
 
-[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("Name", "Text")]
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("Text")]
 offset_left = 1151.0
 offset_right = 1151.0
 offset_bottom = 648.0
 theme_override_constants/margin_top = 5
 script = ExtResource("1_q0m0l")
-Name = NodePath("")
 Text = NodePath("HBoxContainer/Text")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

@@ -1,9 +1,13 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dy2offscqhpxg"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dy2offscqhpxg"]
 
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="1_0hub4"]
+[ext_resource type="Texture2D" uid="uid://s742yxoo5vvv" path="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png" id="1_72q1x"]
 
 [resource]
 script = ExtResource("1_0hub4")
 name = "Sam"
+image_torso = ExtResource("1_72q1x")
 name_color = ""
 text_color = ""
+character_notes = Array[String](["Sam character note", "Blah blah blah"])
+character_description = "Sam is an inquisitive soul"
