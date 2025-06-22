@@ -1,4 +1,6 @@
 extends Control
+class_name DialogueBoxProperties
+
 @export var dialogue_container : VBoxContainer
 @export var choice_container : VBoxContainer
 @export var image_container : TextureRect

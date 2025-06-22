@@ -1,0 +1,90 @@
+name: Publish Feature
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  GODOT_VERSION: 4.4.1
+  GODOT_DIR: ./Godot
+  GODOT_FILE: Godot/project.godot
+  GODOT_REGEX: config\/features=.*\"\K4\.[0-9.\-A-z]*
+  VERSION_FILE: Godot/project.godot
+  VERSION_REGEX: config\/version=\"\K[0-9.\-A-z]*
+
+jobs:
+  build:
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: macos-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+
+      - name: Install Godot
+        uses: Sunday-Studio-Team/godot-actions/install-godot@main
+        with:
+          godot-version: ${{ env.GODOT_VERSION }}
+          install-templates: true
+        id: install-godot
+
+      - name: Open Godot editor for reimport
+        working-directory: ${{ env.GODOT_DIR }}
+        shell: bash
+        run: ${{ steps.install-godot.outputs.godot-executable }} --editor --headless --quit || true
+
+      - name: Build and upload artifacts for all platforms
+        uses: Sunday-Studio-Team/godot-actions/build-godot@main
+        with:
+          working-directory: ${{ env.GODOT_DIR }}
+          godot-executable: ${{ steps.install-godot.outputs.godot-executable }}
+          build-dir: build
+          upload-artifacts: true
+          retention-days: 1
+          
+  generate-release:
+    needs: build
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+      
+      - name: Download macOS artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos
+          path: artifacts/macos
+
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: windows
+          path: artifacts/windows
+
+      - name: Download Linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: linux
+          path: artifacts/linux
+
+      - name: Tag and upload artifacts to release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: v0.0.${{ github.run_number }}
+          commit: ${{ github.sha }}
+          allowUpdates: true
+          updateOnlyUnreleased: true
+          artifactErrorsFailBuild: true
+          prerelease: true
+          artifacts: artifacts/*/*
+          
+      - name: Remove artifacts
+        uses: geekyeggo/delete-artifact@v5
+        with:
+          name: |
+            macos
+            windows
+            linux
+        

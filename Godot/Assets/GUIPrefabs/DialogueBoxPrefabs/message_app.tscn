@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ibs6xbf36j7"]
+[gd_scene load_steps=4 format=3 uid="uid://scf5c8ugyud5"]
 
 [ext_resource type="Script" uid="uid://gpb0xf78x74g" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/dialogue_box_properties.gd" id="1_gsjey"]
 [ext_resource type="Script" uid="uid://bffdpcyyowj58" path="res://Assets/GUIDesignScripts/scroll_container.gd" id="2_xprv0"]

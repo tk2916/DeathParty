@@ -29,19 +29,20 @@ General/banks_path="res://audio/fmod banks/Desktop"
 [application]
 
 config/name="Death Party"
-run/main_scene="uid://bdw28hmsvnwb0"
+run/main_scene="uid://beuct1pjdlayy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
+SaveSystem="*res://Singletons/SaveSystem/save_system.gd"
 DialogueSystem="*res://Singletons/CustomDialogueSystem/dialogue_system.gd"
 Ink="*res://Singletons/InkInterpreter/ink_interpret.gd"
 Interact="*res://Singletons/Interact/interact.gd"
-SaveSystem="*res://Singletons/SaveSystem/save_system.gd"
 GlobalCameraScript="*res://Utilities/global_scripts/global_camera_script.gd"
 GlobalPlayerScript="*res://Utilities/global_scripts/global_player_script.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
+GlobalFmodBankLoader="*res://audio/fmod bank loader.tscn"
 
 [debug]
 
@@ -113,3 +114,8 @@ interact={
 
 3d_physics/layer_1="player"
 3d_physics/layer_2="environment"
+
+[rendering]
+
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
