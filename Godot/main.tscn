@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=71 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=72 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -146,7 +145,6 @@ bg_color = Color(0.412532, 0.368595, 0.290578, 1)
 bg_color = Color(0.912289, 0.912289, 0.912289, 1)
 
 [node name="Main" type="Node3D"]
-
 script = ExtResource("1_1bvp3")
 main_camera = NodePath("MainCamera")
 camera_location_node = NodePath("Player/PlayerCameraLocation")
@@ -154,9 +152,6 @@ camera_location_node = NodePath("Player/PlayerCameraLocation")
 [node name="Player" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
 floor_constant_speed = true
-
-[node name="AnimationTree" parent="Player" index="3"]
-root_node = NodePath("%PlayerModel")
 
 [node name="MainCamera" parent="." instance=ExtResource("3_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.444, 2, 9.6)
