@@ -144,7 +144,7 @@ bg_color = Color(0.412532, 0.368595, 0.290578, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htxhm"]
 bg_color = Color(0.912289, 0.912289, 0.912289, 1)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("main_camera", "camera_location_node")]
 script = ExtResource("1_1bvp3")
 main_camera = NodePath("MainCamera")
 camera_location_node = NodePath("Player/PlayerCameraLocation")
