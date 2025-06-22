@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://vuxlrkkhyq0o"]
+
+[ext_resource type="PackedScene" uid="uid://dgo0ti1b7jw40" path="res://Common/InventoryUI/revolver_navy_colt_1851_silver/scene.gltf" id="1_80df3"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_80df3")]
