@@ -18,12 +18,11 @@ func _ready() -> void:
 func play():
 	if sound_type == SoundType.ONE_SHOT:
 		animation_player.play("RESET")
-		animation_player.play("fade")
+		animation_player.play("fade up")
 	elif sound_type == SoundType.SUSTAINED:
 		animation_player.play("RESET")
 		animation_player.play("buzz")
 
 
 func stop():
-	animation_player.play("RESET")
-	animation_player.play("fade")
+	animation_player.play("fade out")

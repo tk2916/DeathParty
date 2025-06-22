@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1lkmpu3rch3p"]
+[gd_scene load_steps=7 format=3 uid="uid://c1lkmpu3rch3p"]
 
 [ext_resource type="Script" uid="uid://nmbs2wbd28np" path="res://audio/captions/caption.gd" id="1_nul8u"]
 
@@ -121,11 +121,27 @@ tracks/2/keys = {
 "values": [0.0, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_bnw21"]
+resource_name = "fade out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset/Label3D:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_58yhs"]
 _data = {
 &"RESET": SubResource("Animation_m3tgj"),
 &"buzz": SubResource("Animation_58yhs"),
-&"fade": SubResource("Animation_nul8u")
+&"fade out": SubResource("Animation_bnw21"),
+&"fade up": SubResource("Animation_nul8u")
 }
 
 [node name="Caption" type="Node3D"]
