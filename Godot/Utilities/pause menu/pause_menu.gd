@@ -69,6 +69,8 @@ func _on_volume_slider_value_changed(value : float) -> void:
 	# (if anyone knows a nicer way to do this feel free to replace it lol)
 	volume_number.text = str(int(volume_slider.value)) + "%"
 
+	Settings.set_volume(volume_slider.value)
+
 
 func _on_volume_slider_drag_ended(_value_changed : bool) -> void:
 	Settings.set_volume(volume_slider.value)
