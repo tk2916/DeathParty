@@ -19,7 +19,7 @@ func _ready() -> void:
 	volume_slider.value = Settings.volume
 
 
-func _physics_process(delta : float) -> void:
+func _physics_process(_delta : float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if main_pause_menu.visible:
 			toggle_pause()
@@ -70,7 +70,7 @@ func _on_volume_slider_value_changed(value : float) -> void:
 	volume_number.text = str(int(volume_slider.value)) + "%"
 
 
-func _on_volume_slider_drag_ended(value_changed : bool) -> void:
+func _on_volume_slider_drag_ended(_value_changed : bool) -> void:
 	Settings.set_volume(volume_slider.value)
 
 
