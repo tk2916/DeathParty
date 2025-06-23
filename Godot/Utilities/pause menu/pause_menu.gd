@@ -1,18 +1,18 @@
 extends CanvasLayer
 
 
-@onready var main_pause_menu : VBoxContainer = $MarginContainer/MainPauseMenu
+@onready var main_pause_menu : VBoxContainer = %MainPauseMenu
 
-@onready var resume_button : Button = $MarginContainer/MainPauseMenu/ResumeButton
-@onready var settings_button : Button = $MarginContainer/MainPauseMenu/SettingsButton
-@onready var quit_button : Button = $MarginContainer/MainPauseMenu/QuitButton
+@onready var resume_button : Button = %ResumeButton
+@onready var settings_button : Button = %SettingsButton
+@onready var quit_button : Button = %QuitButton
 
-@onready var settings_menu : VBoxContainer = $MarginContainer/SettingsMenu
-@onready var volume_slider : HSlider = $MarginContainer/SettingsMenu/GridContainer/VolumeSlider
-@onready var volume_number : Label = $MarginContainer/SettingsMenu/GridContainer/VolumeNumber
+@onready var settings_menu : VBoxContainer = %SettingsMenu
+@onready var volume_slider : HSlider = %VolumeSlider
+@onready var volume_number : Label = %VolumeNumber
 
-@onready var quit_menu : VBoxContainer = $MarginContainer/QuitMenu
-@onready var yes_quit_button : Button = $MarginContainer/QuitMenu/HBoxContainer/YesQuitButton
+@onready var quit_menu : VBoxContainer = %QuitMenu
+@onready var yes_quit_button : Button = %YesQuitButton
 
 
 func _ready() -> void:
