@@ -8,3 +8,4 @@ name = "Caleb"
 name_color = ""
 text_color = ""
 character_notes = Array[String]([])
+character_description = ""

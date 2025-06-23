@@ -82,7 +82,7 @@ func get_scope(final_index : int):
 				# FOUND REDIRECT TABLE
 				rsc.redirect_table = final_element
 				rsc.redirect_table_address = current_scope.size()-1
-				print("Set redirect table: ", rsc.redirect_table_address)
+				#print("Set redirect table: ", rsc.redirect_table_address)
 				
 				if rsc.redirect_table.has("c-0"): #real redirect table
 					set_current_container(current_scope, n)
@@ -96,7 +96,7 @@ func get_scope(final_index : int):
 	return current_scope
 
 func set_current_array():#redirect_item : bool):
-	print("Current scope: ", rsc.hierarchy, " | ", rsc.current_array)
+	#print("Current scope: ", rsc.hierarchy, " | ", rsc.current_array)
 	rsc.current_array = get_scope(-1)
 	
 	#Check if it's a redirect. If it is, we have to use the local redirect table
@@ -117,11 +117,10 @@ func set_current_array():#redirect_item : bool):
 func into_array():
 	#var new_arr = current_array[current_index()]
 	push_hierarchy("0") #start on the first index of the new array
-	###print("into array after: ", current_array)
 	set_current_array()
 
 func exit_array():
-	print("exit array current hierarchy: ", rsc.hierarchy, rsc.redirect_hierarchy)
+	print("exit array current hierarchy: ", rsc.hierarchy, " | redirects: ", rsc.redirect_hierarchy)
 	if rsc.redirect_hierarchy.size() > 0:
 		print("redirect hierarchy has something: ", rsc.redirect_hierarchy)
 		rsc.hierarchy = rsc.redirect_hierarchy.pop_back() #go to before redirect
@@ -151,17 +150,20 @@ func jump_to_container(path:String): # for ->
 	else: #absolute path
 		if path_array.size() == 1 and !path_array.back().is_valid_int():
 			path_array.push_back("0")
-			rsc.redirect_hierarchy.pop_back() #we intend to stay in this container
+			rsc.redirect_hierarchy = []
+			#rsc.redirect_hierarchy.pop_back() #we intend to stay in this container
 		if path_array[0].is_valid_int(): #redirect value
 			rsc.hierarchy = ["root"]
 			for n in range(0,path_array.size()-1): #skip the last one
 				var item = path_array.pop_front()
 				push_hierarchy(item)
 			push_hierarchy(path_array.back())
-		else:
+		else: #goes to a container
 			rsc.hierarchy = ["root", 2] # set hierarchy to the 2nd element of root (where all the containers are stored)
 			for item in path_array:
 				push_hierarchy(item)
+			rsc.redirect_hierarchy = []
+			#rsc.redirect_hierarchy.pop_back()
 		
 	set_current_array() #sets current_array & current_index to the path specified in hierarchy
 
@@ -265,18 +267,17 @@ func break_up_dialogue(dialogue:String):
 
 func redirect(next):
 	var redirect_location = next["->"]
+	print("Redirect -> ", redirect_location)
 	var condition_flag = pop() #condition_flag is pushed to the stack immediately preceding the check
 	if next.has("c") and condition_flag != next["c"]: #checks condition if redirect calls for one
-		print("Condition failed: ", redirect_location, SaveSystem.get_key("argue_SAM"), SaveSystem.get_key("catchup_Nora"))
+		print("Condition failed: ", redirect_location)
 		print("Condition failed2: ", condition_flag, next["c"])
 		return
 	else:
 		if next.has("c"):
 			print("Condition succeeded: ", redirect_location)
 		if redirect_location[0] != "$":
-			print("Pushing redirect hierarchy and jumping to ", redirect_location)
 			push_redirect_hierarchy()
-			print("Redirect hierarchy now: ", rsc.redirect_hierarchy)
 			jump_to_container(redirect_location)
 
 func match_cmd(next):
@@ -416,15 +417,15 @@ func next_line():
 	return
 
 func make_choice(redirect:String):
-	#print("jumping to ", redirect, " from ", hierarchy, " and ", redirect_table)
+	print("jumping to ", redirect, " from ", rsc.hierarchy)
 	jump_to_container(redirect)
 
 func get_content():
-	print("calling next line", rsc.hierarchy)
+	#print("calling next line", rsc.hierarchy)
 	var og_container = current_container_name()
 	var og_hierarchy_size = rsc.hierarchy.size()
 	var result = next_line()
-	print("Current container index: ", rsc.current_container_i)
+	#print("Current container index: ", rsc.current_container_i)
 	if result != 404 and typeof(current_container_name()) == typeof(og_container) and (current_container_name() == og_container) and (rsc.hierarchy.size() == og_hierarchy_size):
 		#ONLY increment if you are in the same location as before
 		if rsc.resumed_hierarchy.size() > 0 && !(current_container_name() is String and current_container_name() == "global decl"):
@@ -514,15 +515,15 @@ func get_first_message(temp_json : JSON):
 func from_JSON(file : JSON, saved_ink_resource : Resource):#resume_from_hierarchy : Array = []):
 	#reset variables
 	reset_defaults(saved_ink_resource)#resume_from_hierarchy)
-	var filepath = file.resource_path
-	var json_as_text : String = FileAccess.get_file_as_string(filepath)
-	var json_as_dict : Dictionary = JSON.parse_string(json_as_text)
-	if json_as_dict:
+	if rsc.json_file == null or rsc.json_file.is_empty():
+		var filepath = file.resource_path
+		var json_as_text : String = FileAccess.get_file_as_string(filepath)
+		var json_as_dict : Dictionary = JSON.parse_string(json_as_text)
 		rsc.json_file = json_as_dict
-		for container in rsc.json_file:
-			rsc.containerDict[container] = {"visits":0, "last_turn_visited":0}
-		if json_as_dict["root"][2].has("global decl"):
-			jump_to_container("global decl")
-		else:
-			initialize_hierarchy()
+	for container in rsc.json_file:
+		rsc.containerDict[container] = {"visits":0, "last_turn_visited":0}
+	if rsc.json_file["root"][2].has("global decl"):
+		jump_to_container("global decl")
+	else:
+		initialize_hierarchy()
 	

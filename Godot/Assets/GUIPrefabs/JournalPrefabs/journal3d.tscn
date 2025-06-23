@@ -1,0 +1,231 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3p7i4t60ya3p"]
+
+[ext_resource type="PackedScene" uid="uid://cn73rnc6oyu5l" path="res://Assets/GUIPrefabs/Journal3DPrefabs/character_1_page.tscn" id="1_yt6el"]
+[ext_resource type="PackedScene" uid="uid://bjwxofwajv64l" path="res://Assets/GUIPrefabs/Journal3DPrefabs/character_2_page.tscn" id="2_7xusq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pt4w7"]
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt4w7"]
+albedo_color = Color(0.362262, 0.221084, 0.121164, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yt6el"]
+viewport_path = NodePath("Page/Sprite3D/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt4w7"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7xusq"]
+viewport_path = NodePath("Page2/Sprite3D/SubViewport")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7xusq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xusq"]
+albedo_color = Color(0.360784, 0.219608, 0.121569, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ke07j"]
+viewport_path = NodePath("Tab/Sprite3D/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njaqf"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Journal" type="Node3D"]
+
+[node name="Page" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.741682, 0, 0.34202, 0, 1, 0, -0.26995, 0, 0.939693, -0.685669, -2.38419e-07, 0.00264096)
+mesh = SubResource("PlaneMesh_pt4w7")
+surface_material_override/0 = SubResource("StandardMaterial3D_pt4w7")
+
+[node name="Sprite3D" type="Sprite3D" parent="Page"]
+transform = Transform3D(0.373826, 0, 0, 0, 0.373826, 0, 0, 0, 0.373826, 0, 0, 0.0119324)
+texture = SubResource("ViewportTexture_yt6el")
+
+[node name="SubViewport" type="SubViewport" parent="Page/Sprite3D"]
+
+[node name="Control" type="Control" parent="Page/Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Page/Sprite3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pt4w7")
+
+[node name="PageContent" type="Control" parent="Page/Sprite3D/SubViewport/Control/Panel"]
+layout_mode = 1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character1Page" parent="Page/Sprite3D/SubViewport/Control/Panel/PageContent" instance=ExtResource("1_yt6el")]
+layout_mode = 1
+
+[node name="Page2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.741682, 0, -0.34202, 0, 1, 0, 0.26995, 0, 0.939692, 0.800292, -2.38419e-07, 0.00048697)
+mesh = SubResource("PlaneMesh_pt4w7")
+surface_material_override/0 = SubResource("StandardMaterial3D_pt4w7")
+
+[node name="Sprite3D" type="Sprite3D" parent="Page2"]
+unique_name_in_owner = true
+transform = Transform3D(0.373826, 0, 0, 0, 0.373826, 0, 0, 0, 0.373826, 0, 0, 0.0119324)
+texture = SubResource("ViewportTexture_7xusq")
+
+[node name="SubViewport" type="SubViewport" parent="Page2/Sprite3D"]
+
+[node name="Control" type="Control" parent="Page2/Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Page2/Sprite3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pt4w7")
+
+[node name="PageContent" type="Control" parent="Page2/Sprite3D/SubViewport/Control/Panel"]
+layout_mode = 1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character2Page" parent="Page2/Sprite3D/SubViewport/Control/Panel/PageContent" instance=ExtResource("2_7xusq")]
+layout_mode = 1
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0484028, 0.133146, 1.62902)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000567496, 0.00171447, 3.72623)
+
+[node name="Tab" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0898939, 0.134337, -1.34702e-09, 0, -1.71687e-08, -0.0901009, -0.0327187, 0.369087, -3.70092e-09, -1.13604, 1.06992, 0.174179)
+mesh = SubResource("PlaneMesh_7xusq")
+surface_material_override/0 = SubResource("StandardMaterial3D_7xusq")
+
+[node name="Sprite3D" type="Sprite3D" parent="Tab"]
+transform = Transform3D(0.311532, 0, 0, 0, -1.41019e-08, -1, 0, 0.322613, -4.37114e-08, -3.72529e-09, 0.022958, 1.00353e-09)
+texture = SubResource("ViewportTexture_ke07j")
+
+[node name="SubViewport" type="SubViewport" parent="Tab/Sprite3D"]
+
+[node name="Control" type="Control" parent="Tab/Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Tab/Sprite3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_njaqf")
+
+[node name="Tab2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0898939, 0.134337, -1.34702e-09, 0, -1.71687e-08, -0.0901009, -0.0327187, 0.369087, -3.70092e-09, -0.935798, 1.06992, 0.101298)
+mesh = SubResource("PlaneMesh_7xusq")
+surface_material_override/0 = SubResource("StandardMaterial3D_7xusq")
+
+[node name="Sprite3D" type="Sprite3D" parent="Tab2"]
+transform = Transform3D(0.311532, 0, 0, 0, -1.41019e-08, -1, 0, 0.322613, -4.37114e-08, -3.72529e-09, 0.022958, 1.00353e-09)
+texture = SubResource("ViewportTexture_ke07j")
+
+[node name="SubViewport" type="SubViewport" parent="Tab2/Sprite3D"]
+
+[node name="Control" type="Control" parent="Tab2/Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Tab2/Sprite3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_njaqf")
+
+[node name="Tab3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0898939, 0.134337, -1.34702e-09, 0, -1.71687e-08, -0.0901009, -0.0327187, 0.369087, -3.70092e-09, -0.72953, 1.06992, 0.0262228)
+mesh = SubResource("PlaneMesh_7xusq")
+surface_material_override/0 = SubResource("StandardMaterial3D_7xusq")
+
+[node name="Sprite3D" type="Sprite3D" parent="Tab3"]
+transform = Transform3D(0.311532, 0, 0, 0, -1.41019e-08, -1, 0, 0.322613, -4.37114e-08, -3.72529e-09, 0.022958, 1.00353e-09)
+texture = SubResource("ViewportTexture_ke07j")
+
+[node name="SubViewport" type="SubViewport" parent="Tab3/Sprite3D"]
+
+[node name="Control" type="Control" parent="Tab3/Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Tab3/Sprite3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_njaqf")
+
+[node name="Tab4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0898939, 0.134337, -1.34702e-09, 0, -1.71687e-08, -0.0901009, -0.0327187, 0.369087, -3.70092e-09, -0.522437, 1.06992, -0.0491531)
+mesh = SubResource("PlaneMesh_7xusq")
+surface_material_override/0 = SubResource("StandardMaterial3D_7xusq")
+
+[node name="Sprite3D" type="Sprite3D" parent="Tab4"]
+transform = Transform3D(0.311532, 0, 0, 0, -1.41019e-08, -1, 0, 0.322613, -4.37114e-08, -3.72529e-09, 0.022958, 1.00353e-09)
+texture = SubResource("ViewportTexture_ke07j")
+
+[node name="SubViewport" type="SubViewport" parent="Tab4/Sprite3D"]
+
+[node name="Control" type="Control" parent="Tab4/Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Tab4/Sprite3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_njaqf")

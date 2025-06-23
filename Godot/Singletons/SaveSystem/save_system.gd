@@ -1,9 +1,17 @@
 extends Node
 
 const PLAYER_DATA_FILE_PATH = "res://Singletons/SaveSystem/player_data.tres"
-const TASKS_FILE_PATH : String = "res://Assets/Resources/TaskResources/"
+
 var player_data_resource:Resource = load(PLAYER_DATA_FILE_PATH)
 var player_data : Dictionary
+
+#DIRECTORIES TO LOAD
+const TASKS_FILE_PATH : String = "res://Assets/Resources/TaskResources/"
+const CHARACTER_FILE_PATH : String = "res://Assets/Resources/CharacterResources/"
+const PHONE_CHATS_FILE_PATH : String = "res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/ChatResources/"
+
+var character_to_resource : Dictionary[String, Resource]
+var phone_chat_to_resource : Dictionary[String, Resource]
 
 '''
 EVERYTHING WILL BE ACTUALLY SAVED WITHIN THE player_data DICTIONARY
@@ -21,30 +29,26 @@ func _init() -> void:
 	var property_list : Array = player_data_resource.get_property_list()
 	for n in range(9, property_list.size()): # gets variables listed in Resource
 		var item : String = property_list[n].name # gets variable name
-		#print(item)
 		if item == "VariableDict":
 			continue
 		if !player_data_resource["VariableDict"].has(item):
 			player_data_resource["VariableDict"][item] = player_data_resource[item] #add if not already defined (from pervious save)
 	player_data = player_data_resource["VariableDict"]
-	print("Loaded player_data: ", player_data)
 	load_inventory()
 	load_directory_into_dictionary(TASKS_FILE_PATH, player_data["possible_tasks"])
+	load_directory_into_dictionary(CHARACTER_FILE_PATH, character_to_resource)
+	load_directory_into_dictionary(PHONE_CHATS_FILE_PATH, phone_chat_to_resource)
 	loaded.emit()
 	
 func load_directory_into_dictionary(address : String, dict:Dictionary[String, Resource]):
-	print("Called with address: ", address)
 	var dir : DirAccess = DirAccess.open(address)
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	if dir:
-		print("Dir exists")
 		while file_name != "":
-			print("file name: ", file_name)
 			if !dir.current_is_dir():
 				var file = load(address + file_name)
 				if file == null: break
-				print("found ", file.name)
 				dict[file.name] = file
 			file_name = dir.get_next()
 	else:
