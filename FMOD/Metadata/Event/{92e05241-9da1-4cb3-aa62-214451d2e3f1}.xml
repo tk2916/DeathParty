@@ -5,7 +5,7 @@
 			<value>006_SFX_DoorClose</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ee2216ad-7676-4c73-95fd-97f287c6f46c}</destination>
@@ -110,6 +110,7 @@
 		<property name="length">
 			<value>0.625</value>
 		</property>
+		<property name="name" />
 		<relationship name="fadeOutCurve">
 			<destination>{244e1e53-bc17-4ba1-8d4e-860a841edb3a}</destination>
 		</relationship>
@@ -226,6 +227,7 @@
 		<relationship name="effects">
 			<destination>{20144d42-2e18-46a0-9629-4254fcd1409a}</destination>
 			<destination>{b05b28f8-f7dc-405e-b186-86fd51f038c6}</destination>
+			<destination>{b52f8c56-34dc-4d29-af0f-20aa14c3efb7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2baceb6b-fda9-4444-beb8-760d7d05d7bf}" />
@@ -273,6 +275,7 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{b05b28f8-f7dc-405e-b186-86fd51f038c6}" />
+	<object class="SpatialiserEffect" id="{b52f8c56-34dc-4d29-af0f-20aa14c3efb7}" />
 	<object class="MixerBusFader" id="{e61e5721-c556-46c0-868d-1f7cc746bc3b}" />
 	<object class="MixerBusFader" id="{4622b2c2-a294-4174-ae09-4a24727117d1}" />
 </objects>

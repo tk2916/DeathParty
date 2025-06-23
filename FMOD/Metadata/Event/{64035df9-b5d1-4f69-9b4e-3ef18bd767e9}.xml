@@ -5,7 +5,7 @@
 			<value>005_SFX_DoorOpen</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ee2216ad-7676-4c73-95fd-97f287c6f46c}</destination>
@@ -233,6 +233,7 @@
 		<relationship name="effects">
 			<destination>{6bad219c-5482-4b62-bf94-4b1584f40cd6}</destination>
 			<destination>{4ed9eb1d-2e03-435e-becd-8d55350f0272}</destination>
+			<destination>{ab08952e-e41b-4e56-a4e6-92a58b3a758f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2168baf5-4413-4c84-9418-6071270d2f24}" />
@@ -261,6 +262,7 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{4ed9eb1d-2e03-435e-becd-8d55350f0272}" />
+	<object class="SpatialiserEffect" id="{ab08952e-e41b-4e56-a4e6-92a58b3a758f}" />
 	<object class="MixerBusFader" id="{ba2931be-1e26-4ceb-8ff0-8211917cad47}" />
 	<object class="MixerBusFader" id="{646e1c62-29c8-4d62-b2dd-c72dc0f9d8e6}" />
 </objects>
