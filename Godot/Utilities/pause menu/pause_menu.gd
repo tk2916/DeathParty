@@ -1,25 +1,25 @@
 extends CanvasLayer
 
 
-@onready var main_pause_menu : VBoxContainer = $MarginContainer/MainPauseMenu
+@onready var main_pause_menu : VBoxContainer = %MainPauseMenu
 
-@onready var resume_button : Button = $MarginContainer/MainPauseMenu/ResumeButton
-@onready var settings_button : Button = $MarginContainer/MainPauseMenu/SettingsButton
-@onready var quit_button : Button = $MarginContainer/MainPauseMenu/QuitButton
+@onready var resume_button : Button = %ResumeButton
+@onready var settings_button : Button = %SettingsButton
+@onready var quit_button : Button = %QuitButton
 
-@onready var settings_menu : VBoxContainer = $MarginContainer/SettingsMenu
-@onready var volume_slider : HSlider = $MarginContainer/SettingsMenu/GridContainer/VolumeSlider
-@onready var volume_number : Label = $MarginContainer/SettingsMenu/GridContainer/VolumeNumber
+@onready var settings_menu : VBoxContainer = %SettingsMenu
+@onready var volume_slider : HSlider = %VolumeSlider
+@onready var volume_number : Label = %VolumeNumber
 
-@onready var quit_menu : VBoxContainer = $MarginContainer/QuitMenu
-@onready var yes_quit_button : Button = $MarginContainer/QuitMenu/HBoxContainer/YesQuitButton
+@onready var quit_menu : VBoxContainer = %QuitMenu
+@onready var yes_quit_button : Button = %YesQuitButton
 
 
-func _ready():
+func _ready() -> void:
 	volume_slider.value = Settings.volume
 
 
-func _physics_process(delta : float) -> void:
+func _physics_process(_delta : float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if main_pause_menu.visible:
 			toggle_pause()
@@ -35,10 +35,10 @@ func _physics_process(delta : float) -> void:
 			quit_button.grab_focus()
 
 
-func toggle_pause():
+func toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
 	visible = !visible
-	
+
 	if visible:
 		resume_button.grab_focus()
 
@@ -65,12 +65,14 @@ func _on_volume_slider_value_changed(value : float) -> void:
 	# a decimal after the float when its concatenated
 	# and i think the other way to convert to an int uses % in the syntax
 	# which would maybe look weird/hard to read since this is a percentage
-	
+
 	# (if anyone knows a nicer way to do this feel free to replace it lol)
 	volume_number.text = str(int(volume_slider.value)) + "%"
 
+	Settings.set_volume(volume_slider.value)
 
-func _on_volume_slider_drag_ended(value_changed : bool) -> void:
+
+func _on_volume_slider_drag_ended(_value_changed : bool) -> void:
 	Settings.set_volume(volume_slider.value)
 
 
