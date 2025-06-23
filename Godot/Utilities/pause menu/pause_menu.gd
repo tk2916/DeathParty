@@ -44,6 +44,8 @@ func toggle_pause():
 
 
 # pause with the ⚙️ button in the UI
+# this signal name is kinda unintuitive but we'll fix that when we add
+# proper names for the nodes in the UI
 func _on_button_2_pressed() -> void:
 	toggle_pause()
 
