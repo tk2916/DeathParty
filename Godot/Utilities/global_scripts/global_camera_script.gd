@@ -18,7 +18,7 @@ signal camera_on_player(tf: bool)
 # left_bound: global_position.x value that the camera's global_position.x cannot GO UNDER
 # right_bound: global_position.x value that the camera's global_position.x cannot EXCEED
 # room_basis: the basis of the given room
-signal bind_camera_LR(left_bound: Vector3, right_bound: Vector3, room_basis : Basis)
+signal bind_camera_LR(left_bound: Vector3, right_bound: Vector3, room_basis: Basis)
 
 # lower_bound: global_position.y value that the camera's global_position.y cannot GO UNDER
 # upper_bound: global_position.y value that the camera's global_position.y cannot EXCEED
