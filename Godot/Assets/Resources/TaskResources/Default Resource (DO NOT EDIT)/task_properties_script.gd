@@ -6,7 +6,7 @@ var assigned : bool = false
 var finished : bool = false
 
 var gui_node : Control
-var prefab : PackedScene = preload("res://Assets/GUIPrefabs/TaskPrefabs/task_container.tscn")
+var prefab : PackedScene = preload("res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_container.tscn")
 
 func instantiate():
 	assigned = true

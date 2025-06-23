@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://brymdlq6vnbli"]
 
-[ext_resource type="Script" uid="uid://bpm4a31sjdhmq" path="res://Assets/GUIPrefabs/TaskPrefabs/task_container.gd" id="1_wu1ax"]
+[ext_resource type="Script" uid="uid://bpm4a31sjdhmq" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_container.gd" id="1_wu1ax"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq58d"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

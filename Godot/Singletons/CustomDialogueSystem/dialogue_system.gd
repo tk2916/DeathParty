@@ -4,9 +4,8 @@ extends Node
 @onready var canvas_layer : CanvasLayer = main.get_node("CanvasLayer")
 @onready var text_message_box : MarginContainer = canvas_layer.get_node("Phone/Screen/Background/MessageApp")
 
+const INK_FILE_PATH : String = "res://Assets/InkExamples/"
 var in_dialogue : bool = false #other scripts check this
-const FILE_PATH : String = "res://Singletons/CustomDialogueSystem/dialogue_data.tres"
-var dialogue_data : Resource
 
 var mouse_contained_within_gui : bool = true
 
@@ -18,9 +17,6 @@ var name_container : RichTextLabel
 
 var dialogue_box_properties : Resource
 var dialogue_box_id : int
-
-#CHARACTERS
-var character_properties : Dictionary[String, Resource]
 var current_dialogue_box : Control
 
 #DIALOGUES (FULL CHARACTER SENTENCES)
@@ -36,36 +32,30 @@ var current_choices : Array
 var current_choice_labels : Array[Node]
 
 #RESOURCE DIRECTORIES
-var char_directory_address : String = "res://Assets/Resources/CharacterResources/"
-var messages_directory_address : String = "res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/ChatResources/"
+const INK_INTERPRET_RSC_FILEPATH : String = "res://Singletons/InkInterpreter/ink_interpret_resource_blank.tres"
 var phone_messages : Dictionary[String, Resource]
-var blank_ink_interpret_resource : Resource = load("res://Singletons/InkInterpreter/ink_interpret_resource_blank.tres").duplicate(true)
+var character_properties : Dictionary[String, Resource]
+var blank_ink_interpret_resource : Resource = load(INK_INTERPRET_RSC_FILEPATH).duplicate(true)
 
 #PHONE CONVERSATIONS CAN BE PAUSED AND RETURNED TO
 var current_phone_resource : Resource = null
 var current_conversation : Array[Dictionary]
 
+#RANDOM NUMBERS (for dice rolls)
+var rng = RandomNumberGenerator.new()
+
 signal loaded_new_contact
 
 func _init() -> void: #loading files
-	dialogue_data = load(FILE_PATH)
 	load_properties()
+	
+func load_properties():
+	character_properties = SaveSystem.character_to_resource
+	phone_messages = SaveSystem.phone_chat_to_resource
 
 func emit_contacts():
 	for key in phone_messages:
 		loaded_new_contact.emit(phone_messages[key])
-
-func load_directory(address : String):
-	if address == char_directory_address:
-		SaveSystem.load_directory_into_dictionary(address, dialogue_data.character_dictionary)
-	elif address == messages_directory_address:
-		SaveSystem.load_directory_into_dictionary(address, phone_messages)
-
-func load_properties():
-	#loading character & dialogue box directories
-	load_directory(char_directory_address)
-	character_properties = dialogue_data["character_dictionary"]
-	load_directory(messages_directory_address)
 
 #in case we want to switch dialogue box mid conversation
 func mouse_entered():
@@ -172,6 +162,15 @@ func say(dialogues : Array):
 	current_dialogue_index = 0
 	display_current_dialogue()
 
+func load_convo(target_name : String, json_name : String, phone_conversation : bool = false):
+	var target_resource : Resource 
+	if phone_conversation:
+		target_resource = phone_messages[target_name]
+	else:
+		target_resource = character_properties[target_name]
+	var json_file : JSON = load(INK_FILE_PATH+json_name)
+	target_resource.load_chat(json_file)
+
 func match_command(text_ : String):
 	var parameters_array : PackedStringArray = text_.split(" ")
 	match(parameters_array[0]):
@@ -192,8 +191,31 @@ func match_command(text_ : String):
 			else:
 				print("User has item: ", parameters_array[1])
 				SaveSystem.set_key("has_item_flag", true)
-		"/change_image":
-			image_container.image = character_properties[parameters_array[1]][parameters_array[2]]
+		"/give_task":
+			SaveSystem.add_task(parameters_array[1])
+		"/complete_task":
+			SaveSystem.complete_task(parameters_array[1])
+		"/load_chat":
+			load_convo(parameters_array[1], parameters_array[2])
+		"/load_phone_chat":
+			load_convo(parameters_array[1], parameters_array[2], true)
+		"/die_roll":
+			var stat : String = parameters_array[1].to_lower()
+			var difficulty : String = parameters_array[2].to_lower()
+			var roll : int = rng.randi_range(1,20) #20-sided die
+			var modified_roll : int = roll + (SaveSystem.get_key(stat)-10)
+			var threshold : int = 0
+			match(difficulty):
+				"hard":
+					threshold = 17
+				"medium":
+					threshold = 13
+				"easy":
+					threshold = 10
+			if modified_roll >= threshold:
+				SaveSystem.set_key("die_roll_flag", true)
+			else:
+				SaveSystem.set_key("die_roll_flag", false)
 	
 func advance_dialogue():
 	if current_line_label.done_state == true:
@@ -214,6 +236,7 @@ func change_container(redirect:String, choice_text:String):
 	are_choices = false
 	if dialogue_box_properties["clear_box_after_each_dialogue"] == false:
 		for choice in current_choice_labels:
+			choice_container.remove_child(choice)
 			choice.queue_free()
 		current_choice_labels = []
 	Ink.make_choice(redirect)
@@ -272,6 +295,7 @@ func get_first_message(json : JSON):
 func from_JSON(file : JSON, saved_ink_resource : Resource = blank_ink_interpret_resource):#resume_from_hierarchy : Array = []): #non-phone dialoguebox
 	assert(file != null, "You forgot to assign a JSON file!")
 	print("Starting chat json: ", saved_ink_resource.output_stream)
+	current_choice_labels = []
 	Ink.from_JSON(file, saved_ink_resource)
 	display_current_container()
 	
