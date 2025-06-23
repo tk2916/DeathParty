@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8jbowdnorp1f"]
+
+[ext_resource type="Script" uid="uid://dkwxukji4mmmu" path="res://Utilities/pause menu/pause_menu.gd" id="1_52f8u"]
+[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="2_qpukh"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_52f8u")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 500
+theme_override_constants/margin_bottom = 250
+
+[node name="MainPauseMenu" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PausedText" type="Label" parent="MarginContainer/MainPauseMenu"]
+layout_mode = 2
+theme = ExtResource("2_qpukh")
+text = "paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="MarginContainer/MainPauseMenu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+theme = ExtResource("2_qpukh")
+text = "resume"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/MainPauseMenu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+theme = ExtResource("2_qpukh")
+text = "settings"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/MainPauseMenu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+theme = ExtResource("2_qpukh")
+text = "quit"
+
+[node name="SettingsMenu" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VolumeText" type="Label" parent="MarginContainer/SettingsMenu"]
+layout_mode = 2
+theme = ExtResource("2_qpukh")
+text = "volume"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/SettingsMenu"]
+layout_mode = 2
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/SettingsMenu/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_top = NodePath("../../SettingsBackButton")
+focus_neighbor_bottom = NodePath("../../SettingsBackButton")
+value = 75.0
+rounded = true
+tick_count = 10
+ticks_on_borders = true
+
+[node name="VolumeNumber" type="Label" parent="MarginContainer/SettingsMenu/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_bottom = NodePath("../../SettingsBackButton")
+theme = ExtResource("2_qpukh")
+theme_override_font_sizes/font_size = 20
+text = "75"
+
+[node name="SettingsBackButton" type="Button" parent="MarginContainer/SettingsMenu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../GridContainer/VolumeSlider")
+focus_neighbor_bottom = NodePath("../GridContainer/VolumeSlider")
+theme = ExtResource("2_qpukh")
+text = "back"
+
+[node name="QuitMenu" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="AreYouSureText" type="Label" parent="MarginContainer/QuitMenu"]
+layout_mode = 2
+theme = ExtResource("2_qpukh")
+text = "are you sure you want to quit?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/QuitMenu"]
+layout_mode = 2
+
+[node name="YesQuitButton" type="Button" parent="MarginContainer/QuitMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../NoQuitButton")
+focus_neighbor_right = NodePath("../NoQuitButton")
+theme = ExtResource("2_qpukh")
+text = "yes"
+
+[node name="NoQuitButton" type="Button" parent="MarginContainer/QuitMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../YesQuitButton")
+focus_neighbor_right = NodePath("../YesQuitButton")
+theme = ExtResource("2_qpukh")
+text = "no"
+
+[connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainPauseMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="drag_ended" from="MarginContainer/SettingsMenu/GridContainer/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
+[connection signal="value_changed" from="MarginContainer/SettingsMenu/GridContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/SettingsMenu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/QuitMenu/HBoxContainer/YesQuitButton" to="." method="_on_yes_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/QuitMenu/HBoxContainer/NoQuitButton" to="." method="_on_no_quit_button_pressed"]
