@@ -134,7 +134,7 @@ func exit_array():
 	set_current_array()
 
 func jump_to_container(path:String): # for ->
-	print("jumping to ", path, " from ", rsc.hierarchy)
+	print("jumping to ", path, " from ", rsc.hierarchy, " | redirect_h: ", rsc.redirect_hierarchy)
 	push_backup_hierarchy()
 	var path_array = Array(path.split('.'))
 	var directly_to_container : bool = false #if it's a redirect item, it has to be sent to the LOCAL redirect table (not necessarily the current one)
@@ -148,22 +148,22 @@ func jump_to_container(path:String): # for ->
 			else:
 				push_hierarchy(item)
 	else: #absolute path
-		if path_array.size() == 1 and !path_array.back().is_valid_int():
-			path_array.push_back("0")
-			rsc.redirect_hierarchy = []
-			#rsc.redirect_hierarchy.pop_back() #we intend to stay in this container
-		if path_array[0].is_valid_int(): #redirect value
+		var valid_int = path_array[0].is_valid_int()
+		if valid_int: #redirect value
 			rsc.hierarchy = ["root"]
 			for n in range(0,path_array.size()-1): #skip the last one
 				var item = path_array.pop_front()
 				push_hierarchy(item)
 			push_hierarchy(path_array.back())
 		else: #goes to a container
+			if path_array.size() == 1:
+				path_array.push_back("0")
 			rsc.hierarchy = ["root", 2] # set hierarchy to the 2nd element of root (where all the containers are stored)
 			for item in path_array:
 				push_hierarchy(item)
-			rsc.redirect_hierarchy = []
-			#rsc.redirect_hierarchy.pop_back()
+			if path_array[0] != "global decl": #don't want to get rid of the old redirect hierarchy
+				print("set redirect hierarchy blank")
+				rsc.redirect_hierarchy = []
 		
 	set_current_array() #sets current_array & current_index to the path specified in hierarchy
 
@@ -277,6 +277,7 @@ func redirect(next):
 		if next.has("c"):
 			print("Condition succeeded: ", redirect_location)
 		if redirect_location[0] != "$":
+			print("Pushing redirect hierarchy: ", rsc.hierarchy)
 			push_redirect_hierarchy()
 			jump_to_container(redirect_location)
 
@@ -490,7 +491,7 @@ func reset_defaults(saved_ink_resource):#resume_from_hierarchy):
 	for n in range(9, property_list.size()):
 		var key = property_list[n].name
 		rsc[key] = saved_ink_resource[key]
-		print("Setting key ", key, " to value ", rsc[key])
+		#print("Setting key ", key, " to value ", rsc[key])
 	
 	rsc.player_choices = []
 	rsc.output_stream = []
@@ -498,8 +499,8 @@ func reset_defaults(saved_ink_resource):#resume_from_hierarchy):
 	rsc.resumed_hierarchy = rsc.hierarchy #will either be an empty array or the next hierarchy we need
 
 func initialize_hierarchy():
+	print("initializing hierarchy! resumed hierarchy: ", rsc.resumed_hierarchy)
 	if rsc.resumed_hierarchy.size() > 0:
-		#print("RESUMING FROM OLD INK: ", rsc.hierarchy)
 		rsc.hierarchy = rsc.resumed_hierarchy
 		set_current_array()
 	else:
@@ -515,6 +516,7 @@ func get_first_message(temp_json : JSON):
 func from_JSON(file : JSON, saved_ink_resource : Resource):#resume_from_hierarchy : Array = []):
 	#reset variables
 	reset_defaults(saved_ink_resource)#resume_from_hierarchy)
+	print("NEW JSON CALL ---------------------------------- ", rsc.hierarchy)
 	if rsc.json_file == null or rsc.json_file.is_empty():
 		var filepath = file.resource_path
 		var json_as_text : String = FileAccess.get_file_as_string(filepath)

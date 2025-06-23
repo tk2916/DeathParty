@@ -1,8 +1,10 @@
 extends RichTextLabel
 
+@export var color : String = "white"
+
 func update_clock(key : String, value):
 	if key != "time": return
-	text = SaveSystem.parse_time(value)
+	text = "[color="+color+"]"+SaveSystem.parse_time(value)+"[/color]"
 
 func _ready() -> void:
 	#text = SaveSystem.get_key("time")

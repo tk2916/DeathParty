@@ -29,6 +29,7 @@
 [ext_resource type="Resource" uid="uid://dfsf66usc4sbb" path="res://Assets/Resources/DialogueBoxResources/phone_dialogue_box.tres" id="25_xuqvo"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
+[ext_resource type="Script" uid="uid://dehejbaawpqyj" path="res://Assets/GUIFunctionalityScripts/clock.gd" id="27_seu75"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
 
@@ -429,37 +430,38 @@ theme_override_fonts/normal_font = ExtResource("19_ryguw")
 [node name="Journal" parent="CanvasLayer" instance=ExtResource("23_qsp4k")]
 
 [node name="Phone" parent="CanvasLayer" instance=ExtResource("20_d13ii")]
-visible = false
 
 [node name="MessageApp" parent="CanvasLayer/Phone/Screen/Background" index="2"]
 resource_file = ExtResource("25_xuqvo")
 
-[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Phone/Screen/Background" index="3"]
+[node name="Upper" type="HSplitContainer" parent="CanvasLayer/Phone/Screen/Background" index="3"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.05
 grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Phone/Screen/Background/HSplitContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Phone/Screen/Background/Upper"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
 
-[node name="Time" type="RichTextLabel" parent="CanvasLayer/Phone/Screen/Background/HSplitContainer/MarginContainer"]
+[node name="Time" type="RichTextLabel" parent="CanvasLayer/Phone/Screen/Background/Upper/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[color=black]10:00 pm"
 vertical_alignment = 1
+script = ExtResource("27_seu75")
+color = "black"
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Phone/Screen/Background/HSplitContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Phone/Screen/Background/Upper"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_right = 10
 
-[node name="Charge" type="RichTextLabel" parent="CanvasLayer/Phone/Screen/Background/HSplitContainer/MarginContainer2"]
+[node name="Charge" type="RichTextLabel" parent="CanvasLayer/Phone/Screen/Background/Upper/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 10
