@@ -14,8 +14,8 @@ var player_distance_to_door : float
 @onready var door_opening_speed : float = 5
 @onready var original_rotation : float = door_model.rotation.y
 
-@onready var open_sound: FmodEventEmitter3D = $Sfx/OpenSound
-@onready var close_sound: FmodEventEmitter3D = $Sfx/CloseSound
+@onready var open_sound: FmodEventEmitter3D = %OpenSound
+@onready var close_sound: FmodEventEmitter3D = %CloseSound
 
 
 func _ready() -> void:

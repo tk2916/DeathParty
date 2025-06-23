@@ -58,10 +58,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 2.5)
 [node name="OpenSound" type="FmodEventEmitter3D" parent="Sfx"]
 event_name = "event:/000_SFX/000_Demo_Test/005_SFX_DoorOpen"
 event_guid = "{64035df9-b5d1-4f69-9b4e-3ef18bd767e9}"
+unique_name_in_owner = true
 
 [node name="CloseSound" type="FmodEventEmitter3D" parent="Sfx"]
 event_name = "event:/000_SFX/000_Demo_Test/006_SFX_DoorClose"
 event_guid = "{92e05241-9da1-4cb3-aa62-214451d2e3f1}"
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="EntranceArea" to="." method="_on_entrance_area_body_entered"]
 [connection signal="body_exited" from="EntranceArea" to="." method="_on_entrance_area_body_exited"]
