@@ -14,6 +14,10 @@ var player_distance_to_door : float
 @onready var door_opening_speed : float = 5
 @onready var original_rotation : float = door_model.rotation.y
 
+@onready var open_sound: FmodEventEmitter3D = %OpenSound
+@onready var close_sound: FmodEventEmitter3D = %CloseSound
+
+
 func _ready() -> void:
 	GlobalPlayerScript.player_moved.connect(_change_door_visibility)
 	
@@ -50,10 +54,12 @@ func calculate_player_distance(pos: Vector3) -> void:
 func _on_entrance_area_body_entered(body: Node3D) -> void:
 	calculate_player_distance(body.global_position)
 	player_at_door = true
+	open_sound.play()
 
 
 func _on_entrance_area_body_exited(body: Node3D) -> void:
 	player_at_door = false
+	close_sound.play()
 
 #func _on_entrance_detector_player_interacted(body: CharacterBody3D) -> void:
 	#body.global_position = $ExitLocation.global_position
