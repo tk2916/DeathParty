@@ -85,12 +85,15 @@ func get_scope(final_index : int):
 				#print("Set redirect table: ", rsc.redirect_table_address)
 				
 				if rsc.redirect_table.has("c-0"): #real redirect table
+					print("Has c0")
 					set_current_container(current_scope, n)
 			elif second_to_last is String and second_to_last == "end": #second to last element is end
+				print("Comes to end")
 				set_current_container(current_scope, n)
 			#END REDIRECT TABLE
 	#default in case no valid container is found
 	if rsc.current_container_i > rsc.hierarchy.size()-1:
+		print("default: current container i > hierarchy size")
 		set_current_container(current_scope, rsc.hierarchy.size()-2)
 	#print("Last scope: ", current_scope)
 	return current_scope
@@ -101,14 +104,14 @@ func set_current_array():#redirect_item : bool):
 	
 	#Check if it's a redirect. If it is, we have to use the local redirect table
 	if current_index() is String: #means it's a redirect
-		var redirect_value : String = current_index()
+		var redirect_table_addr : String = current_index()
 		if rsc.redirect_table.has(current_index()): # otherwise, invalid address
 			rsc.backup_hierarchy.pop_back()
 			pop_hierarchy()
 			push_hierarchy(str(rsc.redirect_table_address))
-			push_hierarchy(redirect_value)
+			push_hierarchy(redirect_table_addr)
 			push_hierarchy("0")
-			rsc.current_array = rsc.redirect_table[redirect_value]
+			rsc.current_array = rsc.redirect_table[redirect_table_addr]
 		else:
 			rsc.hierarchy = rsc.backup_hierarchy.pop_back()
 			increment_current_index()
@@ -325,7 +328,6 @@ func match_cmd(next):
 		"done":
 			print("popping thread")
 			popThread()
-			#return
 		"end":
 			##print("Ended story!")
 			return 405
@@ -456,12 +458,13 @@ func get_content():
 
 		'''
 		print("Result: ", result, " Hierarchy: ", rsc.hierarchy)
-		print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
-		print("Current index: ", current_index(), " | size: ", rsc.current_array.size(), " | redirect hierarchy: ", rsc.redirect_hierarchy.size())
-		#if current_index() > current_array.size()-1 and redirect_hierarchy.size() == 0:#current_container_inner_index() > current_container_size()-1:
-		if current_container_inner_index() > current_container_size()-1:
-		#if current_index() > current_array.size()-1:
-			#if we have reached the end of the array
+		
+		if result == 405:
+			print("Ending: ", rsc.player_choices)
+			return result
+		elif current_container_inner_index() > current_container_size()-1:
+			print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
+			print("Current index: ", current_index(), " | size: ", rsc.current_array.size(), " | redirect hierarchy: ", rsc.redirect_hierarchy.size())
 			print("Passed all conditions")
 			if rsc.player_choices.size() > 0:
 				var return_choices = rsc.player_choices
@@ -469,9 +472,6 @@ func get_content():
 				rsc.player_choices = []
 				print("Returning choices")
 				return return_choices
-		if result == 405:
-			print("Ending: ", rsc.player_choices)
-			return result
 		else:
 			var exit_array_return = exit_array()
 			if exit_array_return != null:

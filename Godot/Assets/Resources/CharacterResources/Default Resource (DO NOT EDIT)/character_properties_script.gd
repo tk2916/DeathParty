@@ -28,3 +28,6 @@ func start_chat():
 			DialogueSystem.from_JSON(default_chat)
 	else:
 		DialogueSystem.from_JSON(new_json)
+		
+func end_chat():
+	upcoming_chats.pop_front()

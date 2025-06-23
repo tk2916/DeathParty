@@ -37,6 +37,8 @@ var phone_messages : Dictionary[String, Resource]
 var character_properties : Dictionary[String, Resource]
 var blank_ink_interpret_resource : Resource = load(INK_INTERPRET_RSC_FILEPATH).duplicate(true)
 
+var current_character_resource : Resource = null
+
 #PHONE CONVERSATIONS CAN BE PAUSED AND RETURNED TO
 var current_phone_resource : Resource = null
 var current_conversation : Array[Dictionary]
@@ -269,6 +271,7 @@ func display_current_container():
 			else:
 				current_dialogue_box.visible = false
 				current_dialogue_box.queue_free()
+				current_character_resource.end_chat()
 			in_dialogue = false
 			current_conversation = []
 			return
@@ -298,14 +301,19 @@ func from_JSON(file : JSON, saved_ink_resource : Resource = blank_ink_interpret_
 	current_choice_labels = []
 	Ink.from_JSON(file, saved_ink_resource)
 	display_current_container()
-	
+
+#CHARACTER-RELATED
+func to_character(char : Resource, file : JSON):
+	current_character_resource = char
+	current_character_resource.load_chat(file)
+
 #PHONE-RELATED
 func find_contact(chat_name:String):
 	if phone_messages.has(chat_name):
 		return phone_messages[chat_name]
 
-func to_phone(file : JSON, chat_name : String): # called to load json into phone
-	var chat = find_contact(chat_name)
+func to_phone(chat_name : String, file : JSON): # called to load json into phone
+	var chat : Resource = find_contact(chat_name)
 	current_phone_resource = chat
 	current_phone_resource.load_chat(file)
 
