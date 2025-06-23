@@ -43,10 +43,11 @@ func toggle_pause():
 		resume_button.grab_focus()
 
 
-# this connects the ⚙️ button in the bottom bar ui to the pause menu
-# its commented out because right now it only works for pausing and not unpausing
-#func _on_button_2_pressed() -> void:
-	#toggle_pause()
+# pause with the ⚙️ button in the UI
+# this signal name is kinda unintuitive but we'll fix that when we add
+# proper names for the nodes in the UI
+func _on_button_2_pressed() -> void:
+	toggle_pause()
 
 
 func _on_resume_button_pressed() -> void:

@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=73 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=60 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -126,20 +125,7 @@ size = Vector3(17, 0.5, 3)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ycdy4"]
 data = PackedVector3Array(-8.5, 0.25, 1.5, 8.5, 0.25, 1.5, -8.5, -0.25, 1.5, 8.5, 0.25, 1.5, 8.5, -0.25, 1.5, -8.5, -0.25, 1.5, 8.5, 0.25, -1.5, -8.5, 0.25, -1.5, 8.5, -0.25, -1.5, -8.5, 0.25, -1.5, -8.5, -0.25, -1.5, 8.5, -0.25, -1.5, 8.5, 0.25, 1.5, 8.5, 0.25, -1.5, 8.5, -0.25, 1.5, 8.5, 0.25, -1.5, 8.5, -0.25, -1.5, 8.5, -0.25, 1.5, -8.5, 0.25, -1.5, -8.5, 0.25, 1.5, -8.5, -0.25, -1.5, -8.5, 0.25, 1.5, -8.5, -0.25, 1.5, -8.5, -0.25, -1.5, 8.5, 0.25, 1.5, -8.5, 0.25, 1.5, 8.5, 0.25, -1.5, -8.5, 0.25, 1.5, -8.5, 0.25, -1.5, 8.5, 0.25, -1.5, -8.5, -0.25, 1.5, 8.5, -0.25, 1.5, -8.5, -0.25, -1.5, 8.5, -0.25, 1.5, 8.5, -0.25, -1.5, -8.5, -0.25, -1.5)
 
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsp4k"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsp4k"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seu75"]
-bg_color = Color(0.412532, 0.368595, 0.290578, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htxhm"]
-bg_color = Color(0.912289, 0.912289, 0.912289, 1)
-
 [node name="Main" type="Node3D" node_paths=PackedStringArray("main_camera", "camera_location_node")]
-
 script = ExtResource("1_1bvp3")
 main_camera = NodePath("MainCamera")
 camera_location_node = NodePath("Player/PlayerCameraLocation")
@@ -512,6 +498,7 @@ json_file2 = ExtResource("27_xuqvo")
 [connection signal="body_entered" from="BackRoom" to="BackRoom" method="_on_body_entered"]
 [connection signal="body_entered" from="UpperRoom" to="UpperRoom" method="_on_body_entered"]
 [connection signal="body_entered" from="Hallway" to="Hallway" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 
 [editable path="Player"]
 [editable path="Player/PlayerModel"]
