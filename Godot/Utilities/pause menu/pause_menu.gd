@@ -15,7 +15,7 @@ extends CanvasLayer
 @onready var yes_quit_button : Button = $MarginContainer/QuitMenu/HBoxContainer/YesQuitButton
 
 
-func _ready():
+func _ready() -> void:
 	volume_slider.value = Settings.volume
 
 
@@ -35,7 +35,7 @@ func _physics_process(delta : float) -> void:
 			quit_button.grab_focus()
 
 
-func toggle_pause():
+func toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
 	visible = !visible
 	
