@@ -501,6 +501,7 @@ json_file2 = ExtResource("27_xuqvo")
 [connection signal="body_entered" from="BackRoom" to="BackRoom" method="_on_body_entered"]
 [connection signal="body_entered" from="UpperRoom" to="UpperRoom" method="_on_body_entered"]
 [connection signal="body_entered" from="Hallway" to="Hallway" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 
 [editable path="Player"]
 [editable path="Player/PlayerModel"]

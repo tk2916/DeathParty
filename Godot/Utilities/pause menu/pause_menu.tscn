@@ -19,6 +19,7 @@ theme_override_constants/margin_right = 500
 theme_override_constants/margin_bottom = 250
 
 [node name="MainPauseMenu" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="PausedText" type="Label" parent="MarginContainer/MainPauseMenu"]
@@ -28,6 +29,7 @@ text = "paused"
 horizontal_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="MarginContainer/MainPauseMenu"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
@@ -35,6 +37,7 @@ theme = ExtResource("2_qpukh")
 text = "resume"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/MainPauseMenu"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../ResumeButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
@@ -42,6 +45,7 @@ theme = ExtResource("2_qpukh")
 text = "settings"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/MainPauseMenu"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../ResumeButton")
@@ -49,6 +53,7 @@ theme = ExtResource("2_qpukh")
 text = "quit"
 
 [node name="SettingsMenu" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
@@ -62,6 +67,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="VolumeSlider" type="HSlider" parent="MarginContainer/SettingsMenu/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_top = NodePath("../../SettingsBackButton")
@@ -72,6 +78,7 @@ tick_count = 10
 ticks_on_borders = true
 
 [node name="VolumeNumber" type="Label" parent="MarginContainer/SettingsMenu/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 focus_neighbor_bottom = NodePath("../../SettingsBackButton")
@@ -87,6 +94,7 @@ theme = ExtResource("2_qpukh")
 text = "back"
 
 [node name="QuitMenu" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
@@ -100,6 +108,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="YesQuitButton" type="Button" parent="MarginContainer/QuitMenu/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../NoQuitButton")
