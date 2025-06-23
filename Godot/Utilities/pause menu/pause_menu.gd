@@ -38,7 +38,7 @@ func _physics_process(_delta : float) -> void:
 func toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
 	visible = !visible
-	
+
 	if visible:
 		resume_button.grab_focus()
 
@@ -65,7 +65,7 @@ func _on_volume_slider_value_changed(value : float) -> void:
 	# a decimal after the float when its concatenated
 	# and i think the other way to convert to an int uses % in the syntax
 	# which would maybe look weird/hard to read since this is a percentage
-	
+
 	# (if anyone knows a nicer way to do this feel free to replace it lol)
 	volume_number.text = str(int(volume_slider.value)) + "%"
 
