@@ -48,7 +48,7 @@
 			],
 			"nop",
 			"\n",
-			"^/roll_die intelligence medium",
+			"^/die_roll intelligence medium",
 			"\n",
 			"ev",
 			{

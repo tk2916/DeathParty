@@ -230,6 +230,7 @@ func match_command(text_ : String):
 					threshold = 13
 				"easy":
 					threshold = 10
+			print("Die roll!: ", modified_roll)
 			if modified_roll >= threshold:
 				SaveSystem.set_key("die_roll_flag", true)
 			else:
