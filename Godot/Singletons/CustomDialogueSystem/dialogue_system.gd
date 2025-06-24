@@ -1,8 +1,14 @@
 extends Node
 
-@onready var main = get_tree().root.get_node("Main")
-@onready var canvas_layer : CanvasLayer = main.get_node("CanvasLayer")
-@onready var text_message_box : MarginContainer = canvas_layer.get_node("Phone/Screen/Background/MessageApp")
+var main : Node
+var canvas_layer : CanvasLayer
+var text_message_box : MarginContainer
+
+func _ready() -> void:
+	main = get_tree().root.get_node_or_null("Main")
+	if main:
+		canvas_layer = main.get_node("CanvasLayer")
+		text_message_box = canvas_layer.get_node("Phone/Screen/Background/MessageApp")
 
 const INK_FILE_PATH : String = "res://Assets/InkExamples/"
 var in_dialogue : bool = false #other scripts check this
