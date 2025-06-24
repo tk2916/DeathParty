@@ -6,7 +6,7 @@ var choice_text : String
 var choice_text_color : String
 var text_properties : Resource
 
-var redirect : String
+var redirect : Array
 
 signal selected
 

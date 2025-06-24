@@ -418,8 +418,9 @@ visible = false
 script = ExtResource("22_lswn8")
 show_element = NodePath("../../../../TestInventory")
 
-[node name="Button3" parent="CanvasLayer/BasicGUI/Panel2/Panel3" index="1"]
+[node name="Button3" parent="CanvasLayer/BasicGUI/Panel2/Panel3" index="1" node_paths=PackedStringArray("show_element")]
 script = ExtResource("22_lswn8")
+show_element = NodePath("../../../../Journal")
 
 [node name="Button4" parent="CanvasLayer/BasicGUI/Panel2/Panel4" index="1" node_paths=PackedStringArray("show_element")]
 show_element = NodePath("../../../../Phone")

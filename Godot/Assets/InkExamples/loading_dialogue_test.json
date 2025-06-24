@@ -48,6 +48,46 @@
 			],
 			"nop",
 			"\n",
+			"^/roll_die intelligence medium",
+			"\n",
+			"ev",
+			{
+				"VAR?": "die_roll_flag"
+			},
+			"/ev",
+			[
+				{
+					"->": ".^.b",
+					"c": true
+				},
+				{
+					"b": [
+						"^ You succeeded on your roll ",
+						{
+							"->": "0.24"
+						},
+						null
+					]
+				}
+			],
+			[
+				{
+					"->": ".^.b"
+				},
+				{
+					"b": [
+						"^ You failed your roll",
+						{
+							"->": "0.24"
+						},
+						null
+					]
+				}
+			],
+			"nop",
+			"\n",
+			"^/give_task \"First task\"",
+			"\n",
 			"end",
 			[
 				"done",
@@ -65,6 +105,10 @@
 				false,
 				{
 					"VAR=": "has_item_flag"
+				},
+				false,
+				{
+					"VAR=": "die_roll_flag"
 				},
 				"/ev",
 				"end",

@@ -174,7 +174,23 @@ func load_convo(target_name : String, json_name : String, phone_conversation : b
 	target_resource.load_chat(json_file)
 
 func match_command(text_ : String):
-	var parameters_array : PackedStringArray = text_.split(" ")
+	#break up command into parameters
+	var parameters_array : Array[String]
+	var current_parameter : String = ""
+	var within_quotations : bool = false
+	for char in text_:
+		if char == "\"":
+			within_quotations = !within_quotations
+			continue
+		elif !within_quotations:
+			if char == " ":
+				parameters_array.push_back(current_parameter)
+				current_parameter = ""
+				continue
+		current_parameter += char
+	parameters_array.push_back(current_parameter)
+	print("Parameters array: ", parameters_array)
+	#match the first parameters (the command)
 	match(parameters_array[0]):
 		"/give_item":
 			SaveSystem.add_item(parameters_array[1])
@@ -234,7 +250,7 @@ func _input(event):
 					if mouse_contained_within_gui:
 						advance_dialogue()
 
-func change_container(redirect:String, choice_text:String):
+func change_container(redirect:Array, choice_text:String):
 	are_choices = false
 	if dialogue_box_properties["clear_box_after_each_dialogue"] == false:
 		for choice in current_choice_labels:

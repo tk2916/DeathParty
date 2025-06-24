@@ -75,7 +75,7 @@ func key_exists_assert(key:String): # returns location of key & errors if it doe
 func key_is_type(key:String, type:int): # errors if types don't match (passing type enum)
 	key_exists_assert(key)
 	assert(typeof(player_data[key])==type, "ERROR: " + key + " not of type " + str(type) +
-		"\nSee https://docs.godotengine.org/en/3.2/classes/class_@globalscope.html#enum-globalscope-variant-type")
+			"\nSee https://docs.godotengine.org/en/3.2/classes/class_@globalscope.html#enum-globalscope-variant-type")
 
 func match_type(key:String, value): # errors if types don't match (passing new value)
 	key_is_type(key, typeof(value))
@@ -125,6 +125,7 @@ func task_exists(item:String):
 	return player_data["possible_tasks"][item]
 	
 func add_task(item:String):
+	print("Added task: ", item)
 	task_exists(item)
 	player_data["tasks"].push_back(item)
 	tasks_changed.emit("add", item)
