@@ -11,7 +11,8 @@ func on_unread():
 func _ready():
 	$Outline.visible = false
 	character_resource.unread.connect(on_unread)
-	character_resource.load_chat(json_file)
+	DialogueSystem.to_character(character_resource, json_file)
+	#character_resource.load_chat(json_file)
 
 func interact():
 	print("Interacting")

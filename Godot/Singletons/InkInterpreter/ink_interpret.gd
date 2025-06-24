@@ -3,7 +3,7 @@ extends Node
 #all the variables
 var rsc : Resource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
 
-func match_hierarchies(h1:Array, h2:Array):
+func match_hierarchies(h1:Array, h2:Array) -> bool:
 	var matching = true
 	if (h1.size() != h2.size()):
 		matching = false
@@ -13,27 +13,29 @@ func match_hierarchies(h1:Array, h2:Array):
 				matching = false
 				break
 	return matching
-func already_chosen(h1:Array):
+func already_chosen(h1:Array) -> bool:
 	for h in rsc.disappearing_choices:
 		if match_hierarchies(h, h1):
 			return true
 	return false
 
-func push_hierarchy(item : String): # can be string or index
+func push_temp_hierarchy(temp: Array, item : String) -> void: # can be string or index
 	if item.is_valid_int():
 	#if item is String:
-		rsc.hierarchy.push_back(int(item)) #new index is zero
+		temp.push_back(int(item)) #new index is zero
 	else:
-		rsc.hierarchy.push_back(item)
+		temp.push_back(item)
+func push_hierarchy(item : String) -> void: # can be string or index
+	push_temp_hierarchy(rsc.hierarchy, item)
 func pop_hierarchy():
 	return rsc.hierarchy.pop_back()
 	
-func push_backup_hierarchy():
+func push_backup_hierarchy() -> void:
 	if rsc.hierarchy.size() > 0:
 		if current_container_name() is String:
 			if current_container_name() != "global decl":
 				rsc.backup_hierarchy.push_back(rsc.hierarchy.duplicate())
-func push_redirect_hierarchy():
+func push_redirect_hierarchy() -> void:
 	if rsc.hierarchy.size() > 0:
 		if current_container_name() is String:
 			if current_container_name() == "global decl":
@@ -43,16 +45,17 @@ func push_redirect_hierarchy():
 #INDEX STUFF
 func current_index():
 	return rsc.hierarchy.back()
-func set_current_index(index):
+func set_current_index(index) -> void:
 	pop_hierarchy()
 	rsc.hierarchy.push_back(index)
-func increment_current_index():
+func increment_current_index() -> void:
+	#print("incrementing index: ", current_index())
 	set_current_index(current_index()+1)
-func decrement_current_index():
+func decrement_current_index() -> void:
 	set_current_index(current_index()-1)
 
 #GET CURRENT CONTAINER INFO
-func set_current_container(arr:Array, index:int):
+func set_current_container(arr:Array, index:int) -> void:
 	rsc.current_container_arr = arr
 	rsc.current_container_i = index
 func current_container_name():
@@ -66,14 +69,25 @@ func current_container_inner_index():
 			
 	return rsc.hierarchy[rsc.current_container_i+1]
 
-func get_scope(final_index : int):
+func push_type_tracker(item) -> void:
+	if item is Array:
+		rsc.type_tracker.push_back(1)
+	elif item is Dictionary:
+		rsc.type_tracker.push_back(2)
+	else:
+		rsc.type_tracker.push_back(3)
+		
+func get_scope(final_index : int) -> Array:
 	var current_scope = rsc.json_file #can be dictionary, array, or element
+	rsc.type_tracker = []
 	if final_index == -1:
 		final_index = rsc.hierarchy.size()-1
-	print("getting scope: ", rsc.hierarchy.slice(0, final_index))
+	#print("getting scope: ", rsc.hierarchy.slice(0, final_index))
 	for n in range(final_index): # exclude last element
 		var path_item = rsc.hierarchy[n]
 		current_scope = current_scope[path_item]
+		#print("Push TypeTracker item ", path_item, " with type ", typeof(current_scope))
+		push_type_tracker(current_scope)
 		if current_scope is Array:
 			#SET REDIRECT TABLE IF ANY
 			var final_element = current_scope.back()
@@ -82,113 +96,147 @@ func get_scope(final_index : int):
 				# FOUND REDIRECT TABLE
 				rsc.redirect_table = final_element
 				rsc.redirect_table_address = current_scope.size()-1
-				#print("Set redirect table: ", rsc.redirect_table_address)
+				##print("Set redirect table: ", rsc.redirect_table_address)
 				
 				if rsc.redirect_table.has("c-0"): #real redirect table
 					set_current_container(current_scope, n)
 			elif second_to_last is String and second_to_last == "end": #second to last element is end
 				set_current_container(current_scope, n)
 			#END REDIRECT TABLE
+	push_type_tracker(rsc.hierarchy.back())
+	#print("All types-------------- ", rsc.type_tracker)
 	#default in case no valid container is found
 	if rsc.current_container_i > rsc.hierarchy.size()-1:
 		set_current_container(current_scope, rsc.hierarchy.size()-2)
-	#print("Last scope: ", current_scope)
+	##print("Last scope: ", current_scope)
 	return current_scope
 
-func set_current_array():#redirect_item : bool):
-	#print("Current scope: ", rsc.hierarchy, " | ", rsc.current_array)
-	rsc.current_array = get_scope(-1)
+func set_current_array() -> void:#redirect_item : bool):
+	##print("Current scope: ", rsc.hierarchy, " | ", rsc.current_array)
+	var scope = get_scope(-1)
+	rsc.current_array = scope
 	
+	var current_index = current_index()
 	#Check if it's a redirect. If it is, we have to use the local redirect table
-	if current_index() is String: #means it's a redirect
-		var redirect_value : String = current_index()
-		if rsc.redirect_table.has(current_index()): # otherwise, invalid address
+	if current_index is String: #means it's a redirect
+		var redirect_table_addr : String = current_index
+		if rsc.redirect_table.has(current_index): # otherwise, invalid address
 			rsc.backup_hierarchy.pop_back()
 			pop_hierarchy()
 			push_hierarchy(str(rsc.redirect_table_address))
-			push_hierarchy(redirect_value)
+			push_hierarchy(redirect_table_addr)
 			push_hierarchy("0")
-			rsc.current_array = rsc.redirect_table[redirect_value]
-		else:
+			rsc.current_array = rsc.redirect_table[redirect_table_addr]
+		else: #error, pop your backup hierarchy
 			rsc.hierarchy = rsc.backup_hierarchy.pop_back()
 			increment_current_index()
-		return
 
-func into_array():
+func into_array() -> void:
 	#var new_arr = current_array[current_index()]
 	push_hierarchy("0") #start on the first index of the new array
 	set_current_array()
 
-func exit_array():
-	print("exit array current hierarchy: ", rsc.hierarchy, " | redirects: ", rsc.redirect_hierarchy)
-	if rsc.redirect_hierarchy.size() > 0:
-		print("redirect hierarchy has something: ", rsc.redirect_hierarchy)
+func exit_array(with_redirect_hierarchy : bool = false) -> void:
+	##print("exit array current hierarchy: ", rsc.hierarchy, " | redirects: ", rsc.redirect_hierarchy)
+	if with_redirect_hierarchy:
+		##print("redirect hierarchy has something: ", rsc.redirect_hierarchy)
 		rsc.hierarchy = rsc.redirect_hierarchy.pop_back() #go to before redirect
 	else:
-		print("No redirect hierarchy: ", rsc.hierarchy)
+		rsc.redirect_hierarchy = []
+		##print("No redirect hierarchy: ", rsc.hierarchy)
 		pop_hierarchy() #go to parent index
 		if current_index() is String:
-			print(current_index(), " is a String")
 			pop_hierarchy()
 	increment_current_index() #increment previous parent index
 	set_current_array()
 
-func jump_to_container(path:String): # for ->
-	print("jumping to ", path, " from ", rsc.hierarchy, " | redirect_h: ", rsc.redirect_hierarchy)
-	push_backup_hierarchy()
+func jump_to_container_temp(path:String) -> Array:
+	var hierarchy_copy : Array = []
+	var type_tracker_copy :Array = []
+	for item in rsc.hierarchy:
+		hierarchy_copy.push_back(item)
+	for item in rsc.type_tracker:
+		type_tracker_copy.push_back(item)
 	var path_array = Array(path.split('.'))
-	var directly_to_container : bool = false #if it's a redirect item, it has to be sent to the LOCAL redirect table (not necessarily the current one)
+	var path_array_size : int = path_array.size()
 	if path[0] == '.': #relative path
-		for n in range(1, path_array.size()): # exclude last element, skip first element (empty space)
+		for n in range(1, path_array_size): # exclude last element, skip first element (empty space)
 			var item = path_array[n]
 			if item == "^": #go up a parent in hierarchy (nearest ARRAY, not dict)
-				pop_hierarchy()
-				if (current_index() is String) and (current_index() == "b"): #nested inside a dictionary that you need to additionally pop
-					pop_hierarchy()
+				var pop_until_reach_array : bool = true
+				var limit : int = 20
+				#print("one popping spree: ", type_tracker_copy)
+				while (pop_until_reach_array and limit>0):
+					limit-=1
+					var current_type : int = type_tracker_copy.back()
+					if current_type != 1: #1 = Array
+						var popped = hierarchy_copy.pop_back()
+						type_tracker_copy.pop_back()
+						#print("popping: ", popped)
+					else:
+						pop_until_reach_array = false
+						if path_array[n+1] == "^":
+							var popped = hierarchy_copy.pop_back()
+							type_tracker_copy.pop_back()
+							#print("popping array: ", popped)
 			else:
-				push_hierarchy(item)
+				#if item is String:
+					#push_temp_hierarchy(hierarchy_copy, str(rsc.redirect_table_address))
+				push_temp_hierarchy(hierarchy_copy, item)
+		#if hierarchy_copy.back() is String:
+			#push_temp_hierarchy(hierarchy_copy, "0")
 	else: #absolute path
 		var valid_int = path_array[0].is_valid_int()
 		if valid_int: #redirect value
-			rsc.hierarchy = ["root"]
-			for n in range(0,path_array.size()-1): #skip the last one
+			hierarchy_copy = ["root"]
+			for n in range(0,path_array.size()):
 				var item = path_array.pop_front()
-				push_hierarchy(item)
-			push_hierarchy(path_array.back())
+				push_temp_hierarchy(hierarchy_copy, item)
 		else: #goes to a container
+			hierarchy_copy = ["root", 2] # set hierarchy to the 2nd element of root (where all the containers are stored)
 			if path_array.size() == 1:
 				path_array.push_back("0")
-			rsc.hierarchy = ["root", 2] # set hierarchy to the 2nd element of root (where all the containers are stored)
 			for item in path_array:
-				push_hierarchy(item)
-			if path_array[0] != "global decl": #don't want to get rid of the old redirect hierarchy
-				print("set redirect hierarchy blank")
-				rsc.redirect_hierarchy = []
-		
+				push_temp_hierarchy(hierarchy_copy, item)
+	#print("Returning hierarchy copy: ", hierarchy_copy)
+	return hierarchy_copy
+
+func jump_to_container(path:String) -> void: # for ->
+	#print("jumping to ", path, " from ", rsc.hierarchy, " | redirect_h: ", rsc.redirect_hierarchy)
+	push_backup_hierarchy()
+	rsc.hierarchy = jump_to_container_temp(path)
+	var path_array = Array(path.split('.'))
+	set_current_array()
+
+func jump_to_container_from_hierarchy(new_hierarchy : Array) -> void: # for ->
+	#print("jumping to ", new_hierarchy, " from ", rsc.hierarchy, " | redirect_h: ", rsc.redirect_hierarchy)
+	push_backup_hierarchy()
+	rsc.hierarchy = new_hierarchy
+	rsc.redirect_hierarchy = []
 	set_current_array() #sets current_array & current_index to the path specified in hierarchy
 
-func push(value):
+func push(value) -> void:
 	rsc.evaluation_stack.push_back(value)
 func pop():
 	return rsc.evaluation_stack.pop_back()
 func stack_top():
 	return rsc.evaluation_stack.back()
-func pushThread():
+func pushThread() -> void:
 	rsc.all_evaluation_stacks.push_back(rsc.evaluation_stack.duplicate())
 	rsc.evaluation_stack = rsc.all_evaluation_stacks.back()
-func popThread():
+func popThread() -> void:
 	rsc.all_evaluation_stacks.pop_back()
 	rsc.evaluation_stack = rsc.all_evaluation_stacks.back()
 	
 const ALL_OPERATORS : Array[String] = ["+", "-", "/", "*", "%", "==", ">", "<", ">=", "<=", "!=", "!", "&&", "||", "MIN", "MAX"]
-func operate(op, arg1, arg2):
+func operate(op : String, arg1, arg2):
 	if arg2 != null:
 		if typeof(arg1) != typeof(arg2):
 			#puts them both in true or false terms
 			arg1 = !!arg1
 			arg2 = !!arg2
-	##print("OPERATING: ", arg1, op, arg2)
-	var result
+	###print("OPERATING: ", arg1, op, arg2)
+	var result #can be bool or number
 	match (op):
 		"+":
 			result = arg1+arg2
@@ -222,10 +270,9 @@ func operate(op, arg1, arg2):
 			result = min(arg1,arg2)
 		"MAX":
 			result = max(arg1,arg2)
-		_:
-			result = "No operation: " + op
 			
 	push(result)
+	#print("operation result: ", arg1, op, arg2, "=", result)
 	return result
 
 func logical_operation(current_operator):
@@ -236,7 +283,7 @@ func logical_operation(current_operator):
 	return operate(current_operator, arg2, arg1)
 
 var last_speaker : String = ""
-func break_up_dialogue(dialogue:String):
+func break_up_dialogue(dialogue:String) -> Dictionary:
 	#name of speaker should be between brackets; if not, infer it from last speaker
 	var char_name : String = ""
 	var recording_name : bool = false
@@ -265,23 +312,26 @@ func break_up_dialogue(dialogue:String):
 	var dialogue_text = dialogue.substr(last_bracket_index)
 	return {"speaker":char_name, "text":dialogue_text}
 
-func redirect(next):
+func redirect(next) -> void:
 	var redirect_location = next["->"]
-	print("Redirect -> ", redirect_location)
+	#print("Redirect -> ", redirect_location)
 	var condition_flag = pop() #condition_flag is pushed to the stack immediately preceding the check
 	if next.has("c") and condition_flag != next["c"]: #checks condition if redirect calls for one
-		print("Condition failed: ", redirect_location)
-		print("Condition failed2: ", condition_flag, next["c"])
+		##print("Condition failed: ", redirect_location)
+		##print("Condition failed2: ", condition_flag, next["c"])
 		return
 	else:
 		if next.has("c"):
-			print("Condition succeeded: ", redirect_location)
+			pass
+			##print("Condition succeeded: ", redirect_location)
 		if redirect_location[0] != "$":
-			print("Pushing redirect hierarchy: ", rsc.hierarchy)
+			##print("Pushing redirect hierarchy: ", rsc.hierarchy)
 			push_redirect_hierarchy()
 			jump_to_container(redirect_location)
+		else:
+			exit_array(true)
 
-func match_cmd(next):
+func match_cmd(next) -> int:
 	var command : int = 1
 	match (next):
 		"ev":
@@ -320,43 +370,41 @@ func match_cmd(next):
 		"seq":
 			pass
 		"thread":
-			print("Pushing thread")
+			##print("Pushing thread")
 			pushThread()
 		"done":
-			print("popping thread")
+			##print("popping thread")
 			popThread()
-			#return
 		"end":
-			##print("Ended story!")
+			###print("Ended story!")
 			return 405
 		_:
 			command = 0
 	return command
 			
-func next_line():
-	#set_current_array()
+func next_line() -> int:
 	if current_index() > rsc.current_array.size()-1: #skip the last element (the redirect table)
-		print("Array index surpassed")
+		#print("Array index surpassed")
 		return 404
 	var next = rsc.current_array[current_index()]
-	print("Next: ", rsc.hierarchy, next)
+	#print("Next: ", rsc.hierarchy, next)
 	
 	var cmd_result : int = match_cmd(next)
 	if cmd_result == 1: #command has been executed, break
-		return
+		return 0
 	elif cmd_result == 405: #command says to end dialogue
 		return 405
 	# NESTING
 	if next is Array: #means there is a branch condition (either a choice or something condition-based)
-		print("Going into array: ", rsc.hierarchy)
+		#print("Going into array: ", rsc.hierarchy)
 		into_array()
-		return
+		return 0
 	
 	if next is String:
 		if next[0] == '^': #is string
 			next = next.substr(1)
 			if next.replace(" ", "").length() == 0: #if it is just empty space
-				return
+				return 0
 			if rsc.string_evaluation_mode: #string eval mode takes precedence
 				rsc.string_eval_stream = rsc.string_eval_stream + next
 			else:
@@ -372,12 +420,12 @@ func next_line():
 				if next.has("VAR?"):
 					push(SaveSystem.get_key(next["VAR?"]))
 				elif next.has("VAR="):
-					print("Requesting variable ", next["VAR="])
+					#print("Requesting variable ", next["VAR="])
 					if (current_container_name() is String) and current_container_name() == "global decl": #if we are doing initial assignments, don't overwrite prior data
-						print("doing global declaration for ", next["VAR="])
+						#print("doing global declaration for ", next["VAR="])
 						if SaveSystem.key_exists(next["VAR="]):
 							#### IMPORTANT!!!!! don't reassign if already assigned
-							return
+							return 0
 					SaveSystem.set_key(next["VAR="], pop())
 				elif next.has("^->"):
 					push(next["^->"])
@@ -385,7 +433,7 @@ func next_line():
 					rsc.tempVariableDict[next["temp="]] = pop()
 				if rsc.string_evaluation_mode:
 					if next.has("->"):
-						print("Has -> ", next["->"])
+						#print("Has -> ", next["->"])
 						redirect(next)
 			else:
 				push(next)
@@ -400,7 +448,7 @@ func next_line():
 					#pop a value off the eval stack to see if you should show it
 					var true_false : bool = pop()
 					if true_false == false:
-						return
+						return 0
 					
 				#then it is a choice. Pop the choice's text from off the stack
 				var choice_text = pop()
@@ -409,42 +457,42 @@ func next_line():
 					if choice_text:
 						choice_text = pop() #the next one down will be the actual text
 					else:
-						return
+						return 0
 				var redirect_location = next["*"]
-				rsc.player_choices.push_back({"text":choice_text, "jump":redirect_location})
-				print("pushed player choices: ", rsc.player_choices)
+				#We need to not only get the redirect location but the actual hierarchy of the redirection
+				get_scope(-1)
+				var redirect_location_hierarchy = jump_to_container_temp(redirect_location)
+				rsc.player_choices.push_back({"text":choice_text, "jump":redirect_location_hierarchy})
+				#print("pushed player choices: ", rsc.player_choices)
+				increment_current_index()
 			elif next.has("->"):
 				redirect(next)
-	return
+	return 0
 
-func make_choice(redirect:String):
-	print("jumping to ", redirect, " from ", rsc.hierarchy)
-	jump_to_container(redirect)
+func make_choice(redirect:Array):
+	##print("jumping to ", redirect, " from ", rsc.hierarchy)
+	#jump_to_container(redirect)
+	jump_to_container_from_hierarchy(redirect)
 
 func get_content():
-	#print("calling next line", rsc.hierarchy)
+	##print("calling next line", rsc.hierarchy)
 	var og_container = current_container_name()
 	var og_hierarchy_size = rsc.hierarchy.size()
 	var result = next_line()
-	#print("Current container index: ", rsc.current_container_i)
+	##print("Current container index: ", rsc.current_container_i)
 	if result != 404 and typeof(current_container_name()) == typeof(og_container) and (current_container_name() == og_container) and (rsc.hierarchy.size() == og_hierarchy_size):
 		#ONLY increment if you are in the same location as before
 		if rsc.resumed_hierarchy.size() > 0 && !(current_container_name() is String and current_container_name() == "global decl"):
 			rsc.resumed_hierarchy = [] #don't increment if you just arrived here from unpausing dialogue
 		else:
 			increment_current_index() #next line
-	#elif result == 404:
-		#decrement_current_index()
 	'''
 	404: Array index surpassed
 	405: Reached "end" command
 	'''
 	if result == 404 || result == 405: #reached end of section, return data
-		print("404 warnihg!")
 		if current_container_name() is String:
 			if current_container_name() == "global decl": #it just finished assigning variables, time to send it to main dialogue
-				#jump_to_container("0.0")
-				#hierarchy = []
 				initialize_hierarchy()
 				return get_content()
 		'''
@@ -455,28 +503,24 @@ func get_content():
 		404: exiting ["root", 2, "two", 0, 18, 2] (needs to be un-nested)
 
 		'''
-		print("Result: ", result, " Hierarchy: ", rsc.hierarchy)
-		print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
-		print("Current index: ", current_index(), " | size: ", rsc.current_array.size(), " | redirect hierarchy: ", rsc.redirect_hierarchy.size())
-		#if current_index() > current_array.size()-1 and redirect_hierarchy.size() == 0:#current_container_inner_index() > current_container_size()-1:
-		if current_container_inner_index() > current_container_size()-1:
-		#if current_index() > current_array.size()-1:
-			#if we have reached the end of the array
-			print("Passed all conditions")
-			if rsc.player_choices.size() > 0:
-				var return_choices = rsc.player_choices
-				#output_stream = []
-				rsc.player_choices = []
-				print("Returning choices")
-				return return_choices
+		#print("Result: ", result, " Hierarchy: ", rsc.hierarchy)
+		
 		if result == 405:
-			print("Ending: ", rsc.player_choices)
+			#print("Ending: ", rsc.player_choices)
 			return result
+		elif current_container_inner_index() > current_container_size()-1:
+			##print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
+			##print("Current index: ", current_index(), " | size: ", rsc.current_array.size(), " | redirect hierarchy: ", rsc.redirect_hierarchy.size())
+			##print("Passed all conditions")
+			assert(rsc.player_choices.size() > 0, "Content ended but no choices to show.")
+			var return_choices = rsc.player_choices
+			#output_stream = []
+			rsc.player_choices = []
+			##print("Returning choices")
+			return return_choices
 		else:
-			var exit_array_return = exit_array()
-			if exit_array_return != null:
-				print("Exit array return not null")
-				return exit_array_return
+			exit_array()
+
 	elif result == 200: #returned a string
 		if rsc.output_stream.size() > 0:
 			var return_val = rsc.output_stream
@@ -485,38 +529,38 @@ func get_content():
 	
 	return get_content()
 
-func reset_defaults(saved_ink_resource):#resume_from_hierarchy):
+func reset_defaults(saved_ink_resource) -> void:#resume_from_hierarchy):
 	#set all the variables equal to each other
 	var property_list = saved_ink_resource.get_property_list()
 	for n in range(9, property_list.size()):
 		var key = property_list[n].name
 		rsc[key] = saved_ink_resource[key]
-		#print("Setting key ", key, " to value ", rsc[key])
+		##print("Setting key ", key, " to value ", rsc[key])
 	
 	rsc.player_choices = []
 	rsc.output_stream = []
-	print("resetting defaults: ", rsc.output_stream)
+	#print("resetting defaults: ", rsc.output_stream)
 	rsc.resumed_hierarchy = rsc.hierarchy #will either be an empty array or the next hierarchy we need
 
-func initialize_hierarchy():
-	print("initializing hierarchy! resumed hierarchy: ", rsc.resumed_hierarchy)
+func initialize_hierarchy() -> void:
+	#print("initializing hierarchy! resumed hierarchy: ", rsc.resumed_hierarchy)
 	if rsc.resumed_hierarchy.size() > 0:
 		rsc.hierarchy = rsc.resumed_hierarchy
 		set_current_array()
 	else:
 		jump_to_container("0.0")
 
-func get_first_message(temp_json : JSON):
+func get_first_message(temp_json : JSON) -> Dictionary:
 	var filepath = temp_json.resource_path
 	var json_as_text : String = FileAccess.get_file_as_string(filepath)
 	var json_as_dict : Dictionary = JSON.parse_string(json_as_text)
-	if json_as_dict:
-		return break_up_dialogue(json_as_dict["root"][0][0].substr(1))
+	assert(json_as_dict != null, "JSON dictionary is null.")
+	return break_up_dialogue(json_as_dict["root"][0][0].substr(1))
 
-func from_JSON(file : JSON, saved_ink_resource : Resource):#resume_from_hierarchy : Array = []):
+func from_JSON(file : JSON, saved_ink_resource : Resource) -> void:#resume_from_hierarchy : Array = []):
 	#reset variables
 	reset_defaults(saved_ink_resource)#resume_from_hierarchy)
-	print("NEW JSON CALL ---------------------------------- ", rsc.hierarchy)
+	#print("NEW JSON CALL ---------------------------------- ", rsc.hierarchy)
 	if rsc.json_file == null or rsc.json_file.is_empty():
 		var filepath = file.resource_path
 		var json_as_text : String = FileAccess.get_file_as_string(filepath)
