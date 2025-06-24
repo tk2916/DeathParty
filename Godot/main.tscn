@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://b5yrwvs426aci" path="res://World/WorldScripts/outside.gd" id="5_ycdy4"]
 [ext_resource type="Script" uid="uid://bc2ilamjayd16" path="res://World/WorldScripts/room.gd" id="6_4c57u"]
 [ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="6_272bh"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/example.ink6.json" id="6_lswn8"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/loading_dialogue_test.json" id="6_htxhm"]
 [ext_resource type="PackedScene" uid="uid://dr2o8ey3n88sr" path="res://World/room.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://b775wvigqexbq" path="res://World/stairs_left.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bc888yk804ya" path="res://World/door.tscn" id="7_kek77"]
@@ -146,7 +146,7 @@ collision_layer = 9
 collision_mask = 0
 script = ExtResource("4_ryguw")
 dialogue_box = ExtResource("5_0odxb")
-json_file = ExtResource("6_lswn8")
+json_file = ExtResource("6_htxhm")
 character_resource = ExtResource("7_xuqvo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPC"]
@@ -418,8 +418,9 @@ visible = false
 script = ExtResource("22_lswn8")
 show_element = NodePath("../../../../TestInventory")
 
-[node name="Button3" parent="CanvasLayer/BasicGUI/Panel2/Panel3" index="1"]
+[node name="Button3" parent="CanvasLayer/BasicGUI/Panel2/Panel3" index="1" node_paths=PackedStringArray("show_element")]
 script = ExtResource("22_lswn8")
+show_element = NodePath("../../../../Journal")
 
 [node name="Button4" parent="CanvasLayer/BasicGUI/Panel2/Panel4" index="1" node_paths=PackedStringArray("show_element")]
 show_element = NodePath("../../../../Phone")
@@ -430,6 +431,7 @@ theme_override_fonts/normal_font = ExtResource("19_ryguw")
 [node name="Journal" parent="CanvasLayer" instance=ExtResource("23_qsp4k")]
 
 [node name="Phone" parent="CanvasLayer" instance=ExtResource("20_d13ii")]
+visible = false
 
 [node name="MessageApp" parent="CanvasLayer/Phone/Screen/Background" index="2"]
 resource_file = ExtResource("25_xuqvo")

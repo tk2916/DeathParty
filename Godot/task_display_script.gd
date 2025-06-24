@@ -10,6 +10,7 @@ func new_task(item:String):
 	vbox.add_child(gui_node)
 
 func on_tasks_change(action:String, item:String):
+	print("On tasks change: ", action, item)
 	if action == "add":
 		new_task(item)
 	else:

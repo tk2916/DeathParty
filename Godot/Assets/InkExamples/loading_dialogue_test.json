@@ -1,0 +1,123 @@
+{
+	"inkVersion": 21.0,
+	"root": [
+		[
+			"^[Kyle] Loading conversations now...",
+			"\n",
+			"^/load_chat Caleb loaded_dialogue.json",
+			"\n",
+			"^/load_phone_chat Caleb loaded_dialogue.json",
+			"\n",
+			"^/give_item Key",
+			"\n",
+			"^/has_item Key",
+			"\n",
+			"ev",
+			{
+				"VAR?": "has_item_flag"
+			},
+			"/ev",
+			[
+				{
+					"->": ".^.b",
+					"c": true
+				},
+				{
+					"b": [
+						"^ You have a key ",
+						{
+							"->": "0.15"
+						},
+						null
+					]
+				}
+			],
+			[
+				{
+					"->": ".^.b"
+				},
+				{
+					"b": [
+						"^ You don't have a key",
+						{
+							"->": "0.15"
+						},
+						null
+					]
+				}
+			],
+			"nop",
+			"\n",
+			"^/die_roll intelligence medium",
+			"\n",
+			"ev",
+			{
+				"VAR?": "die_roll_flag"
+			},
+			"/ev",
+			[
+				{
+					"->": ".^.b",
+					"c": true
+				},
+				{
+					"b": [
+						"^ You succeeded on your roll ",
+						{
+							"->": "0.24"
+						},
+						null
+					]
+				}
+			],
+			[
+				{
+					"->": ".^.b"
+				},
+				{
+					"b": [
+						"^ You failed your roll",
+						{
+							"->": "0.24"
+						},
+						null
+					]
+				}
+			],
+			"nop",
+			"\n",
+			"^/give_task \"First task\"",
+			"\n",
+			"end",
+			[
+				"done",
+				{
+					"#f": 5.0,
+					"#n": "g-0"
+				}
+			],
+			null
+		],
+		"done",
+		{
+			"global decl": [
+				"ev",
+				false,
+				{
+					"VAR=": "has_item_flag"
+				},
+				false,
+				{
+					"VAR=": "die_roll_flag"
+				},
+				"/ev",
+				"end",
+				null
+			],
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
+}

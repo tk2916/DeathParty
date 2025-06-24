@@ -10,6 +10,8 @@ extends Resource
 @export var redirect_hierarchy:Array = []
 @export var player_choices:Array = []
 
+@export var type_tracker:Array = []
+
 #important arrays & dictionaries
 @export var redirect_table : Dictionary
 @export var redirect_table_address : int
@@ -31,20 +33,7 @@ extends Resource
 @export var turn : int = 0 #advances each time Inky presents a choice to the player
 @export var choiceCount : int = 0
 #temp @export variables (not implemented)
-@export var variableDict : Dictionary = {}
 @export var tempVariableDict : Dictionary = {}
 #for one-time choices (not implemented yet)
 @export var containerDict : Dictionary = {}
 @export var disappearing_choices:Array = []
-
-#func deep_copy():
-	#@export var property_list = get_property_list()
-	#@export var new_rsc = duplicate()
-	#
-	#for n in range(9, property_list.size()):
-		#@export var key = property_list[n].name
-		#if self[key] is Array:
-			#new_rsc[key] = []
-			#for item in self[key]:
-				#new_rsc[key].push_back(item)
-	#new_rsc.hierarchy
