@@ -1,7 +1,7 @@
 [Caleb] Are you really planning to go down there?
 
 VAR argue_SAM = true
-VAR catchup_Nora = true
+VAR catchup_Nora = false
 
 * [Yea, of course (+)]
     [Olivia] Yea, of course we are.
