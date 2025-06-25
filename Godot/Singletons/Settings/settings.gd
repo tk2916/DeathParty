@@ -4,7 +4,7 @@ extends Node
 var config = ConfigFile.new()
 
 # audio
-var volume : float = 75
+var volume : float = 50
 
 
 func _ready():
