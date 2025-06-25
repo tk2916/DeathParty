@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://xmpgbqfcvdsh"]
-
-[ext_resource type="PackedScene" uid="uid://dgs28jna4xuoq" path="res://Assets/CharacterAssets/CharacterTextures/Olivia/Olivia Animated(bag).glb" id="1_ov2v6"]
-
-[node name="Olivia Animated(bag)" instance=ExtResource("1_ov2v6")]
