@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dgs28jna4xuoq"
-path="res://.godot/imported/Olivia Animated(bag).glb-91aba694e6cd090d3ab88c7b93eb32b0.scn"
+path="res://.godot/imported/olivia_model.glb-6335128f3f14d30c9260767ae784da9d.scn"
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Olivia/Olivia Animated(bag).glb"
-dest_files=["res://.godot/imported/Olivia Animated(bag).glb-91aba694e6cd090d3ab88c7b93eb32b0.scn"]
+source_file="res://Assets/CharacterAssets/Olivia/olivia_model.glb"
+dest_files=["res://.godot/imported/olivia_model.glb-6335128f3f14d30c9260767ae784da9d.scn"]
 
 [params]
 
