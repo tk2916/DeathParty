@@ -136,6 +136,9 @@ camera_location_node = NodePath("Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
 floor_constant_speed = true
 
+[node name="Model" parent="Player/PlayerModel" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00148888, 0, 0)
+
 [node name="MainCamera" parent="." instance=ExtResource("3_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.444, 2, 9.6)
 
