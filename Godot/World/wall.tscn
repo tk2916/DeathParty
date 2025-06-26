@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dl1rjofu3au18" path="res://Assets/textures/wall.png" id="1_3a626"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_h8e4i"]
+lightmap_size_hint = Vector2i(20, 51)
+add_uv2 = true
 size = Vector3(0.2, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lmeg"]

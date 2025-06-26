@@ -127,7 +127,9 @@ _surfaces = [{
 albedo_color = Color(0.919521, 0.55063, 0.860905, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_lquwl"]
+lightmap_size_hint = Vector2i(17, 21)
 material = SubResource("StandardMaterial3D_5vw27")
+add_uv2 = true
 height = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
@@ -303,7 +305,7 @@ mesh = SubResource("QuadMesh_dg77c")
 skeleton = NodePath("")
 
 [node name="BackWallMesh2" type="MeshInstance3D" parent="Room/ThingsToHide/BackWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50044, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50054, -0.00365448, 0.000461102)
 mesh = SubResource("QuadMesh_yaehf")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ok6jj")
