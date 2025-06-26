@@ -1,9 +1,9 @@
-[gd_scene load_steps=92 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=90 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
-[ext_resource type="Texture2D" uid="uid://2v2ny7qnnj1v" path="res://shanghai_bund_1k.hdr" id="2_b1qrp"]
+[ext_resource type="Texture2D" uid="uid://2v2ny7qnnj1v" path="res://Assets/textures/shanghai_bund_1k.hdr" id="2_b1qrp"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="Script" uid="uid://bs0rj4iwntxge" path="res://Singletons/Interact/npc_script.gd" id="4_ryguw"]
 [ext_resource type="Resource" uid="uid://fl5cg4jaw48p" path="res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres" id="5_0odxb"]
@@ -22,29 +22,27 @@
 [ext_resource type="Script" uid="uid://bq22deee5mwhr" path="res://World/WorldScripts/back_room.gd" id="11_efxa6"]
 [ext_resource type="Script" uid="uid://bn07hwlvtlb6h" path="res://World/WorldScripts/room2.gd" id="13_w48qg"]
 [ext_resource type="Script" uid="uid://dmejjh2fyets1" path="res://World/WorldScripts/hallway.gd" id="13_ycdy4"]
-[ext_resource type="Texture2D" uid="uid://dl1rjofu3au18" path="res://wall.png" id="14_4k2k6"]
-[ext_resource type="Texture2D" uid="uid://vafql34ki8ws" path="res://wall2.png" id="16_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://dl1rjofu3au18" path="res://Assets/textures/wall.png" id="14_4k2k6"]
+[ext_resource type="Texture2D" uid="uid://vafql34ki8ws" path="res://Assets/textures/wall2.png" id="16_0rl1p"]
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
-[ext_resource type="Texture2D" uid="uid://dlun7quy351tf" path="res://floor2.png" id="18_ok6jj"]
+[ext_resource type="Texture2D" uid="uid://dlun7quy351tf" path="res://Assets/textures/floor2.png" id="18_ok6jj"]
 [ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/InknutAntiqua-Regular.ttf" id="19_ryguw"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
-[ext_resource type="PackedScene" uid="uid://cysj1ej14s5b0" path="res://Sofa1.glb" id="21_h8e4i"]
-[ext_resource type="PackedScene" uid="uid://cx1p52tb5hskc" path="res://Sofa2.glb" id="22_4lmeg"]
+[ext_resource type="PackedScene" uid="uid://cysj1ej14s5b0" path="res://Assets/props/sofas/Sofa1.glb" id="21_h8e4i"]
+[ext_resource type="PackedScene" uid="uid://cx1p52tb5hskc" path="res://Assets/props/sofas/Sofa2.glb" id="22_4lmeg"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
-[ext_resource type="PackedScene" uid="uid://ylsnhs2heyj3" path="res://table tennis.glb" id="23_0cp0l"]
-[ext_resource type="Texture2D" uid="uid://b5wj80mxisw7f" path="res://floor1.png" id="23_facbu"]
+[ext_resource type="Texture2D" uid="uid://b5wj80mxisw7f" path="res://Assets/textures/floor1.png" id="23_facbu"]
 [ext_resource type="PackedScene" uid="uid://b1q5i30ewr8bm" path="res://Assets/GUIPrefabs/JournalPrefabs/journal.tscn" id="23_qsp4k"]
-[ext_resource type="PackedScene" uid="uid://k58x5f81dijv" path="res://wood table.glb" id="24_d2t1y"]
+[ext_resource type="PackedScene" uid="uid://k58x5f81dijv" path="res://Assets/props/wooden_table/wood table.glb" id="24_d2t1y"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
-[ext_resource type="PackedScene" uid="uid://cpjqnmnxe6v8j" path="res://craters with cups.glb" id="25_gngh3"]
+[ext_resource type="PackedScene" uid="uid://cpjqnmnxe6v8j" path="res://Assets/props/crates/craters with cups.glb" id="25_gngh3"]
 [ext_resource type="Resource" uid="uid://dfsf66usc4sbb" path="res://Assets/Resources/DialogueBoxResources/phone_dialogue_box.tres" id="25_xuqvo"]
-[ext_resource type="PackedScene" uid="uid://5lpiugsftfjc" path="res://Speaker.glb" id="26_0n3wm"]
+[ext_resource type="PackedScene" uid="uid://5lpiugsftfjc" path="res://Assets/props/speaker.glb" id="26_0n3wm"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
-[ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://red cuped.glb" id="27_qnost"]
 [ext_resource type="Script" uid="uid://dehejbaawpqyj" path="res://Assets/GUIFunctionalityScripts/clock.gd" id="27_seu75"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
-[ext_resource type="PackedScene" uid="uid://fejxno4a8ptp" path="res://hanger.glb" id="28_wnkbs"]
+[ext_resource type="PackedScene" uid="uid://fejxno4a8ptp" path="res://Assets/props/hanger.glb" id="28_wnkbs"]
 [ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="34_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
 
@@ -382,12 +380,6 @@ transform = Transform3D(0.675812, 0, 0, 0, 0.675812, 0, 0, 0, 0.675812, 3.98371,
 
 [node name="Sofa2" parent="Room/Props" instance=ExtResource("22_4lmeg")]
 transform = Transform3D(-0.033234, 0, -0.711587, 0, 0.712363, 0, 0.711587, 0, -0.033234, 7.37286, 0.533729, 2.83417)
-
-[node name="TableTennisTable" parent="Room/Props" instance=ExtResource("23_0cp0l")]
-transform = Transform3D(0.146475, 0, -0.0697582, 0, 0.162238, 0, 0.0697582, 0, 0.146475, 1.02413, 0.00443122, 2.65888)
-
-[node name="RedCup" parent="Room/Props/TableTennisTable" instance=ExtResource("27_qnost")]
-transform = Transform3D(1.50566, 0, 0.717063, 0, 1.66769, 0, -0.717063, 0, 1.50566, 8.06114, 3.80376, -3.93426)
 
 [node name="WoodTable" parent="Room/Props" instance=ExtResource("24_d2t1y")]
 transform = Transform3D(0.209918, 0, 0, 0, 0.209918, 0, 0, 0, 0.209918, 4.81138, -0.0335322, 3.32167)
