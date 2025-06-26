@@ -136,9 +136,6 @@ camera_location_node = NodePath("Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
 floor_constant_speed = true
 
-[node name="Model" parent="Player/PlayerModel" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00148888, 0, 0)
-
 [node name="MainCamera" parent="." instance=ExtResource("3_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.444, 2, 9.6)
 
@@ -179,6 +176,7 @@ shape = SubResource("BoxShape3D_kek77")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24974, 7.6)
 
 [node name="Jack" parent="NPC" instance=ExtResource("10_jq2sk")]
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 0, 0.03, 0)
 
 [node name="Outside" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25, 1, 0)
