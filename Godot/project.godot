@@ -42,7 +42,7 @@ Interact="*res://Singletons/Interact/interact.gd"
 GlobalCameraScript="*res://Singletons/global_camera_script.gd"
 GlobalPlayerScript="*res://Singletons/global_player_script.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
-Settings="*res://Singletons/Settings/settings.gd"
+Settings="*res://Singletons/settings.gd"
 GlobalFmodBankLoader="*res://Singletons/fmod_bank_loader.tscn"
 
 [debug]
