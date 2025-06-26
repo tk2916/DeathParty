@@ -9,6 +9,8 @@ size = Vector3(1, 4.94934, 1)
 size = Vector3(2, 1.5, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_sdf1a"]
+lightmap_size_hint = Vector2i(26, 46)
+add_uv2 = true
 left_to_right = 0.0
 size = Vector3(3.5, 3.5, 1)
 
