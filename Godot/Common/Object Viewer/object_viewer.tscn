@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://yory4i5rrii2"]
 
-[ext_resource type="Script" uid="uid://c5se664fk8jqq" path="res://Common/InventoryUI/Object Viewer/object_viewer.gd" id="1_o3r5r"]
+[ext_resource type="Script" uid="uid://c5se664fk8jqq" path="res://Common/Object Viewer/object_viewer.gd" id="1_o3r5r"]
 
 [sub_resource type="Shader" id="Shader_2cfm7"]
 code = "shader_type canvas_item;
