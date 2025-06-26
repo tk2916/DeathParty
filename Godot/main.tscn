@@ -1,8 +1,9 @@
-[gd_scene load_steps=63 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=82 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
+[ext_resource type="Texture2D" uid="uid://2v2ny7qnnj1v" path="res://shanghai_bund_1k.hdr" id="2_b1qrp"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="Script" uid="uid://bs0rj4iwntxge" path="res://Singletons/Interact/npc_script.gd" id="4_ryguw"]
 [ext_resource type="Resource" uid="uid://fl5cg4jaw48p" path="res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres" id="5_0odxb"]
@@ -21,10 +22,14 @@
 [ext_resource type="Script" uid="uid://bq22deee5mwhr" path="res://World/WorldScripts/back_room.gd" id="11_efxa6"]
 [ext_resource type="Script" uid="uid://bn07hwlvtlb6h" path="res://World/WorldScripts/room2.gd" id="13_w48qg"]
 [ext_resource type="Script" uid="uid://dmejjh2fyets1" path="res://World/WorldScripts/hallway.gd" id="13_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://dl1rjofu3au18" path="res://wall.png" id="14_4k2k6"]
+[ext_resource type="Texture2D" uid="uid://vafql34ki8ws" path="res://wall2.png" id="16_0rl1p"]
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
+[ext_resource type="Texture2D" uid="uid://dlun7quy351tf" path="res://floor2.png" id="18_ok6jj"]
 [ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/InknutAntiqua-Regular.ttf" id="19_ryguw"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
+[ext_resource type="Texture2D" uid="uid://b5wj80mxisw7f" path="res://floor1.png" id="23_facbu"]
 [ext_resource type="PackedScene" uid="uid://b1q5i30ewr8bm" path="res://Assets/GUIPrefabs/JournalPrefabs/journal.tscn" id="23_qsp4k"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
 [ext_resource type="Resource" uid="uid://dfsf66usc4sbb" path="res://Assets/Resources/DialogueBoxResources/phone_dialogue_box.tres" id="25_xuqvo"]
@@ -34,6 +39,19 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="34_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_come4"]
+panorama = ExtResource("2_b1qrp")
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_h8e4i"]
+sky_material = SubResource("PanoramaSkyMaterial_come4")
+
+[sub_resource type="Environment" id="Environment_4lmeg"]
+background_mode = 2
+sky = SubResource("Sky_h8e4i")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0237
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_06yk2"]
 size = Vector3(10, 2.5, 2.5)
@@ -47,14 +65,27 @@ size = Vector3(11, 0.5, 3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
 size = Vector3(11, 4, 3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rl1p"]
+albedo_texture = ExtResource("16_0rl1p")
+uv1_scale = Vector3(0.5, 1, 1)
+
 [sub_resource type="QuadMesh" id="QuadMesh_dg77c"]
+material = SubResource("StandardMaterial3D_0rl1p")
 size = Vector2(2, 3)
 
 [sub_resource type="QuadMesh" id="QuadMesh_yaehf"]
 size = Vector2(8, 3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok6jj"]
+albedo_texture = ExtResource("16_0rl1p")
+uv1_scale = Vector3(2, 1, 1)
+
 [sub_resource type="QuadMesh" id="QuadMesh_074og"]
 size = Vector2(1, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_facbu"]
+albedo_texture = ExtResource("14_4k2k6")
+uv1_scale = Vector3(0.25, 1, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yaehf"]
 points = PackedVector3Array(4, 1.5, 0, 4, -1.5, 0, -4, 1.5, 0, -4, -1.5, 0)
@@ -86,6 +117,19 @@ height = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jq2sk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kteo4"]
+size = Vector3(11, 0.5, 5.78809)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q43sb"]
+size = Vector3(11, 0.5, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w85du"]
+render_priority = -2
+albedo_texture = ExtResource("18_ok6jj")
+uv1_scale = Vector3(5, 5, 5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 size = Vector3(11, 4, 3)
 
@@ -104,8 +148,19 @@ size = Vector3(0.2, 3, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w48qg"]
 size = Vector3(11, 3, 3)
 
+[sub_resource type="BoxMesh" id="BoxMesh_facbu"]
+size = Vector3(0.2, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8e4i"]
+albedo_texture = ExtResource("14_4k2k6")
+uv1_scale = Vector3(2, 2, 2)
+
 [sub_resource type="QuadMesh" id="QuadMesh_cegan"]
 size = Vector2(11, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_come4"]
+albedo_texture = ExtResource("14_4k2k6")
+uv1_scale = Vector3(2, 1, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cegan"]
 points = PackedVector3Array(5.5, 1.5, 0, 5.5, -1.5, 0, -5.5, 1.5, 0, -5.5, -1.5, 0)
@@ -118,6 +173,10 @@ size = Vector3(6, 0.5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_074og"]
 size = Vector3(11, 0.5, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1qrp"]
+albedo_texture = ExtResource("23_facbu")
+uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vivmo"]
 size = Vector3(17, 4, 3)
@@ -132,6 +191,9 @@ data = PackedVector3Array(-8.5, 0.25, 1.5, 8.5, 0.25, 1.5, -8.5, -0.25, 1.5, 8.5
 script = ExtResource("1_1bvp3")
 main_camera = NodePath("MainCamera")
 camera_location_node = NodePath("Player/PlayerCameraLocation")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4lmeg")
 
 [node name="Player" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
@@ -174,13 +236,19 @@ shape = SubResource("BoxShape3D_efxa6")
 debug_color = Color(0, 0.6, 0.701961, 0.513726)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29609, 2.39456, 1.41032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29609, 2.39456, 0.601028)
+light_color = Color(1, 0.709804, 0.419608, 1)
+light_energy = 7.869
 shadow_enabled = true
-omni_range = 40.0
+omni_range = 6.864
+omni_attenuation = 2.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22788, 2.39456, 1.40986)
-omni_range = 40.0
+light_color = Color(0.533333, 0.866667, 1, 1)
+light_energy = 8.434
+omni_range = 5.1
+omni_attenuation = 2.0
 
 [node name="ThingsToHide" type="Node3D" parent="Room"]
 
@@ -190,7 +258,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="BackWallMesh" type="MeshInstance3D" parent="Room/ThingsToHide/BackWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
+transform = Transform3D(0.999989, -0.00467747, 0, 0.00467747, 0.999989, 0, 0, 0, 1, -4.5, 0, 0)
 mesh = SubResource("QuadMesh_dg77c")
 skeleton = NodePath("")
 
@@ -198,11 +266,13 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
 mesh = SubResource("QuadMesh_yaehf")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ok6jj")
 
 [node name="BackWallMesh3" type="MeshInstance3D" parent="Room/ThingsToHide/BackWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.9, 0)
 mesh = SubResource("QuadMesh_074og")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_facbu")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Room/ThingsToHide/BackWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
@@ -255,13 +325,26 @@ transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 
 [node name="AlbertoMa" parent="Room/ThingsToHide" instance=ExtResource("34_4k2k6")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 3.25, 0, 0)
 
-[node name="LeftWall" parent="Room" instance=ExtResource("9_dg77c")]
+[node name="LeftWall2" parent="Room" instance=ExtResource("9_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3999, 1.50095, -2.30074e-05)
 
 [node name="RightWall" parent="Room" instance=ExtResource("9_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.5, 0)
 
-[node name="Floor" parent="Room" instance=ExtResource("8_efxa6")]
+[node name="Floor" type="StaticBody3D" parent="Room"]
+collision_layer = 2
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_jq2sk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor"]
+transform = Transform3D(1.01773, 0, 0, 0, 1.01773, 0, 0, 0, 1.01773, 0, -0.25, 1.39404)
+shape = SubResource("BoxShape3D_kteo4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.94616, 0, -0.25, 1.35775)
+mesh = SubResource("BoxMesh_q43sb")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_w85du")
 
 [node name="HallwayDoor" parent="Room" instance=ExtResource("7_kek77")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.403, 0, -0.25)
@@ -333,11 +416,25 @@ debug_color = Color(0, 0.6, 0.701961, 0.513726)
 
 [node name="ThingsToHide" type="Node3D" parent="UpperRoom"]
 
-[node name="LeftWall" parent="UpperRoom/ThingsToHide" instance=ExtResource("9_dg77c")]
+[node name="LeftWall" type="StaticBody3D" parent="UpperRoom/ThingsToHide"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3999, 1.50095, -2.30074e-05)
+collision_layer = 2
+collision_mask = 0
 
-[node name="RightWall" parent="UpperRoom/ThingsToHide" instance=ExtResource("9_dg77c")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UpperRoom/ThingsToHide/LeftWall"]
+mesh = SubResource("BoxMesh_facbu")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_h8e4i")
+
+[node name="RightWall" type="StaticBody3D" parent="UpperRoom/ThingsToHide"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.5, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UpperRoom/ThingsToHide/RightWall"]
+mesh = SubResource("BoxMesh_facbu")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_h8e4i")
 
 [node name="UpperLevel" parent="UpperRoom/ThingsToHide" instance=ExtResource("8_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
@@ -350,6 +447,7 @@ collision_mask = 0
 [node name="BackWallMesh" type="MeshInstance3D" parent="UpperRoom/ThingsToHide/BackWall"]
 mesh = SubResource("QuadMesh_cegan")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_come4")
 
 [node name="BackWallCollision" type="CollisionShape3D" parent="UpperRoom/ThingsToHide/BackWall"]
 shape = SubResource("ConvexPolygonShape3D_cegan")
@@ -374,6 +472,7 @@ shape = SubResource("BoxShape3D_074og")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UpperRoom/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 mesh = SubResource("BoxMesh_074og")
+surface_material_override/0 = SubResource("StandardMaterial3D_b1qrp")
 
 [node name="Hallway" type="Area3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, -0.25, -7)

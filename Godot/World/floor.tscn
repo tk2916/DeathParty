@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfn5yvo0kg0up"]
+[gd_scene load_steps=5 format=3 uid="uid://cfn5yvo0kg0up"]
+
+[ext_resource type="Texture2D" uid="uid://dlun7quy351tf" path="res://floor2.png" id="1_q43sb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kteo4"]
-size = Vector3(11, 0.5, 3)
+size = Vector3(11, 0.5, 5.78809)
 
 [sub_resource type="BoxMesh" id="BoxMesh_q43sb"]
 size = Vector3(11, 0.5, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w85du"]
+render_priority = -2
+albedo_texture = ExtResource("1_q43sb")
+uv1_scale = Vector3(5, 5, 5)
 
 [node name="Floor" type="StaticBody3D"]
 collision_layer = 2
@@ -18,3 +25,4 @@ shape = SubResource("BoxShape3D_kteo4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 mesh = SubResource("BoxMesh_q43sb")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_w85du")
