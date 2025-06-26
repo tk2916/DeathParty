@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=92 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -28,15 +28,23 @@
 [ext_resource type="Texture2D" uid="uid://dlun7quy351tf" path="res://floor2.png" id="18_ok6jj"]
 [ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/InknutAntiqua-Regular.ttf" id="19_ryguw"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
+[ext_resource type="PackedScene" uid="uid://cysj1ej14s5b0" path="res://Sofa1.glb" id="21_h8e4i"]
+[ext_resource type="PackedScene" uid="uid://cx1p52tb5hskc" path="res://Sofa2.glb" id="22_4lmeg"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
+[ext_resource type="PackedScene" uid="uid://ylsnhs2heyj3" path="res://table tennis.glb" id="23_0cp0l"]
 [ext_resource type="Texture2D" uid="uid://b5wj80mxisw7f" path="res://floor1.png" id="23_facbu"]
 [ext_resource type="PackedScene" uid="uid://b1q5i30ewr8bm" path="res://Assets/GUIPrefabs/JournalPrefabs/journal.tscn" id="23_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://k58x5f81dijv" path="res://wood table.glb" id="24_d2t1y"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
+[ext_resource type="PackedScene" uid="uid://cpjqnmnxe6v8j" path="res://craters with cups.glb" id="25_gngh3"]
 [ext_resource type="Resource" uid="uid://dfsf66usc4sbb" path="res://Assets/Resources/DialogueBoxResources/phone_dialogue_box.tres" id="25_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://5lpiugsftfjc" path="res://Speaker.glb" id="26_0n3wm"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
+[ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://red cuped.glb" id="27_qnost"]
 [ext_resource type="Script" uid="uid://dehejbaawpqyj" path="res://Assets/GUIFunctionalityScripts/clock.gd" id="27_seu75"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://fejxno4a8ptp" path="res://hanger.glb" id="28_wnkbs"]
 [ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="34_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
 
@@ -117,6 +125,13 @@ height = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_facbu"]
+size = Vector3(0.2, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8e4i"]
+albedo_texture = ExtResource("16_0rl1p")
+uv1_scale = Vector3(4, 2, 2)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jq2sk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kteo4"]
@@ -148,10 +163,10 @@ size = Vector3(0.2, 3, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w48qg"]
 size = Vector3(11, 3, 3)
 
-[sub_resource type="BoxMesh" id="BoxMesh_facbu"]
+[sub_resource type="BoxMesh" id="BoxMesh_h8e4i"]
 size = Vector3(0.2, 3, 3)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8e4i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lmeg"]
 albedo_texture = ExtResource("14_4k2k6")
 uv1_scale = Vector3(2, 2, 2)
 
@@ -221,6 +236,7 @@ shape = SubResource("BoxShape3D_bv50f")
 debug_color = Color(0, 0.6, 0.701961, 0.270588)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Outside/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.201328, 0, 0)
 mesh = SubResource("BoxMesh_06yk2")
 skeleton = NodePath("../..")
 
@@ -263,7 +279,7 @@ mesh = SubResource("QuadMesh_dg77c")
 skeleton = NodePath("")
 
 [node name="BackWallMesh2" type="MeshInstance3D" parent="Room/ThingsToHide/BackWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50044, 0, 0)
 mesh = SubResource("QuadMesh_yaehf")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ok6jj")
@@ -325,11 +341,18 @@ transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 
 [node name="AlbertoMa" parent="Room/ThingsToHide" instance=ExtResource("34_4k2k6")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 3.25, 0, 0)
 
-[node name="LeftWall2" parent="Room" instance=ExtResource("9_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3999, 1.50095, -2.30074e-05)
+[node name="LeftWall2" type="StaticBody3D" parent="Room"]
+transform = Transform3D(0.993701, 0, 0, 0, 0.993701, 0, 0, 0, 2.83709, -5.3999, 1.50095, -2.30074e-05)
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/LeftWall2"]
+mesh = SubResource("BoxMesh_facbu")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_h8e4i")
 
 [node name="RightWall" parent="Room" instance=ExtResource("9_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.5, 0)
+transform = Transform3D(1.00253, 0, 0, 0, 1.00253, 0, 0, 0, 2.85762, 5.4, 1.5, 0)
 
 [node name="Floor" type="StaticBody3D" parent="Room"]
 collision_layer = 2
@@ -345,6 +368,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.94616, 0, -0.25, 1.35775)
 mesh = SubResource("BoxMesh_q43sb")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_w85du")
+
+[node name="Sofa1" parent="Room/Floor" instance=ExtResource("21_h8e4i")]
+transform = Transform3D(0.675812, 0, 0, 0, 0.675812, 0, 0, 0, 0.675812, 1.48371, 0.427996, -0.122413)
+
+[node name="Sofa2" parent="Room/Floor" instance=ExtResource("22_4lmeg")]
+transform = Transform3D(-0.033234, 0, -0.711587, 0, 0.712363, 0, 0.711587, 0, -0.033234, 4.87286, 0.533729, 2.83417)
+
+[node name="table tennis" parent="Room/Floor" instance=ExtResource("23_0cp0l")]
+transform = Transform3D(0.146475, 0, -0.0697582, 0, 0.162238, 0, 0.0697582, 0, 0.146475, -1.47587, 0.00443122, 2.65888)
+
+[node name="wood table" parent="Room/Floor" instance=ExtResource("24_d2t1y")]
+transform = Transform3D(0.209918, 0, 0, 0, 0.209918, 0, 0, 0, 0.209918, 2.31138, -0.0335322, 3.32167)
+
+[node name="craters with cups" parent="Room/Floor" instance=ExtResource("25_gngh3")]
+transform = Transform3D(0.595368, 0, 0, 0, 0.595368, 0, 0, 0, 0.595368, -4.32759, 0.0978815, 2.57824)
+
+[node name="Speaker" parent="Room/Floor" instance=ExtResource("26_0n3wm")]
+transform = Transform3D(0.514398, 0, 0, 0, 0.514398, 0, 0, 0, 0.514398, -4.67206, 0.00443169, -0.687761)
+
+[node name="Speaker2" parent="Room/Floor" instance=ExtResource("26_0n3wm")]
+transform = Transform3D(0.517975, 0, 0, 0, 0.517975, 0, 0, 0, 0.517975, -1.51632, 0.00443146, -0.706155)
+
+[node name="red cuped" parent="Room/Floor" instance=ExtResource("27_qnost")]
+transform = Transform3D(0.270562, 0, 0, 0, 0.270562, 0, 0, 0, 0.270562, -0.0206671, 0.621546, 2.64494)
+
+[node name="hanger" parent="Room/Floor" instance=ExtResource("28_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97603, 0.0523432, -1.08371)
+
+[node name="hanger2" parent="Room/Floor" instance=ExtResource("28_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.71496, 0.0523432, -0.996105)
+
+[node name="hanger3" parent="Room/Floor" instance=ExtResource("28_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65028, 0.0523432, 3.48535)
+
+[node name="hanger4" parent="Room/Floor" instance=ExtResource("28_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.700063, 0.0523432, 3.72683)
 
 [node name="HallwayDoor" parent="Room" instance=ExtResource("7_kek77")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.403, 0, -0.25)
@@ -422,9 +481,9 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UpperRoom/ThingsToHide/LeftWall"]
-mesh = SubResource("BoxMesh_facbu")
+mesh = SubResource("BoxMesh_h8e4i")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_h8e4i")
+surface_material_override/0 = SubResource("StandardMaterial3D_4lmeg")
 
 [node name="RightWall" type="StaticBody3D" parent="UpperRoom/ThingsToHide"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.5, 0)
@@ -432,9 +491,9 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UpperRoom/ThingsToHide/RightWall"]
-mesh = SubResource("BoxMesh_facbu")
+mesh = SubResource("BoxMesh_h8e4i")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_h8e4i")
+surface_material_override/0 = SubResource("StandardMaterial3D_4lmeg")
 
 [node name="UpperLevel" parent="UpperRoom/ThingsToHide" instance=ExtResource("8_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
@@ -470,7 +529,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.25, -1)
 shape = SubResource("BoxShape3D_074og")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UpperRoom/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.15139, 0, -0.25, 1.72617)
 mesh = SubResource("BoxMesh_074og")
 surface_material_override/0 = SubResource("StandardMaterial3D_b1qrp")
 
