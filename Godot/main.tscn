@@ -369,47 +369,49 @@ mesh = SubResource("BoxMesh_q43sb")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_w85du")
 
-[node name="Sofa1" parent="Room/Floor" instance=ExtResource("21_h8e4i")]
-transform = Transform3D(0.675812, 0, 0, 0, 0.675812, 0, 0, 0, 0.675812, 1.48371, 0.427996, -0.122413)
-
-[node name="Sofa2" parent="Room/Floor" instance=ExtResource("22_4lmeg")]
-transform = Transform3D(-0.033234, 0, -0.711587, 0, 0.712363, 0, 0.711587, 0, -0.033234, 4.87286, 0.533729, 2.83417)
-
-[node name="table tennis" parent="Room/Floor" instance=ExtResource("23_0cp0l")]
-transform = Transform3D(0.146475, 0, -0.0697582, 0, 0.162238, 0, 0.0697582, 0, 0.146475, -1.47587, 0.00443122, 2.65888)
-
-[node name="wood table" parent="Room/Floor" instance=ExtResource("24_d2t1y")]
-transform = Transform3D(0.209918, 0, 0, 0, 0.209918, 0, 0, 0, 0.209918, 2.31138, -0.0335322, 3.32167)
-
-[node name="craters with cups" parent="Room/Floor" instance=ExtResource("25_gngh3")]
-transform = Transform3D(0.595368, 0, 0, 0, 0.595368, 0, 0, 0, 0.595368, -4.32759, 0.0978815, 2.57824)
-
-[node name="Speaker" parent="Room/Floor" instance=ExtResource("26_0n3wm")]
-transform = Transform3D(0.514398, 0, 0, 0, 0.514398, 0, 0, 0, 0.514398, -4.67206, 0.00443169, -0.687761)
-
-[node name="Speaker2" parent="Room/Floor" instance=ExtResource("26_0n3wm")]
-transform = Transform3D(0.517975, 0, 0, 0, 0.517975, 0, 0, 0, 0.517975, -1.51632, 0.00443146, -0.706155)
-
-[node name="red cuped" parent="Room/Floor" instance=ExtResource("27_qnost")]
-transform = Transform3D(0.270562, 0, 0, 0, 0.270562, 0, 0, 0, 0.270562, -0.0206671, 0.621546, 2.64494)
-
-[node name="hanger" parent="Room/Floor" instance=ExtResource("28_wnkbs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97603, 0.0523432, -1.08371)
-
-[node name="hanger2" parent="Room/Floor" instance=ExtResource("28_wnkbs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.71496, 0.0523432, -0.996105)
-
-[node name="hanger3" parent="Room/Floor" instance=ExtResource("28_wnkbs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65028, 0.0523432, 3.48535)
-
-[node name="hanger4" parent="Room/Floor" instance=ExtResource("28_wnkbs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.700063, 0.0523432, 3.72683)
-
 [node name="HallwayDoor" parent="Room" instance=ExtResource("7_kek77")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.403, 0, -0.25)
 
 [node name="Door" parent="Room" instance=ExtResource("7_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -1.5)
+
+[node name="Props" type="Node" parent="Room"]
+
+[node name="Sofa1" parent="Room/Props" instance=ExtResource("21_h8e4i")]
+transform = Transform3D(0.675812, 0, 0, 0, 0.675812, 0, 0, 0, 0.675812, 3.98371, 0.427996, -0.122413)
+
+[node name="Sofa2" parent="Room/Props" instance=ExtResource("22_4lmeg")]
+transform = Transform3D(-0.033234, 0, -0.711587, 0, 0.712363, 0, 0.711587, 0, -0.033234, 7.37286, 0.533729, 2.83417)
+
+[node name="TableTennisTable" parent="Room/Props" instance=ExtResource("23_0cp0l")]
+transform = Transform3D(0.146475, 0, -0.0697582, 0, 0.162238, 0, 0.0697582, 0, 0.146475, 1.02413, 0.00443122, 2.65888)
+
+[node name="RedCup" parent="Room/Props/TableTennisTable" instance=ExtResource("27_qnost")]
+transform = Transform3D(1.50566, 0, 0.717063, 0, 1.66769, 0, -0.717063, 0, 1.50566, 8.06114, 3.80376, -3.93426)
+
+[node name="WoodTable" parent="Room/Props" instance=ExtResource("24_d2t1y")]
+transform = Transform3D(0.209918, 0, 0, 0, 0.209918, 0, 0, 0, 0.209918, 4.81138, -0.0335322, 3.32167)
+
+[node name="Crates" parent="Room/Props" instance=ExtResource("25_gngh3")]
+transform = Transform3D(0.595368, 0, 0, 0, 0.595368, 0, 0, 0, 0.595368, -1.82759, 0.0978815, 2.57824)
+
+[node name="Speaker" parent="Room/Props" instance=ExtResource("26_0n3wm")]
+transform = Transform3D(0.514398, 0, 0, 0, 0.514398, 0, 0, 0, 0.514398, -2.17206, 0.00443169, -0.687761)
+
+[node name="Speaker2" parent="Room/Props" instance=ExtResource("26_0n3wm")]
+transform = Transform3D(0.517975, 0, 0, 0, 0.517975, 0, 0, 0, 0.517975, 0.98368, 0.00443146, -0.706155)
+
+[node name="Hanger" parent="Room/Props" instance=ExtResource("28_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47603, 0.0523432, -1.08371)
+
+[node name="Hanger2" parent="Room/Props" instance=ExtResource("28_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.21496, 0.0523432, -0.996105)
+
+[node name="Hanger3" parent="Room/Props" instance=ExtResource("28_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15028, 0.0523432, 3.48535)
+
+[node name="hanger4" parent="Room/Props" instance=ExtResource("28_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20006, 0.0523432, 3.72683)
 
 [node name="BackRoom" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.003)
