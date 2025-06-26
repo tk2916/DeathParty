@@ -57,7 +57,4 @@ anim_player = NodePath("../PlayerModel/AnimationPlayer")
 event_name = "event:/footsteps"
 event_guid = "{a434b914-a600-404d-b1ec-780f1a8849c1}"
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-
 [editable path="PlayerModel"]
