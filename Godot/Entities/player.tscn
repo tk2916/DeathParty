@@ -44,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8.6)
 
 [node name="PlayerModel" parent="." instance=ExtResource("2_gb1tc")]
 unique_name_in_owner = true
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, 0, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
@@ -56,5 +56,8 @@ anim_player = NodePath("../PlayerModel/AnimationPlayer")
 [node name="FootstepSounds" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/footsteps"
 event_guid = "{a434b914-a600-404d-b1ec-780f1a8849c1}"
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [editable path="PlayerModel"]
