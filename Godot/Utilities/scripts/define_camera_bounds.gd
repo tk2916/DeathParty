@@ -41,6 +41,13 @@ func _ready() -> void:
 	upper_bound = global_position.y + camera_y_offset
 	
 
+func move_to_foreground(body: Node3D) -> Vector3:
+	var initial_position: Vector3 = body.global_position
+	initial_position *= abs((basis.x + basis.y))
+	var new_position: Vector3 = initial_position
+	new_position += global_position * basis.z
+	
+	return new_position
 
 ## These functions should be defined in the extended script
 #func _on_body_entered(_body: Node3D) -> void:
