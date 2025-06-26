@@ -155,12 +155,14 @@ shape = SubResource("CylinderShape3D_1bvp3")
 
 [node name="Outline" type="MeshInstance3D" parent="NPC"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12565, 0)
+visible = false
 mesh = SubResource("ArrayMesh_1u8w0")
 skeleton = NodePath("../MeshInstance3D")
 surface_material_override/0 = ExtResource("5_d13ii")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NPC"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12565, 0)
+visible = false
 mesh = SubResource("CylinderMesh_lquwl")
 
 [node name="InteractionDetector" parent="NPC" instance=ExtResource("6_272bh")]
