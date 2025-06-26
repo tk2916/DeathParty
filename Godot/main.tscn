@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=63 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -32,6 +32,7 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
 [ext_resource type="Script" uid="uid://dehejbaawpqyj" path="res://Assets/GUIFunctionalityScripts/clock.gd" id="27_seu75"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="34_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1bvp3"]
@@ -142,7 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.444, 2, 9.6)
 [node name="FmodListener3D" type="FmodListener3D" parent="MainCamera"]
 
 [node name="NPC" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.5)
 collision_layer = 9
 collision_mask = 0
 script = ExtResource("4_ryguw")
@@ -177,6 +178,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24974, 7.6)
 
 [node name="Jack" parent="NPC" instance=ExtResource("10_jq2sk")]
 transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 0, 0.03, 0)
+
+[node name="AlbertoMa" parent="." instance=ExtResource("34_4k2k6")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 5.75, 0, 0)
 
 [node name="Outside" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25, 1, 0)
