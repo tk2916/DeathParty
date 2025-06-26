@@ -503,6 +503,7 @@ json_file = ExtResource("27_a6jrf")
 json_file2 = ExtResource("27_xuqvo")
 
 [node name="AlbertoMa" parent="." instance=ExtResource("34_4k2k6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76195, 0, 0)
 
 [connection signal="body_entered" from="Outside" to="Outside" method="_on_body_entered"]
 [connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
