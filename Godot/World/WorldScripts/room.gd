@@ -7,7 +7,6 @@ extends "res://Utilities/scripts/define_camera_bounds.gd"
 @onready var background_plane := Plane(basis.z, (global_position - (room_shape.size/2 * basis)))
 
 func _ready() -> void:
-	## TODO: figure out why this script messes with the camera bounds
 	super()
 	GlobalPlayerScript.player_moved.connect(_change_visibility)
 
