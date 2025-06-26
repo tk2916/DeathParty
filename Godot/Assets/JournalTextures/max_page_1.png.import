@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s742yxoo5vvv"
-path.s3tc="res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.s3tc.ctex"
-path.etc2="res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.etc2.ctex"
+uid="uid://dmffsu11hoong"
+path.s3tc="res://.godot/imported/max_page_1.png-5377b286caf16cb99f0b06f78a54687b.s3tc.ctex"
+path.etc2="res://.godot/imported/max_page_1.png-5377b286caf16cb99f0b06f78a54687b.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png"
-dest_files=["res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.s3tc.ctex", "res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.etc2.ctex"]
+source_file="res://Assets/JournalTextures/max_page_1.png"
+dest_files=["res://.godot/imported/max_page_1.png-5377b286caf16cb99f0b06f78a54687b.s3tc.ctex", "res://.godot/imported/max_page_1.png-5377b286caf16cb99f0b06f78a54687b.etc2.ctex"]
 
 [params]
 

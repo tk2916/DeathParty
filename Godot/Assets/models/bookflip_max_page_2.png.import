@@ -2,18 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s742yxoo5vvv"
-path.s3tc="res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.s3tc.ctex"
-path.etc2="res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.etc2.ctex"
+uid="uid://c0c7uxkp8a7y"
+path.s3tc="res://.godot/imported/bookflip_max_page_2.png-b31730ddbf86646580ec7740e9601bd9.s3tc.ctex"
+path.etc2="res://.godot/imported/bookflip_max_page_2.png-b31730ddbf86646580ec7740e9601bd9.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "3ab6bda3ec17d220a244af72fd3e8fca"
+}
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png"
-dest_files=["res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.s3tc.ctex", "res://.godot/imported/kai_pikachu_waistup.png-1f65ca2a36f0bd7f9f6a76f9f761bce5.etc2.ctex"]
+source_file="res://Assets/models/bookflip_max_page_2.png"
+dest_files=["res://.godot/imported/bookflip_max_page_2.png-b31730ddbf86646580ec7740e9601bd9.s3tc.ctex", "res://.godot/imported/bookflip_max_page_2.png-b31730ddbf86646580ec7740e9601bd9.etc2.ctex"]
 
 [params]
 
