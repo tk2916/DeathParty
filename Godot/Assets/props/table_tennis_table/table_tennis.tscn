@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://b1e31j7rea4bf"]
 
-[ext_resource type="PackedScene" uid="uid://ylsnhs2heyj3" path="res://Assets/props/table_tennis_table/table tennis.glb" id="1_scygc"]
+[ext_resource type="PackedScene" uid="uid://ylsnhs2heyj3" path="res://Assets/props/table_tennis_table/table tennis_table.glb" id="1_scygc"]
 [ext_resource type="Texture2D" uid="uid://dew2l8yqbsew" path="res://Assets/props/table_tennis_table/table tennis_ping_pong_baseColor.jpg" id="2_uo8p3"]
 [ext_resource type="Texture2D" uid="uid://ecdh2julss5q" path="res://Assets/props/table_tennis_table/table tennis_ping_pong_metallicRoughness.png" id="3_vo0k2"]
 [ext_resource type="Texture2D" uid="uid://5p0ekrh1ef2v" path="res://Assets/props/table_tennis_table/table tennis_ping_pong_normal.png" id="4_gfnab"]

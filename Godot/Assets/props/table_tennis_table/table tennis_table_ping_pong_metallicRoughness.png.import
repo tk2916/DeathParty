@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ecdh2julss5q"
-path.s3tc="res://.godot/imported/table tennis_ping_pong_metallicRoughness.png-eadf0d322996ac429977e3ff3e0d9920.s3tc.ctex"
-path.etc2="res://.godot/imported/table tennis_ping_pong_metallicRoughness.png-eadf0d322996ac429977e3ff3e0d9920.etc2.ctex"
+uid="uid://b4tn6t8kk2ja8"
+path.s3tc="res://.godot/imported/table tennis_table_ping_pong_metallicRoughness.png-38f0ecb692d4605d55e61fcc749c7806.s3tc.ctex"
+path.etc2="res://.godot/imported/table tennis_table_ping_pong_metallicRoughness.png-38f0ecb692d4605d55e61fcc749c7806.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/props/table_tennis_table/table tennis_ping_pong_metallicRoughness.png"
-dest_files=["res://.godot/imported/table tennis_ping_pong_metallicRoughness.png-eadf0d322996ac429977e3ff3e0d9920.s3tc.ctex", "res://.godot/imported/table tennis_ping_pong_metallicRoughness.png-eadf0d322996ac429977e3ff3e0d9920.etc2.ctex"]
+source_file="res://Assets/props/table_tennis_table/table tennis_table_ping_pong_metallicRoughness.png"
+dest_files=["res://.godot/imported/table tennis_table_ping_pong_metallicRoughness.png-38f0ecb692d4605d55e61fcc749c7806.s3tc.ctex", "res://.godot/imported/table tennis_table_ping_pong_metallicRoughness.png-38f0ecb692d4605d55e61fcc749c7806.etc2.ctex"]
 
 [params]
 

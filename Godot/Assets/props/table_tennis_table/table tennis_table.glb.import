@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ylsnhs2heyj3"
-path="res://.godot/imported/table tennis.glb-de68304467149e7a74f350c90895b818.scn"
+path="res://.godot/imported/table tennis_table.glb-10e64ed4f03d6f4aff10904c792fc19a.scn"
 
 [deps]
 
-source_file="res://Assets/props/table_tennis_table/table tennis.glb"
-dest_files=["res://.godot/imported/table tennis.glb-de68304467149e7a74f350c90895b818.scn"]
+source_file="res://Assets/props/table_tennis_table/table tennis_table.glb"
+dest_files=["res://.godot/imported/table tennis_table.glb-10e64ed4f03d6f4aff10904c792fc19a.scn"]
 
 [params]
 

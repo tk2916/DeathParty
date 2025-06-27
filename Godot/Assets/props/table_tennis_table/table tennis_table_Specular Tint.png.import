@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1tq17yoamxmi"
-path="res://.godot/imported/table tennis_Specular Tint.png-8020933c3c4708cb9933556f62188935.ctex"
+uid="uid://dfaba6iywjfso"
+path="res://.godot/imported/table tennis_table_Specular Tint.png-fa5ab4cae4a3527b6afca2277c9d0d8d.ctex"
 metadata={
 "vram_texture": false
 }
@@ -13,8 +13,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/props/table_tennis_table/table tennis_Specular Tint.png"
-dest_files=["res://.godot/imported/table tennis_Specular Tint.png-8020933c3c4708cb9933556f62188935.ctex"]
+source_file="res://Assets/props/table_tennis_table/table tennis_table_Specular Tint.png"
+dest_files=["res://.godot/imported/table tennis_table_Specular Tint.png-fa5ab4cae4a3527b6afca2277c9d0d8d.ctex"]
 
 [params]
 
