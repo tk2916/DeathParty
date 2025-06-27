@@ -146,7 +146,7 @@ size = Vector2(11, 3)
 size = Vector3(0.2, 3, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w48qg"]
-size = Vector3(11, 3, 3)
+size = Vector3(11, 4, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_facbu"]
 size = Vector3(0.2, 3, 3)

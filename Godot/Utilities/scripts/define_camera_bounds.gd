@@ -6,7 +6,7 @@ extends Area3D
 # offsets must be changed MANUALLY if the MainCamera's default position or fov change
 # offset's x value is the desired distance from the edges of the area
 var camera_LR_offset: Vector3 = Vector3(3.8, 0, 0)
-var camera_y_offset: float = 0
+var camera_y_offset: float
 var left_bound: Plane
 var right_bound: Plane
 var lower_bound: float
@@ -18,6 +18,8 @@ var room_area_shape: BoxShape3D
 
 func _ready() -> void:
 	var room_area: CollisionShape3D = $RoomArea
+	## Left and Right bounds
+	
 	room_area_shape = room_area.shape
 	# [.....|.....] <= $RoomArea.shape.size.x ( '|' is halfway point)
 	# [.....|       <= $RoomArea.shape.size.x/2
@@ -36,9 +38,15 @@ func _ready() -> void:
 	left_bound = Plane(basis.x, left_point)
 	right_bound = Plane(-basis.x, right_point)
 	
+	## Y bounds
+	
+	# For now, just keep the camera in the center
+	camera_y_offset = room_area_shape.size.y/2
+	
 	camera_y_offset = room_area_shape.size.y/2 - camera_y_offset
-	lower_bound = global_position.y - camera_y_offset
-	upper_bound = global_position.y + camera_y_offset
+	var y_center = room_area_shape.size.y/2 + global_position.y
+	lower_bound = y_center - camera_y_offset
+	upper_bound = y_center + camera_y_offset
 	
 
 func move_to_foreground(body: Node3D) -> Vector3:
