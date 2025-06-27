@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=4 uid="uid://b1e31j7rea4bf"]
 
 [ext_resource type="PackedScene" uid="uid://ylsnhs2heyj3" path="res://Assets/props/table_tennis_table/table tennis_table.glb" id="1_scygc"]
-[ext_resource type="Texture2D" uid="uid://dew2l8yqbsew" path="res://Assets/props/table_tennis_table/table tennis_ping_pong_baseColor.jpg" id="2_uo8p3"]
-[ext_resource type="Texture2D" uid="uid://ecdh2julss5q" path="res://Assets/props/table_tennis_table/table tennis_ping_pong_metallicRoughness.png" id="3_vo0k2"]
-[ext_resource type="Texture2D" uid="uid://5p0ekrh1ef2v" path="res://Assets/props/table_tennis_table/table tennis_ping_pong_normal.png" id="4_gfnab"]
+[ext_resource type="Texture2D" uid="uid://7byjttmt2klg" path="res://Assets/props/table_tennis_table/table tennis_table_ping_pong_baseColor.jpg" id="2_uo8p3"]
+[ext_resource type="Texture2D" uid="uid://b4tn6t8kk2ja8" path="res://Assets/props/table_tennis_table/table tennis_table_ping_pong_metallicRoughness.png" id="3_vo0k2"]
+[ext_resource type="Texture2D" uid="uid://cxc47n3ive051" path="res://Assets/props/table_tennis_table/table tennis_table_ping_pong_normal.png" id="4_gfnab"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4y88"]
 resource_name = "ping_pong"
@@ -50,7 +50,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_23qmm")
 
-[node name="table tennis" instance=ExtResource("1_scygc")]
+[node name="TableTennisTable" instance=ExtResource("1_scygc")]
 
 [node name="ping pong_ping pong_0" parent="." index="0"]
 mesh = SubResource("ArrayMesh_3n8qs")
