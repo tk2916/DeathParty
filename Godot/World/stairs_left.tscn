@@ -6,7 +6,7 @@
 size = Vector3(1, 4.94934, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ynp2l"]
-size = Vector3(2, 1.5, 1)
+size = Vector3(1.94446, 1.5, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_sdf1a"]
 lightmap_size_hint = Vector2i(26, 46)
@@ -26,7 +26,7 @@ transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 
 shape = SubResource("BoxShape3D_sdf1a")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52777, 0.75, 0)
 shape = SubResource("BoxShape3D_ynp2l")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

@@ -72,7 +72,7 @@ add_uv2 = true
 size = Vector3(11, 0.5, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
-size = Vector3(11, 4, 3)
+size = Vector3(11, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rl1p"]
 albedo_texture = ExtResource("16_0rl1p")
@@ -159,7 +159,7 @@ albedo_texture = ExtResource("18_ok6jj")
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
-size = Vector3(11, 4, 3)
+size = Vector3(11, 3, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
 size = Vector3(11, 0.5, 4)
