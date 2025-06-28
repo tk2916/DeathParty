@@ -1,3 +1,5 @@
+# TODO: add static return types for funcs
+
 extends Node
 
 
@@ -23,12 +25,19 @@ func _ready():
 	if err == OK:
 		print("settings.cfg loaded successfully")
 
+		# NOTE: the fallback values here should be set 
+		# to the same values declared at the top
+		
 		# audio
-		# NOTE: this needs to be set to the same value as at the top
 		volume = config.get_value("audio", "volume", 75)
 		set_volume(volume)
 
 		# video
+		# this doesnt seem to load correctly and will always use the value
+		# declared at the top of the script for some reason - changing the
+		# setting during gameplay changes the cfg file but it always resets
+		# itself on launch (idk why this doesnt work and the volume setting
+		# does, probably missing something obvious lol)
 		fullscreen = config.get_value("video", "fullscreen", false)
 		set_fullscreen(fullscreen)
 
