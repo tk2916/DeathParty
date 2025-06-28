@@ -1,13 +1,14 @@
-extends MeshInstance3D
+extends StaticBody3D
 
 @export var button : Button
-var original_position : Vector3 = self.position
-var up_direction : Vector3 = Vector3.UP
+@export var sub_viewport : Viewport
+@onready var original_position : Vector3 = global_position
+@onready var up_direction : Vector3 = transform.basis.y.normalized()
 
 @export var flip_to_page : int
 
 func return_to_original_pos():
-	position = original_position
+	global_position = original_position
 
-func button_pressed():
-	position = original_position + (up_direction * .1)
+func move_upward():
+	global_position = original_position + (up_direction)

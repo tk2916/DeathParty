@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dpjo82okixq0n"]
+[gd_scene load_steps=36 format=4 uid="uid://dpjo82okixq0n"]
 
 [ext_resource type="Script" uid="uid://flyxrcyewikk" path="res://Assets/models/bookflip.gd" id="1_uwd6m"]
 [ext_resource type="Texture2D" uid="uid://dmffsu11hoong" path="res://Assets/JournalTextures/max_page_1.png" id="2_2y86t"]
@@ -417,39 +417,36 @@ _data = {
 &"pageFlip_003": SubResource("Animation_kqixp")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_u3xn0"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0eo2"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_u3xn0")
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_2y86t"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("Tabs/TabStaticBody3D2/Tab/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3xn0"]
 resource_local_to_scene = true
+render_priority = 1
 albedo_texture = SubResource("ViewportTexture_2y86t")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_f0eo2"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("Tabs/TabStaticBody3D3/Tab/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvng4"]
 resource_local_to_scene = true
+render_priority = 1
 albedo_texture = SubResource("ViewportTexture_f0eo2")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_x86c4"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("Tabs/TabStaticBody3D4/Tab/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cqit"]
 resource_local_to_scene = true
+render_priority = 1
 albedo_texture = SubResource("ViewportTexture_x86c4")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_eos73"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("Tabs/TabStaticBody3D5/Tab/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qo2ra"]
 resource_local_to_scene = true
+render_priority = 1
 albedo_texture = SubResource("ViewportTexture_eos73")
 
 [node name="bookflip" type="Node3D" node_paths=PackedStringArray("animation_player", "page1", "page2", "tabs_node")]
@@ -473,8 +470,8 @@ bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0.99257, 0.121675, 5.01441e-08, -0.121675, 0.99257, 6.93846e-08, -4.13292e-08, -7.49704e-08, 1, 0, 0, 0)
 bones/0/enabled = true
-bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(-3.6156e-08, 2.29109e-08, -0.0609508, 0.998141)
+bones/0/position = Vector3(0.002873, -0.00246666, -5.25889e-10)
+bones/0/rotation = Quaternion(-6.88738e-08, 1.6124e-08, 0.663061, 0.748565)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Bone.001"
 bones/1/parent = 0
@@ -537,31 +534,62 @@ transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228
 
 [node name="Tabs" type="Node" parent="."]
 
-[node name="Tab" parent="Tabs" instance=ExtResource("7_2y86t")]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 1.26098, 0.221617, 0.901852)
-material_overlay = SubResource("StandardMaterial3D_f0eo2")
+[node name="TabStaticBody3D" parent="Tabs" instance=ExtResource("7_2y86t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34845, 0.217571, 0.896053)
 
-[node name="Tab2" parent="Tabs" instance=ExtResource("7_2y86t")]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 1.02651, 0.221617, 0.901852)
-material_overlay = SubResource("StandardMaterial3D_u3xn0")
+[node name="TabStaticBody3D2" parent="Tabs" instance=ExtResource("7_2y86t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10881, 0.217571, 0.896053)
 flip_to_page = 1
 
-[node name="Tab3" parent="Tabs" instance=ExtResource("7_2y86t")]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 0.788517, 0.221617, 0.901852)
-material_overlay = SubResource("StandardMaterial3D_fvng4")
+[node name="Tab" parent="Tabs/TabStaticBody3D2" index="0"]
+material_overlay = SubResource("StandardMaterial3D_u3xn0")
+
+[node name="ColorRect" parent="Tabs/TabStaticBody3D2/Tab/SubViewport" index="0"]
+color = Color(1, 0.399104, 0.705109, 1)
+
+[node name="Button" parent="Tabs/TabStaticBody3D2/Tab/SubViewport" index="1"]
+text = "Characters"
+
+[node name="TabStaticBody3D3" parent="Tabs" instance=ExtResource("7_2y86t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.877501, 0.217571, 0.896053)
 flip_to_page = 2
 
-[node name="Tab4" parent="Tabs" instance=ExtResource("7_2y86t")]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 0.550841, 0.221617, 0.901852)
-material_overlay = SubResource("StandardMaterial3D_0cqit")
+[node name="Tab" parent="Tabs/TabStaticBody3D3" index="0"]
+material_overlay = SubResource("StandardMaterial3D_fvng4")
+
+[node name="ColorRect" parent="Tabs/TabStaticBody3D3/Tab/SubViewport" index="0"]
+color = Color(7.70092e-06, 0.654252, 0.85441, 1)
+
+[node name="Button" parent="Tabs/TabStaticBody3D3/Tab/SubViewport" index="1"]
+text = "Clues"
+
+[node name="TabStaticBody3D4" parent="Tabs" instance=ExtResource("7_2y86t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.643147, 0.217571, 0.896053)
 flip_to_page = 3
 
-[node name="Tab5" parent="Tabs" instance=ExtResource("7_2y86t")]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 0.309977, 0.221617, 0.901852)
+[node name="Tab" parent="Tabs/TabStaticBody3D4" index="0"]
+material_overlay = SubResource("StandardMaterial3D_0cqit")
+
+[node name="ColorRect" parent="Tabs/TabStaticBody3D4/Tab/SubViewport" index="0"]
+color = Color(0.942001, 0.483331, 0, 1)
+
+[node name="Button" parent="Tabs/TabStaticBody3D4/Tab/SubViewport" index="1"]
+text = "Polaroids"
+
+[node name="TabStaticBody3D5" parent="Tabs" instance=ExtResource("7_2y86t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.402883, 0.217571, 0.896053)
+flip_to_page = 4
+
+[node name="Tab" parent="Tabs/TabStaticBody3D5" index="0"]
 material_overlay = SubResource("StandardMaterial3D_qo2ra")
 
-[editable path="Tabs/Tab"]
-[editable path="Tabs/Tab2"]
-[editable path="Tabs/Tab3"]
-[editable path="Tabs/Tab4"]
-[editable path="Tabs/Tab5"]
+[node name="ColorRect" parent="Tabs/TabStaticBody3D5/Tab/SubViewport" index="0"]
+color = Color(0.0831528, 0.827896, 0.520365, 1)
+
+[node name="Button" parent="Tabs/TabStaticBody3D5/Tab/SubViewport" index="1"]
+text = "Settings"
+
+[editable path="Tabs/TabStaticBody3D2"]
+[editable path="Tabs/TabStaticBody3D3"]
+[editable path="Tabs/TabStaticBody3D4"]
+[editable path="Tabs/TabStaticBody3D5"]
