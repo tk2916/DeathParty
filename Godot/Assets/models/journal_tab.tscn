@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://mg0sman3f2yu"]
+
+[ext_resource type="Script" uid="uid://bcjyjyqfung5b" path="res://Assets/models/journal_tab_script.gd" id="1_1kt7j"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1kt7j"]
+viewport_path = NodePath("Tab/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2y86t"]
+resource_local_to_scene = true
+render_priority = 1
+albedo_texture = SubResource("ViewportTexture_1kt7j")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7ldef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kt7j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kt7j"]
+size = Vector3(0.19751, 0.0261307, 0.311768)
+
+[node name="TabStaticBody3D" type="StaticBody3D" node_paths=PackedStringArray("button", "sub_viewport")]
+collision_layer = 9
+script = ExtResource("1_1kt7j")
+button = NodePath("Tab/SubViewport/Button")
+sub_viewport = NodePath("Tab/SubViewport")
+
+[node name="Tab" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 0, -0.0174479, 0)
+material_overlay = SubResource("StandardMaterial3D_2y86t")
+mesh = SubResource("PlaneMesh_7ldef")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="Tab"]
+handle_input_locally = false
+
+[node name="ColorRect" type="ColorRect" parent="Tab/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.730982, 0.730983, 0, 1)
+
+[node name="Button" type="Button" parent="Tab/SubViewport"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1kt7j")
+text = "Tasks"
+flat = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020752, 0.00902176, -0.00183105)
+shape = SubResource("BoxShape3D_1kt7j")
