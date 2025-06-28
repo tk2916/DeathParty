@@ -6,6 +6,9 @@ var config = ConfigFile.new()
 # audio
 var volume : float = 50
 
+# video
+var fullscreen : bool = false
+
 
 func _ready():
 	# check if the cfg will load
@@ -18,8 +21,12 @@ func _ready():
 	# and have this singleton just read and set cfg values and not handle any
 	# logic
 	if err == OK:
+		# audio
 		volume = config.get_value("audio", "volume", 75)
 		set_volume(volume)
+
+		# video
+		fullscreen = config.get_value("video", "fullscreen", false)
 
 	# if it doesnt load, save a new cfg with the current settings
 	else:
@@ -27,7 +34,11 @@ func _ready():
 
 
 func save_settings():
+	# audio
 	config.set_value("audio", "volume", volume)
+
+	# video
+	config.set_value("video", "fullscreen", fullscreen)
 	config.save("user://settings.cfg")
 
 
