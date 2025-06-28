@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var quit_button : Button = %QuitButton
 
 @onready var settings_menu : VBoxContainer = %SettingsMenu
+@onready var fullscreen_check_box: CheckBox = %FullscreenCheckBox
 @onready var volume_slider : HSlider = %VolumeSlider
 @onready var volume_number : Label = %VolumeNumber
 
@@ -16,6 +17,7 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	fullscreen_check_box.button_pressed = Settings.fullscreen
 	volume_slider.value = Settings.volume
 
 

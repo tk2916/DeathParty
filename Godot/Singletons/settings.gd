@@ -13,6 +13,7 @@ var fullscreen : bool = false
 func _ready():
 	# check if the cfg will load
 	var err = config.load("user://settings.cfg")
+	print("loading settings.cfg . . .")
 
 	# if it loads, set each setting to the value from the cfg
 	# (or the default if it isnt set in the cfg)
@@ -20,7 +21,10 @@ func _ready():
 	# move this to the pause menu script and have this singleton just read and
 	# set cfg values and not handle any logic
 	if err == OK:
+		print("settings.cfg loaded successfully")
+
 		# audio
+		# NOTE: this needs to be set to the same value as at the top
 		volume = config.get_value("audio", "volume", 75)
 		set_volume(volume)
 
