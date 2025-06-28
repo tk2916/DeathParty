@@ -139,6 +139,7 @@ text = "no"
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenu/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_pressed"]
+[connection signal="toggled" from="MarginContainer/SettingsMenu/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
 [connection signal="drag_ended" from="MarginContainer/SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
 [connection signal="value_changed" from="MarginContainer/SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
