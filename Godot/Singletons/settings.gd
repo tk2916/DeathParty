@@ -15,11 +15,10 @@ func _ready():
 	var err = config.load("user://settings.cfg")
 
 	# if it loads, set each setting to the value from the cfg
-	# (or the default if it isnt set in the cfg) - this is also where the
-	# fmod volume is actually set, but if we think its simpler to set most
-	# settings from elsewhere then we can move this to the pause menu script
-	# and have this singleton just read and set cfg values and not handle any
-	# logic
+	# (or the default if it isnt set in the cfg)
+	# if we think its simpler to set most settings from elsewhere then we can
+	# move this to the pause menu script and have this singleton just read and
+	# set cfg values and not handle any logic
 	if err == OK:
 		# audio
 		volume = config.get_value("audio", "volume", 75)
@@ -27,6 +26,8 @@ func _ready():
 
 		# video
 		fullscreen = config.get_value("video", "fullscreen", false)
+		set_fullscreen(fullscreen)
+
 
 	# if it doesnt load, save a new cfg with the current settings
 	else:
@@ -39,6 +40,7 @@ func save_settings():
 
 	# video
 	config.set_value("video", "fullscreen", fullscreen)
+
 	config.save("user://settings.cfg")
 
 
@@ -55,4 +57,14 @@ func set_volume(value : float):
 	# 2 different functions like set_initial_volume() and set_volume() but 
 	# keeping them together felt neater for now
 	volume = value
+	save_settings()
+
+
+func set_fullscreen(enabled : bool):
+	if enabled:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	elif not enabled:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED) 
+
+	fullscreen = enabled
 	save_settings()
