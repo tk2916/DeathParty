@@ -494,6 +494,7 @@ omni_range = 1.0
 omni_attenuation = 2.0
 
 [node name="Benny" parent="BackRoom" instance=ExtResource("30_0cbny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 
 [node name="UpperRoom" parent="." instance=ExtResource("7_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3.5, 0)
