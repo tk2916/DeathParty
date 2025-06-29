@@ -7,4 +7,5 @@ func _ready() -> void:
 	add_theme_stylebox_override("focus", StyleBoxEmpty.new())
 
 func _pressed() -> void:
-	show_element.visible = !show_element.visible
+	if show_element:
+		show_element.visible = !show_element.visible

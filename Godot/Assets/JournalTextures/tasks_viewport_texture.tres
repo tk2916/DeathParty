@@ -1,0 +1,4 @@
+[gd_resource type="ViewportTexture" format=3 uid="uid://ckreco4sxuqyl"]
+
+[resource]
+viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
