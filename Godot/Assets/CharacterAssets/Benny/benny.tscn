@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dyrm8ntkw6b2c"]
 
-[ext_resource type="PackedScene" uid="uid://cbt1wwks7uhgk" path="res://Assets/CharacterAssets/Benny/benny.glb" id="1_nij2s"]
+[ext_resource type="PackedScene" uid="uid://cbt1wwks7uhgk" path="res://Assets/CharacterAssets/benny/benny.glb" id="1_nij2s"]
 
 [node name="Benny" instance=ExtResource("1_nij2s")]
 
