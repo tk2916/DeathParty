@@ -62,7 +62,7 @@ func _on_settings_button_pressed() -> void:
 	volume_slider.grab_focus()
 
 
-func _on_fullscreen_check_box_toggled(toggled_on: bool) -> void:
+func _on_fullscreen_check_box_toggled(toggled_on : bool) -> void:
 	Settings.set_fullscreen(toggled_on)
 
 
