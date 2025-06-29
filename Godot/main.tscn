@@ -237,10 +237,11 @@ _data = {
 }
 point_count = 2
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("main_camera", "camera_location_node")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node")]
 script = ExtResource("1_1bvp3")
 main_camera = NodePath("MainCamera")
 camera_location_node = NodePath("Player/PlayerCameraLocation")
+default_player_camera_location_node = NodePath("Player/PlayerCameraLocation")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4lmeg")

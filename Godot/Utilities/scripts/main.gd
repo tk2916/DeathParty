@@ -1,17 +1,17 @@
 extends Node3D
 
-var PLAYER_CAMERA_FOLLOW_SPEED : float = 3.5
-var CAMERA_TRANSITION_SPEED : float = 2
+var PLAYER_CAMERA_FOLLOW_SPEED: float = 3.5
+var CAMERA_TRANSITION_SPEED: float = 2
 var camera_speed: float = PLAYER_CAMERA_FOLLOW_SPEED
 
-var camera_location : Vector3
-var camera_on_player : bool = true
+var camera_location: Vector3
+var camera_on_player: bool = true
 var camera_smooth: bool = true
 
 var camera_bound_LR: bool = false
 var camera_left_bound: Plane
 var camera_right_bound: Plane
-var camera_parent_basis : Basis
+var camera_parent_basis: Basis
 
 var camera_bound_y: bool = false
 var camera_lower_bound_y: float = 0.0
@@ -19,8 +19,9 @@ var camera_upper_bound_y: float = 0.0
 
 var camera_bound_path: bool = false
 
-@export var main_camera : Camera3D
-@export var camera_location_node : Node3D
+@export var main_camera: Camera3D
+@export var camera_location_node: Node3D
+@export var default_player_camera_location_node: Node3D
 
 # Constantly moves the camera's location
 func _ready() -> void:
@@ -43,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	# make camera follow player
 	if camera_on_player:
 		camera_speed = PLAYER_CAMERA_FOLLOW_SPEED
-		camera_location_node = $Player/PlayerCameraLocation
+		camera_location_node = default_player_camera_location_node
 	
 	# restrict x values of camera
 	if camera_bound_LR:
