@@ -35,8 +35,10 @@ func _ready() -> void:
 		apply_fullscreen(fullscreen)
 
 
-	# if it doesnt load, save a new cfg with the current settings
+	# if it doesnt load, print error and create new cfg with current settings
 	else:
+		print("failed to load settings.cfg (" + error_string(err) + ")")
+		print("creating new settings.cfg file with default settings . . .")
 		save_settings()
 
 
