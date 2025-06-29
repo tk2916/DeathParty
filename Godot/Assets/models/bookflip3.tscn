@@ -1,10 +1,5 @@
-[gd_scene load_steps=43 format=4 uid="uid://dpjo82okixq0n"]
+[gd_scene load_steps=38 format=4 uid="uid://dpjo82okixq0n"]
 
-[ext_resource type="Script" uid="uid://flyxrcyewikk" path="res://Assets/models/bookflip.gd" id="1_uwd6m"]
-[ext_resource type="Texture2D" uid="uid://dmffsu11hoong" path="res://Assets/JournalTextures/max_page_1.png" id="2_2y86t"]
-[ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="3_u3xn0"]
-[ext_resource type="Texture2D" uid="uid://b6epcbok07mvo" path="res://Assets/JournalTextures/max_page_3.png" id="4_f0eo2"]
-[ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="5_fvng4"]
 [ext_resource type="Texture2D" uid="uid://c0c7uxkp8a7y" path="res://Assets/models/bookflip_max_page_2.png" id="6_x86c4"]
 [ext_resource type="Texture2D" uid="uid://ckreco4sxuqyl" path="res://Assets/JournalTextures/tasks_viewport_texture.tres" id="7_f0eo2"]
 [ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="7_fvng4"]
@@ -462,16 +457,7 @@ viewport_path = NodePath("Tabs/TabStaticBody3D5/Tab/SubViewport")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_eos73")
 
-[node name="bookflip" type="Node3D" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node")]
-script = ExtResource("1_uwd6m")
-animation_player = NodePath("AnimationPlayer")
-page1 = NodePath("Armature/Skeleton3D/Cube_004")
-page2 = NodePath("Armature/Skeleton3D/Cube_005")
-page1_subviewport = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
-page2_subviewport = NodePath("Armature/Skeleton3D/Cube_005/SubViewport")
-viewport_texture = ExtResource("7_f0eo2")
-journal_textures = [ExtResource("7_fvng4"), ExtResource("2_2y86t"), ExtResource("4_f0eo2"), ExtResource("5_fvng4"), ExtResource("3_u3xn0")]
-tabs_node = NodePath("Tabs")
+[node name="bookflip" type="Node3D"]
 
 [node name="Cube_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.28113, 0, 0, 0, 1, 0, 0, 0, 1, -2.09726e-05, 0.0428847, 0.00150057)

@@ -601,7 +601,7 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -2)
 
 [node name="ObjectViewer" parent="." instance=ExtResource("2_a6jrf")]
-visible = false
+test_path = "res://Assets/models/bookflip3.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
