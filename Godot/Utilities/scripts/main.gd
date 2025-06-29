@@ -1,6 +1,6 @@
 extends Node3D
 
-var PLAYER_CAMERA_FOLLOW_SPEED: float = 3.5
+var PLAYER_CAMERA_FOLLOW_SPEED: float = 2.5
 var CAMERA_TRANSITION_SPEED: float = 2
 var camera_speed: float = PLAYER_CAMERA_FOLLOW_SPEED
 
