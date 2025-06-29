@@ -1,6 +1,3 @@
-# TODO: add static return types for funcs
-# TODO: set fallback values to use declared values from top of script
-
 extends Node
 
 
