@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://fejxno4a8ptp" path="res://Assets/props/hanger.glb" id="28_wnkbs"]
 [ext_resource type="PackedScene" uid="uid://c73w3ngjngoi6" path="res://Assets/CharacterAssets/Benny/benny.tscn" id="33_f6a44"]
 [ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="34_4k2k6"]
+[ext_resource type="Script" uid="uid://d0bpakbx0nyu3" path="res://journal_open_button.gd" id="37_f6a44"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="LightmapGIData" uid="uid://dovrf850w07cv" path="res://Assets/textures/lightmaps/main.lmbake" id="46_qnost"]
 
@@ -241,6 +242,8 @@ environment = SubResource("Environment_4lmeg")
 
 [node name="Player" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
+collision_layer = 2
+collision_mask = 1
 floor_constant_speed = true
 
 [node name="MainCamera" parent="." instance=ExtResource("3_dg77c")]
@@ -250,6 +253,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.444, 2, 9.6)
 
 [node name="Outside" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25, 1, 0)
+collision_mask = 2
 script = ExtResource("5_ycdy4")
 
 [node name="RoomArea" type="CollisionShape3D" parent="Outside"]
@@ -257,7 +261,6 @@ shape = SubResource("BoxShape3D_06yk2")
 
 [node name="Floor" type="StaticBody3D" parent="Outside"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
-collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Floor"]
@@ -271,6 +274,7 @@ skeleton = NodePath("../..")
 
 [node name="Room" parent="." node_paths=PackedStringArray("room_area", "things_to_hide") instance=ExtResource("7_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+collision_mask = 2
 script = ExtResource("6_4c57u")
 room_area = NodePath("RoomArea")
 things_to_hide = NodePath("ThingsToHide")
@@ -298,7 +302,6 @@ omni_attenuation = 2.0
 
 [node name="BackWall" type="StaticBody3D" parent="Room/ThingsToHide"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011703, 1.49595, -1.49338)
-collision_layer = 2
 collision_mask = 0
 
 [node name="BackWallMesh" type="MeshInstance3D" parent="Room/ThingsToHide/BackWall"]
@@ -343,7 +346,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_1bvp3")
 
 [node name="Outline" type="MeshInstance3D" parent="Room/ThingsToHide/NPC"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12565, 0)
+transform = Transform3D(1, 0, 0, 0, -0.00315991, 0, 0, 0, 1, 0, 0.00911012, 0)
 visible = false
 mesh = SubResource("ArrayMesh_1u8w0")
 skeleton = NodePath("../MeshInstance3D")
@@ -371,7 +374,6 @@ transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 
 
 [node name="LeftWall2" type="StaticBody3D" parent="Room"]
 transform = Transform3D(0.993701, 0, 0, 0, 0.993701, 0, 0, 0, 2.83709, -5.3999, 1.50095, -2.30074e-05)
-collision_layer = 2
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/LeftWall2"]
@@ -383,7 +385,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h8e4i")
 transform = Transform3D(1.00253, 0, 0, 0, 1.00253, 0, 0, 0, 2.85762, 5.4, 1.5, 0)
 
 [node name="Floor" type="StaticBody3D" parent="Room"]
-collision_layer = 2
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_jq2sk")
 
@@ -440,7 +441,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20006, 0.0523432, 3.72683)
 
 [node name="BackRoom" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.003)
-collision_layer = 2
+collision_mask = 2
 script = ExtResource("11_efxa6")
 
 [node name="RoomArea" type="CollisionShape3D" parent="BackRoom"]
@@ -450,7 +451,6 @@ debug_color = Color(4.81307e-07, 0.6058, 0.665263, 0.42)
 
 [node name="BackRoomFloor" type="StaticBody3D" parent="BackRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.5)
-collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BackRoom/BackRoomFloor"]
@@ -462,7 +462,6 @@ skeleton = NodePath("../../..")
 
 [node name="BackRoomCeiling" type="StaticBody3D" parent="BackRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0.5)
-collision_layer = 2
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BackRoom/BackRoomCeiling"]
@@ -475,12 +474,14 @@ mesh = SubResource("QuadMesh_efxa6")
 
 [node name="BackLeftWall" type="StaticBody3D" parent="BackRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 1.5, 0.5)
+collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BackRoom/BackLeftWall"]
 mesh = SubResource("BoxMesh_efxa6")
 
 [node name="BackRightWall" type="StaticBody3D" parent="BackRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.5, 0.5)
+collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BackRoom/BackRightWall"]
 mesh = SubResource("BoxMesh_efxa6")
@@ -494,7 +495,7 @@ omni_attenuation = 2.0
 
 [node name="UpperRoom" parent="." instance=ExtResource("7_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3.5, 0)
-collision_layer = 2
+collision_mask = 2
 script = ExtResource("13_w48qg")
 
 [node name="RoomArea" type="CollisionShape3D" parent="UpperRoom"]
@@ -506,7 +507,6 @@ debug_color = Color(0, 0.6, 0.701961, 0.513726)
 
 [node name="LeftWall" type="StaticBody3D" parent="UpperRoom/ThingsToHide"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3999, 1.50095, -2.30074e-05)
-collision_layer = 2
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UpperRoom/ThingsToHide/LeftWall"]
@@ -516,7 +516,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4lmeg")
 
 [node name="RightWall" type="StaticBody3D" parent="UpperRoom/ThingsToHide"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.5, 0)
-collision_layer = 2
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UpperRoom/ThingsToHide/RightWall"]
@@ -526,10 +525,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4lmeg")
 
 [node name="UpperLevel" parent="UpperRoom/ThingsToHide" instance=ExtResource("8_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+collision_layer = 1
 
 [node name="BackWall" type="StaticBody3D" parent="UpperRoom/ThingsToHide"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011703, 1.49595, -1.49338)
-collision_layer = 2
 collision_mask = 0
 
 [node name="BackWallMesh" type="MeshInstance3D" parent="UpperRoom/ThingsToHide/BackWall"]
@@ -546,7 +545,6 @@ shadow_enabled = true
 omni_range = 40.0
 
 [node name="Floor" type="StaticBody3D" parent="UpperRoom"]
-collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UpperRoom/Floor"]
@@ -567,7 +565,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55938, -3.4923, 0.853272)
 
 [node name="Hallway" type="Area3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.50047, -0.233272, -6.99844)
-collision_layer = 0
+collision_mask = 2
 script = ExtResource("13_ycdy4")
 
 [node name="RoomArea" type="CollisionShape3D" parent="Hallway"]
@@ -575,7 +573,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 shape = SubResource("BoxShape3D_vivmo")
 
 [node name="HallwayFloor" type="StaticBody3D" parent="Hallway"]
-collision_layer = 2
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HallwayFloor"]
@@ -608,7 +605,7 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -2)
 
 [node name="ObjectViewer" parent="." instance=ExtResource("2_a6jrf")]
-visible = false
+test_path = "res://Assets/models/bookflip3.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -618,9 +615,10 @@ visible = false
 script = ExtResource("22_lswn8")
 show_element = NodePath("../../../../TestInventory")
 
-[node name="Button3" parent="CanvasLayer/BasicGUI/Panel2/Panel3" index="1" node_paths=PackedStringArray("show_element")]
-script = ExtResource("22_lswn8")
-show_element = NodePath("../../../../Journal")
+[node name="Button3" parent="CanvasLayer/BasicGUI/Panel2/Panel3" index="1" node_paths=PackedStringArray("object_viewer")]
+script = ExtResource("37_f6a44")
+journal_path = "res://Assets/models/bookflip3.tscn"
+object_viewer = NodePath("../../../../../ObjectViewer")
 
 [node name="Button4" parent="CanvasLayer/BasicGUI/Panel2/Panel4" index="1" node_paths=PackedStringArray("show_element")]
 show_element = NodePath("../../../../Phone")
@@ -712,5 +710,7 @@ light_data = ExtResource("46_qnost")
 [editable path="Player"]
 [editable path="Player/PlayerModel"]
 [editable path="CanvasLayer/BasicGUI"]
+[editable path="CanvasLayer/Journal"]
+[editable path="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel/Tasks"]
 [editable path="CanvasLayer/Phone"]
 [editable path="CanvasLayer/Phone/Screen/Background/MessageApp"]
