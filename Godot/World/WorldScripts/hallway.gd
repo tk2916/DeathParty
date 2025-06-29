@@ -13,7 +13,9 @@ func _on_body_entered(body: Node3D) -> void:
 	#GlobalCameraScript.bind_camera_y.emit(lower_bound, upper_bound)
 	GlobalCameraScript.remove_camera_bounds_LR.emit()
 	GlobalCameraScript.remove_camera_bounds_y.emit()
+	GlobalCameraScript.remove_camera_bounds_depth.emit()
 	GlobalCameraScript.camera_on_player.emit(false)
+	
 	GlobalCameraScript.bind_camera_path.emit(path_follow_node)
 	
 	body.transform.basis = Basis.looking_at(basis.z, basis.y, true)
