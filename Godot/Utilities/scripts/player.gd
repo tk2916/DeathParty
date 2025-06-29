@@ -8,7 +8,7 @@ extends CharacterBody3D
 @export var gravity : float = 2.0
 @export var player_speed : float = 2.0
 @export var jump_power : float = 12.0
-@export var horizontal_offset : float = 1.75
+@export var horizontal_offset : float = 1.3
 
 @export var player_camera_location : Node3D
 
