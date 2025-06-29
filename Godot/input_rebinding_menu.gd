@@ -74,4 +74,6 @@ func _input(event):
 			buttonToChange.text = event.as_text_keycode()
 			actionInputToChange.keycode = event.keycode
 			actionInputToChange.physical_keycode = event.keycode
+			buttonToChange = null
+			actionInputToChange = null
 			changingInput = false
