@@ -12,26 +12,27 @@ var pressed : bool = false
 @onready var model_holder : Node3D =  $"SubViewportContainer/SubViewport/Model Holder"
 @onready var camera_3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
 
+signal enabled
 
 #Places the item into the viewport and defines the "item" variable
 func set_item(item_path : String):	
-	
-	#Load scene
-	var scene = load(item_path)
+	active_item = set_item_inactive(item_path)
+
+func set_item_inactive(item_path : String):
+	var scene : Node = load(item_path).instantiate()
 	if scene == null:
 		print("Scene Path not working")
 		return
-	active_item = scene.instantiate()
-	
-	
-	#Remove Current item and Place new active item
 	remove_current_item()
-	model_holder.add_child(active_item)
-	active_item.transform.origin.y = active_item.transform.origin.y + hide_offset
-	active_item.transform.origin.z = active_item.transform.origin.z + hide_offset
-
+	model_holder.add_child(scene)
+	scene.transform.origin.y = scene.transform.origin.y + hide_offset
+	scene.transform.origin.z = scene.transform.origin.z + hide_offset
+	enabled.emit(true, camera_3d)
+	return scene
+	
 func remove_current_item():
 	#Remove ALL items in the model holder
+	enabled.emit(false, camera_3d)
 	for child in model_holder.get_children():
 		model_holder.remove_child(child)
 		child.queue_free()

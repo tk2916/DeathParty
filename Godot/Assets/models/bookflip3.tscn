@@ -1,6 +1,5 @@
-[gd_scene load_steps=43 format=4 uid="uid://dpjo82okixq0n"]
+[gd_scene load_steps=31 format=4 uid="uid://dpjo82okixq0n"]
 
-[ext_resource type="Script" uid="uid://flyxrcyewikk" path="res://Assets/models/bookflip.gd" id="1_uwd6m"]
 [ext_resource type="Texture2D" uid="uid://dmffsu11hoong" path="res://Assets/JournalTextures/max_page_1.png" id="2_2y86t"]
 [ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="3_u3xn0"]
 [ext_resource type="Texture2D" uid="uid://b6epcbok07mvo" path="res://Assets/JournalTextures/max_page_3.png" id="4_f0eo2"]
@@ -8,7 +7,135 @@
 [ext_resource type="Texture2D" uid="uid://c0c7uxkp8a7y" path="res://Assets/models/bookflip_max_page_2.png" id="6_x86c4"]
 [ext_resource type="Texture2D" uid="uid://ckreco4sxuqyl" path="res://Assets/JournalTextures/tasks_viewport_texture.tres" id="7_f0eo2"]
 [ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="7_fvng4"]
-[ext_resource type="Script" uid="uid://bcjyjyqfung5b" path="res://Assets/models/journal_tab_script.gd" id="8_u3xn0"]
+[ext_resource type="PackedScene" uid="uid://mg0sman3f2yu" path="res://Assets/models/journal_tab.tscn" id="8_u3xn0"]
+
+[sub_resource type="GDScript" id="GDScript_u3xn0"]
+script/source = "extends Node3D
+
+@export var animation_player : AnimationPlayer
+
+@export var page1 : MeshInstance3D
+@export var page2 : MeshInstance3D
+
+@export var page1_subviewport : Viewport
+@export var page2_subviewport : Viewport
+
+@export var viewport_texture : ViewportTexture
+
+var page1_mat : Material
+var page2_mat : Material
+
+@export var journal_textures : Array #either CompressedTexture2D or Control
+var journal_textures_size : int 
+
+var page_tracker : int
+var flipping : bool = false
+
+@export var tabs_node : Node
+var all_tabs : Array[Node]
+var cur_tab : Node
+var old_tab : Node
+
+var timer : Timer = Timer.new()
+
+func _ready() -> void:
+	page_tracker = 0
+	all_tabs = tabs_node.get_children()
+	cur_tab = all_tabs[0]
+	old_tab = all_tabs[0]
+	cur_tab.move_upward()
+	
+	page1_mat = page1.material_overlay#mesh.surface_get_material(0)
+	page2_mat = page2.material_overlay#mesh.surface_get_material(0)
+	
+	journal_textures_size = journal_textures.size()
+	animation_player.play(\"idle\")
+	animation_player.animation_finished.connect(_on_anim_finished)
+	
+	#page1_mat.albedo_texture = journal_textures[page_tracker]
+	set_page(1, page_tracker)
+	
+	timer.autostart = false
+	timer.one_shot = true
+	add_child(timer)
+	timer.timeout.connect(move_tab)
+	
+	for tab in all_tabs:
+		tab.button.pressed.connect(on_tab_pressed.bind(tab))
+
+func on_tab_pressed(tab:Node):
+	print(\"On tab pressed\")
+	bookflip(tab.flip_to_page <= page_tracker, tab.flip_to_page)
+	
+func move_tab():
+	old_tab.return_to_original_pos()
+	if old_tab != cur_tab:
+		cur_tab.move_upward()
+		old_tab = cur_tab
+
+func set_page(page_number : int, index : int):
+	var journal_entry = journal_textures[index]
+	var page_mat : Material = page1_mat
+	var page_subviewport : Viewport = page1_subviewport
+	if page_number == 2:
+		page_mat = page2_mat
+		page_subviewport = page2_subviewport
+	#clear children of subviewport if any
+	for child in page_subviewport.get_children():
+		page_subviewport.remove_child(child)
+		child.queue_free()
+	
+	if journal_entry is CompressedTexture2D:
+		page_mat.albedo_texture = journal_entry
+		
+	elif journal_entry is PackedScene:
+		page_mat.albedo_texture = viewport_texture
+		viewport_texture.viewport_path = page_subviewport.get_path()
+		page_subviewport.add_child(journal_entry.instantiate())
+
+func bookflip(backward : bool = false, flip_to_page : int = -1):
+	if (flipping or flip_to_page == page_tracker or flip_to_page > journal_textures_size-1):
+		return
+	var old_page_index = page_tracker
+	if !backward && (page_tracker<journal_textures_size-1 || flip_to_page != -1):
+		flipping = true;
+		if flip_to_page == -1:
+			page_tracker = page_tracker+1  
+		else:
+			page_tracker = flip_to_page
+		set_page(1, old_page_index)
+		set_page(2, page_tracker)
+		animation_player.play(\"pageFlip\")
+		timer.start(.5)
+	elif backward && (page_tracker>0 || flip_to_page != -1):
+		flipping = true;
+		if flip_to_page == -1:
+			page_tracker = page_tracker-1  
+		else:
+			page_tracker = flip_to_page
+		set_page(1, page_tracker)
+		set_page(2, old_page_index)
+		animation_player.play_backwards(\"pageFlip\")
+		timer.start(.2)
+	
+	#bring a bookmark up front
+	for tab in all_tabs:
+		if page_tracker == tab.flip_to_page:
+			cur_tab = tab
+	
+func _on_anim_finished(anim_name: StringName) -> void:
+	if anim_name == \"pageFlip\":
+		set_page(1, page_tracker)
+		flipping = false
+		animation_player.play(\"idle\")
+		
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_A:
+			bookflip(true);
+		elif event.keycode == KEY_D:
+			bookflip();
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5gmm"]
 vertex_color_use_as_albedo = true
@@ -175,6 +302,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tor4g")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3xn0"]
+albedo_color = Color(0.315214, 0.163933, 0.0641642, 1)
 
 [sub_resource type="Animation" id="Animation_eh0cm"]
 resource_name = "idle"
@@ -420,50 +550,9 @@ _data = {
 &"pageFlip_003": SubResource("Animation_kqixp")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fvng4"]
-viewport_path = NodePath("Tabs/TabStaticBody3D/Tab/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x86c4"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_fvng4")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_7ldef"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kt7j"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1kt7j"]
-size = Vector3(0.19751, 0.0261307, 0.311768)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_2y86t"]
-viewport_path = NodePath("Tabs/TabStaticBody3D2/Tab/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3xn0"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_2y86t")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_f0eo2"]
-viewport_path = NodePath("Tabs/TabStaticBody3D3/Tab/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvng4"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_f0eo2")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_x86c4"]
-viewport_path = NodePath("Tabs/TabStaticBody3D4/Tab/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cqit"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_x86c4")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_eos73"]
-viewport_path = NodePath("Tabs/TabStaticBody3D5/Tab/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qo2ra"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_eos73")
-
 [node name="bookflip" type="Node3D" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node")]
-script = ExtResource("1_uwd6m")
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
+script = SubResource("GDScript_u3xn0")
 animation_player = NodePath("AnimationPlayer")
 page1 = NodePath("Armature/Skeleton3D/Cube_004")
 page2 = NodePath("Armature/Skeleton3D/Cube_005")
@@ -542,6 +631,7 @@ skin = SubResource("Skin_m8qil")
 transform = Transform3D(1.28113, 0, 0, 0, 1, 0, 0, 0, 1, -2.09726e-05, 0.0428847, 0.00150057)
 mesh = SubResource("ArrayMesh_bitbq")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_u3xn0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -551,238 +641,36 @@ libraries = {
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.4109, 0)
 
-[node name="Camera" type="Camera3D" parent="."]
+[node name="Light2" type="Camera3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.4109, 0)
 projection = 1
 size = 2.1
 
-[node name="Tabs" type="Node" parent="."]
+[node name="Tabs" type="Node3D" parent="."]
 
-[node name="TabStaticBody3D" type="StaticBody3D" parent="Tabs" node_paths=PackedStringArray("button", "sub_viewport")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34279, 0.217571, 0.896053)
-collision_layer = 9
-collision_mask = 0
-script = ExtResource("8_u3xn0")
-button = NodePath("Tab/SubViewport/Button")
-sub_viewport = NodePath("Tab/SubViewport")
-
-[node name="Tab" type="MeshInstance3D" parent="Tabs/TabStaticBody3D"]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 0, -0.0174479, 0)
-material_overlay = SubResource("StandardMaterial3D_x86c4")
-mesh = SubResource("PlaneMesh_7ldef")
-skeleton = NodePath("../..")
-
-[node name="SubViewport" type="SubViewport" parent="Tabs/TabStaticBody3D/Tab"]
-handle_input_locally = false
-
-[node name="ColorRect" type="ColorRect" parent="Tabs/TabStaticBody3D/Tab/SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.674559, 0.681268, 3.85046e-07, 1)
-
-[node name="Button" type="Button" parent="Tabs/TabStaticBody3D/Tab/SubViewport"]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_right = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1kt7j")
+[node name="Tasks" parent="Tabs" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.37176, 0.189466, 0.901237)
 text = "Tasks"
-flat = true
+color = Color(0.39319, 0.477147, 0, 1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tabs/TabStaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020752, 0.00902176, -0.00183105)
-shape = SubResource("BoxShape3D_1kt7j")
-
-[node name="TabStaticBody3D2" type="StaticBody3D" parent="Tabs" node_paths=PackedStringArray("button", "sub_viewport")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10881, 0.217571, 0.896053)
-collision_layer = 9
-collision_mask = 0
-script = ExtResource("8_u3xn0")
-button = NodePath("Tab/SubViewport/Button")
-sub_viewport = NodePath("Tab/SubViewport")
+[node name="Tasks2" parent="Tabs" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.12415, 0.189466, 0.901237)
 flip_to_page = 1
 
-[node name="Tab" type="MeshInstance3D" parent="Tabs/TabStaticBody3D2"]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 0, -0.0174479, 0)
-material_overlay = SubResource("StandardMaterial3D_u3xn0")
-mesh = SubResource("PlaneMesh_7ldef")
-skeleton = NodePath("../..")
-
-[node name="SubViewport" type="SubViewport" parent="Tabs/TabStaticBody3D2/Tab"]
-handle_input_locally = false
-
-[node name="ColorRect" type="ColorRect" parent="Tabs/TabStaticBody3D2/Tab/SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.399104, 0.705109, 1)
-
-[node name="Button" type="Button" parent="Tabs/TabStaticBody3D2/Tab/SubViewport"]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_right = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1kt7j")
-text = "Characters"
-flat = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tabs/TabStaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020752, 0.00902176, -0.00183105)
-shape = SubResource("BoxShape3D_1kt7j")
-
-[node name="TabStaticBody3D3" type="StaticBody3D" parent="Tabs" node_paths=PackedStringArray("button", "sub_viewport")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.877501, 0.217571, 0.896053)
-collision_layer = 9
-collision_mask = 0
-script = ExtResource("8_u3xn0")
-button = NodePath("Tab/SubViewport/Button")
-sub_viewport = NodePath("Tab/SubViewport")
+[node name="Tasks3" parent="Tabs" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.86287, 0.189466, 0.901237)
+text = "Clues"
+color = Color(0.153846, 0.250883, 0.687585, 1)
 flip_to_page = 2
 
-[node name="Tab" type="MeshInstance3D" parent="Tabs/TabStaticBody3D3"]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 0, -0.0174479, 0)
-material_overlay = SubResource("StandardMaterial3D_fvng4")
-mesh = SubResource("PlaneMesh_7ldef")
-skeleton = NodePath("../..")
-
-[node name="SubViewport" type="SubViewport" parent="Tabs/TabStaticBody3D3/Tab"]
-handle_input_locally = false
-
-[node name="ColorRect" type="ColorRect" parent="Tabs/TabStaticBody3D3/Tab/SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(7.70092e-06, 0.654252, 0.85441, 1)
-
-[node name="Button" type="Button" parent="Tabs/TabStaticBody3D3/Tab/SubViewport"]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_right = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1kt7j")
-text = "Clues"
-flat = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tabs/TabStaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020752, 0.00902176, -0.00183105)
-shape = SubResource("BoxShape3D_1kt7j")
-
-[node name="TabStaticBody3D4" type="StaticBody3D" parent="Tabs" node_paths=PackedStringArray("button", "sub_viewport")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.643147, 0.217571, 0.896053)
-collision_layer = 9
-collision_mask = 0
-script = ExtResource("8_u3xn0")
-button = NodePath("Tab/SubViewport/Button")
-sub_viewport = NodePath("Tab/SubViewport")
+[node name="Tasks4" parent="Tabs" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.60314, 0.189466, 0.901237)
+text = "Polaroids"
+color = Color(0.454584, 0.253662, 0.0638231, 1)
 flip_to_page = 3
 
-[node name="Tab" type="MeshInstance3D" parent="Tabs/TabStaticBody3D4"]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 0, -0.0174479, 0)
-material_overlay = SubResource("StandardMaterial3D_0cqit")
-mesh = SubResource("PlaneMesh_7ldef")
-skeleton = NodePath("../..")
-
-[node name="SubViewport" type="SubViewport" parent="Tabs/TabStaticBody3D4/Tab"]
-handle_input_locally = false
-
-[node name="ColorRect" type="ColorRect" parent="Tabs/TabStaticBody3D4/Tab/SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.942001, 0.483331, 0, 1)
-
-[node name="Button" type="Button" parent="Tabs/TabStaticBody3D4/Tab/SubViewport"]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_right = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1kt7j")
-text = "Polaroids"
-flat = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tabs/TabStaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020752, 0.00902176, -0.00183105)
-shape = SubResource("BoxShape3D_1kt7j")
-
-[node name="TabStaticBody3D5" type="StaticBody3D" parent="Tabs" node_paths=PackedStringArray("button", "sub_viewport")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.402883, 0.217571, 0.896053)
-collision_layer = 9
-collision_mask = 0
-script = ExtResource("8_u3xn0")
-button = NodePath("Tab/SubViewport/Button")
-sub_viewport = NodePath("Tab/SubViewport")
-flip_to_page = 4
-
-[node name="Tab" type="MeshInstance3D" parent="Tabs/TabStaticBody3D5"]
-transform = Transform3D(-0.097425, 0, 0.000636676, 0, 1, 0, -0.0004115, 0, -0.150737, 0, -0.0174479, 0)
-material_overlay = SubResource("StandardMaterial3D_qo2ra")
-mesh = SubResource("PlaneMesh_7ldef")
-skeleton = NodePath("../..")
-
-[node name="SubViewport" type="SubViewport" parent="Tabs/TabStaticBody3D5/Tab"]
-handle_input_locally = false
-
-[node name="ColorRect" type="ColorRect" parent="Tabs/TabStaticBody3D5/Tab/SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0831528, 0.827896, 0.520365, 1)
-
-[node name="Button" type="Button" parent="Tabs/TabStaticBody3D5/Tab/SubViewport"]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_right = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1kt7j")
+[node name="Tasks5" parent="Tabs" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.354927, 0.19169, 0.904132)
 text = "Settings"
-flat = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tabs/TabStaticBody3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020752, 0.00902176, -0.00183105)
-shape = SubResource("BoxShape3D_1kt7j")
+color = Color(0.164908, 0.352543, 0.288867, 1)
+flip_to_page = 4
