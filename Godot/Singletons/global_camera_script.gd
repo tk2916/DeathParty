@@ -14,6 +14,9 @@ signal change_current_camera(new_camera: Camera3D)
 # Signal for saying the camera should or shouldn't be on the player
 signal camera_on_player(tf: bool)
 
+# Signal for binding the camera to a Path3D
+signal bind_camera_path(follow_node: PathFollow3D)
+
 # Signals for keeping the camera within a room's boundaries
 # left_bound: global_position.x value that the camera's global_position.x cannot GO UNDER
 # right_bound: global_position.x value that the camera's global_position.x cannot EXCEED
@@ -29,4 +32,7 @@ signal remove_camera_bounds_LR()
 
 # Signal when lower and upper bounds are no longer needed
 signal remove_camera_bounds_y()
+
+# Signal when path bounds are no longer needed
+signal remove_camera_bounds_path()
 @warning_ignore_restore("unused_signal")

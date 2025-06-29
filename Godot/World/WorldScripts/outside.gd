@@ -2,6 +2,7 @@ extends Area3D
 
 
 func _on_body_entered(_body: Node3D) -> void:
+	GlobalCameraScript.camera_on_player.emit(true)
 	# Remove camera bounds
 	GlobalCameraScript.remove_camera_bounds_LR.emit()
 	GlobalCameraScript.remove_camera_bounds_y.emit()

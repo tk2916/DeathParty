@@ -17,6 +17,8 @@ var camera_bound_y: bool = false
 var camera_lower_bound_y: float = 0.0
 var camera_upper_bound_y: float = 0.0
 
+var camera_bound_path: bool = false
+
 @export var main_camera : Camera3D
 @export var camera_location_node : Node3D
 
@@ -33,6 +35,8 @@ func _ready() -> void:
 	GlobalCameraScript.remove_camera_bounds_LR.connect(_unbind_camera_LR)
 	GlobalCameraScript.bind_camera_y.connect(_bind_camera_y)
 	GlobalCameraScript.remove_camera_bounds_y.connect(_unbind_camera_y)
+	GlobalCameraScript.bind_camera_path.connect(_bind_camera_path)
+	GlobalCameraScript.remove_camera_bounds_path.connect(_unbind_camera_path)
 
 
 func _physics_process(delta: float) -> void:
@@ -83,6 +87,15 @@ func _change_current_camera(new_camera: Camera3D) -> void:
 
 func _change_camera_state(tf: bool) -> void:
 	camera_on_player = tf
+
+
+func _bind_camera_path(follow_node: PathFollow3D) -> void:
+	camera_location_node = follow_node
+	camera_bound_path = true
+
+
+func _unbind_camera_path() -> void:
+	camera_bound_path = false
 
 
 func _bind_camera_LR(left: Plane, right: Plane, room_basis: Basis) -> void:
