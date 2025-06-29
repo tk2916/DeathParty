@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqgpdpfplj5ph"]
+[gd_scene load_steps=9 format=3 uid="uid://cqgpdpfplj5ph"]
 
 [ext_resource type="Texture2D" uid="uid://b3ccuqe753650" path="res://Assets/PNGAssets/settings_icon_white.png" id="1_at3un"]
 [ext_resource type="Texture2D" uid="uid://bd80fmaj65x6k" path="res://Assets/PNGAssets/backpack_white.png" id="2_2nnue"]
 [ext_resource type="Texture2D" uid="uid://dklilnkes1adu" path="res://Assets/PNGAssets/notebook_white.png" id="3_fkeip"]
+[ext_resource type="Script" uid="uid://d0bpakbx0nyu3" path="res://journal_open_button.gd" id="4_2nnue"]
 [ext_resource type="Texture2D" uid="uid://bte12xawe5jl1" path="res://Assets/PNGAssets/phone_white.png" id="4_vs0em"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="5_140vj"]
 [ext_resource type="Script" uid="uid://dehejbaawpqyj" path="res://Assets/GUIFunctionalityScripts/clock.gd" id="6_ivccq"]
+[ext_resource type="Texture2D" uid="uid://ciagkcjbti5dm" path="res://Assets/CharacterAssets/CharacterTextures/polaroid_olivia.png" id="7_fkeip"]
 
 [node name="BasicGUI" type="Panel"]
 anchors_preset = -1
@@ -118,13 +120,15 @@ texture = ExtResource("3_fkeip")
 expand_mode = 1
 flip_v = true
 
-[node name="Button3" type="Button" parent="Panel2/Panel3"]
+[node name="OpenJournalButton" type="Button" parent="Panel2/Panel3"]
 layout_mode = 0
 offset_left = -1.52588e-05
 offset_top = -1.52588e-05
 offset_right = 38.0
 offset_bottom = 39.0
 flat = true
+script = ExtResource("4_2nnue")
+journal_path = "res://Assets/models/bookflip3.tscn"
 
 [node name="Panel4" type="Panel" parent="Panel2"]
 layout_mode = 1
@@ -165,8 +169,8 @@ script = ExtResource("5_140vj")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = -1.0
-anchor_right = 0.85
+anchor_top = -1.7
+anchor_right = 0.87
 anchor_bottom = 0.5
 offset_left = 0.095459
 offset_right = 0.0770264
@@ -177,6 +181,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource("7_fkeip")
+expand_mode = 3
 
 [node name="Clock" type="RichTextLabel" parent="."]
 layout_mode = 1
