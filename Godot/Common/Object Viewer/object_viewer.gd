@@ -2,6 +2,8 @@ extends Control
 
 #The item that will be viewed by the object viewer
 @export var active_item : Node3D
+@export var rotate_off : bool = false
+
 @export var test_path : String
 var pressed : bool = false
 
@@ -53,7 +55,7 @@ func reset_item_position():
 func _input(event):
 	#When the mouse moves if the button is clicked moves the item relative to the mouse movement
 	if pressed and event is InputEventMouseMotion:
-		if active_item != null:
+		if active_item != null and !rotate_off:
 			active_item.rotation.x += event.relative.y * 0.005
 			active_item.rotation.y += event.relative.x * 0.005
 	
