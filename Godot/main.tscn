@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=93 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://b1e31j7rea4bf" path="res://Assets/props/table_tennis_table/table_tennis_table.tscn" id="28_f6a44"]
 [ext_resource type="PackedScene" uid="uid://fejxno4a8ptp" path="res://Assets/props/hanger.glb" id="28_wnkbs"]
 [ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="34_4k2k6"]
+[ext_resource type="Script" uid="uid://d0bpakbx0nyu3" path="res://journal_open_button.gd" id="37_f6a44"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="LightmapGIData" uid="uid://dovrf850w07cv" path="res://Assets/textures/lightmaps/main.lmbake" id="46_qnost"]
 
@@ -344,7 +345,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_1bvp3")
 
 [node name="Outline" type="MeshInstance3D" parent="Room/ThingsToHide/NPC"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12565, 0)
+transform = Transform3D(1, 0, 0, 0, -0.00315991, 0, 0, 0, 1, 0, 0.00911012, 0)
 visible = false
 mesh = SubResource("ArrayMesh_1u8w0")
 skeleton = NodePath("../MeshInstance3D")
@@ -610,9 +611,10 @@ visible = false
 script = ExtResource("22_lswn8")
 show_element = NodePath("../../../../TestInventory")
 
-[node name="Button3" parent="CanvasLayer/BasicGUI/Panel2/Panel3" index="1" node_paths=PackedStringArray("show_element")]
-script = ExtResource("22_lswn8")
-show_element = NodePath("../../../../Journal")
+[node name="Button3" parent="CanvasLayer/BasicGUI/Panel2/Panel3" index="1" node_paths=PackedStringArray("object_viewer")]
+script = ExtResource("37_f6a44")
+journal_path = "res://Assets/models/bookflip3.tscn"
+object_viewer = NodePath("../../../../../ObjectViewer")
 
 [node name="Button4" parent="CanvasLayer/BasicGUI/Panel2/Panel4" index="1" node_paths=PackedStringArray("show_element")]
 show_element = NodePath("../../../../Phone")
@@ -704,5 +706,7 @@ light_data = ExtResource("46_qnost")
 [editable path="Player"]
 [editable path="Player/PlayerModel"]
 [editable path="CanvasLayer/BasicGUI"]
+[editable path="CanvasLayer/Journal"]
+[editable path="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel/Tasks"]
 [editable path="CanvasLayer/Phone"]
 [editable path="CanvasLayer/Phone/Screen/Background/MessageApp"]
