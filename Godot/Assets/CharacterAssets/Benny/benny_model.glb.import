@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cbt1wwks7uhgk"
-path="res://.godot/imported/benny.glb-a4ff60484e8232a5486ea31982f64cf7.scn"
+path="res://.godot/imported/benny_model.glb-4fb347c5239e2010f07a98416beb040c.scn"
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Benny/benny.glb"
-dest_files=["res://.godot/imported/benny.glb-a4ff60484e8232a5486ea31982f64cf7.scn"]
+source_file="res://Assets/CharacterAssets/Benny/benny_model.glb"
+dest_files=["res://.godot/imported/benny_model.glb-4fb347c5239e2010f07a98416beb040c.scn"]
 
 [params]
 
