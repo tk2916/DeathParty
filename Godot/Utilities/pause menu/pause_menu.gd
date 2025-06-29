@@ -11,6 +11,8 @@ extends CanvasLayer
 @onready var volume_slider : HSlider = %VolumeSlider
 @onready var volume_number : Label = %VolumeNumber
 
+@onready var input_menu : VBoxContainer = %InputMenu
+
 @onready var quit_menu : VBoxContainer = %QuitMenu
 @onready var yes_quit_button : Button = %YesQuitButton
 
@@ -58,6 +60,11 @@ func _on_settings_button_pressed() -> void:
 	main_pause_menu.hide()
 	settings_menu.show()
 	volume_slider.grab_focus()
+	
+func _on_input_button_pressed() -> void:
+	settings_menu.hide()
+	input_menu.show()
+
 
 
 func _on_volume_slider_value_changed(value : float) -> void:
@@ -80,6 +87,11 @@ func _on_settings_back_button_pressed() -> void:
 	settings_menu.hide()
 	main_pause_menu.show()
 	settings_button.grab_focus()
+	
+func _on_input_back_button_pressed() -> void:
+	input_menu.hide()
+	settings_menu.show()
+	volume_slider.grab_focus()
 
 
 func _on_quit_button_pressed() -> void:
