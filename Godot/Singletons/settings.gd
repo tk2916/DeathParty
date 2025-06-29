@@ -27,11 +27,11 @@ func _ready() -> void:
 		print("settings.cfg loaded successfully")
 
 		# audio
-		volume = config.get_value("audio", "volume", 75)
+		volume = config.get_value("audio", "volume", volume)
 		apply_volume(volume)
 
 		# video
-		fullscreen = config.get_value("video", "fullscreen", false)
+		fullscreen = config.get_value("video", "fullscreen", fullscreen)
 		apply_fullscreen(fullscreen)
 
 
