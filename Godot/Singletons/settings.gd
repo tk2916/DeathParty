@@ -59,7 +59,7 @@ func apply_volume(value : float) -> void:
 
 func set_volume(value : float) -> void:
 	volume = value
-	apply_volume(value)
+	apply_volume(volume)
 	save_settings()
 
 
@@ -72,5 +72,5 @@ func apply_fullscreen(enabled : bool) -> void:
 
 func set_fullscreen(enabled : bool) -> void:
 	fullscreen = enabled
-	apply_fullscreen(enabled)
+	apply_fullscreen(fullscreen)
 	save_settings()
