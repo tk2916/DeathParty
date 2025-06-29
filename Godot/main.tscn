@@ -44,7 +44,6 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b1e31j7rea4bf" path="res://Assets/props/table_tennis_table/table_tennis_table.tscn" id="28_f6a44"]
 [ext_resource type="PackedScene" uid="uid://fejxno4a8ptp" path="res://Assets/props/hanger.glb" id="28_wnkbs"]
-[ext_resource type="PackedScene" uid="uid://c73w3ngjngoi6" path="res://Assets/CharacterAssets/Benny/benny.tscn" id="33_f6a44"]
 [ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="34_4k2k6"]
 [ext_resource type="Script" uid="uid://d0bpakbx0nyu3" path="res://journal_open_button.gd" id="37_f6a44"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
@@ -559,9 +558,6 @@ shape = SubResource("BoxShape3D_074og")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.15139, 0, -0.275, 1.75)
 mesh = SubResource("BoxMesh_074og")
 surface_material_override/0 = SubResource("StandardMaterial3D_b1qrp")
-
-[node name="benny" parent="UpperRoom/Floor" instance=ExtResource("33_f6a44")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55938, -3.4923, 0.853272)
 
 [node name="Hallway" type="Area3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.50047, -0.233272, -6.99844)
