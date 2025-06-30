@@ -59,6 +59,7 @@ visible = false
 layout_mode = 2
 
 [node name="InputButton" type="Button" parent="MarginContainer/SettingsMenu"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../ResumeButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
