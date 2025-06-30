@@ -49,8 +49,9 @@ func _ready():
 	
 #Resets the position of the item
 func reset_item_position():
-	active_item.rotation.x = 0
-	active_item.rotation.y = 0
+	if active_item:
+		active_item.rotation.x = 0
+		active_item.rotation.y = 0
 
 func _input(event):
 	#When the mouse moves if the button is clicked moves the item relative to the mouse movement
