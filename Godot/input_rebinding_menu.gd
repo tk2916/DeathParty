@@ -1,21 +1,21 @@
 extends Control
 
-@onready var list = %BindingList
-@onready var binding_item_prefab = preload("res://input_binding_item.tscn")
 
-@onready var editable_inputs = {
+@onready var list : VBoxContainer = %BindingList
+@onready var binding_item_prefab : PackedScene = preload("res://input_binding_item.tscn")
+
+@onready var editable_inputs : Dictionary = {
 	"move_left" : "Left",
 	"move_right" : "Right",
 	"move_up" : "Up",
 	"move_down" : "Down",
 	"jump" : "Jump",
 	"interact" : "Interact"
-	
 }
 
-var button_to_change 
-var action_input_to_change
-var changing_input = false
+var button_to_change : Button
+var action_input_to_change : InputEvent
+var changing_input : bool = false
 
 
 func _ready() -> void:
