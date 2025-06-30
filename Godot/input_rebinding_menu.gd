@@ -18,11 +18,11 @@ var actionInputToChange
 var changingInput = false
 
 
-func _ready():
+func _ready() -> void:
 	PopulateList()
 
 
-func PopulateList():
+func PopulateList() -> void:
 	InputMap.load_from_project_settings()
 	for action in InputMap.get_actions():
 		if !editableInputs.has(action):
@@ -50,7 +50,7 @@ func PopulateList():
 		inputB.pressed.connect(ButtonPressed.bind(inputB,action,1))
 
 
-func ButtonPressed(inputButton,action,index):
+func ButtonPressed(inputButton,action,index) -> void:
 	if Input.is_action_just_released("remove_input"):
 		RemoveInput(action,index)
 		inputButton.text = "-"
@@ -60,12 +60,12 @@ func ButtonPressed(inputButton,action,index):
 		changingInput = true
 
 
-func RemoveInput(action,index):
+func RemoveInput(action,index) -> void:
 	InputMap.action_get_events(action)[index].physical_keycode = Key.KEY_NONE
 	InputMap.action_get_events(action)[index].keycode = Key.KEY_NONE
 
 
-func AddInput(action,index):
+func AddInput(action,index) -> void:
 	var actionInputs = InputMap.action_get_events(action)[index]
 	#if(actionInputs.size > index):
 		
@@ -73,7 +73,7 @@ func AddInput(action,index):
 		
 
 
-func _input(event):
+func _input(event) -> void:
 	if changingInput:
 		if(event is InputEventKey):
 			buttonToChange.text = event.as_text_keycode()
