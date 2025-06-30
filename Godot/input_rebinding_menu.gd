@@ -67,7 +67,7 @@ func remove_input(action,index) -> void:
 
 func add_input(action,index) -> void:
 	var action_inputs = InputMap.action_get_events(action)[index]
-	#if(action_inputs.size > index):
+	#if action_inputs.size > index:
 		
 	#else:
 		
@@ -75,7 +75,7 @@ func add_input(action,index) -> void:
 
 func _input(event) -> void:
 	if changing_input:
-		if(event is InputEventKey):
+		if event is InputEventKey:
 			button_to_change.text = event.as_text_keycode()
 			action_input_to_change.keycode = event.keycode
 			action_input_to_change.physical_keycode = event.keycode
