@@ -11,6 +11,10 @@ extends CanvasLayer
 @onready var fullscreen_check_box: CheckBox = %FullscreenCheckBox
 @onready var volume_slider : HSlider = %VolumeSlider
 @onready var volume_number : Label = %VolumeNumber
+@onready var input_button: Button = %InputButton
+
+@onready var input_menu : VBoxContainer = %InputMenu
+@onready var input_back_button : Button = %InputBackButton
 
 @onready var quit_menu : VBoxContainer = %QuitMenu
 @onready var yes_quit_button : Button = %YesQuitButton
@@ -27,6 +31,11 @@ func _physics_process(_delta : float) -> void:
 			settings_menu.hide()
 			main_pause_menu.show()
 			settings_button.grab_focus()
+
+		elif input_menu.visible:
+			input_menu.hide()
+			settings_menu.show()
+			input_button.grab_focus()
 
 		elif quit_menu.visible:
 			quit_menu.hide()
@@ -59,7 +68,13 @@ func _on_resume_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	main_pause_menu.hide()
 	settings_menu.show()
-	volume_slider.grab_focus()
+	input_button.grab_focus()
+
+
+func _on_input_button_pressed() -> void:
+	settings_menu.hide()
+	input_menu.show()
+	input_back_button.grab_focus()
 
 
 func _on_fullscreen_check_box_toggled(toggled_on : bool) -> void:
@@ -86,6 +101,12 @@ func _on_settings_back_button_pressed() -> void:
 	settings_menu.hide()
 	main_pause_menu.show()
 	settings_button.grab_focus()
+
+
+func _on_input_back_button_pressed() -> void:
+	input_menu.hide()
+	settings_menu.show()
+	input_button.grab_focus()
 
 
 func _on_quit_button_pressed() -> void:
