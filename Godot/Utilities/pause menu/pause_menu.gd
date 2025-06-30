@@ -62,11 +62,11 @@ func _on_settings_button_pressed() -> void:
 	main_pause_menu.hide()
 	settings_menu.show()
 	volume_slider.grab_focus()
-	
+
+
 func _on_input_button_pressed() -> void:
 	settings_menu.hide()
 	input_menu.show()
-
 
 
 func _on_fullscreen_check_box_toggled(toggled_on : bool) -> void:
@@ -93,7 +93,8 @@ func _on_settings_back_button_pressed() -> void:
 	settings_menu.hide()
 	main_pause_menu.show()
 	settings_button.grab_focus()
-	
+
+
 func _on_input_back_button_pressed() -> void:
 	input_menu.hide()
 	settings_menu.show()

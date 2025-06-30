@@ -64,6 +64,7 @@ focus_neighbor_top = NodePath("../ResumeButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
 theme = ExtResource("2_qpukh")
 text = "inputs"
+
 [node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/SettingsMenu"]
 unique_name_in_owner = true
 layout_mode = 2

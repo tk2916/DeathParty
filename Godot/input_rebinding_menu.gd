@@ -3,10 +3,6 @@ extends Control
 @onready var list = %BindingList
 @onready var bindingItemPrefab = preload("res://input_binding_item.tscn")
 
-var buttonToChange 
-var actionInputToChange
-var changingInput = false
-
 @onready var editableInputs = {
 	"move_left" : "Left",
 	"move_right" : "Right",
@@ -17,10 +13,15 @@ var changingInput = false
 	
 }
 
+var buttonToChange 
+var actionInputToChange
+var changingInput = false
+
+
 func _ready():
 	PopulateList()
-	
-	
+
+
 func PopulateList():
 	InputMap.load_from_project_settings()
 	for action in InputMap.get_actions():
@@ -32,7 +33,7 @@ func PopulateList():
 		var inputB = bindingItem.find_child("InputB")
 		labelAction.text = editableInputs[action]
 		var inputs = InputMap.action_get_events(action)
-		
+
 		if inputs.size() == 0:
 			inputA.text = "-"
 			inputB.text = "-"
@@ -43,11 +44,12 @@ func PopulateList():
 		elif inputs.size() > 1:
 			inputA.text = inputs[0].as_text().trim_suffix(" (Physical)")
 			inputB.text = inputs[1].as_text().trim_suffix(" (Physical)")
-		
+
 		list.add_child(bindingItem)
 		inputA.pressed.connect(ButtonPressed.bind(inputA,action,0))
 		inputB.pressed.connect(ButtonPressed.bind(inputB,action,1))
-	
+
+
 func ButtonPressed(inputButton,action,index):
 	if Input.is_action_just_released("remove_input"):
 		RemoveInput(action,index)
@@ -56,18 +58,21 @@ func ButtonPressed(inputButton,action,index):
 		buttonToChange = inputButton
 		actionInputToChange = InputMap.action_get_events(action)[index]
 		changingInput = true
-		
+
+
 func RemoveInput(action,index):
 	InputMap.action_get_events(action)[index].physical_keycode = Key.KEY_NONE
 	InputMap.action_get_events(action)[index].keycode = Key.KEY_NONE
-	
+
+
 func AddInput(action,index):
 	var actionInputs = InputMap.action_get_events(action)[index]
 	#if(actionInputs.size > index):
 		
 	#else:
 		
-	
+
+
 func _input(event):
 	if changingInput:
 		if(event is InputEventKey):
