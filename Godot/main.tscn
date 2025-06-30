@@ -607,9 +607,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -2)
 [node name="ObjectViewer" parent="." instance=ExtResource("2_a6jrf")]
 test_path = "res://Assets/models/bookflip3.tscn"
 
-[node name="SubViewport" parent="ObjectViewer/SubViewportContainer" index="0"]
-render_target_update_mode = 0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BasicGUI" parent="CanvasLayer" instance=ExtResource("18_getpj")]
