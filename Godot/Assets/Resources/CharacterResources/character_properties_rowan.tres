@@ -1,9 +1,13 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dugg5j3vcgmvm"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dugg5j3vcgmvm"]
 
+[ext_resource type="Texture2D" uid="uid://bjmwboxfv10fk" path="res://Assets/CharacterAssets/CharacterTextures/polaroid_rowan.png" id="1_d86ht"]
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="1_toiu1"]
 
 [resource]
 script = ExtResource("1_toiu1")
 name = "Rowan"
+image_torso = ExtResource("1_d86ht")
 name_color = ""
 text_color = ""
+character_notes = Array[String]([])
+character_description = ""

@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var quit_button : Button = %QuitButton
 
 @onready var settings_menu : VBoxContainer = %SettingsMenu
+@onready var fullscreen_check_box: CheckBox = %FullscreenCheckBox
 @onready var volume_slider : HSlider = %VolumeSlider
 @onready var volume_number : Label = %VolumeNumber
 
@@ -18,15 +19,13 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	fullscreen_check_box.button_pressed = Settings.fullscreen
 	volume_slider.value = Settings.volume
 
 
 func _physics_process(_delta : float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		if main_pause_menu.visible:
-			toggle_pause()
-
-		elif settings_menu.visible:
+		if settings_menu.visible:
 			settings_menu.hide()
 			main_pause_menu.show()
 			settings_button.grab_focus()
@@ -35,6 +34,9 @@ func _physics_process(_delta : float) -> void:
 			quit_menu.hide()
 			main_pause_menu.show()
 			quit_button.grab_focus()
+
+		else:
+			toggle_pause()
 
 
 func toggle_pause() -> void:
@@ -65,6 +67,10 @@ func _on_input_button_pressed() -> void:
 	settings_menu.hide()
 	input_menu.show()
 
+
+
+func _on_fullscreen_check_box_toggled(toggled_on : bool) -> void:
+	Settings.set_fullscreen(toggled_on)
 
 
 func _on_volume_slider_value_changed(value : float) -> void:

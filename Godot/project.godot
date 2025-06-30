@@ -39,11 +39,11 @@ SaveSystem="*res://Singletons/SaveSystem/save_system.gd"
 DialogueSystem="*res://Singletons/CustomDialogueSystem/dialogue_system.gd"
 Ink="*res://Singletons/InkInterpreter/ink_interpret.gd"
 Interact="*res://Singletons/Interact/interact.gd"
-GlobalCameraScript="*res://Utilities/global_scripts/global_camera_script.gd"
-GlobalPlayerScript="*res://Utilities/global_scripts/global_player_script.gd"
+GlobalCameraScript="*res://Singletons/global_camera_script.gd"
+GlobalPlayerScript="*res://Singletons/global_player_script.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
-Settings="*res://Singletons/Settings/settings.gd"
-GlobalFmodBankLoader="*res://audio/fmod bank loader.tscn"
+Settings="*res://Singletons/settings.gd"
+GlobalFmodBankLoader="*res://Singletons/fmod_bank_loader.tscn"
 
 [debug]
 
@@ -134,8 +134,8 @@ remove_input={
 
 [layer_names]
 
-3d_physics/layer_1="player"
-3d_physics/layer_2="environment"
+3d_physics/layer_1="environment"
+3d_physics/layer_2="player"
 
 [rendering]
 

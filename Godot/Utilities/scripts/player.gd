@@ -82,10 +82,8 @@ func _physics_process(delta: float) -> void:
 
 	rotate_model(delta)
 
-	handle_footstep_sounds()
-
 	move_and_slide()
-	
+
 	# If position changed, emit position
 	if(global_position != previous_position):
 		GlobalPlayerScript.player_moved.emit(global_position)
@@ -125,41 +123,18 @@ func rotate_model(delta: float) -> void:
 	if current_animation == AnimationState.WALK:
 		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
 
-func handle_footstep_sounds() -> void:
-	# plays footsteps as the node moves based on distance travelled on floor
 
-	# once we have animated 3D models, this could probably be replaced with
-	# a trigger whenever the model's foot collides with the floor 
-	if is_on_floor():
-		# store movement state from previous frame and reset current state
-		was_moving = is_moving
-		is_moving = false
-
-		# check if player is holding a move input
-		for action in InputMap.get_actions():
-			if action.begins_with("move_") and Input.is_action_pressed(action):
-				is_moving = true
-
-		if is_moving:
-			# if started moving this frame, start step cycle
-			# at halfway point (this is better than just playing a sound
-			# for the first step immediately cos it prevents spam)
-			if not was_moving:
-				distance_since_step = stride_length / 2
-
-			# get distance travelled since last frame and add it to
-			# total distance travelled since last step
-			distance_since_step += position.distance_to(prev_pos)
-
-			# if total distance since last step exceeds stride length,
-			# play step sound and reset cycle
-			if distance_since_step >= stride_length:
-				footstep_sounds.play()
-				distance_since_step = 0
-
-		# if player stopped moving this frame, reset cycle
-		if was_moving and not is_moving:
-			distance_since_step = 0
-
-		# store current position for next frame
-		prev_pos = position
+func play_footstep_sound() -> void:
+	# (this is called by the AnimationPlayer on the
+	# frames where the boots touch the ground)
+	
+	# check if player is holding a move input and play a footstep if they are
+	# this can probably be handled better by moving around the
+	# direction vars and just checking those instead
+	
+	# (we have to check for movement because otherwise the animation blending
+	# causes footsteps to keep playing as the player stops moving and the walk
+	# anim fades into the idle one)
+	for action in InputMap.get_actions():
+		if action.begins_with("move_") and Input.is_action_pressed(action):
+			footstep_sounds.play()
