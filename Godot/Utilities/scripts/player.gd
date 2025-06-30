@@ -6,7 +6,6 @@ extends CharacterBody3D
 @onready var footstep_sounds : FmodEventEmitter3D = $FootstepSounds
 @onready var spawn_position : Vector3 = global_position
 
-@export var gravity : float = 2.0
 @export var player_speed : float = 2.0
 @export var jump_power : float = 12.0
 @export var horizontal_offset : float = 1.75
@@ -36,9 +35,9 @@ var distance_since_step : float = 0
 func _ready() -> void:
 	original_camera_position = player_camera_location.position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta : float) -> void:
 	player_camera_location.position = original_camera_position
-	
+
 	# Direction of movement in the X axis
 	# Also, adding horizontal camera offset
 	var movement_direction_x: Vector3 = Vector3.ZERO
@@ -52,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		facing = 1
 		movement_direction_x = basis.x
 		player_camera_location.position.x += horizontal_offset
-	
+
 	# Z axis movement
 	var movement_direction_z: Vector3 = Vector3.ZERO
 	if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_down"):
@@ -68,15 +67,15 @@ func _physics_process(delta: float) -> void:
 		else:
 			# This line only exists to make slopes work after the player jumps
 			player_velocity.y = 0
-	
+
 	# Move on x axis
 	player_velocity = movement_direction_x + movement_direction_z
 	player_velocity = player_velocity.normalized() * player_speed
-	
+
 	# Fall
 	if not is_on_floor():
-		player_velocity.y -= gravity
-	
+		player_velocity.y += get_gravity().y
+
 	velocity = player_velocity
 
 	handle_animations(delta)
