@@ -50,7 +50,7 @@ func populate_list() -> void:
 		input_b.pressed.connect(button_pressed.bind(input_b,action,1))
 
 
-func button_pressed(input_button,action,index) -> void:
+func button_pressed(input_button : Button, action : StringName, index : int) -> void:
 	if Input.is_action_just_released("remove_input"):
 		remove_input(action,index)
 		input_button.text = "-"
@@ -60,12 +60,12 @@ func button_pressed(input_button,action,index) -> void:
 		changing_input = true
 
 
-func remove_input(action,index) -> void:
+func remove_input(action : StringName, index : int) -> void:
 	InputMap.action_get_events(action)[index].physical_keycode = Key.KEY_NONE
 	InputMap.action_get_events(action)[index].keycode = Key.KEY_NONE
 
 
-func add_input(action,index) -> void:
+func add_input(action : StringName, index : int) -> void:
 	var action_inputs = InputMap.action_get_events(action)[index]
 	#if action_inputs.size > index:
 		
@@ -73,7 +73,7 @@ func add_input(action,index) -> void:
 		
 
 
-func _input(event) -> void:
+func _input(event : InputEvent) -> void:
 	if changing_input:
 		if event is InputEventKey:
 			button_to_change.text = event.as_text_keycode()
