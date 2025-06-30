@@ -32,7 +32,7 @@ func populate_list() -> void:
 		var input_a = binding_item.find_child("InputA")
 		var input_b = binding_item.find_child("InputB")
 		label_action.text = editable_inputs[action]
-		var inputs = InputMap.action_get_events(action)
+		var inputs : Array[InputEvent] = InputMap.action_get_events(action)
 
 		if inputs.size() == 0:
 			input_a.text = "-"
