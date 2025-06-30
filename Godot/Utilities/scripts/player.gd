@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var animation_tree : AnimationTree = %AnimationTree
 @onready var previous_position : Vector3 = global_position
 @onready var footstep_sounds : FmodEventEmitter3D = $FootstepSounds
+@onready var spawn_position : Vector3 = global_position
 
 @export var gravity : float = 2.0
 @export var player_speed : float = 2.0
@@ -138,3 +139,9 @@ func play_footstep_sound() -> void:
 	for action in InputMap.get_actions():
 		if action.begins_with("move_") and Input.is_action_pressed(action):
 			footstep_sounds.play()
+
+
+func _on_world_boundary_body_entered(body : Node3D) -> void:
+	if body == self:
+		print("player out of bounds, resetting position . . .")
+		global_position = spawn_position

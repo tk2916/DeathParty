@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=95 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -62,6 +62,9 @@ background_mode = 2
 sky = SubResource("Sky_h8e4i")
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0237
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0cbny"]
+plane = Plane(0, 1, 0, -5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_06yk2"]
 size = Vector3(10, 2.5, 2.5)
@@ -239,6 +242,12 @@ camera_location_node = NodePath("Player/PlayerCameraLocation")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4lmeg")
+
+[node name="WorldBoundary" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldBoundary"]
+shape = SubResource("WorldBoundaryShape3D_0cbny")
 
 [node name="Player" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
@@ -697,6 +706,7 @@ quality = 2
 interior = true
 light_data = ExtResource("46_qnost")
 
+[connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
 [connection signal="body_entered" from="Outside" to="Outside" method="_on_body_entered"]
 [connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
 [connection signal="body_entered" from="Room" to="Audio/Ambience/Music" method="_on_room_body_entered"]
