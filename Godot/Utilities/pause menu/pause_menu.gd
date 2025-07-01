@@ -50,6 +50,8 @@ func _physics_process(_delta : float) -> void:
 		else:
 			toggle_pause()
 
+		click_sound.play()
+
 
 func toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
