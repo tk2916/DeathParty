@@ -7,7 +7,6 @@ extends CharacterBody3D
 @onready var spawn_position : Vector3 = global_position
 
 @export var player_speed : float = 2.0
-@export var jump_power : float = 12.0
 @export var horizontal_offset : float = 1.75
 
 @export var player_camera_location : Node3D
@@ -32,8 +31,10 @@ var prev_pos : Vector3 = position
 var stride_length : float = 1
 var distance_since_step : float = 0
 
+
 func _ready() -> void:
 	original_camera_position = player_camera_location.position
+
 
 func _physics_process(delta : float) -> void:
 	player_camera_location.position = original_camera_position
@@ -60,13 +61,6 @@ func _physics_process(delta : float) -> void:
 		movement_direction_z = -basis.z
 	elif Input.is_action_pressed("move_down"):
 		movement_direction_z = basis.z
-	# Jump
-	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
-			player_velocity.y = jump_power
-		else:
-			# This line only exists to make slopes work after the player jumps
-			player_velocity.y = 0
 
 	# Move on x axis
 	player_velocity = movement_direction_x + movement_direction_z
