@@ -31,8 +31,10 @@ var prev_pos : Vector3 = position
 var stride_length : float = 1
 var distance_since_step : float = 0
 
+
 func _ready() -> void:
 	original_camera_position = player_camera_location.position
+
 
 func _physics_process(delta : float) -> void:
 	player_camera_location.position = original_camera_position
