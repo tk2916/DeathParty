@@ -7233,7 +7233,7 @@ _subresources={
 "Walk": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://Assets/CharacterAssets/olivia/animations/walking.res",
+"save_to_file/path": "res://Assets/CharacterAssets/olivia/animations/walk.res",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
