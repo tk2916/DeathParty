@@ -26,6 +26,10 @@ func _ready() -> void:
 	volume_slider.value = Settings.volume
 
 	# connect pressed signal of all buttons in the scene to a func that plays ui sfx
+	
+	# NOTE: tried static typing here but i think it hurt readability more than
+	# it helped (since I THINK it shouldnt cause any problems if something that
+	# isnt a button ends up in the button group somehow)
 	for button in get_tree().get_nodes_in_group("buttons"):
 		button.pressed.connect(on_any_button_pressed)
 
