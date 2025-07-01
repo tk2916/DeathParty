@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3e020qo8sr8s"
-path.s3tc="res://.godot/imported/olivia_model_bag.png-f97eae82b00479486388ff4f99f93b80.s3tc.ctex"
-path.etc2="res://.godot/imported/olivia_model_bag.png-f97eae82b00479486388ff4f99f93b80.etc2.ctex"
+uid="uid://bxb51ymodcjnw"
+path.s3tc="res://.godot/imported/olivia_model_Olivia.png-469c07635fbaa6d8fbf0c42036c59c9c.s3tc.ctex"
+path.etc2="res://.godot/imported/olivia_model_Olivia.png-469c07635fbaa6d8fbf0c42036c59c9c.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "65aa650d09e781e6f6db404899808681"
+"md5": "5659798dc9caf8ef6146cd107fb62ba0"
 }
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Olivia/olivia_model_bag.png"
-dest_files=["res://.godot/imported/olivia_model_bag.png-f97eae82b00479486388ff4f99f93b80.s3tc.ctex", "res://.godot/imported/olivia_model_bag.png-f97eae82b00479486388ff4f99f93b80.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/Olivi/olivia_model_Olivia.png"
+dest_files=["res://.godot/imported/olivia_model_Olivia.png-469c07635fbaa6d8fbf0c42036c59c9c.s3tc.ctex", "res://.godot/imported/olivia_model_Olivia.png-469c07635fbaa6d8fbf0c42036c59c9c.etc2.ctex"]
 
 [params]
 

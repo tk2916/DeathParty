@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b8kaqd0dtqsp1"]
 
 [ext_resource type="Script" uid="uid://btdxsedihjw8m" path="res://Utilities/scripts/player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/Olivia/olivia_model.tscn" id="2_gb1tc"]
+[ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/Olivi/olivia_model.tscn" id="2_gb1tc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gb1tc"]
 radius = 0.2
