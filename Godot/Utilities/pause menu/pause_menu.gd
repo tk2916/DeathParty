@@ -25,6 +25,10 @@ func _ready() -> void:
 	fullscreen_check_box.button_pressed = Settings.fullscreen
 	volume_slider.value = Settings.volume
 
+	# connect pressed signal of all buttons in the scene to a func that plays ui sfx
+	for button in get_tree().get_nodes_in_group("buttons"):
+		button.pressed.connect(on_any_button_pressed)
+
 
 func _physics_process(_delta : float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -124,3 +128,10 @@ func _on_no_quit_button_pressed() -> void:
 	quit_menu.hide()
 	main_pause_menu.show()
 	quit_button.grab_focus()
+
+
+# NOTE: the name of this func could maybe be clearer if anyone has ideas
+# (i didnt want to just name it 'on button pressed' since thats close
+# to the signal for a single button which could be confusing)
+func on_any_button_pressed() -> void:
+	sfx.play()
