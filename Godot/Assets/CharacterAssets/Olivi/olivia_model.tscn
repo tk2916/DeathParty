@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://xmpgbqfcvdsh"]
-
-[ext_resource type="PackedScene" uid="uid://dgs28jna4xuoq" path="res://Assets/CharacterAssets/Olivi/olivia_model.glb" id="1_s2ta1"]
-
-[node name="OliviaModel" instance=ExtResource("1_s2ta1")]
-
-[node name="Model" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00148888, 0, 0)
