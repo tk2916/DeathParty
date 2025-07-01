@@ -19,7 +19,7 @@ extends CanvasLayer
 @onready var quit_menu : VBoxContainer = %QuitMenu
 @onready var yes_quit_button : Button = %YesQuitButton
 
-@onready var sfx : FmodEventEmitter3D = %Sfx
+@onready var click_sound : FmodEventEmitter3D = %ClickSound
 
 func _ready() -> void:
 	fullscreen_check_box.button_pressed = Settings.fullscreen
@@ -134,4 +134,4 @@ func _on_no_quit_button_pressed() -> void:
 # (i didnt want to just name it 'on button pressed' since thats close
 # to the signal for a single button which could be confusing)
 func on_any_button_pressed() -> void:
-	sfx.play()
+	click_sound.play()
