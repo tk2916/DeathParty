@@ -160,6 +160,11 @@ focus_neighbor_right = NodePath("../YesQuitButton")
 theme = ExtResource("2_qpukh")
 text = "no"
 
+[node name="Sfx" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/007_SFX_UIClick"
+event_guid = "{e96fe609-82c4-494e-9458-401b87f34d25}"
+unique_name_in_owner = true
+
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]

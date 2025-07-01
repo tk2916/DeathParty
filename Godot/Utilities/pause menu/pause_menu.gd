@@ -19,6 +19,7 @@ extends CanvasLayer
 @onready var quit_menu : VBoxContainer = %QuitMenu
 @onready var yes_quit_button : Button = %YesQuitButton
 
+@onready var sfx : FmodEventEmitter3D = %Sfx
 
 func _ready() -> void:
 	fullscreen_check_box.button_pressed = Settings.fullscreen
