@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dgs28jna4xuoq"
-path="res://.godot/imported/olivia_model.glb-6335128f3f14d30c9260767ae784da9d.scn"
+path="res://.godot/imported/olivia_model.glb-65d5a8b84f7a63a66ca6863b1f7f32c1.scn"
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Olivia/olivia_model.glb"
-dest_files=["res://.godot/imported/olivia_model.glb-6335128f3f14d30c9260767ae784da9d.scn"]
+source_file="res://Assets/CharacterAssets/olivia/olivia_model.glb"
+dest_files=["res://.godot/imported/olivia_model.glb-65d5a8b84f7a63a66ca6863b1f7f32c1.scn"]
 
 [params]
 
@@ -35,7 +35,7 @@ import_script/path=""
 _subresources={
 "animations": {
 "Idle": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "res://Assets/CharacterAssets/Olivia/animations/Idle.res",
 "settings/loop_mode": 1,
@@ -1834,7 +1834,7 @@ _subresources={
 "slices/amount": 0
 },
 "RESET": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "res://Assets/CharacterAssets/Olivia/animations/RESET.res",
 "settings/loop_mode": 0,
@@ -3633,7 +3633,7 @@ _subresources={
 "slices/amount": 0
 },
 "Talk": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "res://Assets/CharacterAssets/Olivia/animations/Talk.res",
 "settings/loop_mode": 0,
@@ -5432,7 +5432,7 @@ _subresources={
 "slices/amount": 0
 },
 "Turn": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "res://Assets/CharacterAssets/Olivia/animations/Turn.res",
 "settings/loop_mode": 0,
@@ -7231,9 +7231,9 @@ _subresources={
 "slices/amount": 0
 },
 "Walk": {
-"save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://Assets/CharacterAssets/Olivia/animations/Walk.res",
+"save_to_file/enabled": false,
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Assets/CharacterAssets/olivia/animations/walking.res",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
