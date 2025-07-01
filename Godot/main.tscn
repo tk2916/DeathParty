@@ -44,7 +44,7 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b1e31j7rea4bf" path="res://Assets/props/table_tennis_table/table_tennis_table.tscn" id="28_f6a44"]
 [ext_resource type="PackedScene" uid="uid://fejxno4a8ptp" path="res://Assets/props/hanger.glb" id="28_wnkbs"]
-[ext_resource type="PackedScene" uid="uid://s2270btdw78w" path="res://Assets/CharacterAssets/benny_temp/benny.tscn" id="30_0cbny"]
+[ext_resource type="PackedScene" uid="uid://s2270btdw78w" path="res://Assets/CharacterAssets/benny/benny.tscn" id="30_0cbny"]
 [ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="34_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://dpjo82okixq0n" path="res://Assets/models/bookflip3.tscn" id="38_0cbny"]
