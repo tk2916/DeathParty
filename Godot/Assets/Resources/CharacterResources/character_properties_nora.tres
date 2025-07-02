@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://lfthc37kslft"]
 
-[ext_resource type="Texture2D" uid="uid://s742yxoo5vvv" path="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png" id="1_ftjkl"]
+[ext_resource type="Texture2D" uid="uid://base5d87dehd1" path="res://Assets/CharacterAssets/CharacterTextures/polaroid_nora.png" id="1_ftjkl"]
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="2_to8io"]
 
 [resource]

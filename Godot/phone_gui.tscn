@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bm1q5w4b7f5ma"]
 
-[ext_resource type="Texture2D" uid="uid://d1jn2toe7x8cs" path="res://Assets/PNGAssets/messages_white.png" id="1_plgr2"]
+[ext_resource type="Texture2D" uid="uid://d1jn2toe7x8cs" path="res://Assets/PNGAssets/temp_messages_white.png" id="1_plgr2"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="2_eotbu"]
 [ext_resource type="PackedScene" uid="uid://ibs6xbf36j7" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/message_app.tscn" id="3_635d1"]
 [ext_resource type="Script" uid="uid://bqkuvvcygqkbe" path="res://Assets/GUIFunctionalityScripts/home_button.gd" id="5_hnfnb"]
