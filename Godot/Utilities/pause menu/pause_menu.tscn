@@ -57,39 +57,50 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
+[node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/SettingsMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_top = NodePath("../SettingsBackButton")
+focus_neighbor_bottom = NodePath("../VolumeSlider")
+theme = ExtResource("2_qpukh")
+text = "fullscreen"
+alignment = 1
+expand_icon = true
+
 [node name="VolumeText" type="Label" parent="MarginContainer/SettingsMenu"]
 layout_mode = 2
 theme = ExtResource("2_qpukh")
 text = "volume"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/SettingsMenu"]
-layout_mode = 2
-
-[node name="VolumeSlider" type="HSlider" parent="MarginContainer/SettingsMenu/GridContainer"]
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/SettingsMenu"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_top = NodePath("../../SettingsBackButton")
-focus_neighbor_bottom = NodePath("../../SettingsBackButton")
+focus_neighbor_top = NodePath("../FullscreenCheckBox")
+focus_neighbor_bottom = NodePath("../SettingsBackButton")
 value = 75.0
 rounded = true
 tick_count = 10
 ticks_on_borders = true
 
-[node name="VolumeNumber" type="Label" parent="MarginContainer/SettingsMenu/GridContainer"]
+[node name="VolumeNumber" type="Label" parent="MarginContainer/SettingsMenu"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
-focus_neighbor_bottom = NodePath("../../SettingsBackButton")
+focus_neighbor_bottom = NodePath("../SettingsBackButton")
 theme = ExtResource("2_qpukh")
 theme_override_font_sizes/font_size = 20
 text = "75"
 
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/SettingsMenu"]
+layout_mode = 2
+
 [node name="SettingsBackButton" type="Button" parent="MarginContainer/SettingsMenu"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../GridContainer/VolumeSlider")
-focus_neighbor_bottom = NodePath("../GridContainer/VolumeSlider")
+focus_neighbor_top = NodePath("../VolumeSlider")
+focus_neighbor_bottom = NodePath("../FullscreenCheckBox")
 theme = ExtResource("2_qpukh")
 text = "back"
 
@@ -127,8 +138,9 @@ text = "no"
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="drag_ended" from="MarginContainer/SettingsMenu/GridContainer/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
-[connection signal="value_changed" from="MarginContainer/SettingsMenu/GridContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/SettingsMenu/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="drag_ended" from="MarginContainer/SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
+[connection signal="value_changed" from="MarginContainer/SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
 [connection signal="pressed" from="MarginContainer/QuitMenu/HBoxContainer/YesQuitButton" to="." method="_on_yes_quit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/QuitMenu/HBoxContainer/NoQuitButton" to="." method="_on_no_quit_button_pressed"]
