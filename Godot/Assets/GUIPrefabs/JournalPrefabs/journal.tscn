@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1q5i30ewr8bm"]
+[gd_scene load_steps=15 format=3 uid="uid://b1q5i30ewr8bm"]
 
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="1_bvx4m"]
 [ext_resource type="Script" uid="uid://s411vv6436kp" path="res://character_info_button.gd" id="2_7dpwy"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://bqrg06p5aek3u" path="res://character_profile.gd" id="8_gg6ut"]
 [ext_resource type="PackedScene" uid="uid://bjm0d63pqk4j2" path="res://Assets/GUIPrefabs/JournalPrefabs/CharProfilePrefabs/char_note.tscn" id="9_5alca"]
 [ext_resource type="Texture2D" uid="uid://s742yxoo5vvv" path="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png" id="10_l422v"]
-[ext_resource type="Texture2D" uid="uid://d2gcrhcr20py4" path="res://Assets/PNGAssets/scissors.png" id="11_lurp6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsp4k"]
 
@@ -381,7 +380,6 @@ anchor_right = 0.97
 anchor_bottom = 0.97
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_lurp6")
 expand_mode = 3
 stretch_mode = 5
 
