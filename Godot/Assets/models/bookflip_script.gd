@@ -97,6 +97,7 @@ func bookflip(backward : bool = false, flip_to_page : int = -1):
 		set_page(1, old_page_index)
 		set_page(2, page_tracker)
 		animation_player.play("pageFlip")
+		page_flip_sound.play()
 		timer.start(.5)
 	elif backward && (page_tracker>0 || flip_to_page != -1):
 		flipping = true;
@@ -107,6 +108,7 @@ func bookflip(backward : bool = false, flip_to_page : int = -1):
 		set_page(1, page_tracker)
 		set_page(2, old_page_index)
 		animation_player.play_backwards("pageFlip")
+		page_flip_sound.play()
 		timer.start(.2)
 
 	#bring a bookmark up front
@@ -114,7 +116,6 @@ func bookflip(backward : bool = false, flip_to_page : int = -1):
 		if page_tracker == tab.flip_to_page:
 			cur_tab = tab
 
-	page_flip_sound.play()
 
 func _on_anim_finished(anim_name: StringName) -> void:
 	if anim_name == "pageFlip":
