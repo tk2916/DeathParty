@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=95 format=4 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -44,11 +44,12 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b1e31j7rea4bf" path="res://Assets/props/table_tennis_table/table_tennis_table.tscn" id="28_f6a44"]
 [ext_resource type="PackedScene" uid="uid://fejxno4a8ptp" path="res://Assets/props/hanger.glb" id="28_wnkbs"]
-[ext_resource type="PackedScene" uid="uid://dyrm8ntkw6b2c" path="res://Assets/CharacterAssets/benny/benny.tscn" id="30_0cbny"]
+[ext_resource type="PackedScene" uid="uid://dyrm8ntkw6b2c" path="res://Assets/CharacterAssets/Benny/benny.tscn" id="30_0cbny"]
 [ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="34_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://dpjo82okixq0n" path="res://Assets/models/bookflip3.tscn" id="38_0cbny"]
 [ext_resource type="LightmapGIData" uid="uid://dovrf850w07cv" path="res://Assets/textures/lightmaps/main.lmbake" id="46_qnost"]
+[ext_resource type="PackedScene" uid="uid://04hhyhhptknx" path="res://Assets/CharacterAssets/DJ/dj.tscn" id="50_hrvbo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_come4"]
 panorama = ExtResource("2_b1qrp")
@@ -607,9 +608,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -2)
 [node name="ObjectViewer" parent="." instance=ExtResource("2_a6jrf")]
 test_path = "res://Assets/models/bookflip3.tscn"
 
-[node name="SubViewport" parent="ObjectViewer/SubViewportContainer" index="0"]
-render_target_update_mode = 0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BasicGUI" parent="CanvasLayer" instance=ExtResource("18_getpj")]
@@ -699,6 +697,9 @@ json_file2 = ExtResource("27_xuqvo")
 quality = 2
 interior = true
 light_data = ExtResource("46_qnost")
+
+[node name="DJ" parent="." instance=ExtResource("50_hrvbo")]
+transform = Transform3D(0.935371, 0, 0, 0, 0.935371, 0, 0, 0, 1, -0.397493, 0.00660039, 0.454999)
 
 [connection signal="body_entered" from="Outside" to="Outside" method="_on_body_entered"]
 [connection signal="body_entered" from="Room" to="Room" method="_on_body_entered"]
