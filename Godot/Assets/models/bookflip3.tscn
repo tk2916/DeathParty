@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="3_u3xn0"]
 [ext_resource type="Texture2D" uid="uid://b6epcbok07mvo" path="res://Assets/JournalTextures/max_page_3.png" id="4_f0eo2"]
 [ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="5_fvng4"]
-
 [ext_resource type="Texture2D" uid="uid://c0c7uxkp8a7y" path="res://Assets/models/bookflip_max_page_2.png" id="6_x86c4"]
 [ext_resource type="Texture2D" uid="uid://ckreco4sxuqyl" path="res://Assets/JournalTextures/tasks_viewport_texture.tres" id="7_f0eo2"]
 [ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="7_fvng4"]
@@ -548,3 +547,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3549
 text = "Settings"
 color = Color(0.164908, 0.352543, 0.288867, 1)
 flip_to_page = 4
+
+[node name="PageFlipSound" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/004_SFX_PageFlip"
+event_guid = "{a9436081-49dc-4597-9156-239d2f74f66d}"
+unique_name_in_owner = true
