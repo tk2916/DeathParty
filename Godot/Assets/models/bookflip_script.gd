@@ -1,5 +1,8 @@
 extends Node3D
 
+
+@onready var page_flip_sound : FmodEventEmitter3D = %PageFlipSound
+
 @export var animation_player : AnimationPlayer
 
 @export var page1 : MeshInstance3D
@@ -105,12 +108,14 @@ func bookflip(backward : bool = false, flip_to_page : int = -1):
 		set_page(2, old_page_index)
 		animation_player.play_backwards("pageFlip")
 		timer.start(.2)
-	
+
 	#bring a bookmark up front
 	for tab in all_tabs:
 		if page_tracker == tab.flip_to_page:
 			cur_tab = tab
-	
+
+	page_flip_sound.play()
+
 func _on_anim_finished(anim_name: StringName) -> void:
 	if anim_name == "pageFlip":
 		set_page(1, page_tracker)
