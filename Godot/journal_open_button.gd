@@ -1,5 +1,9 @@
 extends "res://Assets/GUIDesignScripts/default_gui_button.gd"
 
+@onready var journal_open_sound : FmodEventEmitter3D = %JournalOpenSound
+@onready var journal_close_sound : FmodEventEmitter3D = %JournalCloseSound
+
+
 @export var journal_path : String
 @export var journal : PackedScene
 
