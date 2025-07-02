@@ -9,7 +9,6 @@ extends Control
 	"move_right" : "Right",
 	"move_up" : "Up",
 	"move_down" : "Down",
-	"jump" : "Jump",
 	"interact" : "Interact"
 }
 
