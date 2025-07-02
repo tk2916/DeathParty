@@ -2,7 +2,7 @@ extends Control
 
 
 @onready var list : VBoxContainer = %BindingList
-@onready var binding_item_prefab : PackedScene = preload("res://input_binding_item.tscn")
+@onready var binding_item_prefab : PackedScene = preload("res://Utilities/pause menu/input_menu/input_binding_item.tscn")
 
 @onready var editable_inputs : Dictionary = {
 	"move_left" : "Left",
