@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2gcrhcr20py4"
-path="res://.godot/imported/scissors.png-2a5790e6a7e7b02dcc37f835453738cb.ctex"
+uid="uid://bte12xawe5jl1"
+path="res://.godot/imported/temp_phone_white.png-1919017bfc459ecdcba5e2b1ccbd4208.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PNGAssets/scissors.png"
-dest_files=["res://.godot/imported/scissors.png-2a5790e6a7e7b02dcc37f835453738cb.ctex"]
+source_file="res://Assets/PNGAssets/temp_phone_white.png"
+dest_files=["res://.godot/imported/temp_phone_white.png-1919017bfc459ecdcba5e2b1ccbd4208.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1jn2toe7x8cs"
-path="res://.godot/imported/messages_white.png-364fe9f22ea418983890d6d3b104369c.ctex"
+uid="uid://bd80fmaj65x6k"
+path="res://.godot/imported/temp_backpack_white.png-d4f97a42d58835b5384e384978311732.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PNGAssets/messages_white.png"
-dest_files=["res://.godot/imported/messages_white.png-364fe9f22ea418983890d6d3b104369c.ctex"]
+source_file="res://Assets/PNGAssets/temp_backpack_white.png"
+dest_files=["res://.godot/imported/temp_backpack_white.png-d4f97a42d58835b5384e384978311732.ctex"]
 
 [params]
 

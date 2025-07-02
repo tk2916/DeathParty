@@ -630,6 +630,9 @@ theme_override_fonts/normal_font = ExtResource("19_ryguw")
 
 [node name="Journal" parent="CanvasLayer" instance=ExtResource("23_qsp4k")]
 
+[node name="TextureRect" parent="CanvasLayer/Journal/VBoxContainer/Bottom/Center/HSplitContainer/Scissors" index="0"]
+texture = null
+
 [node name="Phone" parent="CanvasLayer" instance=ExtResource("20_d13ii")]
 visible = false
 

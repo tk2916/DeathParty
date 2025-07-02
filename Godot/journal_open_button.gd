@@ -10,10 +10,10 @@ var journal_showing : bool = false
 
 func _pressed() -> void:
 	if journal_showing == false:
-		object_viewer.set_item_inactive(journal_path)
+		object_viewer.set_item(journal_path)
 		#model_holder.add_child(journal.instantiate())
-		object_viewer.camera_3d.projection = Camera3D.PROJECTION_ORTHOGONAL
-		object_viewer.camera_3d.size = 2.1
+		#object_viewer.camera_3d.projection = Camera3D.PROJECTION_ORTHOGONAL
+		#object_viewer.camera_3d.size = 2.1
 		object_viewer.visible = true
 	else:
 		object_viewer.visible = false
