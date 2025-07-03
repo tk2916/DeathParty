@@ -9,6 +9,15 @@ var volume : float = 50
 # video
 var fullscreen : bool = false
 
+# input
+var editable_inputs : Dictionary = {
+	"move_left" : "Left",
+	"move_right" : "Right",
+	"move_up" : "Up",
+	"move_down" : "Down",
+	"interact" : "Interact"
+}
+
 
 func _ready() -> void:
 	# check if the cfg will load

@@ -1,16 +1,9 @@
 extends Control
 
 
+@onready var editable_inputs : Dictionary = Settings.editable_inputs
 @onready var list : VBoxContainer = %BindingList
 @onready var binding_item_prefab : PackedScene = preload("res://Utilities/pause menu/input_menu/input_binding_item.tscn")
-
-@onready var editable_inputs : Dictionary = {
-	"move_left" : "Left",
-	"move_right" : "Right",
-	"move_up" : "Up",
-	"move_down" : "Down",
-	"interact" : "Interact"
-}
 
 var button_to_change : Button
 var action_input_to_change : InputEvent
