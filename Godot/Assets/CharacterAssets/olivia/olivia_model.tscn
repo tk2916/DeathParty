@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://xmpgbqfcvdsh"]
 
-[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/olivia/olivia_model.glb" id="1_s2ta1"]
+[ext_resource type="PackedScene" uid="uid://dgs28jna4xuoq" path="res://Assets/CharacterAssets/olivia/olivia_model.glb" id="1_s2ta1"]
 
 [node name="OliviaModel" instance=ExtResource("1_s2ta1")]
 
