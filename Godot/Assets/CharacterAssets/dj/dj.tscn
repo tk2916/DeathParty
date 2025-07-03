@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctpv1cs78urg8" path="res://Assets/CharacterAssets/dj/dj.glb" id="1_isc5x"]
 
-[node name="Deejay" instance=ExtResource("1_isc5x")]
+[node name="Dj" instance=ExtResource("1_isc5x")]
 
 [node name="Skeleton3D" parent="Model" index="0"]
 bones/0/position = Vector3(0.101119, 0.569066, -107.217)
