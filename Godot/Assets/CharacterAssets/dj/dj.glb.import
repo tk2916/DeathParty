@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ctpv1cs78urg8"
-path="res://.godot/imported/DeeJay.glb-5dd5b8001ff05a389a7336006c1eed46.scn"
+path="res://.godot/imported/dj.glb-9339c0d1dd202ffecaa99148620a4f98.scn"
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/deejay/DeeJay.glb"
-dest_files=["res://.godot/imported/DeeJay.glb-5dd5b8001ff05a389a7336006c1eed46.scn"]
+source_file="res://Assets/CharacterAssets/dj/dj.glb"
+dest_files=["res://.godot/imported/dj.glb-9339c0d1dd202ffecaa99148620a4f98.scn"]
 
 [params]
 

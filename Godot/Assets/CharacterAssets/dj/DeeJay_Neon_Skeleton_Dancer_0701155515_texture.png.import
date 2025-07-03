@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc6nig7cktwa8"
-path.s3tc="res://.godot/imported/DJ_Neon_Skeleton_Dancer_0701155515_texture.png-ec68f3192aeeac5b04db53fb4e5f61f3.s3tc.ctex"
-path.etc2="res://.godot/imported/DJ_Neon_Skeleton_Dancer_0701155515_texture.png-ec68f3192aeeac5b04db53fb4e5f61f3.etc2.ctex"
+uid="uid://bxnkm7d8m2gsu"
+path.s3tc="res://.godot/imported/DeeJay_Neon_Skeleton_Dancer_0701155515_texture.png-06a7ea0e959faa31d436c500bba3d3ad.s3tc.ctex"
+path.etc2="res://.godot/imported/DeeJay_Neon_Skeleton_Dancer_0701155515_texture.png-06a7ea0e959faa31d436c500bba3d3ad.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/deejay/DJ_Neon_Skeleton_Dancer_0701155515_texture.png"
-dest_files=["res://.godot/imported/DJ_Neon_Skeleton_Dancer_0701155515_texture.png-ec68f3192aeeac5b04db53fb4e5f61f3.s3tc.ctex", "res://.godot/imported/DJ_Neon_Skeleton_Dancer_0701155515_texture.png-ec68f3192aeeac5b04db53fb4e5f61f3.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/dj/DeeJay_Neon_Skeleton_Dancer_0701155515_texture.png"
+dest_files=["res://.godot/imported/DeeJay_Neon_Skeleton_Dancer_0701155515_texture.png-06a7ea0e959faa31d436c500bba3d3ad.s3tc.ctex", "res://.godot/imported/DeeJay_Neon_Skeleton_Dancer_0701155515_texture.png-06a7ea0e959faa31d436c500bba3d3ad.etc2.ctex"]
 
 [params]
 

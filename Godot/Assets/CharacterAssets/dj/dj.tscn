@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://04hhyhhptknx"]
 
-[ext_resource type="PackedScene" uid="uid://ctpv1cs78urg8" path="res://Assets/CharacterAssets/deejay/DeeJay.glb" id="1_isc5x"]
+[ext_resource type="PackedScene" uid="uid://ctpv1cs78urg8" path="res://Assets/CharacterAssets/dj/dj.glb" id="1_isc5x"]
 
 [node name="DJ" instance=ExtResource("1_isc5x")]
 
