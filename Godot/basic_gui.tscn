@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cqgpdpfplj5ph"]
 
-[ext_resource type="Texture2D" uid="uid://b3ccuqe753650" path="res://Assets/PNGAssets/settings_icon_white.png" id="1_at3un"]
-[ext_resource type="Texture2D" uid="uid://bd80fmaj65x6k" path="res://Assets/PNGAssets/backpack_white.png" id="2_2nnue"]
-[ext_resource type="Texture2D" uid="uid://dklilnkes1adu" path="res://Assets/PNGAssets/notebook_white.png" id="3_fkeip"]
+[ext_resource type="Texture2D" uid="uid://b3ccuqe753650" path="res://Assets/PNGAssets/temp_settings_icon_white.png" id="1_at3un"]
+[ext_resource type="Texture2D" uid="uid://bd80fmaj65x6k" path="res://Assets/PNGAssets/temp_backpack_white.png" id="2_2nnue"]
+[ext_resource type="Texture2D" uid="uid://dklilnkes1adu" path="res://Assets/PNGAssets/temp_notebook_white.png" id="3_fkeip"]
 [ext_resource type="Script" uid="uid://d0bpakbx0nyu3" path="res://journal_open_button.gd" id="4_2nnue"]
-[ext_resource type="Texture2D" uid="uid://bte12xawe5jl1" path="res://Assets/PNGAssets/phone_white.png" id="4_vs0em"]
+[ext_resource type="Texture2D" uid="uid://bte12xawe5jl1" path="res://Assets/PNGAssets/temp_phone_white.png" id="4_vs0em"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="5_140vj"]
 [ext_resource type="Script" uid="uid://dehejbaawpqyj" path="res://Assets/GUIFunctionalityScripts/clock.gd" id="6_ivccq"]
 [ext_resource type="Texture2D" uid="uid://ciagkcjbti5dm" path="res://Assets/CharacterAssets/CharacterTextures/polaroid_olivia.png" id="7_fkeip"]
@@ -129,6 +129,18 @@ offset_bottom = 39.0
 flat = true
 script = ExtResource("4_2nnue")
 journal_path = "res://Assets/models/bookflip3.tscn"
+
+[node name="Sounds" type="Node" parent="Panel2/Panel3/OpenJournalButton"]
+
+[node name="JournalOpenSound" type="FmodEventEmitter3D" parent="Panel2/Panel3/OpenJournalButton/Sounds"]
+event_name = "event:/000_SFX/300_UI/302_SFX_UI_JournalOpen"
+event_guid = "{30f0e84f-546b-4951-8546-610e533ebe87}"
+unique_name_in_owner = true
+
+[node name="JournalCloseSound" type="FmodEventEmitter3D" parent="Panel2/Panel3/OpenJournalButton/Sounds"]
+event_name = "event:/000_SFX/300_UI/301_SFX_UI_JournalClose"
+event_guid = "{9355ad2b-58c5-4861-8f53-fe56b2894e62}"
+unique_name_in_owner = true
 
 [node name="Panel4" type="Panel" parent="Panel2"]
 layout_mode = 1
