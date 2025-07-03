@@ -22,8 +22,12 @@ func _ready() -> void:
 
 
 func populate_list() -> void:
-	# load input map
-	InputMap.load_from_project_settings()
+	# load input map from project settings,
+	# discarding any changes to the map made during runtime
+
+	#NOTE: this is commented out because it shouldnt be needed in ready() and
+	# it might interfere with loading binds from the cfg
+	#InputMap.load_from_project_settings()
 
 	# loop thru actions in map
 	for action in InputMap.get_actions():
