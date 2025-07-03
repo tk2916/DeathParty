@@ -22,15 +22,27 @@ func _ready() -> void:
 
 
 func populate_list() -> void:
+	# load input map
 	InputMap.load_from_project_settings()
+
+	# loop thru actions in map
 	for action in InputMap.get_actions():
+		# skip over the action if its not in our list of editable actions
 		if !editable_inputs.has(action):
 			continue
+
+		# instantiate binding item scene
 		var binding_item = binding_item_prefab.instantiate()
+
+		# get references to control nodes in scene
 		var label_action = binding_item.find_child("ActionName")
 		var input_a = binding_item.find_child("InputA")
 		var input_b = binding_item.find_child("InputB")
+
+
 		label_action.text = editable_inputs[action]
+
+		# get array of inputs currently bound to this action
 		var inputs : Array[InputEvent] = InputMap.action_get_events(action)
 
 		if inputs.size() == 0:
@@ -44,6 +56,7 @@ func populate_list() -> void:
 			input_b.text = inputs[1].as_text().trim_suffix(" (Physical)")
 
 		list.add_child(binding_item)
+
 		input_a.pressed.connect(button_pressed.bind(input_a,action,0))
 		input_b.pressed.connect(button_pressed.bind(input_b,action,1))
 
