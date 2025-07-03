@@ -37,9 +37,8 @@ func populate_list() -> void:
 			input_a.text = "-"
 			input_b.text = "-"
 		elif inputs.size() == 1:
-			if inputs.size() == 1:
-				input_a.text = inputs[0].as_text().trim_suffix(" (Physical)")
-				input_b.text = "-"
+			input_a.text = inputs[0].as_text().trim_suffix(" (Physical)")
+			input_b.text = "-"
 		elif inputs.size() > 1:
 			input_a.text = inputs[0].as_text().trim_suffix(" (Physical)")
 			input_b.text = inputs[1].as_text().trim_suffix(" (Physical)")
