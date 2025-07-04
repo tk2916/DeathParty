@@ -3,12 +3,6 @@ extends Node
 
 var config : ConfigFile = ConfigFile.new()
 
-# audio
-var volume : float = 50
-
-# video
-var fullscreen : bool = false
-
 # input
 var editable_inputs : Dictionary = {
 	"move_left" : "Left",
@@ -17,6 +11,12 @@ var editable_inputs : Dictionary = {
 	"move_down" : "Down",
 	"interact" : "Interact"
 }
+
+# video
+var fullscreen : bool = false
+
+# audio
+var volume : float = 50
 
 
 func _ready() -> void:
@@ -32,14 +32,13 @@ func _ready() -> void:
 	if err == OK:
 		print("settings.cfg loaded successfully")
 
-		# audio
-		volume = config.get_value("audio", "volume", volume)
-		apply_volume(volume)
-
 		# video
 		fullscreen = config.get_value("video", "fullscreen", fullscreen)
 		apply_fullscreen(fullscreen)
 
+		# audio
+		volume = config.get_value("audio", "volume", volume)
+		apply_volume(volume)
 
 	# if it doesnt load, print error and create new cfg with current settings
 	else:
@@ -49,13 +48,26 @@ func _ready() -> void:
 
 
 func save_settings() -> void:
-	# audio
-	config.set_value("audio", "volume", volume)
-
 	# video
 	config.set_value("video", "fullscreen", fullscreen)
 
+	# audio
+	config.set_value("audio", "volume", volume)
+
 	config.save("user://settings.cfg")
+
+
+func apply_fullscreen(enabled : bool) -> void:
+	if enabled:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func set_fullscreen(enabled : bool) -> void:
+	fullscreen = enabled
+	apply_fullscreen(fullscreen)
+	save_settings()
 
 
 func apply_volume(value : float) -> void:
@@ -69,17 +81,4 @@ func apply_volume(value : float) -> void:
 func set_volume(value : float) -> void:
 	volume = value
 	apply_volume(volume)
-	save_settings()
-
-
-func apply_fullscreen(enabled : bool) -> void:
-	if enabled:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-
-func set_fullscreen(enabled : bool) -> void:
-	fullscreen = enabled
-	apply_fullscreen(fullscreen)
 	save_settings()
