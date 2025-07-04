@@ -32,6 +32,9 @@ func _ready() -> void:
 	if err == OK:
 		print("settings.cfg loaded successfully")
 
+		# input
+		load_bindings()
+
 		# video
 		fullscreen = config.get_value("video", "fullscreen", fullscreen)
 		apply_fullscreen(fullscreen)
@@ -48,6 +51,10 @@ func _ready() -> void:
 
 
 func save_settings() -> void:
+
+	# input
+	save_bindings()
+
 	# video
 	config.set_value("video", "fullscreen", fullscreen)
 
@@ -55,6 +62,18 @@ func save_settings() -> void:
 	config.set_value("audio", "volume", volume)
 
 	config.save("user://settings.cfg")
+
+
+func load_bindings() -> void:
+	pass
+
+
+func update_binding() -> void:
+	save_settings()
+
+
+func save_bindings() -> void:
+	pass
 
 
 func apply_fullscreen(enabled : bool) -> void:
