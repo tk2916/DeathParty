@@ -1,62 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://s2270btdw78w"]
+[gd_scene load_steps=2 format=3 uid="uid://crh04qep5ayau"]
 
-[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/benny/benny.glb" id="1_gpcub"]
+[ext_resource type="PackedScene" uid="uid://ba276vhgtl31m" path="res://Assets/CharacterAssets/benny/benny_model.tscn" id="1_7u53x"]
 
-[node name="Benny" instance=ExtResource("1_gpcub")]
+[node name="Benny" type="Node3D"]
 
-[node name="Skeleton3D" parent="Model" index="0"]
-bones/0/position = Vector3(-0.8345, 0.126012, -76.3342)
-bones/0/rotation = Quaternion(-0.804825, -0.283946, 0.048681, 0.518905)
-bones/1/rotation = Quaternion(0.0513362, 0.089182, -0.00646151, 0.994671)
-bones/2/rotation = Quaternion(0.0119094, 0.0243882, 0.00494576, 0.999619)
-bones/3/rotation = Quaternion(0.0120702, 0.0242027, 0.00465211, 0.999623)
-bones/4/rotation = Quaternion(0.0988718, -0.0169719, 0.000232888, 0.994955)
-bones/5/rotation = Quaternion(0.0576431, -0.182205, 0.0827346, 0.978077)
-bones/7/rotation = Quaternion(0.438869, 0.546852, -0.526551, 0.480719)
-bones/8/position = Vector3(2.96819e-06, 23.7368, -7.99208e-06)
-bones/8/rotation = Quaternion(0.00545162, 0.799505, -0.220446, 0.558719)
-bones/9/position = Vector3(-2.82483e-06, 1.64765, -1.2072e-07)
-bones/9/rotation = Quaternion(-0.171218, -0.739971, 0.255986, 0.597995)
-bones/10/rotation = Quaternion(0.205705, -0.37428, 0.104796, 0.898119)
-bones/11/position = Vector3(-1.37059, 6.29075, 2.861e-06)
-bones/11/rotation = Quaternion(0.363969, 0.0853467, 0.0277262, 0.927078)
-bones/12/rotation = Quaternion(-0.113552, 0.0253192, -0.151818, 0.981538)
-bones/13/position = Vector3(-0.313824, 4.55931, 1.22174e-05)
-bones/13/rotation = Quaternion(-0.0328332, -0.0282136, 0.172604, 0.98404)
-bones/14/position = Vector3(-0.219796, 3.61475, 7.7784e-06)
-bones/15/position = Vector3(3.16047e-06, 7.99455, -0.00524568)
-bones/15/rotation = Quaternion(0.0130133, -0.149587, 0.0691954, 0.986239)
-bones/16/position = Vector3(0.581972, 4.02737, 3.49952e-06)
-bones/16/rotation = Quaternion(0.0547725, -0.00254526, -0.385678, 0.921003)
-bones/17/position = Vector3(-0.371009, 3.0844, -3.50886e-06)
-bones/17/rotation = Quaternion(0.0538616, 0.00521177, -0.250685, 0.966555)
-bones/18/position = Vector3(-0.210936, 2.16731, -4.76836e-06)
-bones/19/rotation = Quaternion(0.493272, -0.510486, 0.454031, 0.538463)
-bones/20/position = Vector3(2.49413e-06, 23.7368, 3.20435e-06)
-bones/20/rotation = Quaternion(-0.162024, -0.293414, 0.0344254, 0.941526)
-bones/21/position = Vector3(3.98026e-06, 0.820795, -7.27529e-06)
-bones/21/rotation = Quaternion(0.112472, 0.427126, -0.309235, 0.842192)
-bones/22/position = Vector3(4.07673e-06, 21.7111, 3.87908e-06)
-bones/22/rotation = Quaternion(0.284672, -0.211851, 0.0656132, 0.932618)
-bones/23/position = Vector3(0.460007, 6.44749, -1.69277e-05)
-bones/23/rotation = Quaternion(0.372976, -0.0744287, -0.125172, 0.916341)
-bones/24/rotation = Quaternion(-0.0995293, -0.0247813, 0.141688, 0.984583)
-bones/25/rotation = Quaternion(-0.125488, 0.0259258, -0.168987, 0.977253)
-bones/26/position = Vector3(-0.230239, 2.92884, 7.62939e-06)
-bones/27/position = Vector3(3.29944e-06, 7.82204, 0.311489)
-bones/27/rotation = Quaternion(0.021257, 0.255552, -0.074982, 0.963649)
-bones/28/position = Vector3(-0.660766, 4.60869, -4.77938e-06)
-bones/28/rotation = Quaternion(0.105483, -0.00355424, 0.400747, 0.910089)
-bones/29/rotation = Quaternion(0.105241, -0.016006, 0.187169, 0.976543)
-bones/30/position = Vector3(0.142229, 2.05379, 2.38418e-06)
-bones/31/rotation = Quaternion(0.0217742, 0.218818, 0.973142, 0.0681167)
-bones/32/rotation = Quaternion(-0.298948, 0.0147223, -0.0494181, 0.952875)
-bones/33/rotation = Quaternion(0.287722, -0.0297467, 0.317014, 0.903235)
-bones/34/rotation = Quaternion(0.422906, -0.0540988, -0.0118228, 0.90448)
-bones/36/rotation = Quaternion(-0.16007, -0.0517235, 0.977483, 0.127395)
-bones/37/rotation = Quaternion(-0.702442, -0.0290406, 0.0643981, 0.708226)
-bones/38/rotation = Quaternion(0.490602, 0.238655, 0.0291067, 0.83756)
-bones/39/rotation = Quaternion(0.700582, 0.198431, 0.0350757, 0.684529)
+[node name="BennyModel" parent="." instance=ExtResource("1_7u53x")]
+transform = Transform3D(0.93, 0, 0, 0, 0.93, 0, 0, 0, 0.93, 0, 0, 0)
 
-[node name="AnimationPlayer" parent="." index="1"]
-autoplay = "dancing"
+[editable path="BennyModel"]
