@@ -72,7 +72,7 @@ func set_fullscreen(enabled : bool) -> void:
 
 func apply_volume(value : float) -> void:
 	var bus : FmodBus = FmodServer.get_bus("bus:/")
-	
+
 	# i think the volume for the bus goes from 0 to 1, so im dividing the
 	# slider percentage by 100 - might not actually work like that though lol
 	bus.set_volume(value / 100)
