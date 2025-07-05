@@ -3,11 +3,26 @@ extends Node
 
 var config : ConfigFile = ConfigFile.new()
 
-# audio
-var volume : float = 50
+# input
+
+# TODO: maybe make these keys StringNames by prefixing '&' before quotes
+# e.g. &"move_left" - i think this might make things faster since i think
+# its converting these to StringNames down the line when update_binding is called
+# since input map action names are StringNames (while these dictionary keys are
+# just strings) I DOUBT THIS MATTERS MUCH FOR PERFORMANCE THO LOL
+var editable_inputs : Dictionary = {
+	"move_left" : "Left",
+	"move_right" : "Right",
+	"move_up" : "Up",
+	"move_down" : "Down",
+	"interact" : "Interact"
+}
 
 # video
 var fullscreen : bool = false
+
+# audio
+var volume : float = 50
 
 
 func _ready() -> void:
@@ -23,14 +38,16 @@ func _ready() -> void:
 	if err == OK:
 		print("settings.cfg loaded successfully")
 
-		# audio
-		volume = config.get_value("audio", "volume", volume)
-		apply_volume(volume)
+		# input
+		load_bindings()
 
 		# video
 		fullscreen = config.get_value("video", "fullscreen", fullscreen)
 		apply_fullscreen(fullscreen)
 
+		# audio
+		volume = config.get_value("audio", "volume", volume)
+		apply_volume(volume)
 
 	# if it doesnt load, print error and create new cfg with current settings
 	else:
@@ -40,27 +57,61 @@ func _ready() -> void:
 
 
 func save_settings() -> void:
-	# audio
-	config.set_value("audio", "volume", volume)
+
+	# input
+	save_bindings()
 
 	# video
 	config.set_value("video", "fullscreen", fullscreen)
 
+	# audio
+	config.set_value("audio", "volume", volume)
+
 	config.save("user://settings.cfg")
 
 
-func apply_volume(value : float) -> void:
-	var bus : FmodBus = FmodServer.get_bus("bus:/")
-	
-	# i think the volume for the bus goes from 0 to 1, so im dividing the
-	# slider percentage by 100 - might not actually work like that though lol
-	bus.set_volume(value / 100)
+func load_bindings() -> void:
+	for action in editable_inputs.keys():
+		# TODO: maybe make the fallback something better than an empty string
+
+		# OR MAYBE NOT, since default binds are in the project settings, so
+		# maybe binds dont need proper fallbacks like other settings
+		var physical_key_codes = config.get_value("input", action, [])
+
+		if physical_key_codes.size() > 0:
+			InputMap.action_erase_events(action)
+
+			for code in physical_key_codes:
+				var event = InputEventKey.new()
+				event.physical_keycode = code
+				InputMap.action_add_event(action, event)
 
 
-func set_volume(value : float) -> void:
-	volume = value
-	apply_volume(volume)
+func update_binding(action : StringName, index : int, new_event : InputEvent) -> void:
+	# get current events for this action
+	var events = InputMap.action_get_events(action)
+
+	# erase the event at the index of our new event
+	InputMap.action_erase_event(action, events[index])
+
+	# overwrite the event with our new event
+	InputMap.action_add_event(action, new_event)
+
 	save_settings()
+
+
+func save_bindings() -> void:
+	for action in editable_inputs.keys():
+		var events = InputMap.action_get_events(action)
+		var physical_key_codes : Array = []
+
+		for event in events:
+			if event is InputEventKey:
+				physical_key_codes.append(event.physical_keycode)
+
+		# TODO: make these save as more user-readable values like key names
+		# instead of the physical keycodes (maybe a later optimisation lol)
+		config.set_value("input", action, physical_key_codes)
 
 
 func apply_fullscreen(enabled : bool) -> void:
@@ -73,4 +124,18 @@ func apply_fullscreen(enabled : bool) -> void:
 func set_fullscreen(enabled : bool) -> void:
 	fullscreen = enabled
 	apply_fullscreen(fullscreen)
+	save_settings()
+
+
+func apply_volume(value : float) -> void:
+	var bus : FmodBus = FmodServer.get_bus("bus:/")
+
+	# i think the volume for the bus goes from 0 to 1, so im dividing the
+	# slider percentage by 100 - might not actually work like that though lol
+	bus.set_volume(value / 100)
+
+
+func set_volume(value : float) -> void:
+	volume = value
+	apply_volume(volume)
 	save_settings()

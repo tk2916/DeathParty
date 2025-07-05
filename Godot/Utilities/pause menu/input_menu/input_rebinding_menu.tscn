@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ica25dt1nph6"]
 
-[ext_resource type="Script" uid="uid://b50j0f2xuri76" path="res://input_rebinding_menu.gd" id="1_henyi"]
+[ext_resource type="Script" uid="uid://b50j0f2xuri76" path="res://Utilities/pause menu/input_menu/input_rebinding_menu.gd" id="1_henyi"]
 
 [node name="InputRebinding" type="Control"]
 layout_mode = 3

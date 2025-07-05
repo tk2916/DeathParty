@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkwxukji4mmmu" path="res://Utilities/pause menu/pause_menu.gd" id="1_52f8u"]
 [ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="2_qpukh"]
-[ext_resource type="PackedScene" uid="uid://ica25dt1nph6" path="res://input_rebinding_menu.tscn" id="3_ua3y5"]
+[ext_resource type="PackedScene" uid="uid://ica25dt1nph6" path="res://Utilities/pause menu/input_menu/input_rebinding_menu.tscn" id="3_ua3y5"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
