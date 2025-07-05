@@ -47,6 +47,7 @@ jobs:
     permissions:
       contents: write
     runs-on: ubuntu-latest
+    timeout-minutes: 6
     steps:
       - name: Checkout current branch
         uses: actions/checkout@v3
