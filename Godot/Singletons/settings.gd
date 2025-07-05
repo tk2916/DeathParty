@@ -1,47 +1,141 @@
 extends Node
 
 
-var config = ConfigFile.new()
+var config : ConfigFile = ConfigFile.new()
+
+# input
+
+# TODO: maybe make these keys StringNames by prefixing '&' before quotes
+# e.g. &"move_left" - i think this might make things faster since i think
+# its converting these to StringNames down the line when update_binding is called
+# since input map action names are StringNames (while these dictionary keys are
+# just strings) I DOUBT THIS MATTERS MUCH FOR PERFORMANCE THO LOL
+var editable_inputs : Dictionary = {
+	"move_left" : "Left",
+	"move_right" : "Right",
+	"move_up" : "Up",
+	"move_down" : "Down",
+	"interact" : "Interact"
+}
+
+# video
+var fullscreen : bool = false
 
 # audio
 var volume : float = 50
 
 
-func _ready():
+func _ready() -> void:
 	# check if the cfg will load
-	var err = config.load("user://settings.cfg")
+	var err : Error = config.load("user://settings.cfg")
+	print("loading settings.cfg . . .")
 
-	# if it loads, set each setting to the value from the cfg
-	# (or the default if it isnt set in the cfg) - this is also where the
-	# fmod volume is actually set, but if we think its simpler to set most
-	# settings from elsewhere then we can move this to the pause menu script
-	# and have this singleton just read and set cfg values and not handle any
-	# logic
+	# if it loads, apply each setting with the values from the cfg
+	# (or a fallback if it isnt set in the cfg)
+	# if we think its simpler to apply most settings from elsewhere then we can
+	# move this to the pause menu script and have this singleton just read and
+	# set cfg values and not handle any logic
 	if err == OK:
-		volume = config.get_value("audio", "volume", 75)
-		set_volume(volume)
+		print("settings.cfg loaded successfully")
 
-	# if it doesnt load, save a new cfg with the current settings
+		# input
+		load_bindings()
+
+		# video
+		fullscreen = config.get_value("video", "fullscreen", fullscreen)
+		apply_fullscreen(fullscreen)
+
+		# audio
+		volume = config.get_value("audio", "volume", volume)
+		apply_volume(volume)
+
+	# if it doesnt load, print error and create new cfg with current settings
 	else:
+		print("failed to load settings.cfg (" + error_string(err) + ")")
+		print("creating new settings.cfg file with default settings . . .")
 		save_settings()
 
 
-func save_settings():
+func save_settings() -> void:
+
+	# input
+	save_bindings()
+
+	# video
+	config.set_value("video", "fullscreen", fullscreen)
+
+	# audio
 	config.set_value("audio", "volume", volume)
+
 	config.save("user://settings.cfg")
 
 
-func set_volume(value : float):
+func load_bindings() -> void:
+	for action in editable_inputs.keys():
+		# TODO: maybe make the fallback something better than an empty string
+
+		# OR MAYBE NOT, since default binds are in the project settings, so
+		# maybe binds dont need proper fallbacks like other settings
+		var physical_key_codes = config.get_value("input", action, [])
+
+		if physical_key_codes.size() > 0:
+			InputMap.action_erase_events(action)
+
+			for code in physical_key_codes:
+				var event = InputEventKey.new()
+				event.physical_keycode = code
+				InputMap.action_add_event(action, event)
+
+
+func update_binding(action : StringName, index : int, new_event : InputEvent) -> void:
+	# get current events for this action
+	var events = InputMap.action_get_events(action)
+
+	# erase the event at the index of our new event
+	InputMap.action_erase_event(action, events[index])
+
+	# overwrite the event with our new event
+	InputMap.action_add_event(action, new_event)
+
+	save_settings()
+
+
+func save_bindings() -> void:
+	for action in editable_inputs.keys():
+		var events = InputMap.action_get_events(action)
+		var physical_key_codes : Array = []
+
+		for event in events:
+			if event is InputEventKey:
+				physical_key_codes.append(event.physical_keycode)
+
+		# TODO: make these save as more user-readable values like key names
+		# instead of the physical keycodes (maybe a later optimisation lol)
+		config.set_value("input", action, physical_key_codes)
+
+
+func apply_fullscreen(enabled : bool) -> void:
+	if enabled:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func set_fullscreen(enabled : bool) -> void:
+	fullscreen = enabled
+	apply_fullscreen(fullscreen)
+	save_settings()
+
+
+func apply_volume(value : float) -> void:
 	var bus : FmodBus = FmodServer.get_bus("bus:/")
 
 	# i think the volume for the bus goes from 0 to 1, so im dividing the
-	# slider percentage by 100 - it might not actually work like that though lol
+	# slider percentage by 100 - might not actually work like that though lol
 	bus.set_volume(value / 100)
 
-	# this doesnt do anything on the initial set_volume in _ready() (i think)
-	# but when you call this func by changing volume in the settings menu this
-	# writes it to the cfg and saves it - if this is weird we can break it into
-	# 2 different functions like set_initial_volume() and set_volume() but 
-	# keeping them together felt neater for now
+
+func set_volume(value : float) -> void:
 	volume = value
+	apply_volume(volume)
 	save_settings()

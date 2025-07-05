@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://gdi2x1kqfcqq"]
+
+[ext_resource type="PackedScene" uid="uid://c1sy3m64ne2ae" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_display.tscn" id="1_3cwls"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929056, 0.859423, 0.754835, 1)
+
+[node name="Tasks" parent="TextureRect" instance=ExtResource("1_3cwls")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.1
+anchor_right = 0.47
+anchor_bottom = 0.97
+
+[node name="Title" parent="TextureRect/Tasks" index="0"]
+theme_override_font_sizes/normal_font_size = 20
+
+[editable path="TextureRect/Tasks"]

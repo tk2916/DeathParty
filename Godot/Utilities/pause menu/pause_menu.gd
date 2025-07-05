@@ -8,31 +8,53 @@ extends CanvasLayer
 @onready var quit_button : Button = %QuitButton
 
 @onready var settings_menu : VBoxContainer = %SettingsMenu
+@onready var fullscreen_check_box: CheckBox = %FullscreenCheckBox
 @onready var volume_slider : HSlider = %VolumeSlider
 @onready var volume_number : Label = %VolumeNumber
+@onready var input_button: Button = %InputButton
+
+@onready var input_menu : VBoxContainer = %InputMenu
+@onready var input_back_button : Button = %InputBackButton
 
 @onready var quit_menu : VBoxContainer = %QuitMenu
 @onready var yes_quit_button : Button = %YesQuitButton
 
+@onready var click_sound : FmodEventEmitter3D = %ClickSound
 
 func _ready() -> void:
+	fullscreen_check_box.button_pressed = Settings.fullscreen
 	volume_slider.value = Settings.volume
+
+	# connect pressed signal of all buttons in the scene to a func that plays ui sfx
+	
+	# NOTE: tried static typing here but i think it hurt readability more than
+	# it helped (since I THINK it shouldnt cause any problems if something that
+	# isnt a button ends up in the button group somehow)
+	for button in get_tree().get_nodes_in_group("buttons"):
+		button.pressed.connect(on_any_button_pressed)
 
 
 func _physics_process(_delta : float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		if main_pause_menu.visible:
-			toggle_pause()
-
-		elif settings_menu.visible:
+		if settings_menu.visible:
 			settings_menu.hide()
 			main_pause_menu.show()
 			settings_button.grab_focus()
+
+		elif input_menu.visible:
+			input_menu.hide()
+			settings_menu.show()
+			input_button.grab_focus()
 
 		elif quit_menu.visible:
 			quit_menu.hide()
 			main_pause_menu.show()
 			quit_button.grab_focus()
+
+		else:
+			toggle_pause()
+
+		click_sound.play()
 
 
 func toggle_pause() -> void:
@@ -57,7 +79,17 @@ func _on_resume_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	main_pause_menu.hide()
 	settings_menu.show()
-	volume_slider.grab_focus()
+	input_button.grab_focus()
+
+
+func _on_input_button_pressed() -> void:
+	settings_menu.hide()
+	input_menu.show()
+	input_back_button.grab_focus()
+
+
+func _on_fullscreen_check_box_toggled(toggled_on : bool) -> void:
+	Settings.set_fullscreen(toggled_on)
 
 
 func _on_volume_slider_value_changed(value : float) -> void:
@@ -82,6 +114,12 @@ func _on_settings_back_button_pressed() -> void:
 	settings_button.grab_focus()
 
 
+func _on_input_back_button_pressed() -> void:
+	input_menu.hide()
+	settings_menu.show()
+	input_button.grab_focus()
+
+
 func _on_quit_button_pressed() -> void:
 	main_pause_menu.hide()
 	quit_menu.show()
@@ -96,3 +134,10 @@ func _on_no_quit_button_pressed() -> void:
 	quit_menu.hide()
 	main_pause_menu.show()
 	quit_button.grab_focus()
+
+
+# NOTE: the name of this func could maybe be clearer if anyone has ideas
+# (i didnt want to just name it 'on button pressed' since thats close
+# to the signal for a single button which could be confusing)
+func on_any_button_pressed() -> void:
+	click_sound.play()

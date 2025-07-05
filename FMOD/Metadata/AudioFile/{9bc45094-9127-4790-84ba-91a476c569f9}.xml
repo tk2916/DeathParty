@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{9bc45094-9127-4790-84ba-91a476c569f9}">
+		<property name="assetPath">
+			<value>000_SFX/300_UI/301_SFX_UI_JournalClose_02.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b578e7d4-82c2-4011-885a-6204f61f86c8}</destination>
+		</relationship>
+	</object>
+</objects>
