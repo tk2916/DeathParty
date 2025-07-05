@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkvv85s50e6f6"]
+
+[ext_resource type="PackedScene" uid="uid://04hhyhhptknx" path="res://Assets/CharacterAssets/dj/dj_model.tscn" id="1_v0rpg"]
+
+[node name="Dj" type="Node3D"]
+
+[node name="DjModel" parent="." instance=ExtResource("1_v0rpg")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)

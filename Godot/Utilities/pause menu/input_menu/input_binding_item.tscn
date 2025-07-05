@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://drmua200lhpng"]
+
+[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="1_g5b8x"]
+
+[node name="InputBindingItem" type="MarginContainer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ActionName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_g5b8x")
+text = "Action Name"
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputA" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("1_g5b8x")
+button_mask = 3
+text = "Input A"
+
+[node name="InputB" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("1_g5b8x")
+button_mask = 3
+text = "Input B"
