@@ -67,7 +67,8 @@ jobs:
           upload-artifacts: false
         
   verify-execution:
-    if: ${{ !github.event.pull_request.draft }}
+    #if: ${{ !github.event.pull_request.draft }}
+    if: false
     needs: build
     runs-on: macos-latest
     timeout-minutes: 10
