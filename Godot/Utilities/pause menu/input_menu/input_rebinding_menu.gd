@@ -5,9 +5,11 @@ extends Control
 @onready var list : VBoxContainer = %BindingList
 @onready var binding_item_prefab : PackedScene = preload("res://Utilities/pause menu/input_menu/input_binding_item.tscn")
 
+# TODO: maybe give these clearer names
 var button_to_change : Button
-var action_input_to_change : InputEvent
 var changing_input : bool = false
+var current_action : StringName
+var current_index : int
 
 
 func _ready() -> void:
@@ -15,31 +17,21 @@ func _ready() -> void:
 
 
 func populate_list() -> void:
-	# load input map from project settings,
-	# discarding any changes to the map made during runtime
-
-	#NOTE: this is commented out because it shouldnt be needed in ready() and
-	# it might interfere with loading binds from the cfg
-	#InputMap.load_from_project_settings()
-
 	# loop thru actions in map
-	for action in InputMap.get_actions():
-		# skip over the action if its not in our list of editable actions
-		if !editable_inputs.has(action):
-			continue
-
+	for action in editable_inputs.keys():
 		# instantiate binding item scene
 		var binding_item = binding_item_prefab.instantiate()
 
 		# get references to control nodes in scene
 		var label_action = binding_item.find_child("ActionName")
+		#TODO: give these clearer names like input_a_button
 		var input_a = binding_item.find_child("InputA")
 		var input_b = binding_item.find_child("InputB")
-
 
 		label_action.text = editable_inputs[action]
 
 		# get array of inputs currently bound to this action
+		#TODO: probably rename this to 'events' for consistent wording
 		var inputs : Array[InputEvent] = InputMap.action_get_events(action)
 
 		if inputs.size() == 0:
@@ -60,33 +52,26 @@ func populate_list() -> void:
 
 func button_pressed(input_button : Button, action : StringName, index : int) -> void:
 	if Input.is_action_just_released("remove_input"):
-		remove_input(action,index)
+		var events = InputMap.action_get_events(action)
+		InputMap.action_erase_event(action, events[index])
+		Settings.save_settings()
 		input_button.text = "-"
 	else:
 		button_to_change = input_button
-		action_input_to_change = InputMap.action_get_events(action)[index]
+		current_action = action
+		current_index = index
 		changing_input = true
-
-
-func remove_input(action : StringName, index : int) -> void:
-	InputMap.action_get_events(action)[index].physical_keycode = Key.KEY_NONE
-	InputMap.action_get_events(action)[index].keycode = Key.KEY_NONE
-
-
-func add_input(action : StringName, index : int) -> void:
-	var action_inputs = InputMap.action_get_events(action)[index]
-	#if action_inputs.size > index:
-		
-	#else:
-		
 
 
 func _input(event : InputEvent) -> void:
 	if changing_input:
 		if event is InputEventKey:
 			button_to_change.text = event.as_text_keycode()
-			action_input_to_change.keycode = event.keycode
-			action_input_to_change.physical_keycode = event.keycode
+
+			Settings.update_binding(current_action, current_index, event)
+
 			button_to_change = null
-			action_input_to_change = null
+
+			#TODO: stop this from causing crashes if player
+			# exits menu during binding
 			changing_input = false

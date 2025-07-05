@@ -4,6 +4,12 @@ extends Node
 var config : ConfigFile = ConfigFile.new()
 
 # input
+
+# TODO: maybe make these keys StringNames by prefixing '&' before quotes
+# e.g. &"move_left" - i think this might make things faster since i think
+# its converting these to StringNames down the line when update_binding is called
+# since input map action names are StringNames (while these dictionary keys are
+# just strings) I DOUBT THIS MATTERS MUCH FOR PERFORMANCE THO LOL
 var editable_inputs : Dictionary = {
 	"move_left" : "Left",
 	"move_right" : "Right",
@@ -65,15 +71,47 @@ func save_settings() -> void:
 
 
 func load_bindings() -> void:
-	pass
+	for action in editable_inputs.keys():
+		# TODO: maybe make the fallback something better than an empty string
+
+		# OR MAYBE NOT, since default binds are in the project settings, so
+		# maybe binds dont need proper fallbacks like other settings
+		var physical_key_codes = config.get_value("input", action, [])
+
+		if physical_key_codes.size() > 0:
+			InputMap.action_erase_events(action)
+
+			for code in physical_key_codes:
+				var event = InputEventKey.new()
+				event.physical_keycode = code
+				InputMap.action_add_event(action, event)
 
 
-func update_binding() -> void:
+func update_binding(action : StringName, index : int, new_event : InputEvent) -> void:
+	# get current events for this action
+	var events = InputMap.action_get_events(action)
+
+	# erase the event at the index of our new event
+	InputMap.action_erase_event(action, events[index])
+
+	# overwrite the event with our new event
+	InputMap.action_add_event(action, new_event)
+
 	save_settings()
 
 
 func save_bindings() -> void:
-	pass
+	for action in editable_inputs.keys():
+		var events = InputMap.action_get_events(action)
+		var physical_key_codes : Array = []
+
+		for event in events:
+			if event is InputEventKey:
+				physical_key_codes.append(event.physical_keycode)
+
+		# TODO: make these save as more user-readable values like key names
+		# instead of the physical keycodes (maybe a later optimisation lol)
+		config.set_value("input", action, physical_key_codes)
 
 
 func apply_fullscreen(enabled : bool) -> void:
