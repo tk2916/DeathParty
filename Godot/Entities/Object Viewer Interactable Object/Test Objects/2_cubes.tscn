@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b13vpvjb7tpsp"]
+
+[ext_resource type="PackedScene" uid="uid://i6i8dlaue8xb" path="res://Entities/Object Viewer Interactable Object/object_viewer_interactable.tscn" id="1_18g0c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nmg75"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_atylx"]
+
+[node name="2 Cubes" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nmg75")
+
+[node name="Object Viewer Interactable" parent="MeshInstance3D" instance=ExtResource("1_18g0c")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Object Viewer Interactable"]
+shape = SubResource("BoxShape3D_atylx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0.259959, -0.549151)
+mesh = SubResource("BoxMesh_nmg75")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.842)
