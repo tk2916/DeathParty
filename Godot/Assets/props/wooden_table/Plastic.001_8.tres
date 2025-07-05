@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://clh0th02hvrfu"]
+
+[ext_resource type="Texture2D" uid="uid://4cbg4ql10r1d" path="res://Assets/props/wooden_table/wood table_Plastic_1.png" id="1_bi8j8"]
+[ext_resource type="Texture2D" uid="uid://bev6mk6334slq" path="res://Assets/props/wooden_table/wood table_Plastic_2.png" id="2_nx1nq"]
+[ext_resource type="Texture2D" uid="uid://chj8b7xjhfpsl" path="res://Assets/props/wooden_table/wood table_Plastic.png" id="3_1gojl"]
+
+[resource]
+resource_name = "Plastic.001_8"
+cull_mode = 2
+albedo_texture = ExtResource("1_bi8j8")
+metallic = 0.127273
+metallic_texture = ExtResource("2_nx1nq")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_nx1nq")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_1gojl")
+texture_filter = 5
