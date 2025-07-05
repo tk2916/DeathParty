@@ -136,3 +136,4 @@ remove_input={
 
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+textures/default_filters/anisotropic_filtering_level=4
