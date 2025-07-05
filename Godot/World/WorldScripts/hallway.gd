@@ -30,13 +30,15 @@ func _calculate_progress_ratio(pos: Vector3) -> void:
 	
 	var player_LR_value: float = compress_vector3(pos * basis.x)
 	
-	var player_progress_ratio = (player_LR_value-leftmost_value) / (rightmost_value - leftmost_value)
+	var player_progress_ratio: float = (player_LR_value-leftmost_value) / (rightmost_value - leftmost_value)
 	
 	path_follow_node.progress_ratio = player_progress_ratio
 	
 	if has_overlapping_bodies():
 		var player_body: Node3D = get_overlapping_bodies().front()
-		path_follow_node.look_at(player_body.position + Vector3(0,1.2,0))
+		#path_follow_node.look_at(player_body.position + Vector3(0,1.2,0)) # Look at player
+		var look_straight: Vector3 = Vector3(player_body.position.x, path_follow_node.position.y, player_body.position.z)
+		path_follow_node.look_at(look_straight) # Look straight ahead
 
 ## @param vec - Vector3, assumes that one coordinate has a value and the others are zero
 func compress_vector3(vec: Vector3) -> float:
