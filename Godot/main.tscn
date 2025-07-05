@@ -501,12 +501,13 @@ json_file = ExtResource("27_a6jrf")
 json_file2 = ExtResource("27_xuqvo")
 
 [node name="PolaroidCamera" parent="." instance=ExtResource("33_jq2sk")]
+visible = false
 
 [node name="QuestionMark" type="TextureRect" parent="."]
-offset_left = 235.0
-offset_top = 337.0
-offset_right = 355.0
-offset_bottom = 433.0
+offset_left = 798.0
+offset_top = 347.0
+offset_right = 918.0
+offset_bottom = 443.0
 scale = Vector2(0.456581, 0.487388)
 texture = ExtResource("34_4k2k6")
 expand_mode = 1
