@@ -62,6 +62,9 @@ func move_to_foreground(body: Node3D) -> Vector3:
 	
 	return new_position
 
+func rotate_player(body: Node3D) -> void:
+	body.transform.basis = Basis.looking_at(basis.z, basis.y, true)
+
 ## These functions should be defined in the extended script
 #func _on_body_entered(_body: Node3D) -> void:
 	#GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)

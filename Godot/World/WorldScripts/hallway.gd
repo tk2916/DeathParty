@@ -17,8 +17,7 @@ func _on_body_entered(body: Node3D) -> void:
 	GlobalCameraScript.camera_on_player.emit(false)
 	
 	GlobalCameraScript.bind_camera_path.emit(path_follow_node)
-	
-	body.transform.basis = Basis.looking_at(basis.z, basis.y, true)
+	rotate_player(body)
 	# teleport player into foreground
 	body.global_position = move_to_foreground(body)
 
