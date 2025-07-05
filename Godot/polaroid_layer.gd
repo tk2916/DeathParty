@@ -25,13 +25,11 @@ func _process(delta):
 		$PictureExample/ViewFinder.position.y = 0
 	if	$PictureExample/ViewFinder.position.y > 328:
 		$PictureExample/ViewFinder.position.y = 328
-	
 
-
-
+#when picture indicator is pressed, player enters polaroid scene
+func _on_questionbutton_pressed() -> void:
+	visible=true	
+#when player shoots the picture, the image dissapears 
 func _on_shoot_pressed() -> void:
 	visible=false
-
-
-func _on_questionbutton_pressed() -> void:
-	visible=true
+	

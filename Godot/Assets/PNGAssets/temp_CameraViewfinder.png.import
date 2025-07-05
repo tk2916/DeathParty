@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d16vdeadxk8ym"
-path="res://.godot/imported/CameraViewfinder.png-f92e22b0aa2e8a06feb2f07dbbefada8.ctex"
+path="res://.godot/imported/temp_CameraViewfinder.png-6e791ed015ffb3dd0cb9a484608f462e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PNGAssets/CameraViewfinder.png"
-dest_files=["res://.godot/imported/CameraViewfinder.png-f92e22b0aa2e8a06feb2f07dbbefada8.ctex"]
+source_file="res://Assets/PNGAssets/temp_CameraViewfinder.png"
+dest_files=["res://.godot/imported/temp_CameraViewfinder.png-6e791ed015ffb3dd0cb9a484608f462e.ctex"]
 
 [params]
 
