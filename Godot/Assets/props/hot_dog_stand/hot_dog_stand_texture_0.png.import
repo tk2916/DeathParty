@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://olv7f7dv7vhd"
-path.s3tc="res://.godot/imported/Hot Dog Stand_texture_0.png-c9fb0f14f48d1154dfd067c5049ea462.s3tc.ctex"
-path.etc2="res://.godot/imported/Hot Dog Stand_texture_0.png-c9fb0f14f48d1154dfd067c5049ea462.etc2.ctex"
+uid="uid://bu3261iv16ba0"
+path.s3tc="res://.godot/imported/hot_dog_stand_texture_0.png-e675e06b27a84367d1a295c8599b35e1.s3tc.ctex"
+path.etc2="res://.godot/imported/hot_dog_stand_texture_0.png-e675e06b27a84367d1a295c8599b35e1.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/props/Hot Dog Stand/Hot Dog Stand_texture_0.png"
-dest_files=["res://.godot/imported/Hot Dog Stand_texture_0.png-c9fb0f14f48d1154dfd067c5049ea462.s3tc.ctex", "res://.godot/imported/Hot Dog Stand_texture_0.png-c9fb0f14f48d1154dfd067c5049ea462.etc2.ctex"]
+source_file="res://Assets/props/hot_dog_stand/hot_dog_stand_texture_0.png"
+dest_files=["res://.godot/imported/hot_dog_stand_texture_0.png-e675e06b27a84367d1a295c8599b35e1.s3tc.ctex", "res://.godot/imported/hot_dog_stand_texture_0.png-e675e06b27a84367d1a295c8599b35e1.etc2.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c1nd01uwlqaij"]
 
-[ext_resource type="PackedScene" uid="uid://8pl4qpktu1pb" path="res://Assets/CharacterAssets/Drug Dealer/drug_dealer.glb" id="1_t4org"]
+[ext_resource type="PackedScene" uid="uid://8pl4qpktu1pb" path="res://Assets/CharacterAssets/drug_dealer/drug_dealer.glb" id="1_t4org"]
 
 [node name="drug_dealer" instance=ExtResource("1_t4org")]
 

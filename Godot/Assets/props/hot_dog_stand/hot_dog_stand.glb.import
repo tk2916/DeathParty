@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c75vy0mpx33of"
-path="res://.godot/imported/Hot Dog Stand.glb-7130319537920a175f01bf88121de11c.scn"
+path="res://.godot/imported/hot_dog_stand.glb-b7825533b685a32492e602e553f40108.scn"
 
 [deps]
 
-source_file="res://Assets/props/Hot Dog Stand/Hot Dog Stand.glb"
-dest_files=["res://.godot/imported/Hot Dog Stand.glb-7130319537920a175f01bf88121de11c.scn"]
+source_file="res://Assets/props/hot_dog_stand/hot_dog_stand.glb"
+dest_files=["res://.godot/imported/hot_dog_stand.glb-b7825533b685a32492e602e553f40108.scn"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://k2lials66bx8"
-path.s3tc="res://.godot/imported/drug_dealer_texture_0.png-ecc59fc73e5296264f4310c0b9829d3f.s3tc.ctex"
-path.etc2="res://.godot/imported/drug_dealer_texture_0.png-ecc59fc73e5296264f4310c0b9829d3f.etc2.ctex"
+path.s3tc="res://.godot/imported/drug_dealer_texture_0.png-8cbbdcd2f64f335f32414931c50fedbd.s3tc.ctex"
+path.etc2="res://.godot/imported/drug_dealer_texture_0.png-8cbbdcd2f64f335f32414931c50fedbd.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Drug Dealer/drug_dealer_texture_0.png"
-dest_files=["res://.godot/imported/drug_dealer_texture_0.png-ecc59fc73e5296264f4310c0b9829d3f.s3tc.ctex", "res://.godot/imported/drug_dealer_texture_0.png-ecc59fc73e5296264f4310c0b9829d3f.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/drug_dealer/drug_dealer_texture_0.png"
+dest_files=["res://.godot/imported/drug_dealer_texture_0.png-8cbbdcd2f64f335f32414931c50fedbd.s3tc.ctex", "res://.godot/imported/drug_dealer_texture_0.png-8cbbdcd2f64f335f32414931c50fedbd.etc2.ctex"]
 
 [params]
 

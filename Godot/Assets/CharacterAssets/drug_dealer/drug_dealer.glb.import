@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://8pl4qpktu1pb"
-path="res://.godot/imported/drug_dealer.glb-b8da6bf31968f01a3ce0b0fcfcdfa466.scn"
+path="res://.godot/imported/drug_dealer.glb-9b9ec782346a2aa9b6c9a7037758951d.scn"
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Drug Dealer/drug_dealer.glb"
-dest_files=["res://.godot/imported/drug_dealer.glb-b8da6bf31968f01a3ce0b0fcfcdfa466.scn"]
+source_file="res://Assets/CharacterAssets/drug_dealer/drug_dealer.glb"
+dest_files=["res://.godot/imported/drug_dealer.glb-9b9ec782346a2aa9b6c9a7037758951d.scn"]
 
 [params]
 
