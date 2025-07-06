@@ -140,6 +140,7 @@ theme = ExtResource("2_n4gta")
 text = "FPS Limit"
 
 [node name="FPSContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer"]
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_n4gta")
@@ -159,6 +160,7 @@ tick_count = 9
 [node name="FPSSpinBox" type="SpinBox" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer"]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
