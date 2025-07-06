@@ -22,12 +22,13 @@ var editable_inputs : Dictionary = {
 var fullscreen : int = 0
 var monitor : int = 0
 var vsync : int = 2
-var scale : float = 1
+var scale : float = 1.0
 var upscale : int = 0
 var sharpness : float = 0.2
 var fps : float = 0.0
 var filtering : int = 3
 var aa : int = 4
+var shadows : int = 3
 
 # audio
 var volume : float = 50
@@ -76,6 +77,9 @@ func _ready() -> void:
 		
 		aa = config.get_value("video", "aa", aa)
 		apply_aa(aa)
+		
+		shadows = config.get_value("video", "shadows", shadows)
+		apply_shadows(shadows)
 
 		# audio
 		volume = config.get_value("audio", "volume", volume)
@@ -103,6 +107,7 @@ func save_settings() -> void:
 
 	config.set_value("video", "filtering", filtering)
 	config.set_value("video", "aa", aa)
+	config.set_value("video", "shadows", shadows)
 
 	# audio
 	config.set_value("audio", "volume", volume)
@@ -289,6 +294,60 @@ func apply_aa(mode : int) -> void:
 func set_aa(mode : int) -> void:
 	aa = mode
 	apply_aa(aa)
+	save_settings()
+
+
+func apply_shadows(level : int) -> void:
+	if level == 0: # Very Low
+		# Shadow size
+		RenderingServer.directional_shadow_atlas_set_size(1024, true)
+		#directional_light.shadow_bias = 0.04
+		get_viewport().positional_shadow_atlas_size = 1024
+		
+		# Shadow filtering
+		RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_HARD)
+		RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_HARD)
+	elif level == 1: # Low
+		# Shadow size
+		RenderingServer.directional_shadow_atlas_set_size(2048, true)
+		#directional_light.shadow_bias = 0.03
+		get_viewport().positional_shadow_atlas_size = 2048
+		
+		# Shadow filtering
+		RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_LOW)
+		RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_LOW)
+	elif level == 2: # Medium
+		# Shadow size
+		RenderingServer.directional_shadow_atlas_set_size(4096, true)
+		#directional_light.shadow_bias = 0.02
+		get_viewport().positional_shadow_atlas_size = 4096
+		
+		# Shadow filtering
+		RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_MEDIUM)
+		RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_MEDIUM)
+	elif level == 3: # High
+		# Shadow size
+		RenderingServer.directional_shadow_atlas_set_size(8192, true)
+		#directional_light.shadow_bias = 0.01
+		get_viewport().positional_shadow_atlas_size = 8192
+		
+		# Shadow filtering
+		RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_HIGH)
+		RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_HIGH)
+	elif level == 4: # Ultra
+		# Shadow size
+		RenderingServer.directional_shadow_atlas_set_size(16384, true)
+		#directional_light.shadow_bias = 0.005
+		get_viewport().positional_shadow_atlas_size = 16384
+		
+		# Shadow filtering
+		RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)
+		RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)
+
+
+func set_shadows(level : int) -> void:
+	shadows = level
+	apply_shadows(shadows)
 	save_settings()
 
 

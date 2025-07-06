@@ -306,6 +306,32 @@ popup/item_4/id = 4
 popup/item_5/text = "MSAA 8x"
 popup/item_5/id = 5
 
+[node name="ShadowSizeLabel" type="Label" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_n4gta")
+text = "Shadow Quality"
+
+[node name="ShadowSizeOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer" groups=["buttons"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../FilteringOptionButton")
+theme = ExtResource("2_n4gta")
+alignment = 1
+expand_icon = true
+item_count = 5
+popup/item_0/text = "Very Low"
+popup/item_0/id = 0
+popup/item_1/text = "Low"
+popup/item_1/id = 1
+popup/item_2/text = "Medium"
+popup/item_2/id = 2
+popup/item_3/text = "High"
+popup/item_3/id = 3
+popup/item_4/text = "Ultra"
+popup/item_4/id = 4
+
 [connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/MonitorOptionButton" to="." method="_on_monitor_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/VSyncOptionButton" to="." method="_on_v_sync_option_button_item_selected"]
@@ -320,3 +346,4 @@ popup/item_5/id = 5
 [connection signal="value_changed" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/FPSContainer/FPSSpinBox" to="." method="_on_fps_spin_box_value_changed"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer/FilteringOptionButton" to="." method="_on_filtering_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer/AAOptionButton" to="." method="_on_aa_option_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer/ShadowSizeOptionButton" to="." method="_on_shadow_size_option_button_item_selected"]

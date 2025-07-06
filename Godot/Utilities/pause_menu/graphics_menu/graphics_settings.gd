@@ -20,6 +20,7 @@ extends Control
 
 @onready var filtering_option_button : OptionButton = %FilteringOptionButton
 @onready var aa_option_button : OptionButton = %AAOptionButton
+@onready var shadow_size_option_button : OptionButton = %ShadowSizeOptionButton
 
 var last_monitor_count : int
 
@@ -41,6 +42,7 @@ func _ready() -> void:
 
 	filtering_option_button.selected = Settings.filtering
 	aa_option_button.selected = Settings.aa
+	shadow_size_option_button.selected = Settings.shadows
 	
 	set_monitor_options()
 
@@ -168,3 +170,7 @@ func _on_filtering_option_button_item_selected(index: int) -> void:
 
 func _on_aa_option_button_item_selected(index: int) -> void:
 	Settings.set_aa(index)
+
+
+func _on_shadow_size_option_button_item_selected(index: int) -> void:
+	Settings.set_shadows(index)
