@@ -82,23 +82,23 @@ func _on_fps_slider_value_changed(value: float) -> void:
 
 func _on_fps_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
-		fps_slider.value = clamp_fps_value(fps_slider.value)
+		#fps_slider.value = clamp_fps_value(fps_slider.value)
 		fps_spin_box.value = fps_slider.value
 		hide_or_show_fps_limit_label(fps_slider.value)
-		Settings.set_fps(fps_slider.value)
+		Settings.set_fps(clamp_fps_value(fps_slider.value))
 
 
 func _on_fps_spin_box_value_changed(value: float) -> void:
 	if !fps_slider.has_focus():
-		fps_spin_box.value = clamp_fps_value(value)
+		#fps_spin_box.value = clamp_fps_value(value)
 		hide_or_show_fps_limit_label(fps_spin_box.value)
 		fps_slider.value = fps_spin_box.value
-		Settings.set_fps(fps_spin_box.value)
+		Settings.set_fps(clamp_fps_value(fps_spin_box.value))
 
 
 func clamp_fps_value(value: float) -> float:
-	if value > 0 && value < 10:
-		return 10
+	if value > 0 && value < 20:
+		return 20
 	return value
 
 
