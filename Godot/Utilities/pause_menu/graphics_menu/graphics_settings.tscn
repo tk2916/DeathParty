@@ -72,3 +72,4 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [connection signal="item_selected" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/MonitorOptionButton" to="." method="_on_monitor_option_button_item_selected"]
