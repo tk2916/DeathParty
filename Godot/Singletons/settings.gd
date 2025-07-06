@@ -86,6 +86,7 @@ func save_settings() -> void:
 	config.set_value("video", "scale", scale)
 	config.set_value("video", "vsync", vsync)
 	config.set_value("video", "fps", fps)
+	config.set_value("video", "filtering", filtering)
 
 	# audio
 	config.set_value("audio", "volume", volume)
