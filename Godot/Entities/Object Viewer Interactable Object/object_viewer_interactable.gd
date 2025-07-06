@@ -31,7 +31,7 @@ func _mouse_exit() -> void:
 func _input(event) -> void:
 	#When the mouse moves if the button is clicked moves the item relative to the mouse movement
 	if pressed and event is InputEventMouseMotion:
-		if active_item != null and mouse_in_object:
+		if active_item != null:
 			#NOTE: Rotation a bit sensitive, might want to try some manipulating
 			active_item.rotate_x(event.relative.y * 0.005)
 			active_item.rotate_y(event.relative.x * 0.005)
@@ -41,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta : float) -> void:
 	#TODO: Change this into an actual input 
-	if Input.is_action_just_pressed("dialogic_default_action"):
+	if Input.is_action_just_pressed("dialogic_default_action") and mouse_in_object:
 		pressed = true
 	if Input.is_action_just_released("dialogic_default_action"):
 		pressed = false
