@@ -9,6 +9,10 @@ extends Control
 @onready var scale_label : Label = %ScaleLabel
 
 @onready var upscale_option_button : OptionButton = %UpscaleOptionButton
+@onready var sharpness_label : Label = %SharpnessLabel
+@onready var sharpness_container : Container = %SharpnessContainer
+@onready var sharpness_slider : HSlider = %SharpnessSlider
+@onready var sharpness_spin_box : SpinBox = %SharpnessSpinBox
 
 @onready var fps_slider : HSlider = %FPSSlider
 @onready var fps_spin_box : SpinBox = %FPSSpinBox
@@ -26,7 +30,11 @@ func _ready() -> void:
 	
 	scale_slider.value = Settings.scale
 	upscale_option_button.selected = Settings.upscale
-
+	
+	sharpness_slider.value = Settings.sharpness
+	sharpness_spin_box.value = sharpness_slider.value
+	hide_or_show_fsr_sharpness(upscale_option_button.selected)
+	
 	fps_slider.value = Settings.fps
 	fps_spin_box.value = fps_slider.value
 	hide_or_show_fps_limit_label(fps_spin_box.value)
@@ -80,7 +88,38 @@ func _on_scale_slider_drag_ended(value_changed: bool) -> void:
 
 
 func _on_upscale_option_button_item_selected(index: int) -> void:
+	hide_or_show_fsr_sharpness(index)
 	Settings.set_upscale(index)
+
+
+func _on_sharpness_slider_value_changed(value: float) -> void:
+	if sharpness_slider.has_focus():
+		sharpness_spin_box.value = value
+
+
+func _on_sharpness_slider_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		sharpness_spin_box.value = sharpness_slider.value
+		Settings.set_sharpness(sharpness_spin_box.value)
+
+
+func _on_sharpness_spin_box_value_changed(value: float) -> void:
+	if !sharpness_slider.has_focus():
+		sharpness_slider.value = value
+		Settings.set_sharpness(sharpness_spin_box.value)
+
+
+func hide_or_show_fsr_sharpness(mode: int) -> void:
+	if mode > 0:
+		sharpness_label.visible = true
+		sharpness_container.visible = true
+		#sharpness_slider.editable = true
+		#sharpness_spin_box.editable = true
+	else:
+		sharpness_label.visible = false
+		sharpness_container.visible = false
+		#sharpness_slider.editable = false
+		#sharpness_spin_box.editable = false
 
 
 func _on_fps_slider_value_changed(value: float) -> void:

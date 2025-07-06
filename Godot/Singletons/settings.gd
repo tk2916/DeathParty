@@ -24,9 +24,10 @@ var monitor : int = 0
 var vsync : int = 2
 var scale : float = 1
 var upscale : int = 0
+var sharpness : float = 0.2
 var fps : float = 0.0
-var filtering : int = 2
-var aa : int = 5
+var filtering : int = 3
+var aa : int = 4
 
 # audio
 var volume : float = 50
@@ -64,6 +65,9 @@ func _ready() -> void:
 		upscale = config.get_value("video", "upscale", upscale)
 		apply_upscale(upscale)
 		
+		sharpness = config.get_value("video", "sharpness", sharpness)
+		apply_sharpness(sharpness)
+		
 		fps = config.get_value("video", "fps", fps)
 		apply_fps(fps)
 		
@@ -93,6 +97,7 @@ func save_settings() -> void:
 	config.set_value("video", "fullscreen", fullscreen)
 	config.set_value("video", "scale", scale)
 	config.set_value("video", "upscale", upscale)
+	config.set_value("video", "sharpness", sharpness)
 	config.set_value("video", "vsync", vsync)
 	config.set_value("video", "fps", fps)
 
@@ -216,6 +221,16 @@ func apply_upscale(mode : int) -> void:
 func set_upscale(mode : int) -> void:
 	upscale = mode
 	apply_upscale(upscale)
+	save_settings()
+
+
+func apply_sharpness(value : float) -> void:
+	get_viewport().fsr_sharpness = 2.0 - value
+
+
+func set_sharpness(value : float) -> void:
+	sharpness = value
+	apply_sharpness(sharpness)
 	save_settings()
 
 
