@@ -57,6 +57,10 @@ func _on_monitor_option_button_item_selected(index: int) -> void:
 	set_monitor_options()
 
 
+func _on_v_sync_option_button_item_selected(index: int) -> void:
+	Settings.set_vsync(index)
+
+
 func _on_scale_slider_value_changed(value: float) -> void:
 	scale_label.text = "%d%%" % (value * 100)
 

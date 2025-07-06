@@ -236,6 +236,7 @@ popup/item_6/id = 6
 
 [connection signal="item_selected" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/MonitorOptionButton" to="." method="_on_monitor_option_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/VSyncOptionButton" to="." method="_on_v_sync_option_button_item_selected"]
 [connection signal="drag_ended" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_drag_ended"]
 [connection signal="value_changed" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
 [connection signal="drag_ended" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer/FPSSlider" to="." method="_on_fps_slider_drag_ended"]
