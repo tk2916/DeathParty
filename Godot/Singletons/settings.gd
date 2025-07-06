@@ -24,6 +24,7 @@ var monitor : int = 0
 var vsync : int = 2
 var scale : float = 100.0
 var fps : float = 0.0
+var filtering : int = 2
 
 # audio
 var volume : float = 50
@@ -60,6 +61,9 @@ func _ready() -> void:
 		
 		fps = config.get_value("video", "fps", fps)
 		apply_fps(fps)
+		
+		filtering = config.get_value("video", "filtering", filtering)
+		apply_filtering(filtering)
 
 		# audio
 		volume = config.get_value("audio", "volume", volume)
@@ -192,6 +196,26 @@ func apply_fps(cap : float) -> void:
 func set_fps(cap : float) -> void:
 	fps = cap
 	apply_fps(fps)
+	save_settings()
+
+
+func apply_filtering(mode : int) -> void:
+	match mode:
+		0:
+			get_viewport().set_anisotropic_filtering_level(Viewport.ANISOTROPY_DISABLED)
+		1:
+			get_viewport().set_anisotropic_filtering_level(Viewport.ANISOTROPY_2X)
+		2:
+			get_viewport().set_anisotropic_filtering_level(Viewport.ANISOTROPY_4X)
+		3:
+			get_viewport().set_anisotropic_filtering_level(Viewport.ANISOTROPY_8X)
+		4:
+			get_viewport().set_anisotropic_filtering_level(Viewport.ANISOTROPY_16X)
+
+
+func set_filtering(mode : int) -> void:
+	filtering = mode
+	apply_filtering(filtering)
 	save_settings()
 
 

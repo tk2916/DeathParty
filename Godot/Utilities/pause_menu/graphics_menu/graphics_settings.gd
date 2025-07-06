@@ -11,6 +11,8 @@ extends Control
 @onready var fps_slider : HSlider = %FPSSlider
 @onready var fps_label : Label = %FPSLabel
 
+@onready var filtering_option_button : OptionButton = %FilteringOptionButton
+
 var last_monitor_count : int
 
 
@@ -19,6 +21,7 @@ func _ready() -> void:
 	vsync_option_button.selected = Settings.vsync
 	scale_slider.value = Settings.scale
 	fps_slider.value = Settings.fps
+	filtering_option_button.selected = Settings.filtering
 	
 	set_monitor_options()
 
@@ -68,3 +71,7 @@ func _on_fps_slider_value_changed(value: float) -> void:
 func _on_fps_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		Settings.set_fps(fps_slider.value)
+
+
+func _on_filtering_option_button_item_selected(index: int) -> void:
+	Settings.set_filtering(index)
