@@ -309,7 +309,7 @@ popup/item_5/id = 5
 
 [node name="ShadowSizeLabel" type="Label" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "Shadow Quality"
 
 [node name="ShadowSizeOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer" groups=["buttons"]]
@@ -318,7 +318,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../FilteringOptionButton")
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 alignment = 1
 expand_icon = true
 item_count = 5
