@@ -90,7 +90,7 @@ func save_settings() -> void:
 	config.set_value("video", "scale", scale)
 	config.set_value("video", "vsync", vsync)
 	config.set_value("video", "fps", fps)
-	
+
 	config.set_value("video", "filtering", filtering)
 	config.set_value("video", "aa", aa)
 
@@ -227,34 +227,28 @@ func set_filtering(mode : int) -> void:
 
 
 func apply_aa(mode : int) -> void:
-	# Disable
+	# disable all the anti-aliasing solutions we DONT have selected
 	if mode < 4:
 		get_viewport().msaa_3d = Viewport.MSAA_DISABLED
-		
 	if mode != 1:
 		get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
-	
 	if mode != 2:
 		get_viewport().use_taa = false
-	
 	if mode != 3:
 		get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
-	
-	
-	# Enable
+
+	# enable the anti-aliasing solution we DO have selected
 	if mode == 4:
 		get_viewport().msaa_3d = Viewport.MSAA_2X
 	elif mode == 5:
 		get_viewport().msaa_3d = Viewport.MSAA_4X
 	elif mode == 6:
 		get_viewport().msaa_3d = Viewport.MSAA_8X
-	
+
 	if mode == 1:
 		get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
-	
 	if mode == 2:
 		get_viewport().use_taa = true
-	
 	if mode == 3:
 		get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
 
