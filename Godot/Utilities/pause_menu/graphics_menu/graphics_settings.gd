@@ -148,8 +148,8 @@ func _on_fps_spin_box_value_changed(value: float) -> void:
 
 
 func clamp_fps_value(value: float) -> float:
-	if value > 0 && value < 20:
-		return 20
+	if value > 0 && value < 30:
+		return 30
 	return value
 
 
