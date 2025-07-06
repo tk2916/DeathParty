@@ -24,17 +24,17 @@ extends CanvasLayer
 
 @onready var click_sound : FmodEventEmitter3D = %ClickSound
 
+
 func _ready() -> void:
 	volume_slider.value = Settings.volume
 
 	# connect pressed signal of all buttons in the scene to a func that plays ui sfx
-	
-	# NOTE: tried static typing here but i think it hurt readability more than
-	# it helped (since I THINK it shouldnt cause any problems if something that
-	# isnt a button ends up in the button group somehow)
 	for button in get_tree().get_nodes_in_group("buttons"):
 		if button is BaseButton:
 			button.pressed.connect(on_any_button_pressed)
+
+		if button is TabContainer:
+			button.tab_clicked.connect(func(tab : int): on_any_button_pressed())
 
 
 func _physics_process(_delta : float) -> void:
