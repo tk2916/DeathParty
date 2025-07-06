@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ica25dt1nph6"]
+[gd_scene load_steps=3 format=3 uid="uid://ica25dt1nph6"]
 
 [ext_resource type="Script" uid="uid://b50j0f2xuri76" path="res://Utilities/pause_menu/input_menu/input_rebinding_menu.gd" id="1_henyi"]
+[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="2_6fa2x"]
 
 [node name="InputRebinding" type="Control"]
 layout_mode = 3
@@ -31,10 +32,7 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme = ExtResource("2_6fa2x")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
