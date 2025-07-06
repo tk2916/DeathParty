@@ -32,29 +32,29 @@ size_flags_horizontal = 3
 theme = ExtResource("2_n4gta")
 current_tab = 0
 
-[node name="Video" type="ScrollContainer" parent="PanelContainer/TabContainer"]
+[node name="Display" type="ScrollContainer" parent="PanelContainer/TabContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TabContainer/Video"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TabContainer/Display"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_n4gta")
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/TabContainer/Video/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/TabContainer/Display/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 25
 columns = 2
 
-[node name="FullscreenLabel" type="Label" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer"]
+[node name="FullscreenLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_n4gta")
 text = "Window Mode "
 
-[node name="FullscreenOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer" groups=["buttons"]]
+[node name="FullscreenOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -72,23 +72,23 @@ popup/item_1/id = 1
 popup/item_2/text = "Fullscreen"
 popup/item_2/id = 2
 
-[node name="MonitorLabel" type="Label" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer"]
+[node name="MonitorLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_n4gta")
 text = "Monitor"
 
-[node name="MonitorOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer" groups=["buttons"]]
+[node name="MonitorOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../FullscreenOptionButton")
 focus_neighbor_bottom = NodePath("../VSyncOptionButton")
 
-[node name="VSyncLabel" type="Label" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer"]
+[node name="VSyncLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_n4gta")
 text = "Vertical Sync"
 
-[node name="VSyncOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer" groups=["buttons"]]
+[node name="VSyncOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../MonitorOptionButton")
@@ -101,17 +101,17 @@ popup/item_1/id = 1
 popup/item_2/text = "Enabled"
 popup/item_2/id = 2
 
-[node name="ScaleLabel" type="Label" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer"]
+[node name="ScaleLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_n4gta")
 text = "Render Scale"
 
-[node name="ScaleContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer"]
+[node name="ScaleContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_n4gta")
 
-[node name="ScaleSlider" type="HSlider" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/ScaleContainer"]
+[node name="ScaleSlider" type="HSlider" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/ScaleContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -127,25 +127,25 @@ scrollable = false
 tick_count = 8
 ticks_on_borders = true
 
-[node name="ScaleLabel" type="Label" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/ScaleContainer"]
+[node name="ScaleLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/ScaleContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "100%"
 horizontal_alignment = 2
 
-[node name="FPSLabel" type="Label" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer"]
+[node name="FPSLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_n4gta")
 text = "FPS Limit"
 
-[node name="FPSContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer"]
+[node name="FPSContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_n4gta")
 
-[node name="FPSSlider" type="HSlider" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer"]
+[node name="FPSSlider" type="HSlider" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/FPSContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -157,7 +157,7 @@ rounded = true
 scrollable = false
 tick_count = 9
 
-[node name="FPSSpinBox" type="SpinBox" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer"]
+[node name="FPSSpinBox" type="SpinBox" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/FPSContainer"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(110, 0)
@@ -168,7 +168,7 @@ theme = ExtResource("2_n4gta")
 max_value = 400.0
 rounded = true
 
-[node name="FPSLimitOffLabel" type="Label" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer"]
+[node name="FPSLimitOffLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/FPSContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
@@ -250,13 +250,13 @@ popup/item_5/id = 5
 popup/item_6/text = "MSAA 8x"
 popup/item_6/id = 6
 
-[connection signal="item_selected" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
-[connection signal="item_selected" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/MonitorOptionButton" to="." method="_on_monitor_option_button_item_selected"]
-[connection signal="item_selected" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/VSyncOptionButton" to="." method="_on_v_sync_option_button_item_selected"]
-[connection signal="drag_ended" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_drag_ended"]
-[connection signal="value_changed" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
-[connection signal="drag_ended" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer/FPSSlider" to="." method="_on_fps_slider_drag_ended"]
-[connection signal="value_changed" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer/FPSSlider" to="." method="_on_fps_slider_value_changed"]
-[connection signal="value_changed" from="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer/FPSSpinBox" to="." method="_on_fps_spin_box_value_changed"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/MonitorOptionButton" to="." method="_on_monitor_option_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/VSyncOptionButton" to="." method="_on_v_sync_option_button_item_selected"]
+[connection signal="drag_ended" from="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_drag_ended"]
+[connection signal="value_changed" from="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
+[connection signal="drag_ended" from="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/FPSContainer/FPSSlider" to="." method="_on_fps_slider_drag_ended"]
+[connection signal="value_changed" from="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/FPSContainer/FPSSlider" to="." method="_on_fps_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/TabContainer/Display/MarginContainer/GridContainer/FPSContainer/FPSSpinBox" to="." method="_on_fps_spin_box_value_changed"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer/FilteringOptionButton" to="." method="_on_filtering_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer/AAOptionButton" to="." method="_on_aa_option_button_item_selected"]

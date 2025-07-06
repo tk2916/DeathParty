@@ -73,7 +73,7 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../InputButton")
 focus_neighbor_bottom = NodePath("../VolumeSlider")
 theme = ExtResource("2_qpukh")
-text = "graphics"
+text = "video"
 
 [node name="VolumeText" type="Label" parent="MarginContainer/SettingsMenu"]
 layout_mode = 2
