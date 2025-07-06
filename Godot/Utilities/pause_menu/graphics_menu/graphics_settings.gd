@@ -11,8 +11,10 @@ var last_monitor_count : int
 
 func _ready() -> void:
 	fullscreen_option_button.selected = Settings.fullscreen
+	scale_slider.value = Settings.scale
 	
 	set_monitor_options()
+
 
 func _process(_delta: float) -> void:
 	if DisplayServer.get_screen_count() != last_monitor_count:
@@ -23,7 +25,7 @@ func set_monitor_options() -> void:
 	monitor_option_button.clear()
 	
 	last_monitor_count = DisplayServer.get_screen_count()
-	var select_i = 0
+	var select_i : int = 0
 	for i in range(last_monitor_count):
 		var is_current := ""
 		if i == DisplayServer.window_get_current_screen():
@@ -39,13 +41,14 @@ func _on_fullscreen_option_button_item_selected(value : int) -> void:
 
 
 func _on_monitor_option_button_item_selected(index: int) -> void:
-	DisplayServer.window_set_current_screen(index)
+	Settings.set_monitor(index)
 	set_monitor_options()
 
 
 func _on_scale_slider_value_changed(value: float) -> void:
-	scale_label.text = "%d%%" % value
+	scale_label.text = "%d%%" % (value * 100)
 
 
 func _on_scale_slider_drag_ended(value_changed: bool) -> void:
-	get_viewport().scaling_3d_scale = scale_slider.value / 100
+	if value_changed:
+		Settings.set_scale(scale_slider.value)

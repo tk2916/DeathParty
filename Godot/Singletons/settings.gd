@@ -20,6 +20,8 @@ var editable_inputs : Dictionary = {
 
 # video
 var fullscreen : int = 0
+var monitor : int = 0
+var scale : float = 100.0
 
 # audio
 var volume : float = 50
@@ -44,6 +46,12 @@ func _ready() -> void:
 		# video
 		fullscreen = config.get_value("video", "fullscreen", fullscreen)
 		apply_fullscreen(fullscreen)
+		
+		monitor = config.get_value("video", "monitor", monitor)
+		apply_monitor(monitor)
+		
+		scale = config.get_value("video", "scale", scale)
+		apply_scale(scale)
 
 		# audio
 		volume = config.get_value("audio", "volume", volume)
@@ -63,6 +71,7 @@ func save_settings() -> void:
 
 	# video
 	config.set_value("video", "fullscreen", fullscreen)
+	config.set_value("video", "scale", scale)
 
 	# audio
 	config.set_value("audio", "volume", volume)
@@ -127,6 +136,26 @@ func apply_fullscreen(mode : int) -> void:
 func set_fullscreen(mode : int) -> void:
 	fullscreen = mode
 	apply_fullscreen(fullscreen)
+	save_settings()
+
+
+func apply_monitor(screen : int) -> void:
+	DisplayServer.window_set_current_screen(screen)
+
+
+func set_monitor(screen : int) -> void:
+	monitor = screen
+	apply_monitor(monitor)
+	save_settings()
+
+
+func apply_scale(value : float) -> void:
+	get_viewport().scaling_3d_scale = value
+
+
+func set_scale(value : float) -> void:
+	scale = value
+	apply_scale(scale)
 	save_settings()
 
 
