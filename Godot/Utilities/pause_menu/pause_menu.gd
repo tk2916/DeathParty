@@ -11,30 +11,30 @@ extends CanvasLayer
 @onready var volume_slider : HSlider = %VolumeSlider
 @onready var volume_number : Label = %VolumeNumber
 @onready var input_button: Button = %InputButton
-@onready var graphics_button: Button = %GraphicsButton
+@onready var video_button: Button = %VideoButton
 
 @onready var input_menu : VBoxContainer = %InputMenu
 @onready var input_back_button : Button = %InputBackButton
 
-@onready var graphics_menu : VBoxContainer = %GraphicsMenu
-@onready var graphics_back_button : Button = %GraphicsBackButton
+@onready var video_menu : VBoxContainer = %VideoMenu
+@onready var video_back_button : Button = %VideoBackButton
 
 @onready var quit_menu : VBoxContainer = %QuitMenu
 @onready var yes_quit_button : Button = %YesQuitButton
 
 @onready var click_sound : FmodEventEmitter3D = %ClickSound
 
+
 func _ready() -> void:
 	volume_slider.value = Settings.volume
 
 	# connect pressed signal of all buttons in the scene to a func that plays ui sfx
-	
-	# NOTE: tried static typing here but i think it hurt readability more than
-	# it helped (since I THINK it shouldnt cause any problems if something that
-	# isnt a button ends up in the button group somehow)
 	for button in get_tree().get_nodes_in_group("buttons"):
 		if button is BaseButton:
 			button.pressed.connect(on_any_button_pressed)
+
+		if button is TabContainer:
+			button.tab_clicked.connect(func(tab : int): on_any_button_pressed())
 
 
 func _physics_process(_delta : float) -> void:
@@ -49,10 +49,10 @@ func _physics_process(_delta : float) -> void:
 			settings_menu.show()
 			input_button.grab_focus()
 
-		elif graphics_menu.visible:
-			graphics_menu.hide()
+		elif video_menu.visible:
+			video_menu.hide()
 			settings_menu.show()
-			graphics_button.grab_focus()
+			video_button.grab_focus()
 
 		elif quit_menu.visible:
 			quit_menu.hide()
@@ -96,10 +96,10 @@ func _on_input_button_pressed() -> void:
 	input_back_button.grab_focus()
 
 
-func _on_graphics_button_pressed() -> void:
+func _on_video_button_pressed() -> void:
 	settings_menu.hide()
-	graphics_menu.show()
-	graphics_back_button.grab_focus()
+	video_menu.show()
+	video_back_button.grab_focus()
 
 
 func _on_volume_slider_value_changed(value : float) -> void:
@@ -130,10 +130,10 @@ func _on_input_back_button_pressed() -> void:
 	input_button.grab_focus()
 
 
-func _on_graphics_back_button_pressed() -> void:
-	graphics_menu.hide()
+func _on_video_back_button_pressed() -> void:
+	video_menu.hide()
 	settings_menu.show()
-	graphics_button.grab_focus()
+	video_button.grab_focus()
 
 
 func _on_quit_button_pressed() -> void:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7mfbhjbnelg1"]
 
-[ext_resource type="Script" uid="uid://ctx1sho6q6vom" path="res://Utilities/pause_menu/graphics_menu/graphics_settings.gd" id="1_lylex"]
-[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="2_n4gta"]
+[ext_resource type="Script" uid="uid://ctx1sho6q6vom" path="res://Utilities/pause_menu/video_menu/video_settings.gd" id="1_gs30i"]
+[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="2_e2l73"]
 
 [node name="GraphicsSettings" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lylex")
+script = ExtResource("1_gs30i")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -29,7 +29,7 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="PanelContainer" groups=["buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 current_tab = 0
 
 [node name="Display" type="ScrollContainer" parent="PanelContainer/TabContainer"]
@@ -41,7 +41,7 @@ metadata/_tab_index = 0
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TabContainer/Display"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 
 [node name="DisplayGridContainer" type="GridContainer" parent="PanelContainer/TabContainer/Display/MarginContainer"]
 unique_name_in_owner = true
@@ -52,7 +52,7 @@ columns = 2
 
 [node name="FullscreenLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "Window Mode "
 
 [node name="FullscreenOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer" groups=["buttons"]]
@@ -62,7 +62,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../../..")
 focus_neighbor_bottom = NodePath("../MonitorOptionButton")
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 alignment = 1
 expand_icon = true
 item_count = 3
@@ -75,7 +75,7 @@ popup/item_2/id = 2
 
 [node name="MonitorLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "Monitor"
 
 [node name="MonitorOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer" groups=["buttons"]]
@@ -86,7 +86,7 @@ focus_neighbor_bottom = NodePath("../VSyncOptionButton")
 
 [node name="VSyncLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "Vertical Sync"
 
 [node name="VSyncOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer" groups=["buttons"]]
@@ -104,13 +104,13 @@ popup/item_2/id = 2
 
 [node name="ScaleLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "Render Scale"
 
 [node name="ScaleContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 
 [node name="ScaleSlider" type="HSlider" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/ScaleContainer"]
 unique_name_in_owner = true
@@ -118,8 +118,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 focus_neighbor_top = NodePath("../../VSyncOptionButton")
-focus_neighbor_bottom = NodePath("../../FPSContainer/FPSSlider")
-theme = ExtResource("2_n4gta")
+focus_neighbor_bottom = NodePath("../../UpscaleOptionButton")
+theme = ExtResource("2_e2l73")
 min_value = 0.25
 max_value = 2.0
 step = 0.05
@@ -137,14 +137,14 @@ horizontal_alignment = 2
 
 [node name="UpscaleLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "Upscaling"
 
 [node name="UpscaleOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_top = NodePath("../MonitorOptionButton")
-focus_neighbor_bottom = NodePath("../ScaleContainer/ScaleSlider")
+focus_neighbor_top = NodePath("../ScaleContainer/ScaleSlider")
+focus_neighbor_bottom = NodePath("../FPSContainer/FPSSlider")
 item_count = 3
 popup/item_0/text = "Bilinear"
 popup/item_0/id = 0
@@ -156,7 +156,7 @@ popup/item_2/id = 2
 [node name="SharpnessLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "FSR Sharpness"
 
 [node name="SharpnessContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
@@ -164,15 +164,16 @@ unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 
 [node name="SharpnessSlider" type="HSlider" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/SharpnessContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-focus_neighbor_top = NodePath("../../ScaleContainer/ScaleSlider")
-theme = ExtResource("2_n4gta")
+focus_neighbor_top = NodePath("../../UpscaleOptionButton")
+focus_neighbor_bottom = NodePath("../../FPSContainer/FPSSlider")
+theme = ExtResource("2_e2l73")
 max_value = 2.0
 step = 0.1
 scrollable = false
@@ -184,7 +185,7 @@ custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 max_value = 2.0
 step = 0.01
 alignment = 1
@@ -192,22 +193,22 @@ custom_arrow_step = 0.1
 
 [node name="FPSLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "FPS Limit"
 
 [node name="FPSContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 
 [node name="FPSSlider" type="HSlider" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/FPSContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-focus_neighbor_top = NodePath("../../ScaleContainer/ScaleSlider")
-theme = ExtResource("2_n4gta")
+focus_neighbor_top = NodePath("../../UpscaleOptionButton")
+theme = ExtResource("2_e2l73")
 max_value = 240.0
 step = 2.0
 rounded = true
@@ -221,7 +222,7 @@ custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 max_value = 999.0
 rounded = true
 alignment = 1
@@ -244,7 +245,7 @@ metadata/_tab_index = 1
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TabContainer/Graphics"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 
 [node name="GridContainer" type="GridContainer" parent="PanelContainer/TabContainer/Graphics/MarginContainer"]
 layout_mode = 2
@@ -254,7 +255,7 @@ columns = 2
 
 [node name="FilteringLabel" type="Label" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "TODO Filtering"
 
 [node name="FilteringOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer" groups=["buttons"]]
@@ -263,7 +264,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../../..")
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 alignment = 1
 expand_icon = true
 item_count = 5
@@ -280,7 +281,7 @@ popup/item_4/id = 4
 
 [node name="AALabel" type="Label" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 text = "Anti-Aliasing"
 
 [node name="AAOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer" groups=["buttons"]]
@@ -289,7 +290,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../FilteringOptionButton")
-theme = ExtResource("2_n4gta")
+theme = ExtResource("2_e2l73")
 alignment = 1
 expand_icon = true
 item_count = 6
