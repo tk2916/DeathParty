@@ -8,7 +8,7 @@ extends CanvasLayer
 @onready var quit_button : Button = %QuitButton
 
 @onready var settings_menu : VBoxContainer = %SettingsMenu
-@onready var fullscreen_check_box: CheckBox = %FullscreenCheckBox
+@onready var fullscreen_option_button : OptionButton = %FullscreenOptionButton
 @onready var volume_slider : HSlider = %VolumeSlider
 @onready var volume_number : Label = %VolumeNumber
 @onready var input_button: Button = %InputButton
@@ -22,7 +22,7 @@ extends CanvasLayer
 @onready var click_sound : FmodEventEmitter3D = %ClickSound
 
 func _ready() -> void:
-	fullscreen_check_box.button_pressed = Settings.fullscreen
+	fullscreen_option_button.selected = Settings.fullscreen
 	volume_slider.value = Settings.volume
 
 	# connect pressed signal of all buttons in the scene to a func that plays ui sfx
@@ -31,7 +31,8 @@ func _ready() -> void:
 	# it helped (since I THINK it shouldnt cause any problems if something that
 	# isnt a button ends up in the button group somehow)
 	for button in get_tree().get_nodes_in_group("buttons"):
-		button.pressed.connect(on_any_button_pressed)
+		if button is BaseButton:
+			button.pressed.connect(on_any_button_pressed)
 
 
 func _physics_process(_delta : float) -> void:
@@ -88,8 +89,8 @@ func _on_input_button_pressed() -> void:
 	input_back_button.grab_focus()
 
 
-func _on_fullscreen_check_box_toggled(toggled_on : bool) -> void:
-	Settings.set_fullscreen(toggled_on)
+func _on_fullscreen_option_button_item_selected(value : int) -> void:
+	Settings.set_fullscreen(value)
 
 
 func _on_volume_slider_value_changed(value : float) -> void:

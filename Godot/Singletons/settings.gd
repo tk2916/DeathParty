@@ -19,7 +19,7 @@ var editable_inputs : Dictionary = {
 }
 
 # video
-var fullscreen : bool = false
+var fullscreen : int = DisplayServer.WINDOW_MODE_WINDOWED
 
 # audio
 var volume : float = 50
@@ -114,15 +114,18 @@ func save_bindings() -> void:
 		config.set_value("input", action, physical_key_codes)
 
 
-func apply_fullscreen(enabled : bool) -> void:
-	if enabled:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+func apply_fullscreen(mode : int) -> void:
+	DisplayServer.window_set_mode(mode)
 
 
-func set_fullscreen(enabled : bool) -> void:
-	fullscreen = enabled
+func set_fullscreen(mode : int) -> void:
+	match mode:
+		0:
+			fullscreen = DisplayServer.WINDOW_MODE_WINDOWED
+		1:
+			fullscreen = DisplayServer.WINDOW_MODE_FULLSCREEN
+		2:
+			fullscreen = DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 	apply_fullscreen(fullscreen)
 	save_settings()
 

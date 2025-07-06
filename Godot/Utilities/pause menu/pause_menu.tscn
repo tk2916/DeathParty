@@ -21,6 +21,7 @@ theme_override_constants/margin_bottom = 250
 
 [node name="MainPauseMenu" type="VBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="PausedText" type="Label" parent="MarginContainer/MainPauseMenu"]
@@ -55,27 +56,31 @@ text = "quit"
 
 [node name="SettingsMenu" type="VBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="InputButton" type="Button" parent="MarginContainer/SettingsMenu" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsBackButton")
-focus_neighbor_bottom = NodePath("../FullscreenCheckBox")
 theme = ExtResource("2_qpukh")
 text = "inputs"
 
-[node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/SettingsMenu" groups=["buttons"]]
+[node name="FullscreenOptionButton" type="OptionButton" parent="MarginContainer/SettingsMenu" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_top = NodePath("../InputButton")
 focus_neighbor_bottom = NodePath("../VolumeSlider")
 theme = ExtResource("2_qpukh")
-text = "fullscreen"
 alignment = 1
 expand_icon = true
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Borderless"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
 
 [node name="VolumeText" type="Label" parent="MarginContainer/SettingsMenu"]
 layout_mode = 2
@@ -87,7 +92,6 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_top = NodePath("../FullscreenCheckBox")
 focus_neighbor_bottom = NodePath("../SettingsBackButton")
 value = 75.0
 rounded = true
@@ -171,7 +175,7 @@ unique_name_in_owner = true
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenu/InputButton" to="." method="_on_input_button_pressed"]
-[connection signal="toggled" from="MarginContainer/SettingsMenu/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="item_selected" from="MarginContainer/SettingsMenu/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
 [connection signal="drag_ended" from="MarginContainer/SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
 [connection signal="value_changed" from="MarginContainer/SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
