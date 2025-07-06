@@ -3,6 +3,7 @@ extends Control
 
 @onready var fullscreen_option_button : OptionButton = %FullscreenOptionButton
 @onready var monitor_option_button : OptionButton = %MonitorOptionButton
+@onready var vsync_option_button : OptionButton = %VSyncOptionButton
 @onready var scale_slider : HSlider = %ScaleSlider
 @onready var scale_label : Label = %ScaleLabel
 
@@ -12,6 +13,7 @@ var last_monitor_count : int
 func _ready() -> void:
 	fullscreen_option_button.selected = Settings.fullscreen
 	scale_slider.value = Settings.scale
+	vsync_option_button.selected = Settings.vsync
 	
 	set_monitor_options()
 

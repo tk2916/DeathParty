@@ -21,6 +21,7 @@ var editable_inputs : Dictionary = {
 # video
 var fullscreen : int = 0
 var monitor : int = 0
+var vsync : int = 2
 var scale : float = 100.0
 
 # audio
@@ -50,6 +51,9 @@ func _ready() -> void:
 		monitor = config.get_value("video", "monitor", monitor)
 		apply_monitor(monitor)
 		
+		vsync = config.get_value("video", "vsync", vsync)
+		apply_vsync(vsync)
+		
 		scale = config.get_value("video", "scale", scale)
 		apply_scale(scale)
 
@@ -72,6 +76,7 @@ func save_settings() -> void:
 	# video
 	config.set_value("video", "fullscreen", fullscreen)
 	config.set_value("video", "scale", scale)
+	config.set_value("video", "vsync", vsync)
 
 	# audio
 	config.set_value("audio", "volume", volume)
@@ -146,6 +151,22 @@ func apply_monitor(screen : int) -> void:
 func set_monitor(screen : int) -> void:
 	monitor = screen
 	apply_monitor(monitor)
+	save_settings()
+
+
+func apply_vsync(mode : int) -> void:
+	match mode:
+		0:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		1:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
+		2:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+
+
+func set_vsync(mode : int) -> void:
+	vsync = mode
+	apply_vsync(vsync)
 	save_settings()
 
 
