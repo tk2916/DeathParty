@@ -235,30 +235,30 @@ size_flags_horizontal = 8
 text = "OFF"
 horizontal_alignment = 1
 
-[node name="Graphics" type="ScrollContainer" parent="PanelContainer/TabContainer"]
+[node name="Quality" type="ScrollContainer" parent="PanelContainer/TabContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TabContainer/Graphics"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TabContainer/Quality"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_e2l73")
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/TabContainer/Graphics/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/TabContainer/Quality/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 25
 columns = 2
 
-[node name="FilteringLabel" type="Label" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+[node name="FilteringLabel" type="Label" parent="PanelContainer/TabContainer/Quality/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_e2l73")
 text = "TODO Filtering"
 
-[node name="FilteringOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer" groups=["buttons"]]
+[node name="FilteringOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Quality/MarginContainer/GridContainer" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -279,12 +279,12 @@ popup/item_3/id = 3
 popup/item_4/text = "Anisotropic 16x"
 popup/item_4/id = 4
 
-[node name="AALabel" type="Label" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+[node name="AALabel" type="Label" parent="PanelContainer/TabContainer/Quality/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_e2l73")
 text = "Anti-Aliasing"
 
-[node name="AAOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer" groups=["buttons"]]
+[node name="AAOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Quality/MarginContainer/GridContainer" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -307,12 +307,12 @@ popup/item_4/id = 4
 popup/item_5/text = "MSAA 8x"
 popup/item_5/id = 5
 
-[node name="ShadowSizeLabel" type="Label" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+[node name="ShadowSizeLabel" type="Label" parent="PanelContainer/TabContainer/Quality/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_e2l73")
 text = "Shadow Quality"
 
-[node name="ShadowSizeOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer" groups=["buttons"]]
+[node name="ShadowSizeOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Quality/MarginContainer/GridContainer" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -345,6 +345,6 @@ popup/item_4/id = 4
 [connection signal="drag_ended" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/FPSContainer/FPSSlider" to="." method="_on_fps_slider_drag_ended"]
 [connection signal="value_changed" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/FPSContainer/FPSSlider" to="." method="_on_fps_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/FPSContainer/FPSSpinBox" to="." method="_on_fps_spin_box_value_changed"]
-[connection signal="item_selected" from="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer/FilteringOptionButton" to="." method="_on_filtering_option_button_item_selected"]
-[connection signal="item_selected" from="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer/AAOptionButton" to="." method="_on_aa_option_button_item_selected"]
-[connection signal="item_selected" from="PanelContainer/TabContainer/Graphics/MarginContainer/GridContainer/ShadowSizeOptionButton" to="." method="_on_shadow_size_option_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/Quality/MarginContainer/GridContainer/FilteringOptionButton" to="." method="_on_filtering_option_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/Quality/MarginContainer/GridContainer/AAOptionButton" to="." method="_on_aa_option_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/Quality/MarginContainer/GridContainer/ShadowSizeOptionButton" to="." method="_on_shadow_size_option_button_item_selected"]
