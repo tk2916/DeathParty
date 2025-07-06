@@ -106,12 +106,13 @@ func load_bindings() -> void:
 
 		# OR MAYBE NOT, since default binds are in the project settings, so
 		# maybe binds dont need proper fallbacks like other settings
-		var physical_key_codes : Array[Key] = config.get_value("input", action, [])
+		var physical_key_codes : Array[Key]
+		physical_key_codes.assign(config.get_value("input", action, []))
 
 		if physical_key_codes.size() > 0:
 			InputMap.action_erase_events(action)
 
-			for code in physical_key_codes:
+			for code : Key in physical_key_codes:
 				var event := InputEventKey.new()
 				event.physical_keycode = code
 				InputMap.action_add_event(action, event)
