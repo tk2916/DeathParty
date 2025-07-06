@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var Picture
-	
+
 func _physics_process(delta: float) -> void:
 	Picture=$PictureExample/ViewFinder
 	var velocity = Vector2.ZERO 
@@ -23,15 +23,17 @@ func _physics_process(delta: float) -> void:
 	if	$PictureExample/ViewFinder.position.y > 142:
 		$PictureExample/ViewFinder.position.y = 142
 
-func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+
+# when question mark is pressed, player enters polaroid scene
+func _on_picture_hint_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		print("interact")
 		$PictureExample/ViewFinder/Camera2D.enabled=true
 		$PictureExample/ViewFinder/Camera2D.make_current()
 		visible=true	
-#when player shoots the picture, the image dissapears 
+
+
+# when player shoots the picture, the image disappears 
 func _on_shoot_button_up() -> void:
 	visible=false
 	$PictureExample/ViewFinder/Camera2D.enabled=false
-
-#when question mark is pressed, player enters polaroid scene
