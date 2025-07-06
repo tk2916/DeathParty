@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 
+@onready var bottom_ui_bar : CanvasLayer = %CanvasLayer
+
 @onready var main_pause_menu : VBoxContainer = %MainPauseMenu
 
 @onready var resume_button : Button = %ResumeButton
@@ -26,7 +28,7 @@ func _ready() -> void:
 	volume_slider.value = Settings.volume
 
 	# connect pressed signal of all buttons in the scene to a func that plays ui sfx
-	
+
 	# NOTE: tried static typing here but i think it hurt readability more than
 	# it helped (since I THINK it shouldnt cause any problems if something that
 	# isnt a button ends up in the button group somehow)
@@ -59,7 +61,9 @@ func _physics_process(_delta : float) -> void:
 
 func toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
+
 	visible = !visible
+	bottom_ui_bar.visible = !bottom_ui_bar.visible
 
 	if visible:
 		resume_button.grab_focus()
