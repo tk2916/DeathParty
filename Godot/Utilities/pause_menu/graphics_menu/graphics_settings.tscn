@@ -150,7 +150,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 focus_neighbor_top = NodePath("../../ScaleContainer/ScaleSlider")
 max_value = 300.0
-step = 10.0
 scrollable = false
 tick_count = 7
 
