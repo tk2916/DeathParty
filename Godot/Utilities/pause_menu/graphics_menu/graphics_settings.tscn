@@ -71,5 +71,36 @@ text = "Monitor"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="ScaleLabel" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_n4gta")
+text = "Render Scale"
+
+[node name="ScaleContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_n4gta")
+
+[node name="ScaleSlider" type="HSlider" parent="PanelContainer/MarginContainer/ScrollContainer/GridContainer/ScaleContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 25.0
+max_value = 200.0
+step = 5.0
+value = 100.0
+rounded = true
+tick_count = 8
+
+[node name="ScaleLabel" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer/GridContainer/ScaleContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+
 [connection signal="item_selected" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/MonitorOptionButton" to="." method="_on_monitor_option_button_item_selected"]
+[connection signal="drag_ended" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_drag_ended"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
