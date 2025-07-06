@@ -11,6 +11,7 @@ extends CanvasLayer
 @onready var volume_slider : HSlider = %VolumeSlider
 @onready var volume_number : Label = %VolumeNumber
 @onready var input_button: Button = %InputButton
+@onready var graphics_button: Button = %GraphicsButton
 
 @onready var input_menu : VBoxContainer = %InputMenu
 @onready var input_back_button : Button = %InputBackButton
@@ -47,6 +48,11 @@ func _physics_process(_delta : float) -> void:
 			input_menu.hide()
 			settings_menu.show()
 			input_button.grab_focus()
+
+		elif graphics_menu.visible:
+			graphics_menu.hide()
+			settings_menu.show()
+			graphics_button.grab_focus()
 
 		elif quit_menu.visible:
 			quit_menu.hide()
@@ -127,7 +133,7 @@ func _on_input_back_button_pressed() -> void:
 func _on_graphics_back_button_pressed() -> void:
 	graphics_menu.hide()
 	settings_menu.show()
-	#graphics_button.grab_focus()
+	graphics_button.grab_focus()
 
 
 func _on_quit_button_pressed() -> void:
