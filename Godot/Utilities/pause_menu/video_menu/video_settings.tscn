@@ -304,17 +304,20 @@ theme_override_constants/h_separation = 25
 columns = 2
 
 [node name="FilteringLabel" type="Label" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_e2l73")
 text = "TODO Filtering"
 
 [node name="FilteringOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer" groups=["buttons"]]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../../../..")
 theme = ExtResource("2_e2l73")
+disabled = true
 alignment = 1
 expand_icon = true
 item_count = 5
