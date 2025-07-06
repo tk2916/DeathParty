@@ -118,6 +118,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 focus_neighbor_top = NodePath("../../VSyncOptionButton")
 focus_neighbor_bottom = NodePath("../../FPSContainer/FPSSlider")
+theme = ExtResource("2_n4gta")
 min_value = 0.25
 max_value = 2.0
 step = 0.05
@@ -149,9 +150,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 focus_neighbor_top = NodePath("../../ScaleContainer/ScaleSlider")
-max_value = 300.0
+theme = ExtResource("2_n4gta")
+max_value = 400.0
+rounded = true
 scrollable = false
-tick_count = 7
+tick_count = 9
 
 [node name="FPSSpinBox" type="SpinBox" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer"]
 unique_name_in_owner = true
@@ -159,7 +162,8 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-max_value = 300.0
+theme = ExtResource("2_n4gta")
+max_value = 400.0
 rounded = true
 
 [node name="FPSLimitOffLabel" type="Label" parent="PanelContainer/TabContainer/Video/MarginContainer/GridContainer/FPSContainer"]
