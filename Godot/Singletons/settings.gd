@@ -25,6 +25,7 @@ var vsync : int = 2
 var scale : float = 100.0
 var fps : float = 0.0
 var filtering : int = 2
+var aa : int = 5
 
 # audio
 var volume : float = 50
@@ -64,6 +65,9 @@ func _ready() -> void:
 		
 		filtering = config.get_value("video", "filtering", filtering)
 		apply_filtering(filtering)
+		
+		aa = config.get_value("video", "aa", aa)
+		apply_aa(aa)
 
 		# audio
 		volume = config.get_value("audio", "volume", volume)
@@ -86,7 +90,9 @@ func save_settings() -> void:
 	config.set_value("video", "scale", scale)
 	config.set_value("video", "vsync", vsync)
 	config.set_value("video", "fps", fps)
+	
 	config.set_value("video", "filtering", filtering)
+	config.set_value("video", "aa", aa)
 
 	# audio
 	config.set_value("audio", "volume", volume)
@@ -217,6 +223,45 @@ func apply_filtering(mode : int) -> void:
 func set_filtering(mode : int) -> void:
 	filtering = mode
 	apply_filtering(filtering)
+	save_settings()
+
+
+func apply_aa(mode : int) -> void:
+	# Disable
+	if mode < 4:
+		get_viewport().msaa_3d = Viewport.MSAA_DISABLED
+		
+	if mode != 1:
+		get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+	
+	if mode != 2:
+		get_viewport().use_taa = false
+	
+	if mode != 3:
+		get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
+	
+	
+	# Enable
+	if mode == 4:
+		get_viewport().msaa_3d = Viewport.MSAA_2X
+	elif mode == 5:
+		get_viewport().msaa_3d = Viewport.MSAA_4X
+	elif mode == 6:
+		get_viewport().msaa_3d = Viewport.MSAA_8X
+	
+	if mode == 1:
+		get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
+	
+	if mode == 2:
+		get_viewport().use_taa = true
+	
+	if mode == 3:
+		get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
+
+
+func set_aa(mode : int) -> void:
+	aa = mode
+	apply_aa(aa)
 	save_settings()
 
 

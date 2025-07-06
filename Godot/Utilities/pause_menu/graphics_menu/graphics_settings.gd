@@ -12,6 +12,7 @@ extends Control
 @onready var fps_label : Label = %FPSLabel
 
 @onready var filtering_option_button : OptionButton = %FilteringOptionButton
+@onready var aa_option_button : OptionButton = %AAOptionButton
 
 var last_monitor_count : int
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 	scale_slider.value = Settings.scale
 	fps_slider.value = Settings.fps
 	filtering_option_button.selected = Settings.filtering
+	aa_option_button.selected = Settings.aa
 	
 	set_monitor_options()
 
@@ -75,3 +77,7 @@ func _on_fps_slider_drag_ended(value_changed: bool) -> void:
 
 func _on_filtering_option_button_item_selected(index: int) -> void:
 	Settings.set_filtering(index)
+
+
+func _on_aa_option_button_item_selected(index: int) -> void:
+	Settings.set_aa(index)
