@@ -63,13 +63,15 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsBackButton")
+focus_neighbor_bottom = NodePath("../GraphicsButton")
 theme = ExtResource("2_qpukh")
 text = "inputs"
 
 [node name="GraphicsButton" type="Button" parent="MarginContainer/SettingsMenu" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_top = NodePath("../SettingsBackButton")
+focus_neighbor_top = NodePath("../InputButton")
+focus_neighbor_bottom = NodePath("../VolumeSlider")
 theme = ExtResource("2_qpukh")
 text = "graphics"
 
