@@ -4,16 +4,21 @@ extends Control
 @onready var fullscreen_option_button : OptionButton = %FullscreenOptionButton
 @onready var monitor_option_button : OptionButton = %MonitorOptionButton
 @onready var vsync_option_button : OptionButton = %VSyncOptionButton
+
 @onready var scale_slider : HSlider = %ScaleSlider
 @onready var scale_label : Label = %ScaleLabel
+
+@onready var fps_slider : HSlider = %FPSSlider
+@onready var fps_label : Label = %FPSLabel
 
 var last_monitor_count : int
 
 
 func _ready() -> void:
 	fullscreen_option_button.selected = Settings.fullscreen
-	scale_slider.value = Settings.scale
 	vsync_option_button.selected = Settings.vsync
+	scale_slider.value = Settings.scale
+	fps_slider.value = Settings.fps
 	
 	set_monitor_options()
 
@@ -54,3 +59,12 @@ func _on_scale_slider_value_changed(value: float) -> void:
 func _on_scale_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		Settings.set_scale(scale_slider.value)
+
+
+func _on_fps_slider_value_changed(value: float) -> void:
+	fps_label.text = "OFF" if value < 1 else "%d" % value
+
+
+func _on_fps_slider_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		Settings.set_fps(fps_slider.value)

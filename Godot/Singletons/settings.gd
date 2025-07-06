@@ -23,6 +23,7 @@ var fullscreen : int = 0
 var monitor : int = 0
 var vsync : int = 2
 var scale : float = 100.0
+var fps : float = 0.0
 
 # audio
 var volume : float = 50
@@ -56,6 +57,9 @@ func _ready() -> void:
 		
 		scale = config.get_value("video", "scale", scale)
 		apply_scale(scale)
+		
+		fps = config.get_value("video", "fps", fps)
+		apply_fps(fps)
 
 		# audio
 		volume = config.get_value("audio", "volume", volume)
@@ -77,6 +81,7 @@ func save_settings() -> void:
 	config.set_value("video", "fullscreen", fullscreen)
 	config.set_value("video", "scale", scale)
 	config.set_value("video", "vsync", vsync)
+	config.set_value("video", "fps", fps)
 
 	# audio
 	config.set_value("audio", "volume", volume)
@@ -177,6 +182,16 @@ func apply_scale(value : float) -> void:
 func set_scale(value : float) -> void:
 	scale = value
 	apply_scale(scale)
+	save_settings()
+
+
+func apply_fps(cap : float) -> void:
+	Engine.max_fps = floor(cap)
+
+
+func set_fps(cap : float) -> void:
+	fps = cap
+	apply_fps(fps)
 	save_settings()
 
 

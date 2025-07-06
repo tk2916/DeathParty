@@ -106,6 +106,7 @@ min_value = 0.25
 max_value = 2.0
 step = 0.05
 value = 1.0
+scrollable = false
 tick_count = 8
 
 [node name="ScaleLabel" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer/GridContainer/ScaleContainer"]
@@ -115,7 +116,36 @@ layout_mode = 2
 text = "100%"
 horizontal_alignment = 2
 
+[node name="FPSLabel" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_n4gta")
+text = "FPS Limit"
+
+[node name="FPSContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_n4gta")
+
+[node name="FPSSlider" type="HSlider" parent="PanelContainer/MarginContainer/ScrollContainer/GridContainer/FPSContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 300.0
+step = 10.0
+scrollable = false
+tick_count = 7
+
+[node name="FPSLabel" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer/GridContainer/FPSContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Off"
+horizontal_alignment = 2
+
 [connection signal="item_selected" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/MonitorOptionButton" to="." method="_on_monitor_option_button_item_selected"]
 [connection signal="drag_ended" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_drag_ended"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
+[connection signal="drag_ended" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/FPSContainer/FPSSlider" to="." method="_on_fps_slider_drag_ended"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/ScrollContainer/GridContainer/FPSContainer/FPSSlider" to="." method="_on_fps_slider_value_changed"]
