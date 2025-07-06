@@ -15,4 +15,4 @@ MarginContainer/constants/margin_left = 25
 MarginContainer/constants/margin_right = 25
 MarginContainer/constants/margin_top = 25
 SpinBox/constants/buttons_width = 18
-SpinBox/constants/field_and_buttons_separation = 4
+SpinBox/constants/field_and_buttons_separation = 0
