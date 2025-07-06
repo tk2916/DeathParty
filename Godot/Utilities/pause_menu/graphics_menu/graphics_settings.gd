@@ -24,7 +24,8 @@ func _ready() -> void:
 	scale_slider.value = Settings.scale
 
 	fps_slider.value = Settings.fps
-	hide_or_show_fps_limit_label(Settings.fps)
+	fps_spin_box.value = fps_slider.value
+	hide_or_show_fps_limit_label(fps_spin_box.value)
 
 	filtering_option_button.selected = Settings.filtering
 	aa_option_button.selected = Settings.aa
@@ -77,14 +78,14 @@ func _on_scale_slider_drag_ended(value_changed: bool) -> void:
 func _on_fps_slider_value_changed(value: float) -> void:
 	if fps_slider.has_focus():
 		fps_spin_box.value = value
-		hide_or_show_fps_limit_label(value)
+		hide_or_show_fps_limit_label(fps_spin_box.value)
 
 
 func _on_fps_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		#fps_slider.value = clamp_fps_value(fps_slider.value)
 		fps_spin_box.value = fps_slider.value
-		hide_or_show_fps_limit_label(fps_slider.value)
+		hide_or_show_fps_limit_label(fps_spin_box.value)
 		Settings.set_fps(clamp_fps_value(fps_slider.value))
 
 
