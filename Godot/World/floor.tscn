@@ -12,6 +12,7 @@ size = Vector3(11, 0.5, 3)
 render_priority = -2
 albedo_texture = ExtResource("1_q43sb")
 uv1_scale = Vector3(5, 5, 5)
+texture_filter = 5
 
 [node name="Floor" type="StaticBody3D"]
 collision_layer = 2

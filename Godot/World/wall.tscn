@@ -10,6 +10,7 @@ size = Vector3(0.2, 3, 3)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lmeg"]
 albedo_texture = ExtResource("1_3a626")
 uv1_scale = Vector3(2, 2, 2)
+texture_filter = 5
 
 [node name="Wall" type="StaticBody3D"]
 collision_mask = 0
