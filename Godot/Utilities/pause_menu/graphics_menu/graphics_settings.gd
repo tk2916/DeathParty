@@ -90,7 +90,7 @@ func _on_fps_spin_box_value_changed(value: float) -> void:
 	Settings.set_fps(value)
 
 
-func hide_or_show_fps_limit_label(value : float):
+func hide_or_show_fps_limit_label(value : float) -> void:
 	if value == 0:
 		fps_spin_box.hide()
 		fps_limit_off_label.show()
