@@ -1,11 +1,10 @@
 extends CanvasLayer
 
 
-var picture
+@onready var picture : TextureRect = %ViewFinder
 
 
 func _physics_process(delta: float) -> void:
-	picture = $PictureExample/ViewFinder
 	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
 		picture.position.x += 1.5

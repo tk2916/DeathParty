@@ -26,6 +26,7 @@ texture = ExtResource("1_t72bm")
 expand_mode = 1
 
 [node name="ViewFinder" type="TextureRect" parent="PictureExample"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 1226.0
 offset_bottom = 632.0
