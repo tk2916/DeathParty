@@ -9,7 +9,8 @@ extends Control
 @onready var scale_label : Label = %ScaleLabel
 
 @onready var fps_slider : HSlider = %FPSSlider
-@onready var fps_label : Label = %FPSLabel
+@onready var fps_spin_box : SpinBox = %FPSSpinBox
+@onready var fps_limit_off_label: Label = %FPSLimitOffLabel
 
 @onready var filtering_option_button : OptionButton = %FilteringOptionButton
 @onready var aa_option_button : OptionButton = %AAOptionButton
@@ -21,7 +22,10 @@ func _ready() -> void:
 	fullscreen_option_button.selected = Settings.fullscreen
 	vsync_option_button.selected = Settings.vsync
 	scale_slider.value = Settings.scale
+
 	fps_slider.value = Settings.fps
+	hide_or_show_fps_limit_label(Settings.fps)
+
 	filtering_option_button.selected = Settings.filtering
 	aa_option_button.selected = Settings.aa
 	
@@ -35,7 +39,7 @@ func _process(_delta: float) -> void:
 
 func set_monitor_options() -> void:
 	monitor_option_button.clear()
-	
+
 	last_monitor_count = DisplayServer.get_screen_count()
 	var select_i : int = 0
 	for i in range(last_monitor_count):
@@ -44,7 +48,7 @@ func set_monitor_options() -> void:
 			is_current = " (Current)"
 			select_i = i
 		monitor_option_button.add_item("Monitor %s%s" % [i,is_current])
-	
+
 	monitor_option_button.select(select_i)
 
 
@@ -71,12 +75,28 @@ func _on_scale_slider_drag_ended(value_changed: bool) -> void:
 
 
 func _on_fps_slider_value_changed(value: float) -> void:
-	fps_label.text = "OFF" if value < 1 else "%d" % value
+	fps_spin_box.value = value
 
 
 func _on_fps_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
+		hide_or_show_fps_limit_label(fps_slider.value)
 		Settings.set_fps(fps_slider.value)
+
+
+func _on_fps_spin_box_value_changed(value: float) -> void:
+	hide_or_show_fps_limit_label(value)
+	fps_slider.value = value
+	Settings.set_fps(value)
+
+
+func hide_or_show_fps_limit_label(value : float):
+	if value == 0:
+		fps_spin_box.hide()
+		fps_limit_off_label.show()
+	else:
+		fps_limit_off_label.hide()
+		fps_spin_box.show()
 
 
 func _on_filtering_option_button_item_selected(index: int) -> void:
