@@ -227,30 +227,28 @@ func set_filtering(mode : int) -> void:
 
 
 func apply_aa(mode : int) -> void:
-	# disable all the anti-aliasing solutions we DONT have selected
-	if mode < 4:
-		get_viewport().msaa_3d = Viewport.MSAA_DISABLED
-	if mode != 1:
-		get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
-	if mode != 2:
-		get_viewport().use_taa = false
-	if mode != 3:
-		get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
+	# disable all anti-aliasing solutions
+	get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+	get_viewport().use_taa = false
+	get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
+	get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 
-	# enable the anti-aliasing solution we DO have selected
-	if mode == 4:
-		get_viewport().msaa_3d = Viewport.MSAA_2X
-	elif mode == 5:
-		get_viewport().msaa_3d = Viewport.MSAA_4X
-	elif mode == 6:
-		get_viewport().msaa_3d = Viewport.MSAA_8X
-
-	if mode == 1:
-		get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
-	if mode == 2:
-		get_viewport().use_taa = true
-	if mode == 3:
-		get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
+	# enable the selected solution
+	match mode:
+		0:
+			pass
+		1:
+			get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
+		2:
+			get_viewport().use_taa = true
+		3:
+			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
+		4:
+			get_viewport().msaa_3d = Viewport.MSAA_2X
+		5:
+			get_viewport().msaa_3d = Viewport.MSAA_4X
+		6:
+			get_viewport().msaa_3d = Viewport.MSAA_8X
 
 
 func set_aa(mode : int) -> void:
