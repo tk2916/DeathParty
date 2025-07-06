@@ -21,13 +21,13 @@ var editable_inputs : Dictionary = {
 # video
 var fullscreen : int = 0
 var monitor : int = 0
-var vsync : int = 2
+var vsync : int = 1
 var scale : float = 1.0
 var upscale : int = 0
 var sharpness : float = 0.2
 var fps : float = 0.0
 var filtering : int = 3
-var aa : int = 4
+var aa : int = 3
 var shadows : int = 3
 
 # audio
