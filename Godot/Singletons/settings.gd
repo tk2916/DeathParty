@@ -23,6 +23,7 @@ var fullscreen : int = 0
 var monitor : int = 0
 var vsync : int = 2
 var scale : float = 1
+var upscale : int = 0
 var fps : float = 0.0
 var filtering : int = 2
 var aa : int = 5
@@ -60,6 +61,9 @@ func _ready() -> void:
 		scale = config.get_value("video", "scale", scale)
 		apply_scale(scale)
 		
+		upscale = config.get_value("video", "upscale", upscale)
+		apply_upscale(upscale)
+		
 		fps = config.get_value("video", "fps", fps)
 		apply_fps(fps)
 		
@@ -88,6 +92,7 @@ func save_settings() -> void:
 	# video
 	config.set_value("video", "fullscreen", fullscreen)
 	config.set_value("video", "scale", scale)
+	config.set_value("video", "upscale", upscale)
 	config.set_value("video", "vsync", vsync)
 	config.set_value("video", "fps", fps)
 
@@ -198,6 +203,22 @@ func set_scale(value : float) -> void:
 	save_settings()
 
 
+func apply_upscale(mode : int) -> void:
+	match mode:
+		0:
+			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
+		1:
+			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR
+		2:
+			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
+
+
+func set_upscale(mode : int) -> void:
+	upscale = mode
+	apply_upscale(upscale)
+	save_settings()
+
+
 func apply_fps(cap : float) -> void:
 	Engine.max_fps = floor(cap)
 
@@ -232,7 +253,6 @@ func apply_aa(mode : int) -> void:
 	# disable all anti-aliasing solutions
 	get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
 	get_viewport().use_taa = false
-	get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
 	get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 
 	# enable the selected solution
@@ -244,12 +264,10 @@ func apply_aa(mode : int) -> void:
 		2:
 			get_viewport().use_taa = true
 		3:
-			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
-		4:
 			get_viewport().msaa_3d = Viewport.MSAA_2X
-		5:
+		4:
 			get_viewport().msaa_3d = Viewport.MSAA_4X
-		6:
+		5:
 			get_viewport().msaa_3d = Viewport.MSAA_8X
 
 

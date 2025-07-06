@@ -8,6 +8,8 @@ extends Control
 @onready var scale_slider : HSlider = %ScaleSlider
 @onready var scale_label : Label = %ScaleLabel
 
+@onready var upscale_option_button : OptionButton = %UpscaleOptionButton
+
 @onready var fps_slider : HSlider = %FPSSlider
 @onready var fps_spin_box : SpinBox = %FPSSpinBox
 @onready var fps_limit_off_label: Label = %FPSLimitOffLabel
@@ -21,7 +23,9 @@ var last_monitor_count : int
 func _ready() -> void:
 	fullscreen_option_button.selected = Settings.fullscreen
 	vsync_option_button.selected = Settings.vsync
+	
 	scale_slider.value = Settings.scale
+	upscale_option_button.selected = Settings.upscale
 
 	fps_slider.value = Settings.fps
 	fps_spin_box.value = fps_slider.value
@@ -73,6 +77,10 @@ func _on_scale_slider_value_changed(value: float) -> void:
 func _on_scale_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		Settings.set_scale(scale_slider.value)
+
+
+func _on_upscale_option_button_item_selected(index: int) -> void:
+	Settings.set_upscale(index)
 
 
 func _on_fps_slider_value_changed(value: float) -> void:
