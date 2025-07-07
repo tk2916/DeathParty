@@ -548,7 +548,7 @@ text = "Settings"
 color = Color(0.164908, 0.352543, 0.288867, 1)
 flip_to_page = 4
 
-[node name="PageFlipSound" type="FmodEventEmitter3D" parent="."]
+[node name="PageFlipSound" type="FmodEventEmitter2D" parent="."]
 event_name = "event:/000_SFX/000_Demo_Test/004_SFX_PageFlip"
 event_guid = "{a9436081-49dc-4597-9156-239d2f74f66d}"
 unique_name_in_owner = true

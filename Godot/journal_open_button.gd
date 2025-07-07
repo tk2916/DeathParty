@@ -1,7 +1,7 @@
 extends "res://Assets/GUIDesignScripts/default_gui_button.gd"
 
-@onready var journal_open_sound : FmodEventEmitter3D = %JournalOpenSound
-@onready var journal_close_sound : FmodEventEmitter3D = %JournalCloseSound
+@onready var journal_open_sound : FmodEventEmitter2D = %JournalOpenSound
+@onready var journal_close_sound : FmodEventEmitter2D = %JournalCloseSound
 
 
 @export var journal_path : String
