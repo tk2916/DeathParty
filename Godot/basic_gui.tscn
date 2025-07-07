@@ -135,11 +135,13 @@ journal_path = "res://Assets/models/bookflip3.tscn"
 [node name="JournalOpenSound" type="FmodEventEmitter2D" parent="Panel2/Panel3/OpenJournalButton/Sounds"]
 event_name = "event:/000_SFX/300_UI/302_SFX_UI_JournalOpen"
 event_guid = "{30f0e84f-546b-4951-8546-610e533ebe87}"
+attached = false
 unique_name_in_owner = true
 
 [node name="JournalCloseSound" type="FmodEventEmitter2D" parent="Panel2/Panel3/OpenJournalButton/Sounds"]
 event_name = "event:/000_SFX/300_UI/301_SFX_UI_JournalClose"
 event_guid = "{9355ad2b-58c5-4861-8f53-fe56b2894e62}"
+attached = false
 unique_name_in_owner = true
 
 [node name="Panel4" type="Panel" parent="Panel2"]
