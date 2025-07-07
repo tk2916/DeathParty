@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 
+@onready var bottom_ui_bar : CanvasLayer = %CanvasLayer
+
 @onready var main_pause_menu : VBoxContainer = %MainPauseMenu
 
 @onready var resume_button : Button = %ResumeButton
@@ -67,7 +69,9 @@ func _physics_process(_delta : float) -> void:
 
 func toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
+
 	visible = !visible
+	bottom_ui_bar.visible = !bottom_ui_bar.visible
 
 	if visible:
 		resume_button.grab_focus()
