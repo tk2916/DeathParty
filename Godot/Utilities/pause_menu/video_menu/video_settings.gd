@@ -22,6 +22,8 @@ extends Control
 @onready var aa_option_button : OptionButton = %AAOptionButton
 @onready var shadow_size_option_button : OptionButton = %ShadowSizeOptionButton
 
+@onready var ssao_option_button : OptionButton = %SSAOOptionButton
+
 var last_monitor_count : int
 
 
@@ -44,8 +46,12 @@ func _ready() -> void:
 	aa_option_button.selected = Settings.aa
 	shadow_size_option_button.selected = Settings.shadows
 	
+	ssao_option_button.selected = Settings.ssao
+	
 	set_monitor_options()
 
+
+# MONITOR SELECTION
 
 func _process(_delta: float) -> void:
 	if DisplayServer.get_screen_count() != last_monitor_count:
@@ -66,6 +72,55 @@ func set_monitor_options() -> void:
 
 	monitor_option_button.select(select_i)
 
+
+# PRESET BUTTONS
+
+func _on_preset_1_pressed() -> void:
+	aa_option_button.selected = 0
+	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
+	shadow_size_option_button.selected = 0
+	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
+	ssao_option_button.selected = 0
+	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+
+
+func _on_preset_2_pressed() -> void:
+	aa_option_button.selected = 1
+	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
+	shadow_size_option_button.selected = 1
+	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
+	ssao_option_button.selected = 2
+	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+
+
+func _on_preset_3_pressed() -> void:
+	aa_option_button.selected = 3
+	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
+	shadow_size_option_button.selected = 2
+	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
+	ssao_option_button.selected = 3
+	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+
+
+func _on_preset_4_pressed() -> void:
+	aa_option_button.selected = 4
+	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
+	shadow_size_option_button.selected = 3
+	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
+	ssao_option_button.selected = 4
+	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+
+
+func _on_preset_5_pressed() -> void:
+	aa_option_button.selected = 5
+	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
+	shadow_size_option_button.selected = 4
+	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
+	ssao_option_button.selected = 5
+	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+
+
+# DISPLAY SETTINGS
 
 func _on_fullscreen_option_button_item_selected(value : int) -> void:
 	Settings.set_fullscreen(value)
@@ -164,6 +219,8 @@ func hide_or_show_fps_limit_label(value : float) -> void:
 		fps_spin_box.show()
 
 
+# QUALITY SETTINGS
+
 func _on_filtering_option_button_item_selected(index: int) -> void:
 	Settings.set_filtering(index)
 
@@ -176,36 +233,5 @@ func _on_shadow_size_option_button_item_selected(index: int) -> void:
 	Settings.set_shadows(index)
 
 
-func _on_preset_1_pressed() -> void:
-	aa_option_button.selected = 0
-	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 0
-	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
-
-
-func _on_preset_2_pressed() -> void:
-	aa_option_button.selected = 1
-	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 1
-	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
-
-
-func _on_preset_3_pressed() -> void:
-	aa_option_button.selected = 3
-	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 2
-	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
-
-
-func _on_preset_4_pressed() -> void:
-	aa_option_button.selected = 4
-	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 3
-	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
-
-
-func _on_preset_5_pressed() -> void:
-	aa_option_button.selected = 5
-	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 4
-	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
+func _on_ssao_option_button_item_selected(index: int) -> void:
+	Settings.set_ssao(index)

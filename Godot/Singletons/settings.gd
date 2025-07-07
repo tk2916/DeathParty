@@ -26,9 +26,12 @@ var scale : float = 1.0
 var upscale : int = 0
 var sharpness : float = 0.2
 var fps : float = 0.0
+
+# effects
 var filtering : int = 3
 var aa : int = 3
 var shadows : int = 3
+var ssao : int = 0
 
 # audio
 var volume : float = 50
@@ -72,6 +75,7 @@ func _ready() -> void:
 		fps = config.get_value("video", "fps", fps)
 		apply_fps(fps)
 		
+		# effects
 		filtering = config.get_value("video", "filtering", filtering)
 		apply_filtering(filtering)
 		
@@ -80,6 +84,9 @@ func _ready() -> void:
 		
 		shadows = config.get_value("video", "shadows", shadows)
 		apply_shadows(shadows)
+		
+		ssao = config.get_value("video", "ssao", ssao)
+		apply_ssao(ssao)
 
 		# audio
 		volume = config.get_value("audio", "volume", volume)
@@ -104,10 +111,12 @@ func save_settings() -> void:
 	config.set_value("video", "sharpness", sharpness)
 	config.set_value("video", "vsync", vsync)
 	config.set_value("video", "fps", fps)
-
+	
+	# effects
 	config.set_value("video", "filtering", filtering)
 	config.set_value("video", "aa", aa)
 	config.set_value("video", "shadows", shadows)
+	config.set_value("video", "ssao", ssao)
 
 	# audio
 	config.set_value("audio", "volume", volume)
@@ -348,6 +357,35 @@ func apply_shadows(level : int) -> void:
 func set_shadows(level : int) -> void:
 	shadows = level
 	apply_shadows(shadows)
+	save_settings()
+
+
+func apply_ssao(level : int) -> void:
+	if $WorldEnvironment is WorldEnvironment:
+		var world_environment : WorldEnvironment = $WorldEnvironment
+		if level > 0: # Disabled
+			world_environment.environment.ssao_enabled = true
+		else: # Enabled
+			world_environment.environment.ssao_enabled = false
+	else:
+		# TODO: Why can't this see the WorldEnvironment?
+		print("World environment not present")
+
+	if level == 1: # Very Low
+		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_VERY_LOW, true, 0.5, 2, 50, 300)
+	if level == 2: # Low
+		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_LOW, true, 0.5, 2, 50, 300)
+	if level == 3: # Medium
+		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_MEDIUM, true, 0.5, 2, 50, 300)
+	if level == 4: # High
+		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_HIGH, true, 0.5, 2, 50, 300)
+	if level == 5: # Ultra
+		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_ULTRA, true, 0.5, 2, 50, 300)
+
+
+func set_ssao(level : int) -> void:
+	ssao = level
+	apply_ssao(ssao)
 	save_settings()
 
 

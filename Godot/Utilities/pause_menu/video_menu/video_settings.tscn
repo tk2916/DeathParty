@@ -386,6 +386,34 @@ popup/item_3/id = 3
 popup/item_4/text = "Ultra"
 popup/item_4/id = 4
 
+[node name="SSAOLabel" type="Label" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_e2l73")
+text = "Ambient Occlusion"
+
+[node name="SSAOOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer" groups=["buttons"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../FilteringOptionButton")
+theme = ExtResource("2_e2l73")
+alignment = 1
+expand_icon = true
+item_count = 6
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Very Low"
+popup/item_1/id = 1
+popup/item_2/text = "Low"
+popup/item_2/id = 2
+popup/item_3/text = "Medium"
+popup/item_3/id = 3
+popup/item_4/text = "High"
+popup/item_4/id = 4
+popup/item_5/text = "Ultra"
+popup/item_5/id = 5
+
 [connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/MonitorOptionButton" to="." method="_on_monitor_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/VSyncOptionButton" to="." method="_on_v_sync_option_button_item_selected"]
@@ -406,3 +434,4 @@ popup/item_4/id = 4
 [connection signal="item_selected" from="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer/FilteringOptionButton" to="." method="_on_filtering_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer/AAOptionButton" to="." method="_on_aa_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer/ShadowSizeOptionButton" to="." method="_on_shadow_size_option_button_item_selected"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer/SSAOOptionButton" to="." method="_on_ssao_option_button_item_selected"]
