@@ -20,6 +20,7 @@ extends Control
 
 @onready var filtering_option_button : OptionButton = %FilteringOptionButton
 @onready var aa_option_button : OptionButton = %AAOptionButton
+@onready var lod_option_button : OptionButton = %LODOptionButton
 @onready var shadow_size_option_button : OptionButton = %ShadowSizeOptionButton
 
 @onready var ssao_option_button : OptionButton = %SSAOOptionButton
@@ -44,6 +45,7 @@ func _ready() -> void:
 
 	filtering_option_button.selected = Settings.filtering
 	aa_option_button.selected = Settings.aa
+	lod_option_button.selected = Settings.lod
 	shadow_size_option_button.selected = Settings.shadows
 	
 	ssao_option_button.selected = Settings.ssao
@@ -82,6 +84,8 @@ func _on_preset_1_pressed() -> void:
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 0
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+	lod_option_button.selected = 1
+	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
 func _on_preset_2_pressed() -> void:
@@ -91,6 +95,8 @@ func _on_preset_2_pressed() -> void:
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 2
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+	lod_option_button.selected = 2
+	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
 func _on_preset_3_pressed() -> void:
@@ -100,6 +106,8 @@ func _on_preset_3_pressed() -> void:
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 3
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+	lod_option_button.selected = 3
+	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
 func _on_preset_4_pressed() -> void:
@@ -109,6 +117,8 @@ func _on_preset_4_pressed() -> void:
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 4
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+	lod_option_button.selected = 3
+	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
 func _on_preset_5_pressed() -> void:
@@ -118,6 +128,8 @@ func _on_preset_5_pressed() -> void:
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 5
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
+	lod_option_button.selected = 4
+	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
 # DISPLAY SETTINGS
@@ -227,6 +239,10 @@ func _on_filtering_option_button_item_selected(index: int) -> void:
 
 func _on_aa_option_button_item_selected(index: int) -> void:
 	Settings.set_aa(index)
+
+
+func _on_lod_option_button_item_selected(index: int) -> void:
+	Settings.set_lod(index)
 
 
 func _on_shadow_size_option_button_item_selected(index: int) -> void:

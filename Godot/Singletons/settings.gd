@@ -30,6 +30,7 @@ var fps : float = 0.0
 # effects
 var filtering : int = 3
 var aa : int = 3
+var lod : int = 3
 var shadows : int = 3
 var ssao : int = 0
 
@@ -75,12 +76,15 @@ func _ready() -> void:
 		fps = config.get_value("video", "fps", fps)
 		apply_fps(fps)
 		
-		# effects
+		# quality
 		filtering = config.get_value("video", "filtering", filtering)
 		apply_filtering(filtering)
 		
 		aa = config.get_value("video", "aa", aa)
 		apply_aa(aa)
+		
+		lod = config.get_value("video", "lod", lod)
+		apply_lod(lod)
 		
 		shadows = config.get_value("video", "shadows", shadows)
 		apply_shadows(shadows)
@@ -112,9 +116,10 @@ func save_settings() -> void:
 	config.set_value("video", "vsync", vsync)
 	config.set_value("video", "fps", fps)
 	
-	# effects
+	# quality
 	config.set_value("video", "filtering", filtering)
 	config.set_value("video", "aa", aa)
+	config.set_value("video", "lod", lod)
 	config.set_value("video", "shadows", shadows)
 	config.set_value("video", "ssao", ssao)
 
@@ -303,6 +308,26 @@ func apply_aa(mode : int) -> void:
 func set_aa(mode : int) -> void:
 	aa = mode
 	apply_aa(aa)
+	save_settings()
+
+
+func apply_lod(level : int) -> void:
+	if level == 0: # Very Low
+		get_viewport().mesh_lod_threshold = 8.0
+	if level == 1: # Low
+		get_viewport().mesh_lod_threshold = 4.0
+	if level == 2: # Medium
+		get_viewport().mesh_lod_threshold = 2.0
+	if level == 3: # High (default)
+		get_viewport().mesh_lod_threshold = 1.0
+	if level == 4: # Ultra
+		# Always use highest LODs to avoid any form of pop-in.
+		get_viewport().mesh_lod_threshold = 0.0
+
+
+func set_lod(level : int) -> void:
+	lod = level
+	apply_lod(lod)
 	save_settings()
 
 
