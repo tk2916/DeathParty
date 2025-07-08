@@ -1,5 +1,9 @@
 extends "res://Assets/GUIDesignScripts/default_gui_button.gd"
 
+@onready var journal_open_sound : FmodEventEmitter2D = %JournalOpenSound
+@onready var journal_close_sound : FmodEventEmitter2D = %JournalCloseSound
+
+
 @export var journal_path : String
 @export var journal : PackedScene
 
@@ -13,8 +17,10 @@ func _pressed() -> void:
 		object_viewer.set_item(journal_path)
 		#object_viewer.camera_3d.projection = Camera3D.PROJECTION_ORTHOGONAL
 		#object_viewer.camera_3d.size = 2.1
+		journal_open_sound.play()
 		object_viewer.visible = true
 	else:
+		journal_close_sound.play()
 		object_viewer.visible = false
 		#object_viewer.camera_3d.projection = Camera3D.PROJECTION_PERSPECTIVE
 		object_viewer.remove_current_item()

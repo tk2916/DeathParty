@@ -49,15 +49,17 @@ func _ready():
 	
 #Resets the position of the item
 func reset_item_position():
-	active_item.rotation.x = 0
-	active_item.rotation.y = 0
+	if active_item:
+		active_item.rotation.x = 0
+		active_item.rotation.y = 0
 
 func _input(event):
 	#When the mouse moves if the button is clicked moves the item relative to the mouse movement
 	if pressed and event is InputEventMouseMotion:
 		if active_item != null and !rotate_off:
-			active_item.rotation.x += event.relative.y * 0.005
-			active_item.rotation.y += event.relative.x * 0.005
+			#NOTE: Rotation a bit sensitive, might want to try some manipulating
+			active_item.rotate_x(event.relative.y * 0.005)
+			active_item.rotate_y(event.relative.x * 0.005)
 	
 func _physics_process(delta : float) -> void:
 	#TODO: Change this into an actual input 

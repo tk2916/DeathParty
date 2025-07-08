@@ -1,24 +1,31 @@
 extends Node3D
 
-var PLAYER_CAMERA_FOLLOW_SPEED : float = 3.5
-var CAMERA_TRANSITION_SPEED : float = 2
+var PLAYER_CAMERA_FOLLOW_SPEED: float = 2.5
+var CAMERA_TRANSITION_SPEED: float = 2
 var camera_speed: float = PLAYER_CAMERA_FOLLOW_SPEED
 
-var camera_location : Vector3
-var camera_on_player : bool = true
+var camera_location: Vector3
+var camera_on_player: bool = true
 var camera_smooth: bool = true
 
 var camera_bound_LR: bool = false
 var camera_left_bound: Plane
 var camera_right_bound: Plane
-var camera_parent_basis : Basis
+var camera_parent_basis: Basis
 
 var camera_bound_y: bool = false
 var camera_lower_bound_y: float = 0.0
 var camera_upper_bound_y: float = 0.0
 
-@export var main_camera : Camera3D
-@export var camera_location_node : Node3D
+var camera_bound_depth: bool = false
+var camera_inner_bound: Plane
+var camera_outer_bound: Plane
+
+var camera_bound_path: bool = false
+
+@export var main_camera: Camera3D
+@export var camera_location_node: Node3D
+@export var default_player_camera_location_node: Node3D
 
 # Constantly moves the camera's location
 func _ready() -> void:
@@ -33,13 +40,17 @@ func _ready() -> void:
 	GlobalCameraScript.remove_camera_bounds_LR.connect(_unbind_camera_LR)
 	GlobalCameraScript.bind_camera_y.connect(_bind_camera_y)
 	GlobalCameraScript.remove_camera_bounds_y.connect(_unbind_camera_y)
+	GlobalCameraScript.bind_camera_path.connect(_bind_camera_path)
+	GlobalCameraScript.remove_camera_bounds_path.connect(_unbind_camera_path)
+	GlobalCameraScript.bind_camera_depth.connect(_bind_camera_depth)
+	GlobalCameraScript.remove_camera_bounds_depth.connect(_unbind_camera_depth)
 
 
 func _physics_process(delta: float) -> void:
 	# make camera follow player
 	if camera_on_player:
 		camera_speed = PLAYER_CAMERA_FOLLOW_SPEED
-		camera_location_node = $Player/PlayerCameraLocation
+		camera_location_node = default_player_camera_location_node
 	
 	# restrict x values of camera
 	if camera_bound_LR:
@@ -56,6 +67,15 @@ func _physics_process(delta: float) -> void:
 			camera_location_node.global_position.y = camera_lower_bound_y
 		elif camera_location_node.global_position.y > camera_upper_bound_y:
 			camera_location_node.global_position.y = camera_upper_bound_y
+	
+	# restrict depth of camera
+	if camera_bound_depth:
+		var distance_to_inner_bound: Vector3 = Vector3(0, 0, camera_inner_bound.distance_to(camera_location_node.global_position))
+		var distance_to_outer_bound: Vector3 = Vector3(0, 0, camera_outer_bound.distance_to(camera_location_node.global_position))
+		if distance_to_inner_bound.z < 0:
+			camera_location_node.global_position -= camera_parent_basis * distance_to_inner_bound
+		elif distance_to_outer_bound.z < 0:
+			camera_location_node.global_position += camera_parent_basis * distance_to_outer_bound
 	
 	# camera either moves smoothly or jumps to the next position
 	if camera_smooth:
@@ -85,6 +105,15 @@ func _change_camera_state(tf: bool) -> void:
 	camera_on_player = tf
 
 
+func _bind_camera_path(follow_node: PathFollow3D) -> void:
+	camera_location_node = follow_node
+	camera_bound_path = true
+
+
+func _unbind_camera_path() -> void:
+	camera_bound_path = false
+
+
 func _bind_camera_LR(left: Plane, right: Plane, room_basis: Basis) -> void:
 	camera_left_bound = left
 	camera_right_bound = right
@@ -104,3 +133,14 @@ func _bind_camera_y(lower: float, upper: float) -> void:
 
 func _unbind_camera_y() -> void:
 	camera_bound_y = false
+
+
+func _bind_camera_depth(inner: Plane, outer: Plane, room_basis: Basis) -> void:
+	camera_inner_bound = inner
+	camera_outer_bound = outer
+	camera_parent_basis = room_basis
+	camera_bound_depth = true
+
+
+func _unbind_camera_depth() -> void:
+	camera_bound_depth = false
