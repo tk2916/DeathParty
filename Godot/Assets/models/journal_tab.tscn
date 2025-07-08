@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://mg0sman3f2yu"]
+[gd_scene load_steps=15 format=4 uid="uid://mg0sman3f2yu"]
 
 [ext_resource type="Script" uid="uid://bcjyjyqfung5b" path="res://Assets/models/journal_tab_script.gd" id="1_1kt7j"]
 [ext_resource type="Texture2D" uid="uid://bx2ww6bnu8bq6" path="res://Assets/models/bookmark_tab_max_page_1.png" id="2_s7cof"]
@@ -105,18 +105,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gt70r")
 
-[sub_resource type="GDScript" id="GDScript_s7cof"]
-script/source = "extends SubViewport
-
-signal pressed
-
-func _input(event: InputEvent) -> void:
-	pressed.emit()
-"
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kt7j"]
 
-[node name="TabStaticBody3D" type="StaticBody3D"]
+[node name="TabStaticBody3D" type="StaticBody3D" groups=["object_viewer_interactable"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 collision_layer = 9
 script = ExtResource("1_1kt7j")
@@ -124,7 +115,6 @@ text = "Characters"
 color = Color(0.534059, 0.0627012, 0.41397, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020752, 0.0556507, -0.00183105)
 shape = SubResource("BoxShape3D_1kt7j")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
@@ -141,7 +131,6 @@ skeleton = NodePath("")
 
 [node name="SubViewport" type="SubViewport" parent="Tab"]
 handle_input_locally = false
-script = SubResource("GDScript_s7cof")
 
 [node name="ColorRect" type="ColorRect" parent="Tab/SubViewport"]
 anchors_preset = 15
