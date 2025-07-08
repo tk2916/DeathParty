@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://mg0sman3f2yu"]
+[gd_scene load_steps=16 format=4 uid="uid://mg0sman3f2yu"]
 
 [ext_resource type="Script" uid="uid://bcjyjyqfung5b" path="res://Assets/models/journal_tab_script.gd" id="1_1kt7j"]
 [ext_resource type="Texture2D" uid="uid://bx2ww6bnu8bq6" path="res://Assets/models/bookmark_tab_max_page_1.png" id="2_s7cof"]
@@ -105,6 +105,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gt70r")
 
+[sub_resource type="GDScript" id="GDScript_s7cof"]
+script/source = "extends SubViewport
+
+signal pressed
+
+func _input(event: InputEvent) -> void:
+	pressed.emit()
+"
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kt7j"]
 
 [node name="TabStaticBody3D" type="StaticBody3D"]
@@ -132,6 +141,7 @@ skeleton = NodePath("")
 
 [node name="SubViewport" type="SubViewport" parent="Tab"]
 handle_input_locally = false
+script = SubResource("GDScript_s7cof")
 
 [node name="ColorRect" type="ColorRect" parent="Tab/SubViewport"]
 anchors_preset = 15
@@ -139,6 +149,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
 color = Color(0.787569, 0.787569, 0, 1)
 
 [node name="Button" type="Button" parent="Tab/SubViewport"]

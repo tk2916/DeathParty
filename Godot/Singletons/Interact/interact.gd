@@ -30,10 +30,11 @@ func _input(event: InputEvent) -> void:
 			mouse = event.position
 			get_mouse_world_pos()
 		if event is InputEventMouseButton:
-			if cur_sub_viewport:
-				cur_sub_viewport.push_input(event)
-				return
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed == false:
+				if cur_sub_viewport:
+					#print("Hovering over tab, pushing input", grabbed_object)
+					cur_sub_viewport.push_input(event)
+					return
 				if outline_mesh: #this means something is currently selected & interactable
 					outline_mesh.visible = false
 					grabbed_object.interact()

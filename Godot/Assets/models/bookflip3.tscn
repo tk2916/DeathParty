@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="3_u3xn0"]
 [ext_resource type="Texture2D" uid="uid://b6epcbok07mvo" path="res://Assets/JournalTextures/max_page_3.png" id="4_f0eo2"]
 [ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="5_fvng4"]
-
 [ext_resource type="Texture2D" uid="uid://c0c7uxkp8a7y" path="res://Assets/models/bookflip_max_page_2.png" id="6_x86c4"]
 [ext_resource type="Texture2D" uid="uid://ckreco4sxuqyl" path="res://Assets/JournalTextures/tasks_viewport_texture.tres" id="7_f0eo2"]
 [ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="7_fvng4"]
@@ -424,7 +423,7 @@ _data = {
 &"pageFlip_003": SubResource("Animation_kqixp")
 }
 
-[node name="bookflip" type="Node3D" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node")]
+[node name="bookflip" type="Node3D" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node_left", "tabs_node_right")]
 transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
 script = ExtResource("1_f0eo2")
 animation_player = NodePath("AnimationPlayer")
@@ -434,7 +433,8 @@ page1_subviewport = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
 page2_subviewport = NodePath("Armature/Skeleton3D/Cube_005/SubViewport")
 viewport_texture = ExtResource("7_f0eo2")
 journal_textures = [ExtResource("7_fvng4"), ExtResource("2_2y86t"), ExtResource("4_f0eo2"), ExtResource("5_fvng4"), ExtResource("3_u3xn0")]
-tabs_node = NodePath("Tabs")
+tabs_node_left = NodePath("Tabs")
+tabs_node_right = NodePath("TabsRight")
 
 [node name="Cube_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.28113, 0, 0, 0, 1, 0, 0, 0, 1, -2.09726e-05, 0.0428847, 0.00150057)
@@ -491,6 +491,7 @@ skin = SubResource("Skin_m8qil")
 [node name="Control" parent="Armature/Skeleton3D/Cube_004/SubViewport" instance=ExtResource("7_fvng4")]
 
 [node name="Cube_005" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.9994, -0.0346204, -1.51331e-09, 0.0346204, 0.9994, -2.62013e-11, 1.51331e-09, -2.62048e-11, 1, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_eos73")
 mesh = SubResource("ArrayMesh_g4q0d")
 skin = SubResource("Skin_m8qil")
@@ -515,36 +516,71 @@ libraries = {
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.4109, 0)
 
-[node name="Light2" type="Camera3D" parent="."]
-transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.4109, 0)
-projection = 1
-size = 2.1
-
 [node name="Tabs" type="Node3D" parent="."]
 
 [node name="Tasks" parent="Tabs" instance=ExtResource("8_u3xn0")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.37176, 0.189466, 0.901237)
+transform = Transform3D(-0.993698, 0.112093, -9.17715e-08, 0.112093, 0.993698, 1.0075e-08, 9.23226e-08, -2.75492e-10, -1, 1.37176, 0.18146, 0.901237)
 text = "Tasks"
 color = Color(0.39319, 0.477147, 0, 1)
+offset_distance = 0.073
 
 [node name="Tasks2" parent="Tabs" instance=ExtResource("8_u3xn0")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.12415, 0.189466, 0.901237)
+transform = Transform3D(-0.998561, 0.0536257, -8.9641e-08, 0.0536257, 0.998561, 4.751e-09, 8.97669e-08, -6.28972e-11, -1, 1.12415, 0.209071, 0.901237)
+offset_distance = 0.08
 flip_to_page = 1
 
 [node name="Tasks3" parent="Tabs" instance=ExtResource("8_u3xn0")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.86287, 0.189466, 0.901237)
+transform = Transform3D(-0.999012, 0.0444389, -8.92789e-08, 0.0444389, 0.999012, 3.92816e-09, 8.93653e-08, -4.31832e-11, -1, 0.86287, 0.214905, 0.901237)
 text = "Clues"
 color = Color(0.153846, 0.250883, 0.687585, 1)
+offset_distance = 0.08
 flip_to_page = 2
 
 [node name="Tasks4" parent="Tabs" instance=ExtResource("8_u3xn0")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.60314, 0.189466, 0.901237)
+transform = Transform3D(-0.998926, -0.0463393, -8.53033e-08, -0.0463393, 0.998926, -4.00416e-09, 8.53973e-08, -4.69598e-11, -1, 0.60314, 0.196478, 0.901237)
 text = "Polaroids"
 color = Color(0.454584, 0.253662, 0.0638231, 1)
+offset_distance = 0.09
 flip_to_page = 3
 
 [node name="Tasks5" parent="Tabs" instance=ExtResource("8_u3xn0")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.354927, 0.19169, 0.904132)
+transform = Transform3D(-0.997241, -0.0742303, -8.39369e-08, -0.0742303, 0.997241, -6.36883e-09, 8.41781e-08, -1.20586e-10, -1, 0.354927, 0.217804, 0.904132)
 text = "Settings"
 color = Color(0.164908, 0.352543, 0.288867, 1)
+offset_distance = 0.07
+flip_to_page = 4
+
+[node name="TabsRight" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67648, 1.46562e-07, 6.40645e-15)
+
+[node name="Tasks" parent="TabsRight" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-0.995338, -0.0964542, -8.27989e-08, -0.0964542, 0.995338, -8.22842e-09, 8.32067e-08, -2.03819e-10, -1, 0.244855, 0.197902, 0.901237)
+text = "Tasks"
+color = Color(0.39319, 0.477147, 0, 1)
+offset_distance = 0.073
+
+[node name="Tasks2" parent="TabsRight" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-0.999252, -0.0386669, -8.56672e-08, -0.0386669, 0.999252, -3.34768e-09, 8.57326e-08, -3.26885e-11, -1, 0.512181, 0.211489, 0.901237)
+offset_distance = 0.07
+flip_to_page = 1
+
+[node name="Tasks3" parent="TabsRight" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-0.999997, 0.00232129, -8.7524e-08, 0.00232129, 0.999997, 2.03048e-10, 8.75243e-08, -1.1724e-13, -1, 0.776675, 0.221005, 0.901237)
+text = "Clues"
+color = Color(0.153846, 0.250883, 0.687585, 1)
+offset_distance = 0.08
+flip_to_page = 2
+
+[node name="Tasks4" parent="TabsRight" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-0.998982, 0.0451015, -8.93053e-08, 0.0451015, 0.998982, 3.98737e-09, 8.93942e-08, -4.448e-11, -1, 1.03971, 0.202247, 0.901237)
+text = "Polaroids"
+color = Color(0.454584, 0.253662, 0.0638231, 1)
+offset_distance = 0.08
+flip_to_page = 3
+
+[node name="Tasks5" parent="TabsRight" instance=ExtResource("8_u3xn0")]
+transform = Transform3D(-0.995133, 0.0985382, -9.13045e-08, 0.0985382, 0.995133, 8.82721e-09, 9.173e-08, -2.12729e-10, -1, 1.30151, 0.196673, 0.904132)
+text = "Settings"
+color = Color(0.164908, 0.352543, 0.288867, 1)
+offset_distance = 0.07
 flip_to_page = 4
