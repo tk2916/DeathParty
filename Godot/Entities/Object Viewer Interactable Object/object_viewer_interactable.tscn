@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://i6i8dlaue8xb"]
+
+[ext_resource type="Script" uid="uid://co710bf1ti304" path="res://Entities/Object Viewer Interactable Object/object_viewer_interactable.gd" id="1_pmiak"]
+
+[node name="Object Viewer Interactable" type="Area3D"]
+script = ExtResource("1_pmiak")
