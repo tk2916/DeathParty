@@ -1,4 +1,4 @@
-extends Interactable
+extends Node3D
 
 var outline : Node3D
 
