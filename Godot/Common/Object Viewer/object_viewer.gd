@@ -17,7 +17,7 @@ var pressed : bool = false
 signal enabled
 
 #Places the item into the viewport and defines the "item" variable
-func set_item(item_path : String):	
+func set_item(item_path : String):
 	active_item = set_item_inactive(item_path)
 
 func set_item_inactive(item_path : String):
@@ -43,7 +43,7 @@ func remove_current_item():
 #At origin, the object interferes with the world map. Need to move it away from the world map so that it's visible properly.
 #Also need to assign object based on "item" variable not hard coded. 
 func _ready():	
-	set_item(test_path)
+	#set_item(test_path)
 	camera_3d.transform.origin.y = camera_3d.transform.origin.y + hide_offset
 	camera_3d.transform.origin.z = camera_3d.transform.origin.z + hide_offset
 	

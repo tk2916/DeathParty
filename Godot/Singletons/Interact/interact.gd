@@ -1,7 +1,7 @@
 extends Node3D
 
 var mouse : Vector2
-const DIST : int = 1000
+const DIST : float = 1000.0
 
 var grabbed_object : Node3D = null
 var outline_mesh : MeshInstance3D = null
@@ -14,10 +14,10 @@ var cur_sub_viewport : Viewport = null
 func _ready() -> void:
 	main_camera3d = get_viewport().get_camera_3d()
 	camera3d = main_camera3d
-	var main = get_tree().root.get_node_or_null("Main")
+	var main : Node = get_tree().root.get_node_or_null("Main")
 	if main:
 		main.get_node("ObjectViewer").enabled.connect(switch_camera)
-		
+	
 func switch_camera(enabled, new_cam = null):
 	if !enabled:
 		camera3d = main_camera3d
@@ -30,18 +30,16 @@ func _input(event: InputEvent) -> void:
 			mouse = event.position
 			get_mouse_world_pos()
 		if event is InputEventMouseButton:
-			if cur_sub_viewport:
-				cur_sub_viewport.push_input(event)
-				return
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed == false:
-				if outline_mesh: #this means something is currently selected & interactable
-					outline_mesh.visible = false
-					grabbed_object.interact()
-					grabbed_object = null
-					outline_mesh = null
-			
+				if cur_sub_viewport:
+					cur_sub_viewport.push_input(event)
+					return
+				if grabbed_object and grabbed_object.is_in_group("object_viewer_interactable"):
+					grabbed_object.on_interact()
+
 func get_mouse_world_pos():
 	if camera3d == null: return
+	mouse = camera3d.get_viewport().get_mouse_position() #important bc otherwise it gets the wrong mouse pos
 	var space : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	#we will check if there's anything between the start and end points of the ray DIST long
 	var start : Vector3 = camera3d.project_ray_origin(mouse)
@@ -54,18 +52,21 @@ func get_mouse_world_pos():
 	
 	var result : Dictionary = space.intersect_ray(params)
 	if result.is_empty() == false:
+		var og_grabbed_object = grabbed_object
+		#print("Grabbed object: ", grabbed_object)
 		grabbed_object = result.collider
-		outline_mesh = grabbed_object.get_node_or_null("Outline")
-		if outline_mesh:
-			outline_mesh.visible = true
-		var tab = grabbed_object.get_node_or_null("Tab")
-		if tab:
-			var subviewport = tab.get_node("SubViewport")
-			cur_sub_viewport = subviewport
+		if og_grabbed_object == grabbed_object:
+			return
+		if grabbed_object.is_in_group("object_viewer_interactable"):
+			if og_grabbed_object and og_grabbed_object.is_in_group("object_viewer_interactable"):
+				og_grabbed_object.exit_hover()
+			grabbed_object.enter_hover()
 	else:
-		cur_sub_viewport = null
-		#turn off highlight
-		if outline_mesh:
-			outline_mesh.visible = false
-			grabbed_object = null
-			outline_mesh = null
+		if grabbed_object and grabbed_object.is_in_group("object_viewer_interactable"):
+			grabbed_object.exit_hover()
+		grabbed_object = null
+		
+func set_active_subviewport(subviewport : Viewport):
+	cur_sub_viewport = subviewport
+func clear_active_subviewport():
+	cur_sub_viewport = null
