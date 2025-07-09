@@ -1,8 +1,30 @@
-extends StaticBody3D
+extends Node3D
+
+var outline : Node3D
+
+@export var character_resource : Resource
+@export var dialogue_box : Resource
+@export var json_file : JSON
 
 func _ready() -> void:
-	$InteractionDetector.player_interacted.connect(when_interacted)
+	$InteractionDetector.player_interacted.connect(on_interact)
+	$InteractionDetector.player_in_range.connect(on_in_range)
+	outline = get_node_or_null("Outline")
+	if outline:
+		outline.visible = false
+		
+	character_resource.unread.connect(on_unread)
+	DialogueSystem.to_character(character_resource, json_file)
 
+func on_unread():
+	#$SpeechBubble.visible = true
+	pass
 
-func when_interacted(_body : Node3D) -> void:
-	print("interacted")
+func on_in_range(in_range : bool) -> void:
+	if outline:
+		outline.visible = in_range
+
+func on_interact(_body : Node3D) -> void:
+	print("Interacting")
+	DialogueSystem.setDialogueBox(dialogue_box)
+	character_resource.start_chat()
