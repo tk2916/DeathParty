@@ -386,15 +386,12 @@ func set_shadows(level : int) -> void:
 
 
 func apply_ssao(level : int) -> void:
-	if $WorldEnvironment is WorldEnvironment:
-		var world_environment : WorldEnvironment = $WorldEnvironment
-		if level > 0: # Disabled
-			world_environment.environment.ssao_enabled = true
-		else: # Enabled
-			world_environment.environment.ssao_enabled = false
-	else:
-		# TODO: Why can't this see the WorldEnvironment?
-		print("World environment not present")
+	var world_environment : WorldEnvironment = get_tree().current_scene.find_child("WorldEnvironment")
+
+	if level > 0: # Enabled
+		world_environment.environment.ssao_enabled = true
+	else: # Disabled
+		world_environment.environment.ssao_enabled = false
 
 	if level == 1: # Very Low
 		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_VERY_LOW, true, 0.5, 2, 50, 300)
