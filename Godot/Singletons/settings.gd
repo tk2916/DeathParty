@@ -197,20 +197,24 @@ func set_fullscreen(mode : int) -> void:
 	save_settings()
 
 
-func apply_resolution(res : int) -> void:
+func apply_resolution(res: int) -> void:
+	var new_res: Vector2i
+
 	match res:
 		720:
-			pass
+			new_res = Vector2i(1280, 720)
 		900:
-			pass
+			new_res = Vector2i(1600, 900)
 		1080:
-			pass
+			new_res = Vector2i(1920, 1080)
 		1440:
-			pass
+			new_res = Vector2i(2560, 1440)
 		2160:
-			pass
+			new_res = Vector2i(3840, 2160)
 		4320:
-			pass
+			new_res = Vector2i(7680, 4320)
+
+	get_window().content_scale_size = new_res
 
 
 func set_resolution(res: int) -> void:
