@@ -65,13 +65,11 @@ focus_neighbor_bottom = NodePath("../MonitorOptionButton")
 theme = ExtResource("2_e2l73")
 alignment = 1
 expand_icon = true
-item_count = 3
+item_count = 2
 popup/item_0/text = "Windowed"
 popup/item_0/id = 0
-popup/item_1/text = "Borderless"
+popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
-popup/item_2/text = "Fullscreen"
-popup/item_2/id = 2
 
 [node name="ResolutionLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
