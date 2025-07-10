@@ -110,13 +110,13 @@ func _on_preset_1_pressed() -> void:
 
 
 func _on_preset_2_pressed() -> void:
-	aa_option_button.selected = 1
+	aa_option_button.selected = 0
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
 	shadow_size_option_button.selected = 1
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 2
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 2
+	lod_option_button.selected = 1
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
@@ -125,18 +125,18 @@ func _on_preset_3_pressed() -> void:
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
 	shadow_size_option_button.selected = 2
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
-	ssao_option_button.selected = 3
+	ssao_option_button.selected = 4
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 3
+	lod_option_button.selected = 2
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
 func _on_preset_4_pressed() -> void:
 	aa_option_button.selected = 4
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 3
+	shadow_size_option_button.selected = 2
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
-	ssao_option_button.selected = 4
+	ssao_option_button.selected = 5
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
 	lod_option_button.selected = 3
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
@@ -145,11 +145,11 @@ func _on_preset_4_pressed() -> void:
 func _on_preset_5_pressed() -> void:
 	aa_option_button.selected = 5
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 4
+	shadow_size_option_button.selected = 3
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 5
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 4
+	lod_option_button.selected = 3
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
