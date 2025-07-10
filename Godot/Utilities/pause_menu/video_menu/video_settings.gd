@@ -37,7 +37,7 @@ func _ready() -> void:
 		if DisplayServer.screen_get_size().y >= res:
 			resolution_option_button.add_item(str(res) + "p")
 
-	# set initial resolution option button to match res from cfg
+	# set initial resolution option button setting to match res from cfg
 
 	# doing it in this weird way since the options here are dynamic
 	# based on player's monitor res, so the index of the resolutions in the menu
