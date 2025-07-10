@@ -145,20 +145,7 @@ func _on_fullscreen_option_button_item_selected(value : int) -> void:
 
 func _on_resolution_option_button_item_selected(index: int) -> void:
 	var res = resolution_option_button.text.trim_suffix("p")
-
-	match res:
-		720:
-			pass
-		900:
-			pass
-		1080:
-			pass
-		1440:
-			pass
-		2160:
-			pass
-		4320:
-			pass
+	Settings.set_resolution(res)
 
 
 func _on_monitor_option_button_item_selected(index: int) -> void:

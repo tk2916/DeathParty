@@ -21,6 +21,7 @@ var editable_inputs : Dictionary = {
 # video
 var fullscreen : int = 0
 var resolutions: Array[int] = [720, 900, 1080, 1440, 2160, 4320]
+var resolution: int = 1080
 var monitor : int = 0
 var vsync : int = 1
 var scale : float = 1.0
@@ -58,6 +59,9 @@ func _ready() -> void:
 		# video
 		fullscreen = config.get_value("video", "fullscreen", fullscreen)
 		apply_fullscreen(fullscreen)
+		
+		resolution = config.get_value("video", "resolution", resolution)
+		apply_resolution(resolution)
 		
 		monitor = config.get_value("video", "monitor", monitor)
 		apply_monitor(monitor)
@@ -111,6 +115,7 @@ func save_settings() -> void:
 
 	# video
 	config.set_value("video", "fullscreen", fullscreen)
+	config.set_value("video", "resolution", resolution)
 	config.set_value("video", "scale", scale)
 	config.set_value("video", "upscale", upscale)
 	config.set_value("video", "sharpness", sharpness)
@@ -189,6 +194,28 @@ func apply_fullscreen(mode : int) -> void:
 func set_fullscreen(mode : int) -> void:
 	fullscreen = mode
 	apply_fullscreen(fullscreen)
+	save_settings()
+
+
+func apply_resolution(res : int) -> void:
+	match res:
+		720:
+			pass
+		900:
+			pass
+		1080:
+			pass
+		1440:
+			pass
+		2160:
+			pass
+		4320:
+			pass
+
+
+func set_resolution(res: int) -> void:
+	resolution = res
+	apply_resolution(resolution)
 	save_settings()
 
 
