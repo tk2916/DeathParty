@@ -58,5 +58,5 @@ func exit_hover():
 	pass
 	#print("Exited tab hover ", self.name)
 
-func on_interact():
+func on_mouse_up():
 	button_pressed()
