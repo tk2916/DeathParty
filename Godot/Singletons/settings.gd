@@ -212,7 +212,8 @@ func apply_resolution(res: int) -> void:
 		4320:
 			new_res = Vector2i(7680, 4320)
 
-	get_window().content_scale_size = new_res
+	#NOTE: currently disabled
+	#get_window().content_scale_size = new_res
 
 
 func set_resolution(res: int) -> void:

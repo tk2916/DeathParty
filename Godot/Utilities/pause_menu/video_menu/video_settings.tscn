@@ -73,7 +73,7 @@ popup/item_1/id = 1
 
 [node name="ResolutionLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
-text = "Resolution"
+text = "Resolution (UNUSED)"
 
 [node name="ResolutionOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 unique_name_in_owner = true
