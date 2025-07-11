@@ -59,7 +59,7 @@ resource_name = "Material.001"
 cull_mode = 2
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_s27y8"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ing3b"]
 _surfaces = [{
 "aabb": AABB(-1, 1, -1, 2, 1e-05, 2),
 "format": 34896613377,
@@ -86,7 +86,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_s27y8")
+shadow_mesh = SubResource("ArrayMesh_ing3b")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tlph8"]
 resource_local_to_scene = true

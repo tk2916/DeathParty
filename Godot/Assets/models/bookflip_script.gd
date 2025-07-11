@@ -1,6 +1,5 @@
 extends Node3D
 
-
 @onready var page_flip_sound : FmodEventEmitter2D = %PageFlipSound
 
 @export var animation_player : AnimationPlayer

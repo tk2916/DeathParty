@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://br15eweuv542g"]
+
+[ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
+[ext_resource type="PackedScene" uid="uid://c5cqumfp2dn0s" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d8wdn"]
+viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rss8h"]
+size = Vector3(3.37189, 1, 1.06469)
+
+[node name="BookflipBody" type="AnimatableBody3D" groups=["object_viewer_interactable"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+sync_to_physics = false
+script = ExtResource("1_jth6w")
+
+[node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
+viewport_texture = SubResource("ViewportTexture_d8wdn")
+
+[node name="ShowInventoryCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017395, 0, 0.923396)
+shape = SubResource("BoxShape3D_rss8h")

@@ -9,8 +9,9 @@ var player_data : Dictionary
 const TASKS_FILE_PATH : String = "res://Assets/Resources/TaskResources/"
 const CHARACTER_FILE_PATH : String = "res://Assets/Resources/CharacterResources/"
 const PHONE_CHATS_FILE_PATH : String = "res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/ChatResources/"
-const INVENTORY_ITEMS_FILE_PATH : String = "res://Assets/Resources/InventoryResources/"
+const INVENTORY_ITEMS_FILE_PATH : String = "res://Assets/Resources/InventoryItemResources/"
 
+var task_to_resource : Dictionary[String, Resource] = {}
 var character_to_resource : Dictionary[String, Resource]
 var phone_chat_to_resource : Dictionary[String, Resource]
 var inventory_item_to_resource : Dictionary[String, Resource]
@@ -36,11 +37,13 @@ func _init() -> void:
 		if !player_data_resource["VariableDict"].has(item):
 			player_data_resource["VariableDict"][item] = player_data_resource[item] #add if not already defined (from pervious save)
 	player_data = player_data_resource["VariableDict"]
-	load_inventory()
-	load_directory_into_dictionary(TASKS_FILE_PATH, player_data["possible_tasks"])
+	
+	load_directory_into_dictionary(TASKS_FILE_PATH, task_to_resource)#player_data["possible_tasks"])
 	load_directory_into_dictionary(CHARACTER_FILE_PATH, character_to_resource)
 	load_directory_into_dictionary(PHONE_CHATS_FILE_PATH, phone_chat_to_resource)
 	load_directory_into_dictionary(INVENTORY_ITEMS_FILE_PATH, inventory_item_to_resource)
+	
+	load_inventory()
 	loaded.emit()
 	
 func load_directory_into_dictionary(address : String, dict:Dictionary[String, Resource]):
@@ -58,15 +61,15 @@ func load_directory_into_dictionary(address : String, dict:Dictionary[String, Re
 		print("An error occurred when trying to access the directory " + address)
 
 func load_inventory(): #Make sure player has an entry for each possible item
-	if player_data["inventory"].size() != player_data_resource["possible_items"].size():
-		#adding new items
-		for item in player_data_resource["possible_items"]:
-			if !player_data["inventory"].has(item):
-				player_data["inventory"][item] = 0
-		#removing old items that don't exist anymore
-		for item in player_data["inventory"]:
-			if !player_data_resource["possible_items"].has(item):
-				player_data["inventory"][item] = 0
+	#if player_data["inventory"].size() != player_data_resource["possible_items"].size():
+	#adding new items
+	for item in inventory_item_to_resource:#player_data_resource["possible_items"]:
+		if !player_data["inventory"].has(item):
+			player_data["inventory"][item] = 0
+	#removing old items that don't exist anymore
+	for item in player_data["inventory"]:
+		if !inventory_item_to_resource.has(item):#player_data_resource["possible_items"].has(item):
+			player_data["inventory"][item] = 0
 
 #TYPE SAFETY
 func key_exists(key:String): # returns whether key exists
@@ -124,8 +127,8 @@ func item_count(item:String):
 	
 #TASKS
 func task_exists(item:String):
-	assert(player_data["possible_tasks"].has(item), "ERROR: no such task '" + item + "'. Check your spelling!")
-	return player_data["possible_tasks"][item]
+	assert(task_to_resource.has(item), "ERROR: no such task '" + item + "'. Check your spelling!")
+	return task_to_resource[item]
 	
 func add_task(item:String):
 	print("Added task: ", item)

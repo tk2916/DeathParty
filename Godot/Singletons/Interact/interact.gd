@@ -36,6 +36,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				if cur_sub_viewport:
+					print("Pushing input to subviewport")
 					cur_sub_viewport.push_input(event)
 					return
 				if event.pressed == false: 
@@ -64,7 +65,7 @@ func get_mouse_world_pos():
 	var result : Dictionary = space.intersect_ray(params)
 	if result.is_empty() == false:
 		var og_grabbed_object = grabbed_object
-		#print("Grabbed object: ", grabbed_object)
+		
 		grabbed_object = result.collider
 		if og_grabbed_object == grabbed_object:
 			return
