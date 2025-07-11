@@ -9,9 +9,11 @@ var player_data : Dictionary
 const TASKS_FILE_PATH : String = "res://Assets/Resources/TaskResources/"
 const CHARACTER_FILE_PATH : String = "res://Assets/Resources/CharacterResources/"
 const PHONE_CHATS_FILE_PATH : String = "res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/ChatResources/"
+const INVENTORY_ITEMS_FILE_PATH : String = "res://Assets/Resources/InventoryResources/"
 
 var character_to_resource : Dictionary[String, Resource]
 var phone_chat_to_resource : Dictionary[String, Resource]
+var inventory_item_to_resource : Dictionary[String, Resource]
 
 '''
 EVERYTHING WILL BE ACTUALLY SAVED WITHIN THE player_data DICTIONARY
@@ -38,6 +40,7 @@ func _init() -> void:
 	load_directory_into_dictionary(TASKS_FILE_PATH, player_data["possible_tasks"])
 	load_directory_into_dictionary(CHARACTER_FILE_PATH, character_to_resource)
 	load_directory_into_dictionary(PHONE_CHATS_FILE_PATH, phone_chat_to_resource)
+	load_directory_into_dictionary(INVENTORY_ITEMS_FILE_PATH, inventory_item_to_resource)
 	loaded.emit()
 	
 func load_directory_into_dictionary(address : String, dict:Dictionary[String, Resource]):

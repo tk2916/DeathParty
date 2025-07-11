@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_745t5")
-item_name = ""
-item_description = ""
+name = "Scissors"
+description = "Mysterious scissors"

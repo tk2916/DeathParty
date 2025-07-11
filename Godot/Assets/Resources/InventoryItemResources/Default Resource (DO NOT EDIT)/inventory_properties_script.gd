@@ -1,5 +1,5 @@
 extends Resource
 
-@export var item_name : String
-@export var item_description : String
-@export var item_texture : CompressedTexture2D
+@export var name : String
+@export var description : String
+@export var model : PackedScene
