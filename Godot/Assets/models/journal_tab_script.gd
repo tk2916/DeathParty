@@ -29,13 +29,13 @@ func _ready() -> void:
 	rotation = default_rotation
 
 func return_to_original_pos():
-	up_direction = -transform.basis.z.normalized()
+	up_direction = global_transform.basis.y.normalized()
 	var offset = up_direction*offset_distance
 	global_position = global_position - offset
 	rotation = default_rotation
 
 func move_upward():
-	up_direction = -transform.basis.z.normalized()
+	up_direction = global_transform.basis.y.normalized()
 	var offset = up_direction*offset_distance
 	global_position = global_position + offset
 	rotation = og_rotation
@@ -58,5 +58,5 @@ func exit_hover():
 	pass
 	#print("Exited tab hover ", self.name)
 
-func on_interact():
+func on_mouse_up():
 	button_pressed()

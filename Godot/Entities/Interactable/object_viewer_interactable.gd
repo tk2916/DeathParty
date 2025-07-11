@@ -10,5 +10,7 @@ func enter_hover() -> void:
 	pass
 func exit_hover() -> void:
 	pass
-func on_interact() -> void:
+func on_mouse_down() -> void:
+	pass
+func on_mouse_up() -> void:
 	pass

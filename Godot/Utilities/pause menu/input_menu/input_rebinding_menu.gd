@@ -28,7 +28,14 @@ func populate_list() -> void:
 		var input_a = binding_item.find_child("InputA")
 		var input_b = binding_item.find_child("InputB")
 
+		# add buttons to group
+		# (we're connecting the pressed signal of all nodes in this group to a
+		# func that plays UI sfx in pause_menu.gd)
+		input_a.add_to_group("buttons")
+		input_b.add_to_group("buttons")
+
 		label_action.text = editable_inputs[action]
+
 
 		# get array of inputs currently bound to this action
 		#TODO: probably rename this to 'events' for consistent wording
