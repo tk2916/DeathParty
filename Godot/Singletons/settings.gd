@@ -19,7 +19,7 @@ var editable_inputs : Dictionary = {
 }
 
 # video
-var fullscreen : int = 0
+var fullscreen : int = 1
 var resolutions: Array[int] = [720, 900, 1080, 1440, 2160, 4320]
 var resolution: int = 1080
 var monitor : int = 0
