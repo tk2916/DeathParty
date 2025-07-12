@@ -1,5 +1,9 @@
 extends ObjectViewerInteractable
 
+
+@onready var show_inventory_sound: FmodEventEmitter2D = %ShowInventorySound
+@onready var hide_inventory_sound: FmodEventEmitter2D = %HideInventorySound
+
 var up_pos : Vector3
 var normal_pos : Vector3
 const TWEEN_TIME : float = .2
@@ -18,11 +22,13 @@ func show_inventory() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", up_pos, TWEEN_TIME)
 	inventory_items_container.show_items()
-	
+	show_inventory_sound.play()
+
 func hide_inventory() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", normal_pos, TWEEN_TIME)
 	tween.tween_callback(inventory_items_container.hide_items)
+	hide_inventory_sound.play()
 
 ##INHERITED
 func enter_hover() -> void:

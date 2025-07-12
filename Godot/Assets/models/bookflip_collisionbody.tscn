@@ -55,3 +55,15 @@ bookflip_instance = NodePath("../bookflip")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PageFlipLeft"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991547, 0, 0.141708)
 shape = SubResource("BoxShape3D_7ovfm")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="ShowInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/311_SFX_UI_BagOpen"
+event_guid = "{5d531e04-a10a-46f9-8522-9d0137defd96}"
+unique_name_in_owner = true
+
+[node name="HideInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/310_SFX_UI_BagClose"
+event_guid = "{69c3d9f1-cb46-4217-817c-0a5e223ab1e1}"
+unique_name_in_owner = true
