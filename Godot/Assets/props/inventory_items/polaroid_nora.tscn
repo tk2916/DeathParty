@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://uclswqr3kwlg"]
+
+[ext_resource type="PackedScene" uid="uid://dybd5ulagp5il" path="res://Assets/models/polaroid_nora.glb" id="1_6n58t"]
+
+[node name="polaroid_nora" instance=ExtResource("1_6n58t")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)

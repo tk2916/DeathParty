@@ -24,13 +24,6 @@ var blend_speed : float = 8
 var walk_blend : float = 0
 var current_animation : AnimationState = AnimationState.IDLE
 
-# footstep sound vars
-var is_moving : bool = false
-var was_moving : bool = false
-var prev_pos : Vector3 = position
-var stride_length : float = 1
-var distance_since_step : float = 0
-
 
 func _ready() -> void:
 	original_camera_position = player_camera_location.position

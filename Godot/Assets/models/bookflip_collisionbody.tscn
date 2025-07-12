@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://br15eweuv542g"]
+
+[ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
+[ext_resource type="PackedScene" uid="uid://c5cqumfp2dn0s" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
+[ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
+[ext_resource type="Script" uid="uid://bigc44cfli8nx" path="res://Assets/models/journal_page_flip_collider.gd" id="4_e2q15"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
+viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rss8h"]
+size = Vector3(3.37189, 0.300507, 1.23391)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ovfm"]
+size = Vector3(1.36774, 1, 1.7092)
+
+[node name="BookflipBody" type="AnimatableBody3D" node_paths=PackedStringArray("inventory_items_container") groups=["object_viewer_interactable"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+collision_layer = 9
+sync_to_physics = false
+script = ExtResource("1_jth6w")
+inventory_items_container = NodePath("InventoryItems")
+
+[node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
+viewport_texture = SubResource("ViewportTexture_e2q15")
+
+[node name="ShowInventoryCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017395, 0.1165, 1.48344)
+shape = SubResource("BoxShape3D_rss8h")
+debug_color = Color(0.784314, 0, 0.0745098, 1)
+
+[node name="InventoryItems" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.328706, 1.4382)
+script = ExtResource("3_7ovfm")
+
+[node name="PageFlipRight" type="StaticBody3D" parent="." node_paths=PackedStringArray("bookflip_instance") groups=["object_viewer_interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114063, -6.49764e-09, -0.148649)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("4_e2q15")
+bookflip_instance = NodePath("../bookflip")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PageFlipRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991547, 0, 0.141708)
+shape = SubResource("BoxShape3D_7ovfm")
+
+[node name="PageFlipLeft" type="StaticBody3D" parent="." node_paths=PackedStringArray("bookflip_instance") groups=["object_viewer_interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87412, 0.00477885, -0.142431)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("4_e2q15")
+flip_backwards = true
+bookflip_instance = NodePath("../bookflip")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PageFlipLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991547, 0, 0.141708)
+shape = SubResource("BoxShape3D_7ovfm")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="ShowInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/311_SFX_UI_BagOpen"
+event_guid = "{5d531e04-a10a-46f9-8522-9d0137defd96}"
+unique_name_in_owner = true
+
+[node name="HideInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/310_SFX_UI_BagClose"
+event_guid = "{69c3d9f1-cb46-4217-817c-0a5e223ab1e1}"
+unique_name_in_owner = true
