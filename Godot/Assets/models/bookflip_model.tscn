@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5cqumfp2dn0s"]
+[gd_scene load_steps=15 format=3 uid="uid://c5cqumfp2dn0s"]
 
 [ext_resource type="PackedScene" uid="uid://ccu74juivvuwg" path="res://Assets/models/bookflip.glb" id="1_xw7s5"]
 [ext_resource type="Script" uid="uid://b7e4s6slidb3u" path="res://Assets/models/bookflip_script.gd" id="2_epq3o"]
@@ -12,18 +12,23 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_g2831"]
 viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ieb6y"]
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_55mpj"]
 viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2831"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_55mpj")
+albedo_texture_force_srgb = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd17q"]
 resource_local_to_scene = true
+albedo_texture_force_srgb = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55mpj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfr5l"]
 albedo_color = Color(0.313726, 0.164706, 0.0627451, 1)
+albedo_texture_force_srgb = true
 
 [node name="bookflip" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node_left", "tabs_node_right") instance=ExtResource("1_xw7s5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -37,6 +42,9 @@ viewport_texture = SubResource("ViewportTexture_g2831")
 journal_textures = [ExtResource("4_6b4ny"), ExtResource("5_th48n"), ExtResource("6_he2ap"), ExtResource("7_d5j1u"), ExtResource("8_3xg2d")]
 tabs_node_left = NodePath("Tabs")
 tabs_node_right = NodePath("TabsRight")
+
+[node name="Cube_002" parent="." index="0"]
+material_overlay = SubResource("StandardMaterial3D_ieb6y")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0.002873, -0.00246666, -5.25889e-10)
@@ -58,7 +66,7 @@ material_overlay = SubResource("StandardMaterial3D_wd17q")
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Cube_005" index="0"]
 
 [node name="Cube_001" parent="." index="2"]
-material_overlay = SubResource("StandardMaterial3D_55mpj")
+material_overlay = SubResource("StandardMaterial3D_yfr5l")
 
 [node name="Tabs" type="Node3D" parent="." index="4"]
 

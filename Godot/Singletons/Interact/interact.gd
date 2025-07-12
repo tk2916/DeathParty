@@ -11,6 +11,7 @@ var outline_mesh : MeshInstance3D = null
 @onready var camera3d : Camera3D
 
 var cur_sub_viewport : Viewport = null
+var object_viewer : ObjectViewer = null
 
 signal mouse_position_changed(delta : Vector2)
 
@@ -19,7 +20,8 @@ func _ready() -> void:
 	camera3d = main_camera3d
 	var main : Node = get_tree().root.get_node_or_null("Main")
 	if main:
-		main.get_node("ObjectViewer").enabled.connect(switch_camera)
+		object_viewer = main.get_node("ObjectViewer")
+		object_viewer.enabled.connect(switch_camera)
 	
 func switch_camera(enabled, new_cam = null):
 	if !enabled:
@@ -64,14 +66,16 @@ func get_mouse_world_pos():
 	
 	var result : Dictionary = space.intersect_ray(params)
 	if result.is_empty() == false:
-		var og_grabbed_object = grabbed_object
+		var og_grabbed_object : Node3D = grabbed_object
 		
 		grabbed_object = result.collider
 		if og_grabbed_object == grabbed_object:
 			return
 		if grabbed_object.is_in_group("object_viewer_interactable"):
+			print("Grabbed object: ", grabbed_object)
 			if og_grabbed_object and og_grabbed_object.is_in_group("object_viewer_interactable"):
-				og_grabbed_object.exit_hover()
+				if !(grabbed_object is ClickableInventoryItem):
+					og_grabbed_object.exit_hover()
 			grabbed_object.enter_hover()
 	else:
 		if grabbed_object and grabbed_object.is_in_group("object_viewer_interactable"):

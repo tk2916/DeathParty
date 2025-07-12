@@ -63,6 +63,7 @@ func load_directory_into_dictionary(address : String, dict:Dictionary[String, Re
 func load_inventory(): #Make sure player has an entry for each possible item
 	#if player_data["inventory"].size() != player_data_resource["possible_items"].size():
 	#adding new items
+	print("Loading inventory: ", inventory_item_to_resource)
 	for item in inventory_item_to_resource:#player_data_resource["possible_items"]:
 		if !player_data["inventory"].has(item):
 			player_data["inventory"][item] = 0
@@ -124,6 +125,9 @@ func remove_item(item:String): #returns 1 if successful, 0 if there aren't any l
 func item_count(item:String):
 	item_exists(item)
 	return player_data["inventory"][item]
+
+func get_inventory():
+	return player_data["inventory"]
 	
 #TASKS
 func task_exists(item:String):
