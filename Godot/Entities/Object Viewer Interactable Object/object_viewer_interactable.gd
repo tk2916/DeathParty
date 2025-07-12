@@ -1,5 +1,5 @@
 extends Area3D
-class_name ObjectViewerInteractableRotation
+class_name ObjectViewerInteractable_Pedro
 
 #The Object Viewer Interactable is class that can be inherited.
 #Unlike the normal interactable, it assumes the item is being viewed on "Object Viewer" and thus

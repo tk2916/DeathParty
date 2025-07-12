@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dga2tnvugyda7"]
+
+[ext_resource type="PackedScene" uid="uid://6fyb1kpv2sae" path="res://Assets/models/pillbottle.glb" id="1_eppo6"]
+
+[node name="pillbottle" instance=ExtResource("1_eppo6")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, 0.15, 0, -0.15, -6.55671e-09, 0, 0, 0)
+
+[node name="Cylinder" parent="." index="1"]
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, 0.15, 0, -0.15, -6.55671e-09, 0, 0, 0)

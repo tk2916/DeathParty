@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://u3tbjg3scroh"]
 
 [ext_resource type="Script" uid="uid://de2asi0rdni8c" path="res://Entities/Interactable/rotation_object_viewer_interactable.gd" id="1_i4fcm"]
-[ext_resource type="Script" uid="uid://b64k4lcaawp3h" path="res://Entities/Interactable/drag_object_viewer_interactable.gd" id="2_epx5s"]
+[ext_resource type="Script" path="res://Entities/Interactable/drag_object_viewer_interactable.gd" id="2_epx5s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6e0nh"]
 

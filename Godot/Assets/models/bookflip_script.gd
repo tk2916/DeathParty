@@ -1,5 +1,4 @@
-extends Node3D
-
+class_name BookFlip extends Node3D
 
 @onready var page_flip_sound : FmodEventEmitter2D = %PageFlipSound
 
@@ -67,7 +66,6 @@ func _ready() -> void:
 		tab.tab_pressed.connect(on_tab_pressed.bind(tab))
 
 func on_tab_pressed(tab:Node):
-	print("On tab pressed", tab)
 	var flipBackwards : bool = tab.flip_to_page <= page_tracker
 	bookflip(flipBackwards, tab.flip_to_page)
 	
@@ -132,9 +130,9 @@ func _on_anim_finished(anim_name: StringName) -> void:
 		flipping = false
 		animation_player.play("idle")
 		
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.keycode == KEY_A:
-			bookflip(true);
-		elif event.keycode == KEY_D:
-			bookflip();
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventKey:
+		#if event.keycode == KEY_A:
+			#bookflip(true);
+		#elif event.keycode == KEY_D:
+			#bookflip();

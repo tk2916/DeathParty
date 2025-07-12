@@ -1,0 +1,63 @@
+class_name InventoryItemsContainer extends Node3D
+
+var player_inventory : Dictionary[String, int]
+
+var item_instances : Array[Node3D]
+
+var item_positions_grid : Array[Vector3]
+var spacer : float = .5
+var double_spacer : float = 2*spacer
+
+func _init() -> void:
+	#set grid positions IN ORDER of where we want items to appear (center-outward)
+	item_positions_grid.push_back(Vector3.ZERO)
+	item_positions_grid.push_back(Vector3(-spacer,0,0))
+	item_positions_grid.push_back(Vector3(spacer,0,0))
+	item_positions_grid.push_back(Vector3(-(double_spacer),0,0))
+	item_positions_grid.push_back(Vector3(double_spacer,0,0))
+	#2nd row
+	item_positions_grid.push_back(Vector3(0,-double_spacer,0))
+	item_positions_grid.push_back(Vector3(-spacer,-double_spacer,0))
+	item_positions_grid.push_back(Vector3(spacer,-double_spacer,0))
+	item_positions_grid.push_back(Vector3(-(double_spacer),-double_spacer,0))
+	item_positions_grid.push_back(Vector3(double_spacer,-double_spacer,0))
+
+func find_first_mesh(item : Node3D):
+	for thing in item.get_children():
+		if thing is MeshInstance3D:
+			return thing
+
+func create_clickable_item(item : Node3D) -> ClickableInventoryItem:
+	var static_body : ClickableInventoryItem = ClickableInventoryItem.new() #StaticBody3D
+	var collision_shape : CollisionShape3D = CollisionShape3D.new()
+	collision_shape.name = "CollisionShape3D"
+	collision_shape.shape = BoxShape3D.new()
+	collision_shape.shape.extents = Vector3(.2,.2,10)#find_first_mesh(item).get_aabb().size * .5
+	
+	static_body.position = item.position
+	static_body.add_child(collision_shape)
+	static_body.add_child(item)
+	
+	item.position = Vector3.ZERO
+	return static_body
+
+func load_items() -> void:
+	player_inventory = SaveSystem.get_inventory()
+	var index = 0
+	for item in player_inventory:
+		if player_inventory[item] == 0: continue
+		var item_resource : Resource = SaveSystem.inventory_item_to_resource[item]
+		var model : PackedScene = item_resource.model
+		var instance : Node3D = model.instantiate()
+		var staticbody = create_clickable_item(instance)
+		staticbody.position = item_positions_grid[index]
+		item_instances.push_back(staticbody)
+		index += 1
+
+func show_items() -> void:
+	for item in item_instances:
+		add_child(item)
+
+func hide_items() -> void:
+	for item in get_children():
+		remove_child(item)

@@ -1,7 +1,11 @@
 extends Resource
 
-var possible_items : Array = ["Knife", "Map", "Spray Paint", "Key", "Phone"]
-var possible_tasks : Dictionary[String, Resource] = {}
+#var possible_items : Array = [
+	#"Scissors", 
+	#"Key",
+	#"Nora's Polaroid"
+#]
+#var possible_tasks : Dictionary[String, Resource] = {}
 
 var VariableDict : Dictionary = {}
 
