@@ -5,7 +5,6 @@ extends CharacterBody3D
 @export var model : Node3D
 
 var movement_speed: float = 4
-var movement_delta: float
 var path_point_margin: float = 0.5
 
 var current_path_index: int = 0
@@ -36,7 +35,6 @@ func _physics_process(delta: float) -> void:
 			return
 	
 	current_path_point = current_path[current_path_index]
-	current_path_point.y = global_transform.origin.y
 	
 	var new_velocity: Vector3 = global_transform.origin.direction_to(current_path_point) * movement_speed
 	# Fall
@@ -47,11 +45,11 @@ func _physics_process(delta: float) -> void:
 	handle_animations(delta)
 	
 	move_and_slide()
+	apply_floor_snap()
 	
 func set_movement_target_random() -> void:
 	var start_position: Vector3 = global_transform.origin
 	var new_destination = NavigationServer3D.map_get_random_point(default_3d_map_rid, 1, false)
-	
 	current_path = NavigationServer3D.map_get_path(default_3d_map_rid, start_position, new_destination, true)
 	
 	if not current_path.is_empty():
