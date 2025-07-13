@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://blugfv5sj71mp"]
+
+[ext_resource type="Texture2D" uid="uid://bs6savww45o3" path="res://Assets/PNGAssets/temp_polaroid_frame.png" id="1_km327"]
+[ext_resource type="Script" uid="uid://m1136kkpr1us" path="res://polaroid_pop_up.gd" id="2_v8wvi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig8r4"]
+size = Vector3(18.0377, 10.9305, 1)
+
+[node name="Polaroid" type="Sprite3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.382568, 0.787271, 2.10108)
+visible = false
+centered = false
+texture = ExtResource("1_km327")
+script = ExtResource("2_v8wvi")
+
+[node name="Polaroid_Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.204522, -0.093796, 0)
+shape = SubResource("BoxShape3D_ig8r4")
+
+[node name="image_taken" type="Sprite3D" parent="."]
+region_enabled = true
+region_rect = Rect2(0, 0, 3.958, 0)

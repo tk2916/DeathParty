@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqn4u6cug2cc6"]
+
+[ext_resource type="Script" path="res://polaroid_layer.gd" id="1_hbg1w"]
+[ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
+[ext_resource type="Texture2D" uid="uid://d16vdeadxk8ym" path="res://Assets/PNGAssets/temp_CameraViewfinder.png" id="2_wiexo"]
+[ext_resource type="Script" path="res://view_finder.gd" id="5_hbg1w"]
+[ext_resource type="Script" uid="uid://bn68wv06hf2ed" path="res://picturetake.gd" id="6_or4cw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4tks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_or4cw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ps1x1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gt8th"]
+
+[node name="PolaroidCamera" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_hbg1w")
+
+[node name="PictureExample" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+scale = Vector2(1, 1.0079)
+texture = ExtResource("1_t72bm")
+expand_mode = 1
+
+[node name="ViewFinder" type="TextureRect" parent="PictureExample"]
+layout_mode = 0
+offset_right = 1226.0
+offset_bottom = 632.0
+texture = ExtResource("2_wiexo")
+expand_mode = 1
+script = ExtResource("5_hbg1w")
+
+[node name="Camera2D" type="Camera2D" parent="PictureExample/ViewFinder"]
+position = Vector2(23, 24.804)
+scale = Vector2(1e-05, 1.0079e-05)
+anchor_mode = 0
+ignore_rotation = false
+zoom = Vector2(1.1, 1.26)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+
+[node name="shoot" type="Button" parent="."]
+offset_left = -5.0
+offset_top = -8.0
+offset_right = 1278.0
+offset_bottom = 715.0
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_c4tks")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_or4cw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ps1x1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gt8th")
+script = ExtResource("6_or4cw")
+
+[connection signal="button_up" from="shoot" to="." method="_on_shoot_button_up"]
+[connection signal="pressed" from="shoot" to="shoot" method="_on_pressed"]
