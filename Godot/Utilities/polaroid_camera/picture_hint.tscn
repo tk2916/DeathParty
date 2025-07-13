@@ -3,10 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://dfw3nws74h2i6" path="res://Assets/PNGAssets/temp_questionmark.png" id="1_rnn7t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rnn7t"]
+size = Vector3(0.662598, 0.484131, 0.202771)
 
 [node name="PictureHint" type="Area3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00823361, 0.0848445, 0.0151765)
 shape = SubResource("BoxShape3D_rnn7t")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

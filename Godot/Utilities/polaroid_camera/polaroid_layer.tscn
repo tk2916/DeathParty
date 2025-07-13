@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0sd1bp5esd04"]
+[gd_scene load_steps=9 format=3 uid="uid://d0sd1bp5esd04"]
 
-[ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="1_hbg1w"]
 [ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
 [ext_resource type="Texture2D" uid="uid://d16vdeadxk8ym" path="res://Assets/PNGAssets/temp_CameraViewfinder.png" id="2_wiexo"]
 [ext_resource type="Script" uid="uid://cg5lhigmboc73" path="res://Utilities/polaroid_camera/view_finder.gd" id="5_hbg1w"]
@@ -16,7 +15,6 @@
 
 [node name="PolaroidCamera" type="CanvasLayer"]
 follow_viewport_enabled = true
-script = ExtResource("1_hbg1w")
 
 [node name="PictureExample" type="TextureRect" parent="."]
 offset_right = 1280.0
