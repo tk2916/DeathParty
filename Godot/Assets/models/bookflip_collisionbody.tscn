@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://br15eweuv542g"]
+[gd_scene load_steps=8 format=3 uid="uid://d1t1u428xvqgt"]
 
-[ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
-[ext_resource type="PackedScene" uid="uid://c5cqumfp2dn0s" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
-[ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
-[ext_resource type="Script" uid="uid://bigc44cfli8nx" path="res://Assets/models/journal_page_flip_collider.gd" id="4_e2q15"]
+[ext_resource type="Script" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
+[ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
+[ext_resource type="Script" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
+[ext_resource type="Script" path="res://Assets/models/journal_page_flip_collider.gd" id="4_e2q15"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
 viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")

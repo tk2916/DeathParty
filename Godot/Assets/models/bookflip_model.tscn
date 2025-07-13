@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5cqumfp2dn0s"]
+[gd_scene load_steps=15 format=3 uid="uid://ctxn4d5hysbqv"]
 
 [ext_resource type="PackedScene" uid="uid://ccu74juivvuwg" path="res://Assets/models/bookflip.glb" id="1_xw7s5"]
 [ext_resource type="Script" uid="uid://b7e4s6slidb3u" path="res://Assets/models/bookflip_script.gd" id="2_epq3o"]

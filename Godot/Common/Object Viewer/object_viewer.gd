@@ -35,6 +35,7 @@ func set_item_inactive(item_path : String) -> Node3D:
 	return set_item_properties(scene)
 	
 func set_item_properties(scene : Node3D) -> Node3D:
+	visible = true
 	Interact.set_active_subviewport(sub_viewport)
 	remove_current_item()
 	#if !currently_open:

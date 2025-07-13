@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqn4u6cug2cc6"]
+[gd_scene load_steps=10 format=3 uid="uid://c6hp37p3nx680"]
 
 [ext_resource type="Script" path="res://polaroid_layer.gd" id="1_hbg1w"]
 [ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
 [ext_resource type="Texture2D" uid="uid://d16vdeadxk8ym" path="res://Assets/PNGAssets/temp_CameraViewfinder.png" id="2_wiexo"]
 [ext_resource type="Script" path="res://view_finder.gd" id="5_hbg1w"]
-[ext_resource type="Script" uid="uid://bn68wv06hf2ed" path="res://picturetake.gd" id="6_or4cw"]
+[ext_resource type="Script" path="res://picturetake.gd" id="6_or4cw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4tks"]
 

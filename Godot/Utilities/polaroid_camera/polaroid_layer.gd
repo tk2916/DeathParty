@@ -2,6 +2,8 @@ extends CanvasLayer
 
 var Picture
 
+@onready var og_camera : Camera3D = get_viewport().get_camera_3d()
+
 #function for movement of camera
 func _physics_process(delta: float) -> void:
 	Picture=$PictureExample/ViewFinder
@@ -66,3 +68,7 @@ func _on_question_mark_input_event(camera: Node, event: InputEvent, event_positi
 		visible=true	
 		
 #when player shoots the picture, the scene goes away
+func turn_off():
+	$PictureExample/ViewFinder/Camera2D.enabled=false
+	og_camera.make_current()
+	visible = false
