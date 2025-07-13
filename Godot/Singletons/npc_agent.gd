@@ -19,11 +19,6 @@ var current_path_point: Vector3
 var current_path: PackedVector3Array
 
 
-## Just a shortcut for the NavigationServer function call
-func get_random_point(map: RID, navigation_layers: int, uniformly: bool) -> Vector3:
-	return NavigationServer3D.map_get_random_point(map, navigation_layers, uniformly)
-
-
 ## Create a path to the desired destination
 func set_movement_target(destination: Vector3, navigation_layers: int, map: RID = default_map_rid) -> void:
 	var start_position: Vector3 = global_transform.origin
@@ -43,4 +38,39 @@ func set_movement_target_random(navigation_layers: int, map: RID = default_map_r
 	set_movement_target(random_location, navigation_layers, map)
 
 
+func wander(movement_speed: float, navigation_layers: int, delta: float = 0, map: RID = default_map_rid, uniformly: bool = false) -> void:
+	if not current_path.is_empty():
+		move_npc(movement_speed, delta)
+		return
+	
+	## physics_process runs 60 times per second
+	## randi from 1-200 should be a .005 chance to get '1' -> .5% chance to decide to move every frame
+	## 1 - ((1-.005)^60) ~= 26% chance to decide to move every second while idle, I think?
+	var random_number: int = RandomNumberGenerator.new().randi_range(1, 200)
+	if random_number != 1:
+		return
+	
+	set_movement_target_random(navigation_layers)
+
 ## Move agent along current path
+func move_npc(movement_speed: float, _delta: float = 0) -> void:
+	if current_path.is_empty():
+		return
+	
+	if global_transform.origin.distance_to(current_path_point) <= path_point_margin:
+		current_path_index += 1
+		if current_path_index >= current_path.size():
+			current_path = []
+			current_path_index = 0
+			current_path_point = global_transform.origin
+			return
+	
+	current_path_point = current_path[current_path_index]
+	var new_velocity: Vector3 = global_transform.origin.direction_to(current_path_point) * movement_speed
+	# Fall
+	if not is_on_floor():
+		new_velocity.y += get_gravity().y
+	
+	velocity = new_velocity
+	move_and_slide()
+	apply_floor_snap() # Keep NPC on ground
