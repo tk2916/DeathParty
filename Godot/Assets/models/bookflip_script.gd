@@ -44,8 +44,8 @@ func _ready() -> void:
 	old_tab = tab_handler.get_tab(0)
 	cur_tab.move_upward()
 	
-	page1_mat = page1.material_overlay
-	page2_mat = page2.material_overlay
+	page1_mat = page1.material_override
+	page2_mat = page2.material_override
 	
 	journal_textures_size = journal_textures.size()
 	animation_player.animation_finished.connect(_on_anim_finished)
@@ -90,10 +90,12 @@ func set_page(side_of_page : int, index : int):
 		child.queue_free()
 	
 	if journal_entry is CompressedTexture2D:
-		page_mat.albedo_texture = journal_entry
+		#page_mat.albedo_texture = journal_entry
+		page_mat.set_shader_parameter("albedo_texture", journal_entry)
 		
 	elif journal_entry is PackedScene:
-		page_mat.albedo_texture = viewport_texture
+		#page_mat.albedo_texture = viewport_texture
+		page_mat.set_shader_parameter("albedo_texture", viewport_texture)
 		viewport_texture.viewport_path = page_subviewport.get_path()
 		page_subviewport.add_child(journal_entry.instantiate())
 

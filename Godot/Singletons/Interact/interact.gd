@@ -70,11 +70,13 @@ func get_mouse_world_pos():
 		
 		grabbed_object = result.collider
 		if og_grabbed_object == grabbed_object:
+			#print("Grabbed object equal")
 			return
+		#print("Grabbed object not in group: ", grabbed_object.name)
 		if grabbed_object.is_in_group("object_viewer_interactable"):
-			print("Grabbed object: ", grabbed_object)
+			#print("Grabbed object: ", grabbed_object.name)
 			if og_grabbed_object and og_grabbed_object.is_in_group("object_viewer_interactable"):
-				if !(grabbed_object is ClickableInventoryItem):
+				if !(og_grabbed_object.name == "BookflipBody" and grabbed_object.name.substr(0,13) == "InventoryItem"):
 					og_grabbed_object.exit_hover()
 			grabbed_object.enter_hover()
 	else:

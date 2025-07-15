@@ -27,12 +27,18 @@ func find_first_mesh(item : Node3D):
 		if thing is MeshInstance3D:
 			return thing
 
-func create_clickable_item(item : Node3D) -> ClickableInventoryItem:
-	var static_body : ClickableInventoryItem = ClickableInventoryItem.new() #StaticBody3D
+func create_clickable_item(item : Node3D, index : int) -> ObjectViewerInteractable:
+	var static_body : ObjectViewerInteractable
+	if item.name.substr(0,8) == "polaroid":
+		static_body = DragDropPolaroid.new()
+	else:
+		static_body = ClickableInventoryItem.new()
+	
+	static_body.name = "InventoryItem-" + str(index)
 	var collision_shape : CollisionShape3D = CollisionShape3D.new()
 	collision_shape.name = "CollisionShape3D"
 	collision_shape.shape = BoxShape3D.new()
-	collision_shape.shape.extents = Vector3(.2,.2,10)#find_first_mesh(item).get_aabb().size * .5
+	collision_shape.shape.extents = Vector3(.2,.2,1)
 	
 	static_body.position = item.position
 	static_body.add_child(collision_shape)
@@ -49,9 +55,10 @@ func load_items() -> void:
 		var item_resource : Resource = SaveSystem.inventory_item_to_resource[item]
 		var model : PackedScene = item_resource.model
 		var instance : Node3D = model.instantiate()
-		var staticbody = create_clickable_item(instance)
-		staticbody.position = item_positions_grid[index]
-		item_instances.push_back(staticbody)
+		var static_body : ObjectViewerInteractable = create_clickable_item(instance, index)
+		static_body.position = item_positions_grid[index]
+		item_instances.push_back(static_body)
+		print("Static body name: ", static_body.name)
 		index += 1
 
 func show_items() -> void:

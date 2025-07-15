@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctxn4d5hysbqv"]
+[gd_scene load_steps=19 format=3 uid="uid://ctxn4d5hysbqv"]
 
 [ext_resource type="PackedScene" uid="uid://ccu74juivvuwg" path="res://Assets/models/bookflip.glb" id="1_xw7s5"]
 [ext_resource type="Script" uid="uid://b7e4s6slidb3u" path="res://Assets/models/bookflip_script.gd" id="2_epq3o"]
@@ -6,13 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://mg0sman3f2yu" path="res://Assets/models/journal_tab.tscn" id="5_stup6"]
 [ext_resource type="Texture2D" uid="uid://dmffsu11hoong" path="res://Assets/JournalTextures/max_page_1.png" id="5_th48n"]
 [ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="6_he2ap"]
-[ext_resource type="Texture2D" uid="uid://b6epcbok07mvo" path="res://Assets/JournalTextures/max_page_3.png" id="7_d5j1u"]
 [ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="8_3xg2d"]
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="8_yfr5l"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_g2831"]
 viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ieb6y"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ieb6y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fq2mh"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_yfr5l")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_55mpj"]
 viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
@@ -22,24 +29,31 @@ resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_55mpj")
 albedo_texture_force_srgb = true
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yfr5l"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_yfr5l")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd17q"]
 resource_local_to_scene = true
 albedo_texture_force_srgb = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ieb6y"]
+size = Vector3(1.55786, 0.391174, 1.80309)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfr5l"]
 albedo_color = Color(0.313726, 0.164706, 0.0627451, 1)
 albedo_texture_force_srgb = true
 
-[node name="bookflip" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node_left", "tabs_node_right") instance=ExtResource("1_xw7s5")]
+[node name="bookflip" node_paths=PackedStringArray("animation_player", "page2", "page1_subviewport", "page2_subviewport", "tabs_node_left", "tabs_node_right") instance=ExtResource("1_xw7s5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("2_epq3o")
 animation_player = NodePath("AnimationPlayer")
-page1 = NodePath("Armature/Skeleton3D/Cube_004")
 page2 = NodePath("Armature/Skeleton3D/Cube_005")
 page1_subviewport = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
 page2_subviewport = NodePath("Armature/Skeleton3D/Cube_005/SubViewport")
 viewport_texture = SubResource("ViewportTexture_g2831")
-journal_textures = [ExtResource("4_6b4ny"), ExtResource("5_th48n"), ExtResource("6_he2ap"), ExtResource("7_d5j1u"), ExtResource("8_3xg2d")]
+journal_textures = [ExtResource("4_6b4ny"), ExtResource("5_th48n"), ExtResource("6_he2ap"), SubResource("ViewportTexture_ieb6y"), ExtResource("8_3xg2d")]
 tabs_node_left = NodePath("Tabs")
 tabs_node_right = NodePath("TabsRight")
 
@@ -54,16 +68,80 @@ bones/2/rotation = Quaternion(6.41715e-09, -1.44581e-07, 0.032965, 0.999457)
 bones/3/rotation = Quaternion(6.41858e-09, 1.39218e-07, 0.0472964, 0.998881)
 
 [node name="Cube_004" parent="Armature/Skeleton3D" index="0"]
+material_override = SubResource("ShaderMaterial_fq2mh")
 material_overlay = SubResource("StandardMaterial3D_g2831")
 
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Cube_004" index="0"]
 
 [node name="Control" parent="Armature/Skeleton3D/Cube_004/SubViewport" index="0" instance=ExtResource("4_6b4ny")]
 
+[node name="DragAndDropPolaroidsTest" type="Control" parent="Armature/Skeleton3D/Cube_004/SubViewport" index="1"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Armature/Skeleton3D/Cube_004/SubViewport/DragAndDropPolaroidsTest" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Armature/Skeleton3D/Cube_004/SubViewport/DragAndDropPolaroidsTest" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect3" type="ColorRect" parent="Armature/Skeleton3D/Cube_004/SubViewport/DragAndDropPolaroidsTest" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25
+anchor_right = 0.25
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect4" type="ColorRect" parent="Armature/Skeleton3D/Cube_004/SubViewport/DragAndDropPolaroidsTest" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Cube_005" parent="Armature/Skeleton3D" index="1"]
+material_override = SubResource("ShaderMaterial_yfr5l")
 material_overlay = SubResource("StandardMaterial3D_wd17q")
 
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Cube_005" index="0"]
+
+[node name="RightPageArea3D" type="Area3D" parent="Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8229, 0, -7.19447e-08)
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/RightPageArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313721, -0.00345172, 0.0149002)
+shape = SubResource("BoxShape3D_ieb6y")
+debug_color = Color(0.799815, 0.0309134, 1, 0.42)
+
+[node name="RightPageArea3D2" type="Area3D" parent="Armature/Skeleton3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.738785, -0.00923359, -0.00767797)
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/RightPageArea3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313721, 0, 0.0149002)
+shape = SubResource("BoxShape3D_ieb6y")
+debug_color = Color(0.799815, 0.0309134, 1, 0.42)
 
 [node name="Cube_001" parent="." index="2"]
 material_overlay = SubResource("StandardMaterial3D_yfr5l")
@@ -141,6 +219,3 @@ flip_to_page = 4
 event_name = "event:/000_SFX/000_Demo_Test/004_SFX_PageFlip"
 event_guid = "{a9436081-49dc-4597-9156-239d2f74f66d}"
 unique_name_in_owner = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.71754, 0)
