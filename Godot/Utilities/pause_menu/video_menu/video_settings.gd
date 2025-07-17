@@ -18,6 +18,8 @@ extends Control
 @onready var fps_spin_box : SpinBox = %FPSSpinBox
 @onready var fps_limit_off_label: Label = %FPSLimitOffLabel
 
+@onready var stats_option_button : OptionButton = %StatsOptionButton
+
 @onready var filtering_option_button : OptionButton = %FilteringOptionButton
 @onready var aa_option_button : OptionButton = %AAOptionButton
 @onready var lod_option_button : OptionButton = %LODOptionButton
@@ -63,6 +65,8 @@ func _ready() -> void:
 	fps_slider.value = Settings.fps
 	fps_spin_box.value = fps_slider.value
 	hide_or_show_fps_limit_label(fps_spin_box.value)
+	
+	stats_option_button.selected = Settings.stats
 
 	filtering_option_button.selected = Settings.filtering
 	aa_option_button.selected = Settings.aa
@@ -255,6 +259,10 @@ func hide_or_show_fps_limit_label(value : float) -> void:
 	else:
 		fps_limit_off_label.hide()
 		fps_spin_box.show()
+
+
+func _on_stats_option_box_item_selected(index: int) -> void:
+	Settings.set_stats(index)
 
 
 # QUALITY SETTINGS

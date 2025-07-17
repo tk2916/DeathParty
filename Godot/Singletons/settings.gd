@@ -28,13 +28,14 @@ var scale : float = 1.0
 var upscale : int = 0
 var sharpness : float = 0.2
 var fps : float = 0.0
+var stats : int = 1
 
 # effects
 var filtering : int = 3
 var aa : int = 3
 var lod : int = 3
-var shadows : int = 3
-var ssao : int = 0
+var shadows : int = 2
+var ssao : int = 4
 
 # audio
 var volume : float = 50
@@ -81,6 +82,9 @@ func _ready() -> void:
 		fps = config.get_value("video", "fps", fps)
 		apply_fps(fps)
 		
+		stats = config.get_value("video", "stats", stats)
+		apply_stats(stats)
+		
 		# quality
 		filtering = config.get_value("video", "filtering", filtering)
 		apply_filtering(filtering)
@@ -121,6 +125,7 @@ func save_settings() -> void:
 	config.set_value("video", "sharpness", sharpness)
 	config.set_value("video", "vsync", vsync)
 	config.set_value("video", "fps", fps)
+	config.set_value("video", "stats", stats)
 	
 	# quality
 	config.set_value("video", "filtering", filtering)
@@ -293,6 +298,17 @@ func set_fps(cap : float) -> void:
 	apply_fps(fps)
 	save_settings()
 
+func apply_stats(_mode : int) -> void:
+	var stats_node : Node = get_tree().current_scene.find_child("Stats")
+	if stats_node is StatsDisplay:
+		var stats_display : StatsDisplay = stats_node
+		stats_display.init()
+
+func set_stats(mode : int) -> void:
+	stats = mode
+	apply_stats(mode)
+	save_settings()
+
 
 func apply_filtering(mode : int) -> void:
 	match mode:
@@ -417,23 +433,26 @@ func set_shadows(level : int) -> void:
 
 
 func apply_ssao(level : int) -> void:
-	var world_environment : WorldEnvironment = get_tree().current_scene.find_child("WorldEnvironment")
+	var world_environment_node : Node = get_tree().current_scene.find_child("WorldEnvironment")
+	
+	if world_environment_node is WorldEnvironment:
+		var world_environment : WorldEnvironment = world_environment_node
 
-	if level > 0: # Enabled
-		world_environment.environment.ssao_enabled = true
-	else: # Disabled
-		world_environment.environment.ssao_enabled = false
+		if level > 0: # Enabled
+			world_environment.environment.ssao_enabled = true
+		else: # Disabled
+			world_environment.environment.ssao_enabled = false
 
-	if level == 1: # Very Low
-		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_VERY_LOW, true, 0.5, 2, 50, 300)
-	if level == 2: # Low
-		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_LOW, true, 0.5, 2, 50, 300)
-	if level == 3: # Medium
-		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_MEDIUM, true, 0.5, 2, 50, 300)
-	if level == 4: # High
-		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_HIGH, true, 0.5, 2, 50, 300)
-	if level == 5: # Ultra
-		RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_ULTRA, true, 0.5, 2, 50, 300)
+		if level == 1: # Very Low
+			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_VERY_LOW, true, 0.5, 2, 50, 300)
+		if level == 2: # Low
+			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_LOW, true, 0.5, 2, 50, 300)
+		if level == 3: # Medium
+			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_MEDIUM, true, 0.5, 2, 50, 300)
+		if level == 4: # High
+			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_HIGH, true, 0.5, 2, 50, 300)
+		if level == 5: # Ultra
+			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_ULTRA, true, 0.5, 2, 50, 300)
 
 
 func set_ssao(level : int) -> void:
