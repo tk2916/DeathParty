@@ -1,5 +1,8 @@
 class_name InventoryItemsContainer extends Node3D
 
+@export var bookflip_instance : BookFlip
+@onready var main_page : MeshInstance3D = bookflip_instance.page1
+
 var player_inventory : Dictionary[String, int]
 
 var item_instances : Array[Node3D]
@@ -30,7 +33,8 @@ func find_first_mesh(item : Node3D):
 func create_clickable_item(item : Node3D, index : int) -> ObjectViewerInteractable:
 	var static_body : ObjectViewerInteractable
 	if item.name.substr(0,8) == "polaroid":
-		static_body = DragDropPolaroid.new()
+		static_body = DragDropPolaroid.new(bookflip_instance)
+		#static_body.main_page = main_page
 	else:
 		static_body = ClickableInventoryItem.new()
 	
@@ -38,11 +42,14 @@ func create_clickable_item(item : Node3D, index : int) -> ObjectViewerInteractab
 	var collision_shape : CollisionShape3D = CollisionShape3D.new()
 	collision_shape.name = "CollisionShape3D"
 	collision_shape.shape = BoxShape3D.new()
-	collision_shape.shape.extents = Vector3(.2,.2,1)
+	collision_shape.shape.extents = Vector3(.2,.2,.2)
 	
 	static_body.position = item.position
 	static_body.add_child(collision_shape)
 	static_body.add_child(item)
+	
+	static_body.rotate(Vector3(1,0,0), deg_to_rad(90))
+	static_body.rotate(Vector3(0,1,0), deg_to_rad(180))
 	
 	item.position = Vector3.ZERO
 	return static_body

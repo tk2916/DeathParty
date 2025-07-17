@@ -16,8 +16,7 @@ func focus_object():
 		duplicate.add_child(child.duplicate())
 	
 	duplicate.scale = Vector3(3,3,3)
-	duplicate.rotate(Vector3(1,0,0), deg_to_rad(90.0))
-	duplicate.add_to_group("object_viewer_interactable")
+	duplicate.rotate(Vector3(0,1,0), deg_to_rad(180.0))
 	Interact.object_viewer.set_preexisting_item(duplicate)
 
 ##INHERITED

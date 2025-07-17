@@ -92,6 +92,7 @@ func _ready() -> void:
 
 #Scroll in and out of item
 func _input(event) -> void:
+	if active_item == null: return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			active_item.scale *= 1.15

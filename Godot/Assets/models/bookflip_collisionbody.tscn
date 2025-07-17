@@ -1,29 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1t1u428xvqgt"]
+[gd_scene load_steps=6 format=3 uid="uid://d1t1u428xvqgt"]
 
 [ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
-[ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="3_0upgx"]
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
-[ext_resource type="Texture2D" uid="uid://dmffsu11hoong" path="res://Assets/JournalTextures/max_page_1.png" id="4_8c4l8"]
-[ext_resource type="Script" path="res://Assets/models/journal_page_flip_collider.gd" id="4_e2q15"]
-[ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="5_qun6a"]
-[ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="6_e7rhw"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
 viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0upgx"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_rss8h"]
 size = Vector3(3.37189, 0.300507, 1.23391)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e2q15"]
-size = Vector3(1.29675, 0.276764, 1.83472)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7ovfm"]
-size = Vector3(1.26593, 0.296997, 1.75939)
-
-[node name="BookflipBody" type="AnimatableBody3D" node_paths=PackedStringArray("inventory_items_container") groups=["object_viewer_interactable"]]
+[node name="BookflipBody" type="AnimatableBody3D" node_paths=PackedStringArray("inventory_items_container")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 collision_layer = 9
 sync_to_physics = false
@@ -33,7 +20,6 @@ inventory_items_container = NodePath("InventoryItems")
 [node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
 transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -0.00238484, 0.0737534, -0.499142)
 viewport_texture = SubResource("ViewportTexture_e2q15")
-journal_textures = [ExtResource("3_0upgx"), ExtResource("4_8c4l8"), ExtResource("5_qun6a"), SubResource("ViewportTexture_0upgx"), ExtResource("6_e7rhw")]
 
 [node name="ShowInventoryCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.00412434, 0.190253, -0.499142)
@@ -41,32 +27,10 @@ visible = false
 shape = SubResource("BoxShape3D_rss8h")
 debug_color = Color(0.784314, 0, 0.0745098, 1)
 
-[node name="InventoryItems" type="Node3D" parent="."]
-transform = Transform3D(-0.9, 7.86805e-08, 0, 3.43923e-15, 3.93403e-08, -0.9, -7.86805e-08, -0.9, -3.93403e-08, -0.00238484, 0.402459, 0.60924)
+[node name="InventoryItems" type="Node3D" parent="." node_paths=PackedStringArray("bookflip_instance")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.00238484, 0.402459, 0.60924)
 script = ExtResource("3_7ovfm")
-
-[node name="PageFlipRight" type="StaticBody3D" parent="." node_paths=PackedStringArray("bookflip_instance") groups=["object_viewer_interactable"]]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.116448, 0.0737534, -0.499142)
-collision_layer = 9
-collision_mask = 9
-script = ExtResource("4_e2q15")
 bookflip_instance = NodePath("../bookflip")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PageFlipRight"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, 1.06866, 0.149277, -0.0372314)
-shape = SubResource("BoxShape3D_e2q15")
-
-[node name="PageFlipLeft" type="StaticBody3D" parent="." node_paths=PackedStringArray("bookflip_instance") groups=["object_viewer_interactable"]]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.8765, 0.0785322, -0.499142)
-collision_layer = 9
-collision_mask = 9
-script = ExtResource("4_e2q15")
-flip_backwards = true
-bookflip_instance = NodePath("../bookflip")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PageFlipLeft"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, 1.43697, 0.172302, 0.0250925)
-shape = SubResource("BoxShape3D_7ovfm")
 
 [node name="Sounds" type="Node" parent="."]
 

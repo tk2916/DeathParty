@@ -5,7 +5,6 @@ class_name ObjectViewerInteractable extends StaticBody3D
 func _init() -> void:
 	self.set_collision_layer_value(1, true)
 	self.set_collision_layer_value(4, true)
-	self.add_to_group("object_viewer_interactable")
 #
 ##OVERRIDE THESE METHODS
 func enter_hover() -> void:
