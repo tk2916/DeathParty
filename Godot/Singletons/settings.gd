@@ -28,7 +28,7 @@ var scale : float = 1.0
 var upscale : int = 0
 var sharpness : float = 0.2
 var fps : float = 0.0
-var stats : int = 1
+var stats : int = 0
 
 # effects
 var filtering : int = 3
