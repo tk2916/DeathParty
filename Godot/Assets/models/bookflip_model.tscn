@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://ctxn4d5hysbqv"]
+[gd_scene load_steps=41 format=4 uid="uid://ctxn4d5hysbqv"]
 
 [ext_resource type="Script" uid="uid://b7e4s6slidb3u" path="res://Assets/models/bookflip_script.gd" id="2_epq3o"]
 [ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="4_6b4ny"]
@@ -11,8 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="8_3xg2d"]
 [ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="8_yfr5l"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_g2831"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fq2mh"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mp1ih"]
+viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ieb6y"]
 
@@ -462,7 +465,8 @@ page1 = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004")
 page2 = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005")
 page1_subviewport = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
 page2_subviewport = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
-viewport_texture = SubResource("ViewportTexture_g2831")
+viewport_texture1 = SubResource("ViewportTexture_fq2mh")
+viewport_texture2 = SubResource("ViewportTexture_mp1ih")
 journal_textures = [ExtResource("4_6b4ny"), ExtResource("5_th48n"), ExtResource("6_he2ap"), ExtResource("5_yfr5l"), ExtResource("8_3xg2d")]
 tabs_node_left = NodePath("Tabs")
 tabs_node_right = NodePath("TabsRight")

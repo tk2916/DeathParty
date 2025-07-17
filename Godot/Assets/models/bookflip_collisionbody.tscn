@@ -1,11 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1t1u428xvqgt"]
+[gd_scene load_steps=5 format=3 uid="uid://d1t1u428xvqgt"]
 
 [ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
-viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rss8h"]
 size = Vector3(3.37189, 0.300507, 1.23391)
@@ -19,7 +16,6 @@ inventory_items_container = NodePath("InventoryItems")
 
 [node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
 transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -0.00238484, 0.0737534, -0.499142)
-viewport_texture = SubResource("ViewportTexture_e2q15")
 
 [node name="ShowInventoryCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.00412434, 0.190253, -0.499142)

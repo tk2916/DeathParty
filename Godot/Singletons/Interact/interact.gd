@@ -51,13 +51,16 @@ func _input(event: InputEvent) -> void:
 						grabbed_object.on_mouse_down()
 						dragged_object = grabbed_object
 
-func get_mouse_world_pos():
+func mouse_in_world_projection() -> Vector3:
+	return camera3d.project_position(mouse, DIST)
+
+func get_mouse_world_pos() -> void:
 	if camera3d == null: return
 	mouse = camera3d.get_viewport().get_mouse_position() #important bc otherwise it gets the wrong mouse pos
 	var space : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	#we will check if there's anything between the start and end points of the ray DIST long
 	var start : Vector3 = camera3d.project_ray_origin(mouse)
-	var end : Vector3 = camera3d.project_position(mouse, DIST)
+	var end : Vector3 = mouse_in_world_projection()
 	var params : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
 	params.from = start
 	params.to = end
@@ -84,7 +87,7 @@ func get_mouse_world_pos():
 			grabbed_object.exit_hover()
 		grabbed_object = null
 		
-func set_active_subviewport(subviewport : Viewport):
+func set_active_subviewport(subviewport : Viewport) -> void:
 	cur_sub_viewport = subviewport
-func clear_active_subviewport():
+func clear_active_subviewport() -> void:
 	cur_sub_viewport = null

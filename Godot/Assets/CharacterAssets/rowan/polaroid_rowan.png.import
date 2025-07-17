@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://base5d87dehd1"
-path="res://.godot/imported/polaroid_nora.png-60f3e6fc0faa70ab1dafd59a772d81ee.ctex"
+uid="uid://bjmwboxfv10fk"
+path="res://.godot/imported/polaroid_rowan.png-8480d94d589327e3b515270f91ad4412.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/CharacterTextures/polaroid_nora.png"
-dest_files=["res://.godot/imported/polaroid_nora.png-60f3e6fc0faa70ab1dafd59a772d81ee.ctex"]
+source_file="res://Assets/CharacterAssets/rowan/polaroid_rowan.png"
+dest_files=["res://.godot/imported/polaroid_rowan.png-8480d94d589327e3b515270f91ad4412.ctex"]
 
 [params]
 

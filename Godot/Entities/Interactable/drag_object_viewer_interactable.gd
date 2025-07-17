@@ -7,21 +7,25 @@ var dragging : bool = false
 var local_y_dir : Vector3
 var local_x_dir : Vector3
 
+var parallel_plane : Plane
+
 func _ready() -> void:
 	Interact.mouse_position_changed.connect(on_mouse_pos_changed)
+	parallel_plane = Plane(self.global_transform.basis.z, self.global_position)
 
 func on_mouse_pos_changed(delta : Vector2):
 	if !dragging:
 		return
-	##DO NOT CHANGE: these look wacky but they are right
-	if not constrain_y:
-		local_y_dir = global_transform.basis.y.normalized()
-		var offset = local_y_dir * 0.003 * -delta.y
-		self.global_position = global_position + offset
-	if not constrain_x:
-		local_x_dir = global_transform.basis.x.normalized()
-		var offset = local_x_dir * 0.003 * -delta.x
-		self.global_position = global_position + offset
+	var origin : Vector3 = Interact.camera3d.project_ray_origin(Interact.mouse)
+	var direction : Vector3 = Interact.camera3d.project_ray_normal(Interact.mouse)
+	var intersection : Vector3 = parallel_plane.intersects_ray(origin, direction)
+	
+	if intersection:
+		global_position = intersection
+		if not constrain_y:
+			global_position.y = intersection.y
+		if not constrain_x:
+			global_position.x = intersection.x
 
 ##INHERITED
 func on_mouse_down() -> void:
