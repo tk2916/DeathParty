@@ -20,8 +20,6 @@ var editable_inputs : Dictionary = {
 
 # video
 var fullscreen : int = 1
-var resolutions: Array[int] = [720, 900, 1080, 1440, 2160, 4320]
-var resolution: int = 1080
 var monitor : int = 0
 var vsync : int = 1
 var scale : float = 1.0
@@ -70,9 +68,6 @@ func apply_settings_from_cfg() -> void:
 	# display
 	fullscreen = config.get_value("video", "fullscreen", fullscreen)
 	apply_fullscreen(fullscreen)
-
-	resolution = config.get_value("video", "resolution", resolution)
-	apply_resolution(resolution)
 
 	monitor = config.get_value("video", "monitor", monitor)
 	apply_monitor(monitor)
@@ -123,7 +118,6 @@ func save_settings() -> void:
 
 	# display
 	config.set_value("video", "fullscreen", fullscreen)
-	config.set_value("video", "resolution", resolution)
 	config.set_value("video", "scale", scale)
 	config.set_value("video", "upscale", upscale)
 	config.set_value("video", "sharpness", sharpness)
@@ -201,33 +195,6 @@ func apply_fullscreen(mode : int) -> void:
 func set_fullscreen(mode : int) -> void:
 	fullscreen = mode
 	apply_fullscreen(fullscreen)
-	save_settings()
-
-
-func apply_resolution(res: int) -> void:
-	var new_res: Vector2i
-
-	match res:
-		720:
-			new_res = Vector2i(1280, 720)
-		900:
-			new_res = Vector2i(1600, 900)
-		1080:
-			new_res = Vector2i(1920, 1080)
-		1440:
-			new_res = Vector2i(2560, 1440)
-		2160:
-			new_res = Vector2i(3840, 2160)
-		4320:
-			new_res = Vector2i(7680, 4320)
-
-	#NOTE: currently disabled
-	#get_window().content_scale_size = new_res
-
-
-func set_resolution(res: int) -> void:
-	resolution = res
-	apply_resolution(resolution)
 	save_settings()
 
 

@@ -1,7 +1,6 @@
 extends Control
 
 @onready var fullscreen_option_button : OptionButton = %FullscreenOptionButton
-@onready var resolution_option_button: OptionButton = %ResolutionOptionButton
 @onready var monitor_option_button : OptionButton = %MonitorOptionButton
 @onready var vsync_option_button : OptionButton = %VSyncOptionButton
 
@@ -32,26 +31,6 @@ var last_monitor_count : int
 
 func _ready() -> void:
 	fullscreen_option_button.selected = Settings.fullscreen
-
-	# get monitor res and population resolution option button with
-	# resolutions it can display
-	for res in Settings.resolutions:
-		if DisplayServer.screen_get_size().y >= res:
-			resolution_option_button.add_item(str(res) + "p")
-
-	# set initial resolution option button setting to match res from cfg
-
-	# doing it in this weird way since the options here are dynamic
-	# based on player's monitor res, so the index of the resolutions in the menu
-	# will vary
-
-	# lmk if thats a dumb way to do it lol
-	for i in range(resolution_option_button.get_item_count()):
-		var item_text: String = resolution_option_button.get_item_text(i)
-		var item_res: int = int(item_text.trim_suffix("p"))
-
-		if item_res == Settings.resolution:
-			resolution_option_button.select(i)
 
 	vsync_option_button.selected = Settings.vsync
 	
@@ -161,11 +140,6 @@ func _on_preset_5_pressed() -> void:
 
 func _on_fullscreen_option_button_item_selected(value : int) -> void:
 	Settings.set_fullscreen(value)
-
-
-func _on_resolution_option_button_item_selected(index: int) -> void:
-	var res = int(resolution_option_button.text.trim_suffix("p"))
-	Settings.set_resolution(res)
 
 
 func _on_monitor_option_button_item_selected(index: int) -> void:

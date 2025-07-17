@@ -71,14 +71,6 @@ popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
 
-[node name="ResolutionLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
-layout_mode = 2
-text = "Resolution (UNUSED)"
-
-[node name="ResolutionOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
 [node name="MonitorLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
 theme = ExtResource("2_e2l73")
@@ -463,7 +455,6 @@ popup/item_5/text = "Ultra"
 popup/item_5/id = 5
 
 [connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/FullscreenOptionButton" to="." method="_on_fullscreen_option_button_item_selected"]
-[connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/MonitorOptionButton" to="." method="_on_monitor_option_button_item_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/VSyncOptionButton" to="." method="_on_v_sync_option_button_item_selected"]
 [connection signal="drag_ended" from="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer/ScaleContainer/ScaleSlider" to="." method="_on_scale_slider_drag_ended"]
