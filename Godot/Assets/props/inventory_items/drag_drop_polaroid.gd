@@ -8,8 +8,11 @@ var og_grabbed_control : DragDropControl = null
 
 @onready var og_position : Vector3 = position
 
-func _init(_bookflip_instance : BookFlip) -> void:
+var item_resource : Resource
+
+func _init(_item_resource : Resource, _bookflip_instance : BookFlip) -> void:
 	super()
+	item_resource = _item_resource
 	bookflip_instance = _bookflip_instance
 	main_page = bookflip_instance.page1
 
@@ -57,7 +60,6 @@ func find_raycasted_ui_recursive(coords : Vector2, node : Control) -> Control:
 		if child.visible:
 			var hover_area : Rect2 = Rect2(child.position, child.size)
 			if hover_area.has_point(coords):
-				print("Child has coords: ", child)
 				return find_raycasted_ui_recursive(coords, child)
 	return node
 
@@ -167,7 +169,7 @@ func _input(event: InputEvent) -> void:
 	if grabbed_control and event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed == false:
-				grabbed_control.mouse_up(Utils.find_first_child_of_class(self, MeshInstance3D))
+				grabbed_control.mouse_up(item_resource, self)
 
 ##INHERITED
 func enter_hover() -> void:

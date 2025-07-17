@@ -30,10 +30,10 @@ func find_first_mesh(item : Node3D):
 		if thing is MeshInstance3D:
 			return thing
 
-func create_clickable_item(item : Node3D, index : int) -> ObjectViewerInteractable:
+func create_clickable_item(item_resource : InventoryItemResource, item : Node3D, index : int) -> ObjectViewerInteractable:
 	var static_body : ObjectViewerInteractable
 	if item.name.substr(0,8) == "polaroid":
-		static_body = DragDropPolaroid.new(bookflip_instance)
+		static_body = DragDropPolaroid.new(item_resource, bookflip_instance)
 		#static_body.main_page = main_page
 	else:
 		static_body = ClickableInventoryItem.new()
@@ -59,10 +59,10 @@ func load_items() -> void:
 	var index = 0
 	for item in player_inventory:
 		if player_inventory[item] == 0: continue
-		var item_resource : Resource = SaveSystem.inventory_item_to_resource[item]
+		var item_resource : InventoryItemResource = SaveSystem.inventory_item_to_resource[item]
 		var model : PackedScene = item_resource.model
 		var instance : Node3D = model.instantiate()
-		var static_body : ObjectViewerInteractable = create_clickable_item(instance, index)
+		var static_body : ObjectViewerInteractable = create_clickable_item(item_resource, instance, index)
 		static_body.position = item_positions_grid[index]
 		item_instances.push_back(static_body)
 		print("Static body name: ", static_body.name)

@@ -39,8 +39,8 @@ var current_choice_labels : Array[Node]
 
 #RESOURCE DIRECTORIES
 const INK_INTERPRET_RSC_FILEPATH : String = "res://Singletons/InkInterpreter/ink_interpret_resource_blank.tres"
-var phone_messages : Dictionary[String, Resource]
-var character_properties : Dictionary[String, Resource]
+var phone_messages : Dictionary[String, ChatResource]
+var character_properties : Dictionary[String, CharacterResource]
 var blank_ink_interpret_resource : Resource = load(INK_INTERPRET_RSC_FILEPATH).duplicate(true)
 
 var current_character_resource : Resource = null
