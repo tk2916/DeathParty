@@ -54,62 +54,66 @@ func _ready() -> void:
 	if err == OK:
 		print("settings.cfg loaded successfully")
 
-		# input
-		load_bindings()
-
-		# video
-		fullscreen = config.get_value("video", "fullscreen", fullscreen)
-		apply_fullscreen(fullscreen)
-		
-		resolution = config.get_value("video", "resolution", resolution)
-		apply_resolution(resolution)
-		
-		monitor = config.get_value("video", "monitor", monitor)
-		apply_monitor(monitor)
-		
-		vsync = config.get_value("video", "vsync", vsync)
-		apply_vsync(vsync)
-		
-		scale = config.get_value("video", "scale", scale)
-		apply_scale(scale)
-		
-		upscale = config.get_value("video", "upscale", upscale)
-		apply_upscale(upscale)
-		
-		sharpness = config.get_value("video", "sharpness", sharpness)
-		apply_sharpness(sharpness)
-		
-		fps = config.get_value("video", "fps", fps)
-		apply_fps(fps)
-		
-		stats = config.get_value("video", "stats", stats)
-		apply_stats(stats)
-		
-		# quality
-		filtering = config.get_value("video", "filtering", filtering)
-		apply_filtering(filtering)
-		
-		aa = config.get_value("video", "aa", aa)
-		apply_aa(aa)
-		
-		lod = config.get_value("video", "lod", lod)
-		apply_lod(lod)
-		
-		shadows = config.get_value("video", "shadows", shadows)
-		apply_shadows(shadows)
-		
-		ssao = config.get_value("video", "ssao", ssao)
-		apply_ssao(ssao)
-
-		# audio
-		volume = config.get_value("audio", "volume", volume)
-		apply_volume(volume)
-
 	# if it doesnt load, print error and create new cfg with current settings
 	else:
 		print("failed to load settings.cfg (" + error_string(err) + ")")
 		print("creating new settings.cfg file with default settings . . .")
 		save_settings()
+
+	apply_settings_from_cfg()
+
+
+func apply_settings_from_cfg() -> void:
+	# input
+	load_bindings()
+
+	# display
+	fullscreen = config.get_value("video", "fullscreen", fullscreen)
+	apply_fullscreen(fullscreen)
+
+	resolution = config.get_value("video", "resolution", resolution)
+	apply_resolution(resolution)
+
+	monitor = config.get_value("video", "monitor", monitor)
+	apply_monitor(monitor)
+
+	vsync = config.get_value("video", "vsync", vsync)
+	apply_vsync(vsync)
+
+	scale = config.get_value("video", "scale", scale)
+	apply_scale(scale)
+
+	upscale = config.get_value("video", "upscale", upscale)
+	apply_upscale(upscale)
+
+	sharpness = config.get_value("video", "sharpness", sharpness)
+	apply_sharpness(sharpness)
+
+	fps = config.get_value("video", "fps", fps)
+	apply_fps(fps)
+
+	stats = config.get_value("video", "stats", stats)
+	apply_stats(stats)
+
+	# quality
+	filtering = config.get_value("video", "filtering", filtering)
+	apply_filtering(filtering)
+
+	aa = config.get_value("video", "aa", aa)
+	apply_aa(aa)
+
+	lod = config.get_value("video", "lod", lod)
+	apply_lod(lod)
+
+	shadows = config.get_value("video", "shadows", shadows)
+	apply_shadows(shadows)
+
+	ssao = config.get_value("video", "ssao", ssao)
+	apply_ssao(ssao)
+
+	# audio
+	volume = config.get_value("audio", "volume", volume)
+	apply_volume(volume)
 
 
 func save_settings() -> void:
@@ -117,7 +121,7 @@ func save_settings() -> void:
 	# input
 	save_bindings()
 
-	# video
+	# display
 	config.set_value("video", "fullscreen", fullscreen)
 	config.set_value("video", "resolution", resolution)
 	config.set_value("video", "scale", scale)
