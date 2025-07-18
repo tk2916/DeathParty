@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=4 uid="uid://cwjfbxbvm4u45"]
+
+[ext_resource type="Texture2D" uid="uid://dqboelmevwvbo" path="res://Assets/Entrance Room/entrance room props/entrance room props_Cobwebs_M_baseColor.png" id="1_08jdf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wwh5"]
+resource_name = "Cobwebs_M"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_08jdf")
+roughness = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lwcii"]
+_surfaces = [{
+"aabb": AABB(-4.12371, -6.58167, -0.104273, 2.66898, 2.01226, 0.208546),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAACAAwAAAABAAIABgAAAAwABgAMAAUAAgANAAwADQAFAAwAAgAEAA0ADQADAAUABAAOAA0ADgADAA0ABAAIAA4ADgAHAAMACAAJAA4ACQAHAA4ACAALAAkACQAKAAcA"),
+"lods": [0.071726, PackedByteArray("AAABAAIAAgADAAAAAgAEAAMAAwAFAAAABgAAAAUABAAHAAMABAAIAAcACAAJAAcACQAKAAcACAALAAkA")],
+"name": "Cobwebs_M",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("AAAZjkDFAAAAAP///v8AAJs3///+/wAAh3UoPgAAAACXef///v8AAKw5fR6WXwAAAAAAAP//AADgrYxzll8AAJis///+/wAAl/um1EDFAAAZ9pKe//8AAP/////+/wAAhjiqm+J9AADId8GpW1MAACqtgsHifQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sdw7t"]
+resource_name = "entrance room props_SM_Cobwebs_01_Cobwebs_M_0_001"
+_surfaces = [{
+"aabb": AABB(-4.12371, -6.58167, -0.104273, 2.66898, 2.01226, 0.208546),
+"attribute_data": PackedByteArray("/3+e9v9////Nm///w7oJ8Mu8///VnG7t/3/r6u/WbvRL1v//y/1t/Az7+ff/////Qpy89+O75fiU1tr6"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAACAAwAAAABAAIABgAAAAwABgAMAAUAAgANAAwADQAFAAwAAgAEAA0ADQADAAUABAAOAA0ADgADAA0ABAAIAA4ADgAHAAMACAAJAA4ACQAHAA4ACAALAAkACQAKAAcA"),
+"lods": [0.071726, PackedByteArray("AAABAAIAAgADAAAAAgAEAAMAAwAFAAAABgAAAAUABAAHAAMABAAIAAcACAAJAAcACQAKAAcACAALAAkA")],
+"material": SubResource("StandardMaterial3D_4wwh5"),
+"name": "Cobwebs_M",
+"primitive": 3,
+"uv_scale": Vector4(0.433155, 1.99444, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("AAAZjkDFF3sAAP///v+de5s3///+/2R6h3UoPgAAsnyXef///v91eKw5fR6WX356AAAAAP//tXngrYxzll89fJis///+/xF4l/um1EDFZ3sZ9pKe//+jev/////+/4t4hjiqm+J9VXvId8GpW1NheyqtgsHifV57sGfiGOIw5Ew/JEZdOEULPjIPoG8idvoK44kGCUdcY96XBI+FvjRVt0WW5uU/DDmLeUo4OBsXC2pMLuyu")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lwcii")
+
+[node name="CobwebCorner" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.10998, 0, 0, 0, 1.10998, 0, 0, 0, 1.10998, 3, 6, 0)
+mesh = SubResource("ArrayMesh_sdw7t")
+skeleton = NodePath("")
