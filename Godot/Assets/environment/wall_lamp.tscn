@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=4 uid="uid://dwrmfilc6xeol"]
 
-[ext_resource type="Texture2D" uid="uid://csiu86pgdh2wf" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_material_baseColor.png" id="1_chb5m"]
-[ext_resource type="Texture2D" uid="uid://dnrimxw7djxwb" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_material_metallicRoughness.png" id="2_mxpvu"]
-[ext_resource type="Texture2D" uid="uid://whi5qbdibb0f" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_material_emissive.png" id="3_jvfyk"]
-[ext_resource type="Texture2D" uid="uid://de75p8oh4auw0" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_material_normal.png" id="4_5brpg"]
+[ext_resource type="Texture2D" uid="uid://csiu86pgdh2wf" path="res://Assets/textures/entrance_room_environment/entrance room layout_material_baseColor.png" id="1_chb5m"]
+[ext_resource type="Texture2D" uid="uid://dnrimxw7djxwb" path="res://Assets/textures/entrance_room_environment/entrance room layout_material_metallicRoughness.png" id="2_mxpvu"]
+[ext_resource type="Texture2D" uid="uid://whi5qbdibb0f" path="res://Assets/textures/entrance_room_environment/entrance room layout_material_emissive.png" id="3_jvfyk"]
+[ext_resource type="Texture2D" uid="uid://de75p8oh4auw0" path="res://Assets/textures/entrance_room_environment/entrance room layout_material_normal.png" id="4_5brpg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwlfj"]
 resource_name = "material.005"

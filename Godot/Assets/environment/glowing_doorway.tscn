@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://lq5aie0hhjaf"]
 
-[ext_resource type="Texture2D" uid="uid://d3c0nx21gc4yv" path="res://Assets/Entrance Room/entrance room props/entrance room props_Screenshot 2025-07-11 142940.png" id="1_fkpjc"]
+[ext_resource type="Texture2D" uid="uid://d3c0nx21gc4yv" path="res://Assets/textures/entrance_room_props/entrance room props_Screenshot 2025-07-11 142940.png" id="1_fkpjc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8a5oh"]
 resource_name = "Material.101"

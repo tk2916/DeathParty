@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://82l83m8rbp3u"]
 
-[ext_resource type="Texture2D" uid="uid://c4qryxo1t313h" path="res://Assets/Entrance Room/entrance room props/entrance room props_balloons.png" id="1_hghmx"]
+[ext_resource type="Texture2D" uid="uid://c4qryxo1t313h" path="res://Assets/textures/entrance_room_props/entrance room props_balloons.png" id="1_hghmx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnijg"]
 resource_name = "Light"

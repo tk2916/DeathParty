@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://be4o87f0f8qgh"]
 
-[ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_wood.png" id="1_2e0tc"]
+[ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/textures/entrance_room_environment/entrance room layout_wood.png" id="1_2e0tc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqvr3"]
 resource_name = "Material.096"

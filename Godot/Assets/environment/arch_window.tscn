@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=4 uid="uid://b0v4k6w4378h1"]
 
-[ext_resource type="Texture2D" uid="uid://xjbe4xfbx5pt" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_party windows.png" id="1_mwavd"]
-[ext_resource type="Texture2D" uid="uid://bjcml8b20035a" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_IMG_4146.png" id="2_uwm8v"]
-[ext_resource type="Texture2D" uid="uid://dnnnkavvkkrp4" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_IMG_4146_6.png" id="3_d1yre"]
+[ext_resource type="Texture2D" uid="uid://xjbe4xfbx5pt" path="res://Assets/textures/entrance_room_environment/entrance room layout_party windows.png" id="1_mwavd"]
+[ext_resource type="Texture2D" uid="uid://bjcml8b20035a" path="res://Assets/textures/entrance_room_environment/entrance room layout_IMG_4146.png" id="2_uwm8v"]
+[ext_resource type="Texture2D" uid="uid://dnnnkavvkkrp4" path="res://Assets/textures/entrance_room_environment/entrance room layout_IMG_4146_6.png" id="3_d1yre"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pp766"]
 resource_name = "Material.180"

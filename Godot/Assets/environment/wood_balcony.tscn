@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://da1q2cy4bwp3u"]
 
-[ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_wood.png" id="1_yxpv5"]
+[ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/textures/entrance_room_environment/entrance room layout_wood.png" id="1_yxpv5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66y3h"]
 resource_name = "woood"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://bjguuep7ueh1l"]
 
-[ext_resource type="Texture2D" uid="uid://dqboelmevwvbo" path="res://Assets/Entrance Room/entrance room props/entrance room props_Cobwebs_M_baseColor.png" id="1_o0s11"]
+[ext_resource type="Texture2D" uid="uid://dqboelmevwvbo" path="res://Assets/textures/entrance_room_props/entrance room props_Cobwebs_M_baseColor.png" id="1_o0s11"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wwh5"]
 resource_name = "Cobwebs_M"

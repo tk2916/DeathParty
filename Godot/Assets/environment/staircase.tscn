@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=4 uid="uid://xy73jdl00liu"]
 
-[ext_resource type="Texture2D" uid="uid://dfcfa5u045e45" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_carpet.png" id="1_xdkmr"]
-[ext_resource type="Texture2D" uid="uid://bitucfe2mjrgt" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_yellow.png" id="2_km4hf"]
-[ext_resource type="Texture2D" uid="uid://chro60732i7qv" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_bwood.png" id="3_km4hf"]
-[ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_wood.png" id="4_fryst"]
+[ext_resource type="Texture2D" uid="uid://dfcfa5u045e45" path="res://Assets/textures/entrance_room_environment/entrance room layout_carpet.png" id="1_xdkmr"]
+[ext_resource type="Texture2D" uid="uid://bitucfe2mjrgt" path="res://Assets/textures/entrance_room_environment/entrance room layout_yellow.png" id="2_km4hf"]
+[ext_resource type="Texture2D" uid="uid://chro60732i7qv" path="res://Assets/textures/entrance_room_environment/entrance room layout_bwood.png" id="3_km4hf"]
+[ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/textures/entrance_room_environment/entrance room layout_wood.png" id="4_fryst"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rf0he"]
 resource_name = "carpet"

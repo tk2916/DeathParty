@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://dur15xmxrh4lp"]
 
-[ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_wood.png" id="1_x285w"]
+[ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/textures/entrance_room_environment/entrance room layout_wood.png" id="1_x285w"]
 [ext_resource type="PackedScene" uid="uid://82l83m8rbp3u" path="res://Assets/props/string_lights/string_lights_horizontal_short.tscn" id="2_fe17n"]
 [ext_resource type="PackedScene" uid="uid://boelyv2tv8x8t" path="res://Assets/props/string_lights/string_lights_horizontal_long.tscn" id="3_uwemc"]
 [ext_resource type="PackedScene" uid="uid://mjjakyxq62da" path="res://Assets/props/string_lights/string_lights_diagonal.tscn" id="4_7ea6k"]

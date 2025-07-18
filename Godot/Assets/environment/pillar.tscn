@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://bitlbgb4mv2pu"]
 
-[ext_resource type="Texture2D" uid="uid://chro60732i7qv" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_bwood.png" id="1_pvq02"]
+[ext_resource type="Texture2D" uid="uid://chro60732i7qv" path="res://Assets/textures/entrance_room_environment/entrance room layout_bwood.png" id="1_pvq02"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53ah1"]
 resource_name = "bottom wood"

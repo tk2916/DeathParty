@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://dxahcd25ocjsx"]
 
-[ext_resource type="Texture2D" uid="uid://1schjjg3cqht" path="res://Assets/Entrance Room/entrance room props/entrance room props_BLUE B.png" id="1_38hbo"]
+[ext_resource type="Texture2D" uid="uid://1schjjg3cqht" path="res://Assets/textures/entrance_room_props/entrance room props_BLUE B.png" id="1_38hbo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owjui"]
 resource_name = "blue"

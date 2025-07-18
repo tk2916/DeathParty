@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://bgrvflukoipup"]
 
-[ext_resource type="Texture2D" uid="uid://xjbe4xfbx5pt" path="res://Assets/Entrance Room/entrance room layout/entrance room layout_party windows.png" id="1_51geq"]
+[ext_resource type="Texture2D" uid="uid://xjbe4xfbx5pt" path="res://Assets/textures/entrance_room_environment/entrance room layout_party windows.png" id="1_51geq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp81q"]
 resource_name = "Material.185"
