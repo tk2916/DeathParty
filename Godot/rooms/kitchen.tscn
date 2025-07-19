@@ -29,7 +29,7 @@ size = Vector3(1.25, 1.5, 0.5)
 size = Vector3(0.625, 1.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_home2"]
-size = Vector3(1, 2, 0.1)
+size = Vector3(1, 2.1, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_w8qvd"]
 size = Vector3(0.6, 0.75, 0.6)
@@ -113,7 +113,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.725,
 mesh = SubResource("BoxMesh_hefk4")
 
 [node name="Door" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -1.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.2, -1.9)
 mesh = SubResource("BoxMesh_home2")
 
 [node name="Bin" type="MeshInstance3D" parent="."]
