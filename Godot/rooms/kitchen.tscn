@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dang5ujuh0i4g"]
+[gd_scene load_steps=9 format=3 uid="uid://dang5ujuh0i4g"]
+
+[ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/olivia/olivia_model.tscn" id="1_el7b0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_237v4"]
 size = Vector3(10, 0.25, 4)
@@ -18,9 +20,20 @@ size = Vector3(5, 1, 1)
 size = Vector3(1.5, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rxrga"]
-size = Vector3(1, 2, 1)
+size = Vector3(1, 1.9, 1)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="ModelForScale" parent="." instance=ExtResource("1_el7b0")]
+unique_name_in_owner = true
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, -2, 0.125, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.6)
+light_color = Color(0.980392, 0.784314, 0.392157, 1)
+light_energy = 2.0
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_237v4")
@@ -57,9 +70,4 @@ mesh = SubResource("BoxMesh_icswp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 1.1, -1.4)
 mesh = SubResource("BoxMesh_rxrga")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.6)
-light_color = Color(0.980392, 0.784314, 0.392157, 1)
-light_energy = 2.0
-omni_range = 10.0
-omni_attenuation = 2.0
+[editable path="ModelForScale"]
