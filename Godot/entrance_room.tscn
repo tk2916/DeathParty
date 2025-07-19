@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=50 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
 [ext_resource type="PackedScene" uid="uid://gvcvg7qptl0c" path="res://Assets/environment/entrance_room_wall.tscn" id="4_tmedt"]
@@ -33,6 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="33_hdy2l"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="34_iipv5"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lgvpl"]
+size = Vector3(27.5, 0.25, 14)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5drps"]
 resource_name = "Material.005"
@@ -244,7 +247,13 @@ shadow_mesh = SubResource("ArrayMesh_x338u")
 
 [node name="EntranceRoom" type="Node3D"]
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.13, 0)
+shape = SubResource("BoxShape3D_lgvpl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(0.219332, 0, 0, 0, 0.219331, 0, 0, 0, 0.219332, 0, 0, 0)
 mesh = SubResource("ArrayMesh_38cnj")
 skeleton = NodePath("")
