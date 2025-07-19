@@ -1,6 +1,5 @@
-[gd_scene load_steps=50 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=49 format=4 uid="uid://d3uev5wxhcoe1"]
 
-[ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_3887y"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
 [ext_resource type="PackedScene" uid="uid://gvcvg7qptl0c" path="res://Assets/environment/entrance_room_wall.tscn" id="4_tmedt"]
 [ext_resource type="Texture2D" uid="uid://wmjauu70t6b1" path="res://Assets/textures/entrance_room_environment/entrance room layout_IMG_4162.png" id="5_8jruo"]
@@ -244,7 +243,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x338u")
 
 [node name="EntranceRoom" type="Node3D"]
-script = ExtResource("1_3887y")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.219332, 0, 0, 0, 0.219331, 0, 0, 0, 0.219332, 0, 0, 0)
