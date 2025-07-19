@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dang5ujuh0i4g"]
+[gd_scene load_steps=19 format=3 uid="uid://dang5ujuh0i4g"]
 
 [ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/olivia/olivia_model.tscn" id="1_el7b0"]
 
@@ -45,6 +45,17 @@ size = Vector3(3, 0.1, 1)
 top_radius = 0.025
 bottom_radius = 0.025
 height = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_53nl4"]
+size = Vector3(1.75, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_li4i8"]
+size = Vector3(1.95, 0.05, 1.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b0pji"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.1
 
 [node name="Kitchen" type="Node3D"]
 
@@ -157,5 +168,33 @@ mesh = SubResource("CylinderMesh_el7b0")
 [node name="TableLeg4" type="MeshInstance3D" parent="Table"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.5, 1.3)
 mesh = SubResource("CylinderMesh_el7b0")
+
+[node name="Cart" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Body" type="MeshInstance3D" parent="Cart"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0.65, -0.6)
+mesh = SubResource("BoxMesh_53nl4")
+skeleton = NodePath("../../root/@EditorNode@21282/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11491/@VSplitContainer@11143/@HSplitContainer@11145/@HSplitContainer@11147/@Control@11148/@SubViewportContainer@11149/@SubViewport@11150/Kitchen")
+
+[node name="Top" type="MeshInstance3D" parent="Cart"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 1.15, -0.6)
+mesh = SubResource("BoxMesh_li4i8")
+
+[node name="Wheel" type="MeshInstance3D" parent="Cart"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.7, 0.1, 0.1)
+mesh = SubResource("CylinderMesh_b0pji")
+
+[node name="Wheel2" type="MeshInstance3D" parent="Cart"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.3, 0.1, 0.1)
+mesh = SubResource("CylinderMesh_b0pji")
+
+[node name="Wheel3" type="MeshInstance3D" parent="Cart"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.7, 0.1, -1.3)
+mesh = SubResource("CylinderMesh_b0pji")
+
+[node name="Wheel4" type="MeshInstance3D" parent="Cart"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.3, 0.1, -1.3)
+mesh = SubResource("CylinderMesh_b0pji")
 
 [editable path="ModelForScale"]
