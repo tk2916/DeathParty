@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0s72223jrs40"]
-
-[ext_resource type="PackedScene" uid="uid://xj6l8ugs2rmh" path="res://Assets/textures/entrance_room_props/entrance room props.glb" id="1_q0ers"]
-
-[node name="entrance room props" instance=ExtResource("1_q0ers")]
-transform = Transform3D(-0.999994, 0, -0.00338601, 0, 1, 0, 0.00338601, 0, -0.999994, 4.45283, -0.0054493, 13.8969)
