@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://dang5ujuh0i4g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_237v4"]
+size = Vector3(10, 0.25, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_el7b0"]
+size = Vector3(10, 0.25, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0pji"]
+size = Vector3(5, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xpxbc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_icswp"]
+size = Vector3(1.5, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y7esr"]
+size = Vector3(0.25, 3.5, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rxrga"]
+size = Vector3(1, 2, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_237v4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+mesh = SubResource("BoxMesh_237v4")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, 1.5, -2)
+mesh = SubResource("BoxMesh_el7b0")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.6, -1.5)
+mesh = SubResource("BoxMesh_b0pji")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.6, -0.5)
+mesh = SubResource("BoxMesh_xpxbc")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 2.9, -1.3)
+mesh = SubResource("BoxMesh_icswp")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.8, 0.1)
+mesh = SubResource("BoxMesh_y7esr")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 1.1, -1.4)
+mesh = SubResource("BoxMesh_rxrga")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.6)
+light_color = Color(0.980392, 0.784314, 0.392157, 1)
+light_energy = 2.0
+omni_range = 10.0
+omni_attenuation = 2.0
