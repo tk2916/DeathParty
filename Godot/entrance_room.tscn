@@ -1,7 +1,6 @@
-[gd_scene load_steps=54 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=50 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://dgm2vkm51m46i" path="res://Utilities/scripts/main.gd" id="1_3887y"]
-[ext_resource type="Texture2D" uid="uid://2v2ny7qnnj1v" path="res://Assets/textures/shanghai_bund_1k.hdr" id="2_6wrt3"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
 [ext_resource type="PackedScene" uid="uid://gvcvg7qptl0c" path="res://Assets/environment/entrance_room_wall.tscn" id="4_tmedt"]
 [ext_resource type="Texture2D" uid="uid://wmjauu70t6b1" path="res://Assets/textures/entrance_room_environment/entrance room layout_IMG_4162.png" id="5_8jruo"]
@@ -35,36 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="33_hdy2l"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="34_iipv5"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_blkrb"]
-panorama = ExtResource("2_6wrt3")
-
-[sub_resource type="Sky" id="Sky_abqjc"]
-sky_material = SubResource("PanoramaSkyMaterial_blkrb")
-
-[sub_resource type="Environment" id="Environment_6iyjs"]
-background_mode = 2
-sky = SubResource("Sky_abqjc")
-ssao_radius = 11.47
-ssao_intensity = 15.71
-ssao_power = 0.247408
-ssao_detail = 0.0
-ssao_horizon = 0.66
-ssil_enabled = true
-ssil_radius = 0.19
-ssil_intensity = 0.32
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 1.63
-sdfgi_min_cell_size = 40.61
-sdfgi_energy = 1.465
-glow_enabled = true
-glow_blend_mode = 1
-fog_enabled = true
-fog_light_color = Color(0.136, 0.1648, 0.2, 1)
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0283
-volumetric_fog_albedo = Color(0.675292, 0.648284, 0.960572, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5drps"]
 resource_name = "Material.005"
@@ -276,9 +245,6 @@ shadow_mesh = SubResource("ArrayMesh_x338u")
 
 [node name="EntranceRoom" type="Node3D"]
 script = ExtResource("1_3887y")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6iyjs")
 
 [node name="Environment" type="Node3D" parent="."]
 
