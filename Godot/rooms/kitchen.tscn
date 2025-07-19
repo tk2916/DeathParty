@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dang5ujuh0i4g"]
+[gd_scene load_steps=13 format=3 uid="uid://dang5ujuh0i4g"]
 
 [ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/olivia/olivia_model.tscn" id="1_el7b0"]
 
@@ -30,6 +30,9 @@ size = Vector3(0.625, 1.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_home2"]
 size = Vector3(1, 2, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w8qvd"]
+size = Vector3(0.75, 0.75, 0.75)
 
 [node name="Node3D" type="Node3D"]
 
@@ -96,8 +99,12 @@ mesh = SubResource("BoxMesh_gbg02")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.725, 2.45, -1.2)
 mesh = SubResource("BoxMesh_hefk4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Door" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -1.9)
 mesh = SubResource("BoxMesh_home2")
+
+[node name="Bin" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -0.7, 0.5, -1.4)
+mesh = SubResource("BoxMesh_w8qvd")
 
 [editable path="ModelForScale"]
