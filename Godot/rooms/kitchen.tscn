@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dang5ujuh0i4g"]
+[gd_scene load_steps=16 format=3 uid="uid://dang5ujuh0i4g"]
 
 [ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/olivia/olivia_model.tscn" id="1_el7b0"]
 
@@ -30,6 +30,10 @@ size = Vector3(0.625, 1.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rxrga"]
 size = Vector3(1, 1.8, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el7b0"]
+metallic = 1.0
+roughness = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_w8qvd"]
 size = Vector3(0.6, 0.75, 0.6)
@@ -125,6 +129,7 @@ mesh = SubResource("BoxMesh_hefk4")
 [node name="Fridge" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1.05, -1.35)
 mesh = SubResource("BoxMesh_rxrga")
+surface_material_override/0 = SubResource("StandardMaterial3D_el7b0")
 
 [node name="Bin" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -0.7, 0.5, -1.4)
