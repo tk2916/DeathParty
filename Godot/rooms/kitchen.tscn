@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/olivia/olivia_model.tscn" id="1_el7b0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_237v4"]
-size = Vector3(12, 0.25, 4)
+size = Vector3(12, 0.25, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_y7esr"]
-size = Vector3(0.25, 3.5, 4)
+size = Vector3(0.25, 3.5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_el7b0"]
 size = Vector3(12.5, 0.25, 3.5)
@@ -91,14 +91,15 @@ light_color = Color(0.980392, 0.882353, 0.588235, 1)
 omni_attenuation = 2.0
 
 [node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 mesh = SubResource("BoxMesh_237v4")
 
 [node name="Ceiling" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.475, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.475, 0.5)
 mesh = SubResource("BoxMesh_237v4")
 
 [node name="LeftWall" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1, 1.6, 3.72529e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1, 1.6, 0.5)
 mesh = SubResource("BoxMesh_y7esr")
 
 [node name="BackWall" type="MeshInstance3D" parent="."]
@@ -106,7 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, -5.96046
 mesh = SubResource("BoxMesh_el7b0")
 
 [node name="RightWall" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 1.6, 3.72529e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 1.6, 0.5)
 mesh = SubResource("BoxMesh_y7esr")
 
 [node name="Door" type="MeshInstance3D" parent="."]
@@ -175,7 +176,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.5, 1.3)
 mesh = SubResource("CylinderMesh_el7b0")
 
 [node name="Cart" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.5)
 
 [node name="Body" type="MeshInstance3D" parent="Cart"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0.65, -0.6)
@@ -203,6 +204,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.3, 
 mesh = SubResource("CylinderMesh_b0pji")
 
 [node name="Kegs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="Keg" type="MeshInstance3D" parent="Kegs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.4, 0.6)
