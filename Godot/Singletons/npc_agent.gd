@@ -34,10 +34,12 @@ func set_movement_target(destination: Vector3, navigation_layers: int, map: RID 
 		current_path_index = 0
 		current_path_point = current_path[0]
 		
+		# For path debugging
 		var curve: Curve3D = Curve3D.new()
 		for vertex: Vector3 in current_path:
 			curve.add_point(vertex)
-		node_path.set_curve(curve)
+		if node_path:
+			node_path.set_curve(curve)
 
 
 ## Create a path to a random destination
@@ -46,23 +48,30 @@ func set_movement_target_random(navigation_layers: int, map: RID = default_map_r
 	set_movement_target(random_location, navigation_layers, map)
 
 
+## Choose a random place and go there, occasionally
 func wander(movement_speed: float, navigation_layers: int, delta: float = 0, map: RID = default_map_rid, uniformly: bool = false) -> void:
-	if not current_path.is_empty():
-		move_npc(movement_speed, delta)
-		return
-	animate_npc(delta)
+	move_npc(movement_speed, delta)
 	
-	## physics_process runs 60 times per second
-	## randi from 1-200 should be a .005 chance to get '1' -> .5% chance to decide to move every frame
-	## 1 - ((1-.005)^60) ~= 26% chance to decide to move every second while idle, I think?
-	var random_number: int = RandomNumberGenerator.new().randi_range(1, 200)
-	if random_number != 1:
+	if current_path.is_empty() and decide_to_move() == 1:
+		set_movement_target_random(navigation_layers)
+
+
+## Go to nodes defined on a Path3D
+func move_between_nodes(path: Path3D, movement_speed: float, navigation_layers: int, delta: float = 0, map: RID = default_map_rid, uniformly: bool = false):
+	move_npc(movement_speed, delta)
+	var points: PackedVector3Array = path.curve.get_baked_points()
+	# Choose random point
+	var rand_index: int = RandomNumberGenerator.new().randi_range(0, points.size())
+	
+	if decide_to_move() != 1:
 		return
 	
-	set_movement_target_random(navigation_layers)
+	set_movement_target(points[rand_index], navigation_layers)
+
 
 ## Move agent along current path
-func move_npc(movement_speed: float, delta: float = 0) -> void:
+func move_npc(movement_speed: float, delta: float) -> void:
+	animate_npc(delta) # For idle animation
 	if current_path.is_empty():
 		return
 	
@@ -112,3 +121,12 @@ func animate_npc(delta: float) -> void:
 	# Rotate model
 	if current_animation == ANIMATION_STATE.WALK:
 		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
+
+
+## Outputs random number for chance to move
+func decide_to_move(max_value: int = 200) -> int:
+	## physics_process runs 60 times per second
+	## randi from 1-200 should be a .005 chance to get '1' -> .5% chance to decide to move every frame
+	## 1 - ((1-.005)^60) ~= 26% chance to decide to move every second while idle, I think?
+	## 1 - (1-(1/max_value))^{60}
+	return RandomNumberGenerator.new().randi_range(1, max_value)
