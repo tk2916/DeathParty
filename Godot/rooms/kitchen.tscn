@@ -1,9 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://dang5ujuh0i4g"]
+[gd_scene load_steps=21 format=3 uid="uid://dang5ujuh0i4g"]
 
 [ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/olivia/olivia_model.tscn" id="1_el7b0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_237v4"]
 size = Vector3(12, 0.25, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_el7b0"]
+size = Vector3(12, 0.5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_y7esr"]
 size = Vector3(0.25, 3.5, 5)
@@ -92,9 +95,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.25, 0.5)
 light_color = Color(0.980392, 0.882353, 0.588235, 1)
 omni_attenuation = 2.0
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 mesh = SubResource("BoxMesh_237v4")
+skeleton = NodePath("../../root/@EditorNode@21282/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11491/@VSplitContainer@11143/@HSplitContainer@11145/@HSplitContainer@11147/@Control@11148/@SubViewportContainer@11149/@SubViewport@11150/Kitchen")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0.5)
+shape = SubResource("BoxShape3D_el7b0")
 
 [node name="Ceiling" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.475, 0.5)
