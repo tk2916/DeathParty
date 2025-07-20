@@ -245,7 +245,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x338u")
 
-[node name="EntranceRoom" type="Node3D"]
+[node name="Entrance" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
