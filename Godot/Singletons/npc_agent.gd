@@ -5,7 +5,9 @@ class_name NPCAgent
 @export var animation_tree: AnimationTree
 @export var node_path: Path3D
 
+@onready var agent_rid: RID = NavigationServer3D.agent_create()
 @onready var default_map_rid: RID = get_world_3d().get_navigation_map()
+@onready var agent_radius: float = 0.5
 
 ## Animation variables
 enum ANIMATION_STATE {IDLE, WALK, TURN}
@@ -19,6 +21,17 @@ var current_path_index: int = 0
 var current_path_point: Vector3
 var current_path: PackedVector3Array
 
+
+func _ready() -> void:
+	# NavigationServer avoidance handling
+	NavigationServer3D.agent_set_map(agent_rid, default_map_rid)
+	NavigationServer3D.agent_set_radius(agent_rid, agent_radius)
+	
+	pass
+#### TODO::: AVOIDANCE NOT DONE
+
+func _physics_process(delta: float) -> void:
+	NavigationServer3D.agent_set_position(agent_rid, global_transform.origin)
 
 ## Create a path to the desired destination
 func set_movement_target(destination: Vector3, navigation_layers: int, map: RID = default_map_rid) -> void:
@@ -49,7 +62,7 @@ func set_movement_target_random(navigation_layers: int, map: RID = default_map_r
 
 
 ## Choose a random place and go there, occasionally
-func wander(movement_speed: float, navigation_layers: int, delta: float = 0, map: RID = default_map_rid, uniformly: bool = false) -> void:
+func wander(movement_speed: float, navigation_layers: int, delta: float, map: RID = default_map_rid, uniformly: bool = false) -> void:
 	move_npc(movement_speed, delta)
 	
 	if current_path.is_empty() and decide_to_move() == 1:
@@ -57,7 +70,7 @@ func wander(movement_speed: float, navigation_layers: int, delta: float = 0, map
 
 
 ## Go to nodes defined on a Path3D
-func move_between_nodes(path: Path3D, movement_speed: float, navigation_layers: int, delta: float = 0, map: RID = default_map_rid, uniformly: bool = false):
+func move_between_nodes_random(path: Path3D, movement_speed: float, navigation_layers: int, delta: float, map: RID = default_map_rid, uniformly: bool = false):
 	move_npc(movement_speed, delta)
 	var points: PackedVector3Array = path.curve.get_baked_points()
 	# Choose random point
