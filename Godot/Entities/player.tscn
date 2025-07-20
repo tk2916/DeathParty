@@ -19,6 +19,7 @@ animation = &"Walk"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ov2v6"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gb1tc"]
+graph_offset = Vector2(164.637, 129.621)
 "nodes/Idle Anim/node" = SubResource("AnimationNodeAnimation_pvmex")
 "nodes/Idle Anim/position" = Vector2(160, 100)
 "nodes/Turn Anim/node" = SubResource("AnimationNodeAnimation_gb1tc")
@@ -51,7 +52,7 @@ unique_name_in_owner = true
 root_node = NodePath("%PlayerModel")
 tree_root = SubResource("AnimationNodeBlendTree_gb1tc")
 anim_player = NodePath("../PlayerModel/AnimationPlayer")
-"parameters/Walk Blend/blend_amount" = 0
+"parameters/Walk Blend/blend_amount" = 0.0
 
 [node name="FootstepSounds" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/footsteps"
