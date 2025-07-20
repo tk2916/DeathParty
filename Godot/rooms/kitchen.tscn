@@ -20,13 +20,13 @@ size = Vector3(5, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_xpxbc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_icswp"]
-size = Vector3(1.25, 1, 0.75)
+size = Vector3(1.5, 1, 0.75)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gbg02"]
-size = Vector3(1.25, 1.5, 0.5)
+size = Vector3(1.25, 1.7, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hefk4"]
-size = Vector3(0.625, 1.5, 0.5)
+size = Vector3(0.625, 1.7, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rxrga"]
 size = Vector3(1, 1.8, 1)
@@ -122,11 +122,11 @@ mesh = SubResource("BoxMesh_xpxbc")
 skeleton = NodePath("../../root/@EditorNode@21273/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node3D")
 
 [node name="Fan" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.7, -1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 2.9, -1.6)
 mesh = SubResource("BoxMesh_icswp")
 
 [node name="CupboardWide" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.45, -1.725)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 2.45, -1.725)
 mesh = SubResource("BoxMesh_gbg02")
 
 [node name="CupboardWide2" type="MeshInstance3D" parent="."]
