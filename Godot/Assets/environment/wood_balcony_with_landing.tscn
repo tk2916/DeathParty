@@ -46,7 +46,8 @@ shadow_mesh = SubResource("ArrayMesh_q23xo")
 resource_name = "Material.078"
 cull_mode = 2
 albedo_color = Color(0.396949, 0.374943, 0.229265, 1)
-metallic = 0.559091
+metallic = 0.01
+metallic_specular = 0.13
 roughness = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_r6fah"]

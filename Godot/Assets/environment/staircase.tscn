@@ -14,7 +14,8 @@ albedo_texture = ExtResource("1_xdkmr")
 resource_name = "Material.118"
 cull_mode = 2
 albedo_texture = ExtResource("2_km4hf")
-metallic = 0.36018
+metallic = 0.03
+metallic_specular = 0.24
 roughness = 0.219563
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4ntig"]

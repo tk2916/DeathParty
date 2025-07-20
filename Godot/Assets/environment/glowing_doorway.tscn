@@ -9,7 +9,7 @@ cull_mode = 2
 albedo_color = Color(1, 1, 1, 0.0818182)
 albedo_texture = ExtResource("1_fkpjc")
 emission_enabled = true
-emission_energy_multiplier = 10.0
+emission_energy_multiplier = 16.0
 emission_texture = ExtResource("1_fkpjc")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3qtki"]
