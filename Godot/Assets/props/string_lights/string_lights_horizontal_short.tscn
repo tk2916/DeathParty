@@ -8,13 +8,14 @@ cull_mode = 2
 albedo_texture = ExtResource("1_hghmx")
 roughness = 0.804041
 emission_enabled = true
-emission_energy_multiplier = 1.16
+emission_energy_multiplier = 3.0
 emission_texture = ExtResource("1_hghmx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_es7ar"]
 resource_name = "Material.189"
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
+emission_energy_multiplier = 6.05
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_k4euw"]
 _surfaces = [{
