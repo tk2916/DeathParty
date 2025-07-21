@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://driwadcodjdr3"]
+
+[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_properties_script.gd" id="1_54i1f"]
+[ext_resource type="PackedScene" uid="uid://dga2tnvugyda7" path="res://Assets/props/inventory_items/pillbottle.tscn" id="1_quauq"]
+
+[resource]
+script = ExtResource("1_54i1f")
+name = "Pill Bottle"
+description = "Someone's pill bottle"
+model = ExtResource("1_quauq")

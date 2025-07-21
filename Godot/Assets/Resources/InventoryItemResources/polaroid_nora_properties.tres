@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cvtmg14drynon"]
+
+[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_properties_script.gd" id="1_ncdw8"]
+[ext_resource type="PackedScene" uid="uid://uclswqr3kwlg" path="res://Assets/props/inventory_items/polaroid_nora.tscn" id="1_tql5l"]
+
+[resource]
+script = ExtResource("1_ncdw8")
+name = "Nora's Polaroid"
+description = "Nora"
+model = ExtResource("1_tql5l")

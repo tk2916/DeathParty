@@ -31,7 +31,6 @@ func _init(_left_tabs : Array[Node], _right_tabs : Array[Node]) -> void:
 	flip_page(0)
 
 func toggle_tab_visibility(to_side : bool, tab_index : int):
-	print("Toggling left ", left_tabs[tab_index], " as ", to_side)
 	right_tabs[tab_index].toggle_visible(!to_side)
 	left_tabs[tab_index].toggle_visible(to_side)
 
@@ -56,7 +55,6 @@ func get_tab(tab_index : int):
 		return_tab = left_tabs[tab_index]
 	else:
 		return_tab = right_tabs[tab_index]
-	print("Returning ", return_tab, " for ", tab_index, " and ", tab_index_to_side[tab_index])
 	return return_tab
 
 func get_tab_from_page_number(page_number : int):

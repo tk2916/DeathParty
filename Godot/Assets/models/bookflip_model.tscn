@@ -1,0 +1,146 @@
+[gd_scene load_steps=15 format=3 uid="uid://ctxn4d5hysbqv"]
+
+[ext_resource type="PackedScene" uid="uid://ccu74juivvuwg" path="res://Assets/models/bookflip.glb" id="1_xw7s5"]
+[ext_resource type="Script" uid="uid://b7e4s6slidb3u" path="res://Assets/models/bookflip_script.gd" id="2_epq3o"]
+[ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="4_6b4ny"]
+[ext_resource type="PackedScene" uid="uid://mg0sman3f2yu" path="res://Assets/models/journal_tab.tscn" id="5_stup6"]
+[ext_resource type="Texture2D" uid="uid://dmffsu11hoong" path="res://Assets/JournalTextures/max_page_1.png" id="5_th48n"]
+[ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="6_he2ap"]
+[ext_resource type="Texture2D" uid="uid://b6epcbok07mvo" path="res://Assets/JournalTextures/max_page_3.png" id="7_d5j1u"]
+[ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="8_3xg2d"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g2831"]
+viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ieb6y"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_55mpj"]
+viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2831"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_55mpj")
+albedo_texture_force_srgb = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd17q"]
+resource_local_to_scene = true
+albedo_texture_force_srgb = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfr5l"]
+albedo_color = Color(0.313726, 0.164706, 0.0627451, 1)
+albedo_texture_force_srgb = true
+
+[node name="bookflip" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node_left", "tabs_node_right") instance=ExtResource("1_xw7s5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_epq3o")
+animation_player = NodePath("AnimationPlayer")
+page1 = NodePath("Armature/Skeleton3D/Cube_004")
+page2 = NodePath("Armature/Skeleton3D/Cube_005")
+page1_subviewport = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
+page2_subviewport = NodePath("Armature/Skeleton3D/Cube_005/SubViewport")
+viewport_texture = SubResource("ViewportTexture_g2831")
+journal_textures = [ExtResource("4_6b4ny"), ExtResource("5_th48n"), ExtResource("6_he2ap"), ExtResource("7_d5j1u"), ExtResource("8_3xg2d")]
+tabs_node_left = NodePath("Tabs")
+tabs_node_right = NodePath("TabsRight")
+
+[node name="Cube_002" parent="." index="0"]
+material_overlay = SubResource("StandardMaterial3D_ieb6y")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0.002873, -0.00246666, -5.25889e-10)
+bones/0/rotation = Quaternion(-6.88738e-08, 1.6124e-08, 0.663061, 0.748565)
+bones/1/rotation = Quaternion(4.95484e-08, 7.3612e-08, 0.0448501, 0.998994)
+bones/2/rotation = Quaternion(6.41715e-09, -1.44581e-07, 0.032965, 0.999457)
+bones/3/rotation = Quaternion(6.41858e-09, 1.39218e-07, 0.0472964, 0.998881)
+
+[node name="Cube_004" parent="Armature/Skeleton3D" index="0"]
+material_overlay = SubResource("StandardMaterial3D_g2831")
+
+[node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Cube_004" index="0"]
+
+[node name="Control" parent="Armature/Skeleton3D/Cube_004/SubViewport" index="0" instance=ExtResource("4_6b4ny")]
+
+[node name="Cube_005" parent="Armature/Skeleton3D" index="1"]
+material_overlay = SubResource("StandardMaterial3D_wd17q")
+
+[node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Cube_005" index="0"]
+
+[node name="Cube_001" parent="." index="2"]
+material_overlay = SubResource("StandardMaterial3D_yfr5l")
+
+[node name="Tabs" type="Node3D" parent="." index="4"]
+
+[node name="Tasks" parent="Tabs" index="0" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.993698, 0.112093, -9.17715e-08, 0.112093, 0.993698, 1.0075e-08, 9.23226e-08, -2.75492e-10, -1, 1.37176, 0.18146, 0.901237)
+text = "Tasks"
+color = Color(0.39319, 0.477147, 0, 1)
+offset_distance = 0.073
+
+[node name="Tasks2" parent="Tabs" index="1" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.998561, 0.0536257, -8.9641e-08, 0.0536257, 0.998561, 4.751e-09, 8.97669e-08, -6.28972e-11, -1, 1.12415, 0.209071, 0.901237)
+offset_distance = 0.08
+flip_to_page = 1
+
+[node name="Tasks3" parent="Tabs" index="2" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.999012, 0.0444389, -8.92789e-08, 0.0444389, 0.999012, 3.92816e-09, 8.93653e-08, -4.31832e-11, -1, 0.86287, 0.214905, 0.901237)
+text = "Clues"
+color = Color(0.153846, 0.250883, 0.687585, 1)
+offset_distance = 0.08
+flip_to_page = 2
+
+[node name="Tasks4" parent="Tabs" index="3" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.998926, -0.0463393, -8.53033e-08, -0.0463393, 0.998926, -4.00416e-09, 8.53973e-08, -4.69598e-11, -1, 0.60314, 0.196478, 0.901237)
+text = "Polaroids"
+color = Color(0.454584, 0.253662, 0.0638231, 1)
+offset_distance = 0.09
+flip_to_page = 3
+
+[node name="Tasks5" parent="Tabs" index="4" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.997241, -0.0742303, -8.39369e-08, -0.0742303, 0.997241, -6.36883e-09, 8.41781e-08, -1.20586e-10, -1, 0.354927, 0.217804, 0.904132)
+text = "Settings"
+color = Color(0.164908, 0.352543, 0.288867, 1)
+offset_distance = 0.07
+flip_to_page = 4
+
+[node name="TabsRight" type="Node3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59035, -1.46563e-07, 1.46477e-07)
+
+[node name="Tasks" parent="TabsRight" index="0" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.995338, -0.0964542, -8.27989e-08, -0.0964542, 0.995338, -8.22842e-09, 8.32067e-08, -2.03819e-10, -1, 0.244855, 0.197902, 0.901237)
+text = "Tasks"
+color = Color(0.39319, 0.477147, 0, 1)
+offset_distance = 0.073
+
+[node name="Tasks2" parent="TabsRight" index="1" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.999252, -0.0386669, -8.56672e-08, -0.0386669, 0.999252, -3.34768e-09, 8.57326e-08, -3.26885e-11, -1, 0.512181, 0.211489, 0.901237)
+offset_distance = 0.07
+flip_to_page = 1
+
+[node name="Tasks3" parent="TabsRight" index="2" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.999997, 0.00232129, -8.7524e-08, 0.00232129, 0.999997, 2.03048e-10, 8.75243e-08, -1.1724e-13, -1, 0.776675, 0.221005, 0.901237)
+text = "Clues"
+color = Color(0.153846, 0.250883, 0.687585, 1)
+offset_distance = 0.08
+flip_to_page = 2
+
+[node name="Tasks4" parent="TabsRight" index="3" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.998982, 0.0451015, -8.93053e-08, 0.0451015, 0.998982, 3.98737e-09, 8.93942e-08, -4.448e-11, -1, 1.03971, 0.202247, 0.901237)
+text = "Polaroids"
+color = Color(0.454584, 0.253662, 0.0638231, 1)
+offset_distance = 0.08
+flip_to_page = 3
+
+[node name="Tasks5" parent="TabsRight" index="4" instance=ExtResource("5_stup6")]
+transform = Transform3D(-0.995133, 0.0985382, -9.13045e-08, 0.0985382, 0.995133, 8.82721e-09, 9.173e-08, -2.12729e-10, -1, 1.30151, 0.196673, 0.904132)
+text = "Settings"
+color = Color(0.164908, 0.352543, 0.288867, 1)
+offset_distance = 0.07
+flip_to_page = 4
+
+[node name="PageFlipSound" type="FmodEventEmitter2D" parent="." index="6"]
+event_name = "event:/000_SFX/000_Demo_Test/004_SFX_PageFlip"
+event_guid = "{a9436081-49dc-4597-9156-239d2f74f66d}"
+unique_name_in_owner = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.71754, 0)

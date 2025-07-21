@@ -11,3 +11,8 @@ func _ready() -> void:
 	#SaveSystem.add_task("First task")
 	SaveSystem.add_task("Second Task")
 	SaveSystem.add_task("A third task")
+	
+	SaveSystem.add_item("Nora's Polaroid")
+	SaveSystem.add_item("Olivia's Polaroid")
+	SaveSystem.add_item("Scissors")
+	SaveSystem.add_item("Pill Bottle")

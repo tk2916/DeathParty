@@ -46,12 +46,13 @@ shadow_mesh = SubResource("ArrayMesh_46jwy")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ing3b"]
 albedo_color = Color(0.788235, 0.788235, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_s7cof"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ing3b"]
 viewport_path = NodePath("Tab/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_quqqh"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_s7cof")
+albedo_texture = SubResource("ViewportTexture_ing3b")
+albedo_texture_force_srgb = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s27y8"]
 resource_local_to_scene = true
@@ -59,7 +60,7 @@ resource_name = "Material.001"
 cull_mode = 2
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_s27y8"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ing3b"]
 _surfaces = [{
 "aabb": AABB(-1, 1, -1, 2, 1e-05, 2),
 "format": 34896613377,
@@ -86,7 +87,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_s27y8")
+shadow_mesh = SubResource("ArrayMesh_ing3b")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tlph8"]
 resource_local_to_scene = true

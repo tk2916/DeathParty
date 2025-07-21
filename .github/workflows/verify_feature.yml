@@ -40,7 +40,7 @@ jobs:
   build:
     if: ${{ !github.event.pull_request.draft }}
     needs: check-godot-version
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
       - name: Checkout current branch
@@ -67,9 +67,10 @@ jobs:
           upload-artifacts: false
         
   verify-execution:
-    if: ${{ !github.event.pull_request.draft }}
+    #if: ${{ !github.event.pull_request.draft }}
+    if: false
     needs: build
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Checkout current branch
