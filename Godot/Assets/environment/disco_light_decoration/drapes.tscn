@@ -5,6 +5,9 @@
 [node name="drapes" instance=ExtResource("1_rsoo1")]
 transform = Transform3D(-0.987253, 0, -0.159157, 0, 1, 0, 0.159157, 0, -0.987253, 0, 0, 0)
 
+[node name="Plane_1344" parent="." index="8"]
+visible = false
+
 [node name="Spot" parent="." index="14"]
 light_energy = 3.0
 spot_range = 9.0

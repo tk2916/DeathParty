@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://busrnnhrujsqx"]
+[gd_scene load_steps=36 format=4 uid="uid://busrnnhrujsqx"]
 
 [ext_resource type="Texture2D" uid="uid://dwqn2srjfxhnt" path="res://rooms/party_room/PartyRoom layout_wood panel big.png" id="2_1xrom"]
 [ext_resource type="Texture2D" uid="uid://ci5cfjsj0e4fc" path="res://rooms/party_room/PartyRoom layout_orange wallframe.png" id="2_oqucp"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bqc5dcb57bpmk" path="res://Assets/environment/patterned_wall.tscn" id="8_mc5eb"]
 [ext_resource type="PackedScene" uid="uid://cie23uvky6kns" path="res://Assets/environment/railings/railing.tscn" id="9_ea3uk"]
 [ext_resource type="PackedScene" uid="uid://suf51g63ux2s" path="res://Assets/environment/solid_dark_wall.tscn" id="9_owf8c"]
+[ext_resource type="PackedScene" uid="uid://bv8nlpv8yo7tj" path="res://Assets/environment/dj_set/dj_set.tscn" id="12_ca1dh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n2n2"]
 resource_name = "Material.026"
@@ -648,6 +649,9 @@ skeleton = NodePath("")
 [node name="DiscoLightDecoration" parent="." instance=ExtResource("6_j7flo")]
 transform = Transform3D(0.987494, 0, 0.157658, 0, 1, 0, -0.157658, 0, 0.987494, 0.550856, 6.55494, 2.31062)
 
+[node name="Plane_1344" parent="DiscoLightDecoration" index="8"]
+transform = Transform3D(0.159827, 0.162016, 0.253128, -0.0521912, 0.702085, -0.0509389, -0.297173, -0.0361678, 0.145085, -2.32089, -0.404891, 2.95305)
+
 [node name="Spot" parent="DiscoLightDecoration" index="14"]
 light_color = Color(1, 0.858333, 0.5, 1)
 light_energy = 4.511
@@ -694,7 +698,7 @@ spot_range = 20.158
 spot_attenuation = -0.63
 
 [node name="Point_039" parent="DiscoLightDecoration" index="26"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.132187, -1.83359, -1.68121)
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.0293798, -1.83359, -1.0435)
 light_energy = 3.178
 light_size = 0.311
 light_specular = 0.322
@@ -703,5 +707,11 @@ shadow_opacity = 0.87
 shadow_blur = 0.556
 omni_range = 18.917
 omni_attenuation = 0.16
+
+[node name="Object_12_002" parent="DiscoLightDecoration" index="27"]
+transform = Transform3D(0.330007, 0, 0, 0, 0.330007, 0, 0, 0, 0.330007, 0.0494336, -2.51517, -1.01711)
+
+[node name="DJ set" parent="." instance=ExtResource("12_ca1dh")]
+transform = Transform3D(0.99684, 0, -0.0794333, 0, 1, 0, 0.0794333, 0, 0.99684, 0.400578, 1.97743, 2.49873)
 
 [editable path="DiscoLightDecoration"]
