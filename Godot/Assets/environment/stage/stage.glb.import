@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b07xpwpnifnhg"
-path="res://.godot/imported/stage.glb-5435f199b0e7e6fe70664fae21076fd8.scn"
+path="res://.godot/imported/stage.glb-6bbf01fc9a1f092219f26ca9843c97c1.scn"
 
 [deps]
 
-source_file="res://rooms/party_room/stage.glb"
-dest_files=["res://.godot/imported/stage.glb-5435f199b0e7e6fe70664fae21076fd8.scn"]
+source_file="res://Assets/environment/stage/stage.glb"
+dest_files=["res://.godot/imported/stage.glb-6bbf01fc9a1f092219f26ca9843c97c1.scn"]
 
 [params]
 

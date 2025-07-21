@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d00kdcxh6yxll"
-path.s3tc="res://.godot/imported/stage_wood.png-6c24e36efa9ccd05da1a56cf303b25f1.s3tc.ctex"
-path.etc2="res://.godot/imported/stage_wood.png-6c24e36efa9ccd05da1a56cf303b25f1.etc2.ctex"
+path.s3tc="res://.godot/imported/stage_wood.png-4f88deb185614e7ab346102086daef86.s3tc.ctex"
+path.etc2="res://.godot/imported/stage_wood.png-4f88deb185614e7ab346102086daef86.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://rooms/party_room/stage_wood.png"
-dest_files=["res://.godot/imported/stage_wood.png-6c24e36efa9ccd05da1a56cf303b25f1.s3tc.ctex", "res://.godot/imported/stage_wood.png-6c24e36efa9ccd05da1a56cf303b25f1.etc2.ctex"]
+source_file="res://Assets/environment/stage/stage_wood.png"
+dest_files=["res://.godot/imported/stage_wood.png-4f88deb185614e7ab346102086daef86.s3tc.ctex", "res://.godot/imported/stage_wood.png-4f88deb185614e7ab346102086daef86.etc2.ctex"]
 
 [params]
 

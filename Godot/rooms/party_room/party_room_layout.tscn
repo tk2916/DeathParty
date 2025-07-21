@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cntrtwnpfw210" path="res://rooms/party_room/PartyRoom layout_wood.png" id="3_yruca"]
 [ext_resource type="Texture2D" uid="uid://b04lep1n5ghw5" path="res://rooms/party_room/PartyRoom layout_TCom_WoodFine0032_1_seamless_S.jpg" id="4_pmr6i"]
 [ext_resource type="PackedScene" uid="uid://ci0x5744ru78a" path="res://Assets/environment/marble_pillar/marble_pillar.tscn" id="4_yruca"]
-[ext_resource type="PackedScene" uid="uid://daetxvfj3wma1" path="res://rooms/party_room/stage.tscn" id="5_1ql6y"]
+[ext_resource type="PackedScene" uid="uid://daetxvfj3wma1" path="res://Assets/environment/stage/stage.tscn" id="5_1ql6y"]
 [ext_resource type="PackedScene" uid="uid://fue5mn2yitn7" path="res://rooms/party_room/drapes.tscn" id="6_j7flo"]
 [ext_resource type="Texture2D" uid="uid://sdcx1ct5ipku" path="res://rooms/party_room/PartyRoom layout_party windows.png" id="6_q7tq5"]
 
@@ -544,6 +544,16 @@ shadow_mesh = SubResource("ArrayMesh_81q5s")
 [node name="PartyRoom layout" type="Node3D"]
 transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.999999, -0.0146384, 0, -0.000152111)
 
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.311505, 0, 5.82077e-11, 0, 0.311758, 0, 1.16415e-10, 0, 0.5502, 0.555739, -12.3021, 1.34086)
+mesh = SubResource("ArrayMesh_hyhww")
+skeleton = NodePath("")
+
+[node name="Ceiling" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.448854, 0, -5.82077e-11, 0, 0.448854, 0, 1.16415e-10, 0, 0.515986, -0.42124, -1.15446, 3.95312)
+mesh = SubResource("ArrayMesh_r51iq")
+skeleton = NodePath("")
+
 [node name="MarblePillars" type="Node3D" parent="."]
 
 [node name="MarblePillar" parent="MarblePillars" instance=ExtResource("4_yruca")]
@@ -570,15 +580,8 @@ transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, 
 [node name="MarblePillar8" parent="MarblePillars" instance=ExtResource("4_yruca")]
 transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, -1.35984, -7.67826, -8.7518, -3.40758)
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.311505, 0, 5.82077e-11, 0, 0.311758, 0, 1.16415e-10, 0, 0.5502, 0.555739, -12.3021, 1.34086)
-mesh = SubResource("ArrayMesh_hyhww")
-skeleton = NodePath("")
-
-[node name="Ceiling" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.448854, 0, -5.82077e-11, 0, 0.448854, 0, 1.16415e-10, 0, 0.515986, -0.42124, -1.15446, 3.95312)
-mesh = SubResource("ArrayMesh_r51iq")
-skeleton = NodePath("")
+[node name="Stage" parent="." instance=ExtResource("5_1ql6y")]
+transform = Transform3D(0.978434, 0.0133394, -0.206128, -0.0125777, 0.999908, 0.00500552, 0.206176, -0.00230498, 0.978512, 0.371644, -11.6029, 1.93485)
 
 [node name="Cube_056" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.330007, 0, -9.25919e-08, 0, 0.131719, 0, 1.0753e-07, 0, -0.284163, 7.10112, -6.72411, 13.9913)
@@ -769,9 +772,6 @@ skeleton = NodePath("")
 transform = Transform3D(0, 0, -0.693656, 0, 0.370329, 0, -0.330007, 0, 0, 0.109806, -13.0778, 14.466)
 mesh = SubResource("ArrayMesh_d13jw")
 skeleton = NodePath("")
-
-[node name="stage" parent="." instance=ExtResource("5_1ql6y")]
-transform = Transform3D(0.978434, 0.0133394, -0.206128, -0.0125777, 0.999908, 0.00500552, 0.206176, -0.00230498, 0.978512, 0.371644, -11.6029, 1.93485)
 
 [node name="drapes" parent="." instance=ExtResource("6_j7flo")]
 transform = Transform3D(0.987494, 0, 0.157658, 0, 1, 0, -0.157658, 0, 0.987494, 0.550856, -5.74506, 2.31062)
