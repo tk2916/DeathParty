@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://busrnnhrujsqx"]
+[gd_scene load_steps=13 format=4 uid="uid://busrnnhrujsqx"]
 
 [ext_resource type="PackedScene" uid="uid://c75uiq4aximdc" path="res://rooms/party_room/PartyRoom layout.glb" id="1_1ayrq"]
 [ext_resource type="Texture2D" uid="uid://ci5cfjsj0e4fc" path="res://rooms/party_room/PartyRoom layout_orange wallframe.png" id="2_oqucp"]
 [ext_resource type="Texture2D" uid="uid://cntrtwnpfw210" path="res://rooms/party_room/PartyRoom layout_wood.png" id="3_yruca"]
 [ext_resource type="PackedScene" uid="uid://ci0x5744ru78a" path="res://rooms/party_room/pillar.tscn" id="4_yruca"]
+[ext_resource type="PackedScene" uid="uid://daetxvfj3wma1" path="res://rooms/party_room/stage.tscn" id="5_1ql6y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3chlt"]
 resource_name = "Material.013"
@@ -197,3 +198,6 @@ mesh = SubResource("ArrayMesh_0657s")
 transform = Transform3D(0.330007, 0, 0, 0, 0.330007, 0, 0, 0, -0.693657, -8.9946, -12.8152, 1.51866)
 mesh = SubResource("ArrayMesh_0657s")
 skeleton = NodePath("")
+
+[node name="stage" parent="." index="48" instance=ExtResource("5_1ql6y")]
+transform = Transform3D(0.978434, 0.0133394, -0.206128, -0.0125777, 0.999908, 0.00500552, 0.206176, -0.00230498, 0.978512, 0.371644, -11.6029, 1.93485)

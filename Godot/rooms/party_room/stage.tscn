@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://daetxvfj3wma1"]
+
+[ext_resource type="PackedScene" uid="uid://b07xpwpnifnhg" path="res://rooms/party_room/stage.glb" id="1_ufqpc"]
+
+[node name="stage" instance=ExtResource("1_ufqpc")]
+transform = Transform3D(-0.978746, -0.0133359, 0.204642, -0.0125777, 0.999908, 0.00500552, -0.20469, 0.00232523, -0.978824, 0, 0, 0)
