@@ -661,18 +661,21 @@ spot_range = 7.502
 spot_attenuation = -1.45
 
 [node name="Spot_001" parent="DiscoLightDecoration" index="16"]
-transform = Transform3D(1, -1.49012e-08, 7.45058e-09, 0, 0.328343, 0.944559, -1.49012e-08, -0.944559, 0.328343, -0.0821683, 3.23461, 1.48814)
+transform = Transform3D(0.99996, -0.00316122, -0.00834221, 0.00891767, 0.380077, 0.924912, 0.000246823, -0.924949, 0.38009, -0.0821683, 3.23461, 1.48814)
 light_color = Color(1, 0.767667, 0.18, 1)
-light_energy = 9.489
-light_size = 0.244
+light_energy = 9.845
+light_specular = 0.144
 shadow_enabled = true
 shadow_bias = 3.377
 shadow_normal_bias = 0.0
-shadow_opacity = 0.85
-spot_range = 17.068
-spot_attenuation = -0.11
+shadow_opacity = 0.81
+shadow_blur = 1.333
+spot_range = 22.522
+spot_attenuation = 0.0
+spot_angle = 34.15
 
 [node name="Spot_002" parent="DiscoLightDecoration" index="17"]
+transform = Transform3D(0.989879, -0.0450514, -0.134571, 0.141902, 0.303325, 0.942262, -0.00163157, -0.951821, 0.306648, 2.49719, 3.18599, 1.47732)
 light_energy = 5.178
 shadow_enabled = true
 shadow_opacity = 0.83
@@ -681,6 +684,7 @@ spot_range = 26.6
 spot_attenuation = -0.41
 
 [node name="Spot_003" parent="DiscoLightDecoration" index="19"]
+transform = Transform3D(0.976541, 0.00345948, 0.2153, -0.204361, 0.329925, 0.921622, -0.0678445, -0.944001, 0.322892, -3.09876, 3.17489, 1.47346)
 light_energy = 4.556
 light_size = 1.0
 light_specular = 0.0
@@ -690,13 +694,14 @@ spot_range = 20.158
 spot_attenuation = -0.63
 
 [node name="Point_039" parent="DiscoLightDecoration" index="26"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.132187, -1.83359, -1.68121)
 light_energy = 3.178
 light_size = 0.311
 light_specular = 0.322
 shadow_enabled = true
 shadow_opacity = 0.87
 shadow_blur = 0.556
-omni_range = 20.749
-omni_attenuation = 0.271
+omni_range = 18.917
+omni_attenuation = 0.16
 
 [editable path="DiscoLightDecoration"]
