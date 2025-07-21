@@ -424,7 +424,10 @@ transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, 
 transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, -1.35984, -7.67826, -8.7518, -3.40758)
 
 [node name="Stage" parent="." instance=ExtResource("5_1ql6y")]
-transform = Transform3D(0.978434, 0.0133394, -0.206128, -0.0125777, 0.999908, 0.00500552, 0.206176, -0.00230498, 0.978512, 0.371644, 0.6971, 1.93485)
+transform = Transform3D(0.852754, 0.0116259, -0.179651, -0.0109621, 0.871469, 0.00436256, 0.179693, -0.0020089, 0.852822, 0.370517, 0.421256, 2.67733)
+
+[node name="DJ set" parent="Stage" instance=ExtResource("12_ca1dh")]
+transform = Transform3D(0.99172, -0.0125777, 0.127804, 0.0131142, 0.999909, -0.00335727, -0.12775, 0.00500554, 0.991794, 0.128466, 1.2793, 0.552212)
 
 [node name="Balcony" type="Node3D" parent="."]
 
@@ -710,8 +713,5 @@ omni_attenuation = 0.16
 
 [node name="Object_12_002" parent="DiscoLightDecoration" index="27"]
 transform = Transform3D(0.330007, 0, 0, 0, 0.330007, 0, 0, 0, 0.330007, 0.0494336, -2.51517, -1.01711)
-
-[node name="DJ set" parent="." instance=ExtResource("12_ca1dh")]
-transform = Transform3D(0.99684, 0, -0.0794333, 0, 1, 0, 0.0794333, 0, 0.99684, 0.400578, 1.97743, 2.49873)
 
 [editable path="DiscoLightDecoration"]
