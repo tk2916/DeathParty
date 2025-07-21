@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://busrnnhrujsqx"]
+[gd_scene load_steps=12 format=4 uid="uid://busrnnhrujsqx"]
 
 [ext_resource type="PackedScene" uid="uid://c75uiq4aximdc" path="res://rooms/party_room/PartyRoom layout.glb" id="1_1ayrq"]
 [ext_resource type="Texture2D" uid="uid://ci5cfjsj0e4fc" path="res://rooms/party_room/PartyRoom layout_orange wallframe.png" id="2_oqucp"]
 [ext_resource type="Texture2D" uid="uid://cntrtwnpfw210" path="res://rooms/party_room/PartyRoom layout_wood.png" id="3_yruca"]
+[ext_resource type="PackedScene" uid="uid://ci0x5744ru78a" path="res://rooms/party_room/pillar.tscn" id="4_yruca"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3chlt"]
 resource_name = "Material.013"
@@ -134,29 +135,65 @@ shadow_mesh = SubResource("ArrayMesh_74np3")
 [node name="PartyRoom layout" instance=ExtResource("1_1ayrq")]
 transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.999999, -0.0146384, 0, -0.000152111)
 
-[node name="Plane_1309" parent="." index="0"]
+[node name="pillar4" parent="." index="0" instance=ExtResource("4_yruca")]
+transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, -1.35984, 7.99903, -8.7518, -3.38377)
+
+[node name="pillar5" parent="." index="1" instance=ExtResource("4_yruca")]
+transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, -1.35984, 7.98975, -8.7518, 2.72535)
+
+[node name="pillar6" parent="." index="2" instance=ExtResource("4_yruca")]
+transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, -1.35984, 7.9803, -8.7518, 8.95283)
+
+[node name="pillar7" parent="." index="3" instance=ExtResource("4_yruca")]
+transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, -1.35984, -7.67826, -8.7518, -3.40758)
+
+[node name="pillar8" parent="." index="4" instance=ExtResource("4_yruca")]
+transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, -1.35984, -7.68754, -8.7518, 2.70155)
+
+[node name="pillar9" parent="." index="5" instance=ExtResource("4_yruca")]
+transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, -1.35984, -7.69699, -8.7518, 8.92903)
+
+[node name="pillar10" parent="." index="6" instance=ExtResource("4_yruca")]
+transform = Transform3D(-1.28974, 0, 0.00206467, 0, 1.03033, 0, -0.00195824, 0, -1.35984, -2.59168, -8.48158, 10.2159)
+
+[node name="pillar11" parent="." index="7" instance=ExtResource("4_yruca")]
+transform = Transform3D(-1.28974, 0, 0.00206467, 0, 1.03033, 0, -0.00195824, 0, -1.35984, 3.51763, -8.46388, 10.225)
+
+[node name="Plane_1309" parent="." index="8"]
 transform = Transform3D(0.311505, 0, 5.82077e-11, 0, 0.311758, 0, 1.16415e-10, 0, 0.5502, 0.555739, -12.3021, 1.34086)
 
-[node name="Cube_105" parent="." index="21"]
+[node name="Cube_105" parent="." index="29"]
 transform = Transform3D(-0.511141, 0, -2.11177e-07, 0, 0.250398, 0, 1.66474e-07, 0, -0.64824, -9.02868, -6.20877, 6.68163)
 
-[node name="Cube_081" parent="." index="22"]
+[node name="Cube_081" parent="." index="30"]
 transform = Transform3D(-0.512598, 0, -2.03785e-07, 0, 0.2511, 0, 1.66998e-07, 0, -0.625935, 9.42867, -6.20713, 6.68163)
 
-[node name="Cube_112" type="MeshInstance3D" parent="." index="26"]
+[node name="Cube_074" parent="." index="31"]
+mesh = SubResource("ArrayMesh_2dtri")
+
+[node name="Cube_109" parent="." index="32"]
+mesh = SubResource("ArrayMesh_2dtri")
+
+[node name="Cube_110" parent="." index="33"]
+mesh = SubResource("ArrayMesh_2dtri")
+
+[node name="Cube_112" type="MeshInstance3D" parent="." index="34"]
 transform = Transform3D(-0.330007, 0, -3.91272e-07, 0, 0.370329, 0, 1.86148e-07, 0, -0.693657, 10.1896, -13.0778, 0.511811)
 mesh = SubResource("ArrayMesh_2dtri")
 skeleton = NodePath("")
 
-[node name="Cube_111" type="MeshInstance3D" parent="." index="27"]
+[node name="Cube_111" type="MeshInstance3D" parent="." index="35"]
 transform = Transform3D(-0.330007, 0, -3.91403e-07, 0, 0.370329, 0, 1.8621e-07, 0, -0.693656, 10.1812, -13.0778, 6.09907)
 mesh = SubResource("ArrayMesh_2dtri")
 skeleton = NodePath("")
 
-[node name="Plane_1335" parent="." index="34"]
+[node name="Plane_1335" parent="." index="42"]
 transform = Transform3D(0.448854, 0, -5.82077e-11, 0, 0.448854, 0, 5.82077e-11, 0, 0.515986, -0.42124, -1.15446, 3.95312)
 
-[node name="Cube_002" type="MeshInstance3D" parent="." index="38"]
+[node name="Cube_001" parent="." index="45"]
+mesh = SubResource("ArrayMesh_0657s")
+
+[node name="Cube_002" type="MeshInstance3D" parent="." index="46"]
 transform = Transform3D(0.330007, 0, 0, 0, 0.330007, 0, 0, 0, -0.693657, -8.9946, -12.8152, 1.51866)
 mesh = SubResource("ArrayMesh_0657s")
 skeleton = NodePath("")
