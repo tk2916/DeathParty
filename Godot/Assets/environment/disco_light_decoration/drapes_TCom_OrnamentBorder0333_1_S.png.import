@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djwkac8swkytt"
-path.s3tc="res://.godot/imported/drapes_TCom_OrnamentBorder0333_1_S.png-a52cb566dedd3893fcb59429bfbbe084.s3tc.ctex"
-path.etc2="res://.godot/imported/drapes_TCom_OrnamentBorder0333_1_S.png-a52cb566dedd3893fcb59429bfbbe084.etc2.ctex"
+path.s3tc="res://.godot/imported/drapes_TCom_OrnamentBorder0333_1_S.png-e3bba59300d6945cb4961d7b9d10317e.s3tc.ctex"
+path.etc2="res://.godot/imported/drapes_TCom_OrnamentBorder0333_1_S.png-e3bba59300d6945cb4961d7b9d10317e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://rooms/party_room/drapes_TCom_OrnamentBorder0333_1_S.png"
-dest_files=["res://.godot/imported/drapes_TCom_OrnamentBorder0333_1_S.png-a52cb566dedd3893fcb59429bfbbe084.s3tc.ctex", "res://.godot/imported/drapes_TCom_OrnamentBorder0333_1_S.png-a52cb566dedd3893fcb59429bfbbe084.etc2.ctex"]
+source_file="res://Assets/environment/disco_light_decoration/drapes_TCom_OrnamentBorder0333_1_S.png"
+dest_files=["res://.godot/imported/drapes_TCom_OrnamentBorder0333_1_S.png-e3bba59300d6945cb4961d7b9d10317e.s3tc.ctex", "res://.godot/imported/drapes_TCom_OrnamentBorder0333_1_S.png-e3bba59300d6945cb4961d7b9d10317e.etc2.ctex"]
 
 [params]
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b04lep1n5ghw5" path="res://rooms/party_room/PartyRoom layout_TCom_WoodFine0032_1_seamless_S.jpg" id="4_pmr6i"]
 [ext_resource type="PackedScene" uid="uid://ci0x5744ru78a" path="res://Assets/environment/marble_pillar/marble_pillar.tscn" id="4_yruca"]
 [ext_resource type="PackedScene" uid="uid://daetxvfj3wma1" path="res://Assets/environment/stage/stage.tscn" id="5_1ql6y"]
-[ext_resource type="PackedScene" uid="uid://fue5mn2yitn7" path="res://rooms/party_room/drapes.tscn" id="6_j7flo"]
+[ext_resource type="PackedScene" uid="uid://fue5mn2yitn7" path="res://Assets/environment/disco_light_decoration/drapes.tscn" id="6_j7flo"]
 [ext_resource type="Texture2D" uid="uid://sdcx1ct5ipku" path="res://rooms/party_room/PartyRoom layout_party windows.png" id="6_q7tq5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n2n2"]
@@ -774,10 +774,10 @@ transform = Transform3D(1.16415e-10, 0, -0.693656, 0, 0.370329, 0, -0.330007, 0,
 mesh = SubResource("ArrayMesh_d13jw")
 skeleton = NodePath("")
 
-[node name="drapes" parent="." instance=ExtResource("6_j7flo")]
+[node name="DiscoLightDecoration" parent="." instance=ExtResource("6_j7flo")]
 transform = Transform3D(0.987494, 0, 0.157658, 0, 1, 0, -0.157658, 0, 0.987494, 0.550856, 6.55494, 2.31062)
 
-[node name="Spot" parent="drapes" index="14"]
+[node name="Spot" parent="DiscoLightDecoration" index="14"]
 light_color = Color(1, 0.858333, 0.5, 1)
 light_energy = 1.667
 light_indirect_energy = 0.0
@@ -789,7 +789,7 @@ shadow_normal_bias = 0.0
 spot_range = 7.502
 spot_attenuation = -1.45
 
-[node name="Spot_001" parent="drapes" index="16"]
+[node name="Spot_001" parent="DiscoLightDecoration" index="16"]
 transform = Transform3D(1, -1.49012e-08, 7.45058e-09, 0, 0.328343, 0.944559, -1.49012e-08, -0.944559, 0.328343, -0.0821683, 3.23461, 1.48814)
 light_color = Color(1, 0.767667, 0.18, 1)
 light_energy = 3.089
@@ -801,14 +801,14 @@ shadow_opacity = 0.85
 spot_range = 17.068
 spot_attenuation = -0.11
 
-[node name="Spot_002" parent="drapes" index="17"]
+[node name="Spot_002" parent="DiscoLightDecoration" index="17"]
 shadow_enabled = true
 shadow_opacity = 0.84
 shadow_blur = 3.889
 spot_range = 26.6
 spot_attenuation = 0.22
 
-[node name="Spot_003" parent="drapes" index="19"]
+[node name="Spot_003" parent="DiscoLightDecoration" index="19"]
 light_energy = 3.4
 light_size = 1.0
 light_specular = 0.0
@@ -817,11 +817,11 @@ shadow_opacity = 0.92
 spot_range = 20.158
 spot_attenuation = -0.11
 
-[node name="Point_039" parent="drapes" index="26"]
+[node name="Point_039" parent="DiscoLightDecoration" index="26"]
 light_energy = 4.6
 light_size = 0.433
 shadow_enabled = true
 shadow_opacity = 0.8
 shadow_blur = 0.556
 
-[editable path="drapes"]
+[editable path="DiscoLightDecoration"]

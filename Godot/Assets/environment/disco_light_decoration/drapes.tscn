@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fue5mn2yitn7"]
 
-[ext_resource type="PackedScene" uid="uid://dwjorx6p7kbji" path="res://rooms/party_room/drapes.glb" id="1_rsoo1"]
+[ext_resource type="PackedScene" uid="uid://dwjorx6p7kbji" path="res://Assets/environment/disco_light_decoration/drapes.glb" id="1_rsoo1"]
 
 [node name="drapes" instance=ExtResource("1_rsoo1")]
 transform = Transform3D(-0.987253, 0, -0.159157, 0, 1, 0, 0.159157, 0, -0.987253, 0, 0, 0)

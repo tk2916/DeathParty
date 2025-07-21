@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dwjorx6p7kbji"
-path="res://.godot/imported/drapes.glb-34593584952ca99b3f64f8d4335d62f1.scn"
+path="res://.godot/imported/drapes.glb-8dc3bcbac154f21b73a8bfed9b41303a.scn"
 
 [deps]
 
-source_file="res://rooms/party_room/drapes.glb"
-dest_files=["res://.godot/imported/drapes.glb-34593584952ca99b3f64f8d4335d62f1.scn"]
+source_file="res://Assets/environment/disco_light_decoration/drapes.glb"
+dest_files=["res://.godot/imported/drapes.glb-8dc3bcbac154f21b73a8bfed9b41303a.scn"]
 
 [params]
 
