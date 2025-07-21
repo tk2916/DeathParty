@@ -46,6 +46,43 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7f31m")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_boqwv"]
+resource_name = "wall wood"
+cull_mode = 2
+albedo_texture = ExtResource("3_yruca")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_50ag5"]
+_surfaces = [{
+"aabb": AABB(-30.8463, 0, -23.9522, 61.6925, 1e-05, 47.9043),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "wall wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r51iq"]
+resource_name = "PartyRoom layout_Plane_021"
+_surfaces = [{
+"aabb": AABB(-30.8463, 0, -23.9522, 61.6925, 1e-05, 47.9043),
+"attribute_data": PackedByteArray("FDn/////BCj/////FDkEKA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_boqwv"),
+"name": "wall wood",
+"primitive": 3,
+"uv_scale": Vector4(4.15606, 6.05052, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_50ag5")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjprw"]
 resource_name = "Material.134"
 cull_mode = 2
@@ -382,43 +419,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vfj54")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_boqwv"]
-resource_name = "wall wood"
-cull_mode = 2
-albedo_texture = ExtResource("3_yruca")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_50ag5"]
-_surfaces = [{
-"aabb": AABB(-30.8463, 0, -23.9522, 61.6925, 1e-05, 47.9043),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "wall wood",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_r51iq"]
-resource_name = "PartyRoom layout_Plane_021"
-_surfaces = [{
-"aabb": AABB(-30.8463, 0, -23.9522, 61.6925, 1e-05, 47.9043),
-"attribute_data": PackedByteArray("FDn/////BCj/////FDkEKA=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_boqwv"),
-"name": "wall wood",
-"primitive": 3,
-"uv_scale": Vector4(4.15606, 6.05052, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_50ag5")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wubu"]
 resource_name = "Material.010"
 cull_mode = 2
@@ -570,9 +570,14 @@ transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, 
 [node name="MarblePillar8" parent="MarblePillars" instance=ExtResource("4_yruca")]
 transform = Transform3D(-1.28974, 0, 0.00206468, 0, 0.95391, 0, -0.00195824, 0, -1.35984, -7.67826, -8.7518, -3.40758)
 
-[node name="Plane_1309" type="MeshInstance3D" parent="."]
+[node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.311505, 0, 5.82077e-11, 0, 0.311758, 0, 1.16415e-10, 0, 0.5502, 0.555739, -12.3021, 1.34086)
 mesh = SubResource("ArrayMesh_hyhww")
+skeleton = NodePath("")
+
+[node name="Ceiling" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.448854, 0, -5.82077e-11, 0, 0.448854, 0, 1.16415e-10, 0, 0.515986, -0.42124, -1.15446, 3.95312)
+mesh = SubResource("ArrayMesh_r51iq")
 skeleton = NodePath("")
 
 [node name="Cube_056" type="MeshInstance3D" parent="."]
@@ -738,11 +743,6 @@ skeleton = NodePath("")
 [node name="Cube_118" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.331523, 0, 0, 0, 0.315649, 0, 0, 0, 0.60489, -10.8353, -6.50391, 7.44175)
 mesh = SubResource("ArrayMesh_bg0fk")
-skeleton = NodePath("")
-
-[node name="Plane_1335" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.448854, 0, -5.82077e-11, 0, 0.448854, 0, 5.82077e-11, 0, 0.515986, -0.42124, -1.15446, 3.95312)
-mesh = SubResource("ArrayMesh_r51iq")
 skeleton = NodePath("")
 
 [node name="Cube_092" type="MeshInstance3D" parent="."]
