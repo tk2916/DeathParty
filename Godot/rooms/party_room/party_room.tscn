@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://busrnnhrujsqx"]
+[gd_scene load_steps=35 format=4 uid="uid://busrnnhrujsqx"]
 
 [ext_resource type="Texture2D" uid="uid://dwqn2srjfxhnt" path="res://rooms/party_room/PartyRoom layout_wood panel big.png" id="2_1xrom"]
 [ext_resource type="Texture2D" uid="uid://ci5cfjsj0e4fc" path="res://rooms/party_room/PartyRoom layout_orange wallframe.png" id="2_oqucp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://fue5mn2yitn7" path="res://Assets/environment/disco_light_decoration/drapes.tscn" id="6_j7flo"]
 [ext_resource type="Texture2D" uid="uid://sdcx1ct5ipku" path="res://rooms/party_room/PartyRoom layout_party windows.png" id="6_q7tq5"]
 [ext_resource type="PackedScene" uid="uid://bqc5dcb57bpmk" path="res://Assets/environment/patterned_wall.tscn" id="8_mc5eb"]
+[ext_resource type="PackedScene" uid="uid://cie23uvky6kns" path="res://Assets/environment/railings/railing.tscn" id="9_ea3uk"]
 [ext_resource type="PackedScene" uid="uid://suf51g63ux2s" path="res://Assets/environment/solid_dark_wall.tscn" id="9_owf8c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n2n2"]
@@ -436,6 +437,45 @@ transform = Transform3D(0.729265, 0, -1.74623e-10, 0, 0.888635, 0, -4.65661e-10,
 mesh = SubResource("ArrayMesh_b0605")
 skeleton = NodePath("")
 
+[node name="railings2" type="Node3D" parent="Balcony/Middle"]
+transform = Transform3D(-1.40083, 0, 0.0123494, 0, 6.67634, 0, -0.0234844, 0, -1.37992, 15.0439, -41.4609, 3.45569)
+
+[node name="railing" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.96111, 7.32216, -5.72653)
+
+[node name="railing2" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95894, 7.32216, -4.29158)
+
+[node name="railing3" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95676, 7.32216, -2.86024)
+
+[node name="railing4" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95459, 7.32216, -1.42529)
+
+[node name="railing5" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95241, 7.32216, 0.00755377)
+
+[node name="railing6" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95023, 7.32216, 1.44251)
+
+[node name="railing7" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94806, 7.32216, 2.87385)
+
+[node name="railing8" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94588, 7.32216, 4.3088)
+
+[node name="railing9" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.9437, 7.32216, 5.74312)
+
+[node name="railing10" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94153, 7.32216, 7.17446)
+
+[node name="railing11" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.93935, 7.32216, 8.60941)
+
+[node name="railing12" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95069, 7.32216, 10.0565)
+
 [node name="Right" type="MeshInstance3D" parent="Balcony"]
 transform = Transform3D(-0.511141, 0, -2.11177e-07, 0, 0.250398, 0, 1.66474e-07, 0, -0.64824, -9.02868, 6.09123, 6.68163)
 mesh = SubResource("ArrayMesh_wsol8")
@@ -446,6 +486,42 @@ transform = Transform3D(-0.856239, 0, -1.81142e-07, 0, 0.526039, 0, -2.19676e-07
 mesh = SubResource("ArrayMesh_b0605")
 skeleton = NodePath("")
 
+[node name="railings" type="Node3D" parent="Balcony/Right"]
+transform = Transform3D(1.95034, 0, -0.0365527, 0, 3.98248, 0, 0.0446343, 0, 1.59719, -18.0112, -24.2647, 5.66355)
+
+[node name="railing" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.96111, 7.32216, -5.72653)
+
+[node name="railing2" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95894, 7.32216, -4.29158)
+
+[node name="railing3" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95676, 7.32216, -2.86024)
+
+[node name="railing4" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95459, 7.32216, -1.42529)
+
+[node name="railing5" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95241, 7.32216, 0.00755377)
+
+[node name="railing6" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95023, 7.32216, 1.44251)
+
+[node name="railing7" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94806, 7.32216, 2.87385)
+
+[node name="railing8" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94588, 7.32216, 4.3088)
+
+[node name="railing9" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.9437, 7.32216, 5.74312)
+
+[node name="railing10" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94153, 7.32216, 7.17446)
+
+[node name="railing11" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.93935, 7.32216, 8.60941)
+
 [node name="Left" type="MeshInstance3D" parent="Balcony"]
 transform = Transform3D(-0.512598, 0, -2.03785e-07, 0, 0.2511, 0, 1.66998e-07, 0, -0.625935, 9.42867, 6.09287, 6.68163)
 mesh = SubResource("ArrayMesh_wsol8")
@@ -455,6 +531,42 @@ skeleton = NodePath("")
 transform = Transform3D(0.643793, 0, 1.16415e-10, 0, 0.524568, 0, 2.32831e-10, 0, 0.453982, 4.5407, -2.05886, -11.678)
 mesh = SubResource("ArrayMesh_b0605")
 skeleton = NodePath("")
+
+[node name="railings" type="Node3D" parent="Balcony/Left"]
+transform = Transform3D(-1.95085, 0, 6.35395e-07, 0, 3.98248, 0, -5.20609e-07, 0, -1.59761, 18.3939, -24.2647, 10.6746)
+
+[node name="railing" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.96111, 7.32216, -5.72653)
+
+[node name="railing2" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95894, 7.32216, -4.29158)
+
+[node name="railing3" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95676, 7.32216, -2.86024)
+
+[node name="railing4" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95459, 7.32216, -1.42529)
+
+[node name="railing5" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95241, 7.32216, 0.00755377)
+
+[node name="railing6" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95023, 7.32216, 1.44251)
+
+[node name="railing7" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94806, 7.32216, 2.87385)
+
+[node name="railing8" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94588, 7.32216, 4.3088)
+
+[node name="railing9" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.9437, 7.32216, 5.74312)
+
+[node name="railing10" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94153, 7.32216, 7.17446)
+
+[node name="railing11" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.93935, 7.32216, 8.60941)
 
 [node name="Windows" type="Node3D" parent="."]
 
@@ -538,7 +650,7 @@ transform = Transform3D(0.987494, 0, 0.157658, 0, 1, 0, -0.157658, 0, 0.987494, 
 
 [node name="Spot" parent="DiscoLightDecoration" index="14"]
 light_color = Color(1, 0.858333, 0.5, 1)
-light_energy = 1.667
+light_energy = 4.511
 light_indirect_energy = 0.0
 light_size = 0.2
 light_specular = 0.767
@@ -551,7 +663,7 @@ spot_attenuation = -1.45
 [node name="Spot_001" parent="DiscoLightDecoration" index="16"]
 transform = Transform3D(1, -1.49012e-08, 7.45058e-09, 0, 0.328343, 0.944559, -1.49012e-08, -0.944559, 0.328343, -0.0821683, 3.23461, 1.48814)
 light_color = Color(1, 0.767667, 0.18, 1)
-light_energy = 3.089
+light_energy = 9.489
 light_size = 0.244
 shadow_enabled = true
 shadow_bias = 3.377
@@ -561,26 +673,30 @@ spot_range = 17.068
 spot_attenuation = -0.11
 
 [node name="Spot_002" parent="DiscoLightDecoration" index="17"]
+light_energy = 5.178
 shadow_enabled = true
-shadow_opacity = 0.84
-shadow_blur = 3.889
+shadow_opacity = 0.83
+shadow_blur = 6.056
 spot_range = 26.6
-spot_attenuation = 0.22
+spot_attenuation = -0.41
 
 [node name="Spot_003" parent="DiscoLightDecoration" index="19"]
-light_energy = 3.4
+light_energy = 4.556
 light_size = 1.0
 light_specular = 0.0
 shadow_enabled = true
 shadow_opacity = 0.92
 spot_range = 20.158
-spot_attenuation = -0.11
+spot_attenuation = -0.63
 
 [node name="Point_039" parent="DiscoLightDecoration" index="26"]
-light_energy = 4.6
-light_size = 0.433
+light_energy = 3.178
+light_size = 0.311
+light_specular = 0.322
 shadow_enabled = true
-shadow_opacity = 0.8
+shadow_opacity = 0.87
 shadow_blur = 0.556
+omni_range = 20.749
+omni_attenuation = 0.271
 
 [editable path="DiscoLightDecoration"]
