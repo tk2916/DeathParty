@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dwrmfilc6xeol" path="res://Assets/environment/wall_lamp.tscn" id="15_isgae"]
 [ext_resource type="PackedScene" uid="uid://lq5aie0hhjaf" path="res://Assets/environment/glowing_doorway.tscn" id="16_hprob"]
 [ext_resource type="PackedScene" uid="uid://b0v4k6w4378h1" path="res://Assets/environment/arch_window.tscn" id="17_kauli"]
-[ext_resource type="PackedScene" uid="uid://bgrvflukoipup" path="res://Assets/environment/arch_window_fanlight.tscn" id="18_rseg0"]
+[ext_resource type="PackedScene" uid="uid://bgrvflukoipup" path="res://Assets/environment/stone_arch_window.tscn" id="18_rseg0"]
 [ext_resource type="PackedScene" uid="uid://s8nqkwhr8xqp" path="res://Assets/environment/chandelier.tscn" id="19_a28ps"]
 [ext_resource type="PackedScene" uid="uid://bc16ymtogijdr" path="res://Assets/environment/painting.tscn" id="20_2fk3d"]
 [ext_resource type="PackedScene" uid="uid://cx1p52tb5hskc" path="res://Assets/props/sofas/Sofa2.glb" id="21_xkbqc"]
@@ -443,17 +443,17 @@ transform = Transform3D(-0.219323, 0, -0.00202499, 0, 0.219331, 0, 0.00202499, 0
 [node name="ArchWindow2" parent="Windows" instance=ExtResource("17_kauli")]
 transform = Transform3D(-0.219323, 0, -0.00202499, 0, 0.219331, 0, 0.00202499, 0, -0.219323, 7.233, 5.752, -6)
 
-[node name="ArchWindowFanlight" parent="Windows" instance=ExtResource("18_rseg0")]
-transform = Transform3D(-0.225819, 2.4256e-08, 0.00208497, 3.40992e-08, 0.160647, 0, 0.00208497, -2.23954e-10, 0.225819, -4.44232, 1.21296, -5.74098)
+[node name="StoneArchWindow" parent="Windows" instance=ExtResource("18_rseg0")]
+transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 1.66168e-15, 0.015603, -1.67707e-09, 1.68993, -4.44232, 1.01296, -5.84098)
 
-[node name="ArchWindowFanlight2" parent="Windows" instance=ExtResource("18_rseg0")]
-transform = Transform3D(-0.225819, 2.4256e-08, 0.00208497, 3.40992e-08, 0.160647, 0, 0.00208497, -2.23954e-10, 0.225819, -2.43198, 1.21296, -5.75954)
+[node name="StoneArchWindow2" parent="Windows" instance=ExtResource("18_rseg0")]
+transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 1.66168e-15, 0.015603, -1.67707e-09, 1.68993, -2.43198, 1.01296, -5.85954)
 
-[node name="ArchWindowFanlight3" parent="Windows" instance=ExtResource("18_rseg0")]
-transform = Transform3D(-0.225819, 0, 0.00208499, 0, 0.160647, 0, 0.00208499, 0, 0.225819, 6.99915, 1.21296, -5.84663)
+[node name="StoneArchWindow3" parent="Windows" instance=ExtResource("18_rseg0")]
+transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 0, 0.015603, -1.67707e-09, 1.68993, 6.99915, 1.01296, -5.94663)
 
-[node name="ArchWindowFanlight4" parent="Windows" instance=ExtResource("18_rseg0")]
-transform = Transform3D(-0.225819, 0, 0.00208499, 0, 0.160647, 0, 0.00208499, 0, 0.225819, 9.19657, 1.21296, -5.86691)
+[node name="StoneArchWindow4" parent="Windows" instance=ExtResource("18_rseg0")]
+transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 0, 0.015603, -1.67707e-09, 1.68993, 9.19657, 1.01296, -5.96691)
 
 [node name="Chandeliers" type="Node3D" parent="."]
 
