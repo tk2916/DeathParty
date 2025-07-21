@@ -541,7 +541,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_81q5s")
 
-[node name="PartyRoom layout" type="Node3D"]
+[node name="PartyRoom" type="Node3D"]
 transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.999999, -0.0146384, 0, -0.000152111)
 
 [node name="Floor" type="MeshInstance3D" parent="."]
