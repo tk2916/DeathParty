@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://busrnnhrujsqx"]
+[gd_scene load_steps=26 format=4 uid="uid://busrnnhrujsqx"]
 
 [ext_resource type="Texture2D" uid="uid://dwqn2srjfxhnt" path="res://rooms/party_room/PartyRoom layout_wood panel big.png" id="2_1xrom"]
 [ext_resource type="Texture2D" uid="uid://ci5cfjsj0e4fc" path="res://rooms/party_room/PartyRoom layout_orange wallframe.png" id="2_oqucp"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://suf51g63ux2s" path="res://Assets/environment/solid_dark_wall.tscn" id="9_owf8c"]
 [ext_resource type="PackedScene" uid="uid://bgrvflukoipup" path="res://Assets/environment/stone_arch_window.tscn" id="10_72phb"]
 [ext_resource type="PackedScene" uid="uid://bv8nlpv8yo7tj" path="res://Assets/environment/dj_set/dj_set.tscn" id="12_ca1dh"]
+[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="13_72phb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n2n2"]
 resource_name = "Material.026"
@@ -496,5 +497,11 @@ omni_attenuation = 0.16
 
 [node name="Object_12_002" parent="DiscoLightDecoration" index="27"]
 transform = Transform3D(0.330007, 0, 0, 0, 0.330007, 0, 0, 0, 0.330007, 0.0494336, -2.51517, -1.01711)
+
+[node name="pumpkin with beers" parent="." instance=ExtResource("13_72phb")]
+transform = Transform3D(0.990382, 0, 0.138361, 0, 1, 0, -0.138361, 0, 0.990382, 3.06388, 0.270884, -3.53741)
+
+[node name="pumpkin with beers2" parent="." instance=ExtResource("13_72phb")]
+transform = Transform3D(0.990382, 0, 0.138361, 0, 1, 0, -0.138361, 0, 0.990382, -1.61346, 1.02069, 2.26883)
 
 [editable path="DiscoLightDecoration"]

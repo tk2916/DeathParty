@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bont0a7c7jekf"]
+
+[ext_resource type="PackedScene" uid="uid://cf7gkb37rdvf1" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers/pumpkin with beers.glb" id="1_hjxcw"]
+
+[node name="pumpkin with beers" instance=ExtResource("1_hjxcw")]
