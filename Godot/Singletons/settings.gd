@@ -406,24 +406,9 @@ func set_shadows(level : int) -> void:
 func apply_ssao(level : int) -> void:
 	var world_environment_node : Node = get_tree().current_scene.find_child("WorldEnvironment")
 	
-	if world_environment_node is WorldEnvironment:
-		var world_environment : WorldEnvironment = world_environment_node
-
-		if level > 0: # Enabled
-			world_environment.environment.ssao_enabled = true
-		else: # Disabled
-			world_environment.environment.ssao_enabled = false
-
-		if level == 1: # Very Low
-			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_VERY_LOW, true, 0.5, 2, 50, 300)
-		if level == 2: # Low
-			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_LOW, true, 0.5, 2, 50, 300)
-		if level == 3: # Medium
-			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_MEDIUM, true, 0.5, 2, 50, 300)
-		if level == 4: # High
-			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_HIGH, true, 0.5, 2, 50, 300)
-		if level == 5: # Ultra
-			RenderingServer.environment_set_ssao_quality(RenderingServer.ENV_SSAO_QUALITY_ULTRA, true, 0.5, 2, 50, 300)
+	if world_environment_node is CustomWorldEnvironment:
+		var world_environment : CustomWorldEnvironment = world_environment_node
+		world_environment.set_ssao(level)
 
 
 func set_ssao(level : int) -> void:
