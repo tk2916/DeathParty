@@ -351,7 +351,7 @@ transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 1.921, 0.13
 transform = Transform3D(1.46343, 0, 0.0332099, 0, 1.46381, 0, -0.0332099, 0, 1.46343, 2.375, -0.012, 0.484)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -3.2992, 0.876021, 1.18538)
+transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -3.19528, 0.876021, 1.20079)
 light_color = Color(0.87, 0.77198, 0.4176, 1)
 light_energy = 1.5
 omni_range = 2.872
@@ -361,6 +361,7 @@ omni_attenuation = 0.667
 transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 3.07413, 0.764043, 0.553632)
 light_color = Color(0.87, 0.77198, 0.4176, 1)
 light_energy = 1.5
+shadow_enabled = true
 omni_range = 2.872
 omni_attenuation = 0.667
 
@@ -368,12 +369,14 @@ omni_attenuation = 0.667
 transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -2.08439, 1.03255, 0.269615)
 light_color = Color(0.79, 0.66834, 0.4424, 1)
 light_energy = 0.5
+shadow_enabled = true
 omni_range = 1.895
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Staircase"]
 transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 2.2197, 1.03255, 0.346517)
 light_color = Color(0.79, 0.66834, 0.4424, 1)
 light_energy = 0.5
+shadow_enabled = true
 omni_range = 1.895
 
 [node name="LandingStairs" type="Node3D" parent="."]
@@ -425,9 +428,10 @@ omni_range = 5.946
 omni_attenuation = 0.792
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="GlowingDoorway"]
-transform = Transform3D(4.51041, 0, 0, 0, 4.51044, 0, 0, 0, 4.51041, -1.40451, -0.759202, -29.9338)
+transform = Transform3D(4.51041, 0, 0, 0, 4.51044, 0, 0, 0, 4.51041, -1.40476, -0.759202, -29.8609)
 light_color = Color(1, 0.736, 0.56, 1)
 light_energy = 4.2
+shadow_enabled = true
 omni_range = 3.66
 omni_attenuation = 0.174
 
@@ -574,3 +578,7 @@ transform = Transform3D(0.0360417, -0.000988545, 0.196724, 0.000148181, 0.235998
 
 [node name="JackOLantern5" parent="Props/JackOLanterns/Balcony/Right" instance=ExtResource("33_hdy2l")]
 transform = Transform3D(0.125, 0, 0.216506, 0, 0.295, 0, -0.216506, 0, 0.125, 2.72332, 1.04498, 15.2458)
+
+[editable path="WallLamps/WallLamp2"]
+[editable path="Windows/ArchWindow"]
+[editable path="Chandeliers/Chandelier"]

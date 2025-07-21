@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://busrnnhrujsqx"]
+[gd_scene load_steps=14 format=4 uid="uid://busrnnhrujsqx"]
 
 [ext_resource type="PackedScene" uid="uid://c75uiq4aximdc" path="res://rooms/party_room/PartyRoom layout.glb" id="1_1ayrq"]
 [ext_resource type="Texture2D" uid="uid://ci5cfjsj0e4fc" path="res://rooms/party_room/PartyRoom layout_orange wallframe.png" id="2_oqucp"]
 [ext_resource type="Texture2D" uid="uid://cntrtwnpfw210" path="res://rooms/party_room/PartyRoom layout_wood.png" id="3_yruca"]
 [ext_resource type="PackedScene" uid="uid://ci0x5744ru78a" path="res://rooms/party_room/pillar.tscn" id="4_yruca"]
 [ext_resource type="PackedScene" uid="uid://daetxvfj3wma1" path="res://rooms/party_room/stage.tscn" id="5_1ql6y"]
+[ext_resource type="PackedScene" uid="uid://fue5mn2yitn7" path="res://rooms/party_room/drapes.tscn" id="6_j7flo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3chlt"]
 resource_name = "Material.013"
@@ -201,3 +202,55 @@ skeleton = NodePath("")
 
 [node name="stage" parent="." index="48" instance=ExtResource("5_1ql6y")]
 transform = Transform3D(0.978434, 0.0133394, -0.206128, -0.0125777, 0.999908, 0.00500552, 0.206176, -0.00230498, 0.978512, 0.371644, -11.6029, 1.93485)
+
+[node name="drapes" parent="." index="49" instance=ExtResource("6_j7flo")]
+transform = Transform3D(0.987494, 0, 0.157658, 0, 1, 0, -0.157658, 0, 0.987494, 0.550856, -5.74506, 2.31062)
+
+[node name="Spot" parent="drapes" index="14"]
+light_color = Color(1, 0.858333, 0.5, 1)
+light_energy = 1.667
+light_indirect_energy = 0.0
+light_size = 0.2
+light_specular = 0.767
+shadow_enabled = true
+shadow_bias = 0.1
+shadow_normal_bias = 0.0
+spot_range = 7.502
+spot_attenuation = -1.45
+
+[node name="Spot_001" parent="drapes" index="16"]
+transform = Transform3D(1, -1.49012e-08, 7.45058e-09, 0, 0.328343, 0.944559, -1.49012e-08, -0.944559, 0.328343, -0.0821683, 3.23461, 1.48814)
+light_color = Color(1, 0.767667, 0.18, 1)
+light_energy = 3.089
+light_size = 0.244
+shadow_enabled = true
+shadow_bias = 3.377
+shadow_normal_bias = 0.0
+shadow_opacity = 0.85
+spot_range = 17.068
+spot_attenuation = -0.11
+
+[node name="Spot_002" parent="drapes" index="17"]
+shadow_enabled = true
+shadow_opacity = 0.84
+shadow_blur = 3.889
+spot_range = 26.6
+spot_attenuation = 0.22
+
+[node name="Spot_003" parent="drapes" index="19"]
+light_energy = 3.4
+light_size = 1.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_opacity = 0.92
+spot_range = 20.158
+spot_attenuation = -0.11
+
+[node name="Point_039" parent="drapes" index="26"]
+light_energy = 4.6
+light_size = 0.433
+shadow_enabled = true
+shadow_opacity = 0.8
+shadow_blur = 0.556
+
+[editable path="drapes"]
