@@ -1,7 +1,10 @@
-## This script should be extended by a Room scene which has a CollisionShape3D child named "RoomArea"
+## This script should be extended by a Room scene which has a CollisionShape3D for the room's area
 ## the extended script should connect to RoomArea's _on_body entered and exited signals
 
 extends Area3D
+
+@export var room_area: CollisionShape3D
+@export var path_follow_node: PathFollow3D
 
 # offsets must be changed MANUALLY if the MainCamera's default position or fov change
 # offset's x value is the desired distance from the edges of the area
@@ -17,7 +20,7 @@ var room_area_shape: BoxShape3D
 
 
 func _ready() -> void:
-	var room_area: CollisionShape3D = $RoomArea
+	assert(room_area, "Room area not defined!")
 	## Left and Right bounds
 	room_area_shape = room_area.shape
 	# [.....|.....] <= $RoomArea.shape.size.x ( '|' is halfway point)
@@ -54,6 +57,7 @@ func _ready() -> void:
 	inner_bound = Plane(basis.z, default_depth)
 	outer_bound = Plane(-basis.z, default_depth)
 
+
 func move_to_foreground(body: Node3D) -> Vector3:
 	var initial_position: Vector3 = body.global_position
 	initial_position *= abs((basis.x + basis.y))
@@ -62,8 +66,36 @@ func move_to_foreground(body: Node3D) -> Vector3:
 	
 	return new_position
 
+
 func rotate_player(body: Node3D) -> void:
 	body.transform.basis = Basis.looking_at(basis.z, basis.y, true)
+
+
+## Functions used for following paths
+func _calculate_progress_ratio(pos: Vector3) -> void:
+	if not path_follow_node:
+		return
+	# calculate center, left, and rightmost points of the room's area
+	var center: float = compress_vector3(position * basis.x)
+	var leftmost_value: float = center - (room_area.shape.size.x/2)
+	var rightmost_value: float = center + (room_area.shape.size.x/2)
+	
+	var player_LR_value: float = compress_vector3(pos * basis.x)
+	
+	var player_progress_ratio: float = (player_LR_value-leftmost_value) / (rightmost_value - leftmost_value)
+	
+	path_follow_node.progress_ratio = player_progress_ratio
+	
+	if has_overlapping_bodies():
+		var player_body: Node3D = get_overlapping_bodies().front()
+		#path_follow_node.look_at(player_body.position + Vector3(0,1.2,0)) # Look at player
+		var look_straight: Vector3 = Vector3(player_body.position.x, path_follow_node.position.y, player_body.position.z)
+		path_follow_node.look_at(look_straight) # Look straight ahead
+
+## @param vec - Vector3, assumes that one coordinate has a value and the others are zero
+func compress_vector3(vec: Vector3) -> float:
+	return vec.x + vec.y + vec.z
+
 
 ## These functions should be defined in the extended script
 #func _on_body_entered(_body: Node3D) -> void:
