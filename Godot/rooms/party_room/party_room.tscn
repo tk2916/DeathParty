@@ -437,43 +437,43 @@ transform = Transform3D(0.729265, 0, -1.74623e-10, 0, 0.888635, 0, -4.65661e-10,
 mesh = SubResource("ArrayMesh_b0605")
 skeleton = NodePath("")
 
-[node name="railings2" type="Node3D" parent="Balcony/Middle"]
+[node name="Railings" type="Node3D" parent="Balcony/Middle"]
 transform = Transform3D(-1.40083, 0, 0.0123494, 0, 6.67634, 0, -0.0234844, 0, -1.37992, 15.0439, -41.4609, 3.45569)
 
-[node name="railing" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.96111, 7.32216, -5.72653)
 
-[node name="railing2" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing2" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95894, 7.32216, -4.29158)
 
-[node name="railing3" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing3" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95676, 7.32216, -2.86024)
 
-[node name="railing4" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing4" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95459, 7.32216, -1.42529)
 
-[node name="railing5" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing5" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95241, 7.32216, 0.00755377)
 
-[node name="railing6" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing6" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95023, 7.32216, 1.44251)
 
-[node name="railing7" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing7" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94806, 7.32216, 2.87385)
 
-[node name="railing8" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing8" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94588, 7.32216, 4.3088)
 
-[node name="railing9" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing9" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.9437, 7.32216, 5.74312)
 
-[node name="railing10" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing10" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94153, 7.32216, 7.17446)
 
-[node name="railing11" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing11" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.93935, 7.32216, 8.60941)
 
-[node name="railing12" parent="Balcony/Middle/railings2" instance=ExtResource("9_ea3uk")]
+[node name="Railing12" parent="Balcony/Middle/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95069, 7.32216, 10.0565)
 
 [node name="Right" type="MeshInstance3D" parent="Balcony"]
@@ -486,40 +486,40 @@ transform = Transform3D(-0.856239, 0, -1.81142e-07, 0, 0.526039, 0, -2.19676e-07
 mesh = SubResource("ArrayMesh_b0605")
 skeleton = NodePath("")
 
-[node name="railings" type="Node3D" parent="Balcony/Right"]
+[node name="Railings" type="Node3D" parent="Balcony/Right"]
 transform = Transform3D(1.95034, 0, -0.0365527, 0, 3.98248, 0, 0.0446343, 0, 1.59719, -18.0112, -24.2647, 5.66355)
 
-[node name="railing" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.96111, 7.32216, -5.72653)
 
-[node name="railing2" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing2" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95894, 7.32216, -4.29158)
 
-[node name="railing3" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing3" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95676, 7.32216, -2.86024)
 
-[node name="railing4" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing4" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95459, 7.32216, -1.42529)
 
-[node name="railing5" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing5" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95241, 7.32216, 0.00755377)
 
-[node name="railing6" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing6" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95023, 7.32216, 1.44251)
 
-[node name="railing7" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing7" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94806, 7.32216, 2.87385)
 
-[node name="railing8" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing8" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94588, 7.32216, 4.3088)
 
-[node name="railing9" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing9" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.9437, 7.32216, 5.74312)
 
-[node name="railing10" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing10" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94153, 7.32216, 7.17446)
 
-[node name="railing11" parent="Balcony/Right/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing11" parent="Balcony/Right/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.93935, 7.32216, 8.60941)
 
 [node name="Left" type="MeshInstance3D" parent="Balcony"]
@@ -532,40 +532,40 @@ transform = Transform3D(0.643793, 0, 1.16415e-10, 0, 0.524568, 0, 2.32831e-10, 0
 mesh = SubResource("ArrayMesh_b0605")
 skeleton = NodePath("")
 
-[node name="railings" type="Node3D" parent="Balcony/Left"]
+[node name="Railings" type="Node3D" parent="Balcony/Left"]
 transform = Transform3D(-1.95085, 0, 6.35395e-07, 0, 3.98248, 0, -5.20609e-07, 0, -1.59761, 18.3939, -24.2647, 10.6746)
 
-[node name="railing" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.96111, 7.32216, -5.72653)
 
-[node name="railing2" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing2" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95894, 7.32216, -4.29158)
 
-[node name="railing3" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing3" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95676, 7.32216, -2.86024)
 
-[node name="railing4" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing4" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95459, 7.32216, -1.42529)
 
-[node name="railing5" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing5" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95241, 7.32216, 0.00755377)
 
-[node name="railing6" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing6" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.95023, 7.32216, 1.44251)
 
-[node name="railing7" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing7" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94806, 7.32216, 2.87385)
 
-[node name="railing8" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing8" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94588, 7.32216, 4.3088)
 
-[node name="railing9" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing9" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.9437, 7.32216, 5.74312)
 
-[node name="railing10" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing10" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.94153, 7.32216, 7.17446)
 
-[node name="railing11" parent="Balcony/Left/railings" instance=ExtResource("9_ea3uk")]
+[node name="Railing11" parent="Balcony/Left/Railings" instance=ExtResource("9_ea3uk")]
 transform = Transform3D(-0.999999, 0, 0.00151833, 0, 1, 0, -0.00151833, 0, -0.999999, 6.93935, 7.32216, 8.60941)
 
 [node name="Windows" type="Node3D" parent="."]
