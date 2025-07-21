@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://busrnnhrujsqx"]
+[gd_scene load_steps=27 format=4 uid="uid://busrnnhrujsqx"]
 
 [ext_resource type="Texture2D" uid="uid://dwqn2srjfxhnt" path="res://rooms/party_room/PartyRoom layout_wood panel big.png" id="2_1xrom"]
 [ext_resource type="Texture2D" uid="uid://ci5cfjsj0e4fc" path="res://rooms/party_room/PartyRoom layout_orange wallframe.png" id="2_oqucp"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrvflukoipup" path="res://Assets/environment/stone_arch_window.tscn" id="10_72phb"]
 [ext_resource type="PackedScene" uid="uid://bv8nlpv8yo7tj" path="res://Assets/environment/dj_set/dj_set.tscn" id="12_ca1dh"]
 [ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="13_72phb"]
+[ext_resource type="PackedScene" uid="uid://d0qviybdp0h2g" path="res://Assets/props/speaker/speaker.tscn" id="14_gl0i2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n2n2"]
 resource_name = "Material.026"
@@ -503,5 +504,17 @@ transform = Transform3D(0.990382, 0, 0.138361, 0, 1, 0, -0.138361, 0, 0.990382, 
 
 [node name="pumpkin with beers2" parent="." instance=ExtResource("13_72phb")]
 transform = Transform3D(0.990382, 0, 0.138361, 0, 1, 0, -0.138361, 0, 0.990382, -1.61346, 1.02069, 2.26883)
+
+[node name="speaker" parent="." instance=ExtResource("14_gl0i2")]
+transform = Transform3D(0.961589, 0, 0.274497, 0, 1, 0, -0.274497, 0, 0.961589, 2.82413, 2.84539, 6.73564)
+
+[node name="speaker4" parent="." instance=ExtResource("14_gl0i2")]
+transform = Transform3D(0.992221, 0, -0.124502, 0, 1, 0, 0.124502, 0, 0.992221, 2.37131, 1.20099, 3.51577)
+
+[node name="speaker2" parent="." instance=ExtResource("14_gl0i2")]
+transform = Transform3D(0.961589, 0, 0.274497, 0, 1, 0, -0.274497, 0, 0.961589, -2.37455, 2.84539, 6.73747)
+
+[node name="speaker3" parent="." instance=ExtResource("14_gl0i2")]
+transform = Transform3D(0.736288, 0, 0.676672, 0, 1, 0, -0.676672, 0, 0.736288, -1.82749, 1.18241, 3.08169)
 
 [editable path="DiscoLightDecoration"]
