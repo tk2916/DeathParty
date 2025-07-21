@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4qi31g2xl1id"
-path.s3tc="res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-8a7a74db6964f78142d943003e0ba726.s3tc.ctex"
-path.etc2="res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-8a7a74db6964f78142d943003e0ba726.etc2.ctex"
+path.s3tc="res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-47144b4fafbf698b27f0afb1f6a645f4.s3tc.ctex"
+path.etc2="res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-47144b4fafbf698b27f0afb1f6a645f4.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://rooms/party_room/pillar_TCom_OrnamentBorder0333_1_S.png"
-dest_files=["res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-8a7a74db6964f78142d943003e0ba726.s3tc.ctex", "res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-8a7a74db6964f78142d943003e0ba726.etc2.ctex"]
+source_file="res://Assets/environment/marble_pillar/pillar_TCom_OrnamentBorder0333_1_S.png"
+dest_files=["res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-47144b4fafbf698b27f0afb1f6a645f4.s3tc.ctex", "res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-47144b4fafbf698b27f0afb1f6a645f4.etc2.ctex"]
 
 [params]
 

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci0x5744ru78a"]
-
-[ext_resource type="PackedScene" uid="uid://dquw1vwnwx6pu" path="res://rooms/party_room/pillar.glb" id="1_3v8tg"]
-
-[node name="pillar" instance=ExtResource("1_3v8tg")]
-transform = Transform3D(1.28974, 0, 0, 0, 0.95391, 0, 0, 0, 1.35984, 0, 0, 0)

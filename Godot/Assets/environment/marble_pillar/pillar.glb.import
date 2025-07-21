@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dquw1vwnwx6pu"
-path="res://.godot/imported/pillar.glb-3591933234ebba83ea5cd67ab31dea84.scn"
+path="res://.godot/imported/pillar.glb-86f40c0dc90aad15d1fce861a1a0025b.scn"
 
 [deps]
 
-source_file="res://rooms/party_room/pillar.glb"
-dest_files=["res://.godot/imported/pillar.glb-3591933234ebba83ea5cd67ab31dea84.scn"]
+source_file="res://Assets/environment/marble_pillar/pillar.glb"
+dest_files=["res://.godot/imported/pillar.glb-86f40c0dc90aad15d1fce861a1a0025b.scn"]
 
 [params]
 
