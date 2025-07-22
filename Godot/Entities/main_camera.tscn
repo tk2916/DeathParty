@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://csddlxbt5psnk"]
+[gd_scene load_steps=2 format=3 uid="uid://csddlxbt5psnk"]
+
+[ext_resource type="Script" uid="uid://cp1q87o4wv6ew" path="res://Entities/EntityScripts/main_camera.gd" id="1_1owse"]
 
 [node name="MainCamera" type="Camera3D"]
 fov = 35.0
+script = ExtResource("1_1owse")
