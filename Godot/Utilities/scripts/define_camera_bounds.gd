@@ -18,6 +18,7 @@ var inner_bound: Plane
 var outer_bound: Plane
 var room_area_shape: BoxShape3D
 
+@onready var background_plane := Plane(basis.z, (global_position - (room_area.shape.size/2 * basis)))
 
 func _ready() -> void:
 	assert(room_area, "Room area not defined!")
