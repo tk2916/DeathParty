@@ -2,4 +2,4 @@
 
 [ext_resource type="PackedScene" uid="uid://btpa3cwked3ip" path="res://Assets/props/speaker/speaker.glb" id="1_itdp7"]
 
-[node name="speaker" instance=ExtResource("1_itdp7")]
+[node name="Speaker" instance=ExtResource("1_itdp7")]
