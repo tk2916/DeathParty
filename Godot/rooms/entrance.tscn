@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=53 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -249,6 +249,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x338u")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3k57g"]
+size = Vector3(2.74597, 0.0430908, 0.84433)
+
 [node name="Entrance" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
 script = ExtResource("1_3k57g")
@@ -390,7 +393,7 @@ light_energy = 0.5
 shadow_enabled = true
 omni_range = 1.895
 
-[node name="LandingStairs" type="Node3D" parent="."]
+[node name="LandingStairs" type="StaticBody3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 2.275, 3, -1.8)
 
 [node name="Step" type="MeshInstance3D" parent="LandingStairs"]
@@ -412,6 +415,10 @@ skeleton = NodePath("")
 transform = Transform3D(-0.14983, -0.00138338, -4.94734e-10, 1.01907e-15, 5.35856e-08, -0.149836, 0.00138338, -0.14983, -5.35833e-08, -0.25, -2, -25.5)
 mesh = SubResource("ArrayMesh_0cp0l")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LandingStairs"]
+transform = Transform3D(1, 0, 0, 0, 0.703469, -0.710726, 0, 0.710726, 0.703469, 0.0724487, 0.0547385, -0.158957)
+shape = SubResource("BoxShape3D_3k57g")
 
 [node name="WallLamps" type="Node3D" parent="."]
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 1.921, 6.136, -0.949)
