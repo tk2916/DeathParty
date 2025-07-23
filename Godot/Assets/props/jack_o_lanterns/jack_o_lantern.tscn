@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://xdanx1rjnktk"]
+[gd_scene load_steps=8 format=4 uid="uid://xdanx1rjnktk"]
 
 [ext_resource type="Texture2D" uid="uid://n8spnwmpcgt0" path="res://Assets/textures/entrance_room_props/entrance room props_pumpkin1.png" id="1_1pyco"]
+[ext_resource type="Shader" uid="uid://wpntjutfebok" path="res://Assets/props/jack_o_lanterns/candle_flicker.tres" id="2_06neg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfofh"]
 resource_name = "Material.077"
@@ -13,14 +14,9 @@ cull_mode = 2
 emission_enabled = true
 emission = Color(0.0998528, 0.0065497, 0.0190007, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nokb"]
-resource_name = "Material.148"
-cull_mode = 2
-albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 0.639216, 0.168627, 1)
-emission_energy_multiplier = 2.5
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqlxi"]
+render_priority = 0
+shader = ExtResource("2_06neg")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_eyy73"]
 _surfaces = [{
@@ -92,7 +88,7 @@ _surfaces = [{
 "index_count": 96,
 "index_data": PackedByteArray("GgABAAIABAAaAAIABQAEAAYABAAFABoAGgAFAAAACAAaAAAAGgAbAAEACAAbABoAGwADAAEABwAbAAgAGwAcAAMABwAcABsAHAAJAAMACgAcAAcAHAAdAAkACgAdABwACQAdAB4AHgAdAAoACQAeABEAHgAKAAsAHgAQABEADAAeAAsAHgAfABAADAAfAB4AHwAOABAADQAfAAwAHwANAA4ADwAOAA0AEgATABQAEwAVABQAFgAXABgAFwAZABgA"),
 "lods": [0.0929194, PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAAFAAAABQAEAAYAAAAHAAMABwAAAAgABwAJAAMACgAJAAcACQAKAAsADAAJAAsADQAJAAwACQANAA4ADwAOAA0ACQAOABAACQAQABEAEgATABQAEwAVABQAFgAXABgAFwAZABgA")],
-"material": SubResource("StandardMaterial3D_1nokb"),
+"material": SubResource("ShaderMaterial_gqlxi"),
 "name": "Material.148",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
