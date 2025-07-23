@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://da1q2cy4bwp3u"]
+[gd_scene load_steps=19 format=4 uid="uid://da1q2cy4bwp3u"]
 
 [ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/textures/entrance_room_environment/entrance room layout_wood.png" id="1_yxpv5"]
 
@@ -206,6 +206,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lpeyy")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yxpv5"]
+size = Vector3(8.64914, 0.198456, 2.2868)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xfv30"]
+size = Vector3(15.0357, 0.379395, 1.31763)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q53oh"]
+size = Vector3(9.57071, 0.478088, 0.115173)
+
 [node name="WoodBalcony" type="StaticBody3D"]
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -240,3 +249,15 @@ skeleton = NodePath("")
 transform = Transform3D(0.00138338, -0.14983, -3.58046e-08, -8.93093e-09, 3.57237e-08, -0.149836, 0.14983, 0.00138338, -8.60072e-09, -29.1618, -4.09659, 2.3687)
 mesh = SubResource("ArrayMesh_lv20r")
 skeleton = NodePath("")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999962, 0, 0.00872654, 0, 1, 0, -0.00872654, 0, 0.999962, -0.767491, -0.157516, -0.685002)
+shape = SubResource("BoxShape3D_yxpv5")
+
+[node name="LedgeCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999962, 0, 0.00872654, 0, 1, 0, -0.00872654, 0, 0.999962, 0.526835, -0.345749, 0.342408)
+shape = SubResource("BoxShape3D_xfv30")
+
+[node name="RailingCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999962, 0, 0.00872654, 0, 1, 0, -0.00872654, 0, 0.999962, -1.20568, 0.087265, 0.316419)
+shape = SubResource("BoxShape3D_q53oh")
