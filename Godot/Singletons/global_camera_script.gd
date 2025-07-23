@@ -43,3 +43,9 @@ signal remove_camera_bounds_depth()
 # Signal when path bounds are no longer needed
 signal remove_camera_bounds_path()
 @warning_ignore_restore("unused_signal")
+
+func remove_all_bounds() -> void:
+	remove_camera_bounds_LR.emit()
+	remove_camera_bounds_y.emit()
+	remove_camera_bounds_depth.emit()
+	remove_camera_bounds_path.emit()

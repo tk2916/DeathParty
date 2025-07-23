@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://lq5aie0hhjaf"]
+
+[ext_resource type="Texture2D" uid="uid://d3c0nx21gc4yv" path="res://Assets/textures/entrance_room_props/entrance room props_Screenshot 2025-07-11 142940.png" id="1_fkpjc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8a5oh"]
+resource_name = "Material.101"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.0818182)
+albedo_texture = ExtResource("1_fkpjc")
+emission_enabled = true
+emission_energy_multiplier = 16.0
+emission_texture = ExtResource("1_fkpjc")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3qtki"]
+_surfaces = [{
+"aabb": AABB(-11.7332, -6.49229, -1, 23.4665, 12.9846, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material.101",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lkai6"]
+resource_name = "entrance room props_Cube_050"
+_surfaces = [{
+"aabb": AABB(-11.7332, -6.49229, -1, 23.4665, 12.9846, 2),
+"attribute_data": PackedByteArray("E/2+/P//mYAy/XGC3f///93///9AgJmA//+ZgFyA/v9cgP7/k4JxgkCAmYCsgr78rIK+/DL9cYKTgnGCE/2+/N3///+sgr78XID+/xP9vvxAgJmAMv1xgv//mYCTgnGC"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_8a5oh"),
+"name": "Material.101",
+"primitive": 3,
+"uv_scale": Vector4(2.03631, 2.07509, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AQQAAP//AAAVAgAA/////88CAAAAAAAAuwQAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAADAE////////9gH/////AACyAv//AAD//+wE//8AAP//AAAAAP////8AAP///////wAAAAAAAP//AAAAAAAAAAAAAP//AAD//wAA//8AAAAAAAAAAAAA//8AAP////8AAAAAAAD/////AAAAAP//AAAAAP///////wAAsPsmwiJBRYKGQQyD7/qHwv9//v//f/7//3/+//9//v+/vX97JQLtPu4CiD5dvbx6/3//f/9//3//f/9//3//f/9//z//f/8//3//P/9//z//vwAA/78AAP+/AAD/vwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3qtki")
+
+[node name="GlowingDoorway" type="MeshInstance3D"]
+transform = Transform3D(0.203139, 0, 0, 0, 0.203139, 0, 0, 0, 0.203139, 0, 0, 0)
+mesh = SubResource("ArrayMesh_lkai6")
+skeleton = NodePath("")
