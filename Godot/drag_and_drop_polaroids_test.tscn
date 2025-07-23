@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://q6kwdhw62ddf"]
+
+[ext_resource type="Script" uid="uid://cy8eaeg2hxbcl" path="res://drag_drop_control.gd" id="1_n3442"]
+[ext_resource type="Resource" uid="uid://cvtmg14drynon" path="res://Assets/Resources/InventoryItemResources/polaroid_nora_properties.tres" id="2_k8c0u"]
+[ext_resource type="Resource" uid="uid://ddr81dhpf6gqv" path="res://Assets/Resources/InventoryItemResources/polaroid_olivia_properties.tres" id="3_5bn1t"]
+[ext_resource type="Resource" uid="uid://dtqvna2ry38rh" path="res://Assets/Resources/InventoryItemResources/polaroid_rowan_properties.tres" id="4_dhi5o"]
+[ext_resource type="Resource" uid="uid://bluh5ykiiwslh" path="res://Assets/Resources/InventoryItemResources/polaroid_sam_properties.tres" id="5_sah62"]
+
+[node name="DragAndDropPolaroidsTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47451, 1, 0.541176, 1)
+script = ExtResource("1_n3442")
+correct_item = ExtResource("2_k8c0u")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.6, 1, 1)
+script = ExtResource("1_n3442")
+correct_item = ExtResource("3_5bn1t")
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862535, 0.640745, 1, 1)
+script = ExtResource("1_n3442")
+correct_item = ExtResource("4_dhi5o")
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.556863, 1, 1, 1)
+script = ExtResource("1_n3442")
+correct_item = ExtResource("5_sah62")

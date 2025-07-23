@@ -1,4 +1,4 @@
-extends Resource
+class_name DialogueBoxResource extends Resource
 
 @export var dialogue_box : PackedScene
 @export var dialogue_line : PackedScene = preload("res://Assets/GUIPrefabs/DialogueLinePrefabs/diag_line.tscn")
