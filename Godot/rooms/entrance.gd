@@ -6,6 +6,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	GlobalCameraScript.remove_all_bounds()
+	rotate_player(body)
 	GlobalCameraScript.camera_on_player.emit(true)
 	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
 
