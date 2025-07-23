@@ -1,6 +1,6 @@
 [gd_scene load_steps=53 format=4 uid="uid://d3uev5wxhcoe1"]
 
-[ext_resource type="Script" path="res://rooms/entrance.gd" id="1_3k57g"]
+[ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
 [ext_resource type="PackedScene" uid="uid://gvcvg7qptl0c" path="res://Assets/environment/entrance_room_wall.tscn" id="4_tmedt"]
 [ext_resource type="Texture2D" uid="uid://wmjauu70t6b1" path="res://Assets/textures/entrance_room_environment/entrance room layout_IMG_4162.png" id="5_8jruo"]
@@ -36,7 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
-size = Vector3(19.459, 10.4806, 20.0989)
+size = Vector3(19.459, 10.481, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lgvpl"]
 size = Vector3(21.4614, 0.25, 52.1901)
@@ -250,7 +250,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x338u")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3k57g"]
-size = Vector3(2.74597, 0.0430908, 0.84433)
+size = Vector3(2.746, 0.043, 0.790504)
 
 [node name="Entrance" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
@@ -258,7 +258,7 @@ script = ExtResource("1_3k57g")
 room_area = NodePath("EntranceRoomArea")
 
 [node name="EntranceRoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 5.28294, 11.7102)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 5.28294, 3.89569)
 shape = SubResource("BoxShape3D_nneh3")
 
 [node name="Floor" type="StaticBody3D" parent="."]
@@ -394,7 +394,7 @@ shadow_enabled = true
 omni_range = 1.895
 
 [node name="LandingStairs" type="StaticBody3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 2.275, 3, -1.8)
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 2.275, 3, -1.8)
 
 [node name="Step" type="MeshInstance3D" parent="LandingStairs"]
 transform = Transform3D(-0.14983, -0.00138338, -4.94734e-10, 1.01907e-15, 5.35856e-08, -0.149836, 0.00138338, -0.14983, -5.35833e-08, -0.25, -2, -25.5)
@@ -417,7 +417,7 @@ mesh = SubResource("ArrayMesh_0cp0l")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LandingStairs"]
-transform = Transform3D(1, 0, 0, 0, 0.703469, -0.710726, 0, 0.710726, 0.703469, 0.0724487, 0.0547385, -0.158957)
+transform = Transform3D(1, 0, 0, 0, 0.730162, -0.683274, 0, 0.683274, 0.730162, 0.072, 0.1, -0.168)
 shape = SubResource("BoxShape3D_3k57g")
 
 [node name="WallLamps" type="Node3D" parent="."]
