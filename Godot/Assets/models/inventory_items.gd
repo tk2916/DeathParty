@@ -44,14 +44,14 @@ func create_clickable_item(item_resource : InventoryItemResource, item : Node3D,
 	collision_shape.shape = BoxShape3D.new()
 	collision_shape.shape.extents = Vector3(.2,.2,.2)
 	
-	static_body.position = item.position
+	static_body.global_position = item.global_position
 	static_body.add_child(collision_shape)
 	static_body.add_child(item)
 	
-	static_body.rotate(Vector3(1,0,0), deg_to_rad(90))
-	static_body.rotate(Vector3(0,1,0), deg_to_rad(180))
-	
 	item.position = Vector3.ZERO
+	item.rotate(Vector3(1,0,0), deg_to_rad(90))
+	item.rotate(Vector3(0,1,0), deg_to_rad(180))
+	
 	return static_body
 
 func load_items() -> void:

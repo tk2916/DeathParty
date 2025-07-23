@@ -1,6 +1,7 @@
 class_name ObjectViewerDraggable extends ObjectViewerInteractable
 
 var dragging : bool = false
+var draggingLastFrame : bool = false
 @export var constrain_x : bool = false
 @export var constrain_y : bool = false
 
@@ -11,7 +12,7 @@ var parallel_plane : Plane
 
 func _ready() -> void:
 	Interact.mouse_position_changed.connect(on_mouse_pos_changed)
-	parallel_plane = Plane(self.global_transform.basis.z, self.global_position)
+	parallel_plane = Plane(self.global_transform.basis.y, self.global_position)
 
 func on_mouse_pos_changed(delta : Vector2):
 	if !dragging:
@@ -29,7 +30,9 @@ func on_mouse_pos_changed(delta : Vector2):
 
 ##INHERITED
 func on_mouse_down() -> void:
+	#draggingLastFrame = dragging
 	dragging = true
 	
 func on_mouse_up() -> void:
 	dragging = false
+	

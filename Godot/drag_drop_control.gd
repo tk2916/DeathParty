@@ -8,6 +8,7 @@ func enter_hover() -> void:
 	color = Color.RED
 func exit_hover() -> void:
 	color = og_color
+	
 func mouse_up(resource : InventoryItemResource, instance : DragDropPolaroid) -> void:
 	if resource == correct_item:
 		print("Correct model!")

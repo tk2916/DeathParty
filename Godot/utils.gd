@@ -5,5 +5,7 @@ func find_first_child_of_class(item : Node, type : Variant):
 		if is_instance_of(child, type):
 			return child
 	for child in item.get_children():
-		return find_first_child_of_class(child, type)
+		var result = find_first_child_of_class(child, type)
+		if (result != null):
+			return result 
 	return null
