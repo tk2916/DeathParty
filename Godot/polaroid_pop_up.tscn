@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://byfsccg4kb4bw"]
+[gd_scene load_steps=14 format=4 uid="uid://byfsccg4kb4bw"]
 
-[ext_resource type="Texture2D" uid="uid://brf5v15vqd7ws" path="res://Assets/models/polaroid_nora_polaroid_nora.png" id="2_ig8r4"]
+[ext_resource type="Texture2D" uid="uid://bs6savww45o3" path="res://Assets/PNGAssets/temp_polaroid_frame.png" id="2_ig8r4"]
 [ext_resource type="Script" uid="uid://m1136kkpr1us" path="res://polaroid_pop_up.gd" id="2_v8wvi"]
+[ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="3_fyhay"]
+[ext_resource type="Script" uid="uid://cg8geq7j5un2e" path="res://image_replace.gd" id="3_ig8r4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd8kf"]
 
@@ -36,6 +38,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_46jwy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyhay"]
+transparency = 1
 albedo_texture = ExtResource("2_ig8r4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s27y8"]
@@ -70,7 +73,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gt70r")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jp1on"]
+albedo_texture = ExtResource("3_fyhay")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_km327"]
+size = Vector3(1, 1.03125, 1)
 
 [node name="Polaroid" type="StaticBody3D"]
 script = ExtResource("2_v8wvi")
@@ -84,12 +91,25 @@ mesh = SubResource("ArrayMesh_gm7sf")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="bookmark_tab"]
-transform = Transform3D(0.689741, 0, 0, 0, 0.0178614, 0, 0, 0, 1.16253, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 0.018, 0, 0, 0, 2, 0, -4.94423e-09, -0.113111)
 material_override = SubResource("StandardMaterial3D_fyhay")
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_tlph8")
 skeleton = NodePath("")
 
+[node name="image_replace" type="MeshInstance3D" parent="bookmark_tab/Cube_001"]
+transform = Transform3D(0.86, 0, 0, 0, 1, 0, 0, -5.55112e-17, 0.48, 0.0182542, -1.90572, 7.45058e-09)
+material_override = SubResource("StandardMaterial3D_jp1on")
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_tlph8")
+script = ExtResource("3_ig8r4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="bookmark_tab"]
+transform = Transform3D(1, 0, 0, 0, -0.0508544, 0.998706, 0, -0.998706, -0.0508544, 0.455483, 2.90928, -0.316723)
+light_color = Color(0.400698, 0.400698, 0.400698, 1)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015625, -0.206246)
 shape = SubResource("BoxShape3D_km327")
 debug_color = Color(0.977632, 0.149467, 0, 0.42)
 
