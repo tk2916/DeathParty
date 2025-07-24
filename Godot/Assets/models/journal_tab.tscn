@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://mg0sman3f2yu"]
+[gd_scene load_steps=16 format=4 uid="uid://mg0sman3f2yu"]
 
 [ext_resource type="Script" uid="uid://bcjyjyqfung5b" path="res://Assets/models/journal_tab_script.gd" id="1_1kt7j"]
 [ext_resource type="Texture2D" uid="uid://bx2ww6bnu8bq6" path="res://Assets/models/bookmark_tab_max_page_1.png" id="2_s7cof"]
 [ext_resource type="FontFile" uid="uid://cbjlbjatgghwl" path="res://Assets/Fonts/Inknut_Antiqua_Large/InknutAntiqua-Light.ttf" id="3_ing3b"]
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="3_quqqh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kt7j"]
 size = Vector3(0.254856, 0.119389, 0.32544)
@@ -46,13 +47,14 @@ shadow_mesh = SubResource("ArrayMesh_46jwy")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ing3b"]
 albedo_color = Color(0.788235, 0.788235, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ing3b"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_quqqh"]
 viewport_path = NodePath("Tab/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_quqqh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uf8ik"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_ing3b")
-albedo_texture_force_srgb = true
+render_priority = 0
+shader = ExtResource("3_quqqh")
+shader_parameter/albedo_texture = SubResource("ViewportTexture_quqqh")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s27y8"]
 resource_local_to_scene = true
@@ -126,7 +128,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ing3b")
 
 [node name="Tab" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.13, 0, 0, 0, 0.003, 0, 0, 0, 0.164, 0, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_quqqh")
+material_overlay = SubResource("ShaderMaterial_uf8ik")
 mesh = SubResource("ArrayMesh_tlph8")
 skeleton = NodePath("")
 
