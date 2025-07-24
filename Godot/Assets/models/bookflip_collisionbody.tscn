@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1t1u428xvqgt"]
+[gd_scene load_steps=7 format=3 uid="uid://bgrnyakmgghyq"]
 
-[ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
+[ext_resource type="Script" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
-[ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
+[ext_resource type="Script" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7ovfm"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
