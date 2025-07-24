@@ -1,11 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://fue5mn2yitn7"]
+[gd_scene load_steps=3 format=3 uid="uid://fue5mn2yitn7"]
 
 [ext_resource type="PackedScene" uid="uid://dwjorx6p7kbji" path="res://Assets/environment/disco_light_decoration/drapes.glb" id="1_rsoo1"]
+[ext_resource type="PackedScene" uid="uid://cxntcyf3l15nw" path="res://Assets/props/drapes/added drapes.glb" id="2_cjtdp"]
 
 [node name="drapes" instance=ExtResource("1_rsoo1")]
 transform = Transform3D(-0.987253, 0, -0.159157, 0, 1, 0, 0.159157, 0, -0.987253, 0, 0, 0)
 
+[node name="Plane_1337" parent="." index="1"]
+visible = false
+
+[node name="Plane_1338" parent="." index="2"]
+visible = false
+
+[node name="Plane_1339" parent="." index="3"]
+transform = Transform3D(-0.250485, -0.0842893, 0.201746, -0.0369728, 0.710608, 0.0137058, -0.190393, -0.0271019, -0.268084, 3.33468, -0.665642, 1.58916)
+
+[node name="Plane_1341" parent="." index="5"]
+transform = Transform3D(0.264647, 0.0806793, 0.133047, -0.0479063, 0.650644, 0.00767142, -0.147495, -0.066568, 0.236232, -3.88004, -0.33656, 0.889537)
+
+[node name="Plane_1342" parent="." index="6"]
+visible = false
+
+[node name="Plane_1343" parent="." index="7"]
+visible = false
+
 [node name="Plane_1344" parent="." index="8"]
+visible = false
+
+[node name="Plane_1345" parent="." index="9"]
+visible = false
+
+[node name="Plane_1346" parent="." index="10"]
 visible = false
 
 [node name="Spot" parent="." index="14"]
@@ -22,5 +47,11 @@ light_energy = 5.0
 [node name="Spot_003" parent="." index="19"]
 light_energy = 5.0
 
+[node name="Plane_1347" parent="." index="23"]
+transform = Transform3D(0.278294, 0.129767, 0.120904, -0.10967, 0.302701, -0.0724533, -0.13939, 0.0209199, 0.298391, -0.16077, -1.36876, -0.874025)
+
 [node name="Point_039" parent="." index="26"]
 light_energy = 3.0
+
+[node name="added drapes" parent="." index="28" instance=ExtResource("2_cjtdp")]
+transform = Transform3D(0.990929, 0, 0.134402, 0, 1, 0, -0.134402, 0, 0.990929, -0.229598, -0.567204, -0.139616)
