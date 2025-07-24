@@ -39,8 +39,8 @@ var current_choice_labels : Array[Node]
 
 #RESOURCE DIRECTORIES
 const INK_INTERPRET_RSC_FILEPATH : String = "res://Singletons/InkInterpreter/ink_interpret_resource_blank.tres"
-var phone_messages : Dictionary[String, Resource]
-var character_properties : Dictionary[String, Resource]
+var phone_messages : Dictionary[String, ChatResource]
+var character_properties : Dictionary[String, CharacterResource]
 var blank_ink_interpret_resource : Resource = load(INK_INTERPRET_RSC_FILEPATH).duplicate(true)
 
 var current_character_resource : Resource = null
@@ -200,6 +200,11 @@ func match_command(text_ : String):
 	match(parameters_array[0]):
 		"/give_item":
 			SaveSystem.add_item(parameters_array[1])
+			'''
+			set this automatically so writers don't have to keep
+			writing /give_item and /has_item right after each other
+			'''
+			SaveSystem.set_key("has_item_flag", true) 
 		"/remove_item":
 			#alerts if you don't have enough items
 			var result : int = SaveSystem.remove_item(parameters_array[1])
@@ -209,12 +214,17 @@ func match_command(text_ : String):
 				SaveSystem.set_key("remove_item_flag", true)
 		"/has_item":
 			var result : int = SaveSystem.item_count(parameters_array[1])
+			var tf_result : bool = true
 			if result == 0: #does not have item
 				print("User does not have item: ", parameters_array[1])
-				SaveSystem.set_key("has_item_flag", false)
+				tf_result = false
 			else:
 				print("User has item: ", parameters_array[1])
-				SaveSystem.set_key("has_item_flag", true)
+			SaveSystem.set_key("has_item_flag", tf_result)
+			if parameters_array.size() >= 3:
+				#writers can set a custom variable to store the results in
+				var custom_var : String = parameters_array[2]
+				SaveSystem.set_key(custom_var, tf_result)
 		"/give_task":
 			SaveSystem.add_task(parameters_array[1])
 		"/complete_task":

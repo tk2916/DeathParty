@@ -1,4 +1,4 @@
-extends Resource
+class_name InventoryItemResource extends Resource
 
 @export var name : String
 @export var description : String

@@ -387,7 +387,7 @@ func next_line() -> int:
 		#print("Array index surpassed")
 		return 404
 	var next = rsc.current_array[current_index()]
-	#print("Next: ", rsc.hierarchy, next)
+	print("Next: ", rsc.hierarchy, next)
 	
 	var cmd_result : int = match_cmd(next)
 	if cmd_result == 1: #command has been executed, break
@@ -508,11 +508,12 @@ func get_content():
 		if result == 405:
 			#print("Ending: ", rsc.player_choices)
 			return result
-		elif current_container_inner_index() > current_container_size()-1:
-			##print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
+		elif (current_container_inner_index() > current_container_size()-1) && (rsc.player_choices.size() > 0):
+			print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
+			print("Hierarchy: ", rsc.hierarchy)
 			##print("Current index: ", current_index(), " | size: ", rsc.current_array.size(), " | redirect hierarchy: ", rsc.redirect_hierarchy.size())
 			##print("Passed all conditions")
-			assert(rsc.player_choices.size() > 0, "Content ended but no choices to show.")
+			#assert(rsc.player_choices.size() > 0, "Content ended but no choices to show.")
 			var return_choices = rsc.player_choices
 			#output_stream = []
 			rsc.player_choices = []

@@ -13,6 +13,9 @@ var pressed : bool = false
 @onready var sub_viewport : SubViewport = $SubViewportContainer/SubViewport
 @onready var model_holder : Node3D =  $"SubViewportContainer/SubViewport/Model Holder"
 @onready var camera_3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
+@onready var light : DirectionalLight3D = $SubViewportContainer/SubViewport/Light
+
+var light_up_shader : ShaderMaterial = preload("res://Assets/Shaders/LightUpShader.tres")
 
 var currently_open : bool = false
 
@@ -20,35 +23,51 @@ signal enabled
 
 #Places the item into the viewport and defines the "item" variable
 func set_item(item_path : String) -> void:
-	active_item = set_item_inactive(item_path)
-
-func set_preexisting_item(instance : Node3D, active : bool = false) -> void:
-	var scene : Node3D = set_item_properties(instance)
-	if active:
-		active_item = scene
-
-func set_item_inactive(item_path : String) -> Node3D:
 	var scene : Node = load(item_path).instantiate()
 	if scene == null:
 		print("Scene Path not working")
 		return
-	return set_item_properties(scene)
+	set_item_properties(scene)
+
+func set_preexisting_item(instance : Node3D) -> void:
+	var scene : Node3D = set_item_properties(instance)
+	
+func apply_shader_to_meshes_recursive(current_node : Node) -> void:
+	if current_node is MeshInstance3D:
+		var current_material : Material = current_node.material_overlay
+		if current_material == null:
+			current_material = current_node.surface_get_material(0)
+		if current_material == null:
+			current_material = current_node.surface_get_material(1)
+		if current_material == null:
+			current_material = StandardMaterial3D.new()
+		self.material_override = light_up_shader
+		self.material_override.set_shader_parameter("albedo_texture", current_material.albedo_texture)
+	var children : Array[Node] = current_node.get_children()
+	if children.size() > 0:
+		for child : Node in children:
+			apply_shader_to_meshes_recursive(child)
 	
 func set_item_properties(scene : Node3D) -> Node3D:
 	visible = true
 	Interact.set_active_subviewport(sub_viewport)
 	remove_current_item()
-	#if !currently_open:
+	
+	#apply shader that lights up the mesh
+	apply_shader_to_meshes_recursive(self)
+	
 	scene.transform.origin.y = scene.transform.origin.y + hide_offset
 	scene.transform.origin.z = scene.transform.origin.z + hide_offset
 	model_holder.add_child(scene)
-	print("Model holder children: ", model_holder.get_children())
+	
+	active_item = scene
+	light.visible = true
 	enabled.emit(true, camera_3d)
 	return scene
 	
 func remove_current_item() -> void:
-	print("Removing current item")
 	Interact.clear_active_subviewport()
+	light.visible = false
 	#Remove ALL items in the model holder
 	enabled.emit(false, camera_3d)
 	
@@ -60,6 +79,8 @@ func remove_current_item() -> void:
 	for child in children:
 		model_holder.remove_child(child)
 		child.queue_free()
+		
+	active_item = null
 
 #TODO
 #At origin, the object interferes with the world map. Need to move it away from the world map so that it's visible properly.
@@ -68,6 +89,15 @@ func _ready() -> void:
 	#set_item(test_path)
 	camera_3d.transform.origin.y = camera_3d.transform.origin.y + hide_offset
 	camera_3d.transform.origin.z = camera_3d.transform.origin.z + hide_offset
+
+#Scroll in and out of item
+func _input(event) -> void:
+	if active_item == null: return
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			active_item.scale *= 1.15
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			active_item.scale *= 0.87
 	
 #Resets the position of the item
 func reset_item_position() -> void:

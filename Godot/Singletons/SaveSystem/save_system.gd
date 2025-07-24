@@ -11,10 +11,12 @@ const CHARACTER_FILE_PATH : String = "res://Assets/Resources/CharacterResources/
 const PHONE_CHATS_FILE_PATH : String = "res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/ChatResources/"
 const INVENTORY_ITEMS_FILE_PATH : String = "res://Assets/Resources/InventoryItemResources/"
 
-var task_to_resource : Dictionary[String, Resource] = {}
-var character_to_resource : Dictionary[String, Resource]
-var phone_chat_to_resource : Dictionary[String, Resource]
-var inventory_item_to_resource : Dictionary[String, Resource]
+const default_inventory_item_resource : InventoryItemResource = preload("res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_item_properties.tres")
+
+var task_to_resource : Dictionary[String, TaskResource] = {}
+var character_to_resource : Dictionary[String, CharacterResource]
+var phone_chat_to_resource : Dictionary[String, ChatResource]
+var inventory_item_to_resource : Dictionary[String, InventoryItemResource]
 
 '''
 EVERYTHING WILL BE ACTUALLY SAVED WITHIN THE player_data DICTIONARY
@@ -38,7 +40,7 @@ func _init() -> void:
 			player_data_resource["VariableDict"][item] = player_data_resource[item] #add if not already defined (from pervious save)
 	player_data = player_data_resource["VariableDict"]
 	
-	load_directory_into_dictionary(TASKS_FILE_PATH, task_to_resource)#player_data["possible_tasks"])
+	load_directory_into_dictionary(TASKS_FILE_PATH, task_to_resource)
 	load_directory_into_dictionary(CHARACTER_FILE_PATH, character_to_resource)
 	load_directory_into_dictionary(PHONE_CHATS_FILE_PATH, phone_chat_to_resource)
 	load_directory_into_dictionary(INVENTORY_ITEMS_FILE_PATH, inventory_item_to_resource)
@@ -46,7 +48,7 @@ func _init() -> void:
 	load_inventory()
 	loaded.emit()
 	
-func load_directory_into_dictionary(address : String, dict:Dictionary[String, Resource]):
+func load_directory_into_dictionary(address : String, dict:Dictionary):
 	var dir : DirAccess = DirAccess.open(address)
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
@@ -59,6 +61,28 @@ func load_directory_into_dictionary(address : String, dict:Dictionary[String, Re
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the directory " + address)
+
+func create_new_item(name:String, description:String, node:Node3D) -> void:
+	if key_exists(name):
+		print("Item ", name, " already exists!")
+		return
+	#save node as scene
+	var scene_save_path : String = "res://Assets/props/inventory_items/" + name + ".tscn"
+	if !FileAccess.file_exists(scene_save_path):
+		var scene : PackedScene = PackedScene.new()
+		scene.pack(node)
+		ResourceSaver.save(scene, scene_save_path)
+	var saved_scene : PackedScene = load(scene_save_path)
+	#assign scene to new resource
+	var resource : InventoryItemResource = default_inventory_item_resource.duplicate()
+	resource.name = name
+	resource.description = description
+	resource.model = saved_scene
+	
+	var resource_save_path : String = INVENTORY_ITEMS_FILE_PATH + name + ".tres"
+	ResourceSaver.save(resource, resource_save_path)
+	inventory_item_to_resource[name] = load(resource_save_path)
+	player_data["inventory"][name] = 0
 
 func load_inventory(): #Make sure player has an entry for each possible item
 	#if player_data["inventory"].size() != player_data_resource["possible_items"].size():

@@ -1,0 +1,396 @@
+{
+	"inkVersion": 21.0,
+	"root": [
+		[
+			"ev",
+			{
+				"VAR?": "has_item_flag"
+			},
+			"/ev",
+			{
+				"VAR=": "has_fratPass",
+				"re": true
+			},
+			"^[Olivia] Hey, can I go up too?",
+			"\n",
+			"^/has_item \"Frat Pass\"",
+			"\n",
+			"ev",
+			{
+				"VAR?": "has_item_flag"
+			},
+			"/ev",
+			{
+				"VAR=": "has_fratPass",
+				"re": true
+			},
+			"ev",
+			{
+				"VAR?": "has_fratPass"
+			},
+			"/ev",
+			[
+				{
+					"->": ".^.b",
+					"c": true
+				},
+				{
+					"b": [
+						"^ yes ",
+						{
+							"->": "0.17"
+						},
+						null
+					]
+				}
+			],
+			[
+				{
+					"->": ".^.b"
+				},
+				{
+					"b": [
+						"^ no",
+						{
+							"->": "0.17"
+						},
+						null
+					]
+				}
+			],
+			"nop",
+			"\n",
+			{
+				"->": "2nd_floor_entrance"
+			},
+			[
+				"done",
+				{
+					"#f": 5.0,
+					"#n": "g-0"
+				}
+			],
+			null
+		],
+		"done",
+		{
+			"2nd_floor_entrance": [
+				"ev",
+				{
+					"VAR?": "has_item_flag"
+				},
+				"/ev",
+				[
+					{
+						"->": ".^.b",
+						"c": true
+					},
+					{
+						"b": [
+							"\n",
+							"^[Frat Bro 1] For sure, go on up!",
+							"\n",
+							{
+								"->": "2nd_floor_hall"
+							},
+							{
+								"->": ".^.^.^.5"
+							},
+							null
+						]
+					}
+				],
+				[
+					{
+						"->": ".^.b"
+					},
+					{
+						"b": [
+							"\n",
+							"^[Frat Bro 1] Sorry, dude. Can't let you upstairs, frat house rules.",
+							"\n",
+							"^[Olivia] So everyone upstairs is in the frat?",
+							"\n",
+							"^[Frat Bro 2] Probably not everyone. It's rule of cool, and also other stuff.",
+							"\n",
+							"^[Olivia] ...well, rule of cool is out. How else can I get up there?",
+							"\n",
+							"^[Frat Bro 1] You probably want to talk to the Prez about that.",
+							"\n",
+							"^/give_task \"2nd Floor Access\"",
+							"\n",
+							{
+								"->": "1st_floor_kitchen"
+							},
+							{
+								"->": ".^.^.^.5"
+							},
+							null
+						]
+					}
+				],
+				"nop",
+				"\n",
+				{
+					"#f": 1.0
+				}
+			],
+			"1st_floor_kitchen": [
+				"^[Olivia] Hey, Jack, have you seen Caleb?",
+				"\n",
+				"^[Jack] Huh? Uh....no, no idea where he is.",
+				"\n",
+				"^[Olivia] Are you OK? You seem a little upset.",
+				"\n",
+				"^[Jack] I lost my wallet. I don't even know when it happened. I could have sworn I had it when I was outside...",
+				"\n",
+				"ev",
+				{
+					"VAR?": "has_wallet"
+				},
+				"/ev",
+				[
+					{
+						"->": ".^.b",
+						"c": true
+					},
+					{
+						"b": [
+							"\n",
+							"^[Olivia] I found this outside - is it yours?",
+							"\n",
+							"^[Jack] Yes! But...why's my face scratched out?",
+							"\n",
+							"^Anyway - thanks for finding this! You said you needed to get to the 2nd floor? Take my helmet. The guys at the stairs would let you up, no question.",
+							"\n",
+							"ev",
+							true,
+							"/ev",
+							{
+								"VAR=": "has_fratPass",
+								"re": true
+							},
+							{
+								"->": "2nd_floor_entrance"
+							},
+							{
+								"->": ".^.^.^.13"
+							},
+							null
+						]
+					}
+				],
+				[
+					{
+						"->": ".^.b"
+					},
+					{
+						"b": [
+							"\n",
+							"^[Olivia] Uh...don't think I've seen it? But I could ask around.",
+							"\n",
+							"^[Jack] You will?? Thank you, dude, thank you!",
+							"\n",
+							"^I had sooo many meal credits left on it, and it's like the third card I've lost this year.",
+							"\n",
+							"ev",
+							{
+								"VAR?": "has_wallet"
+							},
+							"/ev",
+							[
+								{
+									"->": ".^.b",
+									"c": true
+								},
+								{
+									"b": [
+										"\n",
+										"^[Olivia] ...if I can find it for you, can you help me get upstairs?",
+										"\n",
+										"^[Jack] Yea, of course!",
+										"\n",
+										"^/give_task \"Where's my wallet?\"",
+										"\n",
+										{
+											"->": "resolve_wallet_quest"
+										},
+										{
+											"->": ".^.^.^.12"
+										},
+										null
+									]
+								}
+							],
+							[
+								{
+									"->": ".^.b"
+								},
+								{
+									"b": [
+										"\n",
+										"^[Olivia] Do you have any idea where it might be?",
+										"\n",
+										"^[Jack] Uhh...no clue. I know I had it earlier? Maybe yesterday? I'm just gonna ask people if they've seen it. I can cover upstairs for now, can you ask around down here and outside?",
+										"\n",
+										"^[Olivia] Hey...I need to get upstairs too. Could you help me get up there if I find your wallet?",
+										"\n",
+										"^[Jack] If you can find my ID, I'd literally give you my first-born.",
+										"\n",
+										"^[Olivia] OK, it's a deal!",
+										"\n",
+										"^/give_task \"Where's my wallet?\"",
+										"\n",
+										{
+											"->": "bathroom_drug_dealer"
+										},
+										{
+											"->": ".^.^.^.12"
+										},
+										null
+									]
+								}
+							],
+							"nop",
+							"\n",
+							{
+								"->": ".^.^.^.13"
+							},
+							null
+						]
+					}
+				],
+				"nop",
+				"\n",
+				{
+					"#f": 1.0
+				}
+			],
+			"bathroom_drug_dealer": [
+				"ev",
+				{
+					"VAR?": "has_item_flag"
+				},
+				"/ev",
+				{
+					"VAR=": "has_trinket",
+					"re": true
+				},
+				"^[Drug Dealer] What's your poison?",
+				"\n",
+				"^[Olivia] Uh...nothing? I heard you were the lost and found person for this party. I'm looking for a wallet someone lost earlier. Has anyone turned it in?",
+				"\n",
+				"^[Drug Dealer] Maybe. Depends on what you have to trade.",
+				"\n",
+				"^[Olivia] I don't have much but...",
+				"\n",
+				"^/has_item \"Trinket\"",
+				"\n",
+				"^/remove_item \"Trinket\"",
+				"\n",
+				"^[Drug Dealer] I could find a use for this. Here, this is probably what you were looking for.",
+				"\n",
+				"^/give_item \"Wallet\"",
+				"\n",
+				"ev",
+				true,
+				"/ev",
+				{
+					"VAR=": "has_wallet",
+					"re": true
+				},
+				{
+					"->": "resolve_wallet_quest"
+				},
+				{
+					"#f": 1.0
+				}
+			],
+			"resolve_wallet_quest": [
+				"^/has_item Wallet",
+				"\n",
+				"ev",
+				{
+					"VAR?": "has_item_flag"
+				},
+				"/ev",
+				{
+					"VAR=": "has_wallet",
+					"re": true
+				},
+				"^[Olivia] Found your wallet! This...is yours, right?",
+				"\n",
+				"^/remove_item Wallet",
+				"\n",
+				"^[Jack] Yea, that's it! Wait...why is my face scratched out?",
+				"\n",
+				"^Anyway - thanks for finding this! You said you needed to get to the 2nd floor? Take my helmet. The guys at the stairs will let you up, no question.",
+				"\n",
+				"^Thanks again!",
+				"\n",
+				"^/complete_task \"2nd Floor Access\"",
+				"\n",
+				"ev",
+				true,
+				"/ev",
+				{
+					"VAR=": "has_fratPass",
+					"re": true
+				},
+				"^/give_item \"Frat Pass\"",
+				"\n",
+				"^/has_item \"Frat Pass\"",
+				"\n",
+				"ev",
+				{
+					"VAR?": "has_item_flag"
+				},
+				"/ev",
+				{
+					"VAR=": "has_fratPass",
+					"re": true
+				},
+				{
+					"->": "2nd_floor_entrance"
+				},
+				{
+					"#f": 1.0
+				}
+			],
+			"2nd_floor_hall": [
+				"^>>The 2nd floor is now open.",
+				"\n",
+				"end",
+				{
+					"#f": 1.0
+				}
+			],
+			"global decl": [
+				"ev",
+				false,
+				{
+					"VAR=": "has_item_flag"
+				},
+				false,
+				{
+					"VAR=": "has_fratPass"
+				},
+				false,
+				{
+					"VAR=": "has_wallet"
+				},
+				true,
+				{
+					"VAR=": "has_trinket"
+				},
+				"/ev",
+				"end",
+				null
+			],
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
+}

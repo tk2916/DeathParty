@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
 [ext_resource type="PackedScene" uid="uid://gvcvg7qptl0c" path="res://Assets/environment/entrance_room_wall.tscn" id="4_tmedt"]
 [ext_resource type="Texture2D" uid="uid://wmjauu70t6b1" path="res://Assets/textures/entrance_room_environment/entrance room layout_IMG_4162.png" id="5_8jruo"]
-[ext_resource type="PackedScene" uid="uid://bitlbgb4mv2pu" path="res://Assets/environment/pillar.tscn" id="6_lmevy"]
+[ext_resource type="PackedScene" uid="uid://bitlbgb4mv2pu" path="res://Assets/environment/wood_pillar.tscn" id="6_lmevy"]
 [ext_resource type="PackedScene" uid="uid://da1q2cy4bwp3u" path="res://Assets/environment/wood_balcony.tscn" id="7_y8kdk"]
 [ext_resource type="PackedScene" uid="uid://dur15xmxrh4lp" path="res://Assets/environment/wood_balcony_with_landing.tscn" id="8_vqaos"]
 [ext_resource type="PackedScene" uid="uid://cv4ofehs3r8ew" path="res://Assets/environment/wood_arch_med.tscn" id="9_2is0k"]
@@ -35,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lgvpl"]
-size = Vector3(27.5, 0.25, 19.2647)
+size = Vector3(21.4614, 0.25, 52.1901)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5drps"]
 resource_name = "Material.005"
@@ -250,24 +250,24 @@ shadow_mesh = SubResource("ArrayMesh_x338u")
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.13, 2.63235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01929, -0.13, -11.1878)
 shape = SubResource("BoxShape3D_lgvpl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(0.219332, 0, 0, 0, 0.219331, 0, 0, 0, 0.219332, 0, 0, -0.00716233)
+transform = Transform3D(0.169721, 0, 0, 0, 0.219331, 0, 0, 0, 0.33362, 2.89129, 0, 4.34803)
 mesh = SubResource("ArrayMesh_38cnj")
 skeleton = NodePath("")
 
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="LeftWall" parent="Walls" instance=ExtResource("4_tmedt")]
-transform = Transform3D(-6.39852e-08, 0, 1.46381, 0, 1.46381, 0, -1.46381, 0, -6.39852e-08, -7.23962, 0.827875, -3.31249)
+transform = Transform3D(-6.39852e-08, 0, 1.46381, 0, 1.46381, 0, -1.46381, 0, -6.39852e-08, -7.23962, 0.827875, 4.05607)
 
 [node name="BackWall" parent="Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.36038, 0.827875, -6.21249)
 
 [node name="RightWall" parent="Walls" instance=ExtResource("4_tmedt")]
-transform = Transform3D(1.10515e-07, 0, -1.46381, 0, 1.46381, 0, 1.46381, 0, 1.10515e-07, 12.6604, 0.827875, -3.31249)
+transform = Transform3D(1.10515e-07, 0, -1.46381, 0, 1.46381, 0, 1.46381, 0, 1.10515e-07, 12.6604, 0.827875, 4.05607)
 
 [node name="Ceiling" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.219332, 0, 0, 0, 0.219331, 0, 0, 0, 0.219332, 1.92124, 10.5271, -0.979369)
@@ -306,13 +306,13 @@ transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 11.78, 0.15
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 1.92124, 6.13565, -0.979369)
 
 [node name="LeftBalcony" parent="Balcony" instance=ExtResource("7_y8kdk")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.782, -1, 2.049)
+transform = Transform3D(-2.79266e-08, 0, 1, 0, 1, 0, -0.638885, 0, -4.37114e-08, -4.782, -1, 1.24521)
 
 [node name="MiddleBalcony" parent="Balcony" instance=ExtResource("8_vqaos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409889, -1.5, -2.391)
 
 [node name="RightBalcony" parent="Balcony" instance=ExtResource("7_y8kdk")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.46523, -1, 2.049)
+transform = Transform3D(-3.57126e-08, 0, -1, 0, 1, 0, 0.817009, 0, -4.37114e-08, 5.45443, -1, 2.97727)
 
 [node name="WoodArches" type="Node3D" parent="."]
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 1.92124, 6.13565, -0.979369)
@@ -351,7 +351,7 @@ transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 1.921, 0.13
 transform = Transform3D(1.46343, 0, 0.0332099, 0, 1.46381, 0, -0.0332099, 0, 1.46343, 2.375, -0.012, 0.484)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -3.2992, 0.876021, 1.18538)
+transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -3.19528, 0.876021, 1.20079)
 light_color = Color(0.87, 0.77198, 0.4176, 1)
 light_energy = 1.5
 omni_range = 2.872
@@ -361,6 +361,7 @@ omni_attenuation = 0.667
 transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 3.07413, 0.764043, 0.553632)
 light_color = Color(0.87, 0.77198, 0.4176, 1)
 light_energy = 1.5
+shadow_enabled = true
 omni_range = 2.872
 omni_attenuation = 0.667
 
@@ -368,12 +369,14 @@ omni_attenuation = 0.667
 transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -2.08439, 1.03255, 0.269615)
 light_color = Color(0.79, 0.66834, 0.4424, 1)
 light_energy = 0.5
+shadow_enabled = true
 omni_range = 1.895
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 2.2299, 1.03255, 0.339781)
+transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 2.2197, 1.03255, 0.346517)
 light_color = Color(0.79, 0.66834, 0.4424, 1)
 light_energy = 0.5
+shadow_enabled = true
 omni_range = 1.895
 
 [node name="LandingStairs" type="Node3D" parent="."]
@@ -425,9 +428,10 @@ omni_range = 5.946
 omni_attenuation = 0.792
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="GlowingDoorway"]
-transform = Transform3D(4.51041, 0, 0, 0, 4.51044, 0, 0, 0, 4.51041, -1.40451, -0.759202, -29.9338)
+transform = Transform3D(4.51041, 0, 0, 0, 4.51044, 0, 0, 0, 4.51041, -1.40476, -0.759202, -29.8609)
 light_color = Color(1, 0.736, 0.56, 1)
 light_energy = 4.2
+shadow_enabled = true
 omni_range = 3.66
 omni_attenuation = 0.174
 
@@ -574,3 +578,7 @@ transform = Transform3D(0.0360417, -0.000988545, 0.196724, 0.000148181, 0.235998
 
 [node name="JackOLantern5" parent="Props/JackOLanterns/Balcony/Right" instance=ExtResource("33_hdy2l")]
 transform = Transform3D(0.125, 0, 0.216506, 0, 0.295, 0, -0.216506, 0, 0.125, 2.72332, 1.04498, 15.2458)
+
+[editable path="WallLamps/WallLamp2"]
+[editable path="Windows/ArchWindow"]
+[editable path="Chandeliers/Chandelier"]

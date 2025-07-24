@@ -1,6 +1,5 @@
 extends "res://Utilities/scripts/define_camera_bounds.gd"
 
-@export var room_area : CollisionShape3D
 @export var things_to_hide : Node3D
 
 @onready var room_shape : BoxShape3D = room_area.shape
@@ -12,7 +11,7 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	GlobalCameraScript.remove_camera_bounds_path.emit()
+	GlobalCameraScript.remove_all_bounds()
 	GlobalCameraScript.camera_on_player.emit(true)
 	# Define camera bounds 
 	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b8638q4tu7qhs" path="res://Assets/models/polaroid_rowan.glb" id="1_gaaw3"]
 
 [node name="polaroid_rowan" instance=ExtResource("1_gaaw3")]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)

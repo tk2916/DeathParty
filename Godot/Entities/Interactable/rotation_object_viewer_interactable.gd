@@ -3,6 +3,7 @@ class_name ObjectViewerRotatable extends ObjectViewerInteractable
 var dragging : bool = false
 
 func _ready() -> void:
+	print("Object viewer rotatatble")
 	Interact.mouse_position_changed.connect(on_mouse_pos_changed)
 
 func on_mouse_pos_changed(delta : Vector2):
