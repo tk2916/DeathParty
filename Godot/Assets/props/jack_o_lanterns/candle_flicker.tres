@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=15 format=3 uid="uid://wpntjutfebok"]
+[gd_resource type="VisualShader" load_steps=14 format=3 uid="uid://nmumrrjna5lp"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_edgqe"]
 default_input_values = [0, 0.0, 1, 5.0]
@@ -15,8 +15,6 @@ default_input_values = [0, Vector3(1, 1, 1), 1, 0.25, 2, 0.6]
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_edgqe"]
 constant = 3.0
-
-[sub_resource type="VisualShaderNodeVaryingGetter" id="VisualShaderNodeVaryingGetter_edgqe"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_edgqe"]
 noise_type = 3
@@ -117,7 +115,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-393.228, -276.273)
+graph_offset = Vector2(-482.01, -150.097)
 nodes/fragment/0/position = Vector2(980, -80)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture3D_mcu25")
 nodes/fragment/2/position = Vector2(-1180, 280)
@@ -141,6 +139,4 @@ nodes/fragment/14/node = SubResource("VisualShaderNodeRandomRange_edgqe")
 nodes/fragment/14/position = Vector2(-820, -140)
 nodes/fragment/15/node = SubResource("VisualShaderNodeFloatConstant_edgqe")
 nodes/fragment/15/position = Vector2(158.739, 519.356)
-nodes/fragment/16/node = SubResource("VisualShaderNodeVaryingGetter_edgqe")
-nodes/fragment/16/position = Vector2(-1220, -200)
-nodes/fragment/connections = PackedInt32Array(2, 0, 4, 1, 4, 0, 6, 0, 3, 0, 9, 0, 9, 0, 2, 0, 6, 0, 11, 0, 11, 0, 0, 5, 13, 0, 0, 0, 12, 0, 6, 1, 14, 0, 4, 0, 15, 0, 11, 1, 16, 0, 14, 0, 5, 0, 14, 0)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 1, 4, 0, 6, 0, 3, 0, 9, 0, 9, 0, 2, 0, 6, 0, 11, 0, 11, 0, 0, 5, 13, 0, 0, 0, 12, 0, 6, 1, 14, 0, 4, 0, 15, 0, 11, 1, 5, 0, 14, 0)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://xdanx1rjnktk"]
 
 [ext_resource type="Texture2D" uid="uid://n8spnwmpcgt0" path="res://Assets/textures/entrance_room_props/entrance room props_pumpkin1.png" id="1_1pyco"]
-[ext_resource type="Shader" uid="uid://wpntjutfebok" path="res://Assets/props/jack_o_lanterns/candle_flicker.tres" id="2_06neg"]
+[ext_resource type="Shader" path="res://Assets/props/jack_o_lanterns/candle_flicker.tres" id="2_06neg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfofh"]
 resource_name = "Material.077"
