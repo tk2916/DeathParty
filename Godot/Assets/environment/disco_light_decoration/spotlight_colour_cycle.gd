@@ -10,9 +10,9 @@ var rotation_speed_degrees := 0.6
 # convert the speed to radians for the physics calculation later
 var rotation_speed_rad := deg_to_rad(rotation_speed_degrees)
 
-# set the weight/speed of the transition between colors
+# set the "lerp weight" which controls the speed of the transition between colors
 var hue_shift_lerp_weight:= 0.05
-# initialise the target colour var (empty
+# initialise the target color var (empty)
 var target_color: Color
 
 # initialise vars for moving the circular filters up and down
@@ -33,7 +33,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# rotate the light and its children (incl. the filters or the disco ball)
 	rotate_object_local(Vector3.FORWARD, rotation_speed_rad)
-	
+
 	# smoothly change the light color
 	light_color = lerp(light_color, target_color, hue_shift_lerp_weight)
 
