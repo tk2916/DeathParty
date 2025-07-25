@@ -48,7 +48,7 @@ func _init() -> void:
 	load_inventory()
 	loaded.emit()
 	
-func load_directory_into_dictionary(address : String, dict:Dictionary):
+func load_directory_into_dictionary(address : String, dict:Dictionary) -> void:
 	var dir : DirAccess = DirAccess.open(address)
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
@@ -84,31 +84,35 @@ func create_new_item(name:String, description:String, node:Node3D) -> void:
 	inventory_item_to_resource[name] = load(resource_save_path)
 	player_data["inventory"][name] = 0
 
-func load_inventory(): #Make sure player has an entry for each possible item
+func load_inventory() -> void: #Make sure player has an entry for each possible item
 	#if player_data["inventory"].size() != player_data_resource["possible_items"].size():
 	#adding new items
 	print("Loading inventory: ", inventory_item_to_resource)
 	for item in inventory_item_to_resource:#player_data_resource["possible_items"]:
+		if !player_data["journal_entries"].has(item):
+			player_data["journal_entries"][item] = false
 		if !player_data["inventory"].has(item):
 			player_data["inventory"][item] = 0
 	#removing old items that don't exist anymore
 	for item in player_data["inventory"]:
 		if !inventory_item_to_resource.has(item):#player_data_resource["possible_items"].has(item):
 			player_data["inventory"][item] = 0
+			if player_data["journal_entries"].has(item):
+				player_data["journal_entries"].erase(item)
 
 #TYPE SAFETY
-func key_exists(key:String): # returns whether key exists
+func key_exists(key:String) -> bool: # returns whether key exists
 	return player_data.has(key)
 
-func key_exists_assert(key:String): # returns location of key & errors if it doesn't exist
+func key_exists_assert(key:String) -> void: # returns location of key & errors if it doesn't exist
 	assert(key_exists(key), "ERROR: invalid key '" + key + "'. Check your spelling!")
 
-func key_is_type(key:String, type:int): # errors if types don't match (passing type enum)
+func key_is_type(key:String, type:int) -> void: # errors if types don't match (passing type enum)
 	key_exists_assert(key)
 	assert(typeof(player_data[key])==type, "ERROR: " + key + " not of type " + str(type) +
 			"\nSee https://docs.godotengine.org/en/3.2/classes/class_@globalscope.html#enum-globalscope-variant-type")
 
-func match_type(key:String, value): # errors if types don't match (passing new value)
+func match_type(key:String, value) -> void: # errors if types don't match (passing new value)
 	key_is_type(key, typeof(value))
 
 #EDITING
@@ -116,28 +120,28 @@ func get_key(key:String):
 	key_exists_assert(key)
 	return player_data[key]
 
-func set_key(key:String, value):
+func set_key(key:String, value) -> void:
 	if key_exists(key):
 		match_type(key, value) # asserts that they are of matching types
 	player_data[key] = value
 	stats_changed.emit(key, value)
 	
-func increment(key:String):
+func increment(key:String) -> void:
 	set_key(key, player_data[key]+1) #will also emit signal
 
-func decrement(key:String):
+func decrement(key:String) -> void:
 	set_key(key, player_data[key]-1)
 
 #INVENTORY
-func item_exists(item:String):
+func item_exists(item:String) -> void:
 	assert(player_data["inventory"].has(item), "ERROR: no such item '" + item + "'. Check your spelling!")
 	
-func add_item(item:String):
+func add_item(item:String) -> void:
 	item_exists(item)
 	player_data["inventory"][item] += 1
 	inventory_changed.emit("add", item)
 
-func remove_item(item:String): #returns 1 if successful, 0 if there aren't any left
+func remove_item(item:String) -> bool: #returns 1 if successful, 0 if there aren't any left
 	item_exists(item)
 	if player_data["inventory"][item] > 0:
 		player_data["inventory"][item] -= 1
@@ -146,11 +150,11 @@ func remove_item(item:String): #returns 1 if successful, 0 if there aren't any l
 	else:
 		return false
 		
-func item_count(item:String):
+func item_count(item:String) -> int:
 	item_exists(item)
 	return player_data["inventory"][item]
 
-func get_inventory():
+func get_inventory() -> Dictionary:
 	return player_data["inventory"]
 	
 #TASKS
@@ -158,18 +162,25 @@ func task_exists(item:String):
 	assert(task_to_resource.has(item), "ERROR: no such task '" + item + "'. Check your spelling!")
 	return task_to_resource[item]
 	
-func add_task(item:String):
+func add_task(item:String) -> void:
 	print("Added task: ", item)
 	task_exists(item)
 	player_data["tasks"].push_back(item)
 	tasks_changed.emit("add", item)
 
-func complete_task(item:String): #returns 1 if successful, 0 if there aren't any left
+func complete_task(item:String) -> void: #returns 1 if successful, 0 if there aren't any left
 	task_exists(item)
 	tasks_changed.emit("complete", item)
+	
+#JOURNAL ENTRIES
+func is_journal_entry_active(entry_name:String) -> bool:
+	return player_data["journal_entries"][entry_name]
+
+func set_journal_entry(entry_name:String, active:bool) -> void:
+	player_data["journal_entries"][entry_name] = active
 
 #SAVING
-func save_data():
+func save_data() -> void:
 	var error = ResourceSaver.save(player_data_resource, PLAYER_DATA_FILE_PATH)
 	if error:
 		print("Error saving resource:", error)
@@ -177,7 +188,7 @@ func save_data():
 		print("Resource saved successfully!")
 		
 #PARSE TIME
-func parse_time(value : float):
+func parse_time(value : float) -> String:
 	var am_pm : String = " a.m."
 	var hour : int = int(value)%24
 	var minutes : int = int((value - hour)*60)%60 #isolate decimal

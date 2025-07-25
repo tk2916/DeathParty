@@ -1,7 +1,6 @@
 class_name ObjectViewerDraggable extends ObjectViewerInteractable
 
 var dragging : bool = false
-var draggingLastFrame : bool = false
 @export var constrain_x : bool = false
 @export var constrain_y : bool = false
 
@@ -30,7 +29,6 @@ func on_mouse_pos_changed(delta : Vector2):
 
 ##INHERITED
 func on_mouse_down() -> void:
-	#draggingLastFrame = dragging
 	dragging = true
 	
 func on_mouse_up() -> void:

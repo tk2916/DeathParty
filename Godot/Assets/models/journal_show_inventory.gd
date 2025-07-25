@@ -1,8 +1,9 @@
 class_name Journal extends ObjectViewerInteractable
 
-
 @onready var show_inventory_sound: FmodEventEmitter2D = %ShowInventorySound
 @onready var hide_inventory_sound: FmodEventEmitter2D = %HideInventorySound
+
+@export var static_page_1 : MeshInstance3D
 
 var up_pos : Vector3
 var normal_pos : Vector3

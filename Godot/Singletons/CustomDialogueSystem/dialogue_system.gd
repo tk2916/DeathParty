@@ -90,11 +90,12 @@ func transferDialogueBox(new_box : Control):
 	transferBoxProperties()
 
 func setDialogueBox(new_resource : Resource):
+	if in_dialogue: return
 	var diag_box_inst = new_resource.dialogue_box.instantiate()
 	current_dialogue_box = diag_box_inst
+	current_dialogue_box.visible = false
 	dialogue_box_properties = new_resource
 	canvas_layer.add_child(current_dialogue_box)
-	current_dialogue_box.visible = false
 	#Transfer all properties over
 	transferBoxProperties()
 
