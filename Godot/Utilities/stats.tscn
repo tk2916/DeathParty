@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgcdtx87j476"]
+
+[ext_resource type="Script" uid="uid://bu3xovli8jpct" path="res://Utilities/stats.gd" id="1_f12k0"]
+
+[sub_resource type="Gradient" id="Gradient_f12k0"]
+offsets = PackedFloat32Array(0, 0.333, 0.667, 1)
+colors = PackedColorArray(1, 0.168627, 0.168627, 1, 1, 0.815686, 0.0784314, 1, 0.643137, 1, 0.109804, 1, 0.141176, 0.886275, 1, 1)
+
+[node name="Stats" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_f12k0")
+
+[node name="FPSLabel" type="Label" parent="."]
+offset_left = 4.0
+offset_right = 44.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+metadata/gradient = SubResource("Gradient_f12k0")

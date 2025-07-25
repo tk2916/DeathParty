@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dtqvna2ry38rh"]
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://dtqvna2ry38rh"]
 
 [ext_resource type="PackedScene" uid="uid://nk823lgusuh4" path="res://Assets/props/inventory_items/polaroid_rowan.tscn" id="1_65i2l"]
 [ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_properties_script.gd" id="2_awcsa"]

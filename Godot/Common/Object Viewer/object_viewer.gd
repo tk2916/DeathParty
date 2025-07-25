@@ -65,7 +65,7 @@ func set_item_properties(scene : Node3D) -> Node3D:
 	enabled.emit(true, camera_3d)
 	return scene
 	
-func remove_current_item() -> void:
+func remove_current_item(queue_free : bool = true) -> void:
 	Interact.clear_active_subviewport()
 	light.visible = false
 	#Remove ALL items in the model holder
@@ -78,7 +78,12 @@ func remove_current_item() -> void:
 		currently_open = false
 	for child in children:
 		model_holder.remove_child(child)
-		child.queue_free()
+		if queue_free and !(child is Journal):
+			child.queue_free()
+		else:
+			#REMOVE OFFSET
+			child.transform.origin.y = child.transform.origin.y - hide_offset
+			child.transform.origin.z = child.transform.origin.z - hide_offset
 		
 	active_item = null
 

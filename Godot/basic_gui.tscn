@@ -128,7 +128,6 @@ offset_right = 38.0
 offset_bottom = 39.0
 flat = true
 script = ExtResource("4_2nnue")
-journal_path = "res://Assets/models/bookflip3.tscn"
 
 [node name="Sounds" type="Node" parent="Panel2/Panel3/OpenJournalButton"]
 
