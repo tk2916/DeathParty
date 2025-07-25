@@ -3,7 +3,9 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cx56uunocmjcu"
+
+uid="uid://bdhshxmk8t1a4"
+
 path="res://.godot/imported/book_static.glb-3fe6defc344e1b042641818e33f56351.scn"
 
 [deps]
