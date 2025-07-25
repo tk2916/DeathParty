@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fue5mn2yitn7"]
+[gd_scene load_steps=4 format=3 uid="uid://fue5mn2yitn7"]
 
 [ext_resource type="PackedScene" uid="uid://dwjorx6p7kbji" path="res://Assets/environment/disco_light_decoration/drapes.glb" id="1_rsoo1"]
 [ext_resource type="PackedScene" uid="uid://cxntcyf3l15nw" path="res://Assets/props/drapes/added drapes.glb" id="2_cjtdp"]
+[ext_resource type="Script" uid="uid://bmj5r3eqlj608" path="res://Assets/environment/disco_light_decoration/spotlight_colour_cycle.gd" id="2_lecv7"]
 
 [node name="drapes" instance=ExtResource("1_rsoo1")]
 transform = Transform3D(-0.987253, 0, -0.159157, 0, 1, 0, 0.159157, 0, -0.987253, 0, 0, 0)
@@ -37,15 +38,31 @@ visible = false
 light_energy = 3.0
 spot_range = 9.0
 spot_attenuation = -4.83
+script = ExtResource("2_lecv7")
+
+[node name="Timer" type="Timer" parent="Spot" index="0"]
+autostart = true
 
 [node name="Spot_001" parent="." index="16"]
 light_energy = 3.0
+script = ExtResource("2_lecv7")
+
+[node name="Timer" type="Timer" parent="Spot_001" index="0"]
+autostart = true
 
 [node name="Spot_002" parent="." index="17"]
 light_energy = 5.0
+script = ExtResource("2_lecv7")
+
+[node name="Timer" type="Timer" parent="Spot_002" index="0"]
+autostart = true
 
 [node name="Spot_003" parent="." index="19"]
 light_energy = 5.0
+script = ExtResource("2_lecv7")
+
+[node name="Timer" type="Timer" parent="Spot_003" index="0"]
+autostart = true
 
 [node name="Plane_1347" parent="." index="23"]
 transform = Transform3D(0.278294, 0.129767, 0.120904, -0.10967, 0.302701, -0.0724533, -0.13939, 0.0209199, 0.298391, -0.16077, -1.36876, -0.874025)
@@ -55,3 +72,8 @@ light_energy = 3.0
 
 [node name="added drapes" parent="." index="28" instance=ExtResource("2_cjtdp")]
 transform = Transform3D(0.990929, 0, 0.134402, 0, 1, 0, -0.134402, 0, 0.990929, -0.229598, -0.567204, -0.139616)
+
+[connection signal="timeout" from="Spot/Timer" to="Spot" method="_on_timer_timeout"]
+[connection signal="timeout" from="Spot_001/Timer" to="Spot" method="_on_timer_timeout"]
+[connection signal="timeout" from="Spot_002/Timer" to="Spot" method="_on_timer_timeout"]
+[connection signal="timeout" from="Spot_003/Timer" to="Spot" method="_on_timer_timeout"]
