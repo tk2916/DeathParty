@@ -259,13 +259,22 @@ func advance_dialogue():
 		skip_dialogue_animation()
 		
 #CLICK TO ADVANCE DIALOGUE
-func _input(event):
-	if current_dialogue_box && in_dialogue == true:
-			if event is InputEventMouseButton:
-				if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and are_choices == false:
-					#if Rect2(Vector2(0,0), size).has_point(event.position):
-					if mouse_contained_within_gui:
-						advance_dialogue()
+var pressed : bool = false
+func _process(delta: float) -> void:
+	if current_dialogue_box && in_dialogue == true && are_choices == false && mouse_contained_within_gui && Input.is_action_pressed("dialogic_default_action"):
+		if !pressed:
+			advance_dialogue()
+			pressed = true
+	else:
+		pressed = false
+		
+#func _input(event):
+	#if current_dialogue_box && in_dialogue == true:
+			#if event is InputEventMouseButton:
+				#if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and are_choices == false:
+					##if Rect2(Vector2(0,0), size).has_point(event.position):
+					#if mouse_contained_within_gui:
+						#advance_dialogue()
 
 func change_container(redirect:Array, choice_text:String):
 	are_choices = false
@@ -330,6 +339,9 @@ func get_first_message(json : JSON):
 
 func from_JSON(file : JSON, saved_ink_resource : Resource = blank_ink_interpret_resource):#resume_from_hierarchy : Array = []): #non-phone dialoguebox
 	assert(file != null, "You forgot to assign a JSON file!")
+	if in_dialogue:
+		print("You can't start a new chat while in a dialogue!")
+		return
 	print("Starting chat json: ", saved_ink_resource.output_stream)
 	current_choice_labels = []
 	Ink.from_JSON(file, saved_ink_resource)
