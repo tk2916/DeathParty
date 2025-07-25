@@ -30,6 +30,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta : float) -> void:
+	if DialogueSystem.in_dialogue or GuiSystem.in_gui:
+		player_velocity = Vector3.ZERO
+		handle_animations(delta)
+		return
+		
 	player_camera_location.position = original_camera_position
 
 	# Direction of movement in the X axis

@@ -5,7 +5,7 @@ var journal_showing : bool = false
 func _pressed() -> void:
 	print("Journal button pressed")
 	if journal_showing == false:
-		gui_controller.show_journal()
+		GuiSystem.show_journal()
 	else:
-		gui_controller.hide_journal()
+		GuiSystem.hide_journal()
 	journal_showing = !journal_showing

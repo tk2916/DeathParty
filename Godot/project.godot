@@ -45,6 +45,7 @@ FmodManager="*res://addons/fmod/FmodManager.gd"
 Settings="*res://Singletons/settings.gd"
 GlobalFmodBankLoader="*res://Singletons/fmod_bank_loader.tscn"
 Utils="*res://utils.gd"
+GuiSystem="*res://gui_system.gd"
 
 [debug]
 
@@ -71,6 +72,10 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
+
+[global_group]
+
+gui_object=""
 
 [input]
 
