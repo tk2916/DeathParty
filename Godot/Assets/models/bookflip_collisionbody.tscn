@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgrnyakmgghyq"]
 
-[ext_resource type="Script" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
+[ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
-[ext_resource type="Script" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
+[ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7ovfm"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
@@ -46,4 +46,16 @@ unique_name_in_owner = true
 [node name="HideInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/310_SFX_UI_BagClose"
 event_guid = "{69c3d9f1-cb46-4217-817c-0a5e223ab1e1}"
+unique_name_in_owner = true
+
+[node name="JournalOpenSound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/302_SFX_UI_JournalOpen"
+event_guid = "{30f0e84f-546b-4951-8546-610e533ebe87}"
+attached = false
+unique_name_in_owner = true
+
+[node name="JournalCloseSound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/301_SFX_UI_JournalClose"
+event_guid = "{9355ad2b-58c5-4861-8f53-fe56b2894e62}"
+attached = false
 unique_name_in_owner = true

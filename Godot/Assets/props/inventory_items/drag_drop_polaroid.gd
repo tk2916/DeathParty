@@ -21,7 +21,7 @@ func _ready() -> void:
 	super()
 	tree = get_tree()
 	mesh = Utils.find_first_child_of_class(self, MeshInstance3D)
-	print("Found mesh: ", mesh)
+	#print("Found mesh: ", mesh)
 	
 func return_to_og_position():
 	position = og_position
@@ -93,6 +93,7 @@ func create_debug_dot(viewport: Viewport, coords: Vector2, color:Color=Color.BLU
 	debug_dot.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't interfere with mouse events
 	
 	# Add to viewport
+	if viewport == null: return
 	viewport.add_child(debug_dot)
 	
 	# Optional: Make it fade after a short time
@@ -143,7 +144,7 @@ func raycast_to_page(viewport : Viewport):
 	var result : Dictionary = space.intersect_ray(params)
 	if result:
 		var static_body_hit : StaticBody3D = result.collider
-		print("Static body hit: ", static_body_hit)
+		#print("Static body hit: ", static_body_hit)
 		#var mesh_instance_hit : MeshInstance3D = Utils.find_first_child_of_class(static_body_hit, MeshInstance3D)
 		#if mesh_instance_hit == null: return null
 		var global_position_hit : Vector3 = result.position	
@@ -175,7 +176,7 @@ func raycast_to_page(viewport : Viewport):
 		var interpolated_uv_coords : Vector2 = UV_coordinates[0]*bari_coords.x + UV_coordinates[1]*bari_coords.y + UV_coordinates[2]*bari_coords.z
 		var viewport_coords = uv_to_viewport_coords(interpolated_uv_coords, viewport)
 		create_debug_dot(viewport, viewport_coords)
-		print("Current subviewport: ", viewport.get_parent())
+		#print("Current subviewport: ", viewport.get_parent())
 		var control_hit : Control = find_raycasted_ui(viewport_coords, viewport)
 		if control_hit:
 			return control_hit
