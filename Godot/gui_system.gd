@@ -57,7 +57,8 @@ func hide_journal():
 	in_journal = false
 	
 func show_gui(name:String):
-	close_all_guis()
+	if gui_dict[name].is_in_group("gui_object"):
+		close_all_guis()
 	hide_journal()
 	gui_dict[name].visible = true
 	in_gui = true
@@ -67,7 +68,8 @@ func hide_gui(name:String):
 	in_gui = check_for_open_guis()
 
 func show_node(node:Control):
-	close_all_guis()
+	if node.is_in_group("gui_object"):
+		close_all_guis()
 	hide_journal()
 	node.visible = true
 	in_gui = true
