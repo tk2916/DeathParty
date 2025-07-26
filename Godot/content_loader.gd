@@ -6,15 +6,13 @@ const scene_name_to_scene : Dictionary[String, PackedScene] = {
 	"PartyRoom":preload("res://rooms/party_room/party_room.tscn"),
 }
 
-const scene_to_position : Dictionary[String, Vector3] = {
+var scene_to_position : Dictionary[String, Vector3] = {
 	"Room":Vector3(2.5,0,0),
 	"Entrance":Vector3(-27.512,0,0),
 	"PartyRoom":Vector3(-24.161,0,-17.392),
 }
 
 @onready var main_node : Node3D = get_tree().root.get_node_or_null("Main")
-#var currently_loaded_scene : Node3D
-#var old_loaded_scene : Node3D
 
 var loaded_scenes : Array[Node3D]
 
@@ -22,6 +20,13 @@ var og_scene : String = "Room"
 
 func _ready() -> void:
 	if main_node == null: return
+	#get all loadable scenes in main, save their positions and delete them
+	var loadable_scenes = get_tree().get_nodes_in_group("loadable_scene")
+	for node : Node3D in loadable_scenes:
+		scene_to_position[node.name] = node.position
+		main_node.remove_child(node)
+		node.queue_free()
+		
 	load_scene(og_scene)
 	
 func reset() -> void:
@@ -54,13 +59,13 @@ func offload_old_scene():
 	old_loaded_scene.queue_free()
 
 ##FRAMERATE PRINTER
-var fps_timer: float = 0.0
-var fps_update_interval: float = 1.0  # Print every second
+#var fps_timer: float = 0.0
+#var fps_update_interval: float = 1.0  # Print every second
 
-func _process(delta: float) -> void:
-	fps_timer += delta
-	
-	if fps_timer >= fps_update_interval:
-		var current_fps = Engine.get_frames_per_second()
+#func _process(delta: float) -> void:
+	#fps_timer += delta
+	#
+	#if fps_timer >= fps_update_interval:
+		#var current_fps = Engine.get_frames_per_second()
 		#print("FPS: ", current_fps)
-		fps_timer = 0.0  # Reset timer
+		#fps_timer = 0.0  # Reset timer
