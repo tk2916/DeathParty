@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://busrnnhrujsqx"]
+[gd_scene load_steps=36 format=4 uid="uid://busrnnhrujsqx"]
 
 [ext_resource type="Texture2D" uid="uid://dwqn2srjfxhnt" path="res://rooms/party_room/PartyRoom layout_wood panel big.png" id="2_1xrom"]
 [ext_resource type="Texture2D" uid="uid://ci5cfjsj0e4fc" path="res://rooms/party_room/PartyRoom layout_orange wallframe.png" id="2_oqucp"]
@@ -10,43 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://sdcx1ct5ipku" path="res://rooms/party_room/PartyRoom layout_party windows.png" id="6_q7tq5"]
 [ext_resource type="PackedScene" uid="uid://bqc5dcb57bpmk" path="res://Assets/environment/patterned_wall.tscn" id="8_mc5eb"]
 [ext_resource type="PackedScene" uid="uid://suf51g63ux2s" path="res://Assets/environment/solid_dark_wall.tscn" id="9_owf8c"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n2n2"]
-resource_name = "Material.026"
-cull_mode = 2
-albedo_texture = ExtResource("2_1xrom")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_7f31m"]
-_surfaces = [{
-"aabb": AABB(-30.8463, 0, -23.9522, 61.6925, 1e-05, 47.9043),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "Material.026",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_hyhww"]
-resource_name = "PartyRoom layout_Plane_016"
-_surfaces = [{
-"aabb": AABB(-30.8463, 0, -23.9522, 61.6925, 1e-05, 47.9043),
-"attribute_data": PackedByteArray("FDn/////BCj/////FDkEKA=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_2n2n2"),
-"name": "Material.026",
-"primitive": 3,
-"uv_scale": Vector4(4.15606, 6.05052, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_7f31m")
+[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://scene_loader.tscn" id="10_ea3uk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_boqwv"]
 resource_name = "wall wood"
@@ -321,13 +285,48 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p80d2")
 
-[node name="PartyRoom" type="Node3D"]
-transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.999999, -0.0146384, 0, -0.000152111)
+[sub_resource type="BoxShape3D" id="BoxShape3D_owf8c"]
+size = Vector3(21.2399, 0.25, 29.2397)
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.311505, 0, -1.74623e-10, 0, 0.311758, 0, 0, 0, 0.5502, 0.555739, -0.00210018, 1.34086)
-mesh = SubResource("ArrayMesh_hyhww")
-skeleton = NodePath("")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n2n2"]
+resource_name = "Material.026"
+cull_mode = 2
+albedo_texture = ExtResource("2_1xrom")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7f31m"]
+_surfaces = [{
+"aabb": AABB(-30.8463, 0, -23.9522, 61.6925, 1e-05, 47.9043),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.026",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hyhww"]
+resource_name = "PartyRoom layout_Plane_016"
+_surfaces = [{
+"aabb": AABB(-30.8463, 0, -23.9522, 61.6925, 1e-05, 47.9043),
+"attribute_data": PackedByteArray("FDn/////BCj/////FDkEKA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_2n2n2"),
+"name": "Material.026",
+"primitive": 3,
+"uv_scale": Vector4(4.15606, 6.05052, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7f31m")
+
+[node name="PartyRoom" type="Node3D"]
+transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.999999, 0, 0, 0)
 
 [node name="Walls" type="Node3D" parent="."]
 
@@ -583,4 +582,23 @@ shadow_enabled = true
 shadow_opacity = 0.8
 shadow_blur = 0.556
 
+[node name="SceneLoader" parent="." instance=ExtResource("10_ea3uk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.571355, 0.594336, -11.1903)
+scene_going_right = "Entrance"
+
+[node name="CollisionShape3D" parent="SceneLoader" index="0"]
+transform = Transform3D(1, 0, -1.6205e-07, 0, 1, 0, 1.6205e-07, 0, 1, -0.165023, 0.747803, -0.318837)
+
+[node name="Floor2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.275336, -0.13, 1.31204)
+shape = SubResource("BoxShape3D_owf8c")
+
+[node name="Floor" type="MeshInstance3D" parent="Floor2"]
+transform = Transform3D(0.311505, 0, -2.32831e-10, 0, 0.311758, 0, -2.91038e-11, 0, 0.5502, 0.555739, -0.00210018, 1.34086)
+mesh = SubResource("ArrayMesh_hyhww")
+skeleton = NodePath("")
+
 [editable path="DiscoLightDecoration"]
+[editable path="SceneLoader"]
