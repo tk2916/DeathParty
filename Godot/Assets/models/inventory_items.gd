@@ -1,6 +1,8 @@
 class_name InventoryItemsContainer extends Node3D
 
+@export var journal : Journal
 @export var bookflip_instance : BookFlip
+
 @onready var main_page : MeshInstance3D = bookflip_instance.page1
 
 var player_inventory : Dictionary[String, int]
@@ -45,7 +47,7 @@ func find_first_mesh(item : Node3D):
 func create_clickable_item(item_resource : InventoryItemResource, item : Node3D) -> ObjectViewerInteractable:
 	var static_body : ObjectViewerInteractable
 	if item.name.substr(0,8) == "polaroid":
-		static_body = DragDropPolaroid.new(item_resource, bookflip_instance)
+		static_body = DragDropPolaroid.new(item_resource, journal, bookflip_instance)
 		#static_body.main_page = main_page
 	else:
 		static_body = ClickableInventoryItem.new()

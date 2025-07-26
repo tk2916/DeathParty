@@ -1,6 +1,6 @@
 class_name DragDropPolaroid extends ObjectViewerDraggable
 var tree : SceneTree
-var main_page : MeshInstance3D
+var main_page_static : MeshInstance3D
 var bookflip_instance : BookFlip
 
 var grabbed_control : DragDropControl = null
@@ -11,17 +11,16 @@ var mesh : MeshInstance3D
 
 var item_resource : Resource
 
-func _init(_item_resource : Resource, _bookflip_instance : BookFlip) -> void:
+func _init(_item_resource : Resource, _journal : Journal, _bookflip_instance : BookFlip) -> void:
 	super()
 	item_resource = _item_resource
 	bookflip_instance = _bookflip_instance
-	main_page = bookflip_instance.page1
+	main_page_static = _journal.static_page_1
 
 func _ready() -> void:
 	super()
 	tree = get_tree()
 	mesh = Utils.find_first_child_of_class(self, MeshInstance3D)
-	#print("Found mesh: ", mesh)
 	
 func return_to_og_position():
 	position = og_position
@@ -121,38 +120,23 @@ func create_debug_cube_global(pos : Vector3):
 	cube.global_position = pos
 
 func raycast_to_page(viewport : Viewport):
-	#if viewport == null: return
 	var space : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var camera3d : Camera3D = Interact.camera3d
-	#print("self position vs camera: ", self.position, " | ", camera3d.project_ray_origin(Interact.mouse))
-	var start : Vector3 = mesh.global_position#camera3d.project_ray_origin(Interact.mouse)#
-	#create_debug_cube_global(start)
-	create_debug_dot(viewport, camera3d.unproject_position(start), Color.RED)
-	#var camera_forward : Vector3 = -camera3d.global_transform.basis.z
-	var end : Vector3 = start - camera3d.global_transform.basis.z.normalized()*Interact.DIST#self.global_transform.basis.y.normalized()*.5#Vector3(0,0,1)#start - Vector3(0,0,Interact.DIST)#self.global_transform.basis.z * Interact.DIST
-	#create_debug_cube_global(start - camera3d.global_transform.basis.z.normalized()*.1)
-	#create_debug_cube(end)
-	#var end : Vector3 = camera3d.project_position(Interact.mouse, Interact.DIST)#self.position-Vector3(0,0,5)#
+	var start : Vector3 = mesh.global_position
+	var end : Vector3 = start - self.transform.basis.z * Interact.DIST#camera3d.global_transform.basis.z.normalized()*Interact.DIST#self.global_transform.basis.y.normalized()*.5#Vector3(0,0,1)#start - Vector3(0,0,Interact.DIST)#self.global_transform.basis.z * Interact.DIST
 	var params : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
 	params.from = start
 	params.to = end
-	var all_layers = 0xFFFFFFFF
-	#var exclude_layers_1_and_4 = all_layers & ~(1 + 8)
-	params.collision_mask = 9#64#exclude_layers_1_and_4
-	#print("Collision mask: ", exclude_layers_1_and_4)
+	params.collision_mask = 9
 	params.exclude = [self.get_rid()]
 	var result : Dictionary = space.intersect_ray(params)
 	if result:
-		var static_body_hit : StaticBody3D = result.collider
-		#print("Static body hit: ", static_body_hit)
-		#var mesh_instance_hit : MeshInstance3D = Utils.find_first_child_of_class(static_body_hit, MeshInstance3D)
-		#if mesh_instance_hit == null: return null
 		var global_position_hit : Vector3 = result.position	
 		
-		var local_position_hit : Vector3 = main_page.to_local(global_position_hit)
-		#create_debug_cube(mesh_instance_hit.get_parent(), local_position_hit)
-		create_debug_dot(viewport, camera3d.unproject_position(global_position_hit), Color.PURPLE)
-		var surface : Array = main_page.mesh.surface_get_arrays(0)
+		#use coordinates relative to main_page_static (non-animated main page)
+		var local_position_hit : Vector3 = main_page_static.to_local(global_position_hit)
+		#create_debug_dot(viewport, camera3d.unproject_position(global_position_hit), Color.PURPLE)
+		var surface : Array = main_page_static.mesh.surface_get_arrays(0)
 		var UVs : PackedVector2Array = surface[Mesh.ARRAY_TEX_UV]
 		
 		'''
@@ -175,8 +159,7 @@ func raycast_to_page(viewport : Viewport):
 		'''
 		var interpolated_uv_coords : Vector2 = UV_coordinates[0]*bari_coords.x + UV_coordinates[1]*bari_coords.y + UV_coordinates[2]*bari_coords.z
 		var viewport_coords = uv_to_viewport_coords(interpolated_uv_coords, viewport)
-		create_debug_dot(viewport, viewport_coords)
-		#print("Current subviewport: ", viewport.get_parent())
+		#create_debug_dot(viewport, viewport_coords)
 		var control_hit : Control = find_raycasted_ui(viewport_coords, viewport)
 		if control_hit:
 			return control_hit
@@ -185,16 +168,13 @@ func raycast_to_page(viewport : Viewport):
 func callControlFuncs():
 	var hit_control = raycast_to_page(bookflip_instance.cur_subviewport)
 	if hit_control:
-		#print("Hit control: ", hit_control)
 		if hit_control is DragDropControl:
-			#if hit_control == grabbed_control: return
 			og_grabbed_control = grabbed_control
 			grabbed_control = hit_control
 			if og_grabbed_control == grabbed_control: return
 			if og_grabbed_control:
 				og_grabbed_control.exit_hover()
 			grabbed_control.enter_hover()
-			#hit_control.color = Color.RED
 	else:
 		if grabbed_control:
 			grabbed_control.exit_hover()
