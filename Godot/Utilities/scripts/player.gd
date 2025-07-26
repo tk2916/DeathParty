@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @onready var model : Node3D = %PlayerModel
 @onready var animation_tree : AnimationTree = %AnimationTree
@@ -27,7 +27,6 @@ var current_animation : AnimationState = AnimationState.IDLE
 
 func _ready() -> void:
 	original_camera_position = player_camera_location.position
-
 
 func _physics_process(delta : float) -> void:
 	if DialogueSystem.in_dialogue or GuiSystem.in_gui:
@@ -136,3 +135,5 @@ func _on_world_boundary_body_entered(body : Node3D) -> void:
 	if body == self:
 		print("player out of bounds, resetting position . . .")
 		global_position = spawn_position
+		##ALSO MAKE IT SO IT LOADS THE ORIGINAL SCENES
+		ContentLoader.reset()
