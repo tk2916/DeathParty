@@ -77,6 +77,7 @@ enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 [global_group]
 
 gui_object=""
+loadable_scene=""
 
 [input]
 
