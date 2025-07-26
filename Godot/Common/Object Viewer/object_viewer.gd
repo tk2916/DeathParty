@@ -15,6 +15,11 @@ var pressed : bool = false
 @onready var camera_3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
 @onready var light : DirectionalLight3D = $SubViewportContainer/SubViewport/Light
 
+#Custom background
+@onready var color_rect : ColorRect = $ColorRect
+@onready var blur : Panel = $Blur
+@onready var custom_background_container : Control = $CustomBackground
+
 var light_up_shader : ShaderMaterial = preload("res://Assets/Shaders/LightUpShader.tres")
 
 var currently_open : bool = false
@@ -95,17 +100,33 @@ func _ready() -> void:
 	camera_3d.transform.origin.y = camera_3d.transform.origin.y + hide_offset
 	camera_3d.transform.origin.z = camera_3d.transform.origin.z + hide_offset
 
+func zoom(factor : float):
+	active_item.scale = active_item.scale*factor
+
+func zoom_absolute(factor : float):
+	active_item.scale = Vector3.ONE*factor
+
 #Scroll in and out of item
 func _input(event) -> void:
 	if active_item == null: return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			active_item.scale *= 1.15
+			zoom(1.15)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			active_item.scale *= 0.87
+			zoom(0.87)
 	
 #Resets the position of the item
 func reset_item_position() -> void:
 	if active_item:
 		active_item.rotation.x = 0
 		active_item.rotation.y = 0
+	
+func clear_custom_background():
+	for child in custom_background_container.get_children():
+		custom_background_container.remove_child(child)
+		child.queue_free()
+		
+func set_background(scene : PackedScene = null) -> void:
+	clear_custom_background()
+	if scene:
+		custom_background_container.add_child(scene.instantiate())

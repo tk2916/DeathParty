@@ -13,6 +13,8 @@ var item_positions_grid : Array[Vector3]
 var spacer : float = .5
 var double_spacer : float = 2*spacer
 
+var items_showing : bool = false
+
 func _init() -> void:
 	#set grid positions IN ORDER of where we want items to appear (center-outward)
 	item_positions_grid.push_back(Vector3.ZERO)
@@ -29,6 +31,7 @@ func _init() -> void:
 	
 	SaveSystem.inventory_changed.connect(on_inventory_change)
 	load_items()
+	hide_items()
 
 func on_inventory_change(action:String, item:String) -> void:
 	var itemCount = SaveSystem.item_count(item)
@@ -92,9 +95,10 @@ func load_items() -> void:
 	for item in player_inventory:
 		if player_inventory[item] == 0: continue
 		new_item(item)
-	show_items()
+	#show_items()
 
 func show_items() -> void:
+	items_showing = true
 	var item_index = 0
 	for item in item_instances:
 		item.position = item_positions_grid[item_index]
@@ -102,9 +106,12 @@ func show_items() -> void:
 		item_index+=1
 
 func hide_items() -> void:
+	items_showing = false
 	for item in get_children():
 		self.remove_child(item)
 		
 func refresh_items():
+	var old_items_showing : bool = items_showing
 	hide_items()
-	show_items()
+	if old_items_showing:
+		show_items()

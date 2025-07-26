@@ -7,6 +7,7 @@ var object_viewer : ObjectViewer
 
 var journal_open_sound : FmodEventEmitter2D
 var journal_close_sound : FmodEventEmitter2D
+var journal_backpack_bg : PackedScene = preload("res://Assets/JournalTextures/backpack_background.tscn")
 
 var in_journal : bool = false
 var in_gui : bool = false
