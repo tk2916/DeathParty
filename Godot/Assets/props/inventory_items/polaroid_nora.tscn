@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://uclswqr3kwlg"]
+[gd_scene load_steps=4 format=3 uid="uid://uclswqr3kwlg"]
 
 [ext_resource type="PackedScene" uid="uid://dybd5ulagp5il" path="res://Assets/models/polaroid_nora.glb" id="1_6n58t"]
+[ext_resource type="Texture2D" uid="uid://base5d87dehd1" path="res://Assets/CharacterAssets/nora/polaroid_nora.png" id="2_6ve5j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dgbl"]
+albedo_texture = ExtResource("2_6ve5j")
+albedo_texture_force_srgb = true
 
 [node name="polaroid_nora" instance=ExtResource("1_6n58t")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_7dgbl")

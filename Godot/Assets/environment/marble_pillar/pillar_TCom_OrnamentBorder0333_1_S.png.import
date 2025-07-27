@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4qi31g2xl1id"
+uid="uid://c00vgl66675ap"
 path.s3tc="res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-47144b4fafbf698b27f0afb1f6a645f4.s3tc.ctex"
 path.etc2="res://.godot/imported/pillar_TCom_OrnamentBorder0333_1_S.png-47144b4fafbf698b27f0afb1f6a645f4.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "3cdda3c843cb1288793c7aaea0654c46"
 }
 
 [deps]

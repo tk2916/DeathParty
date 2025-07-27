@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b8jehn4c5cuee"
+path.s3tc="res://.godot/imported/DJ set_Concrete007_1K-JPG_Color_6.jpg-d10c5d6ac5322072010d465a1a23828c.s3tc.ctex"
+path.etc2="res://.godot/imported/DJ set_Concrete007_1K-JPG_Color_6.jpg-d10c5d6ac5322072010d465a1a23828c.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "9102794656f71913e89b974ed832c25f"
+}
+
+[deps]
+
+source_file="res://Assets/environment/dj_set/DJ set_Concrete007_1K-JPG_Color_6.jpg"
+dest_files=["res://.godot/imported/DJ set_Concrete007_1K-JPG_Color_6.jpg-d10c5d6ac5322072010d465a1a23828c.s3tc.ctex", "res://.godot/imported/DJ set_Concrete007_1K-JPG_Color_6.jpg-d10c5d6ac5322072010d465a1a23828c.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Assets/environment/marble_pillar/DJ set_Concrete007_1K-JPG_Color_6.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

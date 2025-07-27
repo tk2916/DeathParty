@@ -1,4 +1,4 @@
-class_name DragDropControl extends Control
+class_name DragDropControl extends ThreeDGUI
 
 @export var node_root : Control
 @export var node_save_path : String
@@ -16,9 +16,11 @@ func _ready() -> void:
 		reveal_info()
 
 func enter_hover() -> void:
+	super()
 	if color_rect:
 		color_rect.visible = true
 func exit_hover() -> void:
+	super()
 	if color_rect:
 		color_rect.visible = false
 

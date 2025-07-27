@@ -10,4 +10,4 @@ func _pressed() -> void:
 			no_apps_visible = false
 			app.visible = false
 	if no_apps_visible:
-		phone.visible = false
+		GuiSystem.hide_gui("Phone")

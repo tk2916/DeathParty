@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch3ugfpbyqlan"]
+
+[ext_resource type="Script" uid="uid://bpm4a31sjdhmq" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_container.gd" id="1_xlevt"]
+[ext_resource type="Texture2D" uid="uid://daggdyy3tu543" path="res://Assets/JournalTextures/TaskRectangle.png" id="2_m6k3e"]
+[ext_resource type="Texture2D" uid="uid://cox4vfkpp47vq" path="res://Assets/JournalTextures/task_arrow.png" id="3_1ru7f"]
+
+[node name="TaskContainer" type="MarginContainer" node_paths=PackedStringArray("title_label", "button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_xlevt")
+title_label = NodePath("MarginContainer/Title")
+button = NodePath("Control2/Button")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_m6k3e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.93
+anchor_top = 0.1
+anchor_right = 0.97
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1ru7f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "[color=black]Panic! At the Photography club"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+flat = true

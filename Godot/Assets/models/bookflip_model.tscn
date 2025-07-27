@@ -458,7 +458,7 @@ _data = {
 }
 
 [node name="bookflip" type="Node3D" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node_left", "tabs_node_right")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
 script = ExtResource("2_epq3o")
 animation_player = NodePath("AnimationPlayer")
 page1 = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004")
@@ -533,11 +533,12 @@ skeleton = NodePath("../..")
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004"]
 
 [node name="Control" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport" instance=ExtResource("4_6b4ny")]
+script = null
 
 [node name="DragAndDropPolaroidsTest" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport" instance=ExtResource("5_yfr5l")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/AnimatableBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770157, -0.00923359, -0.157279)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77, -0.009, 0)
 shape = SubResource("BoxShape3D_ieb6y")
 debug_color = Color(0.799815, 0.0309134, 1, 0.42)
 
@@ -560,7 +561,7 @@ skeleton = NodePath("../..")
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/AnimatableBody3D2/Cube_005"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/AnimatableBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.791528, -0.00345172, -0.159947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792, 0, 0)
 shape = SubResource("BoxShape3D_ieb6y")
 debug_color = Color(0.799815, 0.0309134, 1, 0.42)
 
