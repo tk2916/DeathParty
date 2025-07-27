@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="4_6b4ny"]
 [ext_resource type="PackedScene" uid="uid://mg0sman3f2yu" path="res://Assets/models/journal_tab.tscn" id="5_stup6"]
 [ext_resource type="Texture2D" uid="uid://dmffsu11hoong" path="res://Assets/JournalTextures/max_page_1.png" id="5_th48n"]
-[ext_resource type="PackedScene" uid="uid://q6kwdhw62ddf" path="res://drag_and_drop_polaroids_test.tscn" id="5_yfr5l"]
+[ext_resource type="PackedScene" uid="uid://csrnib2iw1f4u" path="res://drag_and_drop_polaroids_test.tscn" id="5_yfr5l"]
 [ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="6_he2ap"]
-[ext_resource type="Script" path="res://Assets/models/journal_page_flip_collider.gd" id="7_fq2mh"]
+[ext_resource type="Script" uid="uid://bigc44cfli8nx" path="res://Assets/models/journal_page_flip_collider.gd" id="7_fq2mh"]
 [ext_resource type="Texture2D" uid="uid://c0c7uxkp8a7y" path="res://Assets/models/bookflip_max_page_2.png" id="7_ieb6y"]
 [ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="8_3xg2d"]
 [ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="8_yfr5l"]
@@ -458,7 +458,7 @@ _data = {
 }
 
 [node name="bookflip" type="Node3D" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node_left", "tabs_node_right")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
 script = ExtResource("2_epq3o")
 animation_player = NodePath("AnimationPlayer")
 page1 = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004")
@@ -533,11 +533,12 @@ skeleton = NodePath("../..")
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004"]
 
 [node name="Control" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport" instance=ExtResource("4_6b4ny")]
+script = null
 
 [node name="DragAndDropPolaroidsTest" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport" instance=ExtResource("5_yfr5l")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/AnimatableBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770157, -0.00923359, -0.157279)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77, -0.009, 0)
 shape = SubResource("BoxShape3D_ieb6y")
 debug_color = Color(0.799815, 0.0309134, 1, 0.42)
 
@@ -560,7 +561,7 @@ skeleton = NodePath("../..")
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/AnimatableBody3D2/Cube_005"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/AnimatableBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.791528, -0.00345172, -0.159947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792, 0, 0)
 shape = SubResource("BoxShape3D_ieb6y")
 debug_color = Color(0.799815, 0.0309134, 1, 0.42)
 

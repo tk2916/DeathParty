@@ -1,0 +1,4 @@
+The export template file can be found: https://drive.google.com/file/d/1a1YARo2rk9hy1f-0REMSsbugKo0YrQHQ/view?usp=drive_link
+Or from the official source: https://godotengine.org/download/windows/
+
+The file is too large to commit. Can be added using LFS (not yet set-up on project)

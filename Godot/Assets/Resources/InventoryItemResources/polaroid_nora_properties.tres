@@ -8,3 +8,5 @@ script = ExtResource("1_ncdw8")
 name = "Nora's Polaroid"
 description = "Nora"
 model = ExtResource("1_tql5l")
+inventory_scale = 1.3
+inventory_position = Vector2(-1, 1)
