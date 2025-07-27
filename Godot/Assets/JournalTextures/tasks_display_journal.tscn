@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://oc83yfhcm2cs" path="res://Assets/JournalTextures/TASKS.png" id="3_jto3t"]
 [ext_resource type="Texture2D" uid="uid://bin0rpri4iojr" path="res://Assets/JournalTextures/Underline.png" id="4_7jmn4"]
 [ext_resource type="Script" uid="uid://br2ob5t1hy2ya" path="res://task_display_script.gd" id="5_nsc2u"]
-[ext_resource type="PackedScene" uid="uid://d2hjhligpemq3" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_prefab.tscn" id="6_jto3t"]
+[ext_resource type="PackedScene" uid="uid://ch3ugfpbyqlan" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_prefab.tscn" id="6_jto3t"]
 [ext_resource type="Texture2D" uid="uid://1dlgpxcvx7jl" path="res://Assets/JournalTextures/task_title_backer.png" id="8_7jmn4"]
 [ext_resource type="Texture2D" uid="uid://5g1f30ift0xa" path="res://Assets/JournalTextures/description_backer.png" id="9_nsc2u"]
 

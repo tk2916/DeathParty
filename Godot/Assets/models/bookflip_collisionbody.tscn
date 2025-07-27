@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
 [ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="3_ngl8b"]
 [ext_resource type="Texture2D" uid="uid://b10xkyr1i6p24" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
-[ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
+[ext_resource type="Script" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
 vertex_color_use_as_albedo = true
@@ -83,9 +83,10 @@ albedo_texture = ExtResource("4_e2q15")
 [sub_resource type="BoxShape3D" id="BoxShape3D_47kpb"]
 size = Vector3(7.30997, 0.285156, 2.29163)
 
-[node name="BookflipBody" type="Node3D"]
+[node name="BookflipBody" type="Node3D" node_paths=PackedStringArray("bookflip")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_47kpb")
+bookflip = NodePath("bookflip")
 
 [node name="book_static" type="Node3D" parent="."]
 transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0.179772, -0.0935153)
@@ -104,9 +105,15 @@ viewport_texture2 = SubResource("ViewportTexture_e2q15")
 material_override = SubResource("ShaderMaterial_47kpb")
 material_overlay = SubResource("StandardMaterial3D_0upgx")
 
+[node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770157, -0.00923359, -0.157279)
+
 [node name="Cube_005" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="0"]
 material_override = SubResource("ShaderMaterial_8c4l8")
 material_overlay = SubResource("StandardMaterial3D_qun6a")
+
+[node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.791528, -0.00345172, -0.159947)
 
 [node name="ShowInventoryArea" type="StaticBody3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267168, -1.16783e-08)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2hjhligpemq3"]
+[gd_scene load_steps=4 format=3 uid="uid://ch3ugfpbyqlan"]
 
 [ext_resource type="Script" uid="uid://bpm4a31sjdhmq" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_container.gd" id="1_xlevt"]
 [ext_resource type="Texture2D" uid="uid://daggdyy3tu543" path="res://Assets/JournalTextures/TaskRectangle.png" id="2_m6k3e"]

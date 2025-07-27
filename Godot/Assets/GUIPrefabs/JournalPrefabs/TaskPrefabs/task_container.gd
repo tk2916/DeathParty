@@ -1,4 +1,4 @@
-class_name TaskContainer extends MarginContainer
+class_name TaskContainer extends ThreeDGUI
 
 @export var title_label : RichTextLabel
 @export var button : Button
@@ -14,5 +14,8 @@ func _ready() -> void:
 func on_pressed():
 	task_displayer.set_right_page(title, description)
 	
-func _input(event) -> void:
-	print("Input received: ", event)
+#func _input(event) -> void:
+	#print("Input received: ", event)
+func on_mouse_down():
+	print("Clicked Task container!")
+	on_pressed()

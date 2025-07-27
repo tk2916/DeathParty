@@ -1,22 +1,13 @@
 extends Node
 
-const scene_name_to_scene : Dictionary[String, PackedScene] = {
-	"Room":preload("res://World/room2.tscn"),
-	"Entrance":preload("res://rooms/entrance.tscn"),
-	"PartyRoom":preload("res://rooms/party_room/party_room.tscn"),
-}
-
-var scene_to_position : Dictionary[String, Vector3] = {
-	"Room":Vector3(2.5,0,0),
-	"Entrance":Vector3(-27.512,0,0),
-	"PartyRoom":Vector3(-24.161,0,-17.392),
-}
+var scene_name_to_scene : Dictionary[String, PackedScene] = {}
+var scene_to_position : Dictionary[String, Vector3] = {}
 
 @onready var main_node : Node3D = get_tree().root.get_node_or_null("Main")
 
 var loaded_scenes : Array[Node3D]
 
-var og_scene : String = "Room"
+var og_scene : String = "Entrance"
 
 func _ready() -> void:
 	if main_node == null: return
@@ -24,6 +15,7 @@ func _ready() -> void:
 	var loadable_scenes = get_tree().get_nodes_in_group("loadable_scene")
 	for node : Node3D in loadable_scenes:
 		scene_to_position[node.name] = node.position
+		scene_name_to_scene[node.name] = load(node.scene_file_path)
 		main_node.remove_child(node)
 		node.queue_free()
 		

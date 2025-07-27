@@ -17,8 +17,8 @@ func on_mouse_up():
 func enter_hover():
 	if bookflip_instance.cur_subviewport == null: return
 	og_viewport = get_viewport()
-	Interact.set_active_subviewport(bookflip_instance.cur_subviewport)
+	#Interact.set_active_subviewport(bookflip_instance.cur_subviewport)
 	
 func exit_hover():
 	if bookflip_instance.cur_subviewport == null: return
-	Interact.set_active_subviewport(og_viewport)
+	#Interact.set_active_subviewport(og_viewport)

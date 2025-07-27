@@ -46,6 +46,7 @@ func show_journal():
 	inventory_showing = false
 	print("Setting journal: ", journal_instance.position)
 	object_viewer.set_preexisting_item(journal_instance)
+	Interact.set_active_subviewport(journal_instance.bookflip.page1_subviewport)
 	journal_open_sound.play()
 	object_viewer.visible = true
 	in_gui = true
@@ -58,6 +59,7 @@ func hide_journal():
 	#journal_instance.reset_properties()
 	object_viewer.visible = false
 	object_viewer.remove_current_item(false)
+	Interact.clear_active_subviewport()
 	in_gui = false
 	in_journal = false
 	

@@ -533,6 +533,7 @@ skeleton = NodePath("../..")
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004"]
 
 [node name="Control" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport" instance=ExtResource("4_6b4ny")]
+script = null
 
 [node name="DragAndDropPolaroidsTest" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport" instance=ExtResource("5_yfr5l")]
 

@@ -8,10 +8,13 @@ var normal_pos : Vector3
 var og_scale : Vector3 = Vector3.ONE
 const TWEEN_TIME : float = .5
 
+@export var bookflip : BookFlip
+
 func _ready() -> void:
 	normal_pos = position
 	up_pos = normal_pos - transform.basis.z.normalized()
 	og_scale = scale
+	Interact.main_page_static = $book_static/StaticPage1
 
 func reset_properties() -> void:
 	print("Position before: ", position)
