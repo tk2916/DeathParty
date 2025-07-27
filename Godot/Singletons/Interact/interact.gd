@@ -10,13 +10,15 @@ var outline_mesh : MeshInstance3D = null
 @onready var main_camera3d : Camera3D
 @onready var camera3d : Camera3D
 
+var og_viewport : Viewport
 var cur_sub_viewport : Viewport = null
 var object_viewer : ObjectViewer = null
 
 signal mouse_position_changed(delta : Vector2)
 
 func _ready() -> void:
-	main_camera3d = get_viewport().get_camera_3d()
+	og_viewport = get_viewport()
+	main_camera3d = og_viewport.get_camera_3d()
 	camera3d = main_camera3d
 	var main : Node = get_tree().root.get_node_or_null("Main")
 	if main:
@@ -38,7 +40,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				if cur_sub_viewport:
-					print("Pushing input to subviewport")
+					print("Pushing input to subviewport: ", cur_sub_viewport.get_parent())
 					cur_sub_viewport.push_input(event)
 					return
 				if event.pressed == false: 
@@ -54,12 +56,37 @@ func _input(event: InputEvent) -> void:
 func mouse_in_world_projection() -> Vector3:
 	return camera3d.project_position(mouse, DIST)
 
+func create_debug_dot(coords: Vector2, color:Color=Color.BLUE):
+	var viewport : Viewport = camera3d.get_viewport()
+	var debug_dot : ColorRect
+	# Remove existing dot
+	#if debug_dot != null:
+		#debug_dot.queue_free()
+	
+	# Create new debug dot
+	debug_dot = ColorRect.new()
+	debug_dot.color = color
+	debug_dot.size = Vector2(10, 10)  # 10x10 pixel red dot
+	debug_dot.position = coords - Vector2(5, 5)  # Center the dot on the coordinates
+	debug_dot.z_index = 1000  # Make sure it's on top
+	debug_dot.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't interfere with mouse events
+	
+	# Add to viewport
+	if viewport == null: return
+	viewport.add_child(debug_dot)
+	
+	# Optional: Make it fade after a short time
+	var tween = viewport.create_tween()
+	tween.tween_property(debug_dot, "modulate:a", 0.0, 2)
+	tween.tween_callback(func(): if debug_dot: debug_dot.queue_free())
+
 func get_mouse_world_pos() -> void:
 	if camera3d == null: return
 	mouse = camera3d.get_viewport().get_mouse_position() #important bc otherwise it gets the wrong mouse pos
 	var space : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	#we will check if there's anything between the start and end points of the ray DIST long
 	var start : Vector3 = camera3d.project_ray_origin(mouse)
+	#create_debug_dot(mouse)
 	var end : Vector3 = mouse_in_world_projection()
 	var params : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
 	params.from = start
@@ -72,6 +99,7 @@ func get_mouse_world_pos() -> void:
 		var og_grabbed_object : Node3D = grabbed_object
 		
 		grabbed_object = result.collider
+		#print("Grabbed object: ", grabbed_object.name)
 		if og_grabbed_object == grabbed_object:
 			#print("Grabbed object equal")
 			return
@@ -79,7 +107,7 @@ func get_mouse_world_pos() -> void:
 		if grabbed_object is ObjectViewerInteractable:
 			#print("Grabbed object: ", grabbed_object.name)
 			if og_grabbed_object and og_grabbed_object is ObjectViewerInteractable:
-				if !(og_grabbed_object.name == "BookflipBody" and grabbed_object.name.substr(0,13) == "InventoryItem"):
+				if !(og_grabbed_object is JournalInventoryCollider and (grabbed_object is DragDropPolaroid or grabbed_object is ClickableInventoryItem)):
 					og_grabbed_object.exit_hover()
 			grabbed_object.enter_hover()
 	else:
@@ -88,6 +116,9 @@ func get_mouse_world_pos() -> void:
 		grabbed_object = null
 		
 func set_active_subviewport(subviewport : Viewport) -> void:
+	if subviewport == og_viewport:
+		cur_sub_viewport = null
+		return
 	cur_sub_viewport = subviewport
 func clear_active_subviewport() -> void:
 	cur_sub_viewport = null

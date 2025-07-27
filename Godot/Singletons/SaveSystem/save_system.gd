@@ -158,7 +158,7 @@ func get_inventory() -> Dictionary:
 	return player_data["inventory"]
 	
 #TASKS
-func task_exists(item:String):
+func task_exists(item:String) -> TaskResource:
 	assert(task_to_resource.has(item), "ERROR: no such task '" + item + "'. Check your spelling!")
 	return task_to_resource[item]
 	

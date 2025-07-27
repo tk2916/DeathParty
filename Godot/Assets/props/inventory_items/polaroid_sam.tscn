@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp0fnxkn0auo4"]
+[gd_scene load_steps=4 format=3 uid="uid://bp0fnxkn0auo4"]
 
 [ext_resource type="PackedScene" uid="uid://b47g7y2px1ca6" path="res://Assets/models/polaroid_sam.glb" id="1_2oy52"]
+[ext_resource type="Texture2D" uid="uid://bkno37ppvgphk" path="res://Assets/CharacterAssets/sam/polaroid_sam.png" id="2_klqqc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x01k6"]
+albedo_texture = ExtResource("2_klqqc")
+albedo_texture_force_srgb = true
 
 [node name="polaroid_sam" instance=ExtResource("1_2oy52")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_x01k6")

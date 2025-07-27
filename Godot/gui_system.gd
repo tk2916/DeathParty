@@ -10,6 +10,7 @@ var journal_close_sound : FmodEventEmitter2D
 var journal_backpack_bg : PackedScene = preload("res://Assets/JournalTextures/backpack_background.tscn")
 
 var in_journal : bool = false
+var inventory_showing : bool = false #used within journal scripts
 var in_gui : bool = false
 
 func _ready() -> void:
@@ -41,6 +42,8 @@ func check_for_open_guis():
 
 func show_journal():
 	close_all_guis()
+	journal_instance.reset_properties()
+	inventory_showing = false
 	print("Setting journal: ", journal_instance.position)
 	object_viewer.set_preexisting_item(journal_instance)
 	journal_open_sound.play()
@@ -52,6 +55,7 @@ func hide_journal():
 	if not in_journal: return
 	close_all_guis()
 	journal_close_sound.play()
+	#journal_instance.reset_properties()
 	object_viewer.visible = false
 	object_viewer.remove_current_item(false)
 	in_gui = false

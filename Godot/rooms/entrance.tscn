@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dwrmfilc6xeol" path="res://Assets/environment/wall_lamp.tscn" id="15_isgae"]
 [ext_resource type="PackedScene" uid="uid://lq5aie0hhjaf" path="res://Assets/environment/glowing_doorway.tscn" id="16_hprob"]
 [ext_resource type="PackedScene" uid="uid://b0v4k6w4378h1" path="res://Assets/environment/arch_window.tscn" id="17_kauli"]
-[ext_resource type="PackedScene" path="res://Assets/environment/arch_window_fanlight.tscn" id="18_rseg0"]
+[ext_resource type="PackedScene" uid="uid://bgrvflukoipup" path="res://Assets/environment/arch_window_fanlight.tscn" id="18_rseg0"]
 [ext_resource type="PackedScene" uid="uid://s8nqkwhr8xqp" path="res://Assets/environment/chandelier.tscn" id="19_a28ps"]
 [ext_resource type="PackedScene" uid="uid://bc16ymtogijdr" path="res://Assets/environment/painting.tscn" id="20_2fk3d"]
 [ext_resource type="PackedScene" uid="uid://cx1p52tb5hskc" path="res://Assets/props/sofas/Sofa2.glb" id="21_xkbqc"]

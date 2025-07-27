@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://bgrnyakmgghyq"]
+[gd_scene load_steps=22 format=4 uid="uid://bgrnyakmgghyq"]
 
+[ext_resource type="Script" uid="uid://bxxt4jkxn55ob" path="res://Assets/models/journal_root.gd" id="1_47kpb"]
 [ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
-[ext_resource type="Texture2D" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="3_ngl8b"]
+[ext_resource type="Texture2D" uid="uid://b10xkyr1i6p24" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
+[ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
 vertex_color_use_as_albedo = true
@@ -46,8 +49,30 @@ viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewp
 [sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_47kpb"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_ngl8b")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xwflh"]
+viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0upgx"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_xwflh")
+albedo_texture_force_srgb = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c4l8"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_ngl8b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qun6a"]
+resource_local_to_scene = true
+albedo_texture_force_srgb = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rss8h"]
-size = Vector3(3.37189, 0.300507, 1.23391)
+size = Vector3(8.8883, 0.300507, 3.58045)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ngl8b"]
 
@@ -55,13 +80,12 @@ size = Vector3(3.37189, 0.300507, 1.23391)
 transparency = 1
 albedo_texture = ExtResource("4_e2q15")
 
-[node name="BookflipBody" type="AnimatableBody3D" node_paths=PackedStringArray("static_page_1", "inventory_items_container")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_47kpb"]
+size = Vector3(7.30997, 0.285156, 2.29163)
+
+[node name="BookflipBody" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-collision_layer = 9
-sync_to_physics = false
-script = ExtResource("1_jth6w")
-static_page_1 = NodePath("book_static/StaticPage1")
-inventory_items_container = NodePath("InventoryItems")
+script = ExtResource("1_47kpb")
 
 [node name="book_static" type="Node3D" parent="."]
 transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0.179772, -0.0935153)
@@ -76,15 +100,31 @@ transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 
 viewport_texture1 = SubResource("ViewportTexture_7ovfm")
 viewport_texture2 = SubResource("ViewportTexture_e2q15")
 
-[node name="ShowInventoryCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.00412434, 0.74148, 0.929662)
+[node name="Cube_004" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="0"]
+material_override = SubResource("ShaderMaterial_47kpb")
+material_overlay = SubResource("StandardMaterial3D_0upgx")
+
+[node name="Cube_005" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="0"]
+material_override = SubResource("ShaderMaterial_8c4l8")
+material_overlay = SubResource("StandardMaterial3D_qun6a")
+
+[node name="ShowInventoryArea" type="StaticBody3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267168, -1.16783e-08)
+collision_layer = 9
+script = ExtResource("1_jth6w")
+static_page_1 = NodePath("../book_static/StaticPage1")
+inventory_items_container = NodePath("../InventoryItems")
+journal_root = NodePath("..")
+
+[node name="ShowInventoryCollider" type="CollisionShape3D" parent="ShowInventoryArea"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.0318329, -0.302822, 1.86828)
 shape = SubResource("BoxShape3D_rss8h")
 debug_color = Color(0.784314, 0, 0.0745098, 1)
 
-[node name="InventoryItems" type="Node3D" parent="." node_paths=PackedStringArray("journal", "bookflip_instance")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.00238484, 0.402459, 1.00929)
+[node name="InventoryItems" type="Node3D" parent="." node_paths=PackedStringArray("static_page_1", "bookflip_instance")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.00238484, 0.402459, 1.71238)
 script = ExtResource("3_7ovfm")
-journal = NodePath("..")
+static_page_1 = NodePath("../book_static/StaticPage1")
 bookflip_instance = NodePath("../bookflip")
 
 [node name="Sounds" type="Node" parent="."]
@@ -111,7 +151,24 @@ event_guid = "{9355ad2b-58c5-4861-8f53-fe56b2894e62}"
 attached = false
 unique_name_in_owner = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.0441817, 0.789593)
+[node name="BackpackBackground" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.65118, 0, 0, 0, 3, 0, 0, 0, 2.83896, 0, 0.0441817, 0.789593)
 mesh = SubResource("PlaneMesh_ngl8b")
 surface_material_override/0 = SubResource("StandardMaterial3D_47kpb")
+
+[node name="HideInventoryArea" type="StaticBody3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172886, -1.57865)
+collision_layer = 9
+script = ExtResource("7_xwflh")
+static_page_1 = NodePath("../book_static/StaticPage1")
+inventory_items_container = NodePath("../InventoryItems")
+journal_root = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HideInventoryArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0427938, -0.383002, 0.340784)
+shape = SubResource("BoxShape3D_47kpb")
+debug_color = Color(0.0663742, 0.326824, 0.926759, 0.42)
+
+[connection signal="tree_entered" from="ShowInventoryArea" to="ShowInventoryArea" method="_on_tree_entered"]
+
+[editable path="bookflip"]

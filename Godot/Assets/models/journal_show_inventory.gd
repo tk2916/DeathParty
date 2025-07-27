@@ -1,52 +1,34 @@
-class_name Journal extends ObjectViewerInteractable
-
-@onready var show_inventory_sound: FmodEventEmitter2D = %ShowInventorySound
-@onready var hide_inventory_sound: FmodEventEmitter2D = %HideInventorySound
+class_name JournalInventoryCollider extends ObjectViewerInteractable
 
 @export var static_page_1 : MeshInstance3D
-
-var up_pos : Vector3
-var normal_pos : Vector3
-var og_scale : Vector3
-const TWEEN_TIME : float = .2
-
 @export var inventory_items_container : InventoryItemsContainer
+@export var journal_root : Journal
 
 var first_time : bool = true
 var inventory_showing : bool = false
-	
-func _init() -> void:
-	normal_pos = position
-	up_pos = position + Vector3(0,1,0)
 
-func show_inventory() -> void:
-	print("Showing inventory")
-	og_scale = scale
-	print("Og scale: ", og_scale)
-	var tween = get_tree().create_tween()
-	#tween.tween_property(self, "position", up_pos, TWEEN_TIME)
-	tween.tween_property(self, "scale", og_scale*.7, TWEEN_TIME)
+func e():
+	print("E----------")
+	print(journal_root.global_position)
+	print(static_page_1.global_position)
+	print(journal_root.get_node("bookflip/Armature/Skeleton3D/AnimatableBody3D").global_position)
+	print("End E-------")
+
+func _ready() -> void:
 	inventory_items_container.show_items()
-	show_inventory_sound.play()
 
-func hide_inventory() -> void:
-	print("Hide inventory")
-	var tween = get_tree().create_tween()
-	#tween.tween_property(self, "position", normal_pos, TWEEN_TIME)
-	tween.tween_property(self, "scale", og_scale, TWEEN_TIME)
-	tween.tween_callback(inventory_items_container.hide_items)
-	hide_inventory_sound.play()
+func _on_tree_entered() -> void:
+	first_time = true
 
 #INHERITED
 func enter_hover() -> void:
+	print("Enter hover")
 	if first_time or inventory_showing: return
-	inventory_showing = true
-	show_inventory()
+	GuiSystem.inventory_showing = true
+	journal_root.show_inventory()
 	
 func exit_hover() -> void:
+	print("Exit hover")
 	if first_time: 
 		first_time = false
 		return
-	if inventory_showing:
-		inventory_showing = false
-		hide_inventory()

@@ -11,16 +11,20 @@ var mesh : MeshInstance3D
 
 var item_resource : Resource
 
-func _init(_item_resource : Resource, _journal : Journal, _bookflip_instance : BookFlip) -> void:
+var og_scale : Vector3
+
+func _init(_item_resource : Resource, _static_page_1 : MeshInstance3D, _bookflip_instance : BookFlip) -> void:
 	super()
 	item_resource = _item_resource
 	bookflip_instance = _bookflip_instance
-	main_page_static = _journal.static_page_1
+	main_page_static = _static_page_1
+	og_scale = Vector3.ONE*_item_resource.inventory_scale
 
 func _ready() -> void:
 	super()
 	tree = get_tree()
 	mesh = Utils.find_first_child_of_class(self, MeshInstance3D)
+	scale = og_scale
 	
 func return_to_og_position():
 	position = og_position
@@ -78,46 +82,46 @@ var debug_dot : ColorRect = null
 
 # Add these functions to your class without changing raycast_to_page
 
-func create_debug_dot(viewport: Viewport, coords: Vector2, color:Color=Color.BLUE):
-	# Remove existing dot
-	#if debug_dot != null:
-		#debug_dot.queue_free()
-	
-	# Create new debug dot
-	debug_dot = ColorRect.new()
-	debug_dot.color = color
-	debug_dot.size = Vector2(10, 10)  # 10x10 pixel red dot
-	debug_dot.position = coords - Vector2(5, 5)  # Center the dot on the coordinates
-	debug_dot.z_index = 1000  # Make sure it's on top
-	debug_dot.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't interfere with mouse events
-	
-	# Add to viewport
-	if viewport == null: return
-	viewport.add_child(debug_dot)
-	
-	# Optional: Make it fade after a short time
-	var tween = viewport.create_tween()
-	tween.tween_property(debug_dot, "modulate:a", 0.0, 2)
-	tween.tween_callback(func(): if debug_dot: debug_dot.queue_free())
+#func create_debug_dot(viewport: Viewport, coords: Vector2, color:Color=Color.BLUE):
+	## Remove existing dot
+	##if debug_dot != null:
+		##debug_dot.queue_free()
+	#
+	## Create new debug dot
+	#debug_dot = ColorRect.new()
+	#debug_dot.color = color
+	#debug_dot.size = Vector2(10, 10)  # 10x10 pixel red dot
+	#debug_dot.position = coords - Vector2(5, 5)  # Center the dot on the coordinates
+	#debug_dot.z_index = 1000  # Make sure it's on top
+	#debug_dot.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't interfere with mouse events
+	#
+	## Add to viewport
+	#if viewport == null: return
+	#viewport.add_child(debug_dot)
+	#
+	## Optional: Make it fade after a short time
+	#var tween = viewport.create_tween()
+	#tween.tween_property(debug_dot, "modulate:a", 0.0, 2)
+	#tween.tween_callback(func(): if debug_dot: debug_dot.queue_free())
 
-func create_debug_cube(parent:Node3D, pos : Vector3):
-	var cube : MeshInstance3D = MeshInstance3D.new()
-	cube.mesh = BoxMesh.new()
-	cube.scale = Vector3(.1,.1,.1)
-	cube.material_overlay = StandardMaterial3D.new()
-	cube.material_overlay.albedo_color = Color.ORANGE
+#func create_debug_cube(parent:Node3D, pos : Vector3):
+	#var cube : MeshInstance3D = MeshInstance3D.new()
+	#cube.mesh = BoxMesh.new()
+	#cube.scale = Vector3(.1,.1,.1)
+	#cube.material_overlay = StandardMaterial3D.new()
+	#cube.material_overlay.albedo_color = Color.ORANGE
+	##get_tree().root.get_child(0).add_child(cube)
+	#parent.add_child(cube)
+	#cube.position = pos
+	#
+#func create_debug_cube_global(pos : Vector3):
+	#var cube : MeshInstance3D = MeshInstance3D.new()
+	#cube.mesh = BoxMesh.new()
+	#cube.scale = Vector3(.1,.1,.1)
+	#cube.material_overlay = StandardMaterial3D.new()
+	#cube.material_overlay.albedo_color = Color.ORANGE
 	#get_tree().root.get_child(0).add_child(cube)
-	parent.add_child(cube)
-	cube.position = pos
-	
-func create_debug_cube_global(pos : Vector3):
-	var cube : MeshInstance3D = MeshInstance3D.new()
-	cube.mesh = BoxMesh.new()
-	cube.scale = Vector3(.1,.1,.1)
-	cube.material_overlay = StandardMaterial3D.new()
-	cube.material_overlay.albedo_color = Color.ORANGE
-	get_tree().root.get_child(0).add_child(cube)
-	cube.global_position = pos
+	#cube.global_position = pos
 
 func raycast_to_page(viewport : Viewport):
 	var space : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
@@ -181,6 +185,12 @@ func callControlFuncs():
 			grabbed_control = null
 		
 func _physics_process(delta: float) -> void:
+	if dragging:
+		self.set_collision_layer_value(1, false)
+		self.set_collision_layer_value(4, false)
+	else:
+		self.set_collision_layer_value(1, true)
+		self.set_collision_layer_value(4, true)
 	#var albedo_texture : Texture = main_page.material_override.get_shader_parameter("albedo_texture")
 	if bookflip_instance.cur_subviewport and dragging:#albedo_texture is ViewportTexture:
 		callControlFuncs()
@@ -195,12 +205,12 @@ func _input(event: InputEvent) -> void:
 func enter_hover() -> void:
 	if tree == null: return
 	var tween = tree.create_tween()
-	tween.tween_property(self, "scale", Vector3(1.2,1.2,1.2), .2)
+	tween.tween_property(self, "scale", og_scale*1.2, .2)
 	
 func exit_hover() -> void:
 	if tree == null: return
 	var tween = tree.create_tween()
-	tween.tween_property(self, "scale", Vector3(1,1,1), .2)
+	tween.tween_property(self, "scale", og_scale, .2)
 	
 func on_mouse_up() -> void:
 	super()
