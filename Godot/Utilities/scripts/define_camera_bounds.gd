@@ -50,7 +50,7 @@ func _ready() -> void:
 	camera_y_offset = room_area_shape.size.y/2
 	
 	camera_y_offset = room_area_shape.size.y/2 - camera_y_offset
-	var y_center: float = room_area_shape.size.y/2 + room_area_center.y
+	var y_center: float = room_area_center.y
 	lower_bound = y_center - camera_y_offset
 	upper_bound = y_center + camera_y_offset
 	
