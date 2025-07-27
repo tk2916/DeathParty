@@ -44,6 +44,9 @@ GlobalPlayerScript="*res://Singletons/global_player_script.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
 Settings="*res://Singletons/settings.gd"
 GlobalFmodBankLoader="*res://Singletons/fmod_bank_loader.tscn"
+Utils="*res://utils.gd"
+GuiSystem="*res://gui_system.gd"
+ContentLoader="*res://content_loader.gd"
 
 [debug]
 
@@ -73,7 +76,8 @@ enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [global_group]
 
-object_viewer_interactable=""
+gui_object=""
+loadable_scene=""
 
 [input]
 

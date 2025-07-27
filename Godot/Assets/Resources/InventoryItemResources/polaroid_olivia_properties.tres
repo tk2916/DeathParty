@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ddr81dhpf6gqv"]
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://ddr81dhpf6gqv"]
 
 [ext_resource type="PackedScene" uid="uid://djpq5iuhqvbkh" path="res://Assets/props/inventory_items/polaroid_olivia.tscn" id="1_4djm2"]
 [ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_properties_script.gd" id="1_ef5rq"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dur15xmxrh4lp"]
+[gd_scene load_steps=26 format=4 uid="uid://dur15xmxrh4lp"]
 
 [ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/textures/entrance_room_environment/entrance room layout_wood.png" id="1_x285w"]
 [ext_resource type="PackedScene" uid="uid://82l83m8rbp3u" path="res://Assets/props/string_lights/string_lights_horizontal_short.tscn" id="2_fe17n"]
@@ -42,6 +42,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q23xo")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ea6k"]
+size = Vector3(4.33192, 0.204468, 2.28581)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf0bd"]
 resource_name = "Material.078"
 cull_mode = 2
@@ -81,6 +84,15 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r6fah")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jrh1h"]
+size = Vector3(3.34203, 0.380859, 0.108109)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fm487"]
+size = Vector3(1.64456, 0.380859, 0.255427)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fe17n"]
+size = Vector3(2.53595, 2.98454, 0.105957)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_43p5u"]
 _surfaces = [{
@@ -146,6 +158,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sah03")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uwemc"]
+size = Vector3(10.0616, 15.9676, 1.19271)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_2fbvs"]
 _surfaces = [{
 "aabb": AABB(-17.0791, -163.595, -22.7766, 34.1582, 0.548309, 8.35245),
@@ -210,27 +225,63 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6kwc7")
 
-[node name="WoodBalconyWithLanding" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxdus"]
+size = Vector3(4.33, 0.196574, 2.197)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gmnb5"]
+size = Vector3(1.61902, 0.383301, 0.236228)
+
+[node name="WoodBalconyWithLanding" type="StaticBody3D"]
+collision_mask = 0
 
 [node name="LeftFloor" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.14983, -0.00138338, -4.94734e-10, 1.01907e-15, 5.35856e-08, -0.149836, 0.00138338, -0.14983, -5.35833e-08, -0.36, -2.6, -23.301)
 mesh = SubResource("ArrayMesh_i6iea")
 skeleton = NodePath("")
 
+[node name="LeftFloorCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999962, 0, 0.00872654, 0, 1, 0, -0.00872654, 0, 0.999962, -4.83575, 0.337472, 0.217)
+shape = SubResource("BoxShape3D_7ea6k")
+
 [node name="LeftRailing" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.14983, -0.00138338, -4.94734e-10, 1.01907e-15, 5.35856e-08, -0.149836, 0.00138338, -0.14983, -5.35833e-08, -8.75, -2.6, -23.221)
 mesh = SubResource("ArrayMesh_f11w2")
 skeleton = NodePath("")
 
-[node name="Landing" type="MeshInstance3D" parent="."]
+[node name="LeftRailingCollision1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34234, 0.635384, 1.22223)
+shape = SubResource("BoxShape3D_jrh1h")
+
+[node name="LeftRailingCollision2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.894132, 0.447748, 0.00698126, -0.447759, 0.894154, 0, -0.00624232, -0.00312592, 0.999976, -2.01249, 0.282118, 1.27464)
+shape = SubResource("BoxShape3D_fm487")
+
+[node name="landing" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="landing"]
+transform = Transform3D(-0.999957, -0.00923254, 4.03567e-10, 0, -4.37114e-08, -1, 0.00923254, -0.999957, 4.37095e-08, -0.0989186, -0.324342, -0.135965)
+shape = SubResource("BoxShape3D_fe17n")
+
+[node name="Landing" type="MeshInstance3D" parent="landing"]
 transform = Transform3D(-0.14983, -0.00138338, -4.94734e-10, 1.01907e-15, 5.35856e-08, -0.149836, 0.00138338, -0.14983, -5.35833e-08, -0.36, -2.6, -23.691)
 mesh = SubResource("ArrayMesh_ximcl")
 skeleton = NodePath("")
 
-[node name="Steps" type="MeshInstance3D" parent="."]
+[node name="Steps" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.14983, -0.00138338, -4.94734e-10, 1.01907e-15, 5.35856e-08, -0.149836, 0.00138338, -0.14983, -5.35833e-08, -0.36, -2.6, -23.301)
+
+[node name="Steps" type="MeshInstance3D" parent="Steps"]
+transform = Transform3D(1, 9.31323e-10, 0, -9.31323e-10, 1, -5.68434e-14, 2.22045e-16, 2.84217e-14, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_u7xgc")
 skeleton = NodePath("")
+
+[node name="LeftStepsCollision" type="CollisionShape3D" parent="Steps"]
+transform = Transform3D(-0.885376, -0.00544724, 0.464838, 0.00523602, -0.999985, -0.00174531, 0.464839, 0.000888637, 0.885377, 12.5986, -156.615, -17.3404)
+shape = SubResource("BoxShape3D_uwemc")
+
+[node name="RightStepsCollision" type="CollisionShape3D" parent="Steps"]
+transform = Transform3D(-0.882113, -0.00379662, -0.471007, 0.00523599, -0.999984, -0.0017453, -0.470988, -0.00400575, 0.882107, -12.6832, -156.59, -17.3367)
+shape = SubResource("BoxShape3D_uwemc")
 
 [node name="StairRailings" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.14983, -0.00138338, -4.94734e-10, 1.03571e-15, 5.35856e-08, -0.149836, 0.00138338, -0.14983, -5.35833e-08, -0.36, -2.6, -23.301)
@@ -242,8 +293,12 @@ transform = Transform3D(-0.14983, -0.00138338, -4.94734e-10, 1.01907e-15, 5.3585
 mesh = SubResource("ArrayMesh_1yw7e")
 skeleton = NodePath("")
 
+[node name="RightFloorCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999962, 0, 0.00872654, 0, 1, 0, -0.00872654, 0, 0.999962, 4.54867, 0.341331, 0.172277)
+shape = SubResource("BoxShape3D_sxdus")
+
 [node name="RightRailing" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.14983, -0.00138338, -4.94734e-10, 1.01907e-15, 5.35856e-08, -0.149836, 0.00138338, -0.14983, -5.35833e-08, -0.36, -2.6, -23.301)
+transform = Transform3D(-0.14983, -0.00138337, 6.04689e-11, 0, -6.54956e-09, -0.149836, 0.00138337, -0.14983, 6.54926e-09, -0.36, -2.6, -23.301)
 mesh = SubResource("ArrayMesh_f11w2")
 skeleton = NodePath("")
 
@@ -267,3 +322,11 @@ transform = Transform3D(0.130442, -0.00120673, -1.97033e-08, -0.00120673, -0.130
 
 [node name="StringLightsHorizontalShort2" parent="StringLights" instance=ExtResource("2_fe17n")]
 transform = Transform3D(-0.0736334, 0.00120669, 0, -0.000681187, -0.130438, 0, 0, 4.54747e-13, -0.130447, -2.13881, 0.171202, 16.5973)
+
+[node name="RightRailingCollision1" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999962, 0, 0.00872654, 0, 1, 0, -0.00872654, 0, 0.999962, 4.04987, 0.633901, 1.1298)
+shape = SubResource("BoxShape3D_jrh1h")
+
+[node name="RightRailingCollision2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.88617, -0.463278, 0.00872654, 0.463296, 0.886204, 0, -0.00773349, 0.00404297, 0.999962, 1.74112, 0.257116, 1.22876)
+shape = SubResource("BoxShape3D_gmnb5")

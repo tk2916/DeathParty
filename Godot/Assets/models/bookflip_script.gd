@@ -10,7 +10,8 @@ class_name BookFlip extends Node3D
 @export var page1_subviewport : Viewport
 @export var page2_subviewport : Viewport
 
-@export var viewport_texture : ViewportTexture
+@export var viewport_texture1 : ViewportTexture
+@export var viewport_texture2 : ViewportTexture
 
 var page1_mat : Material
 var page2_mat : Material
@@ -33,8 +34,9 @@ var timer : Timer = Timer.new()
 
 var tab_handler : JournalTabHandler
 
+var cur_subviewport : Viewport  #referenced in other classes
+
 func _ready() -> void:
-	
 	left_tabs = tabs_node_left.get_children()
 	right_tabs = tabs_node_right.get_children()
 	
@@ -44,8 +46,8 @@ func _ready() -> void:
 	old_tab = tab_handler.get_tab(0)
 	cur_tab.move_upward()
 	
-	page1_mat = page1.material_overlay
-	page2_mat = page2.material_overlay
+	page1_mat = page1.material_override
+	page2_mat = page2.material_override
 	
 	journal_textures_size = journal_textures.size()
 	animation_player.animation_finished.connect(_on_anim_finished)
@@ -81,21 +83,25 @@ func set_page(side_of_page : int, index : int):
 	var journal_entry = journal_textures[index]
 	var page_mat : Material = page1_mat
 	var page_subviewport : Viewport = page1_subviewport
+	var viewport_texture : ViewportTexture = viewport_texture1
 	if side_of_page == 2:
 		page_mat = page2_mat
 		page_subviewport = page2_subviewport
+		viewport_texture = viewport_texture2
 	#clear children of subviewport if any
 	for child in page_subviewport.get_children():
 		page_subviewport.remove_child(child)
 		child.queue_free()
 	
 	if journal_entry is CompressedTexture2D:
-		page_mat.albedo_texture = journal_entry
+		page_mat.set_shader_parameter("albedo_texture", journal_entry)
+		cur_subviewport = null
 		
 	elif journal_entry is PackedScene:
-		page_mat.albedo_texture = viewport_texture
+		page_mat.set_shader_parameter("albedo_texture", viewport_texture)
 		viewport_texture.viewport_path = page_subviewport.get_path()
-		page_subviewport.add_child(journal_entry.instantiate())
+		page_subviewport.add_child(journal_entry.instantiate())	
+		cur_subviewport = page_subviewport
 
 func bookflip(backward : bool = false, flip_to_page : int = -1):
 	if (flipping or flip_to_page == page_tracker or flip_to_page > journal_textures_size-1):
@@ -129,10 +135,3 @@ func _on_anim_finished(anim_name: StringName) -> void:
 		set_page(1, page_tracker)
 		flipping = false
 		animation_player.play("idle")
-		
-#func _input(event: InputEvent) -> void:
-	#if event is InputEventKey:
-		#if event.keycode == KEY_A:
-			#bookflip(true);
-		#elif event.keycode == KEY_D:
-			#bookflip();

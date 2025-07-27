@@ -1,5 +1,10 @@
 class_name InventoryItemsContainer extends Node3D
 
+@export var journal : Journal
+@export var bookflip_instance : BookFlip
+
+@onready var main_page : MeshInstance3D = bookflip_instance.page1
+
 var player_inventory : Dictionary[String, int]
 
 var item_instances : Array[Node3D]
@@ -21,43 +26,85 @@ func _init() -> void:
 	item_positions_grid.push_back(Vector3(spacer,-double_spacer,0))
 	item_positions_grid.push_back(Vector3(-(double_spacer),-double_spacer,0))
 	item_positions_grid.push_back(Vector3(double_spacer,-double_spacer,0))
+	
+	SaveSystem.inventory_changed.connect(on_inventory_change)
+	load_items()
+
+func on_inventory_change(action:String, item:String) -> void:
+	var itemCount = SaveSystem.item_count(item)
+	if action == "remove" and itemCount == 0:
+		remove_item(item)
+		return
+	elif action == "add" and itemCount == 1:
+		new_item(item)
+		refresh_items()
 
 func find_first_mesh(item : Node3D):
 	for thing in item.get_children():
 		if thing is MeshInstance3D:
 			return thing
 
-func create_clickable_item(item : Node3D) -> ClickableInventoryItem:
-	var static_body : ClickableInventoryItem = ClickableInventoryItem.new() #StaticBody3D
+func create_clickable_item(item_resource : InventoryItemResource, item : Node3D) -> ObjectViewerInteractable:
+	var static_body : ObjectViewerInteractable
+	if item.name.substr(0,8) == "polaroid":
+		static_body = DragDropPolaroid.new(item_resource, journal, bookflip_instance)
+		#static_body.main_page = main_page
+	else:
+		static_body = ClickableInventoryItem.new()
+	
+	static_body.name = item_resource.name
 	var collision_shape : CollisionShape3D = CollisionShape3D.new()
 	collision_shape.name = "CollisionShape3D"
 	collision_shape.shape = BoxShape3D.new()
-	collision_shape.shape.extents = Vector3(.2,.2,10)#find_first_mesh(item).get_aabb().size * .5
+	collision_shape.shape.extents = Vector3(.2,.2,.2)
 	
-	static_body.position = item.position
+	static_body.global_position = item.global_position
 	static_body.add_child(collision_shape)
 	static_body.add_child(item)
 	
 	item.position = Vector3.ZERO
+	item.rotate(Vector3(1,0,0), deg_to_rad(90))
+	item.rotate(Vector3(0,1,0), deg_to_rad(180))
+	
 	return static_body
+	
+func new_item(item_name:String):
+	var item_resource : InventoryItemResource = SaveSystem.inventory_item_to_resource[item_name]
+	var model : PackedScene = item_resource.model
+	var instance : Node3D = model.instantiate()
+	var static_body : ObjectViewerInteractable = create_clickable_item(item_resource, instance)
+	item_instances.push_back(static_body)
+	print("Static body name: ", static_body.name)
+
+func remove_item(item_name:String):
+	var position = 0
+	for item in item_instances:
+		if item.name == item_name:
+			self.remove_child(item)
+			item.queue_free()
+			item_instances.remove_at(position)
+			break
+		position += 1
 
 func load_items() -> void:
+	print("Loading items!")
 	player_inventory = SaveSystem.get_inventory()
-	var index = 0
 	for item in player_inventory:
 		if player_inventory[item] == 0: continue
-		var item_resource : Resource = SaveSystem.inventory_item_to_resource[item]
-		var model : PackedScene = item_resource.model
-		var instance : Node3D = model.instantiate()
-		var staticbody = create_clickable_item(instance)
-		staticbody.position = item_positions_grid[index]
-		item_instances.push_back(staticbody)
-		index += 1
+		new_item(item)
+	show_items()
 
 func show_items() -> void:
+	var item_index = 0
 	for item in item_instances:
-		add_child(item)
+		item.position = item_positions_grid[item_index]
+		self.add_child(item)
+		item_index+=1
 
 func hide_items() -> void:
 	for item in get_children():
-		remove_child(item)
+		self.remove_child(item)
+		
+func refresh_items():
+	hide_items()
+	show_items()

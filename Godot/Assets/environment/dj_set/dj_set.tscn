@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv8nlpv8yo7tj"]
+
+[ext_resource type="PackedScene" uid="uid://c17bgxcyeal7s" path="res://Assets/environment/dj_set/DJ set.glb" id="1_fvhs3"]
+
+[node name="DJ set" instance=ExtResource("1_fvhs3")]

@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name PolaroidLayer extends CanvasLayer
 
 var Picture
 
@@ -9,14 +9,15 @@ func _physics_process(delta: float) -> void:
 	Picture=$PictureExample/ViewFinder
 	var velocity = Vector2.ZERO 
 	# viewfinder movement corresponds with player input	
-	if Input.is_action_pressed("move_right"):
-		Picture.position.x += 1.5
-	if Input.is_action_pressed("move_left"):
-		Picture.position.x -= 1.5
-	if Input.is_action_pressed("move_down"):
-		Picture.position.y += 5
-	if Input.is_action_pressed("move_up"):
-		Picture.position.y -= 5
+	if visible:
+		if Input.is_action_pressed("move_right"):
+			Picture.position.x += 1.5
+		if Input.is_action_pressed("move_left"):
+			Picture.position.x -= 1.5
+		if Input.is_action_pressed("move_down"):
+			Picture.position.y += 5
+		if Input.is_action_pressed("move_up"):
+			Picture.position.y -= 5
 	#stops viewfinder from passing the bounds of the image
 	if	$PictureExample/ViewFinder.position.x < 0:
 		$PictureExample/ViewFinder.position.x = 0
@@ -70,5 +71,6 @@ func _on_question_mark_input_event(camera: Node, event: InputEvent, event_positi
 #when player shoots the picture, the scene goes away
 func turn_off():
 	$PictureExample/ViewFinder/Camera2D.enabled=false
+	$PictureExample/ViewFinder/Camera2D.position = Vector2.ZERO
 	og_camera.make_current()
 	visible = false

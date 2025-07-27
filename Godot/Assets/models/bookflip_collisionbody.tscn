@@ -1,60 +1,85 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1t1u428xvqgt"]
+[gd_scene load_steps=10 format=4 uid="uid://bgrnyakmgghyq"]
 
-[ext_resource type="Script" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
+[ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
-[ext_resource type="Script" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
-[ext_resource type="Script" path="res://Assets/models/journal_page_flip_collider.gd" id="4_e2q15"]
+[ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8532d"]
+_surfaces = [{
+"aabb": AABB(-1.56652, 0.230034, -0.886797, 3.13221, 0.0621335, 1.77752),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("GAABAAIAGAAAAAEAAwAYAAIAAwACAAQAGAADAAUAAAAYABkAGAAFABkAAAAZAAYACAAZAAUAGgAGABkACAAaABkACQAaAAgAGgAHAAYACQAKABoACgAHABoACgALAAcAGwANAA4AGwAPAA0ADAAPABsADAAQAA8AGwARAAwADgAcABsAGwAcABEADgASABwAFAARABwAHQAcABIAFAAcAB0AFQAUAB0AHQASABMAFQAdABYAFgAdABMAFgATABcA"),
+"lods": [7.79399e-05, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAAADAAUAAAAFAAYABwAGAAUACAAHAAUACQAHAAgACQAKAAcACgALAAcADAANAA4ADAAPAA0ADAAQAA8ADgARAAwADgASABEAEwARABIAFAARABMAFQAUABMAFQATABYAFgATABcA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("oKCHsfL/AAAIgAAA8v8AAAiAAAD5fwAAoKCHsQAAAAAIgAAAAAAAAGrA2+4AAAAAasDb7vL/AAA04Iex8v8AADTgh7EAAAAA//8AAAAAAAD//wAA+X8AAP//AADy/wAAXV89xAwAAAD2f1MU//8AAF1fPcT//wAA9n9TFAWAAAD2f1MUDAAAAJI///8MAAAAkj////7/AADJHxfB//8AAMkfF8EMAAAAAAD9DQwAAAAAAP0NBYAAAAAA/Q3+/wAAoKCHsfl/AABqwNvu+X8AADTgh7H5fwAAXV89xAWAAACSP/7/BYAAAMkfF8EFgAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vpnap"]
+resource_name = "book_static_Cube_009"
+_surfaces = [{
+"aabb": AABB(-1.56652, 0.230034, -0.886797, 3.13221, 0.0621335, 1.77752),
+"attribute_data": PackedByteArray("/////7piAAD/////PH8AAP////88f/9//////7pi////////PH////////8sQv///////yxCAAD/////gR8AAP////+BH/7//////wAA/v//////AAD/f/////8AAAAA/////2Cc////////PH8AAP////9gnAAA/////zx//3//////PH////////9qvv///////2q+AAD/////deAAAP////914P///////1X/////////Vf//f/////9V/wAA/////7pi/3//////LEL/f/////+BH/9//////2Cc/3//////ar7/f/////914P9/"),
+"format": 34896613407,
+"index_count": 96,
+"index_data": PackedByteArray("GAABAAIAGAAAAAEAAwAYAAIAAwACAAQAGAADAAUAAAAYABkAGAAFABkAAAAZAAYACAAZAAUAGgAGABkACAAaABkACQAaAAgAGgAHAAYACQAKABoACgAHABoACgALAAcAGwANAA4AGwAPAA0ADAAPABsADAAQAA8AGwARAAwADgAcABsAGwAcABEADgASABwAFAARABwAHQAcABIAFAAcAB0AFQAUAB0AHQASABMAFQAdABYAFgAdABMAFgATABcA"),
+"lods": [7.79399e-05, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAAADAAUAAAAFAAYABwAGAAUACAAHAAUACQAHAAgACQAKAAcACgALAAcADAANAA4ADAAPAA0ADAAQAA8ADgARAAwADgASABEAEwARABIAFAARABMAFQAUABMAFQATABYAFgATABcA")],
+"material": SubResource("StandardMaterial3D_sqehn"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("oKCHsfL/5P0IgAAA8v/l/AiAAAD5f+X8oKCHsQAA5P0IgAAAAADl/GrA2+4AAP//asDb7vL///804Iex8v/b/TTgh7EAANv9//8AAAAA0fz//wAA+X/R/P//AADy/9H8XV89xAwA7P32f1MU///s/F1fPcT//+z99n9TFAWA7Pz2f1MUDADs/JI///8MAPf/kj////7/9//JHxfB///T/ckfF8EMANP9AAD9DQwAyvwAAP0NBYDK/AAA/Q3+/8r8oKCHsfl/5P1qwNvu+X///zTgh7H5f9v9XV89xAWA7P2SP/7/BYD3/8kfF8EFgNP9tH3ZvqR8Ub6kfFG+tH3ZvqR8Ub7/f/+//3//v9Q+VQLUPlUCRz5wA0c+cANHPnAD3j5DAlY+UwPePkMCVj5TA1Y+UwP3f/u/93/7v6J90L6ifdC+h3xDvod8Q76HfEO+tH3Zvv9//7/UPlUC3j5DAvd/+7+ifdC+")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8532d")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7ovfm"]
+viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
-viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
+viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rss8h"]
 size = Vector3(3.37189, 0.300507, 1.23391)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7ovfm"]
-size = Vector3(1.36774, 1, 1.7092)
-
-[node name="BookflipBody" type="AnimatableBody3D" node_paths=PackedStringArray("inventory_items_container") groups=["object_viewer_interactable"]]
+[node name="BookflipBody" type="AnimatableBody3D" node_paths=PackedStringArray("static_page_1", "inventory_items_container")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 collision_layer = 9
 sync_to_physics = false
 script = ExtResource("1_jth6w")
+static_page_1 = NodePath("book_static/StaticPage1")
 inventory_items_container = NodePath("InventoryItems")
 
+[node name="book_static" type="Node3D" parent="."]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0.179772, -0.493565)
+visible = false
+
+[node name="StaticPage1" type="MeshInstance3D" parent="book_static"]
+mesh = SubResource("ArrayMesh_vpnap")
+skeleton = NodePath("")
+
 [node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
-viewport_texture = SubResource("ViewportTexture_e2q15")
+transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -0.00238484, 0.0737534, -0.499142)
+viewport_texture1 = SubResource("ViewportTexture_7ovfm")
+viewport_texture2 = SubResource("ViewportTexture_e2q15")
 
 [node name="ShowInventoryCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017395, 0.1165, 1.48344)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.00412434, 0.190253, -0.499142)
+visible = false
 shape = SubResource("BoxShape3D_rss8h")
 debug_color = Color(0.784314, 0, 0.0745098, 1)
 
-[node name="InventoryItems" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.328706, 1.4382)
+[node name="InventoryItems" type="Node3D" parent="." node_paths=PackedStringArray("journal", "bookflip_instance")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.00238484, 0.402459, 0.60924)
 script = ExtResource("3_7ovfm")
-
-[node name="PageFlipRight" type="StaticBody3D" parent="." node_paths=PackedStringArray("bookflip_instance") groups=["object_viewer_interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114063, -6.49764e-09, -0.148649)
-collision_layer = 9
-collision_mask = 9
-script = ExtResource("4_e2q15")
+journal = NodePath("..")
 bookflip_instance = NodePath("../bookflip")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PageFlipRight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991547, 0, 0.141708)
-shape = SubResource("BoxShape3D_7ovfm")
-
-[node name="PageFlipLeft" type="StaticBody3D" parent="." node_paths=PackedStringArray("bookflip_instance") groups=["object_viewer_interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87412, 0.00477885, -0.142431)
-collision_layer = 9
-collision_mask = 9
-script = ExtResource("4_e2q15")
-flip_backwards = true
-bookflip_instance = NodePath("../bookflip")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PageFlipLeft"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991547, 0, 0.141708)
-shape = SubResource("BoxShape3D_7ovfm")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -66,4 +91,16 @@ unique_name_in_owner = true
 [node name="HideInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/310_SFX_UI_BagClose"
 event_guid = "{69c3d9f1-cb46-4217-817c-0a5e223ab1e1}"
+unique_name_in_owner = true
+
+[node name="JournalOpenSound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/302_SFX_UI_JournalOpen"
+event_guid = "{30f0e84f-546b-4951-8546-610e533ebe87}"
+attached = false
+unique_name_in_owner = true
+
+[node name="JournalCloseSound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/301_SFX_UI_JournalClose"
+event_guid = "{9355ad2b-58c5-4861-8f53-fe56b2894e62}"
+attached = false
 unique_name_in_owner = true

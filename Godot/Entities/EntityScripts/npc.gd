@@ -2,8 +2,8 @@ extends Node3D
 
 var outline : Node3D
 
-@export var character_resource : Resource
-@export var dialogue_box : Resource
+@export var character_resource : CharacterResource
+@export var dialogue_box : DialogueBoxResource
 @export var json_file : JSON
 
 func _ready() -> void:
