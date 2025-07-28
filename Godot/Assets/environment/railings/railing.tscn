@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cie23uvky6kns"]
+
+[ext_resource type="PackedScene" uid="uid://bnpud31syhtet" path="res://Assets/environment/railings/railing.glb" id="1_p0b76"]
+
+[node name="Railing" instance=ExtResource("1_p0b76")]

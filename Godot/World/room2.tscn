@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://cltuhd3m7kclu"]
+[gd_scene load_steps=42 format=4 uid="uid://cltuhd3m7kclu"]
 
 [ext_resource type="Script" uid="uid://bc2ilamjayd16" path="res://World/WorldScripts/room.gd" id="1_yr5jj"]
 [ext_resource type="Texture2D" uid="uid://vafql34ki8ws" path="res://Assets/textures/wall2.png" id="2_5th2e"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://k58x5f81dijv" path="res://Assets/props/wooden_table/wood table.glb" id="18_ejex6"]
 [ext_resource type="PackedScene" uid="uid://b1e31j7rea4bf" path="res://Assets/props/table_tennis_table/table_tennis_table.tscn" id="19_ai1un"]
 [ext_resource type="PackedScene" uid="uid://cpjqnmnxe6v8j" path="res://Assets/props/crates/craters with cups.glb" id="20_h6py2"]
-[ext_resource type="PackedScene" uid="uid://5lpiugsftfjc" path="res://Assets/props/speaker.glb" id="21_5fq7d"]
 [ext_resource type="PackedScene" uid="uid://fejxno4a8ptp" path="res://Assets/props/hanger.glb" id="22_1sa7q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
@@ -257,12 +256,6 @@ transform = Transform3D(0.148415, 0, -0.0793759, 0, 0.168307, 0, 0.0793759, 0, 0
 
 [node name="Crates" parent="Props" instance=ExtResource("20_h6py2")]
 transform = Transform3D(0.595368, 0, 0, 0, 0.595368, 0, 0, 0, 0.595368, -1.82759, 0.0978815, 2.57824)
-
-[node name="Speaker" parent="Props" instance=ExtResource("21_5fq7d")]
-transform = Transform3D(0.514398, 0, 0, 0, 0.514398, 0, 0, 0, 0.514398, -2.17206, 0.00443169, -0.687761)
-
-[node name="Speaker2" parent="Props" instance=ExtResource("21_5fq7d")]
-transform = Transform3D(0.517975, 0, 0, 0, 0.517975, 0, 0, 0, 0.517975, 0.98368, 0.00443146, -0.706155)
 
 [node name="Hanger" parent="Props" instance=ExtResource("22_1sa7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47603, 0.0523432, -1.08371)
