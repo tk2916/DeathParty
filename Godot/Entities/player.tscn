@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8kaqd0dtqsp1"]
+[gd_scene load_steps=10 format=3 uid="uid://b8kaqd0dtqsp1"]
 
 [ext_resource type="Script" uid="uid://btdxsedihjw8m" path="res://Utilities/scripts/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/olivia/olivia_model.tscn" id="2_gb1tc"]
@@ -10,6 +10,8 @@ height = 1.71
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pvmex"]
 animation = &"Idle"
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_gb1tc"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gb1tc"]
 animation = &"Turn"
 
@@ -19,16 +21,19 @@ animation = &"Walk"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ov2v6"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gb1tc"]
+graph_offset = Vector2(242.854, 83.3726)
 "nodes/Idle Anim/node" = SubResource("AnimationNodeAnimation_pvmex")
 "nodes/Idle Anim/position" = Vector2(160, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_gb1tc")
+nodes/TimeScale/position = Vector2(605.529, 125.784)
 "nodes/Turn Anim/node" = SubResource("AnimationNodeAnimation_gb1tc")
-"nodes/Turn Anim/position" = Vector2(620, 280)
+"nodes/Turn Anim/position" = Vector2(170, 470)
 "nodes/Walk Anim/node" = SubResource("AnimationNodeAnimation_488j3")
 "nodes/Walk Anim/position" = Vector2(160, 280)
 "nodes/Walk Blend/node" = SubResource("AnimationNodeBlend2_ov2v6")
 "nodes/Walk Blend/position" = Vector2(420, 140)
-nodes/output/position = Vector2(660, 140)
-node_connections = [&"Walk Blend", 0, &"Idle Anim", &"Walk Blend", 1, &"Walk Anim", &"output", 0, &"Walk Blend"]
+nodes/output/position = Vector2(800, 140)
+node_connections = [&"TimeScale", 0, &"Walk Blend", &"Walk Blend", 0, &"Idle Anim", &"Walk Blend", 1, &"Walk Anim", &"output", 0, &"TimeScale"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("player_camera_location")]
 collision_mask = 2
@@ -51,6 +56,7 @@ unique_name_in_owner = true
 root_node = NodePath("%PlayerModel")
 tree_root = SubResource("AnimationNodeBlendTree_gb1tc")
 anim_player = NodePath("../PlayerModel/AnimationPlayer")
+parameters/TimeScale/scale = 1.0
 "parameters/Walk Blend/blend_amount" = 0
 
 [node name="FootstepSounds" type="FmodEventEmitter3D" parent="."]
