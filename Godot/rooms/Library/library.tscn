@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=72 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://dl75a8q3i0w22" path="res://Assets/environment/Book_Shelves/bookshelf_1r.tscn" id="8_nt7ft"]
 [ext_resource type="PackedScene" uid="uid://dyj4kpvw1jya" path="res://Assets/environment/carpet/carpet.tscn" id="13_1lqw2"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamp/walllamp.tscn" id="14_a1w3s"]
+[ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="15_e63ox"]
+[ext_resource type="PackedScene" uid="uid://xukwgg26fv7r" path="res://rooms/Library/USA_Flag.glb" id="15_ypgds"]
+[ext_resource type="PackedScene" uid="uid://be24vawtanngv" path="res://rooms/Library/DIE banner.glb" id="16_6posu"]
+[ext_resource type="PackedScene" uid="uid://d0npqij1rnr1s" path="res://Assets/environment/Book_Shelves/bookshelf_3.tscn" id="18_62c4v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gde20"]
 resource_name = "Material.151"
@@ -1068,7 +1072,6 @@ skeleton = NodePath("")
 transform = Transform3D(-0.18645, 0, -6.98784e-08, 0, 0.187118, 0, 6.07532e-08, 0, -0.214455, -4.58511, -0.34643, 2.42161)
 
 [node name="Cube_001" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4apcc")
 skeleton = NodePath("")
 
@@ -1092,11 +1095,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312,
 [node name="bookshelf1r2" parent="." instance=ExtResource("8_nt7ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312, 2.73936)
 
-[node name="bookshelf1r3" parent="." instance=ExtResource("8_nt7ft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0089, -2.9312, 5.7251)
-
 [node name="blackraillings" parent="." instance=ExtResource("2_6fo57")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.68794, -0.159876, 0.80122)
+transform = Transform3D(0.934116, 0, 0, 0, 1, 0, 0, 0, 1, -8.253, -0.175896, 1.01844)
 
 [node name="bookshelf top floor" parent="." instance=ExtResource("3_mjo1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55047, 0.767613, -3.30168)
@@ -1144,9 +1144,9 @@ light_energy = 16.0
 transform = Transform3D(5.61817, 0, 0, 0, 3.52113, 0, 0, 0, 3.87769, 0, 13.0462, -0.00364685)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.0282931, -0.738255, 0.673928, 0.0309664, 0.674522, 0.737606, -0.99912, 1.45388e-09, 0.0419454, 9.48549, 5.81339, 0.454573)
+transform = Transform3D(0.0282931, -0.738255, 0.673928, 0.0309664, 0.674522, 0.737605, -0.99912, -5.58046e-09, 0.0419454, 9.48549, 5.81339, 1.47308)
 light_color = Color(0.432, 0.8454, 0.9, 1)
-light_energy = 50.0
+light_energy = 60.0
 light_specular = 0.767
 shadow_enabled = true
 shadow_bias = 0.197
@@ -1154,7 +1154,23 @@ shadow_normal_bias = 0.0
 shadow_opacity = 0.57
 shadow_blur = 3.389
 spot_range = 38.195
+spot_attenuation = 0.89
 spot_angle = 22.0
+spot_angle_attenuation = 1.62451
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.0379714, -0.424863, 0.904461, 0.017821, 0.905258, 0.424489, -0.99912, -1.92529e-09, 0.0419454, 9.48549, 4.56094, 1.099)
+light_color = Color(0.432, 0.8454, 0.9, 1)
+light_energy = 60.0
+light_specular = 0.767
+shadow_enabled = true
+shadow_bias = 0.197
+shadow_normal_bias = 0.0
+shadow_opacity = 0.57
+shadow_blur = 3.389
+spot_range = 25.937
+spot_attenuation = 0.79
+spot_angle = 11.0
 spot_angle_attenuation = 1.62451
 
 [node name="carpet" parent="." instance=ExtResource("13_1lqw2")]
@@ -1182,6 +1198,33 @@ light_energy = 16.0
 shadow_blur = 2.16
 omni_range = 0.724
 omni_attenuation = -0.395
+
+[node name="walllamp8" parent="." instance=ExtResource("14_a1w3s")]
+transform = Transform3D(-0.99999, 0, -0.00445059, 0, 1, 0, 0.00445059, 0, -0.99999, 5.08327, 2.01242, -1.33187)
+
+[node name="SpotLight3D" parent="walllamp8" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.0362949, 0.999341, 0, -0.999341, 0.0362949, 0.419758, -0.0392165, 0.00153852)
+light_color = Color(0.76, 0.403813, 0.1976, 1)
+light_energy = 4.555
+light_specular = 0.767
+shadow_bias = 0.141
+shadow_opacity = 0.9
+shadow_blur = 2.549
+spot_range = 3.049
+spot_attenuation = -2.67
+spot_angle = 35.31
+
+[node name="OmniLight3D" parent="walllamp8" index="2"]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -4.65661e-10, 0, 1, 0.413326, -0.272423, 1.19209e-07)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="walllamp8"]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0.478139, -0.909244, 6.12736e-05)
+light_color = Color(1, 0.697833, 0.51, 1)
+light_energy = 10.222
+shadow_enabled = true
+shadow_blur = 2.104
+omni_range = 0.758
+omni_attenuation = -3.062
 
 [node name="walllamp5" parent="." instance=ExtResource("14_a1w3s")]
 transform = Transform3D(0.000942476, 0, -1, 0, 1, 0, 1, 0, 0.000942476, -5.7333, 2.01242, -3.20777)
@@ -1229,16 +1272,60 @@ shadow_blur = 2.16
 omni_range = 0.724
 omni_attenuation = -0.395
 
+[node name="walllamp7" parent="." instance=ExtResource("14_a1w3s")]
+transform = Transform3D(0.999897, 0, -0.0143636, 0, 1, 0, 0.0143636, 0, 0.999897, -10.1881, 2.26806, 3.57565)
+
+[node name="SpotLight3D" parent="walllamp7" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.0362949, 0.999341, 0, -0.999341, 0.0362949, 0.419758, -0.0392165, 0.00153852)
+light_color = Color(0.76, 0.403813, 0.1976, 1)
+light_energy = 4.555
+light_specular = 0.767
+shadow_bias = 0.141
+shadow_opacity = 0.9
+shadow_blur = 2.549
+spot_range = 3.049
+spot_attenuation = -2.67
+spot_angle = 35.31
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="walllamp7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478139, -0.845617, 6.10352e-05)
+light_color = Color(1, 0.697833, 0.51, 1)
+light_energy = 16.0
+shadow_blur = 2.16
+omni_range = 0.724
+omni_attenuation = -0.395
+
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(4.05173, 0, 0, 0, 4.05173, 0, 0, 0, 4.05173, -2.37652, 1.05777, 2.26347)
 size = Vector3(4.15564, 2.82666, 3.23547)
 material = SubResource("FogMaterial_a1w3s")
 
-[node name="walllamp" parent="." instance=ExtResource("14_a1w3s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2876, 2.38419e-07, -8.84566)
+[node name="USA_Flag" parent="." instance=ExtResource("15_ypgds")]
+transform = Transform3D(0.688688, 0, 0, 0, 0.688688, 0, 0, 0, 0.688688, -3.78984, -2.73706, -1.60037)
 
+[node name="DIE banner" parent="." instance=ExtResource("16_6posu")]
+transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, -6.60616, -1.44838, 0.674483)
+
+[node name="DIE banner2" parent="." instance=ExtResource("16_6posu")]
+transform = Transform3D(-0.0151446, 0, -0.710091, 0, 0.707288, 0, 0.588953, 0, -0.0182595, -8.0859, -1.5602, 5.36476)
+
+[node name="door" parent="." instance=ExtResource("15_e63ox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91573, -3.23279, -1.95305)
+
+[node name="door2" parent="." instance=ExtResource("15_e63ox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754969, -3.23279, -3.2323)
+
+[node name="bookshelf3" parent="." instance=ExtResource("18_62c4v")]
+transform = Transform3D(0.9454, 0, 0, 0, 0.9454, 0, 0, 0, 0.9454, 0.912875, -4.25307, -3.35609)
+
+[node name="bookshelf4" parent="." instance=ExtResource("18_62c4v")]
+transform = Transform3D(0.9454, 0, 0, 0, 0.9454, 0, 0, 0, 0.9454, 2.76521, -4.25307, -3.35026)
+
+[editable path="blackraillings"]
 [editable path="bookshelf top floor"]
 [editable path="Chandelier"]
 [editable path="walllamp4"]
+[editable path="walllamp8"]
 [editable path="walllamp5"]
 [editable path="walllamp6"]
+[editable path="walllamp7"]
