@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=78 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://c7ss5lax14vpn" path="res://Assets/props/wooden_table/wood_table.glb" id="20_3v00t"]
 [ext_resource type="PackedScene" uid="uid://dmy0dkjekw84j" path="res://Assets/props/plants/plant pot 2.glb" id="21_w06or"]
 [ext_resource type="PackedScene" uid="uid://cubcxrhw7wq5g" path="res://Assets/props/plants/plant_pot.glb" id="22_pxykb"]
+[ext_resource type="PackedScene" uid="uid://3loxlhscoqmb" path="res://Assets/props/wood_desk/wood_deskglb.glb" id="23_pxykb"]
+[ext_resource type="PackedScene" uid="uid://dn8tphi4h7qm7" path="res://Assets/props/desk_lamp/desk_lamp.tscn" id="24_c2j7r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gde20"]
 resource_name = "Material.151"
@@ -1099,6 +1101,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312,
 [node name="bookshelf1r2" parent="." instance=ExtResource("8_nt7ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312, 2.73936)
 
+[node name="bookshelf1r3" parent="." instance=ExtResource("8_nt7ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312, 5.7067)
+
+[node name="bookshelf1r5" parent="." instance=ExtResource("8_nt7ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312, 8.67255)
+
+[node name="bookshelf1r4" parent="." instance=ExtResource("8_nt7ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, 4.46457, -2.9312, 6.65061)
+
 [node name="blackraillings" parent="." instance=ExtResource("2_6fo57")]
 transform = Transform3D(0.934116, 0, 0, 0, 1, 0, 0, 0, 1, -8.253, -0.175896, 1.01844)
 
@@ -1156,7 +1167,7 @@ shadow_enabled = true
 shadow_bias = 0.197
 shadow_normal_bias = 0.0
 shadow_opacity = 0.57
-shadow_blur = 3.389
+shadow_blur = 3.667
 spot_range = 38.195
 spot_attenuation = 0.89
 spot_angle = 22.0
@@ -1165,14 +1176,14 @@ spot_angle_attenuation = 1.62451
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(0.0379714, -0.424863, 0.904461, 0.017821, 0.905258, 0.424489, -0.99912, -1.92529e-09, 0.0419454, 9.48549, 4.56094, 1.099)
 light_color = Color(0.432, 0.8454, 0.9, 1)
-light_energy = 60.0
+light_energy = 70.0
 light_specular = 0.767
 shadow_enabled = true
 shadow_bias = 0.197
 shadow_normal_bias = 0.0
 shadow_opacity = 0.57
 shadow_blur = 3.389
-spot_range = 25.937
+spot_range = 29.794
 spot_attenuation = 0.79
 spot_angle = 11.0
 spot_angle_attenuation = 1.62451
@@ -1348,6 +1359,12 @@ transform = Transform3D(1.53207, 0, 0, 0, 1.53207, 0, 0, 0, 1.53207, -9.95843, 0
 
 [node name="plant_pot2" parent="." instance=ExtResource("22_pxykb")]
 transform = Transform3D(0.802828, 0, -0.596211, 0, 1, 0, 0.596211, 0, 0.802828, -9.06269, -4.03568, -0.965826)
+
+[node name="wood_deskglb" parent="." instance=ExtResource("23_pxykb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07045, -4.41228, 1.5837)
+
+[node name="desk_lamp" parent="." instance=ExtResource("24_c2j7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4585, -3.5976, 1.40073)
 
 [editable path="blackraillings"]
 [editable path="bookshelf top floor"]
