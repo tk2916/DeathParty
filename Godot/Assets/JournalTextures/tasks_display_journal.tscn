@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://brm0u0exbpbh8" path="res://Assets/JournalTextures/Frame.png" id="2_resmi"]
 [ext_resource type="Texture2D" uid="uid://oc83yfhcm2cs" path="res://Assets/JournalTextures/TASKS.png" id="3_jto3t"]
 [ext_resource type="Texture2D" uid="uid://bin0rpri4iojr" path="res://Assets/JournalTextures/Underline.png" id="4_7jmn4"]
+[ext_resource type="Script" uid="uid://mf1djiicynhi" path="res://Assets/GUIFunctionalityScripts/3d_gui.gd" id="5_jto3t"]
 [ext_resource type="Script" uid="uid://br2ob5t1hy2ya" path="res://task_display_script.gd" id="5_nsc2u"]
-[ext_resource type="PackedScene" uid="uid://ch3ugfpbyqlan" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_prefab.tscn" id="6_jto3t"]
 [ext_resource type="Texture2D" uid="uid://1dlgpxcvx7jl" path="res://Assets/JournalTextures/task_title_backer.png" id="8_7jmn4"]
 [ext_resource type="Texture2D" uid="uid://5g1f30ift0xa" path="res://Assets/JournalTextures/description_backer.png" id="9_nsc2u"]
 
@@ -71,6 +71,7 @@ grow_vertical = 2
 texture = ExtResource("3_jto3t")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("5_jto3t")
 
 [node name="Divider" type="TextureRect" parent="LeftPage"]
 layout_mode = 1
@@ -96,9 +97,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="TaskContainer" parent="LeftPage/AllTasks" instance=ExtResource("6_jto3t")]
-layout_mode = 2
 
 [node name="RightPage" type="Control" parent="."]
 layout_mode = 1
@@ -128,7 +126,7 @@ anchor_right = 0.97
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[color=black]Panic! At the Photography Club"
 scroll_active = false
@@ -163,6 +161,7 @@ anchor_right = 1.0
 anchor_bottom = 0.1
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[color=black]3:15 AM"
 scroll_active = false
@@ -178,6 +177,7 @@ anchor_bottom = 0.7
 offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[color=black]Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah "
 scroll_active = false

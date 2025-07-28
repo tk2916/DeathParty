@@ -58,6 +58,7 @@ func get_tab(tab_index : int):
 	return return_tab
 
 func get_tab_from_page_number(page_number : int):
+	print("Getting tab for page # : ", page_number)
 	var tab_index = 0
 	for tab in left_tabs:
 		if page_number == tab.flip_to_page: #find the tab with that page num

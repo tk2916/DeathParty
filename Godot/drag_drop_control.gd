@@ -16,10 +16,12 @@ func _ready() -> void:
 		reveal_info()
 
 func enter_hover() -> void:
+	print("Entered hover: ", self.name)
 	super()
 	if color_rect:
 		color_rect.visible = true
 func exit_hover() -> void:
+	print("Exited hover: ", self.name)
 	super()
 	if color_rect:
 		color_rect.visible = false
@@ -39,15 +41,11 @@ func reveal_info() -> void:
 		texture_rect.texture = reveal_texture
 		self.add_child(texture_rect)
 	
-func mouse_up(resource : InventoryItemResource, instance : DragDropPolaroid) -> void:
+func mouse_up_polaroid(resource : InventoryItemResource, instance : DragDropPolaroid) -> void:
 	if resource == correct_item:
 		SaveSystem.remove_item(resource.name)
 		SaveSystem.set_journal_entry(resource.name, true)
 		reveal_info()
-		
-		#var packed_scene := PackedScene.new()
-		#packed_scene.pack(node_root)
-		#ResourceSaver.save(packed_scene, node_save_path)
 		print("Correct model!")
 		pass
 	else:
