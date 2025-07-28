@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://doris4rgfmfhp" path="res://rooms/Library/library layout.glb" id="1_g3kos"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_e6nv4"]
-[ext_resource type="PackedScene" uid="uid://8xcuuq3tfa0u" path="res://rooms/Library/bookshelf top floor.glb" id="3_lokq1"]
+[ext_resource type="PackedScene" uid="uid://cujkdwu7yl672" path="res://rooms/Library/bookshelf top floor.glb" id="3_lokq1"]
 
 [node name="library layout" instance=ExtResource("1_g3kos")]
 
@@ -13,4 +13,4 @@ transform = Transform3D(-0.18645, 0, -6.98784e-08, 0, 0.187118, 0, 6.07532e-08, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.68794, -0.159876, 0.80122)
 
 [node name="bookshelf top floor" parent="." index="25" instance=ExtResource("3_lokq1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02039, 1.38973, -2.8506)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55047, 0.767613, -3.30168)

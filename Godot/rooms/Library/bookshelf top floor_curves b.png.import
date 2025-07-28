@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nwgk77o40kno"
+uid="uid://bhp0l1sxm8woi"
 path.s3tc="res://.godot/imported/bookshelf top floor_curves b.png-2a2ace9324bc63f1de9ebc59e28091de.s3tc.ctex"
 path.etc2="res://.godot/imported/bookshelf top floor_curves b.png-2a2ace9324bc63f1de9ebc59e28091de.etc2.ctex"
 metadata={
@@ -10,7 +10,7 @@ metadata={
 "vram_texture": true
 }
 generator_parameters={
-"md5": "abfc18081aa478c5e829c88c70befd42"
+"md5": "8e47e701c445a24bef8866f1b5b2037e"
 }
 
 [deps]
