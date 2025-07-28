@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name PolaroidLayer extends CanvasLayer
 
 var Picture
 @export var viewfinder_camera: Camera2D
