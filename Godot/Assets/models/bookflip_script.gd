@@ -39,6 +39,7 @@ var cur_subviewport : Viewport  #referenced in other classes
 func _ready() -> void:
 	left_tabs = tabs_node_left.get_children()
 	right_tabs = tabs_node_right.get_children()
+	right_tabs.reverse()
 	
 	tab_handler = JournalTabHandler.new(left_tabs, right_tabs)
 	

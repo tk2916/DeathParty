@@ -15,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="Control" parent="." node_paths=PackedStringArray("node_root", "color_rect")]
+[node name="Page1" type="Control" parent="." node_paths=PackedStringArray("node_root", "color_rect")]
 z_index = 1
 layout_mode = 1
 anchor_right = 0.5
@@ -29,7 +29,7 @@ correct_item = ExtResource("2_k8c0u")
 reveal_texture = ExtResource("3_wrbjp")
 color_rect = NodePath("ColorRect")
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+[node name="ColorRect" type="ColorRect" parent="Page1"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.794726, 0.0885603, 2.88785e-07, 1)
 
-[node name="ColorRect2" type="Control" parent="." node_paths=PackedStringArray("node_root", "color_rect")]
+[node name="Page2" type="Control" parent="." node_paths=PackedStringArray("node_root", "color_rect")]
 z_index = 1
 layout_mode = 1
 anchor_left = 0.5
@@ -54,7 +54,7 @@ correct_item = ExtResource("3_5bn1t")
 reveal_texture = ExtResource("5_w0ofx")
 color_rect = NodePath("ColorRect")
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect2"]
+[node name="ColorRect" type="ColorRect" parent="Page2"]
 visible = false
 layout_mode = 1
 anchors_preset = 15

@@ -5,7 +5,7 @@ class_name Journal extends Node3D
 
 var up_pos : Vector3
 var normal_pos : Vector3
-var og_scale : Vector3 = Vector3.ONE
+var og_scale : Vector3 = Vector3.ONE*1.2
 const TWEEN_TIME : float = .5
 
 @export var bookflip : BookFlip
