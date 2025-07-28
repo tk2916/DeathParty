@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=81 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dn8tphi4h7qm7" path="res://Assets/props/desk_lamp/desk_lamp.tscn" id="24_c2j7r"]
 [ext_resource type="PackedScene" uid="uid://cxuf4gvxaveq6" path="res://rooms/Library/library_chair.glb" id="25_l64a3"]
 [ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://rooms/Library/globe.glb" id="26_nuxp6"]
+[ext_resource type="PackedScene" uid="uid://d2o5pbctxrw1o" path="res://rooms/Library/curtains.glb" id="27_k8mop"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gde20"]
 resource_name = "Material.151"
@@ -1208,6 +1209,9 @@ spot_range = 3.049
 spot_attenuation = -2.67
 spot_angle = 35.31
 
+[node name="OmniLight3D" parent="walllamp4" index="2"]
+light_energy = 3.0
+
 [node name="OmniLight3D2" type="OmniLight3D" parent="walllamp4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478139, -0.845617, 6.10352e-05)
 light_color = Color(1, 0.697833, 0.51, 1)
@@ -1233,6 +1237,7 @@ spot_angle = 35.31
 
 [node name="OmniLight3D" parent="walllamp8" index="2"]
 transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -4.65661e-10, 0, 1, 0.413326, -0.272423, 1.19209e-07)
+light_energy = 3.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="walllamp8"]
 transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0.478139, -0.909244, 6.12736e-05)
@@ -1258,6 +1263,9 @@ spot_range = 3.049
 spot_attenuation = -2.67
 spot_angle = 35.31
 
+[node name="OmniLight3D" parent="walllamp5" index="2"]
+light_energy = 3.0
+
 [node name="OmniLight3D2" type="OmniLight3D" parent="walllamp5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478139, -0.845617, 6.10352e-05)
 light_color = Color(1, 0.697833, 0.51, 1)
@@ -1281,6 +1289,9 @@ spot_range = 3.049
 spot_attenuation = -2.67
 spot_angle = 35.31
 
+[node name="OmniLight3D" parent="walllamp6" index="2"]
+light_energy = 3.0
+
 [node name="OmniLight3D2" type="OmniLight3D" parent="walllamp6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478139, -0.845617, 6.10352e-05)
 light_color = Color(1, 0.697833, 0.51, 1)
@@ -1303,6 +1314,9 @@ shadow_blur = 2.549
 spot_range = 3.049
 spot_attenuation = -2.67
 spot_angle = 35.31
+
+[node name="OmniLight3D" parent="walllamp7" index="2"]
+light_energy = 3.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="walllamp7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478139, -0.845617, 6.10352e-05)
@@ -1371,6 +1385,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07045, -4.41228, 1.5837)
 [node name="desk_lamp" parent="." instance=ExtResource("24_c2j7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4585, -3.5976, 1.40073)
 
+[node name="wood_deskglb3" parent="." instance=ExtResource("23_pxykb")]
+transform = Transform3D(0.430464, 0, 0.902608, 0, 1, 0, -0.902608, 0, 0.430464, -9.88157, -1.11604, 1.52653)
+
+[node name="desk_lamp2" parent="." instance=ExtResource("24_c2j7r")]
+transform = Transform3D(0.430464, 0, 0.902608, 0, 1, 0, -0.902608, 0, 0.430464, -9.78329, -0.301363, 0.895423)
+
+[node name="OmniLight3D" parent="desk_lamp2" index="1"]
+light_energy = 1.979
+omni_range = 0.782
+
 [node name="library_chair" parent="." instance=ExtResource("25_l64a3")]
 transform = Transform3D(0.83297, 0, -0.553319, 0, 1, 0, 0.553319, 0, 0.83297, -6.464, -4.41174, 0.369319)
 
@@ -1395,6 +1419,9 @@ spot_angle = 19.94
 [node name="wood_table" parent="." instance=ExtResource("20_3v00t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3195, -4.41052, 0.949388)
 
+[node name="curtains" parent="." instance=ExtResource("27_k8mop")]
+transform = Transform3D(0.796048, 0.0479322, 0, -0.0386965, 0.986042, 0, 0, 0, 0.862107, 3.82322, 4.22195, 1.39155)
+
 [editable path="blackraillings"]
 [editable path="bookshelf top floor"]
 [editable path="Chandelier"]
@@ -1403,3 +1430,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3195, -4.41052, 0.949388)
 [editable path="walllamp5"]
 [editable path="walllamp6"]
 [editable path="walllamp7"]
+[editable path="desk_lamp2"]
