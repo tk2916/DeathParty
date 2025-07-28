@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=68 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dmwn7qhrq12mg" path="res://rooms/Library/library layout_IMG_4162.png" id="6_6posu"]
 [ext_resource type="Texture2D" uid="uid://csdawdflmf8k3" path="res://rooms/Library/library layout_wood.png" id="7_e63ox"]
 [ext_resource type="PackedScene" uid="uid://dl75a8q3i0w22" path="res://Assets/environment/Book_Shelves/bookshelf_1r.tscn" id="8_nt7ft"]
+[ext_resource type="PackedScene" uid="uid://dyj4kpvw1jya" path="res://Assets/environment/carpet/carpet.tscn" id="13_1lqw2"]
+[ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamp/walllamp.tscn" id="14_a1w3s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gde20"]
 resource_name = "Material.151"
@@ -791,7 +793,6 @@ size = Vector3(108.293, 1, 58.2378)
 resource_name = "Material.128"
 cull_mode = 2
 albedo_texture = ExtResource("5_ypgds")
-roughness = 0.570626
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_41wgh"]
 _surfaces = [{
@@ -952,6 +953,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gh8jo")
 
+[sub_resource type="FogMaterial" id="FogMaterial_a1w3s"]
+density = 0.005
+albedo = Color(0, 0.225, 0.54, 1)
+
 [node name="Library" type="Area3D"]
 
 [node name="Cube_023" type="MeshInstance3D" parent="."]
@@ -1107,9 +1112,6 @@ skeleton = NodePath("")
 [node name="Chandelier" parent="." instance=ExtResource("4_30q20")]
 transform = Transform3D(0.301923, 0, 0, 0, 0.301923, 0, 0, 0, 0.301923, -2.7911, 1.19032, 1.48577)
 
-[node name="chandelior bar" parent="Chandelier" instance=ExtResource("5_l745y")]
-transform = Transform3D(5.61817, 0, 0, 0, 3.52113, 0, 0, 0, 3.87769, 0, 13.0462, -0.00364685)
-
 [node name="OmniLight3D" parent="Chandelier/Lights" index="0"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 16.0
@@ -1138,6 +1140,9 @@ omni_range = 0.7
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 16.0
 
+[node name="chandelior bar" parent="Chandelier" instance=ExtResource("5_l745y")]
+transform = Transform3D(5.61817, 0, 0, 0, 3.52113, 0, 0, 0, 3.87769, 0, 13.0462, -0.00364685)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.0282931, -0.738255, 0.673928, 0.0309664, 0.674522, 0.737606, -0.99912, 1.45388e-09, 0.0419454, 9.48549, 5.81339, 0.454573)
 light_color = Color(0.432, 0.8454, 0.9, 1)
@@ -1152,5 +1157,88 @@ spot_range = 38.195
 spot_angle = 22.0
 spot_angle_attenuation = 1.62451
 
+[node name="carpet" parent="." instance=ExtResource("13_1lqw2")]
+transform = Transform3D(0.547585, 0, 0, 0, 0.547585, 0, 0, 0, 0.547585, -2.71323, -4.35463, 2.53695)
+
+[node name="walllamp4" parent="." instance=ExtResource("14_a1w3s")]
+transform = Transform3D(0.000942476, 0, -1, 0, 1, 0, 1, 0, 0.000942476, 1.13482, 2.01242, -3.20777)
+
+[node name="SpotLight3D" parent="walllamp4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.0362949, 0.999341, 0, -0.999341, 0.0362949, 0.419758, -0.0392165, 0.00153852)
+light_color = Color(0.76, 0.403813, 0.1976, 1)
+light_energy = 4.555
+light_specular = 0.767
+shadow_bias = 0.141
+shadow_opacity = 0.9
+shadow_blur = 2.549
+spot_range = 3.049
+spot_attenuation = -2.67
+spot_angle = 35.31
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="walllamp4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478139, -0.845617, 6.10352e-05)
+light_color = Color(1, 0.697833, 0.51, 1)
+light_energy = 16.0
+shadow_blur = 2.16
+omni_range = 0.724
+omni_attenuation = -0.395
+
+[node name="walllamp5" parent="." instance=ExtResource("14_a1w3s")]
+transform = Transform3D(0.000942476, 0, -1, 0, 1, 0, 1, 0, 0.000942476, -5.7333, 2.01242, -3.20777)
+
+[node name="SpotLight3D" parent="walllamp5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.0362949, 0.999341, 0, -0.999341, 0.0362949, 0.419758, -0.0392165, 0.00153852)
+light_color = Color(0.76, 0.403813, 0.1976, 1)
+light_energy = 4.555
+light_specular = 0.767
+shadow_bias = 0.141
+shadow_opacity = 0.9
+shadow_blur = 2.549
+spot_range = 3.049
+spot_attenuation = -2.67
+spot_angle = 35.31
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="walllamp5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478139, -0.845617, 6.10352e-05)
+light_color = Color(1, 0.697833, 0.51, 1)
+light_energy = 16.0
+shadow_blur = 2.16
+omni_range = 0.724
+omni_attenuation = -0.395
+
+[node name="walllamp6" parent="." instance=ExtResource("14_a1w3s")]
+transform = Transform3D(0.999897, 0, -0.0143636, 0, 1, 0, 0.0143636, 0, 0.999897, -10.1881, 2.26806, -1.28118)
+
+[node name="SpotLight3D" parent="walllamp6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.0362949, 0.999341, 0, -0.999341, 0.0362949, 0.419758, -0.0392165, 0.00153852)
+light_color = Color(0.76, 0.403813, 0.1976, 1)
+light_energy = 4.555
+light_specular = 0.767
+shadow_bias = 0.141
+shadow_opacity = 0.9
+shadow_blur = 2.549
+spot_range = 3.049
+spot_attenuation = -2.67
+spot_angle = 35.31
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="walllamp6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478139, -0.845617, 6.10352e-05)
+light_color = Color(1, 0.697833, 0.51, 1)
+light_energy = 16.0
+shadow_blur = 2.16
+omni_range = 0.724
+omni_attenuation = -0.395
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(4.05173, 0, 0, 0, 4.05173, 0, 0, 0, 4.05173, -2.37652, 1.05777, 2.26347)
+size = Vector3(4.15564, 2.82666, 3.23547)
+material = SubResource("FogMaterial_a1w3s")
+
+[node name="walllamp" parent="." instance=ExtResource("14_a1w3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2876, 2.38419e-07, -8.84566)
+
 [editable path="bookshelf top floor"]
 [editable path="Chandelier"]
+[editable path="walllamp4"]
+[editable path="walllamp5"]
+[editable path="walllamp6"]
