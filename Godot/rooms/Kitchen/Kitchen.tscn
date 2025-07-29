@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bmpd4lt1hpvlr"]
+[gd_scene load_steps=30 format=4 uid="uid://bmpd4lt1hpvlr"]
 
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://16ssx5uymhtm" path="res://rooms/Kitchen/Kitchen Setup.glb" id="2_3odkc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://csynwowllvh4t" path="res://rooms/Kitchen/Kitchen Setup_standardwood.png" id="5_8mwvm"]
 [ext_resource type="PackedScene" uid="uid://co22e2imii1s0" path="res://rooms/Kitchen/Kitchen headlights.glb" id="5_63v6f"]
 [ext_resource type="PackedScene" uid="uid://bxsjt7jdg8hv3" path="res://rooms/Kitchen/Kitchen Neon sign.glb" id="6_84i0v"]
+[ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/alcohol/blue goose.glb" id="6_l47d5"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://rooms/Kitchen/Trashcan.glb" id="7_84i0v"]
 [ext_resource type="PackedScene" uid="uid://ccwgip8hs0c8i" path="res://Assets/props/beerpong table/Beerpong table.glb" id="9_fwn4e"]
 [ext_resource type="PackedScene" uid="uid://dwtxi47usnits" path="res://rooms/Kitchen/Bar.glb" id="10_6xo0a"]
@@ -19,6 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://ccxsrqdf3fjdf" path="res://Assets/props/Posters/Sexy poster.glb" id="15_nfqbu"]
 [ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/Posters/Student Athelete.glb" id="16_xg0f7"]
 [ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/Posters/Sunday Light.glb" id="17_jqlwo"]
+[ext_resource type="PackedScene" uid="uid://xgjnbxm5g4j0" path="res://Assets/alcohol/red lil.glb" id="21_l5f4f"]
+[ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/alcohol/sunday light.glb" id="22_3yrsa"]
+[ext_resource type="PackedScene" uid="uid://c0a0yla875kc4" path="res://Assets/alcohol/tequila.glb" id="23_wf8rc"]
+[ext_resource type="PackedScene" uid="uid://o6auwjh1fi7d" path="res://Assets/alcohol/whiskey.glb" id="24_mt2x6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ootlj"]
 size = Vector3(74.0338, 1, 67.6719)
@@ -69,6 +74,7 @@ albedo = Color(0, 0.193873, 0.23094, 1)
 edge_fade = 0.107177
 
 [node name="Kitchen" type="Area3D"]
+transform = Transform3D(0.914625, 0, 0, 0, 0.914625, 0, 0, 0, 0.914625, 0, 0, 0)
 
 [node name="Kitchen Layout" parent="." instance=ExtResource("1_ootlj")]
 transform = Transform3D(1, 0, -1.16415e-10, 0, 1, 0, 1.16415e-10, 0, 1, 0.00752163, -0.00630164, 0.000434397)
@@ -89,6 +95,9 @@ transform = Transform3D(-0.379066, 0, -0.613449, 0, 0.939076, 0, 0.613449, 0, -0
 [node name="Kitchen Setup" parent="." instance=ExtResource("2_3odkc")]
 transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, 4.67381, -1.78427, -5.4433)
 
+[node name="Cube_022" parent="Kitchen Setup" index="9"]
+transform = Transform3D(0, -0.21492, 0.000374296, -0.21492, 2.17869e-14, 1.251e-11, -1.251e-11, -0.000374296, -0.21492, -4.17077, 0.0655985, -0.530577)
+
 [node name="Cylinder_088" type="MeshInstance3D" parent="Kitchen Setup"]
 transform = Transform3D(0.222739, 0.00368192, -3.11955e-10, -4.83195e-18, -4.5127e-08, -0.269051, -0.00216653, 0.378535, -3.20718e-08, -10.0548, -0.645279, 4.85385)
 mesh = SubResource("ArrayMesh_yyuy0")
@@ -98,6 +107,9 @@ skeleton = NodePath("")
 transform = Transform3D(0.222739, 0.00488763, 3.13202e-11, 2.59314e-11, 2.94017e-20, -0.269051, -0.00216653, 0.502492, -3.04644e-13, -10.0386, -0.645279, 6.40257)
 mesh = SubResource("ArrayMesh_yyuy0")
 skeleton = NodePath("")
+
+[node name="blue goose2" parent="Kitchen Setup" instance=ExtResource("6_l47d5")]
+transform = Transform3D(0.877054, 0, 0, 0, 0.877054, 0, 0, 0, 0.877054, -10.3053, -0.153658, 5.96251)
 
 [node name="Kitchen flags" parent="." instance=ExtResource("3_yv58u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75137, 1.02096, -0.135099)
@@ -243,7 +255,7 @@ size = Vector3(16.1705, 4.48413, 15.189)
 material = SubResource("FogMaterial_kbocy")
 
 [node name="Beerpong table" parent="." instance=ExtResource("9_fwn4e")]
-transform = Transform3D(1, 0, 0, 0, 1.20092, 0, 0, 0, 1, 1.9511, -2.91975, -2.09106)
+transform = Transform3D(1, 0, 0, 0, 1.4457, 0, 0, 0, 1, 1.9511, -2.88127, -2.09106)
 
 [node name="Bar" parent="." instance=ExtResource("10_6xo0a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89803, -2.30629, -2.26259)
@@ -303,6 +315,21 @@ transform = Transform3D(0.290043, 0, 0, 0, 0.209166, 0, 0, 0, 0.225316, -7.4315,
 
 [node name="Sunday Light" parent="." instance=ExtResource("17_jqlwo")]
 transform = Transform3D(0.285111, -0.101252, 0.0122238, 0.101159, 0.285372, 0.0043371, -0.0129705, 0, 0.302525, -3.70877, 0.18223, -6.50371)
+
+[node name="blue goose2" parent="." instance=ExtResource("6_l47d5")]
+transform = Transform3D(0.654846, 0, -0.755762, 0, 1, 0, 0.755762, 0, 0.654846, -4.56392, -1.93994, -2.72697)
+
+[node name="red lil2" parent="." instance=ExtResource("21_l5f4f")]
+transform = Transform3D(-0.0224082, 0, -0.999749, 0, 1, 0, 0.999749, 0, -0.0224082, -4.99499, -1.97356, -1.9787)
+
+[node name="sunday light" parent="." instance=ExtResource("22_3yrsa")]
+transform = Transform3D(0.6651, 0, -0.746754, 0, 1, 0, 0.746754, 0, 0.6651, -4.75865, -1.9152, -2.41468)
+
+[node name="tequila" parent="." instance=ExtResource("23_wf8rc")]
+transform = Transform3D(0.263189, 0, -1.06119, 0, 1.09334, 0, 1.06119, 0, 0.263189, -5.18666, -1.94316, -2.26104)
+
+[node name="whiskey2" parent="." instance=ExtResource("24_mt2x6")]
+transform = Transform3D(0.163758, 0, -1.08101, 0, 1.09334, 0, 1.08101, 0, 0.163758, -4.96848, -1.94487, -2.58658)
 
 [editable path="Kitchen Layout"]
 [editable path="Kitchen Setup"]
