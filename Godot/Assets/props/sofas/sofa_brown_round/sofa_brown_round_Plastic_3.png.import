@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://3hngriu5ytl2"
+path.s3tc="res://.godot/imported/sofa_brown_round_Plastic_3.png-2bf4d01d2498f9e67a95d4732d344a75.s3tc.ctex"
+path.etc2="res://.godot/imported/sofa_brown_round_Plastic_3.png-2bf4d01d2498f9e67a95d4732d344a75.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "08b2e66fcbd35a89d5f90cf4c6c8a042"
+}
+
+[deps]
+
+source_file="res://Assets/props/sofas/sofa_brown_round/sofa_brown_round_Plastic_3.png"
+dest_files=["res://.godot/imported/sofa_brown_round_Plastic_3.png-2bf4d01d2498f9e67a95d4732d344a75.s3tc.ctex", "res://.godot/imported/sofa_brown_round_Plastic_3.png-2bf4d01d2498f9e67a95d4732d344a75.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
