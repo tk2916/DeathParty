@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmpd4lt1hpvlr"]
+[gd_scene load_steps=8 format=3 uid="uid://bmpd4lt1hpvlr"]
 
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://16ssx5uymhtm" path="res://rooms/Kitchen/Kitchen Setup.glb" id="2_3odkc"]
 [ext_resource type="PackedScene" uid="uid://ciucsrnn2pspv" path="res://rooms/Kitchen/Kitchen flags.glb" id="3_yv58u"]
+[ext_resource type="PackedScene" uid="uid://d0kibgy4ssujo" path="res://rooms/Kitchen/Kitchen stringlights.glb" id="4_bqxej"]
+[ext_resource type="PackedScene" uid="uid://co22e2imii1s0" path="res://rooms/Kitchen/Kitchen headlights.glb" id="5_63v6f"]
+[ext_resource type="PackedScene" uid="uid://bxsjt7jdg8hv3" path="res://rooms/Kitchen/Kitchen Neon sign.glb" id="6_84i0v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ootlj"]
 size = Vector3(74.0338, 1, 67.6719)
@@ -25,4 +28,14 @@ transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, 4.67381, -1
 [node name="Kitchen flags" parent="." instance=ExtResource("3_yv58u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75137, 1.02096, -0.135099)
 
+[node name="Kitchen stringlights" parent="." instance=ExtResource("4_bqxej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0989992, 0.75434, -0.158234)
+
+[node name="Kitchen headlights" parent="." instance=ExtResource("5_63v6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12519, -0.278946, -2.16853)
+
+[node name="Kitchen Neon sign" parent="Kitchen headlights" instance=ExtResource("6_84i0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.80813, -0.574621, -4.33917)
+
 [editable path="Kitchen Layout"]
+[editable path="Kitchen headlights"]
