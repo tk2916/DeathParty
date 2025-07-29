@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://cxuf4gvxaveq6" path="res://Assets/props/chair/chair.glb" id="25_l64a3"]
 [ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://Assets/props/globe/globe.glb" id="26_nuxp6"]
 [ext_resource type="PackedScene" uid="uid://d2o5pbctxrw1o" path="res://Assets/environment/curtains/curtains.glb" id="27_k8mop"]
-[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
+[ext_resource type="PackedScene" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="34_sy7sl"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="35_tm5mn"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="36_2xxje"]
@@ -1526,6 +1526,12 @@ transform = Transform3D(-1.35006, 0, 0, 0, 1, 0, 0, 0, 1, 1.04046, -2.19247, -1.
 
 [node name="CobwebWide2" parent="Props/Cobwebs" instance=ExtResource("41_nbcih")]
 transform = Transform3D(-1.40787, 0.0652232, -0.783576, -0.572475, -1.18663, 0.92981, -0.538997, 1.08996, 1.05916, 2.57088, -3.17418, 5.25622)
+
+[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/outdoor ambience"
+event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
+autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, 1, 1)
 
 [editable path="BackWall/Bookshelves/Upstairs"]
 [editable path="Balcony/Railings"]
