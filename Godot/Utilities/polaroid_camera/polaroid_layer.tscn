@@ -17,13 +17,15 @@
 follow_viewport_enabled = true
 
 [node name="PictureExample" type="TextureRect" parent="."]
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_left = -13.0
+offset_top = -18.0
+offset_right = 1303.0
+offset_bottom = 735.0
 scale = Vector2(1, 1.0079)
 texture = ExtResource("1_t72bm")
 expand_mode = 1
 
-[node name="ViewFinder" type="TextureRect" parent="PictureExample"]
+[node name="ViewFinder" type="TextureRect" parent="PictureExample" node_paths=PackedStringArray("viewfinder_camera")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 1226.0
@@ -31,8 +33,9 @@ offset_bottom = 632.0
 texture = ExtResource("2_wiexo")
 expand_mode = 1
 script = ExtResource("5_hbg1w")
+viewfinder_camera = NodePath("../Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="PictureExample/ViewFinder"]
+[node name="Camera2D" type="Camera2D" parent="PictureExample"]
 position = Vector2(23, 24.804)
 scale = Vector2(1e-05, 1.0079e-05)
 anchor_mode = 0

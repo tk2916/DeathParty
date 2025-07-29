@@ -22,13 +22,11 @@ func _on_tree_entered() -> void:
 
 #INHERITED
 func enter_hover() -> void:
-	print("Enter hover")
 	if first_time or inventory_showing: return
 	GuiSystem.inventory_showing = true
 	journal_root.show_inventory()
 	
 func exit_hover() -> void:
-	print("Exit hover")
 	if first_time: 
 		first_time = false
 		return

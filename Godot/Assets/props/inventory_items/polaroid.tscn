@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/PNGAssets/temp_polaroid_frame.png" id="1_ilutt"]
+[ext_resource type="Script" path="res://cube_001.gd" id="2_f3eg1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyhay"]
+transparency = 1
+albedo_texture = ExtResource("1_ilutt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s27y8"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gt70r"]
+_surfaces = [{
+"aabb": AABB(-1, 1, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tlph8"]
+resource_name = "bookmark_tab_Cube_003"
+_surfaces = [{
+"aabb": AABB(-1, 1, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(186, 255, 64, 128, 229, 127, 255, 255, 214, 127, 64, 128, 255, 255, 255, 255),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_s27y8"),
+"primitive": 3,
+"uv_scale": Vector4(2.00126, 2.00426, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(255, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gt70r")
+
+[node name="Cube_001" type="MeshInstance3D"]
+transform = Transform3D(2, 0, 0, 0, 0.018, 0, 0, 0, 2, 0, -4.94423e-09, -0.113111)
+visible = false
+material_override = SubResource("StandardMaterial3D_fyhay")
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_tlph8")
+skeleton = NodePath("")
+script = ExtResource("2_f3eg1")
