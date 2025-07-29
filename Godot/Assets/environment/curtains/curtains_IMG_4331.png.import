@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3j77h3lo4pub"
-path.s3tc="res://.godot/imported/curtains_IMG_4331.png-05e2eb9973d7054f36e6e6d2360782df.s3tc.ctex"
-path.etc2="res://.godot/imported/curtains_IMG_4331.png-05e2eb9973d7054f36e6e6d2360782df.etc2.ctex"
+path.s3tc="res://.godot/imported/curtains_IMG_4331.png-266d3407108307e9f80ef4cfa230f81d.s3tc.ctex"
+path.etc2="res://.godot/imported/curtains_IMG_4331.png-266d3407108307e9f80ef4cfa230f81d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://rooms/Library/curtains_IMG_4331.png"
-dest_files=["res://.godot/imported/curtains_IMG_4331.png-05e2eb9973d7054f36e6e6d2360782df.s3tc.ctex", "res://.godot/imported/curtains_IMG_4331.png-05e2eb9973d7054f36e6e6d2360782df.etc2.ctex"]
+source_file="res://Assets/environment/curtains/curtains_IMG_4331.png"
+dest_files=["res://.godot/imported/curtains_IMG_4331.png-266d3407108307e9f80ef4cfa230f81d.s3tc.ctex", "res://.godot/imported/curtains_IMG_4331.png-266d3407108307e9f80ef4cfa230f81d.etc2.ctex"]
 
 [params]
 

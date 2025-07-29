@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d2o5pbctxrw1o"
-path="res://.godot/imported/curtains.glb-771ed0e5e6e122b217fd84471951c098.scn"
+path="res://.godot/imported/curtains.glb-4280f70681512eb7d39753fa2c3c2f8f.scn"
 
 [deps]
 
-source_file="res://rooms/Library/curtains.glb"
-dest_files=["res://.godot/imported/curtains.glb-771ed0e5e6e122b217fd84471951c098.scn"]
+source_file="res://Assets/environment/curtains/curtains.glb"
+dest_files=["res://.godot/imported/curtains.glb-4280f70681512eb7d39753fa2c3c2f8f.scn"]
 
 [params]
 
