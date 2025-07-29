@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bptpshq6jogy4"
-path="res://.godot/imported/bookshelf1r.glb-ff1fe7140219dce009c33a68cf432059.scn"
+uid="uid://3uonffs6vrbl"
+path="res://.godot/imported/bookshelf_ornate.glb-614928ab33f89833396e73c7fabf8b86.scn"
 
 [deps]
 
-source_file="res://Assets/environment/Book_Shelves/bookshelf1r.glb"
-dest_files=["res://.godot/imported/bookshelf1r.glb-ff1fe7140219dce009c33a68cf432059.scn"]
+source_file="res://Assets/environment/bookshelves/bookshelf_ornate/bookshelf_ornate.glb"
+dest_files=["res://.godot/imported/bookshelf_ornate.glb-614928ab33f89833396e73c7fabf8b86.scn"]
 
 [params]
 

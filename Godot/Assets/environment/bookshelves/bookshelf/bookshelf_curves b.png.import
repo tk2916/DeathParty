@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8eg4mt8qnnbn"
-path.s3tc="res://.godot/imported/bookshelf3_first_bookcase.png-c7a2ecf29674eaf02231928a1be035f5.s3tc.ctex"
-path.etc2="res://.godot/imported/bookshelf3_first_bookcase.png-c7a2ecf29674eaf02231928a1be035f5.etc2.ctex"
+uid="uid://ctb87orynugyp"
+path.s3tc="res://.godot/imported/bookshelf_curves b.png-1cc302c4a670663886b74dfb035367d1.s3tc.ctex"
+path.etc2="res://.godot/imported/bookshelf_curves b.png-1cc302c4a670663886b74dfb035367d1.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "36539ded87626c7430a20dbd1d1c12ed"
+"md5": "8e47e701c445a24bef8866f1b5b2037e"
 }
 
 [deps]
 
-source_file="res://Assets/environment/Book_Shelves/bookshelf3_first_bookcase.png"
-dest_files=["res://.godot/imported/bookshelf3_first_bookcase.png-c7a2ecf29674eaf02231928a1be035f5.s3tc.ctex", "res://.godot/imported/bookshelf3_first_bookcase.png-c7a2ecf29674eaf02231928a1be035f5.etc2.ctex"]
+source_file="res://Assets/environment/bookshelves/bookshelf/bookshelf_curves b.png"
+dest_files=["res://.godot/imported/bookshelf_curves b.png-1cc302c4a670663886b74dfb035367d1.s3tc.ctex", "res://.godot/imported/bookshelf_curves b.png-1cc302c4a670663886b74dfb035367d1.etc2.ctex"]
 
 [params]
 
