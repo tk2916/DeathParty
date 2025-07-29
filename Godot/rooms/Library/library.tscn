@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=96 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -32,6 +32,16 @@
 [ext_resource type="PackedScene" uid="uid://cxuf4gvxaveq6" path="res://rooms/Library/library_chair.glb" id="25_l64a3"]
 [ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://rooms/Library/globe.glb" id="26_nuxp6"]
 [ext_resource type="PackedScene" uid="uid://d2o5pbctxrw1o" path="res://rooms/Library/curtains.glb" id="27_k8mop"]
+[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
+[ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="34_sy7sl"]
+[ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="35_tm5mn"]
+[ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="36_2xxje"]
+[ext_resource type="PackedScene" uid="uid://dxahcd25ocjsx" path="res://Assets/props/balloons/balloons_four_tall.tscn" id="37_ambm6"]
+[ext_resource type="PackedScene" uid="uid://c5eugkbr3dtpg" path="res://Assets/props/balloons/balloons_three_floating.tscn" id="38_nbcih"]
+[ext_resource type="PackedScene" uid="uid://48e2dw6eco7w" path="res://Assets/props/balloons/balloons_three_short.tscn" id="39_fh3n2"]
+[ext_resource type="PackedScene" uid="uid://d3lt3kgvcji47" path="res://Assets/props/balloons/balloons_four_short.tscn" id="40_obdan"]
+[ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="41_nbcih"]
+[ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="42_fh3n2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gde20"]
 resource_name = "Material.151"
@@ -1212,7 +1222,7 @@ spot_angle = 11.0
 spot_angle_attenuation = 1.62451
 
 [node name="carpet" parent="." instance=ExtResource("13_1lqw2")]
-transform = Transform3D(0.547585, 0, 0, 0, 0.547585, 0, 0, 0, 0.547585, -2.71323, -4.35463, 2.53695)
+transform = Transform3D(0.547585, 0, 0, 0, 0.547585, 0, 0, 0, 0.547585, -2.71323, -4.38309, 2.53695)
 
 [node name="walllamp4" parent="." instance=ExtResource("14_a1w3s")]
 transform = Transform3D(0.000942476, 0, -1, 0, 1, 0, 1, 0, 0.000942476, 1.13482, 2.01242, -3.20777)
@@ -1359,7 +1369,7 @@ transform = Transform3D(0.688688, 0, 0, 0, 0.688688, 0, 0, 0, 0.688688, -3.78984
 transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, -6.60616, -1.44838, 0.674483)
 
 [node name="DIE banner4" parent="." instance=ExtResource("16_6posu")]
-transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, 1.96, -1.44838, -1.18339)
+transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, 0.894357, -1.44838, -1.18339)
 
 [node name="DIE banner2" parent="." instance=ExtResource("16_6posu")]
 transform = Transform3D(-0.0151446, 0, -0.710091, 0, 0.707288, 0, 0.588953, 0, -0.0182595, -8.0859, -1.5602, 5.36476)
@@ -1448,6 +1458,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3195, -4.41052, 0.949388)
 
 [node name="curtains" parent="." instance=ExtResource("27_k8mop")]
 transform = Transform3D(0.796048, 0.0479322, 0, -0.0386965, 0.986042, 0, 0, 0, 0.862107, 3.82322, 4.22195, 1.39155)
+
+[node name="PumpkinWithBeers" parent="." instance=ExtResource("33_3aaxv")]
+transform = Transform3D(-0.999636, 0, 0.0269794, 0, 1, 0, -0.0269794, 0, -0.999636, -6.62849, -3.32189, 1.88899)
+
+[node name="JackOLantern" parent="." instance=ExtResource("34_sy7sl")]
+transform = Transform3D(0.0792815, 0, -0.10526, 0, 0.155615, 0, 0.10526, 0, 0.0792815, -6.23644, -3.47729, 1.96398)
+
+[node name="JackOLanternTall" parent="." instance=ExtResource("35_tm5mn")]
+transform = Transform3D(-1.37055e-08, 0, -0.313546, 0, 0.492083, 0, 0.313546, 0, -1.37055e-08, -1.49936, -4.03925, -2.60826)
+
+[node name="JackOLantern2" parent="." instance=ExtResource("34_sy7sl")]
+transform = Transform3D(1.72804e-08, 0, -0.268274, 0, 0.259741, 0, 0.131777, 0, 3.51797e-08, -1.03719, -4.23322, -2.55889)
+
+[node name="JackOLanternSquashed" parent="." instance=ExtResource("36_2xxje")]
+transform = Transform3D(-0.332639, 0, -0.368177, 0, 0.315318, 0, 0.368177, 0, -0.332639, 0.430681, -4.22792, -2.5653)
+
+[node name="JackOLanternSquashed2" parent="." instance=ExtResource("36_2xxje")]
+transform = Transform3D(-0.491038, 0, -0.0713108, 0, 0.315318, 0, 0.0713108, 0, -0.491038, 2.49885, -4.22792, 3.99296)
+
+[node name="PumpkinWithBeers2" parent="." instance=ExtResource("33_3aaxv")]
+transform = Transform3D(0.0242053, 0, 0.999707, 0, 1, 0, -0.999707, 0, 0.0242053, 1.88132, -3.58891, 0.740583)
+
+[node name="BalloonsFourTall" parent="." instance=ExtResource("37_ambm6")]
+transform = Transform3D(1, 0, 0, 0, 0.942486, 0, 0, 0, 1.60611, 2.01854, -5.57936, 4.32193)
+
+[node name="BalloonsThreeFloating" parent="." instance=ExtResource("38_nbcih")]
+transform = Transform3D(0.0892767, 0, -0.996007, 0, 1, 0, 0.996007, 0, 0.0892767, -4.6257, 0.359542, -2.15971)
+
+[node name="BalloonsThreeShort" parent="." instance=ExtResource("39_fh3n2")]
+transform = Transform3D(0.218598, 0, 0, 0, 8.97317e-08, -0.24051, 0, 0.250908, 8.60131e-08, -9.34241, -4.31642, -0.128235)
+
+[node name="BalloonsFourShort" parent="." instance=ExtResource("40_obdan")]
+transform = Transform3D(0.163367, -0.14946, -0.000216071, -0.000203109, 7.39295e-05, -0.257833, 0.177477, 0.137577, -9.6177e-05, 2.95007, -3.27285, -1.83618)
+
+[node name="CobwebWide" parent="." instance=ExtResource("41_nbcih")]
+transform = Transform3D(1.24701, 0, 0, 0, 1.24701, 0, 0, 0, 1.24701, -8.1461, -2.87329, -0.255474)
+
+[node name="CobwebCorner" parent="." instance=ExtResource("42_fh3n2")]
+transform = Transform3D(-1.35006, 0, 0, 0, 1, 0, 0, 0, 1, 1.04046, -2.19247, -1.63419)
+
+[node name="CobwebWide2" parent="." instance=ExtResource("41_nbcih")]
+transform = Transform3D(-1.40787, 0.0652232, -0.783576, -0.572475, -1.18663, 0.92981, -0.538997, 1.08996, 1.05916, 2.57088, -3.17418, 5.25622)
 
 [editable path="blackraillings"]
 [editable path="bookshelf top floor"]
