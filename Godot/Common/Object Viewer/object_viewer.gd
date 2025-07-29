@@ -59,7 +59,7 @@ func set_item_properties(scene : Node3D) -> Node3D:
 	remove_current_item()
 	
 	#apply shader that lights up the mesh
-	apply_shader_to_meshes_recursive(self)
+	#apply_shader_to_meshes_recursive(self)
 	
 	scene.transform.origin.y = scene.transform.origin.y + hide_offset
 	scene.transform.origin.z = scene.transform.origin.z + hide_offset

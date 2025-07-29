@@ -10,11 +10,14 @@ func set_right_page(title : String, description : String) -> void: #called by ta
 	rightpage_title.text = "[color=black]"+title+"[/color]"
 	rightpage_description.text = "[color=black]"+description+"[/color]"
 
-func new_task(item:String) -> void:
+func new_task(item:String, first_task:bool = false) -> void:
 	var task_resource : TaskResource = SaveSystem.task_exists(item)
 	var gui_node : TaskContainer = task_resource.instantiate()
 	gui_node.task_displayer = self
 	all_tasks_vbox.add_child(gui_node)
+	if first_task: #display the first task
+		set_right_page(task_resource.name, task_resource.description)
+		first_task = false
 
 func on_tasks_change(action:String, item:String) -> void:
 	if action == "add":
@@ -24,6 +27,11 @@ func on_tasks_change(action:String, item:String) -> void:
 		task_resource.complete()
 
 func _ready() -> void:
+	set_right_page("", "")
 	SaveSystem.tasks_changed.connect(on_tasks_change)
-	for task in SaveSystem.player_data["tasks"]:
-		new_task(task)
+	
+	var first_task : bool = true
+	for task : String in SaveSystem.player_data["tasks"]:
+		new_task(task, first_task)
+		if first_task:
+			first_task = false

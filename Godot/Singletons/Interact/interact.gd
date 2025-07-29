@@ -42,7 +42,8 @@ func _input(event: InputEvent) -> void:
 			mouse = event.position
 			mouse_position_changed.emit(event.relative)
 			get_mouse_world_pos()
-			if main_page_static and result_position != Vector3(-1,-1,-1):
+			if cur_sub_viewport and main_page_static and result_position != Vector3(-1,-1,-1):
+				cur_sub_viewport.push_input(event)
 				og_grabbed_control = grabbed_control
 				grabbed_control = convert_position(result_position, cur_sub_viewport, main_page_static)
 				pass_input_to_collided_ui()
@@ -194,9 +195,9 @@ func convert_position(global_position_hit : Vector3, viewport : Viewport, map_me
 var deepest_node : ThreeDGUI
 var deepest_node_depth : int = 0
 func find_raycasted_ui_recursive(coords : Vector2, node : Control, cur_depth : int):
-	for child in node.get_children():
+	for child : Control in node.get_children():
 		if child.visible:
-			var hover_area : Rect2 = Rect2(child.position, child.size)
+			var hover_area : Rect2 = Rect2(child.global_position, child.size)
 			if hover_area.has_point(coords):
 				if deepest_node_depth <= cur_depth and child is ThreeDGUI:
 					deepest_node = child
