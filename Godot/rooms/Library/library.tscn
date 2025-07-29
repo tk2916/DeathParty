@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=86 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -10,8 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://3p6jhq8h6e4i" path="res://Assets/environment/chandelior bar.glb" id="5_l745y"]
 [ext_resource type="Texture2D" uid="uid://cgcbh5xs6cas1" path="res://rooms/Library/library layout_IMG_4145.png" id="5_ypgds"]
 [ext_resource type="Texture2D" uid="uid://dmwn7qhrq12mg" path="res://rooms/Library/library layout_IMG_4162.png" id="6_6posu"]
+[ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/Posters/DIE frat logo.glb" id="7_042ja"]
 [ext_resource type="Texture2D" uid="uid://csdawdflmf8k3" path="res://rooms/Library/library layout_wood.png" id="7_e63ox"]
+[ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/Posters/Sunday Light.glb" id="8_klh7t"]
 [ext_resource type="PackedScene" uid="uid://dl75a8q3i0w22" path="res://Assets/environment/Book_Shelves/bookshelf_1r.tscn" id="8_nt7ft"]
+[ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/Posters/Student Athelete.glb" id="9_p6ec8"]
+[ext_resource type="PackedScene" uid="uid://ccxsrqdf3fjdf" path="res://Assets/props/Posters/Sexy poster.glb" id="10_8lsgd"]
+[ext_resource type="PackedScene" uid="uid://p64odrr02hth" path="res://Assets/props/Posters/Drink Sign.glb" id="11_cbc2r"]
 [ext_resource type="PackedScene" uid="uid://dyj4kpvw1jya" path="res://Assets/environment/carpet/carpet.tscn" id="13_1lqw2"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamp/walllamp.tscn" id="14_a1w3s"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="15_e63ox"]
@@ -1088,6 +1093,21 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 1.13687e-13, 0, 1, 0.534136, -22.2288, 2.42637)
 shape = SubResource("BoxShape3D_yidfh")
 
+[node name="DIE frat logo" parent="floor" instance=ExtResource("7_042ja")]
+transform = Transform3D(-1.54095, -0.210849, 5.05668e-07, -0.211605, 1.53545, 1.6832e-08, -4.36538e-07, -5.97317e-08, -1.3523, 5.85529, -10.2615, 18.6836)
+
+[node name="Sunday Light" parent="floor" instance=ExtResource("8_klh7t")]
+transform = Transform3D(-1.20832, 0, 3.93722e-07, 0, 1.20401, 0, -3.42307e-07, 0, -1.05053, 11.3672, -14.0301, 19.3305)
+
+[node name="Student Athelete" parent="floor" instance=ExtResource("9_p6ec8")]
+transform = Transform3D(-0.786915, 0, 2.10737e-07, 0, 0.644438, 0, -2.22926e-07, 0, -0.562291, 4.44273, -16.194, 19.3724)
+
+[node name="Sexy poster" parent="floor" instance=ExtResource("10_8lsgd")]
+transform = Transform3D(-2.08002, 0, -1.46666, 0, 2.66856, 0, 1.68696, 0, -1.8084, -13.2841, -15.3842, 22.7758)
+
+[node name="Drink Sign" parent="floor" instance=ExtResource("11_cbc2r")]
+transform = Transform3D(-2.03606, 0.424095, 6.74272e-07, 0.425614, 2.02879, -3.38554e-08, -5.76797e-07, 1.20142e-07, -1.80844, -34.4121, -13.7491, 24.7682)
+
 [node name="Cube_003" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0, -0.138299, 0, 0.155962, 0, 0.150293, 0, 0, 5.05323, -3.13635, 0.597139)
 mesh = SubResource("ArrayMesh_xg6nn")
@@ -1316,12 +1336,13 @@ spot_attenuation = -2.67
 spot_angle = 35.31
 
 [node name="OmniLight3D" parent="walllamp7" index="2"]
-light_energy = 3.0
+light_energy = 2.0
+omni_attenuation = 1.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="walllamp7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478139, -0.845617, 6.10352e-05)
 light_color = Color(1, 0.697833, 0.51, 1)
-light_energy = 16.0
+light_energy = 3.111
 shadow_blur = 2.16
 omni_range = 0.724
 omni_attenuation = -0.395
@@ -1337,8 +1358,14 @@ transform = Transform3D(0.688688, 0, 0, 0, 0.688688, 0, 0, 0, 0.688688, -3.78984
 [node name="DIE banner" parent="." instance=ExtResource("16_6posu")]
 transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, -6.60616, -1.44838, 0.674483)
 
+[node name="DIE banner4" parent="." instance=ExtResource("16_6posu")]
+transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, 1.96, -1.44838, -1.18339)
+
 [node name="DIE banner2" parent="." instance=ExtResource("16_6posu")]
 transform = Transform3D(-0.0151446, 0, -0.710091, 0, 0.707288, 0, 0.588953, 0, -0.0182595, -8.0859, -1.5602, 5.36476)
+
+[node name="DIE banner3" parent="." instance=ExtResource("16_6posu")]
+transform = Transform3D(-0.0151446, 0, -0.710091, 0, 0.707288, 0, 0.588953, 0, -0.0182595, 2.43967, -1.5602, 3.66462)
 
 [node name="door" parent="." instance=ExtResource("15_e63ox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91573, -3.23279, -1.95305)

@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bjkxoxcdanq28"
+path.s3tc="res://.godot/imported/Sunday Light_IMG_0500.png-4be5fa609b3ad16a2d9680e36d3addd6.s3tc.ctex"
+path.etc2="res://.godot/imported/Sunday Light_IMG_0500.png-4be5fa609b3ad16a2d9680e36d3addd6.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "c9d203a65b21113902aeb962284e2cf2"
+}
+
+[deps]
+
+source_file="res://Assets/props/Posters/Sunday Light_IMG_0500.png"
+dest_files=["res://.godot/imported/Sunday Light_IMG_0500.png-4be5fa609b3ad16a2d9680e36d3addd6.s3tc.ctex", "res://.godot/imported/Sunday Light_IMG_0500.png-4be5fa609b3ad16a2d9680e36d3addd6.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
