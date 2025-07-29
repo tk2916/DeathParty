@@ -5,8 +5,12 @@ const DIST : float = 1000.0
 
 var result_position : Vector3 = Vector3(-1,-1,-1)
 var grabbed_object : Node3D = null
+
 var grabbed_control : ThreeDGUI = null
 var og_grabbed_control : ThreeDGUI = null
+var grabbed_scroll_container : ScrollContainer = null
+const SCROLL_AMOUNT : int = 10
+
 var dragged_object : Node3D = null
 var outline_mesh : MeshInstance3D = null
 
@@ -47,9 +51,16 @@ func _input(event: InputEvent) -> void:
 				og_grabbed_control = grabbed_control
 				grabbed_control = convert_position(result_position, cur_sub_viewport, main_page_static)
 				pass_input_to_collided_ui()
-				
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT:
+		
+		elif event is InputEventMouseButton:
+			#print("Input, scroll container: ", grabbed_scroll_container)
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:# and event.pressed:
+				if grabbed_scroll_container:
+					grabbed_scroll_container.scroll_vertical = grabbed_scroll_container.scroll_vertical-SCROLL_AMOUNT
+			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:# and event.pressed:
+				if grabbed_scroll_container:
+					grabbed_scroll_container.scroll_vertical = grabbed_scroll_container.scroll_vertical+SCROLL_AMOUNT
+			elif event.button_index == MOUSE_BUTTON_LEFT:
 				if grabbed_control and event.pressed == true:
 					grabbed_control.on_mouse_down()
 				if event.pressed == false: 
@@ -134,7 +145,6 @@ func clear_active_subviewport() -> void:
 ##FOR RAYCASTING INTO GUIs
 func pass_input_to_collided_ui():
 	if grabbed_control:
-		print("Grabbed control: ", grabbed_control)
 		if og_grabbed_control == grabbed_control: return
 		if og_grabbed_control:
 			og_grabbed_control.exit_hover()
@@ -202,11 +212,15 @@ func find_raycasted_ui_recursive(coords : Vector2, node : Control, cur_depth : i
 				if deepest_node_depth <= cur_depth and child is ThreeDGUI:
 					deepest_node = child
 					deepest_node_depth = cur_depth
+				if child is ScrollContainer:
+					grabbed_scroll_container = child
 				find_raycasted_ui_recursive(coords, child, cur_depth+1)
 
 func find_raycasted_ui(coords : Vector2, viewport : Viewport) -> ThreeDGUI:
 	deepest_node = null
 	deepest_node_depth = 0
+	grabbed_scroll_container = null
+	
 	for child in viewport.get_children():
 		if child.visible:
 			var hover_area : Rect2 = Rect2(child.position, child.size)

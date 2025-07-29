@@ -11,7 +11,6 @@ var description : String
 	#print("Input received: ", event)
 func on_mouse_down():
 	print("Clicked Task container!")
-	print("Pressed!")
 	task_displayer.set_right_page(title, description)
 	
 func enter_hover():
