@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmpd4lt1hpvlr"]
+
+[ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
+[ext_resource type="PackedScene" uid="uid://16ssx5uymhtm" path="res://rooms/Kitchen/Kitchen Setup.glb" id="2_3odkc"]
+[ext_resource type="PackedScene" uid="uid://ciucsrnn2pspv" path="res://rooms/Kitchen/Kitchen flags.glb" id="3_yv58u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ootlj"]
+size = Vector3(74.0338, 1, 67.6719)
+
+[node name="Kitchen" type="Area3D"]
+
+[node name="Kitchen Layout" parent="." instance=ExtResource("1_ootlj")]
+transform = Transform3D(1, 0, -1.16415e-10, 0, 1, 0, 1.16415e-10, 0, 1, 0.00752163, -0.00630164, 0.000434397)
+
+[node name="floor" type="StaticBody3D" parent="Kitchen Layout"]
+transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -0.0494708, 1.03363, -0.0173402)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen Layout/floor"]
+transform = Transform3D(1, 0, 3.49246e-10, 0, 0.999999, 0, -3.49246e-10, 0, 1, -0.6942, -19.1515, -3.54086)
+shape = SubResource("BoxShape3D_ootlj")
+
+[node name="Kitchen Setup" parent="." instance=ExtResource("2_3odkc")]
+transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, 4.67381, -1.78427, -5.4433)
+
+[node name="Kitchen flags" parent="." instance=ExtResource("3_yv58u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75137, 1.02096, -0.135099)
+
+[editable path="Kitchen Layout"]
