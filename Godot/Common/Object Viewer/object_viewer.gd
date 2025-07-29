@@ -110,10 +110,12 @@ func zoom_absolute(factor : float):
 func _input(event) -> void:
 	if active_item == null: return
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed and Interact.grabbed_scroll_container == null:
 			zoom(1.15)
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed and Interact.grabbed_scroll_container == null:
 			zoom(0.87)
+		elif event.button_index == MOUSE_BUTTON_LEFT and Interact.grabbed_object == null:
+			GuiSystem.show_journal()
 	
 #Resets the position of the item
 func reset_item_position() -> void:

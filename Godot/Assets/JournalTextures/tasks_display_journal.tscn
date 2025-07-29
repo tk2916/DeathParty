@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://1dlgpxcvx7jl" path="res://Assets/JournalTextures/task_title_backer.png" id="8_7jmn4"]
 [ext_resource type="Texture2D" uid="uid://5g1f30ift0xa" path="res://Assets/JournalTextures/description_backer.png" id="9_nsc2u"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("all_tasks_vbox", "rightpage_title", "rightpage_description")]
+[node name="Control" type="Control" node_paths=PackedStringArray("all_tasks_vbox", "rightpage_title", "rightpage_description", "rightpage_time")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,7 @@ script = ExtResource("5_nsc2u")
 all_tasks_vbox = NodePath("LeftPage/ScrollContainer/AllTasks")
 rightpage_title = NodePath("RightPage/TitleBacker/Title")
 rightpage_description = NodePath("RightPage/DescriptionBacker/TextHolder/Description")
+rightpage_time = NodePath("RightPage/DescriptionBacker/TextHolder/Time")
 
 [node name="Bg" type="TextureRect" parent="."]
 layout_mode = 1

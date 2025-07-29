@@ -4,14 +4,11 @@ class_name TaskContainer extends ThreeDGUI
 @export var button : Button
 
 var task_displayer : TaskDisplayer
-var title : String
-var description : String
-	
-#func _input(event) -> void:
-	#print("Input received: ", event)
+var task_resource : TaskResource
+
+##INHERITED
 func on_mouse_down():
-	print("Clicked Task container!")
-	task_displayer.set_right_page(title, description)
+	task_displayer.set_right_page(task_resource.name, task_resource.description, task_resource.time_updated)
 	
 func enter_hover():
 	super()

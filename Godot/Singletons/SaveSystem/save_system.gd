@@ -24,6 +24,7 @@ The resource is basically for type-declaring purposes.
 Everything is in the dictionary so Ink can access it too.
 '''
 
+signal time_changed
 signal stats_changed
 signal inventory_changed
 signal tasks_changed
@@ -114,6 +115,13 @@ func key_is_type(key:String, type:int) -> void: # errors if types don't match (p
 
 func match_type(key:String, value) -> void: # errors if types don't match (passing new value)
 	key_is_type(key, typeof(value))
+	
+##QUICK-ACCESS VALUES
+func get_time() -> float:
+	return get_key("time")
+
+func get_time_string() -> String:
+	return parse_time(get_time())
 
 #EDITING
 func get_key(key:String):
@@ -124,7 +132,10 @@ func set_key(key:String, value) -> void:
 	if key_exists(key):
 		match_type(key, value) # asserts that they are of matching types
 	player_data[key] = value
-	stats_changed.emit(key, value)
+	if key == "time":
+		time_changed.emit(value)
+	else:
+		stats_changed.emit(key, value)
 	
 func increment(key:String) -> void:
 	set_key(key, player_data[key]+1) #will also emit signal

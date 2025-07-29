@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cox4vfkpp47vq" path="res://Assets/JournalTextures/task_arrow.png" id="3_1ru7f"]
 
 [node name="TaskContainer" type="MarginContainer" node_paths=PackedStringArray("title_label")]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 60)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,7 +47,7 @@ anchor_right = 0.88
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[color=black]Panic! At the Photography club"
 scroll_active = false

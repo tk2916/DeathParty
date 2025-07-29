@@ -212,7 +212,7 @@ func find_raycasted_ui_recursive(coords : Vector2, node : Control, cur_depth : i
 				if deepest_node_depth <= cur_depth and child is ThreeDGUI:
 					deepest_node = child
 					deepest_node_depth = cur_depth
-				if child is ScrollContainer:
+				if child is ScrollContainer and child.get_v_scroll_bar().visible == true:
 					grabbed_scroll_container = child
 				find_raycasted_ui_recursive(coords, child, cur_depth+1)
 
