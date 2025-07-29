@@ -1,11 +1,10 @@
-[gd_scene load_steps=41 format=4 uid="uid://ctxn4d5hysbqv"]
+[gd_scene load_steps=40 format=4 uid="uid://ctxn4d5hysbqv"]
 
 [ext_resource type="Script" uid="uid://b7e4s6slidb3u" path="res://Assets/models/bookflip_script.gd" id="2_epq3o"]
+[ext_resource type="Texture2D" uid="uid://d4btfe8aohfoi" path="res://Assets/JournalTextures/journal_bg.png" id="3_yfr5l"]
 [ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="4_6b4ny"]
 [ext_resource type="PackedScene" uid="uid://mg0sman3f2yu" path="res://Assets/models/journal_tab.tscn" id="5_stup6"]
-[ext_resource type="Texture2D" uid="uid://dmffsu11hoong" path="res://Assets/JournalTextures/max_page_1.png" id="5_th48n"]
 [ext_resource type="PackedScene" uid="uid://csrnib2iw1f4u" path="res://drag_and_drop_polaroids_test.tscn" id="5_yfr5l"]
-[ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="6_he2ap"]
 [ext_resource type="Script" uid="uid://bigc44cfli8nx" path="res://Assets/models/journal_page_flip_collider.gd" id="7_fq2mh"]
 [ext_resource type="Texture2D" uid="uid://c0c7uxkp8a7y" path="res://Assets/models/bookflip_max_page_2.png" id="7_ieb6y"]
 [ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="8_3xg2d"]
@@ -467,7 +466,7 @@ page1_subviewport = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubV
 page2_subviewport = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
 viewport_texture1 = SubResource("ViewportTexture_fq2mh")
 viewport_texture2 = SubResource("ViewportTexture_mp1ih")
-journal_textures = [ExtResource("4_6b4ny"), ExtResource("5_th48n"), ExtResource("6_he2ap"), ExtResource("5_yfr5l"), ExtResource("8_3xg2d")]
+journal_textures = [ExtResource("4_6b4ny"), ExtResource("3_yfr5l"), ExtResource("3_yfr5l"), ExtResource("5_yfr5l"), ExtResource("8_3xg2d")]
 tabs_node_left = NodePath("Tabs")
 tabs_node_right = NodePath("TabsRight")
 
@@ -603,22 +602,8 @@ color = Color(0.454584, 0.253662, 0.0638231, 1)
 offset_distance = 0.09
 flip_to_page = 3
 
-[node name="Tasks5" parent="Tabs" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.997241, -0.0742303, -8.39369e-08, -0.0742303, 0.997241, -6.36883e-09, 8.41781e-08, -1.20586e-10, -1, 0.354927, 0.217804, 0.904132)
-text = "Settings"
-color = Color(0.164908, 0.352543, 0.288867, 1)
-offset_distance = 0.07
-flip_to_page = 4
-
 [node name="TabsRight" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59035, -1.46563e-07, 1.46477e-07)
-
-[node name="Tasks" parent="TabsRight" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.995338, -0.0964542, -8.27989e-08, -0.0964542, 0.995338, -8.22842e-09, 8.32067e-08, -2.03819e-10, -1, 0.244855, 0.197902, 0.901237)
-text = "Settings"
-color = Color(0.164706, 0.352941, 0.290196, 1)
-offset_distance = 0.073
-flip_to_page = 4
 
 [node name="Tasks2" parent="TabsRight" instance=ExtResource("5_stup6")]
 transform = Transform3D(-0.999252, -0.0386669, -8.56672e-08, -0.0386669, 0.999252, -3.34768e-09, 8.57326e-08, -3.26885e-11, -1, 0.512181, 0.211489, 0.901237)
