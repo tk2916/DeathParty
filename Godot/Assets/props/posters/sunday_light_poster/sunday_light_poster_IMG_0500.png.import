@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s64xbo57c7ev"
-path.s3tc="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex"
-path.etc2="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"
+uid="uid://pn6ypl1cbdhf"
+path.s3tc="res://.godot/imported/sunday_light_poster_IMG_0500.png-3e64a35a306f36c63a536d75d1ada2d8.s3tc.ctex"
+path.etc2="res://.godot/imported/sunday_light_poster_IMG_0500.png-3e64a35a306f36c63a536d75d1ada2d8.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "539ee8c553adaf8446b4e5895ac3773d"
+"md5": "c9d203a65b21113902aeb962284e2cf2"
 }
 
 [deps]
 
-source_file="res://Assets/props/plants/plant_pot_plant_baseColor.jpg"
-dest_files=["res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex", "res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"]
+source_file="res://Assets/props/posters/sunday_light_poster/sunday_light_poster_IMG_0500.png"
+dest_files=["res://.godot/imported/sunday_light_poster_IMG_0500.png-3e64a35a306f36c63a536d75d1ada2d8.s3tc.ctex", "res://.godot/imported/sunday_light_poster_IMG_0500.png-3e64a35a306f36c63a536d75d1ada2d8.etc2.ctex"]
 
 [params]
 

@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s64xbo57c7ev"
-path.s3tc="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex"
-path.etc2="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"
+uid="uid://c1aeyfx8048hm"
+path.s3tc="res://.godot/imported/die_banner_DIEbanners.png-a8a3d41cd5ec06d6fe43e2b3f141c9dd.s3tc.ctex"
+path.etc2="res://.godot/imported/die_banner_DIEbanners.png-a8a3d41cd5ec06d6fe43e2b3f141c9dd.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "539ee8c553adaf8446b4e5895ac3773d"
+"md5": "af6afe5b129802d41ff4edd73ab25cf7"
 }
 
 [deps]
 
-source_file="res://Assets/props/plants/plant_pot_plant_baseColor.jpg"
-dest_files=["res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex", "res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"]
+source_file="res://Assets/props/banners/die_banner/die_banner_DIEbanners.png"
+dest_files=["res://.godot/imported/die_banner_DIEbanners.png-a8a3d41cd5ec06d6fe43e2b3f141c9dd.s3tc.ctex", "res://.godot/imported/die_banner_DIEbanners.png-a8a3d41cd5ec06d6fe43e2b3f141c9dd.etc2.ctex"]
 
 [params]
 

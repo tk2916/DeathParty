@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s64xbo57c7ev"
-path.s3tc="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex"
-path.etc2="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"
+uid="uid://mscst2yty438"
+path.s3tc="res://.godot/imported/enjoy_poster_IMG_0498.png-c1c3710aa89abda77e28e7e68d2fd092.s3tc.ctex"
+path.etc2="res://.godot/imported/enjoy_poster_IMG_0498.png-c1c3710aa89abda77e28e7e68d2fd092.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "539ee8c553adaf8446b4e5895ac3773d"
+"md5": "ddce2cfad797ab3df708c4f025e6d615"
 }
 
 [deps]
 
-source_file="res://Assets/props/plants/plant_pot_plant_baseColor.jpg"
-dest_files=["res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex", "res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"]
+source_file="res://Assets/props/posters/enjoy_poster/enjoy_poster_IMG_0498.png"
+dest_files=["res://.godot/imported/enjoy_poster_IMG_0498.png-c1c3710aa89abda77e28e7e68d2fd092.s3tc.ctex", "res://.godot/imported/enjoy_poster_IMG_0498.png-c1c3710aa89abda77e28e7e68d2fd092.etc2.ctex"]
 
 [params]
 

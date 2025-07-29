@@ -10,27 +10,27 @@
 [ext_resource type="PackedScene" uid="uid://3p6jhq8h6e4i" path="res://Assets/environment/chandelior bar.glb" id="5_l745y"]
 [ext_resource type="Texture2D" uid="uid://cgcbh5xs6cas1" path="res://rooms/Library/library layout_IMG_4145.png" id="5_ypgds"]
 [ext_resource type="Texture2D" uid="uid://dmwn7qhrq12mg" path="res://rooms/Library/library layout_IMG_4162.png" id="6_6posu"]
-[ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/Posters/DIE frat logo.glb" id="7_042ja"]
+[ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="7_042ja"]
 [ext_resource type="Texture2D" uid="uid://csdawdflmf8k3" path="res://rooms/Library/library layout_wood.png" id="7_e63ox"]
-[ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/Posters/Sunday Light.glb" id="8_klh7t"]
+[ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/posters/sunday_light_poster/sunday_light_poster.glb" id="8_klh7t"]
 [ext_resource type="PackedScene" uid="uid://dl75a8q3i0w22" path="res://Assets/environment/bookshelves/bookshelf/bookshelf.tscn" id="8_nt7ft"]
-[ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/Posters/Student Athelete.glb" id="9_p6ec8"]
-[ext_resource type="PackedScene" uid="uid://ccxsrqdf3fjdf" path="res://Assets/props/Posters/Sexy poster.glb" id="10_8lsgd"]
-[ext_resource type="PackedScene" uid="uid://p64odrr02hth" path="res://Assets/props/Posters/Drink Sign.glb" id="11_cbc2r"]
+[ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/posters/student_athlete_poster/student_athlete_poster.glb" id="9_p6ec8"]
+[ext_resource type="PackedScene" uid="uid://ccxsrqdf3fjdf" path="res://Assets/props/posters/sexy_poster/sexy_poster.glb" id="10_8lsgd"]
+[ext_resource type="PackedScene" uid="uid://p64odrr02hth" path="res://Assets/props/posters/drink_sign/drink_sign.glb" id="11_cbc2r"]
 [ext_resource type="PackedScene" uid="uid://dyj4kpvw1jya" path="res://Assets/environment/carpet/carpet.tscn" id="13_1lqw2"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="14_a1w3s"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="15_e63ox"]
-[ext_resource type="PackedScene" uid="uid://xukwgg26fv7r" path="res://rooms/Library/USA_Flag.glb" id="15_ypgds"]
-[ext_resource type="PackedScene" uid="uid://be24vawtanngv" path="res://rooms/Library/DIE banner.glb" id="16_6posu"]
+[ext_resource type="PackedScene" uid="uid://xukwgg26fv7r" path="res://Assets/props/flags/usa_flag/usa_flag.glb" id="15_ypgds"]
+[ext_resource type="PackedScene" uid="uid://be24vawtanngv" path="res://Assets/props/banners/die_banner/die_banner.glb" id="16_6posu"]
 [ext_resource type="PackedScene" uid="uid://d0npqij1rnr1s" path="res://Assets/environment/bookshelves/bookshelf_ornate/bookshelf_ornate.tscn" id="18_62c4v"]
-[ext_resource type="PackedScene" uid="uid://b88jesrolvfy2" path="res://Assets/environment/red sofa/sofa.glb" id="19_woadg"]
+[ext_resource type="PackedScene" uid="uid://b88jesrolvfy2" path="res://Assets/props/sofas/sofa_red/sofa_red.glb" id="19_woadg"]
 [ext_resource type="PackedScene" uid="uid://c7ss5lax14vpn" path="res://Assets/props/wooden_table/wood_table.glb" id="20_3v00t"]
 [ext_resource type="PackedScene" uid="uid://dmy0dkjekw84j" path="res://Assets/props/plants/plant pot 2.glb" id="21_w06or"]
 [ext_resource type="PackedScene" uid="uid://cubcxrhw7wq5g" path="res://Assets/props/plants/plant_pot.glb" id="22_pxykb"]
-[ext_resource type="PackedScene" uid="uid://3loxlhscoqmb" path="res://Assets/props/wood_desk/wood_deskglb.glb" id="23_pxykb"]
+[ext_resource type="PackedScene" uid="uid://3loxlhscoqmb" path="res://Assets/props/wood_desk/wood_desk.glb" id="23_pxykb"]
 [ext_resource type="PackedScene" uid="uid://dn8tphi4h7qm7" path="res://Assets/props/desk_lamp/desk_lamp.tscn" id="24_c2j7r"]
 [ext_resource type="PackedScene" uid="uid://cxuf4gvxaveq6" path="res://Assets/props/chair/chair.glb" id="25_l64a3"]
-[ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://rooms/Library/globe.glb" id="26_nuxp6"]
+[ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://Assets/props/globe/globe.glb" id="26_nuxp6"]
 [ext_resource type="PackedScene" uid="uid://d2o5pbctxrw1o" path="res://rooms/Library/curtains.glb" id="27_k8mop"]
 [ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="34_sy7sl"]
@@ -1392,25 +1392,25 @@ omni_attenuation = -0.395
 
 [node name="Plants" type="Node3D" parent="Props"]
 
-[node name="plant pot 2" parent="Props/Plants" instance=ExtResource("21_w06or")]
+[node name="PlantPot" parent="Props/Plants" instance=ExtResource("21_w06or")]
 transform = Transform3D(1.3956, 0, 0, 0, 1.3956, 0, 0, 0, 1.3956, 2.89826, -2.74174, 4.97317)
 
-[node name="plant pot 5" parent="Props/Plants" instance=ExtResource("21_w06or")]
+[node name="PlantPot2" parent="Props/Plants" instance=ExtResource("21_w06or")]
 transform = Transform3D(1.3956, 0, 0, 0, 1.3956, 0, 0, 0, 1.3956, 3.32174, 0.826922, 4.25034)
 
-[node name="plant pot 4" parent="Props/Plants" instance=ExtResource("21_w06or")]
+[node name="PlantPot3" parent="Props/Plants" instance=ExtResource("21_w06or")]
 transform = Transform3D(-0.848434, 0, 0.779219, 0, 1.15196, 0, -0.779219, 0, -0.848434, 3.94776, -3.00445, -1.81266)
 
-[node name="plant_pot" parent="Props/Plants" instance=ExtResource("22_pxykb")]
+[node name="PlantPot4" parent="Props/Plants" instance=ExtResource("22_pxykb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42731, -4.0381, 3.3941)
 
-[node name="plant pot 3" parent="Props/Plants" instance=ExtResource("21_w06or")]
+[node name="PlantPot5" parent="Props/Plants" instance=ExtResource("21_w06or")]
 transform = Transform3D(1.53207, 0, 0, 0, 1.53207, 0, 0, 0, 1.53207, -9.95843, 0.933361, 0.114415)
 
-[node name="plant_pot2" parent="Props/Plants" instance=ExtResource("22_pxykb")]
+[node name="PlantPot6" parent="Props/Plants" instance=ExtResource("22_pxykb")]
 transform = Transform3D(0.802828, 0, -0.596211, 0, 1, 0, 0.596211, 0, 0.802828, -9.06269, -4.03568, -0.965826)
 
-[node name="plant_pot3" parent="Props/Plants" instance=ExtResource("22_pxykb")]
+[node name="PlantPot7" parent="Props/Plants" instance=ExtResource("22_pxykb")]
 transform = Transform3D(0.887446, 0, 0.460912, 0, 1, 0, -0.460912, 0, 0.887446, 4.50505, -0.536353, -2.08195)
 
 [node name="Posters" type="Node3D" parent="Props"]
@@ -1435,43 +1435,43 @@ transform = Transform3D(0.379623, -0.0790725, 6.52875e-10, 0.07964, 0.379623, -6
 
 [node name="Banners" type="Node3D" parent="Props"]
 
-[node name="DIE banner" parent="Props/Banners" instance=ExtResource("16_6posu")]
+[node name="DieBanner" parent="Props/Banners" instance=ExtResource("16_6posu")]
 transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, -6.60616, -1.44838, 0.674483)
 
-[node name="DIE banner4" parent="Props/Banners" instance=ExtResource("16_6posu")]
+[node name="DieBanner2" parent="Props/Banners" instance=ExtResource("16_6posu")]
 transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, 0.894357, -1.44838, -1.18339)
 
-[node name="DIE banner2" parent="Props/Banners" instance=ExtResource("16_6posu")]
+[node name="DieBanner3" parent="Props/Banners" instance=ExtResource("16_6posu")]
 transform = Transform3D(-0.0151446, 0, -0.710091, 0, 0.707288, 0, 0.588953, 0, -0.0182595, -8.0859, -1.5602, 5.36476)
 
-[node name="DIE banner3" parent="Props/Banners" instance=ExtResource("16_6posu")]
+[node name="DieBanner4" parent="Props/Banners" instance=ExtResource("16_6posu")]
 transform = Transform3D(-0.0151446, 0, -0.710091, 0, 0.707288, 0, 0.588953, 0, -0.0182595, 2.43967, -1.5602, 3.66462)
 
-[node name="globe" parent="Props" instance=ExtResource("26_nuxp6")]
+[node name="Globe" parent="Props" instance=ExtResource("26_nuxp6")]
 transform = Transform3D(0.967414, 0, 0.253201, 0, 1, 0, -0.253201, 0, 0.967414, 3.0128, 0.267197, -0.49207)
 
-[node name="sofa" parent="Props" instance=ExtResource("19_woadg")]
+[node name="Sofa" parent="Props" instance=ExtResource("19_woadg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25107, -4.86221, 0.193233)
 
-[node name="wood_deskglb" parent="Props" instance=ExtResource("23_pxykb")]
+[node name="Desk" parent="Props" instance=ExtResource("23_pxykb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07045, -4.41228, 1.5837)
 
-[node name="desk_lamp" parent="Props/wood_deskglb" instance=ExtResource("24_c2j7r")]
+[node name="desk_lamp" parent="Props/Desk" instance=ExtResource("24_c2j7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61195, 0.81468, -0.18297)
 
-[node name="PumpkinWithBeers" parent="Props/wood_deskglb" instance=ExtResource("33_3aaxv")]
+[node name="PumpkinWithBeers" parent="Props/Desk" instance=ExtResource("33_3aaxv")]
 transform = Transform3D(-0.999636, 0, 0.0269794, 0, 1, 0, -0.0269794, 0, -0.999636, -0.55804, 1.09039, 0.30529)
 
-[node name="JackOLantern" parent="Props/wood_deskglb" instance=ExtResource("34_sy7sl")]
+[node name="JackOLantern" parent="Props/Desk" instance=ExtResource("34_sy7sl")]
 transform = Transform3D(0.0792815, 0, -0.10526, 0, 0.155615, 0, 0.10526, 0, 0.0792815, -0.16599, 0.93499, 0.38028)
 
-[node name="wood_deskglb2" parent="Props" instance=ExtResource("23_pxykb")]
+[node name="Desk2" parent="Props" instance=ExtResource("23_pxykb")]
 transform = Transform3D(0.430464, 0, 0.902608, 0, 1, 0, -0.902608, 0, 0.430464, -9.88157, -1.11604, 1.52653)
 
-[node name="desk_lamp" parent="Props/wood_deskglb2" instance=ExtResource("24_c2j7r")]
+[node name="desk_lamp" parent="Props/Desk2" instance=ExtResource("24_c2j7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.611948, 0.814677, -0.182961)
 
-[node name="OmniLight3D" parent="Props/wood_deskglb2/desk_lamp" index="1"]
+[node name="OmniLight3D" parent="Props/Desk2/desk_lamp" index="1"]
 light_energy = 1.979
 omni_range = 0.782
 
@@ -1484,10 +1484,10 @@ transform = Transform3D(0.996384, 0, -0.0849648, 0, 1, 0, 0.0849648, 0, 0.996384
 [node name="Chair3" parent="Props" instance=ExtResource("25_l64a3")]
 transform = Transform3D(-0.0983471, 0, 0.995152, 0, 1, 0, -0.995152, 0, -0.0983471, -8.46623, -4.41174, 5.18043)
 
-[node name="wood_table" parent="Props" instance=ExtResource("20_3v00t")]
+[node name="Table" parent="Props" instance=ExtResource("20_3v00t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3195, -4.41052, 0.949388)
 
-[node name="PumpkinWithBeers2" parent="Props/wood_table" instance=ExtResource("33_3aaxv")]
+[node name="PumpkinWithBeers2" parent="Props/Table" instance=ExtResource("33_3aaxv")]
 transform = Transform3D(0.0242053, 0, 0.999707, 0, 1, 0, -0.999707, 0, 0.0242053, 0.56182, 0.82161, -0.208805)
 
 [node name="JackOLanternTall" parent="Props" instance=ExtResource("35_tm5mn")]
@@ -1535,4 +1535,4 @@ transform = Transform3D(-1.40787, 0.0652232, -0.783576, -0.572475, -1.18663, 0.9
 [editable path="WallLamps/WallLamp3"]
 [editable path="WallLamps/WallLamp4"]
 [editable path="WallLamps/WallLamp5"]
-[editable path="Props/wood_deskglb2/desk_lamp"]
+[editable path="Props/Desk2/desk_lamp"]

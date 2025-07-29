@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s64xbo57c7ev"
-path.s3tc="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex"
-path.etc2="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"
+uid="uid://dia8h4lljd2oe"
+path.s3tc="res://.godot/imported/die_frat_logo_poster_IMG_0502.png-a12ae891d4a9f111cd3fb9dcba78f981.s3tc.ctex"
+path.etc2="res://.godot/imported/die_frat_logo_poster_IMG_0502.png-a12ae891d4a9f111cd3fb9dcba78f981.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "539ee8c553adaf8446b4e5895ac3773d"
+"md5": "88d38864d95c7db92ce534eb60eb6a68"
 }
 
 [deps]
 
-source_file="res://Assets/props/plants/plant_pot_plant_baseColor.jpg"
-dest_files=["res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex", "res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"]
+source_file="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster_IMG_0502.png"
+dest_files=["res://.godot/imported/die_frat_logo_poster_IMG_0502.png-a12ae891d4a9f111cd3fb9dcba78f981.s3tc.ctex", "res://.godot/imported/die_frat_logo_poster_IMG_0502.png-a12ae891d4a9f111cd3fb9dcba78f981.etc2.ctex"]
 
 [params]
 

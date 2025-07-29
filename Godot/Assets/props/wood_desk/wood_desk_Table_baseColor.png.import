@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s64xbo57c7ev"
-path.s3tc="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex"
-path.etc2="res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"
+uid="uid://wbhxnbjp4fbt"
+path.s3tc="res://.godot/imported/wood_desk_Table_baseColor.png-499179eb6d690620dfc6589ba89be5d5.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_desk_Table_baseColor.png-499179eb6d690620dfc6589ba89be5d5.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "539ee8c553adaf8446b4e5895ac3773d"
+"md5": "e277e512aefd192aa322e3770d5aca6a"
 }
 
 [deps]
 
-source_file="res://Assets/props/plants/plant_pot_plant_baseColor.jpg"
-dest_files=["res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.s3tc.ctex", "res://.godot/imported/plant_pot_plant_baseColor.jpg-935047e830f10d13a3c1a3424d0023ac.etc2.ctex"]
+source_file="res://Assets/props/wood_desk/wood_desk_Table_baseColor.png"
+dest_files=["res://.godot/imported/wood_desk_Table_baseColor.png-499179eb6d690620dfc6589ba89be5d5.s3tc.ctex", "res://.godot/imported/wood_desk_Table_baseColor.png-499179eb6d690620dfc6589ba89be5d5.etc2.ctex"]
 
 [params]
 
