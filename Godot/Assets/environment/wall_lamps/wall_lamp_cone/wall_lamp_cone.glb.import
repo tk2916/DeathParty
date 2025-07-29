@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bqxn42totwu51"
-path="res://.godot/imported/walllamp.glb-4635912439c89e43c88715f1571ae4d7.scn"
+path="res://.godot/imported/wall_lamp_cone.glb-356c0bf6a4bf7158065e6cd3aede2659.scn"
 
 [deps]
 
-source_file="res://Assets/environment/wall_lamp/walllamp.glb"
-dest_files=["res://.godot/imported/walllamp.glb-4635912439c89e43c88715f1571ae4d7.scn"]
+source_file="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.glb"
+dest_files=["res://.godot/imported/wall_lamp_cone.glb-356c0bf6a4bf7158065e6cd3aede2659.scn"]
 
 [params]
 

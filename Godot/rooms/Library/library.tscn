@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ccxsrqdf3fjdf" path="res://Assets/props/Posters/Sexy poster.glb" id="10_8lsgd"]
 [ext_resource type="PackedScene" uid="uid://p64odrr02hth" path="res://Assets/props/Posters/Drink Sign.glb" id="11_cbc2r"]
 [ext_resource type="PackedScene" uid="uid://dyj4kpvw1jya" path="res://Assets/environment/carpet/carpet.tscn" id="13_1lqw2"]
-[ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamp/walllamp.tscn" id="14_a1w3s"]
+[ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="14_a1w3s"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="15_e63ox"]
 [ext_resource type="PackedScene" uid="uid://xukwgg26fv7r" path="res://rooms/Library/USA_Flag.glb" id="15_ypgds"]
 [ext_resource type="PackedScene" uid="uid://be24vawtanngv" path="res://rooms/Library/DIE banner.glb" id="16_6posu"]
