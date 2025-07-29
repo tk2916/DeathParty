@@ -14,6 +14,7 @@ func _ready() -> void:
 	scale = og_scale
 	
 func focus_object():
+	GuiSystem.hide_journal()
 	var duplicate : ObjectViewerRotatable = ObjectViewerRotatable.new()
 	for child in self.get_children():
 		if child is CollisionShape3D:
@@ -21,7 +22,8 @@ func focus_object():
 		duplicate.add_child(child.duplicate())
 	
 	duplicate.scale = Vector3.ONE*3
-	duplicate.rotate(Vector3(0,1,0), deg_to_rad(180.0))
+	#duplicate.rotate(Vector3(0,1,0), deg_to_rad(180.0))
+	
 	Interact.object_viewer.set_preexisting_item(duplicate)
 
 ##INHERITED

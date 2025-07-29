@@ -29,22 +29,6 @@ func _ready() -> void:
 func return_to_og_position():
 	position = og_position
 
-#func pass_input():
-	#var start : Vector3 = mesh.global_position
-	#var end : Vector3 = start - self.transform.basis.z * Interact.DIST
-	#var exclusions : Array[RID] = [self.get_rid()]
-	#Interact.hit_control_with_custom_raycast(bookflip_instance.cur_subviewport, main_page_static, start, end, exclusions)
-
-	#var albedo_texture : Texture = main_page.material_override.get_shader_parameter("albedo_texture")
-	#if bookflip_instance.cur_subviewport and dragging:#albedo_texture is ViewportTexture:
-		#pass_input()
-				
-#func _input(event: InputEvent) -> void:
-	#if Interact.grabbed_control and Interact.grabbed_control is DragDropControl and event is InputEventMouseButton:
-		#if event.button_index == MOUSE_BUTTON_LEFT:
-			#if event.pressed == false:
-				#Interact.grabbed_control.mouse_up_polaroid(item_resource, self)
-
 ##INHERITED
 func enter_hover() -> void:
 	if tree == null: return

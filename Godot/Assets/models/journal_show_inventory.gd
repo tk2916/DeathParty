@@ -7,13 +7,6 @@ class_name JournalInventoryCollider extends ObjectViewerInteractable
 var first_time : bool = true
 var inventory_showing : bool = false
 
-func e():
-	print("E----------")
-	print(journal_root.global_position)
-	print(static_page_1.global_position)
-	print(journal_root.get_node("bookflip/Armature/Skeleton3D/AnimatableBody3D").global_position)
-	print("End E-------")
-
 func _ready() -> void:
 	inventory_items_container.show_items()
 

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
 [ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="3_ngl8b"]
 [ext_resource type="Texture2D" uid="uid://b10xkyr1i6p24" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
-[ext_resource type="Script" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
+[ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
 vertex_color_use_as_albedo = true
