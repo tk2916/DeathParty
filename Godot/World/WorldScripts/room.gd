@@ -17,6 +17,10 @@ func _on_body_entered(body: Node3D) -> void:
 	rotate_player(body)
 	
 	FmodServer.set_global_parameter_by_name_with_label("room", "front room")
+	print(room_area_center)
+	print(camera_y_offset)
+	print(lower_bound)
+	print(upper_bound)
 
 
 func _change_visibility(pos: Vector3) -> void:

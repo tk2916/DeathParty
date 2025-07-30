@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0npqij1rnr1s"]
+
+[ext_resource type="PackedScene" uid="uid://3uonffs6vrbl" path="res://Assets/environment/bookshelves/bookshelf_ornate/bookshelf_ornate.glb" id="1_b21mw"]
+
+[node name="OrnateBookshelf" instance=ExtResource("1_b21mw")]

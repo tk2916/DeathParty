@@ -50,7 +50,7 @@ func _ready() -> void:
 	camera_y_offset = room_area_shape.size.y/2
 	
 	camera_y_offset = room_area_shape.size.y/2 - camera_y_offset
-	var y_center: float = room_area_shape.size.y/2 + room_area_center.y
+	var y_center: float = room_area_center.y
 	lower_bound = y_center - camera_y_offset
 	upper_bound = y_center + camera_y_offset
 	
@@ -100,6 +100,41 @@ func _calculate_progress_ratio(pos: Vector3) -> void:
 func compress_vector3(vec: Vector3) -> float:
 	return vec.x + vec.y + vec.z
 
+
+## Functions for emitting GlobalCameraScript signals
+func _remove_all_bounds(body: Node3D) -> void:
+	GlobalCameraScript.remove_camera_bounds_LR.emit()
+	GlobalCameraScript.remove_camera_bounds_y.emit()
+	GlobalCameraScript.remove_camera_bounds_depth.emit()
+	GlobalCameraScript.remove_camera_bounds_path.emit()
+
+func _bind_camera_LR(body: Node3D) -> void:
+	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
+
+
+func _bind_camera_y(body: Node3D) -> void:
+	GlobalCameraScript.bind_camera_y.emit(lower_bound, upper_bound)
+
+
+func _bind_camera_depth(body: Node3D) -> void:
+	GlobalCameraScript.bind_camera_depth.emit(inner_bound, outer_bound, basis)
+
+
+func _bind_camera_path(body: Node3D) -> void:
+	assert(path_follow_node, "path_follow_node is not defined! Assign it a value in this node's exports")
+	GlobalCameraScript.bind_camera_path.emit(path_follow_node)
+
+
+func _keep_camera_on_player(body: Node3D) -> void:
+	GlobalCameraScript.camera_on_player.emit(true)
+
+
+func _keep_camera_off_player(body: Node3D) -> void:
+	GlobalCameraScript.camera_on_player.emit(false)
+
+
+func _move_player_to_foreground(body: Node3D) -> void:
+	body.global_position = move_to_foreground(body)
 
 ## These functions should be defined in the extended script
 #func _on_body_entered(_body: Node3D) -> void:
