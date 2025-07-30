@@ -98,19 +98,6 @@ shape = SubResource("BoxShape3D_ootlj")
 [node name="door" parent="Kitchen Layout" instance=ExtResource("2_kbocy")]
 transform = Transform3D(1, 0, 1.16415e-10, 0, 1, 0, -1.16415e-10, 0, 1, -2.96491, -1.88558, -6.50927)
 
-[node name="DIE banner" parent="Kitchen Layout"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(-0.379066, 0, -0.613449, 0, 0.939076, 0, 0.613449, 0, -0.379066, -7.33992, 0.170396, -3.70547)
-script = null
-
 [node name="Kitchen Setup" parent="." instance=ExtResource("2_3odkc")]
 transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, 4.67381, -1.78427, -5.4433)
 
@@ -471,45 +458,6 @@ transform = Transform3D(-0.292615, -0.739246, 0.60654, -0.905025, 0.00931996, -0
 
 [node name="DIE frat logo" parent="." instance=ExtResource("12_pxkqo")]
 transform = Transform3D(0.474823, 0, 0, 0, 0.474823, 0, 0, 0, 0.474823, -6.12942, -0.716381, -6.52977)
-
-[node name="Drink Sign" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(0.5349, 0, 0, 0, 0.5349, 0, 0, 0, 0.5349, -1.63562, -0.384917, -6.4927)
-script = null
-
-[node name="enjoy" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(0.244451, 0.0285123, 3.57104e-05, -0.0285123, 0.244451, 0.00013494, -1.98385e-05, -0.000138168, 0.246108, -7.53798, 0.115189, -6.52589)
-script = null
-
-[node name="Sexy poster" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(0.0154356, 0, 0.827987, 0, 0.828131, 0, -0.827987, 0, 0.0154356, -7.97661, -1.08412, -3.23489)
-script = null
 
 [node name="Student Athelete" parent="." instance=ExtResource("16_xg0f7")]
 transform = Transform3D(0.290043, 0, 0, 0, 0.209166, 0, 0, 0, 0.225316, -7.4315, -1.19744, -6.52442)
