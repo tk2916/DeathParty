@@ -143,3 +143,20 @@ func decide_to_move(max_value: int = 200) -> int:
 	## 1 - ((1-.005)^60) ~= 26% chance to decide to move every second while idle, I think?
 	## 1 - (1-(1/max_value))^{60}
 	return RandomNumberGenerator.new().randi_range(1, max_value)
+
+
+## EXAMPLE USAGE
+#extends NPCAgent
+#
+#@export var path: Path3D
+#
+#var movement_speed: float = 1.9
+#
+#func _ready() -> void:
+	#wait()
+#
+#func _physics_process(delta: float) -> void:
+	#wander(movement_speed, 1, delta)
+	##move_between_nodes_random(path, movement_speed, 1)
+#func wait() -> void:
+	#await get_tree().physics_frame
