@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bmpd4lt1hpvlr"]
+[gd_scene load_steps=40 format=4 uid="uid://bmpd4lt1hpvlr"]
 
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://16ssx5uymhtm" path="res://rooms/Kitchen/Kitchen Setup.glb" id="2_3odkc"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://te45o0a3h24h" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_hanging.tscn" id="31_hc0kg"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="32_obamy"]
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="33_6ieyk"]
+[ext_resource type="PackedScene" uid="uid://bwam0r715obls" path="res://Assets/alcohol/Beer box.glb" id="34_vrpp8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ootlj"]
 size = Vector3(74.0338, 1, 67.6719)
@@ -177,7 +178,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4954, -0.443662, 0.0807931
 light_color = Color(1, 0.784314, 0, 1)
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.552
@@ -188,7 +188,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4954, -0.443662, -1.46977)
 light_color = Color(1, 0.784314, 0, 1)
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.552
@@ -199,7 +198,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17259, -0.443662, -0.61402
 light_color = Color(1, 0.784314, 0, 1)
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.552
@@ -210,7 +208,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43363, -0.443662, 0.359642
 light_color = Color(1, 0.784314, 0, 1)
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.552
@@ -221,7 +218,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43363, -0.443662, -1.62553
 light_color = Color(1, 0.784314, 0, 1)
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.552
@@ -232,7 +228,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41662, -0.443662, -0.556334
 light_color = Color(1, 0.784314, 0, 1)
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.552
@@ -243,7 +238,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23057, -0.443662, 0.40732)
 light_color = Color(1, 0.784314, 0, 1)
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.552
@@ -254,7 +248,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23057, -0.443662, -1.70221)
 light_color = Color(1, 0.784314, 0, 1)
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.552
@@ -266,7 +259,6 @@ light_color = Color(1, 0.75, 0, 1)
 light_energy = 2.067
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 2.595
@@ -278,7 +270,6 @@ light_color = Color(1, 0.733333, 0, 1)
 light_energy = 2.067
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 2.157
@@ -290,7 +281,6 @@ light_color = Color(0.821081, 0.599638, 1.54018e-06, 1)
 light_energy = 0.911
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 2.63909
@@ -310,11 +300,10 @@ omni_attenuation = -3.195
 
 [node name="OmniLight3D16" type="OmniLight3D" parent="Kitchen stringlights"]
 transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, 1.86698, -3.33953, 2.01131)
-light_color = Color(0.553935, 0.400018, 9.62615e-08, 1)
+light_color = Color(0.714255, 0.519815, 0, 1)
 light_energy = 0.911
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 4.387
@@ -322,11 +311,10 @@ omni_attenuation = -1.639
 
 [node name="OmniLight3D18" type="OmniLight3D" parent="Kitchen stringlights"]
 transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, 4.22586, -3.33953, 1.5004)
-light_color = Color(0.774998, 0.565204, 0, 1)
+light_color = Color(0.880603, 0.644116, 0, 1)
 light_energy = 0.911
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 2.63909
@@ -338,7 +326,6 @@ light_color = Color(1, 0.815686, 0, 1)
 light_energy = 2.067
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.966
@@ -350,7 +337,6 @@ light_color = Color(1, 0.816667, 0, 1)
 light_energy = 2.067
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 2.846
@@ -361,7 +347,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56857, -0.443662, -0.567696
 light_color = Color(1, 0.783333, 0, 1)
 light_size = 1.0
 light_specular = 0.0
-shadow_enabled = true
 shadow_opacity = 0.0
 shadow_blur = 10.0
 omni_range = 1.552
@@ -421,7 +406,6 @@ omni_range = 3.654
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.79565, -0.527517, -5.16818)
 light_color = Color(0.893176, 0.000275308, 0.803261, 1)
 light_energy = 0.91
-shadow_enabled = true
 shadow_opacity = 0.84
 omni_range = 2.5
 omni_attenuation = -2.556
@@ -799,7 +783,7 @@ transform = Transform3D(-1.0521, 0, 0.297458, 0, 1.09334, 0, -0.297458, 0, -1.05
 transform = Transform3D(-0.878768, 0, 0.650515, 0, 1.09334, 0, -0.650515, 0, -0.878768, 7.77279, -2.17969, -1.32482)
 
 [node name="JackOLantern" parent="." instance=ExtResource("30_6oann")]
-transform = Transform3D(1.88934e-08, 0, -0.144078, 0, 0.170141, 0, 0.144078, 0, 1.88934e-08, 7.17782, -2.07742, -3.0927)
+transform = Transform3D(1.88934e-08, 0, -0.144078, 0, 0.170141, 0, 0.144078, 0, 1.88934e-08, 7.17782, -1.48674, -3.0927)
 
 [node name="JackOLantern2" parent="." instance=ExtResource("30_6oann")]
 transform = Transform3D(-0.194033, 0, -0.00596106, 0, 0.309574, 0, 0.00792208, 0, -0.146002, 7.78546, -2.0128, -1.68534)
@@ -824,6 +808,24 @@ transform = Transform3D(-1.09208, 0, -0.0526281, 0, 1.09334, 0, 0.0526281, 0, -1
 
 [node name="CobwebWide" parent="." instance=ExtResource("33_6ieyk")]
 transform = Transform3D(1.39879, 0, 0, 0, 1.39879, 0, 0, 0, 1.39879, -6.31939, -0.562519, 2.03959)
+
+[node name="Beer box" parent="." instance=ExtResource("34_vrpp8")]
+transform = Transform3D(0.97994, 0, 0.484891, 0, 1.09334, 0, -0.484891, 0, 0.97994, 2.69044, -2.79746, -1.74608)
+
+[node name="Beer box2" parent="." instance=ExtResource("34_vrpp8")]
+transform = Transform3D(0.558683, 0, 0.757364, 0, 0.941131, 0, -0.757364, 0, 0.558683, -5.50404, -2.83953, -1.28255)
+
+[node name="Beer box5" parent="." instance=ExtResource("34_vrpp8")]
+transform = Transform3D(0.941114, 0, 0.00571592, 0, 0.941131, 0, -0.00571592, 0, 0.941114, -7.31808, -1.68104, 0.508992)
+
+[node name="Beer box6" parent="." instance=ExtResource("34_vrpp8")]
+transform = Transform3D(0.813828, 0, -0.730129, 0, 1.09334, 0, 0.730129, 0, 0.813828, 7.44294, -1.8904, -2.88931)
+
+[node name="Beer box3" parent="." instance=ExtResource("34_vrpp8")]
+transform = Transform3D(1.09334, 0, -0.00167952, 0, 1.09334, 0, 0.00167952, 0, 1.09334, -7.41018, -2.79746, -4.84843)
+
+[node name="Beer box4" parent="." instance=ExtResource("34_vrpp8")]
+transform = Transform3D(1.045, 0, 0.321524, 0, 1.09334, 0, -0.321524, 0, 1.045, -7.34661, -2.18251, -4.84843)
 
 [editable path="Kitchen Layout"]
 [editable path="Kitchen Setup"]
