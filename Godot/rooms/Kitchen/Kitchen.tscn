@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bmpd4lt1hpvlr"]
+[gd_scene load_steps=39 format=4 uid="uid://bmpd4lt1hpvlr"]
 
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://16ssx5uymhtm" path="res://rooms/Kitchen/Kitchen Setup.glb" id="2_3odkc"]
@@ -29,6 +29,10 @@
 [ext_resource type="PackedScene" uid="uid://bjutys11t6nx5" path="res://Assets/props/posters/drink_sign/drink_sign.glb" id="27_v5gra"]
 [ext_resource type="PackedScene" uid="uid://b1sudygpot6ot" path="res://Assets/props/chair/chair.glb" id="28_v5gra"]
 [ext_resource type="PackedScene" uid="uid://cf7gkb37rdvf1" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers/pumpkin with beers.glb" id="29_nw002"]
+[ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="30_6oann"]
+[ext_resource type="PackedScene" uid="uid://te45o0a3h24h" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_hanging.tscn" id="31_hc0kg"]
+[ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="32_obamy"]
+[ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="33_6ieyk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ootlj"]
 size = Vector3(74.0338, 1, 67.6719)
@@ -155,6 +159,9 @@ skeleton = NodePath("")
 
 [node name="blue goose2" parent="Kitchen Setup" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.840295, 0, -0.251253, 0, 0.877054, 0, 0.251253, 0, 0.840295, -10.3053, -0.153658, 5.96251)
+
+[node name="blue goose6" parent="Kitchen Setup" instance=ExtResource("6_l47d5")]
+transform = Transform3D(0.200142, 0, -0.853913, 0, 0.877054, 0, 0.853913, 0, 0.200142, -9.37624, -0.569186, 5.39699)
 
 [node name="blue goose3" parent="Kitchen Setup" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.0335305, 0, -0.876413, 0, 0.877054, 0, 0.876413, 0, 0.0335305, -3.14864, -0.361872, -0.41822)
@@ -316,7 +323,7 @@ omni_attenuation = -3.195
 
 [node name="OmniLight3D16" type="OmniLight3D" parent="Kitchen stringlights"]
 transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, 1.86698, -3.33953, 2.01131)
-light_color = Color(0.852048, 0.622778, 0, 1)
+light_color = Color(0.553935, 0.400018, 9.62615e-08, 1)
 light_energy = 0.911
 light_size = 1.0
 light_specular = 0.0
@@ -416,7 +423,7 @@ shadow_opacity = 0.84
 omni_range = 3.654
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="."]
-transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -2.64528, -1.27328, -1.82206)
+transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -3.56931, -1.27328, -1.82206)
 light_color = Color(1, 0, 0.216667, 1)
 light_energy = 16.0
 shadow_enabled = true
@@ -552,8 +559,20 @@ transform = Transform3D(0.268825, 0, 0, 0, 0.0618888, 0.261604, 0, -0.261604, 0.
 [node name="red_cup30" parent="." instance=ExtResource("25_eupok")]
 transform = Transform3D(-0.191815, -0.183286, 0.0433607, 0, 0.0618888, 0.261604, -0.188345, 0.186663, -0.0441596, 1.39521, -3.06275, -3.25833)
 
+[node name="red_cup32" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(-0.191815, -0.183286, 0.0433607, 0, 0.0618888, 0.261604, -0.188345, 0.186663, -0.0441596, -3.67096, -3.06275, -3.25833)
+
 [node name="red_cup11" parent="." instance=ExtResource("25_eupok")]
 transform = Transform3D(0.012968, -0.268512, 0, 0.268512, 0.012968, 0, 0, 0, 0.268825, 1.55607, -3.02015, -2.00695)
+
+[node name="red_cup33" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(0.148699, 0.217939, -0.0515586, 1.81652e-09, 0.0618888, 0.261604, 0.223954, -0.144705, 0.0342335, -3.90683, -3.05045, -0.612486)
+
+[node name="red_cup34" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(-0.263009, -0.0541226, 0.012804, 0, 0.0618888, 0.261604, -0.0556165, 0.255944, -0.0605498, -4.62912, -3.06988, -0.765221)
+
+[node name="red_cup35" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(-0.0126875, 0.262703, 0.0556165, 0.268512, 0.012968, -2.57269e-10, -0.00268292, 0.0555518, -0.263009, -3.80533, -3.00784, -1.87008)
 
 [node name="red_cup12" parent="." instance=ExtResource("25_eupok")]
 transform = Transform3D(-0.224394, 0.144057, -0.0340803, 0, 0.0618888, 0.261604, 0.148034, 0.218367, -0.05166, 5.19819, -3.06875, -1.37892)
@@ -572,6 +591,24 @@ transform = Transform3D(0.268825, 0, 0, 0, 0.268825, 0, 0, 0, 0.268825, 2.39829,
 
 [node name="red_cup9" parent="." instance=ExtResource("25_eupok")]
 transform = Transform3D(0.0142763, 0.0696228, -0.25926, -0.263346, 0.0539996, 0, 0.0520783, 0.253976, 0.0710715, 2.39829, -2.04635, -1.99691)
+
+[node name="red_cup36" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(0.190231, 0, 0.189945, 0, 0.268825, 0, -0.189945, 0, 0.190231, -4.62092, -1.92144, -2.14591)
+
+[node name="red_cup37" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(0.190231, 0, 0.189945, 0, 0.268825, 0, -0.189945, 0, 0.190231, -4.77272, -1.92144, -1.8126)
+
+[node name="red_cup38" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(0.0468997, 0.228721, -0.133245, -0.263346, 0.0539996, 0, 0.0267652, 0.130529, 0.23348, -4.54666, -1.88565, -2.44634)
+
+[node name="red_cup39" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(0.190231, 0, 0.189945, 0, 0.268825, 0, -0.189945, 0, 0.190231, -7.35472, -1.92144, 2.63219)
+
+[node name="red_cup40" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(0.190231, 0, 0.189945, 0, 0.268825, 0, -0.189945, 0, 0.190231, -7.50652, -1.92144, 2.69471)
+
+[node name="red_cup41" parent="." instance=ExtResource("25_eupok")]
+transform = Transform3D(0.0468997, 0.228721, -0.133245, -0.263346, 0.0539996, 0, 0.0267652, 0.130529, 0.23348, -6.9579, -1.88565, 2.66449)
 
 [node name="red_cup10" parent="." instance=ExtResource("25_eupok")]
 transform = Transform3D(0.0376873, 0.26617, 0, -0.26617, 0.0376873, 0, 0, 0, 0.268825, 2.89759, -2.05134, -2.1974)
@@ -671,6 +708,12 @@ transform = Transform3D(-1.08319, 0, 0.14863, 0, 1.09334, 0, -0.14863, 0, -1.083
 
 [node name="pumpkin with beers2" parent="." instance=ExtResource("29_nw002")]
 transform = Transform3D(-1.18371, 0, -0.841403, 0, 1.45228, 0, 0.841403, 0, -1.18371, -7.5483, -1.51228, 2.05341)
+
+[node name="pumpkin with beers3" parent="." instance=ExtResource("29_nw002")]
+transform = Transform3D(-0.921178, 0, 0.588959, 0, 1.09336, 0, -0.588959, 0, -0.921178, -0.260148, -0.296461, -6.23478)
+
+[node name="pumpkin with beers4" parent="." instance=ExtResource("29_nw002")]
+transform = Transform3D(-0.921178, 0, 0.588959, 0, 1.09336, 0, -0.588959, 0, -0.921178, 4.10048, -1.86041, -6.15505)
 
 [node name="whiskey3" parent="." instance=ExtResource("24_mt2x6")]
 transform = Transform3D(0.851416, 0.00322634, -0.685918, -0.000821606, 1.09334, 0.00412285, 0.685925, -0.00269512, 0.851412, -5.20131, -1.93814, -1.84157)
@@ -806,6 +849,33 @@ transform = Transform3D(-1.0521, 0, 0.297458, 0, 1.09334, 0, -0.297458, 0, -1.05
 
 [node name="whiskey6" parent="." instance=ExtResource("24_mt2x6")]
 transform = Transform3D(-0.878768, 0, 0.650515, 0, 1.09334, 0, -0.650515, 0, -0.878768, 7.77279, -2.17969, -1.32482)
+
+[node name="JackOLantern" parent="." instance=ExtResource("30_6oann")]
+transform = Transform3D(1.88934e-08, 0, -0.144078, 0, 0.170141, 0, 0.144078, 0, 1.88934e-08, 7.17782, -2.07742, -3.0927)
+
+[node name="JackOLantern2" parent="." instance=ExtResource("30_6oann")]
+transform = Transform3D(-0.194033, 0, -0.00596106, 0, 0.309574, 0, 0.00792208, 0, -0.146002, 7.78546, -2.0128, -1.68534)
+
+[node name="JackOLanternHanging" parent="." instance=ExtResource("31_hc0kg")]
+transform = Transform3D(1.231, 0, 0, 0, 1.231, 0, 0, 0, 1.231, 5.85552, 0.0174782, -1.23485)
+
+[node name="JackOLanternHanging4" parent="." instance=ExtResource("31_hc0kg")]
+transform = Transform3D(-0.0691436, 0, -1.41577, 0, 1.41746, 0, 1.41577, 0, -0.0691436, -2.3645, -0.320787, -1.23485)
+
+[node name="JackOLanternHanging5" parent="." instance=ExtResource("31_hc0kg")]
+transform = Transform3D(0.844113, 0, 1.13872, 0, 1.41746, 0, -1.13872, 0, 0.844113, -5.65699, 0.236754, -0.588391)
+
+[node name="JackOLanternHanging2" parent="." instance=ExtResource("31_hc0kg")]
+transform = Transform3D(0.478087, 0, -1.39644, 0, 1.52123, 0, 2.04443, 0, 0.326556, 3.85966, -0.105595, -1.23485)
+
+[node name="JackOLanternHanging3" parent="." instance=ExtResource("31_hc0kg")]
+transform = Transform3D(2.01541, 0, 0.883917, 0, 1.88796, 0, -0.505076, 0, 3.5271, 0.677025, 0.204093, -2.71404)
+
+[node name="CobwebCorner" parent="." instance=ExtResource("32_obamy")]
+transform = Transform3D(-1.09208, 0, -0.0526281, 0, 1.09334, 0, 0.0526281, 0, -1.09208, 6.56417, 0.139357, -1.99787)
+
+[node name="CobwebWide" parent="." instance=ExtResource("33_6ieyk")]
+transform = Transform3D(1.39879, 0, 0, 0, 1.39879, 0, 0, 0, 1.39879, -6.31939, -0.562519, 2.03959)
 
 [editable path="Kitchen Layout"]
 [editable path="Kitchen Setup"]
