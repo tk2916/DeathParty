@@ -1,6 +1,12 @@
 extends Button
-
+@export var question_mark : Area3D
 
 func _on_pressed():
-	var button_pressed_tween: Tween = create_tween()
-	button_pressed_tween.set_trans(Tween.TRANS_SINE)
+	#can't see the question mark once picture is taken
+	question_mark.visible=false
+	disabled=true
+	
+	
+	
+
+	

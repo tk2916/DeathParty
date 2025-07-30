@@ -1,21 +1,22 @@
-extends CanvasLayer
+class_name PolaroidLayer extends CanvasLayer
 
+var Picture
+@export var viewfinder_camera: Camera2D
 
-@onready var picture : TextureRect = %ViewFinder
-
-
+#function for movement of camera
 func _physics_process(delta: float) -> void:
-	var velocity = Vector2.ZERO 
+	Picture=$PictureExample/ViewFinder
+	# viewfinder movement corresponds with player input	
 	if Input.is_action_pressed("move_right"):
-		picture.position.x += 1.5
+		Picture.position.x += 3
 	if Input.is_action_pressed("move_left"):
-		picture.position.x -= 1.5
+		Picture.position.x -= 3
 	if Input.is_action_pressed("move_down"):
-		picture.position.y += 5
+		Picture.position.y += 3
 	if Input.is_action_pressed("move_up"):
-		picture.position.y -= 5
-
-	if $PictureExample/ViewFinder.position.x < 0:
+		Picture.position.y -= 3
+	#stops viewfinder from passing the bounds of the image
+	if	$PictureExample/ViewFinder.position.x < 0:
 		$PictureExample/ViewFinder.position.x = 0
 
 	if $PictureExample/ViewFinder.position.x > 100:
@@ -26,20 +27,12 @@ func _physics_process(delta: float) -> void:
 
 	if $PictureExample/ViewFinder.position.y > 142:
 		$PictureExample/ViewFinder.position.y = 142
-
-
-# when question mark is pressed, player enters polaroid scene
-func _on_picture_hint_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+		
+#function for when question mark is pressed 
+func _on_question_mark_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	# detects when player clicks on question mark
 	if event is InputEventMouseButton:
-		print("interact")
-		$PictureExample/ViewFinder/Camera2D.enabled=true
-		$PictureExample/ViewFinder/Camera2D.make_current()
-		visible=true
-		get_tree().paused = true
-
-
-# when player shoots the picture, the image disappears 
-func _on_shoot_button_up() -> void:
-	visible=false
-	$PictureExample/ViewFinder/Camera2D.enabled=false
-	get_tree().paused = false
+		#pops up picture taking scene and switch to 2D camera	
+		$PictureExample/Camera2D.enabled=true
+		$PictureExample/Camera2D.make_current()
+		visible=true	

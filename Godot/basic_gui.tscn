@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bte12xawe5jl1" path="res://Assets/PNGAssets/temp_phone_white.png" id="4_vs0em"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="5_140vj"]
 [ext_resource type="Script" uid="uid://dehejbaawpqyj" path="res://Assets/GUIFunctionalityScripts/clock.gd" id="6_ivccq"]
-[ext_resource type="Texture2D" uid="uid://ciagkcjbti5dm" path="res://Assets/CharacterAssets/CharacterTextures/polaroid_olivia.png" id="7_fkeip"]
+[ext_resource type="Texture2D" uid="uid://ciagkcjbti5dm" path="res://Assets/CharacterAssets/olivia/polaroid_olivia.png" id="7_fkeip"]
 
 [node name="BasicGUI" type="Panel"]
 anchors_preset = -1
@@ -128,7 +128,6 @@ offset_right = 38.0
 offset_bottom = 39.0
 flat = true
 script = ExtResource("4_2nnue")
-journal_path = "res://Assets/models/bookflip3.tscn"
 
 [node name="Sounds" type="Node" parent="Panel2/Panel3/OpenJournalButton"]
 

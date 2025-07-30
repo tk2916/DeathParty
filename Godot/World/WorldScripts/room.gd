@@ -1,10 +1,6 @@
 extends "res://Utilities/scripts/define_camera_bounds.gd"
 
-@export var room_area : CollisionShape3D
 @export var things_to_hide : Node3D
-
-@onready var room_shape : BoxShape3D = room_area.shape
-@onready var background_plane := Plane(basis.z, (global_position - (room_shape.size/2 * basis)))
 
 func _ready() -> void:
 	super()
@@ -12,7 +8,7 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	GlobalCameraScript.remove_camera_bounds_path.emit()
+	GlobalCameraScript.remove_all_bounds()
 	GlobalCameraScript.camera_on_player.emit(true)
 	# Define camera bounds 
 	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
@@ -21,6 +17,10 @@ func _on_body_entered(body: Node3D) -> void:
 	rotate_player(body)
 	
 	FmodServer.set_global_parameter_by_name_with_label("room", "front room")
+	print(room_area_center)
+	print(camera_y_offset)
+	print(lower_bound)
+	print(upper_bound)
 
 
 func _change_visibility(pos: Vector3) -> void:

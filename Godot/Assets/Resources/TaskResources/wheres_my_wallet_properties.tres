@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ksfxww0nfeb0"]
+
+[ext_resource type="Script" uid="uid://cvt183j47uyr1" path="res://Assets/Resources/TaskResources/Default Resource (DO NOT EDIT)/task_properties_script.gd" id="1_vhe08"]
+
+[resource]
+script = ExtResource("1_vhe08")
+name = "Where's my wallet?"
+description = "Help Jack find his wallet!"

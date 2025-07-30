@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dy2offscqhpxg"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=3 format=3 uid="uid://dy2offscqhpxg"]
 
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="1_0hub4"]
-[ext_resource type="Texture2D" uid="uid://bkno37ppvgphk" path="res://Assets/CharacterAssets/CharacterTextures/polaroid_sam.png" id="1_72q1x"]
+[ext_resource type="Texture2D" uid="uid://bkno37ppvgphk" path="res://Assets/CharacterAssets/sam/polaroid_sam.png" id="1_72q1x"]
 
 [resource]
 script = ExtResource("1_0hub4")

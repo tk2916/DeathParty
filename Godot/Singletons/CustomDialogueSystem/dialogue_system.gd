@@ -39,8 +39,8 @@ var current_choice_labels : Array[Node]
 
 #RESOURCE DIRECTORIES
 const INK_INTERPRET_RSC_FILEPATH : String = "res://Singletons/InkInterpreter/ink_interpret_resource_blank.tres"
-var phone_messages : Dictionary[String, Resource]
-var character_properties : Dictionary[String, Resource]
+var phone_messages : Dictionary[String, ChatResource]
+var character_properties : Dictionary[String, CharacterResource]
 var blank_ink_interpret_resource : Resource = load(INK_INTERPRET_RSC_FILEPATH).duplicate(true)
 
 var current_character_resource : Resource = null
@@ -90,11 +90,12 @@ func transferDialogueBox(new_box : Control):
 	transferBoxProperties()
 
 func setDialogueBox(new_resource : Resource):
+	if in_dialogue: return
 	var diag_box_inst = new_resource.dialogue_box.instantiate()
 	current_dialogue_box = diag_box_inst
+	current_dialogue_box.visible = false
 	dialogue_box_properties = new_resource
 	canvas_layer.add_child(current_dialogue_box)
-	current_dialogue_box.visible = false
 	#Transfer all properties over
 	transferBoxProperties()
 
@@ -200,6 +201,11 @@ func match_command(text_ : String):
 	match(parameters_array[0]):
 		"/give_item":
 			SaveSystem.add_item(parameters_array[1])
+			'''
+			set this automatically so writers don't have to keep
+			writing /give_item and /has_item right after each other
+			'''
+			SaveSystem.set_key("has_item_flag", true) 
 		"/remove_item":
 			#alerts if you don't have enough items
 			var result : int = SaveSystem.remove_item(parameters_array[1])
@@ -209,12 +215,17 @@ func match_command(text_ : String):
 				SaveSystem.set_key("remove_item_flag", true)
 		"/has_item":
 			var result : int = SaveSystem.item_count(parameters_array[1])
+			var tf_result : bool = true
 			if result == 0: #does not have item
 				print("User does not have item: ", parameters_array[1])
-				SaveSystem.set_key("has_item_flag", false)
+				tf_result = false
 			else:
 				print("User has item: ", parameters_array[1])
-				SaveSystem.set_key("has_item_flag", true)
+			SaveSystem.set_key("has_item_flag", tf_result)
+			if parameters_array.size() >= 3:
+				#writers can set a custom variable to store the results in
+				var custom_var : String = parameters_array[2]
+				SaveSystem.set_key(custom_var, tf_result)
 		"/give_task":
 			SaveSystem.add_task(parameters_array[1])
 		"/complete_task":
@@ -249,13 +260,22 @@ func advance_dialogue():
 		skip_dialogue_animation()
 		
 #CLICK TO ADVANCE DIALOGUE
-func _input(event):
-	if current_dialogue_box && in_dialogue == true:
-			if event is InputEventMouseButton:
-				if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and are_choices == false:
-					#if Rect2(Vector2(0,0), size).has_point(event.position):
-					if mouse_contained_within_gui:
-						advance_dialogue()
+var pressed : bool = false
+func _process(delta: float) -> void:
+	if current_dialogue_box && in_dialogue == true && are_choices == false && mouse_contained_within_gui && Input.is_action_pressed("dialogic_default_action"):
+		if !pressed:
+			advance_dialogue()
+			pressed = true
+	else:
+		pressed = false
+		
+#func _input(event):
+	#if current_dialogue_box && in_dialogue == true:
+			#if event is InputEventMouseButton:
+				#if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and are_choices == false:
+					##if Rect2(Vector2(0,0), size).has_point(event.position):
+					#if mouse_contained_within_gui:
+						#advance_dialogue()
 
 func change_container(redirect:Array, choice_text:String):
 	are_choices = false
@@ -320,6 +340,9 @@ func get_first_message(json : JSON):
 
 func from_JSON(file : JSON, saved_ink_resource : Resource = blank_ink_interpret_resource):#resume_from_hierarchy : Array = []): #non-phone dialoguebox
 	assert(file != null, "You forgot to assign a JSON file!")
+	if in_dialogue:
+		print("You can't start a new chat while in a dialogue!")
+		return
 	print("Starting chat json: ", saved_ink_resource.output_stream)
 	current_choice_labels = []
 	Ink.from_JSON(file, saved_ink_resource)

@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @onready var model : Node3D = %PlayerModel
 @onready var animation_tree : AnimationTree = %AnimationTree
@@ -6,7 +6,7 @@ extends CharacterBody3D
 @onready var footstep_sounds : FmodEventEmitter3D = $FootstepSounds
 @onready var spawn_position : Vector3 = global_position
 
-@export var player_speed : float = 2.0
+@export var player_speed := 2.3
 @export var horizontal_offset : float = 1.3
 
 @export var player_camera_location : Node3D
@@ -30,6 +30,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta : float) -> void:
+	if DialogueSystem.in_dialogue or GuiSystem.in_gui:
+		player_velocity = Vector3.ZERO
+		handle_animations(delta)
+		return
+		
 	player_camera_location.position = original_camera_position
 
 	# Direction of movement in the X axis
@@ -92,8 +97,17 @@ func handle_animations(delta: float) -> void:
 			walk_blend = lerpf(walk_blend, 0, blend_speed * delta)
 		AnimationState.WALK:
 			walk_blend = lerpf(walk_blend, 1, blend_speed * delta)
-	
+
 	animation_tree["parameters/Walk Blend/blend_amount"] = walk_blend
+
+	# adjust speed of walk animation based on player_speed
+
+	# NOTE: 2.0 is the player_speed that roughly matches the animation,
+	# so we scale based on that
+	if player_velocity != Vector3.ZERO:
+		animation_tree.set("parameters/TimeScale/scale", player_speed / 2.0)
+	elif player_velocity == Vector3.ZERO:
+		animation_tree.set("parameters/TimeScale/scale", 1.0)
 
 	#prev_movement_direction = movement_direction
 
@@ -131,3 +145,5 @@ func _on_world_boundary_body_entered(body : Node3D) -> void:
 	if body == self:
 		print("player out of bounds, resetting position . . .")
 		global_position = spawn_position
+		##ALSO MAKE IT SO IT LOADS THE ORIGINAL SCENES
+		ContentLoader.reset()

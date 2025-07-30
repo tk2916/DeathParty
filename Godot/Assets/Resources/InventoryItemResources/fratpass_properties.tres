@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://daxcpqq50qq4r"]
+
+[ext_resource type="PackedScene" uid="uid://b0rxhbqfjj1l8" path="res://Assets/props/inventory_items/scissors.tscn" id="1_g3ypl"]
+[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_properties_script.gd" id="2_qrnxr"]
+
+[resource]
+script = ExtResource("2_qrnxr")
+name = "Frat Pass"
+description = "The cool kid pass"
+model = ExtResource("1_g3ypl")

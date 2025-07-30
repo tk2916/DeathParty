@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://bitlbgb4mv2pu"]
+
+[ext_resource type="Texture2D" uid="uid://chro60732i7qv" path="res://Assets/textures/entrance_room_environment/entrance room layout_bwood.png" id="1_pvq02"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53ah1"]
+resource_name = "bottom wood"
+cull_mode = 2
+albedo_texture = ExtResource("1_pvq02")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8ou7l"]
+_surfaces = [{
+"aabb": AABB(-19.6061, -164.595, -19.5428, 3.16046, 4.1017, 33.8979),
+"format": 34896613377,
+"index_count": 156,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAAAAIABAAFAAMAAwAGAAEAAwAFAAYABwAFAAQABAACAAcABwAGAAUAAgABAAgABwACAAkAAgAIAAkAAQAKAAgAAQAGAAoABgAHAAsABwAJAAsABgALAAoACQAIAAwACwAJAA0ACQAMAA0ACgALAA4ACwANAA4ACAAKAA8ACAAPAAwACgAOAA8ADQAMABAADgANABEADQAQABEADwAOABIADgARABIADAAPABMADAATABAADwASABMAEQAQABQAEgARABUAEQAUABUAEwASABYAEgAVABYAEAATABcAEAAXABQAEwAWABcAFQAUABgAFwAWABkAFgAVABoAFQAYABoAFgAaABkAFAAbABgAFAAXABsAGgAYABsAFwAZABsAGgAbABkA"),
+"name": "bottom wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("Rbeaxv//AAC5SJrG+iYAAEW3msb6JgAAuUiaxv//AABFt2U5//8AALlIZTn//wAAuUhlOfomAABFt2U5+iYAAPM7VdQdJQAAC8RV1B0lAADzO6krHSUAAAvEqSsdJQAAxQH4/kAdAAA5/vj+QB0AADn+BgFAHQAAxQEGAUAdAAAAAP//1hwAAP/////WHAAA//8AANYcAAAAAAAA1hwAALks+OnKHAAARdP46cocAABF0wYWyhwAALksBhbKHAAAuSz46QAAAABF0wYWAAAAAEXT+OkAAAAAuSwGFgAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j3ju7"]
+resource_name = "entrance room layout_Mesh_097"
+_surfaces = [{
+"aabb": AABB(-19.6061, -164.595, -19.5428, 3.16046, 4.1017, 33.8979),
+"attribute_data": PackedByteArray("dKn/f/W1/v90qf7/9bX/f/7/dNso7VTM//9UzCjtdNt1wv7/9bX/f3XC/3/1tf7/qflUzCjtQMKp+UDCKO1UzLmU/v//f/9/uZT/f/9//v+5lP9/dKn+/7mU/v90qf9/1McqzdvKYsbbyt3N1McVx9THz8Ikxd3NJMXUwdTH4szjzRXH28rdzdvKYsbjzSrNdcLizCTF1MEkxd3NdcLPwlP5BO+P/GXjj/yO7FP58OAa03TbC84n7AvOB90a07ntyv/w4I/8juyP/GXjyv8E7wvO//8b00zvG9Ns/gvOue185gneU/kE73zmBO9T+QneptME78Py/v+m0/7/w/IE76bTCd585gTvptME73zmCd4LznnKKO102wvOdNso7XnKptOH2xvTue0b03TbptOn7bL+5v85/+vxOf/+/7L+BPIb0+z/ptO57abT//8b08ztsv4D8iv+/v8r/urxsv7m/wvOyt51wt/tdcK/2wvO1Op1wozY3c3dzd3Nv9t1whDRdcL0/AvO3+0Lzv//dcLq8Cv+UPXD8v7/w/Id8iv+y/w="),
+"format": 34896613399,
+"index_count": 156,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZABnAGUA"),
+"material": SubResource("StandardMaterial3D_53ah1"),
+"name": "bottom wood",
+"primitive": 3,
+"uv_scale": Vector4(0.972363, 2, 0, 0),
+"vertex_count": 104,
+"vertex_data": PackedByteArray("Rbeaxv////+5SJrG+ib//0W3msb6Jv//uUiaxv////9F0/jpAAD//7ksBhYAAP//RdMGFgAA//+5LPjpAAD//0W3ZTn6Jv+/uUhlOf///79Ft2U5////v7lIZTn6Jv+/RbdlOf//AIC5SJrG//8AgEW3msb//wCAuUhlOf//AIC5SJrG//9U1blIZTn6JlTVuUiaxvomVNW5SGU5//9U1UW3ZTn//1TVRbeaxvomVNVFt2U5+iZU1UW3msb//1TVRbeaxvom2MbzO1XUHSXYxgvEVdQdJdjGuUiaxvom2Ma5SJrG+ibWqPM7qSsdJdao8ztV1B0l1qi5SGU5+ibWqLlIZTn6JtjGC8SpKx0l2MbzO6krHSXYxkW3ZTn6JtjGRbdlOfom1qgLxFXUHSXWqAvEqSsdJdaoRbeaxvom1qj/////1hx8/7ks+OnKHHz/RdP46cocfP8AAP//1hx8/wAA///WHIn/uSwGFsocif+5LPjpyhyJ/wAAAADWHIn/AAAAANYcfP9F0wYWyhx8/7ksBhbKHHz///8AANYcfP///wAA1hyJ/0XT+OnKHIn/RdMGFsocif//////1hyJ/0XT+OnKHP//uSz46QAA//9F0/jpAAD//7ks+OnKHP//uSz46cocVNW5LAYWAABU1bks+OkAAFTVuSwGFsocVNW5LAYWyhz/v0XTBhYAAP+/uSwGFgAA/79F0wYWyhz/v0XTBhbKHFTVRdP46QAAVNVF0wYWAABU1UXT+OnKHFTVxQH4/kAdpbAAAAAA1hylsAAA///WHKWwxQEGAUAdpbA5/vj+QB3nzgAA///WHOfO/////9Yc587FAfj+QB3nzjn+BgFAHaSw/////9YcpLD//wAA1hyksDn++P5AHaSwxQEGAUAd5M7//wAA1hzkzgAAAADWHOTOOf4GAUAd5M7zO1XUHSVip8UBBgFAHWKnxQH4/kAdYqfzO6krHSVipwvEVdQdJUXJxQH4/kAdRck5/vj+QB1FyfM7VdQdJUXJC8SpKx0lYqc5/vj+QB1ipzn+BgFAHWKnC8RV1B0lYqfzO6krHSVFyTn+BgFAHUXJxQEGAUAdRckLxKkrHSVFyf9//7//f/+//3//v/9//7/+//9//v//f////3/+//9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9///9U1VTVVNVU1VTVVNVU1VTVqiqqKqoqqiqqKqoqqiqqKr3hQR694UEeveFBHr3hQR7/f/7//3/+//9//v//f/7/QB6+4UAevuFAHr7hQB6+4f9/AAD/fwAA/38AAP9/AABHwLc/R8C3P0fAtz9HwLc//3/+//9//v//f/7//3/+/7c/R8C3P0fAtz9HwLc/R8D/fwAA/38AAP9/AAD/fwAA/3//v/9//7//f/+//3//v1RVqqpUVaqqVFWqqlRVqqoAAP9/AAD/fwAA/38AAP9/qiqqKqoqqiqqKqoqqiqqKv9//v//f/7//3/+//9//v+r2VMmq9lTJqvZUyar2VMm/38AAP9/AAD/fwAA/38AAFAmrtlQJq7ZUCau2VAmrtn/f////3/+//9//v//f/7/xd45IcXeOSHF3jkhxd45If9/AAD/fwAA/38AAP9/AAA5IcXeOSHF3jkhxd45IcXe")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8ou7l")
+
+[node name="Pillar" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.14983, -0.00138337, 6.04689e-11, 0, -6.54956e-09, -0.149836, 0.00138337, -0.14983, 6.54926e-09, -2.925, 0, -24.325)
+mesh = SubResource("ArrayMesh_j3ju7")
+skeleton = NodePath("")

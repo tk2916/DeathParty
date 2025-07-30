@@ -1,0 +1,181 @@
+[gd_scene load_steps=22 format=4 uid="uid://bgrnyakmgghyq"]
+
+[ext_resource type="Script" uid="uid://bxxt4jkxn55ob" path="res://Assets/models/journal_root.gd" id="1_47kpb"]
+[ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
+[ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
+[ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="3_ngl8b"]
+[ext_resource type="Texture2D" uid="uid://b10xkyr1i6p24" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
+[ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8532d"]
+_surfaces = [{
+"aabb": AABB(-1.56652, 0.230034, -0.886797, 3.13221, 0.0621335, 1.77752),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("GAABAAIAGAAAAAEAAwAYAAIAAwACAAQAGAADAAUAAAAYABkAGAAFABkAAAAZAAYACAAZAAUAGgAGABkACAAaABkACQAaAAgAGgAHAAYACQAKABoACgAHABoACgALAAcAGwANAA4AGwAPAA0ADAAPABsADAAQAA8AGwARAAwADgAcABsAGwAcABEADgASABwAFAARABwAHQAcABIAFAAcAB0AFQAUAB0AHQASABMAFQAdABYAFgAdABMAFgATABcA"),
+"lods": [7.79399e-05, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAAADAAUAAAAFAAYABwAGAAUACAAHAAUACQAHAAgACQAKAAcACgALAAcADAANAA4ADAAPAA0ADAAQAA8ADgARAAwADgASABEAEwARABIAFAARABMAFQAUABMAFQATABYAFgATABcA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("oKCHsfL/AAAIgAAA8v8AAAiAAAD5fwAAoKCHsQAAAAAIgAAAAAAAAGrA2+4AAAAAasDb7vL/AAA04Iex8v8AADTgh7EAAAAA//8AAAAAAAD//wAA+X8AAP//AADy/wAAXV89xAwAAAD2f1MU//8AAF1fPcT//wAA9n9TFAWAAAD2f1MUDAAAAJI///8MAAAAkj////7/AADJHxfB//8AAMkfF8EMAAAAAAD9DQwAAAAAAP0NBYAAAAAA/Q3+/wAAoKCHsfl/AABqwNvu+X8AADTgh7H5fwAAXV89xAWAAACSP/7/BYAAAMkfF8EFgAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vpnap"]
+resource_name = "book_static_Cube_009"
+_surfaces = [{
+"aabb": AABB(-1.56652, 0.230034, -0.886797, 3.13221, 0.0621335, 1.77752),
+"attribute_data": PackedByteArray("/////7piAAD/////PH8AAP////88f/9//////7pi////////PH////////8sQv///////yxCAAD/////gR8AAP////+BH/7//////wAA/v//////AAD/f/////8AAAAA/////2Cc////////PH8AAP////9gnAAA/////zx//3//////PH////////9qvv///////2q+AAD/////deAAAP////914P///////1X/////////Vf//f/////9V/wAA/////7pi/3//////LEL/f/////+BH/9//////2Cc/3//////ar7/f/////914P9/"),
+"format": 34896613407,
+"index_count": 96,
+"index_data": PackedByteArray("GAABAAIAGAAAAAEAAwAYAAIAAwACAAQAGAADAAUAAAAYABkAGAAFABkAAAAZAAYACAAZAAUAGgAGABkACAAaABkACQAaAAgAGgAHAAYACQAKABoACgAHABoACgALAAcAGwANAA4AGwAPAA0ADAAPABsADAAQAA8AGwARAAwADgAcABsAGwAcABEADgASABwAFAARABwAHQAcABIAFAAcAB0AFQAUAB0AHQASABMAFQAdABYAFgAdABMAFgATABcA"),
+"lods": [7.79399e-05, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAAADAAUAAAAFAAYABwAGAAUACAAHAAUACQAHAAgACQAKAAcACgALAAcADAANAA4ADAAPAA0ADAAQAA8ADgARAAwADgASABEAEwARABIAFAARABMAFQAUABMAFQATABYAFgATABcA")],
+"material": SubResource("StandardMaterial3D_sqehn"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("oKCHsfL/5P0IgAAA8v/l/AiAAAD5f+X8oKCHsQAA5P0IgAAAAADl/GrA2+4AAP//asDb7vL///804Iex8v/b/TTgh7EAANv9//8AAAAA0fz//wAA+X/R/P//AADy/9H8XV89xAwA7P32f1MU///s/F1fPcT//+z99n9TFAWA7Pz2f1MUDADs/JI///8MAPf/kj////7/9//JHxfB///T/ckfF8EMANP9AAD9DQwAyvwAAP0NBYDK/AAA/Q3+/8r8oKCHsfl/5P1qwNvu+X///zTgh7H5f9v9XV89xAWA7P2SP/7/BYD3/8kfF8EFgNP9tH3ZvqR8Ub6kfFG+tH3ZvqR8Ub7/f/+//3//v9Q+VQLUPlUCRz5wA0c+cANHPnAD3j5DAlY+UwPePkMCVj5TA1Y+UwP3f/u/93/7v6J90L6ifdC+h3xDvod8Q76HfEO+tH3Zvv9//7/UPlUC3j5DAvd/+7+ifdC+")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8532d")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7ovfm"]
+viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
+viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_47kpb"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_ngl8b")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xwflh"]
+viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0upgx"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_xwflh")
+albedo_texture_force_srgb = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c4l8"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_ngl8b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qun6a"]
+resource_local_to_scene = true
+albedo_texture_force_srgb = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rss8h"]
+size = Vector3(8.8883, 0.300507, 3.58045)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ngl8b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47kpb"]
+transparency = 1
+albedo_texture = ExtResource("4_e2q15")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47kpb"]
+size = Vector3(7.30997, 0.285156, 2.29163)
+
+[node name="BookflipBody" type="Node3D" node_paths=PackedStringArray("bookflip")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_47kpb")
+bookflip = NodePath("bookflip")
+
+[node name="book_static" type="Node3D" parent="."]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0.179772, -0.0935153)
+visible = false
+
+[node name="StaticPage1" type="MeshInstance3D" parent="book_static"]
+mesh = SubResource("ArrayMesh_vpnap")
+skeleton = NodePath("")
+
+[node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
+transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -0.00238484, 0.0737534, -0.0990923)
+viewport_texture1 = SubResource("ViewportTexture_7ovfm")
+viewport_texture2 = SubResource("ViewportTexture_e2q15")
+
+[node name="Cube_004" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="0"]
+material_override = SubResource("ShaderMaterial_47kpb")
+material_overlay = SubResource("StandardMaterial3D_0upgx")
+
+[node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770157, -0.00923359, -0.157279)
+
+[node name="Cube_005" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="0"]
+material_override = SubResource("ShaderMaterial_8c4l8")
+material_overlay = SubResource("StandardMaterial3D_qun6a")
+
+[node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.791528, -0.00345172, -0.159947)
+
+[node name="ShowInventoryArea" type="StaticBody3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267168, -1.16783e-08)
+collision_layer = 9
+script = ExtResource("1_jth6w")
+static_page_1 = NodePath("../book_static/StaticPage1")
+inventory_items_container = NodePath("../InventoryItems")
+journal_root = NodePath("..")
+
+[node name="ShowInventoryCollider" type="CollisionShape3D" parent="ShowInventoryArea"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.0318329, -0.302822, 1.86828)
+shape = SubResource("BoxShape3D_rss8h")
+debug_color = Color(0.784314, 0, 0.0745098, 1)
+
+[node name="InventoryItems" type="Node3D" parent="." node_paths=PackedStringArray("static_page_1", "bookflip_instance")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.00238484, 0.402459, 1.71238)
+script = ExtResource("3_7ovfm")
+static_page_1 = NodePath("../book_static/StaticPage1")
+bookflip_instance = NodePath("../bookflip")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="ShowInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/311_SFX_UI_BagOpen"
+event_guid = "{5d531e04-a10a-46f9-8522-9d0137defd96}"
+unique_name_in_owner = true
+
+[node name="HideInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/310_SFX_UI_BagClose"
+event_guid = "{69c3d9f1-cb46-4217-817c-0a5e223ab1e1}"
+unique_name_in_owner = true
+
+[node name="JournalOpenSound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/302_SFX_UI_JournalOpen"
+event_guid = "{30f0e84f-546b-4951-8546-610e533ebe87}"
+attached = false
+unique_name_in_owner = true
+
+[node name="JournalCloseSound" type="FmodEventEmitter2D" parent="Sounds"]
+event_name = "event:/000_SFX/300_UI/301_SFX_UI_JournalClose"
+event_guid = "{9355ad2b-58c5-4861-8f53-fe56b2894e62}"
+attached = false
+unique_name_in_owner = true
+
+[node name="BackpackBackground" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.65118, 0, 0, 0, 3, 0, 0, 0, 2.83896, 0, 0.0441817, 0.789593)
+mesh = SubResource("PlaneMesh_ngl8b")
+surface_material_override/0 = SubResource("StandardMaterial3D_47kpb")
+
+[node name="HideInventoryArea" type="StaticBody3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172886, -1.57865)
+collision_layer = 9
+script = ExtResource("7_xwflh")
+static_page_1 = NodePath("../book_static/StaticPage1")
+inventory_items_container = NodePath("../InventoryItems")
+journal_root = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HideInventoryArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0427938, -0.383002, 0.340784)
+shape = SubResource("BoxShape3D_47kpb")
+debug_color = Color(0.0663742, 0.326824, 0.926759, 0.42)
+
+[connection signal="tree_entered" from="ShowInventoryArea" to="ShowInventoryArea" method="_on_tree_entered"]
+
+[editable path="bookflip"]

@@ -1,4 +1,4 @@
-extends Control
+class_name ObjectViewer extends Control
 
 #The item that will be viewed by the object viewer
 @export var active_item : Node3D
@@ -13,59 +13,122 @@ var pressed : bool = false
 @onready var sub_viewport : SubViewport = $SubViewportContainer/SubViewport
 @onready var model_holder : Node3D =  $"SubViewportContainer/SubViewport/Model Holder"
 @onready var camera_3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
+@onready var light : DirectionalLight3D = $SubViewportContainer/SubViewport/Light
+
+#Custom background
+@onready var color_rect : ColorRect = $ColorRect
+@onready var blur : Panel = $Blur
+@onready var custom_background_container : Control = $CustomBackground
+
+var light_up_shader : ShaderMaterial = preload("res://Assets/Shaders/LightUpShader.tres")
+
+var currently_open : bool = false
 
 signal enabled
 
 #Places the item into the viewport and defines the "item" variable
-func set_item(item_path : String):	
-	active_item = set_item_inactive(item_path)
-
-func set_item_inactive(item_path : String):
+func set_item(item_path : String) -> void:
 	var scene : Node = load(item_path).instantiate()
 	if scene == null:
 		print("Scene Path not working")
 		return
+	set_item_properties(scene)
+
+func set_preexisting_item(instance : Node3D) -> void:
+	var scene : Node3D = set_item_properties(instance)
+	
+func apply_shader_to_meshes_recursive(current_node : Node) -> void:
+	if current_node is MeshInstance3D:
+		var current_material : Material = current_node.material_overlay
+		if current_material == null:
+			current_material = current_node.surface_get_material(0)
+		if current_material == null:
+			current_material = current_node.surface_get_material(1)
+		if current_material == null:
+			current_material = StandardMaterial3D.new()
+		self.material_override = light_up_shader
+		self.material_override.set_shader_parameter("albedo_texture", current_material.albedo_texture)
+	var children : Array[Node] = current_node.get_children()
+	if children.size() > 0:
+		for child : Node in children:
+			apply_shader_to_meshes_recursive(child)
+	
+func set_item_properties(scene : Node3D) -> Node3D:
+	visible = true
+	Interact.set_active_subviewport(sub_viewport)
 	remove_current_item()
-	model_holder.add_child(scene)
+	
+	#apply shader that lights up the mesh
+	#apply_shader_to_meshes_recursive(self)
+	
 	scene.transform.origin.y = scene.transform.origin.y + hide_offset
 	scene.transform.origin.z = scene.transform.origin.z + hide_offset
+	model_holder.add_child(scene)
+	
+	active_item = scene
+	light.visible = true
 	enabled.emit(true, camera_3d)
 	return scene
 	
-func remove_current_item():
+func remove_current_item(queue_free : bool = true) -> void:
+	Interact.clear_active_subviewport()
+	light.visible = false
 	#Remove ALL items in the model holder
 	enabled.emit(false, camera_3d)
-	for child in model_holder.get_children():
+	
+	var children = model_holder.get_children()
+	if children.size() > 0:
+		currently_open = true
+	else:
+		currently_open = false
+	for child in children:
 		model_holder.remove_child(child)
-		child.queue_free()
+		if queue_free and !(child is Journal):
+			child.queue_free()
+		else:
+			#REMOVE OFFSET
+			child.transform.origin.y = child.transform.origin.y - hide_offset
+			child.transform.origin.z = child.transform.origin.z - hide_offset
+		
+	active_item = null
 
 #TODO
 #At origin, the object interferes with the world map. Need to move it away from the world map so that it's visible properly.
 #Also need to assign object based on "item" variable not hard coded. 
-func _ready():	
-	set_item(test_path)
+func _ready() -> void:	
+	#set_item(test_path)
 	camera_3d.transform.origin.y = camera_3d.transform.origin.y + hide_offset
 	camera_3d.transform.origin.z = camera_3d.transform.origin.z + hide_offset
+
+func zoom(factor : float):
+	active_item.scale = active_item.scale*factor
+
+func zoom_absolute(factor : float):
+	active_item.scale = Vector3.ONE*factor
+
+#Scroll in and out of item
+func _input(event) -> void:
+	if active_item == null: return
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed and Interact.grabbed_scroll_container == null:
+			zoom(1.15)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed and Interact.grabbed_scroll_container == null:
+			zoom(0.87)
+		elif event.button_index == MOUSE_BUTTON_LEFT and Interact.grabbed_object == null:
+			GuiSystem.show_journal()
 	
 #Resets the position of the item
-func reset_item_position():
+func reset_item_position() -> void:
 	if active_item:
 		active_item.rotation.x = 0
 		active_item.rotation.y = 0
-
-func _input(event):
-	#When the mouse moves if the button is clicked moves the item relative to the mouse movement
-	if pressed and event is InputEventMouseMotion:
-		if active_item != null and !rotate_off:
-			#NOTE: Rotation a bit sensitive, might want to try some manipulating
-			active_item.rotate_x(event.relative.y * 0.005)
-			active_item.rotate_y(event.relative.x * 0.005)
 	
-func _physics_process(delta : float) -> void:
-	#TODO: Change this into an actual input 
-	if Input.is_action_just_pressed("dialogic_default_action"):
-		pressed = true
-	if Input.is_action_just_released("dialogic_default_action"):
-		pressed = false
-	if Input.is_action_just_pressed("ui_cancel"):
-		reset_item_position()
+func clear_custom_background():
+	for child in custom_background_container.get_children():
+		custom_background_container.remove_child(child)
+		child.queue_free()
+		
+func set_background(scene : PackedScene = null) -> void:
+	clear_custom_background()
+	if scene:
+		custom_background_container.add_child(scene.instantiate())
