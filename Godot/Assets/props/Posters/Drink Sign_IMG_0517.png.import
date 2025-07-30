@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw1hu4bqkwngv"
-path.s3tc="res://.godot/imported/Drink Sign_IMG_0517.png-33024f8aed0431e21bc5db8eb18d7d69.s3tc.ctex"
-path.etc2="res://.godot/imported/Drink Sign_IMG_0517.png-33024f8aed0431e21bc5db8eb18d7d69.etc2.ctex"
+path.s3tc="res://.godot/imported/Drink Sign_IMG_0517.png-4682289eed5c2e10661d27182e430c96.s3tc.ctex"
+path.etc2="res://.godot/imported/Drink Sign_IMG_0517.png-4682289eed5c2e10661d27182e430c96.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/props/Posters/Drink Sign_IMG_0517.png"
-dest_files=["res://.godot/imported/Drink Sign_IMG_0517.png-33024f8aed0431e21bc5db8eb18d7d69.s3tc.ctex", "res://.godot/imported/Drink Sign_IMG_0517.png-33024f8aed0431e21bc5db8eb18d7d69.etc2.ctex"]
+source_file="res://Assets/props/posters/Drink Sign_IMG_0517.png"
+dest_files=["res://.godot/imported/Drink Sign_IMG_0517.png-4682289eed5c2e10661d27182e430c96.s3tc.ctex", "res://.godot/imported/Drink Sign_IMG_0517.png-4682289eed5c2e10661d27182e430c96.etc2.ctex"]
 
 [params]
 

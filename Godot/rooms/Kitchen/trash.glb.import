@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://p64odrr02hth"
-path="res://.godot/imported/Drink Sign.glb-480c44059e9b36a48fe5fc09829c7ca4.scn"
+uid="uid://db6cyshdnsaxs"
+path="res://.godot/imported/trash.glb-cf0fa2cde2251f2776216721a788cc10.scn"
 
 [deps]
 
-source_file="res://Assets/props/posters/Drink Sign.glb"
-dest_files=["res://.godot/imported/Drink Sign.glb-480c44059e9b36a48fe5fc09829c7ca4.scn"]
+source_file="res://rooms/Kitchen/trash.glb"
+dest_files=["res://.godot/imported/trash.glb-cf0fa2cde2251f2776216721a788cc10.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b8roo0kgim21f"
-path="res://.godot/imported/Sunday Light.glb-939e3c2b11b3b01b5dd0e562bb15fd65.scn"
+path="res://.godot/imported/Sunday Light.glb-03a024a29f11c4001f252e966bca71bd.scn"
 
 [deps]
 
-source_file="res://Assets/props/Posters/Sunday Light.glb"
-dest_files=["res://.godot/imported/Sunday Light.glb-939e3c2b11b3b01b5dd0e562bb15fd65.scn"]
+source_file="res://Assets/props/posters/Sunday Light.glb"
+dest_files=["res://.godot/imported/Sunday Light.glb-03a024a29f11c4001f252e966bca71bd.scn"]
 
 [params]
 

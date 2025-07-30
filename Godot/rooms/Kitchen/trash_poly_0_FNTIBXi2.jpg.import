@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs6edgccngpvr"
-path.s3tc="res://.godot/imported/Student Athelete_IMG_0499.png-20ba36fd30aa93616f739ffc9901c91f.s3tc.ctex"
-path.etc2="res://.godot/imported/Student Athelete_IMG_0499.png-20ba36fd30aa93616f739ffc9901c91f.etc2.ctex"
+uid="uid://dp5xhrla2hv4"
+path.s3tc="res://.godot/imported/trash_poly_0_FNTIBXi2.jpg-f700edf8c0960400cadfd9f4cfb4d096.s3tc.ctex"
+path.etc2="res://.godot/imported/trash_poly_0_FNTIBXi2.jpg-f700edf8c0960400cadfd9f4cfb4d096.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "35e79a54e6ba4351102a590ed39d898d"
+"md5": "f2fe413aa6ba6bf719f00044c1d97e00"
 }
 
 [deps]
 
-source_file="res://Assets/props/posters/Student Athelete_IMG_0499.png"
-dest_files=["res://.godot/imported/Student Athelete_IMG_0499.png-20ba36fd30aa93616f739ffc9901c91f.s3tc.ctex", "res://.godot/imported/Student Athelete_IMG_0499.png-20ba36fd30aa93616f739ffc9901c91f.etc2.ctex"]
+source_file="res://rooms/Kitchen/trash_poly_0_FNTIBXi2.jpg"
+dest_files=["res://.godot/imported/trash_poly_0_FNTIBXi2.jpg-f700edf8c0960400cadfd9f4cfb4d096.s3tc.ctex", "res://.godot/imported/trash_poly_0_FNTIBXi2.jpg-f700edf8c0960400cadfd9f4cfb4d096.etc2.ctex"]
 
 [params]
 

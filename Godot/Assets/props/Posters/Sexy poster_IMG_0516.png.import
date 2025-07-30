@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5vvu2u370vqn"
-path.s3tc="res://.godot/imported/Sexy poster_IMG_0516.png-186a10288266fbff9f6a619143a35780.s3tc.ctex"
-path.etc2="res://.godot/imported/Sexy poster_IMG_0516.png-186a10288266fbff9f6a619143a35780.etc2.ctex"
+path.s3tc="res://.godot/imported/Sexy poster_IMG_0516.png-0a5fac6f90da5da29863a84e0dbd5b8a.s3tc.ctex"
+path.etc2="res://.godot/imported/Sexy poster_IMG_0516.png-0a5fac6f90da5da29863a84e0dbd5b8a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/props/Posters/Sexy poster_IMG_0516.png"
-dest_files=["res://.godot/imported/Sexy poster_IMG_0516.png-186a10288266fbff9f6a619143a35780.s3tc.ctex", "res://.godot/imported/Sexy poster_IMG_0516.png-186a10288266fbff9f6a619143a35780.etc2.ctex"]
+source_file="res://Assets/props/posters/Sexy poster_IMG_0516.png"
+dest_files=["res://.godot/imported/Sexy poster_IMG_0516.png-0a5fac6f90da5da29863a84e0dbd5b8a.s3tc.ctex", "res://.godot/imported/Sexy poster_IMG_0516.png-0a5fac6f90da5da29863a84e0dbd5b8a.etc2.ctex"]
 
 [params]
 

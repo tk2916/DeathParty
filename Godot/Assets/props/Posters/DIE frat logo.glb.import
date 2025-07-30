@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://der73jk8d4155"
-path="res://.godot/imported/DIE frat logo.glb-590785e1206b94d5be9038d2004ccd01.scn"
+path="res://.godot/imported/DIE frat logo.glb-16e65ec328fbc304e715bca06f0c2637.scn"
 
 [deps]
 
-source_file="res://Assets/props/Posters/DIE frat logo.glb"
-dest_files=["res://.godot/imported/DIE frat logo.glb-590785e1206b94d5be9038d2004ccd01.scn"]
+source_file="res://Assets/props/posters/DIE frat logo.glb"
+dest_files=["res://.godot/imported/DIE frat logo.glb-16e65ec328fbc304e715bca06f0c2637.scn"]
 
 [params]
 

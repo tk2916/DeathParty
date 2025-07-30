@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuaf8v2soor5o"
-path.s3tc="res://.godot/imported/DIE frat logo_IMG_0502.png-8d026b341744de45e60191ba63837573.s3tc.ctex"
-path.etc2="res://.godot/imported/DIE frat logo_IMG_0502.png-8d026b341744de45e60191ba63837573.etc2.ctex"
+path.s3tc="res://.godot/imported/DIE frat logo_IMG_0502.png-840ab7d10ebb71c9ac280b99e766627c.s3tc.ctex"
+path.etc2="res://.godot/imported/DIE frat logo_IMG_0502.png-840ab7d10ebb71c9ac280b99e766627c.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/props/Posters/DIE frat logo_IMG_0502.png"
-dest_files=["res://.godot/imported/DIE frat logo_IMG_0502.png-8d026b341744de45e60191ba63837573.s3tc.ctex", "res://.godot/imported/DIE frat logo_IMG_0502.png-8d026b341744de45e60191ba63837573.etc2.ctex"]
+source_file="res://Assets/props/posters/DIE frat logo_IMG_0502.png"
+dest_files=["res://.godot/imported/DIE frat logo_IMG_0502.png-840ab7d10ebb71c9ac280b99e766627c.s3tc.ctex", "res://.godot/imported/DIE frat logo_IMG_0502.png-840ab7d10ebb71c9ac280b99e766627c.etc2.ctex"]
 
 [params]
 

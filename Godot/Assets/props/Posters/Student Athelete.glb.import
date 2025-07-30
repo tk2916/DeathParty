@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://4ayanb056l2m"
-path="res://.godot/imported/Student Athelete.glb-d3d032d52b28efdde17582118a26c7ed.scn"
+path="res://.godot/imported/Student Athelete.glb-d637ed7e41585d7f2f069b4a3ad74960.scn"
 
 [deps]
 
-source_file="res://Assets/props/Posters/Student Athelete.glb"
-dest_files=["res://.godot/imported/Student Athelete.glb-d3d032d52b28efdde17582118a26c7ed.scn"]
+source_file="res://Assets/props/posters/Student Athelete.glb"
+dest_files=["res://.godot/imported/Student Athelete.glb-d637ed7e41585d7f2f069b4a3ad74960.scn"]
 
 [params]
 

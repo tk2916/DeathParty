@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://bmpd4lt1hpvlr"]
+[gd_scene load_steps=33 format=4 uid="uid://bmpd4lt1hpvlr"]
 
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://16ssx5uymhtm" path="res://rooms/Kitchen/Kitchen Setup.glb" id="2_3odkc"]
@@ -13,12 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://rooms/Kitchen/Trashcan.glb" id="7_84i0v"]
 [ext_resource type="PackedScene" uid="uid://dwtxi47usnits" path="res://rooms/Kitchen/Bar.glb" id="10_6xo0a"]
 [ext_resource type="PackedScene" uid="uid://b7vveikx7vsny" path="res://rooms/Kitchen/keg.glb" id="11_n7s6h"]
-[ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/Posters/DIE frat logo.glb" id="12_pxkqo"]
-[ext_resource type="PackedScene" uid="uid://p64odrr02hth" path="res://Assets/props/Posters/Drink Sign.glb" id="13_58mcu"]
-[ext_resource type="PackedScene" uid="uid://d11e4wpvylum8" path="res://Assets/props/Posters/enjoy.glb" id="14_s3f3e"]
-[ext_resource type="PackedScene" uid="uid://ccxsrqdf3fjdf" path="res://Assets/props/Posters/Sexy poster.glb" id="15_nfqbu"]
-[ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/Posters/Student Athelete.glb" id="16_xg0f7"]
-[ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/Posters/Sunday Light.glb" id="17_jqlwo"]
+[ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/DIE frat logo.glb" id="12_pxkqo"]
+[ext_resource type="PackedScene" uid="uid://p64odrr02hth" path="res://Assets/props/posters/Drink Sign.glb" id="13_58mcu"]
+[ext_resource type="PackedScene" uid="uid://d11e4wpvylum8" path="res://Assets/props/posters/enjoy.glb" id="14_s3f3e"]
+[ext_resource type="PackedScene" uid="uid://ccxsrqdf3fjdf" path="res://Assets/props/posters/Sexy poster.glb" id="15_nfqbu"]
+[ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/posters/Student Athelete.glb" id="16_xg0f7"]
+[ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/posters/Sunday Light.glb" id="17_jqlwo"]
 [ext_resource type="PackedScene" uid="uid://xgjnbxm5g4j0" path="res://Assets/alcohol/red lil.glb" id="21_l5f4f"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/alcohol/sunday light.glb" id="22_3yrsa"]
 [ext_resource type="PackedScene" uid="uid://c0a0yla875kc4" path="res://Assets/alcohol/tequila.glb" id="23_wf8rc"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://Assets/props/red_cup/red_cup.glb" id="25_eupok"]
 [ext_resource type="PackedScene" uid="uid://blcjd4dasmq7c" path="res://Assets/alcohol/Beerpong table.glb" id="25_mt2x6"]
 [ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/folded chairs/folded chairs.glb" id="26_eupok"]
+[ext_resource type="PackedScene" uid="uid://db6cyshdnsaxs" path="res://rooms/Kitchen/trash.glb" id="27_b6r2c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ootlj"]
 size = Vector3(74.0338, 1, 67.6719)
@@ -398,6 +399,30 @@ transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -7.45124, -
 
 [node name="folded chairs2" parent="." instance=ExtResource("26_eupok")]
 transform = Transform3D(-1.00437, 0, -0.432029, 0, 1.09334, 0, 0.432029, 0, -1.00437, 7.57998, -2.32239, 0.242902)
+
+[node name="trash" parent="." instance=ExtResource("27_b6r2c")]
+transform = Transform3D(0.934, 0, 0.568372, 0, 1.09334, 0, -0.568372, 0, 0.934, -4.72277, -2.99614, -2.89393)
+
+[node name="trash2" parent="." instance=ExtResource("27_b6r2c")]
+transform = Transform3D(1.55734, 0, 0.947696, 0, 1.82303, 0, -0.947696, 0, 1.55734, 4.12934, -2.99614, -2.03491)
+
+[node name="trash3" parent="." instance=ExtResource("27_b6r2c")]
+transform = Transform3D(0.0877197, 0, -1.82092, 0, 1.82303, 0, 1.82092, 0, 0.0877197, 4.00194, -2.99614, 2.3131)
+
+[node name="trash4" parent="." instance=ExtResource("27_b6r2c")]
+transform = Transform3D(1.68386, 0, 0.698613, 0, 1.82303, 0, -0.698613, 0, 1.68386, -6.14137, -2.99614, 3.28581)
+
+[node name="trash8" parent="." instance=ExtResource("27_b6r2c")]
+transform = Transform3D(0.912449, 0, 0.346426, 0, 1.82303, 0, -0.378565, 0, 0.834986, -1.16827, -2.99614, -5.47211)
+
+[node name="trash5" parent="." instance=ExtResource("27_b6r2c")]
+transform = Transform3D(-0.239152, 0, 1.80728, 0, 1.82303, 0, -1.80728, 0, -0.239152, -6.86325, -2.99614, -6.68213)
+
+[node name="trash6" parent="." instance=ExtResource("27_b6r2c")]
+transform = Transform3D(-0.0437774, 0, -1.82251, 0, 1.82303, 0, 1.82251, 0, -0.0437774, 5.76025, -2.89893, -5.20112)
+
+[node name="trash7" parent="." instance=ExtResource("27_b6r2c")]
+transform = Transform3D(-0.956679, 0, -1.55184, 0, 1.82303, 0, 1.55184, 0, -0.956679, 7.33135, -2.89893, -0.0901593)
 
 [editable path="Kitchen Layout"]
 [editable path="Kitchen Setup"]

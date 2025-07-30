@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ccxsrqdf3fjdf"
-path="res://.godot/imported/Sexy poster.glb-2ab200f7022ad8f93bfcb5516e3264c1.scn"
+path="res://.godot/imported/Sexy poster.glb-9dc4fa0c79e93ef4b52ff7f8ddfa88ef.scn"
 
 [deps]
 
-source_file="res://Assets/props/Posters/Sexy poster.glb"
-dest_files=["res://.godot/imported/Sexy poster.glb-2ab200f7022ad8f93bfcb5516e3264c1.scn"]
+source_file="res://Assets/props/posters/Sexy poster.glb"
+dest_files=["res://.godot/imported/Sexy poster.glb-9dc4fa0c79e93ef4b52ff7f8ddfa88ef.scn"]
 
 [params]
 

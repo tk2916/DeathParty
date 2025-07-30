@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c05btupynkbc"
-path.s3tc="res://.godot/imported/enjoy_IMG_0498.png-20ec78f49085ade6361ad518b8cc4a94.s3tc.ctex"
-path.etc2="res://.godot/imported/enjoy_IMG_0498.png-20ec78f49085ade6361ad518b8cc4a94.etc2.ctex"
+path.s3tc="res://.godot/imported/enjoy_IMG_0498.png-c64884599cfede2dc7f1c95523cebd13.s3tc.ctex"
+path.etc2="res://.godot/imported/enjoy_IMG_0498.png-c64884599cfede2dc7f1c95523cebd13.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/props/Posters/enjoy_IMG_0498.png"
-dest_files=["res://.godot/imported/enjoy_IMG_0498.png-20ec78f49085ade6361ad518b8cc4a94.s3tc.ctex", "res://.godot/imported/enjoy_IMG_0498.png-20ec78f49085ade6361ad518b8cc4a94.etc2.ctex"]
+source_file="res://Assets/props/posters/enjoy_IMG_0498.png"
+dest_files=["res://.godot/imported/enjoy_IMG_0498.png-c64884599cfede2dc7f1c95523cebd13.s3tc.ctex", "res://.godot/imported/enjoy_IMG_0498.png-c64884599cfede2dc7f1c95523cebd13.etc2.ctex"]
 
 [params]
 
