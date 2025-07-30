@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://m14w6dq752m7"]
+
+[ext_resource type="PackedScene" uid="uid://dgs28jna4xuoq" path="res://Assets/CharacterAssets/olivia/olivia_model.glb" id="1_6mnu8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqnjw"]
+height = 1.71
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6mnu8"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k3mh0"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7ndc4"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fm3hs"]
+graph_offset = Vector2(-126.525, 75.5557)
+"nodes/Idle anim/node" = SubResource("AnimationNodeAnimation_6mnu8")
+"nodes/Idle anim/position" = Vector2(-40, 120)
+"nodes/Walk Blend/node" = SubResource("AnimationNodeBlend2_k3mh0")
+"nodes/Walk Blend/position" = Vector2(220, 140)
+"nodes/Walk anim/node" = SubResource("AnimationNodeAnimation_7ndc4")
+"nodes/Walk anim/position" = Vector2(-40, 300)
+nodes/output/position = Vector2(620, 200)
+node_connections = [&"Walk Blend", 0, &"Idle anim", &"Walk Blend", 1, &"Walk anim", &"output", 0, &"Walk Blend"]
+
+[node name="TempOliviaNpc" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0765629, 0.855, 0)
+shape = SubResource("CapsuleShape3D_dqnjw")
+
+[node name="NPCModel" parent="." instance=ExtResource("1_6mnu8")]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, 0, 0)
+
+[node name="Model" parent="NPCModel" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/../NPCModel")
+tree_root = SubResource("AnimationNodeBlendTree_fm3hs")
+anim_player = NodePath("../NPCModel/AnimationPlayer")
+"parameters/Walk Blend/blend_amount" = false
+
+[editable path="NPCModel"]
