@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://b1sudygpot6ot" path="res://Assets/props/chairs/chair/chair.glb" id="25_l64a3"]
 [ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://Assets/props/globe/globe.glb" id="26_nuxp6"]
 [ext_resource type="PackedScene" uid="uid://d2o5pbctxrw1o" path="res://Assets/environment/curtains/curtains.glb" id="27_k8mop"]
-[ext_resource type="PackedScene" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
+[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="34_sy7sl"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="35_tm5mn"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="36_2xxje"]
@@ -1443,7 +1443,7 @@ transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, -6.60616
 transform = Transform3D(0.523582, 0, 0, 0, 0.523582, 0, 0, 0, 0.523582, 0.894357, -1.44838, -1.18339)
 
 [node name="DieBanner3" parent="Props/Banners" instance=ExtResource("16_6posu")]
-transform = Transform3D(-0.0151446, 0, -0.710091, 0, 0.707288, 0, 0.588953, 0, -0.0182595, -8.0859, -1.5602, 5.36476)
+transform = Transform3D(0.0151447, 0, 0.710091, 0, 0.707288, 0, -0.588953, 0, 0.0182596, -8.0859, -1.5602, 5.36476)
 
 [node name="DieBanner4" parent="Props/Banners" instance=ExtResource("16_6posu")]
 transform = Transform3D(-0.0151446, 0, -0.710091, 0, 0.707288, 0, 0.588953, 0, -0.0182595, 2.43967, -1.5602, 3.66462)
