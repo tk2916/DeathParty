@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=59 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="PackedScene" uid="uid://bwam0r715obls" path="res://Assets/alcohol/Beer box.glb" id="1_htgpp"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://te45o0a3h24h" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_hanging.tscn" id="31_hc0kg"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="32_obamy"]
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="33_6ieyk"]
+[ext_resource type="PackedScene" uid="uid://cnhhx5201iwk0" path="res://Assets/props/desk_lamp/Modern_Desk_Lamp.glb" id="39_h2hdd"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_kbocy"]
 density = 0.15
@@ -869,7 +870,26 @@ spot_angle = 42.93
 transform = Transform3D(0.878684, 0, 0, 0, 0.878684, 0, 0, 0, 0.878684, -0.31219, -2.22854, -3.70571)
 
 [node name="Bar" parent="." instance=ExtResource("10_6xo0a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89803, -2.30629, -2.26259)
+transform = Transform3D(0.872326, 0, -0.488926, 0, 1, 0, 0.488926, 0, 0.872326, -5.10501, -2.30629, -2.06597)
+
+[node name="Modern desk lamp" parent="Bar" instance=ExtResource("39_h2hdd")]
+transform = Transform3D(0.0174282, 0, -0.00725821, 0, 0.0188791, 0, 0.00725821, 0, 0.0174282, 0.449571, 0.36568, -1.89671)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Bar/Modern desk lamp"]
+transform = Transform3D(53.622, -21.7408, 2.43121, -16.9299, -37.1646, 41.0618, -13.8546, -38.7302, -40.7666, -1.15701, 33.1371, 12.5819)
+light_energy = 16.0
+shadow_enabled = true
+shadow_bias = 5.252
+shadow_opacity = 0.99
+shadow_blur = 0.889
+spot_range = 2.892
+spot_attenuation = 2.5
+spot_angle = 40.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Modern desk lamp"]
+transform = Transform3D(57.9128, 0, -3.8147e-06, 0, 57.9129, 0, 3.8147e-06, 0, 57.9128, 38.8296, 31.0241, 110.427)
+light_energy = 2.066
+omni_range = 1.584
 
 [node name="blue goose2" parent="Bar" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.654846, 0, -0.755762, 0, 1, 0, 0.755762, 0, 0.654846, 0.334109, 0.36635, -0.46438)
@@ -905,7 +925,7 @@ transform = Transform3D(-1.08319, 0, 0.14863, 0, 1.09334, 0, -0.14863, 0, -1.083
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266067, -2.71812, -1.91791)
 
 [node name="trash" parent="Trash" instance=ExtResource("27_b6r2c")]
-transform = Transform3D(0.934, 0, 0.568372, 0, 1.09334, 0, -0.568372, 0, 0.934, -4.98884, -0.278023, -0.976024)
+transform = Transform3D(0.934, 0, 0.568372, 0, 1.09334, 0, -0.568372, 0, 0.934, -4.37965, -0.278023, -0.541838)
 
 [node name="trash2" parent="Trash" instance=ExtResource("27_b6r2c")]
 transform = Transform3D(1.55734, 0, 0.947696, 0, 1.82303, 0, -0.947696, 0, 1.55734, 3.86327, -0.278023, -0.117004)
