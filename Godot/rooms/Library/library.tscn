@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=97 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -15,13 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/posters/sunday_light_poster/sunday_light_poster.glb" id="8_klh7t"]
 [ext_resource type="PackedScene" uid="uid://dl75a8q3i0w22" path="res://Assets/environment/bookshelves/bookshelf/bookshelf.tscn" id="8_nt7ft"]
 [ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/posters/student_athlete_poster/student_athlete_poster.glb" id="9_p6ec8"]
-[ext_resource type="PackedScene" uid="uid://ccxsrqdf3fjdf" path="res://Assets/props/posters/sexy_poster/sexy_poster.glb" id="10_8lsgd"]
-[ext_resource type="PackedScene" uid="uid://p64odrr02hth" path="res://Assets/props/posters/drink_sign/drink_sign.glb" id="11_cbc2r"]
+[ext_resource type="PackedScene" uid="uid://h7vyawprgyhu" path="res://Assets/props/posters/sexy_poster/sexy_poster.glb" id="10_8lsgd"]
+[ext_resource type="PackedScene" uid="uid://bjutys11t6nx5" path="res://Assets/props/posters/drink_sign/drink_sign.glb" id="11_cbc2r"]
 [ext_resource type="PackedScene" uid="uid://dyj4kpvw1jya" path="res://Assets/environment/carpet/carpet.tscn" id="13_1lqw2"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="14_a1w3s"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="15_e63ox"]
 [ext_resource type="PackedScene" uid="uid://xukwgg26fv7r" path="res://Assets/props/flags/usa_flag/usa_flag.glb" id="15_ypgds"]
-[ext_resource type="PackedScene" uid="uid://be24vawtanngv" path="res://Assets/props/banners/die_banner/die_banner.glb" id="16_6posu"]
+[ext_resource type="PackedScene" uid="uid://conilv6pb6vsk" path="res://Assets/props/banners/die_banner/die_banner.glb" id="16_6posu"]
 [ext_resource type="PackedScene" uid="uid://d0npqij1rnr1s" path="res://Assets/environment/bookshelves/bookshelf_ornate/bookshelf_ornate.tscn" id="18_62c4v"]
 [ext_resource type="PackedScene" uid="uid://b88jesrolvfy2" path="res://Assets/props/sofas/sofa_red/sofa_red.glb" id="19_woadg"]
 [ext_resource type="PackedScene" uid="uid://c7ss5lax14vpn" path="res://Assets/props/wooden_table/wood_table.glb" id="20_3v00t"]
@@ -29,10 +29,10 @@
 [ext_resource type="PackedScene" uid="uid://cubcxrhw7wq5g" path="res://Assets/props/plants/plant_pot.glb" id="22_pxykb"]
 [ext_resource type="PackedScene" uid="uid://3loxlhscoqmb" path="res://Assets/props/wood_desk/wood_desk.glb" id="23_pxykb"]
 [ext_resource type="PackedScene" uid="uid://dn8tphi4h7qm7" path="res://Assets/props/desk_lamp/desk_lamp.tscn" id="24_c2j7r"]
-[ext_resource type="PackedScene" uid="uid://cxuf4gvxaveq6" path="res://Assets/props/chair/chair.glb" id="25_l64a3"]
+[ext_resource type="PackedScene" uid="uid://b1sudygpot6ot" path="res://Assets/props/chair/chair.glb" id="25_l64a3"]
 [ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://Assets/props/globe/globe.glb" id="26_nuxp6"]
 [ext_resource type="PackedScene" uid="uid://d2o5pbctxrw1o" path="res://Assets/environment/curtains/curtains.glb" id="27_k8mop"]
-[ext_resource type="PackedScene" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
+[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="34_sy7sl"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="35_tm5mn"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="36_2xxje"]
@@ -42,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://d3lt3kgvcji47" path="res://Assets/props/balloons/balloons_four_short.tscn" id="40_obdan"]
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="41_nbcih"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="42_fh3n2"]
+[ext_resource type="PackedScene" uid="uid://gu7mwgusye5o" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_a1w3s"]
 density = 0.005
@@ -1532,6 +1533,9 @@ event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, 1, 1)
+
+[node name="sam" parent="." instance=ExtResource("43_obdan")]
+transform = Transform3D(0.988015, 0, 0.500924, 0, 1.10774, 0, -0.500924, 0, 0.988015, -5.5649, -4.36304, 2.18095)
 
 [editable path="BackWall/Bookshelves/Upstairs"]
 [editable path="Balcony/Railings"]
