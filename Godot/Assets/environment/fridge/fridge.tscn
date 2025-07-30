@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://bce1xv0wcorsw"]
 
-[ext_resource type="Texture2D" uid="uid://vf6povpx76j7" path="res://Assets/environment/kiss_the_cook_sign/fridge/Kitchen Setup_fridge.png" id="1_f57ir"]
+[ext_resource type="Texture2D" uid="uid://vf6povpx76j7" path="res://Assets/environment/fridge/Kitchen Setup_fridge.png" id="1_f57ir"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqb5t"]
 resource_name = "Material.002"
