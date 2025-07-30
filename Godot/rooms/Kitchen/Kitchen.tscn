@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bmpd4lt1hpvlr"]
+[gd_scene load_steps=32 format=4 uid="uid://bmpd4lt1hpvlr"]
 
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://16ssx5uymhtm" path="res://rooms/Kitchen/Kitchen Setup.glb" id="2_3odkc"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://o6auwjh1fi7d" path="res://Assets/alcohol/whiskey.glb" id="24_mt2x6"]
 [ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://Assets/props/red_cup/red_cup.glb" id="25_eupok"]
 [ext_resource type="PackedScene" uid="uid://blcjd4dasmq7c" path="res://Assets/alcohol/Beerpong table.glb" id="25_mt2x6"]
+[ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/folded chairs/folded chairs.glb" id="26_eupok"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ootlj"]
 size = Vector3(74.0338, 1, 67.6719)
@@ -391,6 +392,12 @@ transform = Transform3D(0.268825, 0, 0, 0, 0.268825, 0, 0, 0, 0.268825, 4.20409,
 
 [node name="red_cup20" parent="." instance=ExtResource("25_eupok")]
 transform = Transform3D(0.268825, 0, 0, 0, 0.268825, 0, 0, 0, 0.268825, 3.89501, -2.0838, -2.19693)
+
+[node name="folded chairs" parent="." instance=ExtResource("26_eupok")]
+transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -7.45124, -2.32239, 3.45675)
+
+[node name="folded chairs2" parent="." instance=ExtResource("26_eupok")]
+transform = Transform3D(-1.00437, 0, -0.432029, 0, 1.09334, 0, 0.432029, 0, -1.00437, 7.57998, -2.32239, 0.242902)
 
 [editable path="Kitchen Layout"]
 [editable path="Kitchen Setup"]
