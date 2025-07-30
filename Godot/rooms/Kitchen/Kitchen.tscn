@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="2_kbocy"]
 [ext_resource type="Texture2D" uid="uid://cxgxr1ajrgm1c" path="res://rooms/Kitchen/Kitchen Setup_metal.png" id="3_qn7eg"]
-[ext_resource type="PackedScene" uid="uid://ciucsrnn2pspv" path="res://rooms/Kitchen/Kitchen flags.glb" id="3_yv58u"]
 [ext_resource type="PackedScene" uid="uid://d0kibgy4ssujo" path="res://rooms/Kitchen/Kitchen stringlights.glb" id="4_bqxej"]
 [ext_resource type="Texture2D" uid="uid://csynwowllvh4t" path="res://rooms/Kitchen/Kitchen Setup_standardwood.png" id="5_8mwvm"]
 [ext_resource type="PackedScene" uid="uid://co22e2imii1s0" path="res://rooms/Kitchen/Kitchen headlights.glb" id="5_63v6f"]
@@ -20,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://doj2p1ypfieac" path="res://Assets/props/pot.tscn" id="15_htgpp"]
 [ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/posters/student_athlete_poster/student_athlete_poster.glb" id="16_xg0f7"]
 [ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/posters/sunday_light_poster/sunday_light_poster.glb" id="17_jqlwo"]
+[ext_resource type="PackedScene" uid="uid://ciymie8xu8utv" path="res://Assets/props/flags/party_flags/party_flags_yellow.tscn" id="18_htgpp"]
 [ext_resource type="PackedScene" uid="uid://xgjnbxm5g4j0" path="res://Assets/props/alcohol/beer/beer.glb" id="21_l5f4f"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/props/alcohol/sunday_light/sunday light.glb" id="22_3yrsa"]
 [ext_resource type="PackedScene" uid="uid://c0a0yla875kc4" path="res://Assets/props/alcohol/tequila/tequila.glb" id="23_wf8rc"]
@@ -653,9 +653,6 @@ transform = Transform3D(0.498207, 0, -0.819342, 0, 0.958919, 0, 0.819342, 0, 0.4
 [node name="whiskey5" parent="Kitchen Setup/Drawers" instance=ExtResource("24_mt2x6")]
 transform = Transform3D(0.176034, 0, -0.942623, 0, 0.958919, 0, 0.942623, 0, 0.176034, -3.93845, 2.16627, 4.23035)
 
-[node name="Kitchen flags" parent="." instance=ExtResource("3_yv58u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75137, 1.02096, -0.135099)
-
 [node name="Kitchen stringlights" parent="." instance=ExtResource("4_bqxej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0989992, 0.75434, -0.158234)
 
@@ -1067,6 +1064,81 @@ transform = Transform3D(2.01541, 0, 0.883917, 0, 1.88796, 0, -0.505076, 0, 3.527
 [node name="Banner" parent="Props" instance=ExtResource("24_wf8rc")]
 transform = Transform3D(-0.627266, 0, 0.261048, 0, 1.09334, 0, -0.175407, 0, -0.933521, -10.5356, 2.43569, -5.89187)
 
+[node name="Flags" type="Node3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62708, 3.46779, -0.955176)
+
+[node name="YellowPartyFlags" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.2221, -0.00040549, 0.0127252, 0.0127258, -0.000314794, 0.2221, -0.000386818, 0.222464, 0.000337474, -0.686483, 0.10343, -5.50036)
+
+[node name="YellowPartyFlags8" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.2221, -0.00040549, 0.0127252, 0.0127258, -0.000314794, 0.2221, -0.000386818, 0.222464, 0.000337474, 1.50021, 0.10343, -5.50036)
+
+[node name="YellowPartyFlags9" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.2221, -0.00040549, 0.0127252, 0.0127258, -0.000314794, 0.2221, -0.000386818, 0.222464, 0.000337474, 5.98292, 0.10343, -5.50036)
+
+[node name="YellowPartyFlags10" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(0.000386828, -0.222464, -0.000337477, 0.0127258, -0.000314794, 0.2221, -0.2221, -0.000405499, 0.0127252, 9.04428, 0.10343, -6.2657)
+
+[node name="YellowPartyFlags11" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(0.00027097, -0.222343, -0.000343268, 0.00891431, -0.000314622, 0.225912, -0.155579, -0.000405278, 0.0129436, 9.04428, 0.10343, -4.07901)
+
+[node name="YellowPartyFlags12" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(0.0623848, 0.000404842, -0.0133878, 0.00357449, -0.000314279, 0.233665, 0.000108654, -0.222099, -0.000355046, 9.91896, 0.10343, -2.00166)
+
+[node name="YellowPartyFlags2" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.267576, -0.000443368, 0.0138321, 0.0153315, -0.000344201, 0.24142, -0.000466021, 0.243245, 0.000366829, -3.22277, 0.0783381, -5.50628)
+
+[node name="YellowPartyFlags3" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.267576, -0.000443368, 0.0138321, 0.0153315, -0.000344201, 0.24142, -0.000466021, 0.243245, 0.000366829, -5.77413, 0.0783381, -5.50628)
+
+[node name="YellowPartyFlags4" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.000466015, 0.243245, 0.000366828, 0.0153315, -0.0003442, 0.24142, 0.267576, 0.000443381, -0.0138321, -5.77413, 0.0783381, -1.73193)
+
+[node name="YellowPartyFlags5" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.000466015, 0.243245, 0.000366828, 0.0153315, -0.0003442, 0.24142, 0.267576, 0.000443381, -0.0138321, -5.77413, 0.0783381, 1.5481)
+
+[node name="YellowPartyFlags6" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.000466015, 0.243245, 0.000366828, 0.0153315, -0.0003442, 0.24142, 0.267576, 0.000443381, -0.0138321, -5.77413, 0.0783381, 4.82813)
+
+[node name="YellowPartyFlags7" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.000466015, 0.243245, 0.000366828, 0.0153315, -0.0003442, 0.24142, 0.267576, 0.000443381, -0.0138321, -5.77413, 0.0783381, 7.45216)
+
+[node name="YellowPartyFlags13" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.267576, -0.000443392, 0.0138321, 0.0153315, -0.0003442, 0.24142, -0.000466027, 0.243245, 0.00036683, -6.64881, 0.0783381, 4.17213)
+
+[node name="YellowPartyFlags14" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.267576, -0.000443392, 0.0138321, 0.0153315, -0.0003442, 0.24142, -0.000466027, 0.243245, 0.00036683, -3.91545, 0.0783381, 4.17213)
+
+[node name="YellowPartyFlags15" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.267576, -0.000443392, 0.0138321, 0.0153315, -0.0003442, 0.24142, -0.000466027, 0.243245, 0.00036683, -1.18209, 0.0783381, 4.17213)
+
+[node name="YellowPartyFlags16" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.267576, -0.000443392, 0.0138321, 0.0153315, -0.0003442, 0.24142, -0.000466027, 0.243245, 0.00036683, 1.44194, 0.0783381, 4.17213)
+
+[node name="YellowPartyFlags17" parent="Props/Flags" instance=ExtResource("18_htgpp")]
+transform = Transform3D(-0.267576, -0.000443392, 0.0138321, 0.0153315, -0.0003442, 0.24142, -0.000466027, 0.243245, 0.00036683, 4.1753, 0.0783381, 4.17213)
+
+[node name="Posters" type="Node3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48306, 2.14708, -5.89583)
+
+[node name="enjoy_poster" parent="Props/Posters" instance=ExtResource("25_b6r2c")]
+transform = Transform3D(0.296218, 0.0640988, 0, -0.0640988, 0.296218, 0, 0, 0, 0.303074, -1.76538, 0.554225, -1.4251)
+
+[node name="sexy_poster" parent="Props/Posters" instance=ExtResource("26_b6r2c")]
+transform = Transform3D(-0.0212927, 0, 0.739625, 0, 0.739931, 0, -0.739625, 0, -0.0212927, -2.36806, -0.595771, 0.968555)
+
+[node name="drink_sign" parent="Props/Posters" instance=ExtResource("27_v5gra")]
+transform = Transform3D(0.572702, 0, 0, 0, 0.572702, 0, 0, 0, 0.572702, 4.09232, -0.358989, -1.4426)
+
+[node name="DIE frat logo" parent="Props/Posters" instance=ExtResource("12_pxkqo")]
+transform = Transform3D(0.474823, 0, 0, 0, 0.474823, 0, 0, 0, 0.474823, -0.52207, -0.416629, -1.45402)
+
+[node name="Sunday Light" parent="Props/Posters" instance=ExtResource("17_jqlwo")]
+transform = Transform3D(0.285111, -0.101252, 0.0122238, 0.101159, 0.285372, 0.0043371, -0.0129705, 0, 0.302525, 1.89858, 0.481982, -1.42796)
+
+[node name="Student Athelete" parent="Props/Posters" instance=ExtResource("16_xg0f7")]
+transform = Transform3D(0.290043, 0, 0, 0, 0.209166, 0, 0, 0, 0.225316, -1.82415, -0.897688, -1.44867)
+
 [node name="Trash" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266067, -2.71812, -1.91791)
 
@@ -1093,27 +1165,6 @@ transform = Transform3D(-0.0437774, 0, -1.82251, 0, 1.82303, 0, 1.82251, 0, -0.0
 
 [node name="trash7" parent="Trash" instance=ExtResource("27_b6r2c")]
 transform = Transform3D(-0.956679, 0, -1.55184, 0, 1.82303, 0, 1.55184, 0, -0.956679, 7.06528, -0.180813, 1.82775)
-
-[node name="Posters" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60735, -0.299752, -5.07575)
-
-[node name="enjoy_poster" parent="Posters" instance=ExtResource("25_b6r2c")]
-transform = Transform3D(0.296218, 0.0640988, 0, -0.0640988, 0.296218, 0, 0, 0, 0.303074, -1.76538, 0.554225, -1.4251)
-
-[node name="sexy_poster" parent="Posters" instance=ExtResource("26_b6r2c")]
-transform = Transform3D(-0.0212927, 0, 0.739625, 0, 0.739931, 0, -0.739625, 0, -0.0212927, -2.36806, -0.595771, 0.968555)
-
-[node name="drink_sign" parent="Posters" instance=ExtResource("27_v5gra")]
-transform = Transform3D(0.572702, 0, 0, 0, 0.572702, 0, 0, 0, 0.572702, 4.09232, -0.358989, -1.4426)
-
-[node name="DIE frat logo" parent="Posters" instance=ExtResource("12_pxkqo")]
-transform = Transform3D(0.474823, 0, 0, 0, 0.474823, 0, 0, 0, 0.474823, -0.52207, -0.416629, -1.45402)
-
-[node name="Sunday Light" parent="Posters" instance=ExtResource("17_jqlwo")]
-transform = Transform3D(0.285111, -0.101252, 0.0122238, 0.101159, 0.285372, 0.0043371, -0.0129705, 0, 0.302525, 1.89858, 0.481982, -1.42796)
-
-[node name="Student Athelete" parent="Posters" instance=ExtResource("16_xg0f7")]
-transform = Transform3D(0.290043, 0, 0, 0, 0.209166, 0, 0, 0, 0.225316, -1.82415, -0.897688, -1.44867)
 
 [node name="NeonSign" parent="." instance=ExtResource("6_84i0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.64739, -0.853567, -6.5077)
