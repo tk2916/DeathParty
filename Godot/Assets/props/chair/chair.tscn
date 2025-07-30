@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://beusior7ym8c4"]
-
-[ext_resource type="PackedScene" uid="uid://cxuf4gvxaveq6" path="res://Assets/props/chair/chair.glb" id="1_lkdfi"]
-
-[node name="Chair" instance=ExtResource("1_lkdfi")]

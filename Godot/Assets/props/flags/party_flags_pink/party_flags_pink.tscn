@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://x8iqwxqrxuip"]
+
+[ext_resource type="PackedScene" uid="uid://bdinfvsi4qoa7" path="res://Assets/props/flags/party_flags_pink/party_flags_pink.glb" id="1_hj3nl"]
+
+[node name="Flags" instance=ExtResource("1_hj3nl")]
+
+[node name="pCube429" parent="." index="0"]
+transform = Transform3D(0.215887, 0, 0, 0, -8.87951e-09, -0.324699, 0, 0.203139, -1.4193e-08, -1.979, -0.329, -0.351)
