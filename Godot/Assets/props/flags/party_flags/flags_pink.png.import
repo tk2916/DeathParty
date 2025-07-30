@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgoy1nritnxm8"
+uid="uid://25a1vpvxrqox"
 path.s3tc="res://.godot/imported/flags_pink.png-8763fe2c64d9c836046361e3b1a027fa.s3tc.ctex"
 path.etc2="res://.godot/imported/flags_pink.png-8763fe2c64d9c836046361e3b1a027fa.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "f0e85db046dc9879047baa74e58efab3"
 }
 
 [deps]
