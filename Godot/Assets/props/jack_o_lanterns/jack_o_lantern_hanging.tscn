@@ -1,9 +1,11 @@
 [gd_scene load_steps=10 format=4 uid="uid://te45o0a3h24h"]
 
 [ext_resource type="Texture2D" uid="uid://n8spnwmpcgt0" path="res://Assets/textures/entrance_room_props/entrance room props_pumpkin1.png" id="1_p1w38"]
-[ext_resource type="Shader" uid="uid://wpntjutfebok" path="res://Assets/props/jack_o_lanterns/candle_flicker.tres" id="2_vg2ck"]
+[ext_resource type="Shader" uid="uid://bqqp5bevyy1v6" path="res://Assets/props/jack_o_lanterns/candle_flicker.tres" id="2_vg2ck"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vg2ck"]
+lightmap_size_hint = Vector2i(5, 34)
+add_uv2 = true
 top_radius = 0.05
 bottom_radius = 0.05
 height = 6.0
