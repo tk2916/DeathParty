@@ -8,17 +8,6 @@ func _ready() -> void:
 	body_entered.connect(handle_player_entrance)
 
 
-#func _on_body_entered(body: Node3D) -> void:
-	#GlobalCameraScript.remove_all_bounds()
-	#GlobalCameraScript.camera_on_player.emit(true)
-	## Define camera bounds 
-	#GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
-	#GlobalCameraScript.bind_camera_y.emit(lower_bound, upper_bound)
-	#GlobalCameraScript.bind_camera_depth.emit(inner_bound, outer_bound, basis)
-	#rotate_player(body)
-	#
-	#FmodServer.set_global_parameter_by_name_with_label("room", "front room")
-
 func handle_player_entrance(body: Node3D) -> void:
 	remove_all_bounds(body)
 	rotate_player(body)

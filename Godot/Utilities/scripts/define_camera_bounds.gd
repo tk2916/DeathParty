@@ -16,11 +16,9 @@ var upper_bound: float
 var inner_bound: Plane
 var outer_bound: Plane
 var room_area_center: Vector3
-
-
-@onready var room_area_shape: BoxShape3D = room_area.shape
-@onready var background_plane := Plane(room_area.basis.z, (room_area_center - (room_area.shape.size/2 * basis)))
-@onready var default_depth: Vector3 = room_area_center + ((room_area_shape.size.z/2 + 9) * basis.z)
+var room_area_shape: BoxShape3D
+var background_plane: Plane
+var default_depth: Vector3
 
 
 func _ready() -> void:
@@ -32,6 +30,9 @@ func calculate_bounds() -> void:
 	# Calling await in _ready is bad practice, I think
 	await get_tree().process_frame # Wait a frame before calculating center - required if scene is loaded at runtime
 	room_area_center = room_area.global_transform.origin
+	room_area_shape = room_area.shape
+	background_plane = Plane(room_area.basis.z, (room_area_center - (room_area.shape.size/2 * basis)))
+	default_depth = room_area_center + ((room_area_shape.size.z/2 + 9) * basis.z)
 	
 	## Left and Right bounds
 	# [.....|.....] <= $RoomArea.shape.size.x ( '|' is halfway point)
@@ -68,14 +69,14 @@ func calculate_bounds() -> void:
 	outer_bound = Plane(-basis.z, default_depth)
 
 
-func move_to_foreground(body: Node3D) -> Vector3:
+func move_player_to_foreground(body: Node3D) -> void:
 	var initial_position: Vector3 = body.global_position
 	initial_position *= abs((basis.x + basis.y))
 	var new_position: Vector3 = initial_position
 	## If moving to foreground doesn't work, try changing global_position to room_area_center!
 	new_position += global_position * basis.z
 	
-	return new_position
+	body.global_position = new_position
 
 
 func rotate_player(body: Node3D) -> void:
@@ -139,9 +140,6 @@ func keep_camera_on_player(body: Node3D) -> void:
 func keep_camera_off_player(body: Node3D) -> void:
 	GlobalCameraScript.camera_on_player.emit(false)
 
-
-func move_player_to_foreground(body: Node3D) -> void:
-	body.global_position = move_to_foreground(body)
 
 ## These functions should be defined in the extended script
 #func _on_body_entered(_body: Node3D) -> void:

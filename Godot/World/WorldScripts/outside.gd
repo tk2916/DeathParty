@@ -1,11 +1,14 @@
 extends Room3D
 
 
-func _on_body_entered(body: Node3D) -> void:
-	# Remove camera bounds
-	GlobalCameraScript.remove_all_bounds()
-	
-	rotate_player(body)
-	GlobalCameraScript.camera_on_player.emit(true)
+func _ready() -> void:
+	super()
+	body_entered.connect(handle_player_entrance)
 
+
+func handle_player_entrance(body: Node3D) -> void:
+	remove_all_bounds(body)
+	rotate_player(body)
+	
+	keep_camera_on_player(body)
 	FmodServer.set_global_parameter_by_name_with_label("room", "outside")
