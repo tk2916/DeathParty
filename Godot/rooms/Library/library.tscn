@@ -44,10 +44,6 @@
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="42_fh3n2"]
 [ext_resource type="PackedScene" uid="uid://gu7mwgusye5o" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
 
-[sub_resource type="FogMaterial" id="FogMaterial_a1w3s"]
-density = 0.005
-albedo = Color(0, 0.225, 0.54, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fdii"]
 resource_name = "Material.100"
 cull_mode = 2
@@ -986,53 +982,53 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wa8ra")
 
+[sub_resource type="FogMaterial" id="FogMaterial_obdan"]
+density = 0.1
+albedo = Color(1.44392e-06, 0.370746, 0.491729, 1)
+
 [node name="Library" type="Area3D"]
 
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(0.0282931, -0.738255, 0.673928, 0.0309664, 0.674522, 0.737605, -0.99912, -5.59284e-09, 0.0419454, 9.48549, 5.81339, 1.47308)
+transform = Transform3D(0.0293456, -0.714521, 0.698998, 0.0299709, 0.699614, 0.713892, -0.99912, -8.58179e-09, 0.0419454, 9.48549, 5.81339, 1.47308)
 light_color = Color(0.432, 0.8454, 0.9, 1)
-light_energy = 60.0
+light_energy = 200.0
 light_specular = 0.767
 shadow_enabled = true
-shadow_bias = 0.197
+shadow_bias = 0.145
 shadow_normal_bias = 0.0
-shadow_opacity = 0.57
-shadow_blur = 3.667
-spot_range = 38.195
-spot_attenuation = 0.89
-spot_angle = 22.0
+shadow_opacity = 0.73
+shadow_blur = 0.125
+spot_range = 26.391
+spot_angle = 18.0
 spot_angle_attenuation = 1.62451
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(0.0379714, -0.424863, 0.904461, 0.017821, 0.905258, 0.424489, -0.99912, -3.90845e-08, 0.0419454, 9.48549, 4.56094, 1.099)
+transform = Transform3D(0.0418964, -0.0482917, 0.997954, 0.00202557, 0.998833, 0.0482492, -0.99912, -3.86905e-08, 0.0419454, 9.48549, -2.81598, 0.503973)
 light_color = Color(0.432, 0.8454, 0.9, 1)
 light_energy = 70.0
 light_specular = 0.767
 shadow_enabled = true
-shadow_bias = 0.197
 shadow_normal_bias = 0.0
-shadow_opacity = 0.57
-shadow_blur = 3.389
-spot_range = 29.794
+shadow_opacity = 0.97
+shadow_blur = 0.388
+spot_range = 21.56
 spot_attenuation = 0.79
-spot_angle = 11.0
+spot_angle = 35.0
 spot_angle_attenuation = 1.62451
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Lights"]
 transform = Transform3D(0.721555, 0.0256846, 0.691881, -0.692357, 0.0267677, 0.721058, 1.52747e-09, -0.999312, 0.0370973, 3.17909, 1.1554, 1.00444)
+visible = false
 light_color = Color(0.4176, 0.81722, 0.87, 1)
-light_energy = 4.969
+light_energy = 2.4
 shadow_enabled = true
+shadow_bias = 0.0
+shadow_blur = 10.0
 spot_range = 19.152
-spot_attenuation = -0.38
+spot_attenuation = -0.49
 spot_angle = 19.94
-
-[node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(4.05173, 0, 0, 0, 4.05173, 0, 0, 0, 4.05173, -2.37652, 1.05777, 2.26347)
-size = Vector3(4.15564, 2.82666, 3.23547)
-material = SubResource("FogMaterial_a1w3s")
 
 [node name="floor" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.18645, 0, -6.98784e-08, 0, 0.187118, 0, 6.07532e-08, 0, -0.214455, -4.58511, -0.34643, 2.42161)
@@ -1224,17 +1220,18 @@ transform = Transform3D(0.301923, 0, 0, 0, 0.301923, 0, 0, 0, 0.301923, -2.7911,
 
 [node name="OmniLight3D" parent="Chandelier/Lights" index="0"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
-light_energy = 16.0
+light_energy = 12.0
 omni_range = 0.7
+omni_attenuation = 2.333
 
 [node name="OmniLight3D4" parent="Chandelier/Lights" index="3"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
-light_energy = 16.0
-omni_range = 0.7
+light_energy = 13.778
+omni_range = 0.912
 
 [node name="OmniLight3D5" parent="Chandelier/Lights" index="4"]
 light_color = Color(1, 0.383333, 0, 1)
-light_energy = 16.0
+light_energy = 12.0
 omni_range = 0.771
 
 [node name="OmniLight3D7" parent="Chandelier/Lights" index="6"]
@@ -1243,12 +1240,12 @@ light_energy = 16.0
 
 [node name="OmniLight3D10" parent="Chandelier/Lights" index="9"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
-light_energy = 16.0
+light_energy = 8.0
 omni_range = 0.7
 
 [node name="OmniLight3D11" parent="Chandelier/Lights" index="10"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
-light_energy = 16.0
+light_energy = 8.0
 
 [node name="chandelior bar" parent="Chandelier" instance=ExtResource("5_l745y")]
 transform = Transform3D(5.61817, 0, 0, 0, 3.52113, 0, 0, 0, 3.87769, 0, 13.0462, -0.00364685)
@@ -1272,6 +1269,7 @@ spot_attenuation = -2.67
 spot_angle = 35.31
 
 [node name="OmniLight3D" parent="WallLamps/WallLamp" index="2"]
+light_color = Color(1, 0.383333, 0, 1)
 light_energy = 3.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WallLamps/WallLamp"]
@@ -1299,6 +1297,7 @@ spot_angle = 35.31
 
 [node name="OmniLight3D" parent="WallLamps/WallLamp2" index="2"]
 transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -4.65661e-10, 0, 1, 0.413326, -0.272423, 1.19209e-07)
+light_color = Color(1, 0.383333, 0, 1)
 light_energy = 3.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WallLamps/WallLamp2"]
@@ -1326,6 +1325,7 @@ spot_attenuation = -2.67
 spot_angle = 35.31
 
 [node name="OmniLight3D" parent="WallLamps/WallLamp3" index="2"]
+light_color = Color(1, 0.383333, 0, 1)
 light_energy = 3.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WallLamps/WallLamp3"]
@@ -1352,6 +1352,7 @@ spot_attenuation = -2.67
 spot_angle = 35.31
 
 [node name="OmniLight3D" parent="WallLamps/WallLamp4" index="2"]
+light_color = Color(1, 0.383333, 0, 1)
 light_energy = 3.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WallLamps/WallLamp4"]
@@ -1378,6 +1379,7 @@ spot_attenuation = -2.67
 spot_angle = 35.31
 
 [node name="OmniLight3D" parent="WallLamps/WallLamp5" index="2"]
+light_color = Color(1, 0.383333, 0, 1)
 light_energy = 2.0
 omni_attenuation = 1.0
 
@@ -1460,6 +1462,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07045, -4.41228, 1.5837)
 [node name="desk_lamp" parent="Props/Desk" instance=ExtResource("24_c2j7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61195, 0.81468, -0.18297)
 
+[node name="OmniLight3D" parent="Props/Desk/desk_lamp" index="1"]
+light_color = Color(1, 0.405167, 0.17, 1)
+light_energy = 10.067
+omni_range = 2.413
+
 [node name="PumpkinWithBeers" parent="Props/Desk" instance=ExtResource("33_3aaxv")]
 transform = Transform3D(-0.999636, 0, 0.0269794, 0, 1, 0, -0.0269794, 0, -0.999636, -0.55804, 1.09039, 0.30529)
 
@@ -1535,7 +1542,12 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, 1, 1)
 
 [node name="Sam" parent="." instance=ExtResource("43_obdan")]
-transform = Transform3D(0.988015, 0, 0.500924, 0, 1.10774, 0, -0.500924, 0, 0.988015, -5.5649, -4.36304, 2.18095)
+transform = Transform3D(0.988015, 0, 0.500924, 0, 1.10774, 0, -0.500924, 0, 0.988015, -5.80014, -4.36304, 2.33793)
+
+[node name="FogVolume2" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36763, 1.7031, 2.47758)
+size = Vector3(15.1855, 11.6767, 16.8987)
+material = SubResource("FogMaterial_obdan")
 
 [editable path="BackWall/Bookshelves/Upstairs"]
 [editable path="Balcony/Railings"]
@@ -1545,4 +1557,5 @@ transform = Transform3D(0.988015, 0, 0.500924, 0, 1.10774, 0, -0.500924, 0, 0.98
 [editable path="WallLamps/WallLamp3"]
 [editable path="WallLamps/WallLamp4"]
 [editable path="WallLamps/WallLamp5"]
+[editable path="Props/Desk/desk_lamp"]
 [editable path="Props/Desk2/desk_lamp"]

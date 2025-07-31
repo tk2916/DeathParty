@@ -145,3 +145,5 @@ remove_input={
 
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+environment/volumetric_fog/volume_size=100
+environment/volumetric_fog/volume_depth=100
