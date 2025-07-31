@@ -8,7 +8,7 @@ var player_data : Dictionary
 #DIRECTORIES TO LOAD
 const TASKS_FILE_PATH : String = "res://Assets/Resources/TaskResources/"
 const CHARACTER_FILE_PATH : String = "res://Assets/Resources/CharacterResources/"
-const PHONE_CHATS_FILE_PATH : String = "res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/ChatResources/"
+const PHONE_CHATS_FILE_PATH : String = "res://Assets/Resources/ChatResources/"
 const INVENTORY_ITEMS_FILE_PATH : String = "res://Assets/Resources/InventoryItemResources/"
 
 const default_inventory_item_resource : InventoryItemResource = preload("res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_item_properties.tres")

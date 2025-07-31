@@ -354,11 +354,13 @@ func to_character(char : Resource, file : JSON):
 	current_character_resource.load_chat(file)
 
 #PHONE-RELATED
-func find_contact(chat_name:String):
+func find_contact(chat_name:String) -> ChatResource:
 	if phone_messages.has(chat_name):
 		return phone_messages[chat_name]
+	return null
 
 func to_phone(chat_name : String, file : JSON): # called to load json into phone
+	print("To phone: ", chat_name)
 	var chat : Resource = find_contact(chat_name)
 	current_phone_resource = chat
 	current_phone_resource.load_chat(file)
