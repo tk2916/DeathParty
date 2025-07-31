@@ -7,7 +7,7 @@ var scene_to_position : Dictionary[String, Vector3] = {}
 
 var loaded_scenes : Array[Node3D]
 
-var og_scene : String = "Kitchen"
+var og_scene : String = "Entrance"
 
 func _ready() -> void:
 	if main_node == null: return
