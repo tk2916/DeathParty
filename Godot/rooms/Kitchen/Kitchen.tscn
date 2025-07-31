@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bce1xv0wcorsw" path="res://Assets/environment/fridge/fridge.tscn" id="5_qn7eg"]
 [ext_resource type="PackedScene" uid="uid://bxsjt7jdg8hv3" path="res://Assets/environment/kiss_the_cook_sign/Kitchen Neon sign.glb" id="6_84i0v"]
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="6_l47d5"]
-[ext_resource type="PackedScene" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
+[ext_resource type="PackedScene" uid="uid://bhe0kgbucqoad" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="7_84i0v"]
 [ext_resource type="PackedScene" uid="uid://dwtxi47usnits" path="res://Assets/props/bar/Bar.glb" id="10_6xo0a"]
 [ext_resource type="PackedScene" uid="uid://b7vveikx7vsny" path="res://Assets/props/keg/keg.glb" id="11_n7s6h"]
@@ -44,7 +44,7 @@
 size = Vector3(15, 5, 13)
 
 [sub_resource type="FogMaterial" id="FogMaterial_kbocy"]
-density = 0.2
+density = 0.25
 albedo = Color(0.16, 0.149333, 0, 1)
 edge_fade = 0.107177
 
@@ -869,10 +869,11 @@ skeleton = NodePath("")
 transform = Transform3D(4.49508, -0.00782829, -0.00777517, 0.00782829, 0.030597, 4.49498, -0.00777517, -4.49498, 0.0306105, 0, -0.355759, 0)
 light_color = Color(1, 0.92, 0.52, 1)
 light_energy = 60.0
-light_volumetric_fog_energy = 60.0
+light_volumetric_fog_energy = 100.0
 shadow_enabled = true
-spot_range = 4.611
-spot_angle = 42.93
+shadow_blur = 0.333
+spot_range = 5.547
+spot_angle = 39.93
 
 [node name="Trashcan" parent="LightFixtures" instance=ExtResource("7_84i0v")]
 transform = Transform3D(0.878684, 0, 0, 0, 0.878684, 0, 0, 0, 0.878684, -0.31219, -2.22854, -3.70571)
