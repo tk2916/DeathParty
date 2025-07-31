@@ -1,15 +1,20 @@
-extends "res://Utilities/scripts/define_camera_bounds.gd"
+extends Room3D
 
 @export var things_to_hide : Node3D
 
-func _on_body_entered(body: Node3D) -> void:
-	GlobalCameraScript.camera_on_player.emit(true)
-	GlobalCameraScript.remove_all_bounds()
-	
-	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
-	GlobalCameraScript.bind_camera_y.emit(lower_bound, upper_bound)
-	rotate_player(body)
 
+func _ready() -> void:
+	super()
+	body_entered.connect(handle_player_entrance)
+
+
+func handle_player_entrance(body: Node3D) -> void:
+	remove_all_bounds(body)
+	rotate_player(body)
+	
+	keep_camera_on_player(body)
+	bind_camera_LR(body)
+	bind_camera_y(body)
 	FmodServer.set_global_parameter_by_name_with_label("room", "upstairs room")
 
 
