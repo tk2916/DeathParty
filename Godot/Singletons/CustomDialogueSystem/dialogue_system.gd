@@ -47,7 +47,7 @@ var current_character_resource : Resource = null
 
 #PHONE CONVERSATIONS CAN BE PAUSED AND RETURNED TO
 var current_phone_resource : Resource = null
-var current_conversation : Array[Dictionary]
+var current_conversation : Array[InkLineInfo]
 
 #RANDOM NUMBERS (for dice rolls)
 var rng = RandomNumberGenerator.new()
@@ -381,7 +381,7 @@ func pause_text_convo():
 	dialogue_container.mouse_entered.disconnect(mouse_entered) 
 	dialogue_container.mouse_exited.disconnect(mouse_exited)
 	
-func load_past_messages(past_chats : Array[Dictionary]):
+func load_past_messages(past_chats : Array[InkLineInfo]):
 	#print("Loading past messages: ", past_chats)
 	current_conversation = past_chats
 	for n in range(current_conversation.size()):
