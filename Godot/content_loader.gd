@@ -33,11 +33,13 @@ func _ready() -> void:
 	# reload the scene the player is spawning in
 	load_scene(og_scene)
 
+
 func reset() -> void:
 	if main_node == null: return
 	offload_old_scenes()
 	offload_old_scene() #get the final one (the current scene)
 	load_scene(og_scene)
+
 
 func load_scene(scene_name:String):
 	if main_node == null: return
@@ -52,9 +54,11 @@ func load_scene(scene_name:String):
 	scene_instance.position = scene_to_position[scene_name]
 	loaded_scenes.push_front(scene_instance)
 
+
 func offload_old_scenes():
 	for n in range(1, loaded_scenes.size()): #skip first one (current scene)
 		offload_old_scene()
+
 
 func offload_old_scene():
 	if main_node == null: return
@@ -62,9 +66,11 @@ func offload_old_scene():
 	main_node.remove_child(old_loaded_scene)
 	old_loaded_scene.queue_free()
 
+
 ##FRAMERATE PRINTER
 #var fps_timer: float = 0.0
 #var fps_update_interval: float = 1.0  # Print every second
+
 
 #func _process(delta: float) -> void:
 	#fps_timer += delta
