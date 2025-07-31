@@ -7,20 +7,32 @@ var scene_to_position : Dictionary[String, Vector3] = {}
 
 var loaded_scenes : Array[Node3D]
 
-var og_scene : String = "Kitchen"
+var og_scene : String
+
 
 func _ready() -> void:
 	if main_node == null: return
-	#get all loadable scenes in main, save their positions and delete them
+
+	# get all loadable scenes in main
 	var loadable_scenes = get_tree().get_nodes_in_group("loadable_scene")
 	for node : Node3D in loadable_scenes:
+		# find the room the player spawned in
+		var bodies_in_room = node.get_overlapping_bodies()
+		for body: Node3D in bodies_in_room:
+			if body.is_in_group("player"):
+				# set the og scene to the player's spawn room
+				og_scene = str(node.name)
+				break
+
+		# save the positions of each scene and delete them
 		scene_to_position[node.name] = node.position
 		scene_name_to_scene[node.name] = load(node.scene_file_path)
 		main_node.remove_child(node)
 		node.queue_free()
-		
+
+	# reload the scene the player is spawning in
 	load_scene(og_scene)
-	
+
 func reset() -> void:
 	if main_node == null: return
 	offload_old_scenes()
