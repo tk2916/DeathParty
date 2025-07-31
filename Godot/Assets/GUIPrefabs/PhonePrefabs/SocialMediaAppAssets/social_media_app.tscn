@@ -1,0 +1,275 @@
+[gd_scene load_steps=14 format=3 uid="uid://cafx61ly2binw"]
+
+[ext_resource type="Texture2D" uid="uid://c0fol0xdq57ef" path="res://Assets/PhoneTextures/social_media_icon.png" id="3_3mpvt"]
+[ext_resource type="Texture2D" uid="uid://q4450v2cs7nd" path="res://Assets/PhoneTextures/social_media_bg.png" id="3_rrfdm"]
+[ext_resource type="Texture2D" uid="uid://cyym0am2hqu6i" path="res://Assets/PhoneTextures/social_media_header.png" id="4_wyvhq"]
+[ext_resource type="PackedScene" uid="uid://ckiw75xbis8fk" path="res://post.tscn" id="5_qxrhy"]
+[ext_resource type="Texture2D" uid="uid://crjuqujgkxygk" path="res://Assets/PhoneTextures/sample_char_pic.png" id="5_vh2w8"]
+[ext_resource type="FontFile" uid="uid://bcnpoh5wfcbuq" path="res://Assets/Fonts/Jaldi/Jaldi-Bold.ttf" id="6_0qyoj"]
+[ext_resource type="FontFile" uid="uid://bq7er6hhguye4" path="res://Assets/Fonts/Jaldi/Jaldi-Regular.ttf" id="7_0qyoj"]
+[ext_resource type="Texture2D" uid="uid://cgvy57j52hsc3" path="res://Assets/PhoneTextures/Chats.png" id="8_3aufy"]
+[ext_resource type="Texture2D" uid="uid://ppbdjxg26ugt" path="res://Assets/PhoneTextures/calendar.png" id="8_qugs3"]
+[ext_resource type="Texture2D" uid="uid://bdhorffplepui" path="res://Assets/PhoneTextures/profile-2user.png" id="9_qxrhy"]
+[ext_resource type="Texture2D" uid="uid://d10dkaaj5w7tx" path="res://Assets/PhoneTextures/back_arrow_social_media.png" id="14_3mpvt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjvk7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8bu3"]
+
+[node name="SocialMediaApp" type="MarginContainer"]
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 1.97
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.666667, 0.737255, 0.858824, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ContactsPanel" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_rrfdm")
+
+[node name="Header" type="TextureRect" parent="HBoxContainer/ContactsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_wyvhq")
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/ContactsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.03
+anchor_right = 1.0
+anchor_bottom = 0.12
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3mpvt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer/ContactsPanel"]
+visible = false
+layout_mode = 1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.12
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessagesTtle" type="TextureRect" parent="HBoxContainer/ContactsPanel/Control"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.03
+texture = ExtResource("8_3aufy")
+expand_mode = 1
+
+[node name="Background" type="Control" parent="HBoxContainer/ContactsPanel"]
+layout_mode = 1
+anchor_left = 0.03
+anchor_top = 0.18
+anchor_right = 0.97
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ContactsPanel/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="AllPosts" type="VBoxContainer" parent="HBoxContainer/ContactsPanel/Background/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="Post" parent="HBoxContainer/ContactsPanel/Background/ScrollContainer/AllPosts" instance=ExtResource("5_qxrhy")]
+layout_mode = 2
+
+[node name="MessagePanel" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_rrfdm")
+
+[node name="Header" type="TextureRect" parent="HBoxContainer/MessagePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.4
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_wyvhq")
+
+[node name="CharacterInfoBg" type="Panel" parent="HBoxContainer/MessagePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.2
+anchor_right = 0.97
+anchor_bottom = 0.7
+offset_left = 4.57764e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sjvk7")
+
+[node name="Image" type="TextureRect" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.2
+anchor_right = 1.0
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_vh2w8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.35
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("6_0qyoj")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[color=black]Nora"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tag" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.42
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("7_0qyoj")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=#5C5C5C]@nora2948"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Quote" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("7_0qyoj")
+theme_override_font_sizes/normal_font_size = 23
+bbcode_enabled = true
+text = "[color=black]inspirational quote goes here."
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info1" type="HBoxContainer" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43
+anchor_top = 0.6
+anchor_right = 0.57
+anchor_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info1"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("8_qugs3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.14
+theme_override_fonts/normal_font = ExtResource("7_0qyoj")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=black]Month 8, 20XX"
+vertical_alignment = 1
+
+[node name="Info2" type="HBoxContainer" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43
+anchor_top = 0.78
+anchor_right = 0.57
+anchor_bottom = 0.92
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info2"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_qxrhy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.14
+theme_override_fonts/normal_font = ExtResource("7_0qyoj")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=black]359 friends"
+vertical_alignment = 1
+
+[node name="BackArrow" type="TextureRect" parent="HBoxContainer/MessagePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.07
+anchor_right = 0.07
+anchor_bottom = 0.12
+texture = ExtResource("14_3mpvt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="HBoxContainer/MessagePanel/BackArrow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r8bu3")
+flat = true

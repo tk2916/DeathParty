@@ -9,3 +9,4 @@ func find_first_child_of_class(item : Node, type : Variant):
 		if (result != null):
 			return result 
 	return null
+	

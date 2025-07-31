@@ -8,7 +8,7 @@ var player_data : Dictionary
 #DIRECTORIES TO LOAD
 const TASKS_FILE_PATH : String = "res://Assets/Resources/TaskResources/"
 const CHARACTER_FILE_PATH : String = "res://Assets/Resources/CharacterResources/"
-const PHONE_CHATS_FILE_PATH : String = "res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/ChatResources/"
+const PHONE_CHATS_FILE_PATH : String = "res://Assets/Resources/ChatResources/"
 const INVENTORY_ITEMS_FILE_PATH : String = "res://Assets/Resources/InventoryItemResources/"
 
 const default_inventory_item_resource : InventoryItemResource = preload("res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_item_properties.tres")
@@ -120,8 +120,8 @@ func match_type(key:String, value) -> void: # errors if types don't match (passi
 func get_time() -> float:
 	return get_key("time")
 
-func get_time_string() -> String:
-	return parse_time(get_time())
+func get_time_string(include_ampm:bool = true) -> String:
+	return parse_time(get_time(), include_ampm)
 
 #EDITING
 func get_key(key:String):
@@ -199,7 +199,7 @@ func save_data() -> void:
 		print("Resource saved successfully!")
 		
 #PARSE TIME
-func parse_time(value : float) -> String:
+func parse_time(value : float, include_ampm : bool = true) -> String:
 	var am_pm : String = " a.m."
 	var hour : int = int(value)%24
 	var minutes : int = int((value - hour)*60)%60 #isolate decimal
@@ -216,4 +216,7 @@ func parse_time(value : float) -> String:
 	elif minutes < 10:
 		mins_string = "0"+mins_string
 	
-	return str(hour) + ":" + mins_string + am_pm
+	if include_ampm:
+		return str(hour) + ":" + mins_string + am_pm
+	else:
+		return str(hour) + ":" + mins_string

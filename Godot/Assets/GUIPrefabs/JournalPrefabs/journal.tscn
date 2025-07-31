@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1q5i30ewr8bm"]
+[gd_scene load_steps=14 format=3 uid="uid://bx3f182lw4f7k"]
 
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="1_bvx4m"]
 [ext_resource type="Script" uid="uid://s411vv6436kp" path="res://character_info_button.gd" id="2_7dpwy"]
@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://dy2offscqhpxg" path="res://Assets/Resources/CharacterResources/character_properties_sam.tres" id="4_lyvlq"]
 [ext_resource type="Resource" uid="uid://f3wwrax8f4lf" path="res://Assets/Resources/CharacterResources/character_properties_jack.tres" id="5_wdifc"]
 [ext_resource type="Script" uid="uid://pwimu8stushh" path="res://journal_info_panel.gd" id="6_7mfiy"]
-[ext_resource type="PackedScene" uid="uid://c1sy3m64ne2ae" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_display.tscn" id="7_7bnsu"]
 [ext_resource type="Script" uid="uid://bqrg06p5aek3u" path="res://character_profile.gd" id="8_gg6ut"]
 [ext_resource type="PackedScene" uid="uid://bjm0d63pqk4j2" path="res://Assets/GUIPrefabs/JournalPrefabs/CharProfilePrefabs/char_note.tscn" id="9_5alca"]
 [ext_resource type="Texture2D" uid="uid://s742yxoo5vvv" path="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png" id="10_l422v"]
@@ -300,8 +299,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_htxhm")
 script = ExtResource("6_7mfiy")
 journal_pages = [NodePath("Tasks"), NodePath("CharacterProfile")]
 
-[node name="Tasks" parent="VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel" instance=ExtResource("7_7bnsu")]
+[node name="Tasks" parent="VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 1
+script = null
 
 [node name="CharacterProfile" type="ScrollContainer" parent="VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel" node_paths=PackedStringArray("char_image", "char_name", "char_descriptors", "char_notes_container")]
 visible = false
@@ -382,5 +391,3 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 3
 stretch_mode = 5
-
-[editable path="VBoxContainer/Bottom/Center/HSplitContainer/InfoPanel/Tasks"]

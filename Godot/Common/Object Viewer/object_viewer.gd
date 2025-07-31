@@ -19,6 +19,7 @@ var pressed : bool = false
 @onready var color_rect : ColorRect = $ColorRect
 @onready var blur : Panel = $Blur
 @onready var custom_background_container : Control = $CustomBackground
+@onready var item_info : ItemInfoContainer = $ItemInfo
 
 var light_up_shader : ShaderMaterial = preload("res://Assets/Shaders/LightUpShader.tres")
 
@@ -99,6 +100,7 @@ func _ready() -> void:
 	#set_item(test_path)
 	camera_3d.transform.origin.y = camera_3d.transform.origin.y + hide_offset
 	camera_3d.transform.origin.z = camera_3d.transform.origin.z + hide_offset
+	item_info.visible = false
 
 func zoom(factor : float):
 	active_item.scale = active_item.scale*factor
@@ -114,8 +116,8 @@ func _input(event) -> void:
 			zoom(1.15)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed and Interact.grabbed_scroll_container == null:
 			zoom(0.87)
-		elif event.button_index == MOUSE_BUTTON_LEFT and Interact.grabbed_object == null:
-			GuiSystem.show_journal()
+		#elif event.button_index == MOUSE_BUTTON_LEFT and Interact.grabbed_object == null:
+		#	GuiSystem.show_journal()
 	
 #Resets the position of the item
 func reset_item_position() -> void:
@@ -132,3 +134,7 @@ func set_background(scene : PackedScene = null) -> void:
 	clear_custom_background()
 	if scene:
 		custom_background_container.add_child(scene.instantiate())
+		
+func view_item_info(title : String, description : String):
+	item_info.set_text(description)
+	item_info.visible = true

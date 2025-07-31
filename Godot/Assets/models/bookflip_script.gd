@@ -37,6 +37,9 @@ var tab_handler : JournalTabHandler
 var cur_subviewport : Viewport  #referenced in other classes
 
 func _ready() -> void:
+	page1_subviewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+	page2_subviewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+	
 	left_tabs = tabs_node_left.get_children()
 	right_tabs = tabs_node_right.get_children()
 	right_tabs.reverse()

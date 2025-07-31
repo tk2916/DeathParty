@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://nk823lgusuh4"]
+[gd_scene load_steps=5 format=3 uid="uid://nk823lgusuh4"]
 
 [ext_resource type="PackedScene" uid="uid://b8638q4tu7qhs" path="res://Assets/models/polaroid_rowan.glb" id="1_gaaw3"]
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="2_ngjwq"]
 [ext_resource type="Texture2D" uid="uid://bjmwboxfv10fk" path="res://Assets/CharacterAssets/rowan/polaroid_rowan.png" id="2_yd0ih"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngjwq"]
-albedo_texture = ExtResource("2_yd0ih")
-albedo_texture_force_srgb = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_weg2m"]
+render_priority = 0
+shader = ExtResource("2_ngjwq")
+shader_parameter/albedo_texture = ExtResource("2_yd0ih")
+shader_parameter/multiplier = 0.8
 
 [node name="polaroid_rowan" instance=ExtResource("1_gaaw3")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_ngjwq")
+material_overlay = SubResource("ShaderMaterial_weg2m")

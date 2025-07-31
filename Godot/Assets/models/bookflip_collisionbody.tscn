@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
-[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="3_ngl8b"]
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="3_ngl8b"]
 [ext_resource type="Texture2D" uid="uid://b10xkyr1i6p24" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
 [ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
 
@@ -53,6 +53,7 @@ viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubView
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_ngl8b")
+shader_parameter/multiplier = 0.6
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xwflh"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
@@ -66,6 +67,7 @@ albedo_texture_force_srgb = true
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_ngl8b")
+shader_parameter/multiplier = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qun6a"]
 resource_local_to_scene = true
