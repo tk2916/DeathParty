@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bwam0r715obls"
-path="res://.godot/imported/Beer box.glb-ac01097729083793b04b7592b306123b.scn"
+path="res://.godot/imported/Beer box.glb-4d158f44e30e7df1b16db68a8a5d6f39.scn"
 
 [deps]
 
-source_file="res://Assets/alcohol/Beer box.glb"
-dest_files=["res://.godot/imported/Beer box.glb-ac01097729083793b04b7592b306123b.scn"]
+source_file="res://Assets/props/alcohol/beer_box/Beer box.glb"
+dest_files=["res://.godot/imported/Beer box.glb-4d158f44e30e7df1b16db68a8a5d6f39.scn"]
 
 [params]
 

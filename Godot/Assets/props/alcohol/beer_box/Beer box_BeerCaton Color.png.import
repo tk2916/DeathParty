@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg563r0drvkek"
-path.s3tc="res://.godot/imported/Beer box_BeerCaton Color.png-f00b02a53fcadb87b45f52689ba37cf7.s3tc.ctex"
-path.etc2="res://.godot/imported/Beer box_BeerCaton Color.png-f00b02a53fcadb87b45f52689ba37cf7.etc2.ctex"
+path.s3tc="res://.godot/imported/Beer box_BeerCaton Color.png-d1b4381f2da958a975ce6e3fc2120cbd.s3tc.ctex"
+path.etc2="res://.godot/imported/Beer box_BeerCaton Color.png-d1b4381f2da958a975ce6e3fc2120cbd.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/alcohol/Beer box_BeerCaton Color.png"
-dest_files=["res://.godot/imported/Beer box_BeerCaton Color.png-f00b02a53fcadb87b45f52689ba37cf7.s3tc.ctex", "res://.godot/imported/Beer box_BeerCaton Color.png-f00b02a53fcadb87b45f52689ba37cf7.etc2.ctex"]
+source_file="res://Assets/props/alcohol/beer_box/Beer box_BeerCaton Color.png"
+dest_files=["res://.godot/imported/Beer box_BeerCaton Color.png-d1b4381f2da958a975ce6e3fc2120cbd.s3tc.ctex", "res://.godot/imported/Beer box_BeerCaton Color.png-d1b4381f2da958a975ce6e3fc2120cbd.etc2.ctex"]
 
 [params]
 
