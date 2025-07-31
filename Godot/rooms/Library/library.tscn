@@ -1215,39 +1215,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91573, -3.23279, -1.95305)
 [node name="Door2" parent="." instance=ExtResource("15_e63ox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754969, -3.23279, -3.2323)
 
-[node name="Chandelier" parent="." instance=ExtResource("4_30q20")]
+[node name="Chandelierr" parent="." instance=ExtResource("4_30q20")]
 transform = Transform3D(0.301923, 0, 0, 0, 0.301923, 0, 0, 0, 0.301923, -2.7911, 1.19032, 1.48577)
 
-[node name="OmniLight3D" parent="Chandelier/Lights" index="0"]
+[node name="OmniLight3D" parent="Chandelierr/Lights" index="0"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 12.0
 omni_range = 0.7
 omni_attenuation = 2.333
 
-[node name="OmniLight3D4" parent="Chandelier/Lights" index="3"]
+[node name="OmniLight3D4" parent="Chandelierr/Lights" index="3"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 13.778
 omni_range = 0.912
 
-[node name="OmniLight3D5" parent="Chandelier/Lights" index="4"]
+[node name="OmniLight3D5" parent="Chandelierr/Lights" index="4"]
 light_color = Color(1, 0.383333, 0, 1)
 light_energy = 12.0
 omni_range = 0.771
 
-[node name="OmniLight3D7" parent="Chandelier/Lights" index="6"]
+[node name="OmniLight3D7" parent="Chandelierr/Lights" index="6"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 16.0
 
-[node name="OmniLight3D10" parent="Chandelier/Lights" index="9"]
+[node name="OmniLight3D10" parent="Chandelierr/Lights" index="9"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 8.0
 omni_range = 0.7
 
-[node name="OmniLight3D11" parent="Chandelier/Lights" index="10"]
+[node name="OmniLight3D11" parent="Chandelierr/Lights" index="10"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 8.0
 
-[node name="chandelior bar" parent="Chandelier" instance=ExtResource("5_l745y")]
+[node name="chandelior bar2" parent="Chandelierr" instance=ExtResource("5_l745y")]
 transform = Transform3D(5.61817, 0, 0, 0, 3.52113, 0, 0, 0, 3.87769, 0, 13.0462, -0.00364685)
 
 [node name="WallLamps" type="Node3D" parent="."]
@@ -1551,7 +1551,7 @@ material = SubResource("FogMaterial_obdan")
 
 [editable path="BackWall/Bookshelves/Upstairs"]
 [editable path="Balcony/Railings"]
-[editable path="Chandelier"]
+[editable path="Chandelierr"]
 [editable path="WallLamps/WallLamp"]
 [editable path="WallLamps/WallLamp2"]
 [editable path="WallLamps/WallLamp3"]
