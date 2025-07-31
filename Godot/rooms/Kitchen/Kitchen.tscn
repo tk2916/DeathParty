@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=68 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="PackedScene" uid="uid://bwam0r715obls" path="res://Assets/props/alcohol/beer_box/Beer box.glb" id="1_htgpp"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bce1xv0wcorsw" path="res://Assets/environment/fridge/fridge.tscn" id="5_qn7eg"]
 [ext_resource type="PackedScene" uid="uid://bxsjt7jdg8hv3" path="res://Assets/environment/kiss_the_cook_sign/Kitchen Neon sign.glb" id="6_84i0v"]
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="6_l47d5"]
-[ext_resource type="PackedScene" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
+[ext_resource type="PackedScene" uid="uid://bhe0kgbucqoad" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="7_84i0v"]
 [ext_resource type="PackedScene" uid="uid://dwtxi47usnits" path="res://Assets/props/bar/Bar.glb" id="10_6xo0a"]
 [ext_resource type="PackedScene" uid="uid://b7vveikx7vsny" path="res://Assets/props/keg/keg.glb" id="11_n7s6h"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="32_obamy"]
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="33_6ieyk"]
 [ext_resource type="PackedScene" uid="uid://cnhhx5201iwk0" path="res://Assets/props/desk_lamp/Modern_Desk_Lamp.glb" id="39_h2hdd"]
+[ext_resource type="PackedScene" uid="uid://op4s621mwf4o" path="res://rooms/Kitchen/kitchen molding.glb" id="40_kyy70"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
 size = Vector3(15, 5, 13)
@@ -994,7 +995,7 @@ mesh = SubResource("ArrayMesh_xispf")
 skeleton = NodePath("")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="LightFixtures/LightFixture3"]
-transform = Transform3D(4.91468, -0.00855903, -0.00850098, 0.00855903, 0.0334531, 4.91456, -0.00850096, -4.91457, 0.033468, -0.175472, -0.140042, -0.0676165)
+transform = Transform3D(4.91468, -0.00855904, -0.00850098, 0.00855903, 0.0334531, 4.91456, -0.00850096, -4.91457, 0.033468, -0.175472, -0.253676, -0.0676165)
 light_color = Color(1, 0.92, 0.52, 1)
 light_energy = 60.0
 light_volumetric_fog_energy = 100.0
@@ -1450,4 +1451,37 @@ transform = Transform3D(0.231392, 0.044031, -0.0104166, 0, 0.0542798, 0.229441, 
 [node name="Cup10" parent="Props/CupsOnFloor" instance=ExtResource("25_eupok")]
 transform = Transform3D(-0.00949385, 0.196577, -0.129834, 0.2355, 0.0113736, 0, 0.00626313, -0.129683, -0.196806, -0.17332, 0.936977, 4.48881)
 
+[node name="kitchen molding" parent="." instance=ExtResource("40_kyy70")]
+transform = Transform3D(0.984478, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, 1.54831, 0.769929, -4.34983)
+
+[node name="Cube_038" parent="kitchen molding" index="0"]
+transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -1.11932, 0, -1.94882)
+
+[node name="Cube_039" parent="kitchen molding" index="1"]
+transform = Transform3D(-0.708888, 0, 0.000387435, 0, 0.222465, 0, -0.00123457, 0, -0.222464, -5.97615, 0, -1.95727)
+
+[node name="Cube_041" parent="kitchen molding" index="2"]
+transform = Transform3D(-0.199721, 0, 0.000387435, 0, 0.222465, 0, -0.000347826, 0, -0.222464, 0.329615, 0, -1.53082)
+visible = false
+
+[node name="Cube_047" parent="kitchen molding" index="4"]
+visible = false
+
+[node name="Cube_051" parent="kitchen molding" index="5"]
+transform = Transform3D(-0.295964, 0, 0.000387188, 0, 0.222465, 0, -0.000515439, 0, -0.222322, 2.54455, 0.00383079, -1.90122)
+
+[node name="Cube_042" parent="kitchen molding" index="6"]
+transform = Transform3D(0.00156504, 0, 0.221382, 0, 0.222465, 0, -0.898537, 0, 0.000385597, 6.62417, 0, 5.25691)
+
+[node name="Cube_054" parent="kitchen molding" index="7"]
+transform = Transform3D(-0.0644138, 0, 0.000387436, 0, 0.222465, 0, -0.000112181, 0, -0.222464, 7.51739, 0, 2.26133)
+visible = false
+
+[node name="Cube_056" parent="kitchen molding" index="9"]
+transform = Transform3D(-0.00106256, 0, -0.222464, 0, 0.222465, 0, 0.610174, 0, -0.000387402, -9.6621, 0, 7.31902)
+
+[node name="Cube_059" parent="kitchen molding" index="10"]
+visible = false
+
 [editable path="Room"]
+[editable path="kitchen molding"]
