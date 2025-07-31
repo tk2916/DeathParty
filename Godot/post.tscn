@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://chb5whjioqpqv"]
+
+[ext_resource type="Texture2D" uid="uid://crjuqujgkxygk" path="res://Assets/PhoneTextures/sample_char_pic.png" id="1_kwisn"]
+[ext_resource type="FontFile" uid="uid://bcnpoh5wfcbuq" path="res://Assets/Fonts/Jaldi/Jaldi-Bold.ttf" id="2_qdpgs"]
+[ext_resource type="FontFile" uid="uid://bq7er6hhguye4" path="res://Assets/Fonts/Jaldi/Jaldi-Regular.ttf" id="3_wg6r1"]
+[ext_resource type="Texture2D" uid="uid://base5d87dehd1" path="res://Assets/CharacterAssets/nora/polaroid_nora.png" id="4_ymue7"]
+
+[node name="Post" type="ColorRect"]
+custom_minimum_size = Vector2(0, 600)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.13
+offset_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="Header"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 2.87
+texture = ExtResource("1_kwisn")
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="Header"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.6
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.63
+theme_override_fonts/normal_font = ExtResource("2_qdpgs")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[color=black]Nora"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Tag" type="RichTextLabel" parent="Header"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.8
+theme_override_fonts/normal_font = ExtResource("3_wg6r1")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[color=#5C5C5C]@nora2948"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.15
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_wg6r1")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[color=black]See my outfit for the party! How do you guys like it?"
+scroll_active = false
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 12.07
+texture = ExtResource("4_ymue7")
+expand_mode = 1
+stretch_mode = 6

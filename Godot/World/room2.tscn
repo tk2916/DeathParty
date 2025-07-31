@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="5_wxp3r"]
 [ext_resource type="Resource" uid="uid://f3wwrax8f4lf" path="res://Assets/Resources/CharacterResources/character_properties_jack.tres" id="6_k0ktu"]
 [ext_resource type="Resource" uid="uid://fl5cg4jaw48p" path="res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres" id="7_4ybji"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/loading_dialogue_test.json" id="8_8tdiw"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="8_316fs"]
 [ext_resource type="Material" uid="uid://dohto33r7xal3" path="res://Assets/Materials/color1.tres" id="9_kq7rp"]
 [ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="10_cf8rj"]
 [ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="11_rt6bl"]
@@ -208,7 +208,7 @@ collision_mask = 0
 script = ExtResource("5_wxp3r")
 character_resource = ExtResource("6_k0ktu")
 dialogue_box = ExtResource("7_4ybji")
-json_file = ExtResource("8_8tdiw")
+json_file = ExtResource("8_316fs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ThingsToHide/NPC"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

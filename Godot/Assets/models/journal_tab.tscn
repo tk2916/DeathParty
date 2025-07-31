@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bcjyjyqfung5b" path="res://Assets/models/journal_tab_script.gd" id="1_1kt7j"]
 [ext_resource type="Texture2D" uid="uid://bx2ww6bnu8bq6" path="res://Assets/models/bookmark_tab_max_page_1.png" id="2_s7cof"]
 [ext_resource type="FontFile" uid="uid://cbjlbjatgghwl" path="res://Assets/Fonts/Inknut_Antiqua_Large/InknutAntiqua-Light.ttf" id="3_ing3b"]
-[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="3_quqqh"]
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="3_quqqh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kt7j"]
 size = Vector3(0.254856, 0.119389, 0.32544)

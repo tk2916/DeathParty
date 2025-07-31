@@ -56,7 +56,6 @@ func hide_journal():
 	if not in_journal: return
 	close_all_guis()
 	journal_close_sound.play()
-	#journal_instance.reset_properties()
 	object_viewer.visible = false
 	object_viewer.remove_current_item(false)
 	Interact.clear_active_subviewport()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdw28hmsvnwb0"]
 
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="1_a0tk4"]
-[ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/InknutAntiqua-Regular.ttf" id="2_r3fl7"]
+[ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/Inknut_Antiqua/InknutAntiqua-Regular.ttf" id="2_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="3_jka67"]
 [ext_resource type="Resource" uid="uid://dfsf66usc4sbb" path="res://Assets/Resources/DialogueBoxResources/phone_dialogue_box.tres" id="4_i5arm"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="4_r3fl7"]

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dr1yk2pxxkcq3"]
 
-[ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/InknutAntiqua-Regular.ttf" id="1_0dftj"]
+[ext_resource type="FontFile" uid="uid://defq7skxy8v8f" path="res://Assets/Fonts/Inknut_Antiqua/InknutAntiqua-Regular.ttf" id="1_0dftj"]
 
 [resource]
 default_font = ExtResource("1_0dftj")
