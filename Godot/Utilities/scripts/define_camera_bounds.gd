@@ -16,16 +16,18 @@ var lower_bound: float
 var upper_bound: float
 var inner_bound: Plane
 var outer_bound: Plane
+var room_area_center: Vector3
 
 
-@onready var room_area_center = room_area.global_transform.origin
 @onready var room_area_shape: BoxShape3D = room_area.shape
 @onready var background_plane := Plane(room_area.basis.z, (room_area_center - (room_area.shape.size/2 * basis)))
 @onready var default_depth: Vector3 = room_area_center + ((room_area_shape.size.z/2 + 9) * basis.z)
 
 
 func _ready() -> void:
-	assert(room_area, "Room area not defined!")
+	assert(room_area, "Room area not defined! Go to this room's properties in the Inspector and assign a CollisionShape3D containing the room to the Room Area property")
+	await get_tree().process_frame # Wait a frame before calculating center - required if scene is loaded at runtime
+	room_area_center = room_area.global_transform.origin
 	## Left and Right bounds
 	# [.....|.....] <= $RoomArea.shape.size.x ( '|' is halfway point)
 	# [.....|       <= $RoomArea.shape.size.x/2
@@ -102,38 +104,38 @@ func compress_vector3(vec: Vector3) -> float:
 
 
 ## Functions for emitting GlobalCameraScript signals
-func _remove_all_bounds(body: Node3D) -> void:
+func remove_all_bounds(body: Node3D) -> void:
 	GlobalCameraScript.remove_camera_bounds_LR.emit()
 	GlobalCameraScript.remove_camera_bounds_y.emit()
 	GlobalCameraScript.remove_camera_bounds_depth.emit()
 	GlobalCameraScript.remove_camera_bounds_path.emit()
 
-func _bind_camera_LR(body: Node3D) -> void:
+func bind_camera_LR(body: Node3D) -> void:
 	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
 
 
-func _bind_camera_y(body: Node3D) -> void:
+func bind_camera_y(body: Node3D) -> void:
 	GlobalCameraScript.bind_camera_y.emit(lower_bound, upper_bound)
 
 
-func _bind_camera_depth(body: Node3D) -> void:
+func bind_camera_depth(body: Node3D) -> void:
 	GlobalCameraScript.bind_camera_depth.emit(inner_bound, outer_bound, basis)
 
 
-func _bind_camera_path(body: Node3D) -> void:
+func bind_camera_path(body: Node3D) -> void:
 	assert(path_follow_node, "path_follow_node is not defined! Assign it a value in this node's exports")
 	GlobalCameraScript.bind_camera_path.emit(path_follow_node)
 
 
-func _keep_camera_on_player(body: Node3D) -> void:
+func keep_camera_on_player(body: Node3D) -> void:
 	GlobalCameraScript.camera_on_player.emit(true)
 
 
-func _keep_camera_off_player(body: Node3D) -> void:
+func keep_camera_off_player(body: Node3D) -> void:
 	GlobalCameraScript.camera_on_player.emit(false)
 
 
-func _move_player_to_foreground(body: Node3D) -> void:
+func move_player_to_foreground(body: Node3D) -> void:
 	body.global_position = move_to_foreground(body)
 
 ## These functions should be defined in the extended script
