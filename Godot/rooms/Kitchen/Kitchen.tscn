@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=60 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="PackedScene" uid="uid://bwam0r715obls" path="res://Assets/alcohol/Beer box.glb" id="1_htgpp"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bce1xv0wcorsw" path="res://Assets/environment/fridge/fridge.tscn" id="5_qn7eg"]
 [ext_resource type="PackedScene" uid="uid://bxsjt7jdg8hv3" path="res://Assets/environment/kiss_the_cook_sign/Kitchen Neon sign.glb" id="6_84i0v"]
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="6_l47d5"]
-[ext_resource type="PackedScene" uid="uid://bhe0kgbucqoad" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
+[ext_resource type="PackedScene" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="7_84i0v"]
 [ext_resource type="PackedScene" uid="uid://dwtxi47usnits" path="res://Assets/props/bar/Bar.glb" id="10_6xo0a"]
 [ext_resource type="PackedScene" uid="uid://b7vveikx7vsny" path="res://Assets/props/keg/keg.glb" id="11_n7s6h"]
@@ -39,6 +39,9 @@
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="32_obamy"]
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="33_6ieyk"]
 [ext_resource type="PackedScene" uid="uid://cnhhx5201iwk0" path="res://Assets/props/desk_lamp/Modern_Desk_Lamp.glb" id="39_h2hdd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
+size = Vector3(15, 5, 13)
 
 [sub_resource type="FogMaterial" id="FogMaterial_kbocy"]
 density = 0.2
@@ -339,6 +342,11 @@ shadow_mesh = SubResource("ArrayMesh_e3smd")
 
 [node name="Kitchen" type="Area3D"]
 transform = Transform3D(0.914625, 0, 0, 0, 0.914625, 0, 0, 0, 0.914625, 0, 0, 0)
+collision_mask = 2
+
+[node name="RoomArea" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186689, -1.09334, -0.186689)
+shape = SubResource("BoxShape3D_h2hdd")
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0836284, -1.13811, 0.579579)

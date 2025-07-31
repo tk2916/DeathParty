@@ -263,9 +263,9 @@ albedo = Color(0.17, 0.2115, 1, 1)
 [node name="Entrance" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
 script = ExtResource("1_3k57g")
-room_area = NodePath("EntranceRoomArea")
+room_area = NodePath("RoomArea")
 
-[node name="EntranceRoomArea" type="CollisionShape3D" parent="."]
+[node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 5.28294, 3.89569)
 shape = SubResource("BoxShape3D_nneh3")
 
