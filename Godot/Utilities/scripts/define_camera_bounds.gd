@@ -25,8 +25,14 @@ var room_area_center: Vector3
 
 func _ready() -> void:
 	assert(room_area, "Room area not defined! Go to this room's properties in the Inspector and assign a CollisionShape3D containing the room to the Room Area property")
+	call_deferred("calculate_bounds")
+
+
+func calculate_bounds() -> void:
+	# Calling await in _ready is bad practice, I think
 	await get_tree().process_frame # Wait a frame before calculating center - required if scene is loaded at runtime
 	room_area_center = room_area.global_transform.origin
+	
 	## Left and Right bounds
 	# [.....|.....] <= $RoomArea.shape.size.x ( '|' is halfway point)
 	# [.....|       <= $RoomArea.shape.size.x/2
