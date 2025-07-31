@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=56 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -256,6 +256,10 @@ size = Vector3(2.746, 0.043, 0.790504)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gfuhi"]
 size = Vector3(3, 2, 1)
 
+[sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
+density = 0.03
+albedo = Color(0.17, 0.2115, 1, 1)
+
 [node name="Entrance" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
 script = ExtResource("1_3k57g")
@@ -281,8 +285,11 @@ skeleton = NodePath("")
 [node name="LeftWall" parent="Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(-6.39852e-08, 0, 1.46381, 0, 1.46381, 0, -1.46381, 0, -6.39852e-08, -7.23962, 0.827875, 4.05607)
 
+[node name="LeftWall2" parent="Walls" instance=ExtResource("4_tmedt")]
+transform = Transform3D(1.4637, 0, -0.018292, 0, 1.46381, 0, 0.018292, 0, 1.4637, 2.34854, 0.827875, -6.22015)
+
 [node name="BackWall" parent="Walls" instance=ExtResource("4_tmedt")]
-transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.36038, 0.827875, -6.21249)
+transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.36038, 0.827875, -6.22)
 
 [node name="RightWall" parent="Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(1.10515e-07, 0, -1.46381, 0, 1.46381, 0, 1.46381, 0, 1.10515e-07, 12.6604, 0.827875, 4.05607)
@@ -369,16 +376,23 @@ transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 1.921, 0.13
 transform = Transform3D(1.46343, 0, 0.0332099, 0, 1.46381, 0, -0.0332099, 0, 1.46343, 2.375, -0.012, 0.484)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -3.19528, 0.876021, 1.20079)
+transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -3.19848, 0.876022, 1.20675)
 light_color = Color(0.87, 0.77198, 0.4176, 1)
-light_energy = 1.5
+light_energy = 6.211
 omni_range = 2.872
 omni_attenuation = 0.667
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Staircase"]
+transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -0.0718786, 2.77427, -2.68568)
+light_color = Color(0.87, 0.77198, 0.4176, 1)
+light_energy = 6.211
+omni_range = 2.872
+omni_attenuation = -1.937
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Staircase"]
 transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 3.07413, 0.764043, 0.553632)
 light_color = Color(0.87, 0.77198, 0.4176, 1)
-light_energy = 1.5
+light_energy = 5.856
 shadow_enabled = true
 omni_range = 2.872
 omni_attenuation = 0.667
@@ -455,15 +469,17 @@ omni_attenuation = 0.792
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="GlowingDoorway"]
 transform = Transform3D(4.51041, 0, 0, 0, 4.51044, 0, 0, 0, 4.51041, -1.40476, -0.759202, -29.8609)
-light_color = Color(1, 0.736, 0.56, 1)
-light_energy = 4.2
-omni_range = 3.66
-omni_attenuation = 0.174
+light_color = Color(1, 0.622, 0.37, 1)
+light_energy = 11.045
+omni_range = 5.058
 
 [node name="Windows" type="Node3D" parent="."]
 
 [node name="ArchWindow" parent="Windows" instance=ExtResource("17_kauli")]
 transform = Transform3D(-0.219323, 0, -0.00202499, 0, 0.219331, 0, 0.00202499, 0, -0.219323, -2.865, 5.752, -6)
+
+[node name="OmniLight3D" parent="Windows/ArchWindow" index="0"]
+visible = false
 
 [node name="ArchWindow2" parent="Windows" instance=ExtResource("17_kauli")]
 transform = Transform3D(-0.219323, 0, -0.00202499, 0, 0.219331, 0, 0.00202499, 0, -0.219323, 7.233, 5.752, -6)
@@ -486,29 +502,18 @@ transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 0, 0
 [node name="Chandeliers" type="Node3D" parent="."]
 
 [node name="Chandelier" parent="Chandeliers" instance=ExtResource("19_a28ps")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.01012, 8.9504, -0.717455)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.57116, 6.93289, 0.502097)
 
 [node name="Chandelier2" parent="Chandeliers" instance=ExtResource("19_a28ps")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 6.75577, 8.94019, -0.902423)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 6.06403, 6.92268, 0.317129)
 
 [node name="Painting" parent="." instance=ExtResource("20_2fk3d")]
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.33357, 5.93565, -5.9708)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Painting"]
-transform = Transform3D(0.683149, 0, 0, 0, 0.675225, -0.103746, 0, 0.103746, 0.675225, 0.102345, 0.714697, 3.70502)
-light_color = Color(0.442667, 0.24, 1, 1)
-light_energy = 0.645
-light_negative = true
-light_specular = 1.122
-spot_range = 10.97
-spot_attenuation = 0.56
-spot_angle = 33.0
-spot_angle_attenuation = 1.31951
-
 [node name="SpotLight3D2" type="SpotLight3D" parent="Painting"]
 transform = Transform3D(0.683149, 0, 0, 0, 0.0696059, 0.679594, 0, -0.679594, 0.0696059, 0, 2.09361, 1.38245)
-light_color = Color(1, 0.857, 0.78, 1)
-light_energy = 1.444
+light_color = Color(1, 0.7615, 0.47, 1)
+light_energy = 4.555
 shadow_enabled = true
 spot_range = 5.963
 spot_attenuation = -1.15
@@ -635,6 +640,26 @@ scene_going_left = "PartyRoom"
 [node name="CollisionShape3D" parent="SceneLoader" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
 shape = SubResource("BoxShape3D_gfuhi")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87366, 5.24725, 4.8063)
+size = Vector3(21.9939, 12.4945, 22.3923)
+material = SubResource("FogMaterial_nneh3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.911568, 0.411148, 0, -0.411148, -0.911568, 2.06323, 7.1542, -6.52839)
+light_color = Color(1, 0.352, 0.19, 1)
+light_energy = 4.089
+light_volumetric_fog_energy = 20.0
+light_specular = 0.0
+light_cull_mask = 4294966783
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_blur = 2.611
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.29
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 81.9
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 

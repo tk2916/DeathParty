@@ -1,13 +1,20 @@
-extends Control
+class_name DialogueLine extends Control
 
 @export var Name : RichTextLabel;
+@export var Img : TextureRect;
 @export var Text : RichTextLabel;
 
-var line_text : String;
-var line_speaker : String;
+##ASSIGNED BY DIALOGUE SYSTEM
+var line_info : InkLineInfo
+var text_properties : DialogueBoxResource
+var speaker_resource : CharacterResource
+var image_container : TextureRect
+var name_container : RichTextLabel
+##
+
+##TEXT PROPERTIES (from text_properties, for easy access)
 var text_color : String;
 var name_color : String;
-var text_properties : Resource;
 
 var name_contents : String
 var text_contents : String
@@ -27,49 +34,45 @@ var no_animation : bool = false
 
 signal done
 
-''' OLD TWEEN CODE
-var tween : Tween
-func _ready():
-	diag_line.size.x = 0
-	diag_line.text = text
-	
-	#the animation will go faster if there is less text
-	var durationRatio:float = base_duration * text_length/MAX_CHARS
-	
-	tween = get_tree().create_tween()
-	tween.tween_property(diag_line, "size:x", MAX_LENGTH, base_duration)
-	
-	
-	#kill early if text is shorter
-	await get_tree().create_timer(durationRatio).timeout
-	tween.kill()
-	
-	#let the main script know it's done animating
-	done_state = true
-	done.emit()
-
-func skip():
-	tween.kill()
-	diag_line.size.x = MAX_LENGTH
-	done_state = true
-'''
-
 func initialize():
+	text_color = text_properties.default_text_color
+	name_color = text_properties.default_name_color
+	if text_properties.text_font:
+		self.special_font = text_properties.text_font
+	if Img:
+		self.image_container = Img
+	
+	if speaker_resource: #if there is an entry for this character, get its properties
+		if image_container:
+			var image_key : String = "image_" + text_properties.image_key
+			var image : CompressedTexture2D = speaker_resource[image_key]
+			if image == null:
+				#default to "full" if full is not null
+				image = speaker_resource.image_full
+			#if image != null:
+			image_container.texture = image
+		if speaker_resource.text_color != "":
+			self.text_color = speaker_resource.text_color
+		if speaker_resource.name_color != "":
+			self.name_color = speaker_resource.name_color
+	
+	if name_container:
+		#self.line_speaker = "" #we aren't putting the speaker in the text, we are putting it in the name container
+		name_container.add_theme_font_size_override("normal_font_size", text_properties["name_size"])
+		name_container.text = "[color="+self.name_color+"]"+line_info.speaker.to_upper()+"[/color]"
+	
 	text_prefix = "[color="+text_color+"]"
 	if Name:
 		Name.bbcode_enabled = true
 		#if text_properties["name_in_separate_container"] == true:
 		Name.add_theme_font_size_override("normal_font_size", text_properties["name_size"])
-		name_contents = "[color="+name_color+"]"+line_speaker+"[/color]";
+		name_contents = "[color="+name_color+"]"+line_info.speaker+"[/color]";
 		Name.text = name_contents
-			#text_prefix = "[color="+text_color+"]"
-	elif text_properties["include_speaker_in_text"]:
+	elif text_properties.include_speaker_in_text:
 		Name.size_flags_stretch_ratio = 0
 		name_contents = ""
-		if line_speaker.length() > 0:
-			text_prefix = "[color="+name_color+"]"+line_speaker+": [/color][color="+text_color+"]"
-			#else:
-			#	text_prefix = "[color="+text_color+"]"
+		if line_info.speaker.length() > 0:
+			text_prefix = "[color="+name_color+"]"+line_info.speaker+": [/color][color="+text_color+"]"
 		
 	Text.bbcode_enabled = true
 	Text.add_theme_font_size_override("normal_font_size", text_properties["text_size"])
@@ -79,7 +82,7 @@ func initialize():
 			
 	#SET/ANIMATE TEXT
 	if !no_animation:
-		if text_properties["text_animation"] == "typewriter":
+		if text_properties.text_animation == "typewriter":
 			Text.text = ""
 			#timer that will execute typewriter animation
 			timer = Timer.new()
@@ -87,8 +90,8 @@ func initialize():
 			timer.autostart = true
 			timer.timeout.connect(typewriter)
 			add_child(timer)
-		elif text_properties["text_animation"] == "sliding":
-			Text.text = text_prefix+line_text+text_suffix
+		elif text_properties.text_animation == "sliding":
+			Text.text = text_prefix+line_info.text+text_suffix
 			#TO BE ADDED: animate mask over each line that tweens to 0 width
 		else:
 			skip()
@@ -97,11 +100,11 @@ func initialize():
 
 var typewriter_text : String = ""
 func typewriter():
-	if (text_index > line_text.length()-1): #end loop
+	if (text_index > line_info.text.length()-1): #end loop
 		timer.queue_free()
 		finish()
 		return
-	typewriter_text = typewriter_text + line_text[text_index]
+	typewriter_text = typewriter_text + line_info.text[text_index]
 	Text.text = text_prefix + typewriter_text + text_suffix
 	text_index += 1
 
@@ -110,7 +113,7 @@ func skip():
 	if timer:
 		timer.stop()
 		timer.queue_free()
-	Text.text = text_prefix+line_text+text_suffix
+	Text.text = text_prefix+line_info.text+text_suffix
 	finish()
 
 func finish():

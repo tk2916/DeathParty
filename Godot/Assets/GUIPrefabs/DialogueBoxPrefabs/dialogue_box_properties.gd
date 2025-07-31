@@ -1,5 +1,4 @@
-extends Control
-class_name DialogueBoxProperties
+class_name DialogueBoxProperties extends Control
 
 @export var dialogue_container : VBoxContainer
 @export var choice_container : VBoxContainer

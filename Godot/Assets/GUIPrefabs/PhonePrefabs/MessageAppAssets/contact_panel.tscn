@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=3 uid="uid://br8euj271narl"]
+
+[ext_resource type="Texture2D" uid="uid://djx0yq4hfer6g" path="res://Assets/CharacterAssets/CharacterTextures/kai_jax_waistup.png" id="1_fnffg"]
+[ext_resource type="Script" uid="uid://ceow5wxh8w4ea" path="res://Assets/GUIPrefabs/PhonePrefabs/MessageAppAssets/contact_panel_script.gd" id="2_2kose"]
+[ext_resource type="Script" uid="uid://kfd42qu8rovq" path="res://Assets/GUIPrefabs/PhonePrefabs/MessageAppAssets/unread_button.gd" id="2_hyfm0"]
+[ext_resource type="FontFile" uid="uid://w4kmxbbwxg4c" path="res://Assets/Fonts/Inria_Sans/InriaSans-Regular.ttf" id="4_2wpag"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kose"]
+bg_color = Color(0.14731, 0.407406, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2kose"]
+
+[node name="ContactPanel" type="HBoxContainer" node_paths=PackedStringArray("contact_button", "name_label", "message_label", "image_label", "unread_alert")]
+custom_minimum_size = Vector2(0, 55)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("2_2kose")
+contact_button = NodePath("ChatInfo/Button")
+name_label = NodePath("ChatInfo/Name")
+message_label = NodePath("ChatInfo/LastText")
+image_label = NodePath("Control/Image")
+unread_alert = NodePath("Control/UnreadAlert")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Image" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_fnffg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="UnreadAlert" type="Control" parent="Control" node_paths=PackedStringArray("panel")]
+layout_mode = 1
+anchor_right = 0.4
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+script = ExtResource("2_hyfm0")
+panel = NodePath("Panel")
+
+[node name="Panel" type="Panel" parent="Control/UnreadAlert"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.4
+anchor_right = 0.4
+anchor_bottom = 0.4
+offset_right = 10.0
+offset_bottom = 10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kose")
+
+[node name="ChatInfo" type="ColorRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.5
+
+[node name="Name" type="RichTextLabel" parent="ChatInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.91
+theme_override_fonts/normal_font = ExtResource("4_2wpag")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=black]Jax[/color]"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="LastText" type="RichTextLabel" parent="ChatInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.65
+theme_override_fonts/normal_font = ExtResource("4_2wpag")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[color=#6C6C6C]Weren't we supposed to be there by 11?[/color]"
+fit_content = true
+scroll_active = false
+
+[node name="Button" type="Button" parent="ChatInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.13
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2kose")
+flat = true

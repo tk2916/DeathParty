@@ -37,6 +37,9 @@ var tab_handler : JournalTabHandler
 var cur_subviewport : Viewport  #referenced in other classes
 
 func _ready() -> void:
+	page1_subviewport.size = Vector2i(1920, 1080)
+	page2_subviewport.size = Vector2i(1920, 1080)
+	
 	left_tabs = tabs_node_left.get_children()
 	right_tabs = tabs_node_right.get_children()
 	right_tabs.reverse()

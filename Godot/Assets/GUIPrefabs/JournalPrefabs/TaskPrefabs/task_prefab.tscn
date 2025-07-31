@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://ch3ugfpbyqlan"]
 
 [ext_resource type="Script" uid="uid://bpm4a31sjdhmq" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_container.gd" id="1_xlevt"]
-[ext_resource type="Texture2D" uid="uid://daggdyy3tu543" path="res://Assets/JournalTextures/TaskRectangle.png" id="2_m6k3e"]
+[ext_resource type="Texture2D" uid="uid://bmqr2h6x1qax5" path="res://Assets/JournalTextures/TaskRectangle.png" id="2_m6k3e"]
 [ext_resource type="Texture2D" uid="uid://cox4vfkpp47vq" path="res://Assets/JournalTextures/task_arrow.png" id="3_1ru7f"]
 
 [node name="TaskContainer" type="MarginContainer" node_paths=PackedStringArray("title_label")]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 120)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,7 +47,7 @@ anchor_right = 0.88
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[color=black]Panic! At the Photography club"
 scroll_active = false

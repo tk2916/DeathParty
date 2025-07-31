@@ -3,7 +3,7 @@ class_name ChatResource extends Resource
 @export var name : String
 @export var image : CompressedTexture2D
 var upcoming_chats : Array[JSON] = []
-var past_chats : Array[Dictionary]
+var past_chats : Array[InkLineInfo]
 var display_timestamp : float = 0.0
 var display_message : String = ""
 
@@ -42,7 +42,7 @@ func start_chat():
 		DialogueSystem.from_JSON(new_json)
 	chat_in_progress = true
 	
-func pause_chat(current_conversation : Array[Dictionary]):
+func pause_chat(current_conversation : Array[InkLineInfo]):
 	if chat_in_progress: #ONLY if in progress or it will save the wrong messages
 		#save added lines
 		past_chats = current_conversation

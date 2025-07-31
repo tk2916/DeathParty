@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://yory4i5rrii2"]
+[gd_scene load_steps=7 format=3 uid="uid://yory4i5rrii2"]
 
 [ext_resource type="Script" uid="uid://c5se664fk8jqq" path="res://Common/Object Viewer/object_viewer.gd" id="1_o3r5r"]
+[ext_resource type="Script" path="res://Common/Object Viewer/item_info_gui.gd" id="2_o7dqn"]
+[ext_resource type="Script" uid="uid://bfr8xxiuuihhi" path="res://Assets/GUIDesignScripts/resize_to_text.gd" id="3_o7dqn"]
 
 [sub_resource type="Shader" id="Shader_2cfm7"]
 code = "shader_type canvas_item;
@@ -30,6 +32,8 @@ shader = SubResource("Shader_2cfm7")
 shader_parameter/lod = 2.8
 shader_parameter/darken_amount = 0.18
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7dqn"]
+
 [node name="ObjectViewer" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -47,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.223103, 0.223103, 0.223103, 0.717647)
 
 [node name="Blur" type="Panel" parent="."]
@@ -59,6 +64,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="CustomBackground" type="Control" parent="."]
 layout_mode = 1
@@ -67,6 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -86,3 +93,61 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
+
+[node name="ItemInfo" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_o7dqn")
+
+[node name="TextureRect" type="ColorRect" parent="ItemInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.07
+anchor_right = 0.1
+anchor_bottom = 0.11
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.756863)
+
+[node name="Button" type="Button" parent="ItemInfo/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o7dqn")
+text = "Back"
+flat = true
+
+[node name="DescriptionBacker" type="ColorRect" parent="ItemInfo" node_paths=PackedStringArray("label")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.07
+anchor_right = 0.92
+anchor_bottom = 0.07
+color = Color(0.154876, 0.154876, 0.154876, 0.643137)
+script = ExtResource("3_o7dqn")
+label = NodePath("Description")
+resize_x = false
+padding_bottom = 10.0
+
+[node name="Description" type="RichTextLabel" parent="ItemInfo/DescriptionBacker"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.07
+anchor_right = 0.97
+anchor_bottom = 0.93
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Blah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah Blah"
+fit_content = true
+scroll_active = false
