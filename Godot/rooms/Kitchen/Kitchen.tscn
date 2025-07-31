@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bce1xv0wcorsw" path="res://Assets/environment/fridge/fridge.tscn" id="5_qn7eg"]
 [ext_resource type="PackedScene" uid="uid://bxsjt7jdg8hv3" path="res://Assets/environment/kiss_the_cook_sign/Kitchen Neon sign.glb" id="6_84i0v"]
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="6_l47d5"]
-[ext_resource type="PackedScene" uid="uid://bhe0kgbucqoad" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
+[ext_resource type="PackedScene" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="7_84i0v"]
 [ext_resource type="PackedScene" uid="uid://dwtxi47usnits" path="res://Assets/props/bar/Bar.glb" id="10_6xo0a"]
 [ext_resource type="PackedScene" uid="uid://b7vveikx7vsny" path="res://Assets/props/keg/keg.glb" id="11_n7s6h"]
