@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bigc44cfli8nx" path="res://Assets/models/journal_page_flip_collider.gd" id="7_fq2mh"]
 [ext_resource type="Texture2D" uid="uid://c0c7uxkp8a7y" path="res://Assets/models/bookflip_max_page_2.png" id="7_ieb6y"]
 [ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="8_3xg2d"]
-[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="8_yfr5l"]
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="8_yfr5l"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fq2mh"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
@@ -57,6 +57,7 @@ shadow_mesh = SubResource("ArrayMesh_50s38")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_yfr5l")
+shader_parameter/multiplier = 2.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_55mpj"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
@@ -140,6 +141,7 @@ blend_shape_mode = 0
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_yfr5l")
+shader_parameter/multiplier = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd17q"]
 resource_local_to_scene = true
@@ -530,6 +532,7 @@ skin = SubResource("Skin_m8qil")
 skeleton = NodePath("../..")
 
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004"]
+size = Vector2i(1920, 1080)
 
 [node name="Control" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport" instance=ExtResource("4_6b4ny")]
 script = null
@@ -558,6 +561,7 @@ skin = SubResource("Skin_m8qil")
 skeleton = NodePath("../..")
 
 [node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/AnimatableBody3D2/Cube_005"]
+size = Vector2i(1920, 1080)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/AnimatableBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792, 0, 0)
