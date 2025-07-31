@@ -1,12 +1,11 @@
-## This script should be extended by a Room scene which has a CollisionShape3D for the room's area
-## the extended script should connect to RoomArea's _on_body entered and exited signals
-
+## An Area3D with built-in methods used for controlling the main camera
 extends Area3D
+class_name Room3D
 
 @export var room_area: CollisionShape3D
 @export var path_follow_node: PathFollow3D
 
-# offsets must be changed MANUALLY if the MainCamera's default position or fov change
+# offsets must be changd MANUALLY if the MainCamera's default position or fov change
 # offset's x value is the desired distance from the edges of the area
 var camera_LR_offset: Vector3 = Vector3(3.8, 0, 0)
 var camera_y_offset: float

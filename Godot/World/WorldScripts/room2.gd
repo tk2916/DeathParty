@@ -1,4 +1,4 @@
-extends "res://Utilities/scripts/define_camera_bounds.gd"
+extends Room3D
 
 @export var things_to_hide : Node3D
 

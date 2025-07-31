@@ -114,6 +114,7 @@ collision_mask = 2
 script = ExtResource("1_yr5jj")
 things_to_hide = NodePath("ThingsToHide")
 room_area = NodePath("RoomArea")
+metadata/_custom_type_script = "uid://23e11u4fm3n6"
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -287,7 +288,5 @@ event_guid = "{9e4d86e6-afa7-406e-ba12-08656547d254}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, -0.5)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="ThingsToHide/NPC/InteractionDetector" to="ThingsToHide/NPC/InteractionDetector" method="_on_body_entered"]
 [connection signal="body_exited" from="ThingsToHide/NPC/InteractionDetector" to="ThingsToHide/NPC/InteractionDetector" method="_on_body_exited"]
