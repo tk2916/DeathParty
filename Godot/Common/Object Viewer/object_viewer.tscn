@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://yory4i5rrii2"]
 
 [ext_resource type="Script" uid="uid://c5se664fk8jqq" path="res://Common/Object Viewer/object_viewer.gd" id="1_o3r5r"]
-[ext_resource type="Script" uid="uid://tr6w0ikk1pea" path="res://Common/Object Viewer/item_info_gui.gd" id="2_o7dqn"]
+[ext_resource type="Script" path="res://Common/Object Viewer/item_info_gui.gd" id="2_o7dqn"]
 [ext_resource type="Script" uid="uid://bfr8xxiuuihhi" path="res://Assets/GUIDesignScripts/resize_to_text.gd" id="3_o7dqn"]
 
 [sub_resource type="Shader" id="Shader_2cfm7"]

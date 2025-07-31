@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckiw75xbis8fk"]
+[gd_scene load_steps=5 format=3 uid="uid://chb5whjioqpqv"]
 
 [ext_resource type="Texture2D" uid="uid://crjuqujgkxygk" path="res://Assets/PhoneTextures/sample_char_pic.png" id="1_kwisn"]
 [ext_resource type="FontFile" uid="uid://bcnpoh5wfcbuq" path="res://Assets/Fonts/Jaldi/Jaldi-Bold.ttf" id="2_qdpgs"]

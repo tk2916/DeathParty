@@ -1,11 +1,16 @@
-[gd_scene load_steps=22 format=4 uid="uid://bgrnyakmgghyq"]
+[gd_scene load_steps=27 format=4 uid="uid://bgrnyakmgghyq"]
 
 [ext_resource type="Script" uid="uid://bxxt4jkxn55ob" path="res://Assets/models/journal_root.gd" id="1_47kpb"]
 [ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
 [ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="3_ngl8b"]
+[ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="3_r58e7"]
+[ext_resource type="Texture2D" uid="uid://dmffsu11hoong" path="res://Assets/JournalTextures/max_page_1.png" id="4_am6f0"]
 [ext_resource type="Texture2D" uid="uid://b10xkyr1i6p24" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
+[ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="5_pumia"]
+[ext_resource type="PackedScene" uid="uid://csrnib2iw1f4u" path="res://drag_and_drop_polaroids_test.tscn" id="6_m4qnh"]
+[ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="7_rr134"]
 [ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
@@ -102,10 +107,14 @@ skeleton = NodePath("")
 transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -0.00238484, 0.0737534, -0.0990923)
 viewport_texture1 = SubResource("ViewportTexture_7ovfm")
 viewport_texture2 = SubResource("ViewportTexture_e2q15")
+journal_textures = [ExtResource("3_r58e7"), ExtResource("4_am6f0"), ExtResource("5_pumia"), ExtResource("6_m4qnh"), ExtResource("7_rr134")]
 
 [node name="Cube_004" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="0"]
 material_override = SubResource("ShaderMaterial_47kpb")
 material_overlay = SubResource("StandardMaterial3D_0upgx")
+
+[node name="SubViewport" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D/Cube_004" index="0"]
+size = Vector2i(512, 512)
 
 [node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770157, -0.00923359, -0.157279)
@@ -113,6 +122,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770157, -0.00923359, -0.157
 [node name="Cube_005" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="0"]
 material_override = SubResource("ShaderMaterial_8c4l8")
 material_overlay = SubResource("StandardMaterial3D_qun6a")
+
+[node name="SubViewport" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2/Cube_005" index="0"]
+size = Vector2i(512, 512)
 
 [node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.791528, -0.00345172, -0.159947)
