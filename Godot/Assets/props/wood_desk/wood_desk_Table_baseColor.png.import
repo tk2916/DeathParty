@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://wbhxnbjp4fbt"
+path.s3tc="res://.godot/imported/wood_desk_Table_baseColor.png-499179eb6d690620dfc6589ba89be5d5.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_desk_Table_baseColor.png-499179eb6d690620dfc6589ba89be5d5.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "e277e512aefd192aa322e3770d5aca6a"
+}
+
+[deps]
+
+source_file="res://Assets/props/wood_desk/wood_desk_Table_baseColor.png"
+dest_files=["res://.godot/imported/wood_desk_Table_baseColor.png-499179eb6d690620dfc6589ba89be5d5.s3tc.ctex", "res://.godot/imported/wood_desk_Table_baseColor.png-499179eb6d690620dfc6589ba89be5d5.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

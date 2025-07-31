@@ -1,15 +1,13 @@
-extends "res://Utilities/scripts/define_camera_bounds.gd"
+extends Room3D
 
 func _ready() -> void:
 	super()
 	GlobalPlayerScript.player_moved.connect(_calculate_progress_ratio)
+	body_entered.connect(handle_player_entrance)
 
-func _on_body_entered(body: Node3D) -> void:
-	# Remove camera bounds
-	GlobalCameraScript.remove_all_bounds()
-	GlobalCameraScript.camera_on_player.emit(false)
-	
-	GlobalCameraScript.bind_camera_path.emit(path_follow_node)
+func handle_player_entrance(body: Node3D) -> void:
+	remove_all_bounds(body)
 	rotate_player(body)
-	# teleport player into foreground
-	body.global_position = move_to_foreground(body)
+	
+	bind_camera_path(body)
+	move_player_to_foreground(body)

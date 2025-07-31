@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://oji083qkjua5" path="res://World/wall.tscn" id="13_iyyhm"]
 [ext_resource type="Texture2D" uid="uid://dlun7quy351tf" path="res://Assets/textures/floor2.png" id="14_4yh5v"]
 [ext_resource type="PackedScene" uid="uid://bc888yk804ya" path="res://World/door.tscn" id="15_s5tpl"]
-[ext_resource type="PackedScene" uid="uid://cysj1ej14s5b0" path="res://Assets/props/sofas/Sofa1.glb" id="16_nnbnp"]
-[ext_resource type="PackedScene" uid="uid://cx1p52tb5hskc" path="res://Assets/props/sofas/Sofa2.glb" id="17_7ul8n"]
+[ext_resource type="PackedScene" uid="uid://cysj1ej14s5b0" path="res://Assets/props/sofas/sofa_brown_square/sofa_brown_square.glb" id="16_nnbnp"]
+[ext_resource type="PackedScene" uid="uid://cx1p52tb5hskc" path="res://Assets/props/sofas/sofa_brown_round/sofa_brown_round.glb" id="17_7ul8n"]
 [ext_resource type="PackedScene" uid="uid://k58x5f81dijv" path="res://Assets/props/wooden_table/wood table.glb" id="18_ejex6"]
 [ext_resource type="PackedScene" uid="uid://b1e31j7rea4bf" path="res://Assets/props/table_tennis_table/table_tennis_table.tscn" id="19_ai1un"]
 [ext_resource type="PackedScene" uid="uid://cpjqnmnxe6v8j" path="res://Assets/props/crates/craters with cups.glb" id="20_h6py2"]
@@ -24,6 +24,30 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
 size = Vector3(11, 3, 3)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jq2sk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kteo4"]
+size = Vector3(11, 0.5, 5.78809)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q43sb"]
+lightmap_size_hint = Vector2i(74, 66)
+add_uv2 = true
+size = Vector3(11, 0.5, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w85du"]
+render_priority = -2
+albedo_texture = ExtResource("14_4yh5v")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_facbu"]
+lightmap_size_hint = Vector2i(20, 51)
+add_uv2 = true
+size = Vector3(0.2, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8e4i"]
+albedo_texture = ExtResource("2_5th2e")
+uv1_scale = Vector3(4, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rl1p"]
 albedo_texture = ExtResource("2_5th2e")
@@ -85,54 +109,63 @@ height = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_facbu"]
-lightmap_size_hint = Vector2i(20, 51)
-add_uv2 = true
-size = Vector3(0.2, 3, 3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8e4i"]
-albedo_texture = ExtResource("2_5th2e")
-uv1_scale = Vector3(4, 2, 2)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jq2sk"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kteo4"]
-size = Vector3(11, 0.5, 5.78809)
-
-[sub_resource type="BoxMesh" id="BoxMesh_q43sb"]
-lightmap_size_hint = Vector2i(74, 66)
-add_uv2 = true
-size = Vector3(11, 0.5, 3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w85du"]
-render_priority = -2
-albedo_texture = ExtResource("14_4yh5v")
-uv1_scale = Vector3(5, 5, 5)
-
 [node name="Room" type="Area3D" node_paths=PackedStringArray("things_to_hide", "room_area")]
 collision_mask = 2
 script = ExtResource("1_yr5jj")
 things_to_hide = NodePath("ThingsToHide")
 room_area = NodePath("RoomArea")
+metadata/_custom_type_script = "uid://23e11u4fm3n6"
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_efxa6")
 debug_color = Color(0, 0.6, 0.701961, 0.513726)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, 0.5)
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0.5)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.25, 0)
 light_color = Color(1, 0.709804, 0.419608, 1)
 light_energy = 5.0
 shadow_enabled = true
 omni_attenuation = 2.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0.5)
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.25, 0)
 light_color = Color(0.533333, 0.866667, 1, 1)
 light_energy = 5.0
 shadow_enabled = true
 omni_attenuation = 2.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_jq2sk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1.01773, 0, 0, 0, 1.01773, 0, 0, 0, 1.01773, 0, -0.25, 1.39404)
+shape = SubResource("BoxShape3D_kteo4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.94616, 0, -0.25, 1.35775)
+mesh = SubResource("BoxMesh_q43sb")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_w85du")
+
+[node name="LeftWall" type="StaticBody3D" parent="."]
+transform = Transform3D(0.993701, 0, 0, 0, 0.993701, 0, 0, 0, 2.83709, -5.3999, 1.50095, -2.30074e-05)
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftWall"]
+mesh = SubResource("BoxMesh_facbu")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_h8e4i")
+
+[node name="RightWall" parent="." instance=ExtResource("13_iyyhm")]
+transform = Transform3D(1.00253, 0, 0, 0, 1.00253, 0, 0, 0, 2.85762, 5.4, 1.5, 0)
+
+[node name="HallwayDoor" parent="RightWall" instance=ExtResource("15_s5tpl")]
+transform = Transform3D(-4.36011e-08, 0, -0.997476, 0, 0.997476, 0, 0.349942, 0, -1.52964e-08, 0.00299215, -1.49621, -0.0874854)
 
 [node name="ThingsToHide" type="Node3D" parent="."]
 
@@ -208,39 +241,11 @@ transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 
 [node name="AlbertoMa" parent="ThingsToHide" instance=ExtResource("12_5qj60")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 3.25, 0, 0)
 
-[node name="LeftWall2" type="StaticBody3D" parent="."]
-transform = Transform3D(0.993701, 0, 0, 0, 0.993701, 0, 0, 0, 2.83709, -5.3999, 1.50095, -2.30074e-05)
-collision_mask = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftWall2"]
-mesh = SubResource("BoxMesh_facbu")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_h8e4i")
-
-[node name="RightWall" parent="." instance=ExtResource("13_iyyhm")]
-transform = Transform3D(1.00253, 0, 0, 0, 1.00253, 0, 0, 0, 2.85762, 5.4, 1.5, 0)
-
-[node name="Floor" type="StaticBody3D" parent="."]
-collision_mask = 0
-physics_material_override = SubResource("PhysicsMaterial_jq2sk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1.01773, 0, 0, 0, 1.01773, 0, 0, 0, 1.01773, 0, -0.25, 1.39404)
-shape = SubResource("BoxShape3D_kteo4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.94616, 0, -0.25, 1.35775)
-mesh = SubResource("BoxMesh_q43sb")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_w85du")
-
-[node name="HallwayDoor" parent="." instance=ExtResource("15_s5tpl")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.403, 0, -0.25)
-
 [node name="Door" parent="." instance=ExtResource("15_s5tpl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50233, 0, -1.5)
 
-[node name="Props" type="Node" parent="."]
+[node name="Props" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
 
 [node name="Sofa1" parent="Props" instance=ExtResource("16_nnbnp")]
 transform = Transform3D(0.675812, 0, 0, 0, 0.675812, 0, 0, 0, 0.675812, 3.98371, 0.427996, -0.122413)
@@ -269,7 +274,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15028, 0.0523432, 3.48535)
 [node name="hanger4" parent="Props" instance=ExtResource("22_1sa7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20006, 0.0523432, 3.72683)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="Audio" type="Node3D" parent="."]
+
+[node name="Music" type="FmodEventEmitter3D" parent="Audio"]
+event_name = "event:/music"
+event_guid = "{736a96ee-aebb-4593-a094-6f5e9ab9f738}"
+autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 0.25)
+
+[node name="CrowdSounds" type="FmodEventEmitter3D" parent="Audio"]
+event_name = "event:/crowd"
+event_guid = "{9e4d86e6-afa7-406e-ba12-08656547d254}"
+autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, -0.5)
+
 [connection signal="body_entered" from="ThingsToHide/NPC/InteractionDetector" to="ThingsToHide/NPC/InteractionDetector" method="_on_body_entered"]
 [connection signal="body_exited" from="ThingsToHide/NPC/InteractionDetector" to="ThingsToHide/NPC/InteractionDetector" method="_on_body_exited"]
