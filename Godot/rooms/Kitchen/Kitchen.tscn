@@ -46,8 +46,8 @@
 size = Vector3(15, 5, 13)
 
 [sub_resource type="FogMaterial" id="FogMaterial_kbocy"]
-density = 0.25
-albedo = Color(0.16, 0.149333, 0, 1)
+density = 0.2
+albedo = Color(0.239445, 0.224837, 0, 1)
 edge_fade = 0.107177
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ootlj"]
@@ -666,8 +666,9 @@ omni_range = 2.846
 omni_attenuation = -0.417
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="SceneLights"]
-transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, 12.883, 1.23452, 3.4882)
+transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, 12.8756, 1.22724, 3.48873)
 light_color = Color(1, 0.783333, 0, 1)
+light_energy = 10.0
 light_size = 1.0
 light_specular = 0.0
 shadow_opacity = 0.0
@@ -848,7 +849,6 @@ transform = Transform3D(-0.440466, 0.120748, -0.306446, 0.107798, 0.536375, 0.05
 
 [node name="pumpkin with beers4" parent="Counter/Stove" instance=ExtResource("29_nw002")]
 transform = Transform3D(-0.807923, 0, 0.516549, 0, 0.958936, 0, -0.516549, 0, -0.807923, -4.26071, 2.29299, 4.87994)
-visible = false
 
 [node name="Pot" parent="Counter/Stove" instance=ExtResource("15_htgpp")]
 transform = Transform3D(0.578032, 0, -0.357624, 0, 0.679718, 0, 0.357624, 0, 0.578032, -4.81958, 2.04959, 4.89271)
@@ -1006,7 +1006,6 @@ transform = Transform3D(9.65579e-09, -0.220898, 0.000384708, -0.220898, -9.6558e
 
 [node name="pumpkin with beers3" parent="Fridge" instance=ExtResource("29_nw002")]
 transform = Transform3D(-1.82332e-07, -4.94961, 1.16469e-07, 4.17478, -2.16355e-07, -2.65893, 2.65893, 2.88104e-10, 4.17478, -7.04098, 0.809667, 0.843002)
-visible = false
 
 [node name="red_cup28" parent="Fridge" instance=ExtResource("25_eupok")]
 transform = Transform3D(4.22059e-08, -1.21696, 3.23791e-08, -0.964566, -5.31952e-08, -0.742029, 0.742029, 7.08363e-11, -0.964566, -5.66248, -1.97153, -2.31753)
@@ -1022,7 +1021,6 @@ transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, -2.39792, -
 
 [node name="pumpkin with beers3" parent="Drawers" instance=ExtResource("29_nw002")]
 transform = Transform3D(-1.03818, 0, -0.737956, 0, 1.27373, 0, 0.737956, 0, -1.03818, -4.51717, 2.54341, 5.6843)
-visible = false
 
 [node name="blue goose3" parent="Drawers" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.840295, 0, -0.251253, 0, 0.877054, 0, 0.251253, 0, 0.840295, -4.10305, 2.15121, 5.07178)
@@ -1085,7 +1083,6 @@ skeleton = NodePath("")
 
 [node name="LightFixtures" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12519, -0.278946, -2.16853)
-visible = false
 
 [node name="LightFixture" type="MeshInstance3D" parent="LightFixtures"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -4.27512, -0.0159965, -0.0074451)
@@ -1105,12 +1102,11 @@ skeleton = NodePath("")
 [node name="SpotLight3D" type="SpotLight3D" parent="LightFixtures/LightFixture3"]
 transform = Transform3D(4.91468, -0.00855904, -0.00850098, 0.00855903, 0.0334531, 4.91456, -0.00850096, -4.91457, 0.033468, -0.175472, -0.253676, -0.0676165)
 light_color = Color(1, 0.92, 0.52, 1)
-light_energy = 60.0
+light_energy = 40.0
 light_volumetric_fog_energy = 100.0
 shadow_enabled = true
 shadow_blur = 0.333
-spot_range = 5.547
-spot_angle = 39.93
+spot_angle = 43.93
 
 [node name="Trashcan" parent="LightFixtures" instance=ExtResource("7_84i0v")]
 transform = Transform3D(0.878684, 0, 0, 0, 0.878684, 0, 0, 0, 0.878684, -0.31219, -2.22854, -3.70571)
@@ -1167,7 +1163,6 @@ transform = Transform3D(0.0468997, 0.228721, -0.133245, -0.263346, 0.0539996, 0,
 
 [node name="pumpkin with beers" parent="Bar" instance=ExtResource("29_nw002")]
 transform = Transform3D(-1.08319, 0, 0.14863, 0, 1.09334, 0, -0.14863, 0, -1.08319, 0.26093, 0.67095, -1.4185)
-visible = false
 
 [node name="Trash" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266067, -2.71812, -1.91791)
@@ -1246,7 +1241,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.888
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/StringLights/StringLightsHorizontal"]
 transform = Transform3D(-1.09334, 0, 9.55832e-08, 0, 1.09334, 0, -9.55832e-08, 0, -1.09334, -0.392672, -0.443662, -0.49825)
 light_color = Color(1, 0.65098, 0, 1)
-light_energy = 5.178
+light_energy = 10.0
 light_size = 1.0
 light_specular = 0.0
 shadow_opacity = 0.0
@@ -1260,7 +1255,7 @@ transform = Transform3D(-0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, -0.642788
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/StringLights/StringLightsHorizontal2"]
 transform = Transform3D(-0.702788, 0, 0.83755, 0, 1.09334, 0, -0.83755, 0, -0.702788, -0.609289, -0.443662, -0.0013423)
 light_color = Color(1, 0.65, 0, 1)
-light_energy = 4.289
+light_energy = 10.0
 light_size = 1.0
 light_specular = 0.0
 shadow_opacity = 0.0
@@ -1274,7 +1269,7 @@ transform = Transform3D(0.642788, 0, 0.766045, 0, 1, 0, -0.766045, 0, 0.642788, 
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/StringLights/StringLightsHorizontal3"]
 transform = Transform3D(0.702788, 0, -0.83755, 0, 1.09334, 0, 0.83755, 0, 0.702788, -2.58137, -0.443662, -1.14001)
 light_color = Color(1, 0.65098, 0, 1)
-light_energy = 3.045
+light_energy = 10.0
 light_size = 1.0
 light_specular = 0.0
 shadow_opacity = 0.0
@@ -1291,7 +1286,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.202
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/StringLights/StringLightsHorizontal5"]
 transform = Transform3D(-1.09334, 0, 9.55832e-08, 0, 1.09334, 0, -9.55832e-08, 0, -1.09334, 0.230949, -0.443662, -0.233155)
 light_color = Color(1, 0.65098, 0, 1)
-light_energy = 6.334
+light_energy = 10.0
 light_size = 1.0
 light_specular = 0.0
 shadow_opacity = 0.0
@@ -1304,7 +1299,7 @@ transform = Transform3D(-0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, -0.642788
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/StringLights/StringLightsHorizontal6"]
 transform = Transform3D(-0.702788, 0, 0.83755, 0, 1.09334, 0, -0.83755, 0, -0.702788, -0.0785774, -0.443662, 0.367417)
 light_color = Color(1, 0.65098, 0, 1)
-light_energy = 3.222
+light_energy = 10.0
 light_size = 1.0
 light_specular = 0.0
 shadow_opacity = 0.0
@@ -1317,7 +1312,7 @@ transform = Transform3D(0.642788, 0, 0.766045, 0, 1, 0, -0.766045, 0, 0.642788, 
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/StringLights/StringLightsHorizontal7"]
 transform = Transform3D(0.702788, 0, -0.83755, 0, 1.09334, 0, 0.83755, 0, 0.702788, -2.60363, -0.443662, -1.24688)
 light_color = Color(1, 0.65098, 0, 1)
-light_energy = 3.242
+light_energy = 10.0
 light_size = 1.0
 light_specular = 0.0
 shadow_opacity = 0.0
@@ -1334,6 +1329,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.4827
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/StringLights/StringLightsHorizontal9"]
 transform = Transform3D(-1.09334, 0, 9.55832e-08, 0, 1.09334, 0, -9.55832e-08, 0, -1.09334, 0.252141, -0.443662, -0.047141)
 light_color = Color(1, 0.65098, 0, 1)
+light_energy = 10.0
 light_size = 1.0
 light_specular = 0.0
 shadow_opacity = 0.0
@@ -1347,7 +1343,7 @@ transform = Transform3D(-0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, -0.642788
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/StringLights/StringLightsHorizontal10"]
 transform = Transform3D(-0.702788, 0, 0.83755, 0, 1.09334, 0, -0.83755, 0, -0.702788, -0.112187, -0.443662, 0.423282)
 light_color = Color(1, 0.65098, 0, 1)
-light_energy = 2.867
+light_energy = 10.0
 light_size = 1.0
 light_specular = 0.0
 shadow_opacity = 0.0
@@ -1431,7 +1427,6 @@ visible = false
 
 [node name="Kegs" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41068, -0.0487316, 1.02282)
-visible = false
 
 [node name="keg" parent="Props/Kegs" instance=ExtResource("11_n7s6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268425, -0.201374, -1.02467)
