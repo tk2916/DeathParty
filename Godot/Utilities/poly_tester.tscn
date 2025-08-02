@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu3s1yh3oyavx"]
+
+[ext_resource type="PackedScene" uid="uid://dl75a8q3i0w22" path="res://Assets/environment/bookshelves/bookshelf/bookshelf.tscn" id="1_ldg0b"]
+
+[node name="PolyTester" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 2.1)
+fov = 50.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+visible = false
+
+[node name="Bookshelf" parent="." instance=ExtResource("1_ldg0b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, -3)
