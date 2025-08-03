@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=99 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://b1sudygpot6ot" path="res://Assets/props/chairs/chair/chair.glb" id="25_l64a3"]
 [ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://Assets/props/globe/globe.glb" id="26_nuxp6"]
 [ext_resource type="PackedScene" uid="uid://d2o5pbctxrw1o" path="res://Assets/environment/curtains/curtains.glb" id="27_k8mop"]
-[ext_resource type="PackedScene" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
+[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="34_sy7sl"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="35_tm5mn"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="36_2xxje"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="41_nbcih"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="42_fh3n2"]
 [ext_resource type="PackedScene" uid="uid://gu7mwgusye5o" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
+[ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15, 10, 12)
@@ -1559,6 +1560,9 @@ transform = Transform3D(0.988015, 0, 0.500924, 0, 1.10774, 0, -0.500924, 0, 0.98
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36763, 1.7031, 2.47758)
 size = Vector3(15.1855, 11.6767, 16.8987)
 material = SubResource("FogMaterial_obdan")
+
+[node name="Nora" parent="." instance=ExtResource("44_j03r7")]
+transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, -4.21185, -4.41003, 0.530073)
 
 [editable path="BackWall/Bookshelves/Upstairs"]
 [editable path="Balcony/Railings"]
