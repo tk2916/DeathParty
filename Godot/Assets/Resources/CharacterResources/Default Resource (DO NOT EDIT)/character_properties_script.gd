@@ -9,6 +9,12 @@ class_name CharacterResource extends Resource
 @export var character_notes : Array[String]
 @export var character_description : String
 
+@export var profile_image : CompressedTexture2D
+@export var profile_tag : String = "@profiletag123"
+@export var profile_quote : String = "inspirational quote goes here."
+@export var profile_join_date : String = "Month 8, 20XX"
+@export var profile_friends : int = 359
+
 #CHATS
 var upcoming_chats : Array[JSON] = []
 @export var default_chat : JSON

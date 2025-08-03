@@ -2,6 +2,13 @@ class_name SocialMediaApp extends Control
 
 @export var back_button : Button
 
+@export var image_label : TextureRect
+@export var name_label : RichTextLabel
+@export var tag_label : RichTextLabel
+@export var quote_label : RichTextLabel
+@export var join_date_label : RichTextLabel
+@export var friends_label : RichTextLabel
+
 var user_pressed : bool = false
 
 var duration : float = 0.5
@@ -23,10 +30,19 @@ func _ready() -> void:
 func user_pressed_false():
 	user_pressed = false
 
-func on_user_pressed(user : CharacterResource) -> void:
-	print("User pressed! :", user.name)
+func on_user_pressed(char_resource : CharacterResource) -> void:
+	print("User pressed! :", char_resource.name)
 	if user_pressed: return # prevent multiple presses
 	user_pressed = true
+	
+	## Apply profile info
+	image_label.texture = char_resource.profile_image
+	name_label.text = char_resource.name
+	tag_label.text = char_resource.profile_tag
+	quote_label.text = char_resource.profile_quote
+	join_date_label.text = char_resource.profile_join_date
+	friends_label.text = str(char_resource.profile_friends) + " friends"
+	
 	tweenForward().finished.connect(user_pressed_false)
 	
 func tweenForward() -> Tween:

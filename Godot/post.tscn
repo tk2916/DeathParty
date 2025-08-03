@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://crjuqujgkxygk" path="res://Assets/PhoneTextures/sample_char_pic.png" id="1_kwisn"]
 [ext_resource type="Script" uid="uid://d03h0ytxrinnh" path="res://post.gd" id="1_y8vuy"]
-[ext_resource type="Resource" uid="uid://lfthc37kslft" path="res://Assets/Resources/CharacterResources/character_properties_nora.tres" id="2_hgv03"]
+[ext_resource type="Resource" uid="uid://dy2offscqhpxg" path="res://Assets/Resources/CharacterResources/character_properties_sam.tres" id="2_hgv03"]
 [ext_resource type="FontFile" uid="uid://bcnpoh5wfcbuq" path="res://Assets/Fonts/Jaldi/Jaldi-Bold.ttf" id="2_qdpgs"]
 [ext_resource type="FontFile" uid="uid://bq7er6hhguye4" path="res://Assets/Fonts/Jaldi/Jaldi-Regular.ttf" id="3_wg6r1"]
 [ext_resource type="Texture2D" uid="uid://base5d87dehd1" path="res://Assets/CharacterAssets/nora/polaroid_nora.png" id="4_ymue7"]
@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 20
 script = ExtResource("1_y8vuy")
 button = NodePath("ColorRect/ViewProfile")
 character_resource = ExtResource("2_hgv03")

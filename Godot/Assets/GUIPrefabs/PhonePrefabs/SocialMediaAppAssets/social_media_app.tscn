@@ -22,7 +22,7 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8bu3"]
 
-[node name="SocialMediaApp" type="MarginContainer" node_paths=PackedStringArray("back_button")]
+[node name="SocialMediaApp" type="MarginContainer" node_paths=PackedStringArray("back_button", "image_label", "name_label", "tag_label", "quote_label", "join_date_label", "friends_label")]
 anchors_preset = -1
 anchor_left = 0.03
 anchor_top = 0.03
@@ -34,6 +34,12 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 script = ExtResource("1_hnrt6")
 back_button = NodePath("HBoxContainer/MessagePanel/BackArrow/Button")
+image_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Image")
+name_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Name")
+tag_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Tag")
+quote_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Quote")
+join_date_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Info1/JoinDate")
+friends_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Info2/Friends")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 2
@@ -173,10 +179,10 @@ anchor_right = 1.0
 anchor_bottom = 0.35
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("6_0qyoj")
 theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-text = "[color=black]Nora"
+text = "Nora"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -189,10 +195,10 @@ anchor_right = 1.0
 anchor_bottom = 0.42
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0.360784, 0.360784, 0.360784, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
 theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[color=#5C5C5C]@nora2948"
+text = "@nora2948"
 scroll_active = false
 horizontal_alignment = 1
 
@@ -204,10 +210,10 @@ anchor_right = 1.0
 anchor_bottom = 0.6
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
 theme_override_font_sizes/normal_font_size = 23
-bbcode_enabled = true
-text = "[color=black]inspirational quote goes here."
+text = "inspirational quote goes here."
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -230,14 +236,14 @@ texture = ExtResource("8_qugs3")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info1"]
+[node name="JoinDate" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.14
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
 theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[color=black]Month 8, 20XX"
+text = "Month 8, 20XX"
 vertical_alignment = 1
 
 [node name="Info2" type="HBoxContainer" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
@@ -258,14 +264,14 @@ texture = ExtResource("9_qxrhy")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info2"]
+[node name="Friends" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.14
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
 theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[color=black]359 friends"
+text = "359 friends"
 scroll_active = false
 vertical_alignment = 1
 
