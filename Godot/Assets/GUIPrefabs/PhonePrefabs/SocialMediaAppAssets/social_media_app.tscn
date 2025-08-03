@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cafx61ly2binw"]
+[gd_scene load_steps=17 format=3 uid="uid://cafx61ly2binw"]
 
 [ext_resource type="Script" uid="uid://cqcwsxddimbov" path="res://Assets/GUIPrefabs/PhonePrefabs/SocialMediaAppAssets/social_media_app.gd" id="1_hnrt6"]
 [ext_resource type="Texture2D" uid="uid://c0fol0xdq57ef" path="res://Assets/PhoneTextures/social_media_icon.png" id="3_3mpvt"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://crjuqujgkxygk" path="res://Assets/PhoneTextures/sample_char_pic.png" id="5_vh2w8"]
 [ext_resource type="FontFile" uid="uid://bcnpoh5wfcbuq" path="res://Assets/Fonts/Jaldi/Jaldi-Bold.ttf" id="6_0qyoj"]
 [ext_resource type="FontFile" uid="uid://bq7er6hhguye4" path="res://Assets/Fonts/Jaldi/Jaldi-Regular.ttf" id="7_0qyoj"]
+[ext_resource type="Resource" uid="uid://dy2offscqhpxg" path="res://Assets/Resources/CharacterResources/character_properties_sam.tres" id="7_3mpvt"]
 [ext_resource type="Texture2D" uid="uid://cgvy57j52hsc3" path="res://Assets/PhoneTextures/Chats.png" id="8_3aufy"]
+[ext_resource type="Resource" uid="uid://lfthc37kslft" path="res://Assets/Resources/CharacterResources/character_properties_nora.tres" id="8_3hevs"]
 [ext_resource type="Texture2D" uid="uid://ppbdjxg26ugt" path="res://Assets/PhoneTextures/calendar.png" id="8_qugs3"]
 [ext_resource type="Texture2D" uid="uid://bdhorffplepui" path="res://Assets/PhoneTextures/profile-2user.png" id="9_qxrhy"]
 [ext_resource type="Texture2D" uid="uid://d10dkaaj5w7tx" path="res://Assets/PhoneTextures/back_arrow_social_media.png" id="14_3mpvt"]
@@ -124,14 +126,17 @@ theme_override_constants/separation = 5
 [node name="Post" parent="HBoxContainer/ContactsPanel/ScrollContainer/margin/AllPosts" node_paths=PackedStringArray("social_media_app") instance=ExtResource("5_qxrhy")]
 layout_mode = 2
 social_media_app = NodePath("../../../../../..")
+character_resource = ExtResource("7_3mpvt")
 
 [node name="Post2" parent="HBoxContainer/ContactsPanel/ScrollContainer/margin/AllPosts" node_paths=PackedStringArray("social_media_app") instance=ExtResource("5_qxrhy")]
 layout_mode = 2
 social_media_app = NodePath("../../../../../..")
+character_resource = ExtResource("8_3hevs")
 
 [node name="Post3" parent="HBoxContainer/ContactsPanel/ScrollContainer/margin/AllPosts" node_paths=PackedStringArray("social_media_app") instance=ExtResource("5_qxrhy")]
 layout_mode = 2
 social_media_app = NodePath("../../../../../..")
+character_resource = ExtResource("8_3hevs")
 
 [node name="MessagePanel" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -197,7 +202,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.360784, 0.360784, 0.360784, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 18
 text = "@nora2948"
 scroll_active = false
 horizontal_alignment = 1
@@ -212,7 +217,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
-theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/normal_font_size = 15
 text = "inspirational quote goes here."
 scroll_active = false
 horizontal_alignment = 1
@@ -221,9 +226,9 @@ vertical_alignment = 1
 [node name="Info1" type="HBoxContainer" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.03
+anchor_left = 0.1
 anchor_top = 0.6
-anchor_right = 0.97
+anchor_right = 0.9
 anchor_bottom = 0.75
 grow_horizontal = 2
 grow_vertical = 2
@@ -239,19 +244,18 @@ stretch_mode = 5
 [node name="JoinDate" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info1"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.14
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 12
 text = "Month 8, 20XX"
 vertical_alignment = 1
 
 [node name="Info2" type="HBoxContainer" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.03
+anchor_left = 0.1
 anchor_top = 0.78
-anchor_right = 0.97
+anchor_right = 0.9
 anchor_bottom = 0.92
 grow_horizontal = 2
 grow_vertical = 2
@@ -267,10 +271,9 @@ stretch_mode = 5
 [node name="Friends" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info2"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.14
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 12
 text = "359 friends"
 scroll_active = false
 vertical_alignment = 1
@@ -278,6 +281,7 @@ vertical_alignment = 1
 [node name="BackArrow" type="TextureRect" parent="HBoxContainer/MessagePanel"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.03
 anchor_top = 0.07
 anchor_right = 0.07
 anchor_bottom = 0.12

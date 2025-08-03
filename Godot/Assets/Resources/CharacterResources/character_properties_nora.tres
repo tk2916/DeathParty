@@ -11,6 +11,7 @@ name_color = ""
 text_color = ""
 character_notes = Array[String]([])
 character_description = ""
+profile_image = ExtResource("1_ftjkl")
 profile_tag = "@nora2948"
 profile_quote = "inspirational quote goes here."
 profile_join_date = "Month 8, 20XX"
