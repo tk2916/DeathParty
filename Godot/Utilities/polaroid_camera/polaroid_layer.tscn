@@ -1,9 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0sd1bp5esd04"]
+[gd_scene load_steps=24 format=3 uid="uid://d0sd1bp5esd04"]
 
 [ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
 [ext_resource type="Texture2D" uid="uid://d16vdeadxk8ym" path="res://Assets/PNGAssets/temp_CameraViewfinder.png" id="2_wiexo"]
+[ext_resource type="Texture2D" uid="uid://c7sn438n6fn2n" path="res://Assets/PNGAssets/green_lens.png" id="4_a6jrl"]
 [ext_resource type="Script" uid="uid://cg5lhigmboc73" path="res://Utilities/polaroid_camera/view_finder.gd" id="5_hbg1w"]
+[ext_resource type="Script" uid="uid://bd5wy6rj1xank" path="res://Utilities/polaroid_camera/filter_control.gd" id="5_omcg7"]
+[ext_resource type="Texture2D" uid="uid://dvmapa8mr3qjl" path="res://Assets/PNGAssets/temp_filter_base.png" id="6_a6jrl"]
 [ext_resource type="Script" uid="uid://qfuy0m0xcjwf" path="res://Utilities/polaroid_camera/picturetake.gd" id="6_or4cw"]
+[ext_resource type="Texture2D" uid="uid://cpnc2vyb05nwa" path="res://Assets/PNGAssets/white_filter.png" id="7_lj084"]
+[ext_resource type="Texture2D" uid="uid://b8qkp14uuseo8" path="res://Assets/PNGAssets/red_filter.png" id="8_8fs6k"]
+[ext_resource type="Texture2D" uid="uid://hp4v04ump2xc" path="res://Assets/PNGAssets/blue_filter.png" id="9_ngt84"]
+[ext_resource type="Texture2D" uid="uid://b0db0vs3ncxa" path="res://Assets/PNGAssets/green_filter.png" id="10_4q0hv"]
+[ext_resource type="Texture2D" uid="uid://bv6px42lbjq5f" path="res://Assets/PNGAssets/temp_rotate_arrow.png" id="11_42nwo"]
+[ext_resource type="Texture2D" uid="uid://bidahofkbic31" path="res://Assets/PNGAssets/Ellipse.png" id="12_8fs6k"]
+[ext_resource type="Texture2D" uid="uid://byff66mcg00wk" path="res://Assets/PNGAssets/pointer.png" id="13_lj084"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4tks"]
 
@@ -12,6 +22,21 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ps1x1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gt8th"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lj084"]
+radius = 32.5862
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6jrl"]
+radius = 30.5665
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fs6k"]
+radius = 31.3516
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngt84"]
+radius = 30.4386
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_omcg7"]
+radius = 21.095
 
 [node name="PolaroidCamera" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -34,6 +59,21 @@ texture = ExtResource("2_wiexo")
 expand_mode = 1
 script = ExtResource("5_hbg1w")
 viewfinder_camera = NodePath("../Camera2D")
+
+[node name="filter" type="ColorRect" parent="PictureExample/ViewFinder"]
+layout_mode = 0
+offset_right = 1314.0
+offset_bottom = 751.0
+color = Color(0.576471, 0, 0, 0.00392157)
+
+[node name="TextureRect" type="TextureRect" parent="PictureExample/ViewFinder"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 31.0
+offset_right = 1157.0
+offset_bottom = 571.0
+texture = ExtResource("4_a6jrl")
+expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="PictureExample"]
 position = Vector2(23, 24.804)
@@ -62,5 +102,107 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ps1x1")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gt8th")
 script = ExtResource("6_or4cw")
 
+[node name="flash" type="ColorRect" parent="shoot"]
+visible = false
+layout_mode = 0
+offset_left = -12.0
+offset_top = -8.0
+offset_right = 1307.0
+offset_bottom = 746.0
+
+[node name="filter_control" type="Node2D" parent="." node_paths=PackedStringArray("filter", "left_button", "right_button", "lens")]
+position = Vector2(-40, -51)
+script = ExtResource("5_omcg7")
+filter = NodePath("../PictureExample/ViewFinder/filter")
+left_button = NodePath("rotate_left _button/left_button")
+right_button = NodePath("rotate_right_button/right_button")
+lens = NodePath("../PictureExample/ViewFinder/TextureRect")
+
+[node name="filter_base" type="Sprite2D" parent="filter_control"]
+position = Vector2(184, 171)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("6_a6jrl")
+
+[node name="white_filter" type="Sprite2D" parent="filter_control/filter_base"]
+position = Vector2(-1.78572, -66.0714)
+texture = ExtResource("7_lj084")
+
+[node name="white" type="Area2D" parent="filter_control/filter_base/white_filter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="filter_control/filter_base/white_filter/white"]
+shape = SubResource("CircleShape2D_lj084")
+
+[node name="red_filter" type="Sprite2D" parent="filter_control/filter_base"]
+position = Vector2(1.35899e-05, 71.4286)
+texture = ExtResource("8_8fs6k")
+
+[node name="red" type="Area2D" parent="filter_control/filter_base/red_filter"]
+position = Vector2(1.78572, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="filter_control/filter_base/red_filter/red"]
+position = Vector2(-1.78571, 1.52588e-05)
+shape = SubResource("CircleShape2D_a6jrl")
+
+[node name="blue_filter" type="Sprite2D" parent="filter_control/filter_base"]
+position = Vector2(63.6638, -1.24733)
+texture = ExtResource("9_ngt84")
+
+[node name="blue" type="Area2D" parent="filter_control/filter_base/blue_filter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="filter_control/filter_base/blue_filter/blue"]
+shape = SubResource("CircleShape2D_8fs6k")
+
+[node name="green_filter" type="Sprite2D" parent="filter_control/filter_base"]
+position = Vector2(-64.3624, -1.24733)
+texture = ExtResource("10_4q0hv")
+
+[node name="green" type="Area2D" parent="filter_control/filter_base/green_filter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="filter_control/filter_base/green_filter/green"]
+shape = SubResource("CircleShape2D_ngt84")
+
+[node name="center" type="Sprite2D" parent="filter_control/filter_base"]
+position = Vector2(-1.7857, -5.96046e-07)
+texture = ExtResource("12_8fs6k")
+
+[node name="rotate_left _button" type="Sprite2D" parent="filter_control"]
+position = Vector2(148, 266)
+scale = Vector2(0.0997929, 0.0997929)
+texture = ExtResource("11_42nwo")
+
+[node name="left_button" type="Button" parent="filter_control/rotate_left _button"]
+offset_left = -170.0
+offset_top = -170.0
+offset_right = 170.0
+offset_bottom = 170.0
+
+[node name="rotate_right_button" type="Sprite2D" parent="filter_control"]
+position = Vector2(225, 266)
+rotation = 3.14159
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_42nwo")
+
+[node name="right_button" type="Button" parent="filter_control/rotate_right_button"]
+offset_left = -169.0
+offset_top = -168.0
+offset_right = 169.0
+offset_bottom = 171.0
+
+[node name="selector" type="Area2D" parent="filter_control"]
+top_level = true
+position = Vector2(145, 84)
+
+[node name="selector_shape" type="CollisionShape2D" parent="filter_control/selector"]
+position = Vector2(-2, -2)
+shape = SubResource("CircleShape2D_omcg7")
+
+[node name="pointer" type="Sprite2D" parent="filter_control"]
+position = Vector2(182, 107)
+scale = Vector2(0.541666, 0.5)
+texture = ExtResource("13_lj084")
+
 [connection signal="button_up" from="shoot" to="." method="_on_shoot_button_up"]
 [connection signal="pressed" from="shoot" to="shoot" method="_on_pressed"]
+[connection signal="pressed" from="filter_control/rotate_left _button/left_button" to="filter_control" method="_on_left_button_pressed"]
+[connection signal="pressed" from="filter_control/rotate_right_button/right_button" to="filter_control" method="_on_right_button_pressed"]
+[connection signal="area_shape_entered" from="filter_control/selector" to="filter_control" method="_on_selector_area_shape_entered"]

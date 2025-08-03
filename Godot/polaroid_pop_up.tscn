@@ -102,10 +102,6 @@ cast_shadow = 0
 mesh = SubResource("ArrayMesh_tlph8")
 script = ExtResource("3_ig8r4")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="bookmark_tab"]
-transform = Transform3D(1, 0, 0, 0, -0.0508544, 0.998706, 0, -0.998706, -0.0508544, 0.0526172, 2.90928, -0.316723)
-light_color = Color(0.400698, 0.400698, 0.400698, 1)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015625, -0.206246)
 shape = SubResource("BoxShape3D_km327")
