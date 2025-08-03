@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=56 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://x8iqwxqrxuip" path="res://Assets/props/flags/party_flags_pink/party_flags_pink.tscn" id="32_6emc0"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="33_hdy2l"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="34_iipv5"]
+[ext_resource type="PackedScene" uid="uid://dp8mxgak36ovb" path="res://Assets/CharacterAssets/Caleb/caleb.tscn" id="35_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://scene_loader.tscn" id="35_nneh3"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
 
@@ -670,6 +671,9 @@ directional_shadow_mode = 0
 directional_shadow_split_1 = 0.29
 directional_shadow_fade_start = 1.0
 directional_shadow_max_distance = 81.9
+
+[node name="Caleb" parent="." instance=ExtResource("35_gfuhi")]
+transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
