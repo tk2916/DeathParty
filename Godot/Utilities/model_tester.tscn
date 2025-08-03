@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d1ct8m7506ubx"]
+[gd_scene load_steps=0 format=3 uid="uid://d1ct8m7506ubx"]
 
 [node name="ModelTester" type="Node3D"]
 
