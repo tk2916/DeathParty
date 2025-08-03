@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=98 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -31,8 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://dn8tphi4h7qm7" path="res://Assets/props/desk_lamp/desk_lamp.tscn" id="24_c2j7r"]
 [ext_resource type="PackedScene" uid="uid://b1sudygpot6ot" path="res://Assets/props/chairs/chair/chair.glb" id="25_l64a3"]
 [ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://Assets/props/globe/globe.glb" id="26_nuxp6"]
-[ext_resource type="PackedScene" uid="uid://d2o5pbctxrw1o" path="res://Assets/environment/curtains/curtains.glb" id="27_k8mop"]
-[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
+[ext_resource type="PackedScene" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="34_sy7sl"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="35_tm5mn"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="36_2xxje"]
@@ -1187,9 +1186,6 @@ skeleton = NodePath("")
 transform = Transform3D(-0.187118, -7.15318e-09, -1.71298e-08, 3.04854e-08, 0, -0.105142, 3.04854e-08, -0.0439059, 2.79079e-15, 5.96864, 3.50413, 1.20881)
 mesh = SubResource("ArrayMesh_n7q6f")
 skeleton = NodePath("")
-
-[node name="curtains" parent="RightWall/Window" instance=ExtResource("27_k8mop")]
-transform = Transform3D(-4.25426, -0.256159, 7.50623e-07, -2.95388e-06, -1.77861e-07, -19.6353, 0.368039, -9.37819, 2.17639e-13, 11.4656, -4.16207, -6.82715)
 
 [node name="Ceiling" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.187118, 0, -6.09708e-08, 0, 0.187118, 0, 6.09708e-08, 0, -0.187118, 2.51472, 0.0855453, 1.10589)
