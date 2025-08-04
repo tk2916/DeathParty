@@ -47,6 +47,7 @@ GlobalFmodBankLoader="*res://Singletons/fmod_bank_loader.tscn"
 Utils="*res://utils.gd"
 GuiSystem="*res://gui_system.gd"
 ContentLoader="*res://content_loader.gd"
+DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 
 [debug]
 
@@ -72,7 +73,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/polygon_counter/plugin.cfg")
 
 [global_group]
 

@@ -7,11 +7,11 @@ extends Control
 @export var image_label : TextureRect
 @export var unread_alert : Control
 
-var message_app : MarginContainer
+var message_app : DialogueBoxNode
 var contact : Resource
 
 func on_pressed():
-	message_app.onContactPress(contact)
+	message_app.on_contact_press(contact)
 
 func on_unread(active : bool):
 	if active:

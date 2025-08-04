@@ -1,13 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://cafx61ly2binw"]
+[gd_scene load_steps=17 format=3 uid="uid://cafx61ly2binw"]
 
+[ext_resource type="Script" uid="uid://cqcwsxddimbov" path="res://Assets/GUIPrefabs/PhonePrefabs/SocialMediaAppAssets/social_media_app.gd" id="1_hnrt6"]
 [ext_resource type="Texture2D" uid="uid://c0fol0xdq57ef" path="res://Assets/PhoneTextures/social_media_icon.png" id="3_3mpvt"]
 [ext_resource type="Texture2D" uid="uid://q4450v2cs7nd" path="res://Assets/PhoneTextures/social_media_bg.png" id="3_rrfdm"]
 [ext_resource type="Texture2D" uid="uid://cyym0am2hqu6i" path="res://Assets/PhoneTextures/social_media_header.png" id="4_wyvhq"]
-[ext_resource type="PackedScene" uid="uid://chb5whjioqpqv" path="res://post.tscn" id="5_qxrhy"]
+[ext_resource type="PackedScene" uid="uid://cutn85mci7rcv" path="res://post.tscn" id="5_qxrhy"]
 [ext_resource type="Texture2D" uid="uid://crjuqujgkxygk" path="res://Assets/PhoneTextures/sample_char_pic.png" id="5_vh2w8"]
 [ext_resource type="FontFile" uid="uid://bcnpoh5wfcbuq" path="res://Assets/Fonts/Jaldi/Jaldi-Bold.ttf" id="6_0qyoj"]
 [ext_resource type="FontFile" uid="uid://bq7er6hhguye4" path="res://Assets/Fonts/Jaldi/Jaldi-Regular.ttf" id="7_0qyoj"]
+[ext_resource type="Resource" uid="uid://dy2offscqhpxg" path="res://Assets/Resources/CharacterResources/character_properties_sam.tres" id="7_3mpvt"]
 [ext_resource type="Texture2D" uid="uid://cgvy57j52hsc3" path="res://Assets/PhoneTextures/Chats.png" id="8_3aufy"]
+[ext_resource type="Resource" uid="uid://lfthc37kslft" path="res://Assets/Resources/CharacterResources/character_properties_nora.tres" id="8_3hevs"]
 [ext_resource type="Texture2D" uid="uid://ppbdjxg26ugt" path="res://Assets/PhoneTextures/calendar.png" id="8_qugs3"]
 [ext_resource type="Texture2D" uid="uid://bdhorffplepui" path="res://Assets/PhoneTextures/profile-2user.png" id="9_qxrhy"]
 [ext_resource type="Texture2D" uid="uid://d10dkaaj5w7tx" path="res://Assets/PhoneTextures/back_arrow_social_media.png" id="14_3mpvt"]
@@ -21,7 +24,7 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8bu3"]
 
-[node name="SocialMediaApp" type="MarginContainer"]
+[node name="SocialMediaApp" type="MarginContainer" node_paths=PackedStringArray("back_button", "image_label", "name_label", "tag_label", "quote_label", "join_date_label", "friends_label")]
 anchors_preset = -1
 anchor_left = 0.03
 anchor_top = 0.03
@@ -29,6 +32,16 @@ anchor_right = 1.97
 anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_hnrt6")
+back_button = NodePath("HBoxContainer/MessagePanel/BackArrow/Button")
+image_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Image")
+name_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Name")
+tag_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Tag")
+quote_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Quote")
+join_date_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Info1/JoinDate")
+friends_label = NodePath("HBoxContainer/MessagePanel/CharacterInfoBg/Info2/Friends")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 2
@@ -86,32 +99,44 @@ size_flags_stretch_ratio = 0.03
 texture = ExtResource("8_3aufy")
 expand_mode = 1
 
-[node name="Background" type="Control" parent="HBoxContainer/ContactsPanel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ContactsPanel"]
 layout_mode = 1
-anchor_left = 0.03
-anchor_top = 0.18
-anchor_right = 0.97
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ContactsPanel/Background"]
-layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
-[node name="AllPosts" type="VBoxContainer" parent="HBoxContainer/ContactsPanel/Background/ScrollContainer"]
+[node name="margin" type="MarginContainer" parent="HBoxContainer/ContactsPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+
+[node name="AllPosts" type="VBoxContainer" parent="HBoxContainer/ContactsPanel/ScrollContainer/margin"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 5
 
-[node name="Post" parent="HBoxContainer/ContactsPanel/Background/ScrollContainer/AllPosts" instance=ExtResource("5_qxrhy")]
+[node name="Post" parent="HBoxContainer/ContactsPanel/ScrollContainer/margin/AllPosts" node_paths=PackedStringArray("social_media_app") instance=ExtResource("5_qxrhy")]
 layout_mode = 2
+social_media_app = NodePath("../../../../../..")
+character_resource = ExtResource("7_3mpvt")
+
+[node name="Post2" parent="HBoxContainer/ContactsPanel/ScrollContainer/margin/AllPosts" node_paths=PackedStringArray("social_media_app") instance=ExtResource("5_qxrhy")]
+layout_mode = 2
+social_media_app = NodePath("../../../../../..")
+character_resource = ExtResource("8_3hevs")
+
+[node name="Post3" parent="HBoxContainer/ContactsPanel/ScrollContainer/margin/AllPosts" node_paths=PackedStringArray("social_media_app") instance=ExtResource("5_qxrhy")]
+layout_mode = 2
+social_media_app = NodePath("../../../../../..")
+character_resource = ExtResource("8_3hevs")
 
 [node name="MessagePanel" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -159,10 +184,10 @@ anchor_right = 1.0
 anchor_bottom = 0.35
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("6_0qyoj")
 theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-text = "[color=black]Nora"
+text = "Nora"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -175,10 +200,10 @@ anchor_right = 1.0
 anchor_bottom = 0.42
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0.360784, 0.360784, 0.360784, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[color=#5C5C5C]@nora2948"
+theme_override_font_sizes/normal_font_size = 18
+text = "@nora2948"
 scroll_active = false
 horizontal_alignment = 1
 
@@ -190,10 +215,10 @@ anchor_right = 1.0
 anchor_bottom = 0.6
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
-theme_override_font_sizes/normal_font_size = 23
-bbcode_enabled = true
-text = "[color=black]inspirational quote goes here."
+theme_override_font_sizes/normal_font_size = 15
+text = "inspirational quote goes here."
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -201,9 +226,9 @@ vertical_alignment = 1
 [node name="Info1" type="HBoxContainer" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.43
+anchor_left = 0.1
 anchor_top = 0.6
-anchor_right = 0.57
+anchor_right = 0.9
 anchor_bottom = 0.75
 grow_horizontal = 2
 grow_vertical = 2
@@ -216,22 +241,21 @@ texture = ExtResource("8_qugs3")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info1"]
+[node name="JoinDate" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info1"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.14
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[color=black]Month 8, 20XX"
+theme_override_font_sizes/normal_font_size = 12
+text = "Month 8, 20XX"
 vertical_alignment = 1
 
 [node name="Info2" type="HBoxContainer" parent="HBoxContainer/MessagePanel/CharacterInfoBg"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.43
+anchor_left = 0.1
 anchor_top = 0.78
-anchor_right = 0.57
+anchor_right = 0.9
 anchor_bottom = 0.92
 grow_horizontal = 2
 grow_vertical = 2
@@ -244,19 +268,20 @@ texture = ExtResource("9_qxrhy")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info2"]
+[node name="Friends" type="RichTextLabel" parent="HBoxContainer/MessagePanel/CharacterInfoBg/Info2"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.14
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_0qyoj")
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[color=black]359 friends"
+theme_override_font_sizes/normal_font_size = 12
+text = "359 friends"
+scroll_active = false
 vertical_alignment = 1
 
 [node name="BackArrow" type="TextureRect" parent="HBoxContainer/MessagePanel"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.03
 anchor_top = 0.07
 anchor_right = 0.07
 anchor_bottom = 0.12

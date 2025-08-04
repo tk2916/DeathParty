@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://cx1p52tb5hskc" path="res://Assets/props/sofas/sofa_brown_round/sofa_brown_round.glb" id="21_xkbqc"]
 [ext_resource type="PackedScene" uid="uid://k58x5f81dijv" path="res://Assets/props/wooden_table/wood table.glb" id="22_2pr3v"]
 [ext_resource type="PackedScene" uid="uid://b1e31j7rea4bf" path="res://Assets/props/table_tennis_table/table_tennis_table.tscn" id="23_ogwe6"]
-[ext_resource type="PackedScene" uid="uid://cpjqnmnxe6v8j" path="res://Assets/props/crates/craters with cups.glb" id="24_1wbl4"]
 [ext_resource type="PackedScene" uid="uid://tlr6nrrq3hp0" path="res://Assets/props/banners/happy_halloween_banner.tscn" id="25_6v65a"]
 [ext_resource type="PackedScene" uid="uid://48e2dw6eco7w" path="res://Assets/props/balloons/balloons_three_short.tscn" id="26_80mb7"]
 [ext_resource type="PackedScene" uid="uid://d3lt3kgvcji47" path="res://Assets/props/balloons/balloons_four_short.tscn" id="27_yoltj"]
@@ -33,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://x8iqwxqrxuip" path="res://Assets/props/flags/party_flags_pink/party_flags_pink.tscn" id="32_6emc0"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="33_hdy2l"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="34_iipv5"]
+[ext_resource type="PackedScene" uid="uid://dp8mxgak36ovb" path="res://Assets/CharacterAssets/Caleb/caleb.tscn" id="35_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://scene_loader.tscn" id="35_nneh3"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
 
@@ -546,9 +546,6 @@ transform = Transform3D(0.209918, 0, 0, 0, 0.209918, 0, 0, 0, 0.209918, 4.81138,
 [node name="TableTennisTable" parent="Props" instance=ExtResource("23_ogwe6")]
 transform = Transform3D(0.148415, 0, -0.0793759, 0, 0.168307, 0, 0.0793759, 0, 0.148415, -0.391999, 0.0044325, 5.48762)
 
-[node name="Crates" parent="Props" instance=ExtResource("24_1wbl4")]
-transform = Transform3D(0.595368, 0, 0, 0, 0.595368, 0, 0, 0, 0.595368, -2.7726, 0.0978815, 5.56905)
-
 [node name="HappyHalloweenBanner" parent="Props" instance=ExtResource("25_6v65a")]
 transform = Transform3D(-1.07816, 0.00995462, 4.3513e-10, 0, -4.71301e-08, 1.07821, 0.00995462, 1.07816, 4.71281e-08, -0.192, 2.99, 0.15)
 
@@ -674,6 +671,9 @@ directional_shadow_mode = 0
 directional_shadow_split_1 = 0.29
 directional_shadow_fade_start = 1.0
 directional_shadow_max_distance = 81.9
+
+[node name="Caleb" parent="." instance=ExtResource("35_gfuhi")]
+transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
