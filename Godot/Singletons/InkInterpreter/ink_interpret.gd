@@ -530,7 +530,7 @@ func get_content():
 	
 	return get_content()
 
-func reset_defaults(saved_ink_resource) -> void:#resume_from_hierarchy):
+func reset_defaults(saved_ink_resource : InkResource) -> void:#resume_from_hierarchy):
 	#set all the variables equal to each other
 	var property_list = saved_ink_resource.get_property_list()
 	for n in range(9, property_list.size()):
@@ -558,7 +558,7 @@ func get_first_message(temp_json : JSON) -> InkLineInfo:
 	assert(json_as_dict != null, "JSON dictionary is null.")
 	return break_up_dialogue(json_as_dict["root"][0][0].substr(1))
 
-func from_JSON(file : JSON, saved_ink_resource : Resource) -> void:#resume_from_hierarchy : Array = []):
+func from_JSON(file : JSON, saved_ink_resource : InkResource) -> void:#resume_from_hierarchy : Array = []):
 	#reset variables
 	reset_defaults(saved_ink_resource)#resume_from_hierarchy)
 	#print("NEW JSON CALL ---------------------------------- ", rsc.hierarchy)

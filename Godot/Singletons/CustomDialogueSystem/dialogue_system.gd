@@ -322,7 +322,7 @@ func get_first_message(json : JSON):
 	return Ink.get_first_message(json)
 
 
-func from_JSON(file : JSON, saved_ink_resource : Resource = blank_ink_interpret_resource):#resume_from_hierarchy : Array = []): #non-phone dialoguebox
+func from_JSON(file : JSON, saved_ink_resource : InkResource = blank_ink_interpret_resource):#resume_from_hierarchy : Array = []): #non-phone dialoguebox
 	assert(file != null, "You forgot to assign a JSON file!")
 	if in_dialogue:
 		print("You can't start a new chat while in a dialogue!")
