@@ -27,9 +27,12 @@ func find_room_containing_player():
 		var scene_aabb : AABB = calculate_node_aabb(node)
 		if scene_aabb.intersects(player_aabb): #check intersection
 			og_scene = node.name
+			print("New og scene: ", og_scene)
 			
 		main_node.remove_child(node)
 		node.queue_free()
+		
+	print("Found OG scene: ", og_scene)
 
 func on_node_added(node:Node):
 	if node.is_in_group("player"):
@@ -42,7 +45,11 @@ func calculate_node_aabb(node3d : Node3D) -> AABB:
 	assert(!visual_nodes.is_empty(), "There are no visual nodes in this scene!")
 	var aabb : AABB = visual_nodes[0].global_transform * visual_nodes[0].get_aabb()
 	for node : Node in visual_nodes:
-		if node == visual_nodes[0] or !(node is VisualInstance3D): continue
+		if (node == visual_nodes[0] or 
+		!(node is VisualInstance3D) or 
+		(node is Light3D) or
+		node3d.name == "PlayerCameraLocation"
+		): continue
 		var node_aabb : AABB = node.get_aabb()
 		var global_aabb : AABB = node.global_transform * node_aabb
 		aabb = aabb.merge(global_aabb)
