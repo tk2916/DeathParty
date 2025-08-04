@@ -65,7 +65,7 @@ func reset() -> void:
 func load_scene(scene_name:String):
 	if main_node == null or scene_name == "": return
 	if !scene_name_to_scene.has(scene_name): 
-		assert(false, "Scene " + scene_name + " doesn't exist/isn't tagged with loadable_scene!")
+		assert(false, "Scene " + scene_name + " doesn't exist/isn't taagged with loadable_scene!")
 		return
 	#trying to load the currently loaded scene
 	if loaded_scenes.size() > 0 && loaded_scenes.front().name == scene_name: return
