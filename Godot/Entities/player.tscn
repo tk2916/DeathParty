@@ -21,7 +21,6 @@ animation = &"Walk"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ov2v6"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gb1tc"]
-graph_offset = Vector2(242.854, 83.3726)
 "nodes/Idle Anim/node" = SubResource("AnimationNodeAnimation_pvmex")
 "nodes/Idle Anim/position" = Vector2(160, 100)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_gb1tc")
