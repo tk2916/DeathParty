@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cutn85mci7rcv"]
+[gd_scene load_steps=8 format=3 uid="uid://cutn85mci7rcv"]
 
 [ext_resource type="Texture2D" uid="uid://crjuqujgkxygk" path="res://Assets/PhoneTextures/sample_char_pic.png" id="1_kwisn"]
 [ext_resource type="Script" uid="uid://d03h0ytxrinnh" path="res://post.gd" id="1_y8vuy"]
-[ext_resource type="Resource" uid="uid://lfthc37kslft" path="res://Assets/Resources/CharacterResources/character_properties_nora.tres" id="2_hgv03"]
 [ext_resource type="FontFile" uid="uid://bcnpoh5wfcbuq" path="res://Assets/Fonts/Jaldi/Jaldi-Bold.ttf" id="2_qdpgs"]
 [ext_resource type="FontFile" uid="uid://bq7er6hhguye4" path="res://Assets/Fonts/Jaldi/Jaldi-Regular.ttf" id="3_wg6r1"]
 [ext_resource type="Texture2D" uid="uid://base5d87dehd1" path="res://Assets/CharacterAssets/nora/polaroid_nora.png" id="4_ymue7"]
@@ -10,7 +9,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgv03"]
 
-[node name="Post" type="MarginContainer" node_paths=PackedStringArray("button")]
+[node name="Post" type="MarginContainer" node_paths=PackedStringArray("button", "image_label", "name_label", "tag_label")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,7 +20,9 @@ size_flags_vertical = 3
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_y8vuy")
 button = NodePath("ColorRect/ViewProfile")
-character_resource = ExtResource("2_hgv03")
+image_label = NodePath("ColorRect/Header/TextureRect")
+name_label = NodePath("ColorRect/Header/Name")
+tag_label = NodePath("ColorRect/Header/Tag")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(0, 460)
@@ -50,20 +51,21 @@ stretch_mode = 5
 [node name="Name" type="RichTextLabel" parent="ColorRect/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_qdpgs")
 theme_override_font_sizes/normal_font_size = 18
-bbcode_enabled = true
-text = "[color=black]Nora"
+text = "Nora"
 scroll_active = false
 vertical_alignment = 1
 
 [node name="Tag" type="RichTextLabel" parent="ColorRect/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_colors/default_color = Color(0.360784, 0.360784, 0.360784, 1)
 theme_override_fonts/normal_font = ExtResource("3_wg6r1")
 theme_override_font_sizes/normal_font_size = 10
-bbcode_enabled = true
-text = "[color=#5C5C5C]@nora2948"
+text = "@nora2948"
 scroll_active = false
 vertical_alignment = 1
 

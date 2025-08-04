@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://dn8tphi4h7qm7" path="res://Assets/props/desk_lamp/desk_lamp.tscn" id="24_c2j7r"]
 [ext_resource type="PackedScene" uid="uid://b1sudygpot6ot" path="res://Assets/props/chairs/chair/chair.glb" id="25_l64a3"]
 [ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://Assets/props/globe/globe.glb" id="26_nuxp6"]
-[ext_resource type="PackedScene" uid="uid://d2o5pbctxrw1o" path="res://Assets/environment/curtains/curtains.glb" id="27_k8mop"]
 [ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="34_sy7sl"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="35_tm5mn"]
@@ -43,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="41_nbcih"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="42_fh3n2"]
 [ext_resource type="PackedScene" uid="uid://gu7mwgusye5o" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
+[ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15, 10, 12)
@@ -1187,9 +1187,6 @@ transform = Transform3D(-0.187118, -7.15318e-09, -1.71298e-08, 3.04854e-08, 0, -
 mesh = SubResource("ArrayMesh_n7q6f")
 skeleton = NodePath("")
 
-[node name="curtains" parent="RightWall/Window" instance=ExtResource("27_k8mop")]
-transform = Transform3D(-4.25426, -0.256159, 7.50623e-07, -2.95388e-06, -1.77861e-07, -19.6353, 0.368039, -9.37819, 2.17639e-13, 11.4656, -4.16207, -6.82715)
-
 [node name="Ceiling" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.187118, 0, -6.09708e-08, 0, 0.187118, 0, 6.09708e-08, 0, -0.187118, 2.51472, 0.0855453, 1.10589)
 mesh = SubResource("ArrayMesh_jdan8")
@@ -1559,6 +1556,9 @@ transform = Transform3D(0.988015, 0, 0.500924, 0, 1.10774, 0, -0.500924, 0, 0.98
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36763, 1.7031, 2.47758)
 size = Vector3(15.1855, 11.6767, 16.8987)
 material = SubResource("FogMaterial_obdan")
+
+[node name="Nora" parent="." instance=ExtResource("44_j03r7")]
+transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, -4.21185, -4.41003, 0.530073)
 
 [editable path="BackWall/Bookshelves/Upstairs"]
 [editable path="Balcony/Railings"]
