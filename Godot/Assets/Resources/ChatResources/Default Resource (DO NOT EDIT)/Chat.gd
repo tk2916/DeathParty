@@ -8,10 +8,9 @@ var display_timestamp : float = 0.0
 var display_message : String = ""
 
 var chat_in_progress : bool = false
-var last_ink_hierarchy : Array = []
-var saved_ink_state : Resource
+var saved_ink_state : InkResource
 
-var ink_resource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
+var ink_resource : InkResource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
 
 signal unread
 
