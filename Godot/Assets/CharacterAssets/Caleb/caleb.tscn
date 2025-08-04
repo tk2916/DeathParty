@@ -87,8 +87,5 @@ bones/61/rotation = Quaternion(-0.371416, 0.0768752, -0.0260575, 0.924912)
 bones/62/rotation = Quaternion(0.604644, 0.116212, -0.0897644, 0.782843)
 bones/63/rotation = Quaternion(0.320565, 0.0637833, -0.0220932, 0.944818)
 
-[node name="Object_13_003" parent="Model/Skeleton3D" index="5"]
-visible = false
-
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "idle"

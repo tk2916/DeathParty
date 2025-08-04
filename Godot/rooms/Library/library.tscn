@@ -986,8 +986,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wa8ra")
 
 [sub_resource type="FogMaterial" id="FogMaterial_obdan"]
-density = 0.1
-albedo = Color(7.09929e-07, 0.237562, 0.320698, 1)
+density = 0.15
+albedo = Color(7.21961e-08, 0.130107, 0.167128, 1)
 
 [node name="Library" type="Area3D"]
 collision_mask = 2
@@ -1228,9 +1228,9 @@ transform = Transform3D(0.301923, 0, 0, 0, 0.301923, 0, 0, 0, 0.301923, -2.7911,
 
 [node name="OmniLight3D" parent="Chandelierr/Lights" index="0"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
-light_energy = 12.0
+light_energy = 12.82
+light_volumetric_fog_energy = 5.0
 omni_range = 0.7
-omni_attenuation = 2.333
 
 [node name="OmniLight3D4" parent="Chandelierr/Lights" index="3"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
@@ -1239,12 +1239,16 @@ omni_range = 0.912
 
 [node name="OmniLight3D5" parent="Chandelierr/Lights" index="4"]
 light_color = Color(1, 0.383333, 0, 1)
-light_energy = 12.0
+light_energy = 16.0
+light_volumetric_fog_energy = 5.0
 omni_range = 0.771
 
 [node name="OmniLight3D7" parent="Chandelierr/Lights" index="6"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 16.0
+
+[node name="OmniLight3D8" parent="Chandelierr/Lights" index="7"]
+light_energy = 5.356
 
 [node name="OmniLight3D10" parent="Chandelierr/Lights" index="9"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
@@ -1254,6 +1258,10 @@ omni_range = 0.7
 [node name="OmniLight3D11" parent="Chandelierr/Lights" index="10"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 8.0
+
+[node name="OmniLight3D12" parent="Chandelierr/Lights" index="11"]
+light_energy = 16.0
+light_volumetric_fog_energy = 5.0
 
 [node name="chandelior bar2" parent="Chandelierr" instance=ExtResource("5_l745y")]
 transform = Transform3D(5.61817, 0, 0, 0, 3.52113, 0, 0, 0, 3.87769, 0, 13.0462, -0.00364685)
@@ -1266,8 +1274,9 @@ transform = Transform3D(0.000942476, 0, -1, 0, 1, 0, 1, 0, 0.000942476, 5.1131, 
 
 [node name="SpotLight3D" parent="WallLamps/WallLamp" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.0362949, 0.999341, 0, -0.999341, 0.0362949, 0.419758, -0.0392165, 0.00153852)
-light_color = Color(0.76, 0.403813, 0.1976, 1)
-light_energy = 4.555
+light_color = Color(1, 0.366667, 0, 1)
+light_energy = 25.0
+light_volumetric_fog_energy = 25.0
 light_specular = 0.767
 shadow_bias = 0.141
 shadow_opacity = 0.9
@@ -1294,7 +1303,8 @@ transform = Transform3D(-0.99999, 0, -0.00445059, 0, 1, 0, 0.00445059, 0, -0.999
 [node name="SpotLight3D" parent="WallLamps/WallLamp2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.0362949, 0.999341, 0, -0.999341, 0.0362949, 0.419758, -0.0392165, 0.00153852)
 light_color = Color(0.76, 0.403813, 0.1976, 1)
-light_energy = 4.555
+light_energy = 25.0
+light_volumetric_fog_energy = 25.0
 light_specular = 0.767
 shadow_bias = 0.141
 shadow_opacity = 0.9
@@ -1322,14 +1332,15 @@ transform = Transform3D(0.000942476, 0, -1, 0, 1, 0, 1, 0, 0.000942476, -1.75502
 
 [node name="SpotLight3D" parent="WallLamps/WallLamp3" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.0362949, 0.999341, 0, -0.999341, 0.0362949, 0.419758, -0.0392165, 0.00153852)
-light_color = Color(0.76, 0.403813, 0.1976, 1)
-light_energy = 4.555
+light_color = Color(1, 0.347333, 0.11, 1)
+light_energy = 25.0
+light_volumetric_fog_energy = 30.0
 light_specular = 0.767
 shadow_bias = 0.141
 shadow_opacity = 0.9
 shadow_blur = 2.549
-spot_range = 3.049
-spot_attenuation = -2.67
+spot_range = 3.193
+spot_attenuation = -1.94
 spot_angle = 35.31
 
 [node name="OmniLight3D" parent="WallLamps/WallLamp3" index="2"]
@@ -1349,8 +1360,9 @@ transform = Transform3D(0.999897, 0, -0.0143636, 0, 1, 0, 0.0143636, 0, 0.999897
 
 [node name="SpotLight3D" parent="WallLamps/WallLamp4" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.0362949, 0.999341, 0, -0.999341, 0.0362949, 0.419758, -0.0392165, 0.00153852)
-light_color = Color(0.76, 0.403813, 0.1976, 1)
-light_energy = 4.555
+light_color = Color(0.91, 0.420117, 0.1365, 1)
+light_energy = 25.0
+light_volumetric_fog_energy = 25.0
 light_specular = 0.767
 shadow_bias = 0.141
 shadow_opacity = 0.9
