@@ -5,6 +5,9 @@
 [node name="Caleb" instance=ExtResource("1_q5ip8")]
 transform = Transform3D(1.09713, 0, 0, 0, 1.09713, 0, 0, 0, 1.09713, 0, 0, 0)
 
+[node name="Skateboard_004" parent="." index="0"]
+lod_bias = 0.25
+
 [node name="Skeleton3D" parent="Model" index="0"]
 bones/0/position = Vector3(-0.262091, -2.28683, -89.4008)
 bones/0/rotation = Quaternion(-0.709856, -0.257921, 0.214572, 0.619306)
@@ -86,6 +89,30 @@ bones/60/rotation = Quaternion(-0.14312, -0.011586, 0.989253, 0.0275876)
 bones/61/rotation = Quaternion(-0.371416, 0.0768752, -0.0260575, 0.924912)
 bones/62/rotation = Quaternion(0.604644, 0.116212, -0.0897644, 0.782843)
 bones/63/rotation = Quaternion(0.320565, 0.0637833, -0.0220932, 0.944818)
+
+[node name="caleb_base_v04_003" parent="Model/Skeleton3D" index="0"]
+lod_bias = 0.25
+
+[node name="Cube_006" parent="Model/Skeleton3D" index="1"]
+lod_bias = 0.25
+
+[node name="Cube_007" parent="Model/Skeleton3D" index="2"]
+lod_bias = 0.25
+
+[node name="Cylinder_003" parent="Model/Skeleton3D" index="3"]
+lod_bias = 0.25
+
+[node name="Katana_003" parent="Model/Skeleton3D" index="4"]
+lod_bias = 0.25
+
+[node name="Object_13_003" parent="Model/Skeleton3D" index="5"]
+lod_bias = 0.1
+
+[node name="Object_16_003" parent="Model/Skeleton3D" index="6"]
+lod_bias = 0.25
+
+[node name="Torus_004" parent="Model/Skeleton3D" index="7"]
+lod_bias = 0.25
 
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "idle"
