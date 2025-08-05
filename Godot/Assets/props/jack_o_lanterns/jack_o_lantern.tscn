@@ -100,5 +100,6 @@ shadow_mesh = SubResource("ArrayMesh_eyy73")
 
 [node name="JackOLantern" type="MeshInstance3D"]
 transform = Transform3D(1.72804e-08, 0, -0.131777, 0, 0.155615, 0, 0.131777, 0, 1.72804e-08, 0, 0, 0)
+lod_bias = 0.25
 mesh = SubResource("ArrayMesh_vgkhh")
 skeleton = NodePath("")

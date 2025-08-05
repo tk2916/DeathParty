@@ -246,6 +246,7 @@ size = Vector3(1.2229, 0.0301514, 0.569982)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.149836, -1.30991e-08, 5.72579e-16, 0, -6.54956e-09, -0.149836, 1.30991e-08, -0.149836, 6.54954e-09, 0, 0, -27)
+lod_bias = 0.1
 mesh = SubResource("ArrayMesh_e18s8")
 skeleton = NodePath("")
 
