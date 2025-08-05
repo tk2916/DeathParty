@@ -38,8 +38,7 @@ jobs:
         run: echo "Godot version mismatch. Expected $GODOT_VERSION_FEATURE, found ${{ steps.extract-version-godot.outputs.version-number }}." >&2 && exit 1
   
   build:
-    #if: ${{ !github.event.pull_request.draft }}
-    if: false
+    if: ${{ !github.event.pull_request.draft }}
     needs: check-godot-version
     runs-on: ubuntu-latest
     timeout-minutes: 15
