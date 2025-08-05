@@ -41,7 +41,7 @@ jobs:
     if: ${{ !github.event.pull_request.draft }}
     needs: check-godot-version
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 15
     steps:
       - name: Checkout current branch
         uses: actions/checkout@v3
