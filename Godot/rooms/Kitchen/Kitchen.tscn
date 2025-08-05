@@ -1090,16 +1090,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12519, -0.278946, -2.16853
 
 [node name="LightFixture" type="MeshInstance3D" parent="LightFixtures"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -4.27512, -0.0159965, -0.0074451)
+lod_bias = 0.01
 mesh = SubResource("ArrayMesh_xispf")
 skeleton = NodePath("")
 
 [node name="LightFixture2" type="MeshInstance3D" parent="LightFixtures"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -0.120412, -0.0159965, -0.0074451)
+lod_bias = 0.01
 mesh = SubResource("ArrayMesh_xispf")
 skeleton = NodePath("")
 
 [node name="LightFixture3" type="MeshInstance3D" parent="LightFixtures"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, 4.3623, -0.0159965, -0.0074451)
+lod_bias = 0.01
 mesh = SubResource("ArrayMesh_xispf")
 skeleton = NodePath("")
 
