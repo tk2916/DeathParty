@@ -331,16 +331,15 @@ func set_aa(mode : int) -> void:
 
 func apply_lod(level : int) -> void:
 	if level == 0: # Very Low
-		get_viewport().mesh_lod_threshold = 8.0
+		get_viewport().mesh_lod_threshold = 16.0
 	if level == 1: # Low
-		get_viewport().mesh_lod_threshold = 4.0
+		get_viewport().mesh_lod_threshold = 8.0
 	if level == 2: # Medium
-		get_viewport().mesh_lod_threshold = 2.0
+		get_viewport().mesh_lod_threshold = 4.0
 	if level == 3: # High (default)
-		get_viewport().mesh_lod_threshold = 1.0
+		get_viewport().mesh_lod_threshold = 2.0
 	if level == 4: # Ultra
-		# Always use highest LODs to avoid any form of pop-in.
-		get_viewport().mesh_lod_threshold = 0.0
+		get_viewport().mesh_lod_threshold = 1.0
 
 
 func set_lod(level : int) -> void:
