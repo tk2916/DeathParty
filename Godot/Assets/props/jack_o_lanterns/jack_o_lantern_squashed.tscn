@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://bndch2w3fgmyf"]
 
 [ext_resource type="Texture2D" uid="uid://n8spnwmpcgt0" path="res://Assets/textures/entrance_room_props/entrance room props_pumpkin1.png" id="1_x3pwc"]
-[ext_resource type="Shader" uid="uid://wpntjutfebok" path="res://Assets/props/jack_o_lanterns/candle_flicker.tres" id="2_rf8tf"]
+[ext_resource type="Shader" uid="uid://bqqp5bevyy1v6" path="res://Assets/props/jack_o_lanterns/candle_flicker.tres" id="2_rf8tf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfofh"]
 resource_name = "Material.077"
@@ -100,5 +100,6 @@ shadow_mesh = SubResource("ArrayMesh_q6my0")
 
 [node name="JackOLanternSquashed" type="MeshInstance3D"]
 transform = Transform3D(-1.62142e-08, 0, -0.370938, 0, 0.235724, 0, 0.370938, 0, -1.62142e-08, 0, 0, 0)
+lod_bias = 0.25
 mesh = SubResource("ArrayMesh_a6xie")
 skeleton = NodePath("")
