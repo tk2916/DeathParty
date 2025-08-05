@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{7178249c-e512-4ef4-99cb-2e7d2bb0289f}">
+		<property name="assetPath">
+			<value>000_SFX/000_Tests/010_SFX_OutsideWind_01.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>26.308666666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b578e7d4-82c2-4011-885a-6204f61f86c8}</destination>
+		</relationship>
+	</object>
+</objects>
