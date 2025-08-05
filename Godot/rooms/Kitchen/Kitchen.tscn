@@ -39,8 +39,8 @@
 [ext_resource type="PackedScene" uid="uid://te45o0a3h24h" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_hanging.tscn" id="31_hc0kg"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="32_obamy"]
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="33_6ieyk"]
-[ext_resource type="PackedScene" uid="uid://cnhhx5201iwk0" path="res://Assets/props/desk_lamp/Modern_Desk_Lamp.glb" id="39_h2hdd"]
 [ext_resource type="PackedScene" uid="uid://cnb05rd1rv7e7" path="res://Assets/CharacterAssets/rowan/rowan.tscn" id="41_h3uy3"]
+[ext_resource type="PackedScene" uid="uid://byj5oetmgrptr" path="res://Assets/props/desk_lamp/simple_lamp.tscn" id="42_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://scene_loader.tscn" id="42_et00h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
@@ -1115,26 +1115,6 @@ transform = Transform3D(0.878684, 0, 0, 0, 0.878684, 0, 0, 0, 0.878684, -0.31219
 [node name="Bar" parent="." instance=ExtResource("10_6xo0a")]
 transform = Transform3D(0.872326, 0, -0.488926, 0, 1, 0, 0.488926, 0, 0.872326, -5.10501, -2.30629, -2.06597)
 
-[node name="Modern desk lamp" parent="Bar" instance=ExtResource("39_h2hdd")]
-transform = Transform3D(0.0174282, 0, -0.00725821, 0, 0.0188791, 0, 0.00725821, 0, 0.0174282, 0.449571, 0.36568, -1.89671)
-visible = false
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Bar/Modern desk lamp"]
-transform = Transform3D(53.622, -21.7408, 2.43121, -16.9299, -37.1646, 41.0618, -13.8546, -38.7302, -40.7666, -1.15701, 33.1371, 12.5819)
-light_energy = 16.0
-shadow_enabled = true
-shadow_bias = 5.252
-shadow_opacity = 0.99
-shadow_blur = 0.889
-spot_range = 2.892
-spot_attenuation = 2.5
-spot_angle = 40.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Modern desk lamp"]
-transform = Transform3D(57.9128, 0, -3.8147e-06, 0, 57.9129, 0, 3.8147e-06, 0, 57.9128, 38.8296, 31.0241, 110.427)
-light_energy = 2.066
-omni_range = 1.584
-
 [node name="blue goose2" parent="Bar" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.654846, 0, -0.755762, 0, 1, 0, 0.755762, 0, 0.654846, 0.334109, 0.36635, -0.46438)
 
@@ -1606,5 +1586,20 @@ scene_going_right = "Entrance"
 [node name="CollisionShape3D" parent="SceneLoader" index="0"]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.454394, 0.747803, -0.173068)
 
+[node name="simple lamp" parent="." instance=ExtResource("42_e7jho")]
+transform = Transform3D(0.762748, 0, 0.783338, 0, 1.09334, 0, -0.783338, 0, 0.762748, -3.98433, -1.91359, -3.40837)
+
+[node name="SpotLight3D" parent="simple lamp" index="1"]
+transform = Transform3D(-0.0641164, -0.570502, 0.81879, 0.0515789, 0.817487, 0.573633, -0.996608, 0.0790115, -0.0229884, -0.202683, 0.568085, 0.0407047)
+light_energy = 16.0
+light_volumetric_fog_energy = 10.0
+
+[node name="OmniLight3D" parent="simple lamp" index="2"]
+light_energy = 3.0
+shadow_enabled = true
+omni_range = 2.346
+omni_attenuation = 2.0
+
 [editable path="Room"]
 [editable path="SceneLoader"]
+[editable path="simple lamp"]

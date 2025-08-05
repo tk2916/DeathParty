@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://byj5oetmgrptr"]
+
+[ext_resource type="PackedScene" uid="uid://c5rhah4rw0jyh" path="res://Assets/props/desk_lamp/simple lamp.glb" id="1_m33rr"]
+
+[node name="simple lamp" instance=ExtResource("1_m33rr")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(0.0732099, -0.575947, 0.814202, 0.0515789, 0.817487, 0.573633, -0.995982, 6.41143e-09, 0.0895549, -0.149888, 0.611284, -0.0107026)
+spot_angle = 23.44
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20285, 0.572077, 0)
+light_energy = 10.0
