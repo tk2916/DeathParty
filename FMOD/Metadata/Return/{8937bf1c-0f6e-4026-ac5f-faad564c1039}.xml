@@ -22,7 +22,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7a5bebcd-3201-4ca2-8b26-5b4c658cf89f}" />
-	<object class="GainEffect" id="{54c58fa0-f131-4360-8383-06c03a29dcd0}" />
+	<object class="GainEffect" id="{54c58fa0-f131-4360-8383-06c03a29dcd0}">
+		<property name="gain">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{7eaff4db-226d-4593-8285-fc17914536de}" />
 	<object class="ConvolutionReverbEffect" id="{161b824a-66cf-4e25-8721-aa5bf4cedf30}">
 		<property name="endFrame">
