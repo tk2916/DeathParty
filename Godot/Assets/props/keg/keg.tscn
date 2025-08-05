@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ml4kn25ykoyy"]
+
+[ext_resource type="PackedScene" uid="uid://b7vveikx7vsny" path="res://Assets/props/keg/keg.glb" id="1_bso47"]
+
+[node name="keg" instance=ExtResource("1_bso47")]
+
+[node name="Cylinder_090" parent="." index="0"]
+lod_bias = 0.1
+
+[node name="Cube_031" parent="." index="1"]
+lod_bias = 0.1

@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bhe0kgbucqoad" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="7_84i0v"]
 [ext_resource type="PackedScene" uid="uid://dwtxi47usnits" path="res://Assets/props/bar/Bar.glb" id="10_6xo0a"]
-[ext_resource type="PackedScene" uid="uid://b7vveikx7vsny" path="res://Assets/props/keg/keg.glb" id="11_n7s6h"]
 [ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="12_pxkqo"]
 [ext_resource type="PackedScene" uid="uid://c1y2mld3gpxw8" path="res://Assets/props/pan.tscn" id="14_54x08"]
 [ext_resource type="PackedScene" uid="uid://doj2p1ypfieac" path="res://Assets/props/pot.tscn" id="15_htgpp"]
@@ -39,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://te45o0a3h24h" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_hanging.tscn" id="31_hc0kg"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="32_obamy"]
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="33_6ieyk"]
+[ext_resource type="PackedScene" uid="uid://ml4kn25ykoyy" path="res://assets/props/keg/keg.tscn" id="34_e7jho"]
 [ext_resource type="PackedScene" uid="uid://cnb05rd1rv7e7" path="res://Assets/CharacterAssets/rowan/rowan.tscn" id="41_h3uy3"]
 [ext_resource type="PackedScene" uid="uid://byj5oetmgrptr" path="res://Assets/props/desk_lamp/simple_lamp.tscn" id="42_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://scene_loader.tscn" id="42_et00h"]
@@ -695,6 +695,9 @@ omni_range = 3.654
 
 [node name="Room" parent="." instance=ExtResource("1_ootlj")]
 transform = Transform3D(1, 0, -1.16415e-10, 0, 1, 0, 1.16415e-10, 0, 1, 0.00752163, -0.00630164, 0.000434397)
+
+[node name="Cube_006" parent="Room" index="0"]
+transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, 0.0494708, -1.03363, 0.0173402)
 
 [node name="Floor" type="StaticBody3D" parent="Room"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -0.0494708, 1.03363, -0.0173402)
@@ -1409,17 +1412,17 @@ visible = false
 [node name="Kegs" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41068, -0.0487316, 1.02282)
 
-[node name="keg" parent="Props/Kegs" instance=ExtResource("11_n7s6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268425, -0.201374, -1.02467)
+[node name="keg" parent="Props/Kegs" instance=ExtResource("34_e7jho")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0.268425, -0.201374, -1.02467)
 
-[node name="keg2" parent="Props/Kegs" instance=ExtResource("11_n7s6h")]
-transform = Transform3D(-0.905065, 0, -0.425274, 0, 1, 0, 0.425274, 0, -0.905065, 1.48545, -0.201374, -0.396375)
+[node name="keg2" parent="Props/Kegs" instance=ExtResource("34_e7jho")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 1.48545, -0.201374, -0.396375)
 
-[node name="keg4" parent="Props/Kegs" instance=ExtResource("11_n7s6h")]
-transform = Transform3D(0.432495, 0, -0.901636, 0, 1, 0, 0.901636, 0, 0.432495, -0.964726, -0.201374, 1.61887)
+[node name="keg3" parent="Props/Kegs" instance=ExtResource("34_e7jho")]
+transform = Transform3D(-0.271654, -0.766044, 0.582563, -0.906308, -3.9616e-08, -0.422618, 0.323744, -0.642788, -0.694272, 0.811285, -0.327664, 0.490275)
 
-[node name="keg3" parent="Props/Kegs" instance=ExtResource("11_n7s6h")]
-transform = Transform3D(-0.292615, -0.739246, 0.60654, -0.905025, 0.00931996, -0.425255, 0.308716, -0.67337, -0.671764, 0.811285, -0.327664, 0.490275)
+[node name="keg4" parent="Props/Kegs" instance=ExtResource("34_e7jho")]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, -0.964726, -0.201374, 1.61887)
 
 [node name="Banner" parent="Props" instance=ExtResource("24_wf8rc")]
 transform = Transform3D(-0.627266, 0, 0.261048, 0, 1.09334, 0, -0.175407, 0, -0.933521, -10.5356, 2.43569, -5.89187)
