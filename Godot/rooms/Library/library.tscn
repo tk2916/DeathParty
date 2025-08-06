@@ -1022,7 +1022,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31299, 0, 2)
 shape = SubResource("BoxShape3D_obdan")
 
 [node name="SceneLoaderLibraryToPartyRoom" parent="." instance=ExtResource("1_j03r7")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -3.8112, 1.54392)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -3.8112, 7.39135)
 scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
 
@@ -1615,6 +1615,9 @@ material = SubResource("FogMaterial_obdan")
 
 [node name="Nora" parent="." instance=ExtResource("44_j03r7")]
 transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, -4.21185, -4.41003, 0.530073)
+
+[node name="door" parent="." instance=ExtResource("15_e63ox")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.65109, -3.18053, 6.81311)
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 

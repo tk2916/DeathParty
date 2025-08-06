@@ -279,7 +279,7 @@ interior = true
 light_data = ExtResource("46_qnost")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7402, 0.220307, 10.1306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44633, 0.309486, 10.1306)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
@@ -296,42 +296,53 @@ default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)
 script = null
 
+[node name="SceneLoaderEntranceToPartyRoom" parent="Entrance" index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.180967, -4.96324)
+
 [node name="TeleportPoint" parent="Entrance/SceneLoaderEntranceToPartyRoom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113162, -4.40737)
+
+[node name="door" parent="Entrance" index="20"]
+transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.5782, 1.21599, 10.4024)
+
+[node name="SceneLoader kitchen" parent="Entrance" index="22"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0.25356, 8.12601)
+
+[node name="CollisionShape3D" parent="Entrance/SceneLoader kitchen" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, -0.155084)
+
+[node name="TeleportPoint" parent="Entrance/SceneLoader kitchen" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414903, 0.276754, -3.37467)
+
+[node name="MeshInstance3D" parent="Entrance/SceneLoader kitchen/TeleportPoint" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.265869, 0, 0)
+
+[node name="SceneLoaderbathroom" parent="Entrance" index="23"]
+transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.9534, 0.773034, 9.16798)
+
+[node name="TeleportPoint" parent="Entrance/SceneLoaderbathroom" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768415, 0.803849, -13.4831)
+
+[node name="door2" parent="Entrance" index="24"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.02401, 1.21599, 7.05969)
 
 [node name="PartyRoom" parent="." groups=["loadable_scene"] instance=ExtResource("41_gngh3")]
 transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.999999, -24.161, 0, -17.392)
 
-[node name="TeleportPoint" parent="PartyRoom/SceneLoaderPartyRoomToEntrance" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27596e-12, -0.209947, -4.9095)
-
-[node name="SceneLoaderPartyRoomToLibrary" parent="PartyRoom" index="16"]
-scene_going_right = ""
-scene_going_left = ""
-
-[node name="TeleportPoint" parent="PartyRoom/SceneLoaderPartyRoomToLibrary" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56176, 1.39837, -7.74951)
-
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
-transform = Transform3D(1.08001, 0, 0, 0, 1.08001, 0, 0, 0, 1.08001, 0.698557, 4.7584, -27.1752)
+transform = Transform3D(1.08001, 0, 0, 0, 1.08001, 0, 0, 0, 1.08001, 0.698557, 4.7584, -20.5061)
+
+[node name="SceneLoaderLibraryToPartyRoom" parent="Library" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -4.13118, 3.92343)
 
 [node name="TeleportPoint" parent="Library/SceneLoaderLibraryToPartyRoom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55271e-14, 0.0133139, -9.65642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715306, 0.0133139, -7.4692)
 
 [node name="JackOLanternTall2" parent="Library" instance=ExtResource("42_0cp0l")]
 transform = Transform3D(-1.34361e-08, 0, -0.24748, 0, 0.290456, 0, 0.307382, 0, -1.08177e-08, -8.31708, -4.23481, 4.92798)
 
 [node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
 transform = Transform3D(0.761812, 0, 0, 0, 0.761812, 0, 0, 0, 0.761812, -43.3922, 2.37168, 6.27324)
-
-[node name="CollisionShape3D" parent="Kitchen/SceneLoader" index="0"]
-transform = Transform3D(0.999989, 0, -2.38032e-13, 0, 0.999989, 0, 2.38032e-13, 0, 0.999989, -0.007658, 0.747803, 0.00735855)
-
-[node name="TeleportPoint" parent="Kitchen/SceneLoader" index="1"]
-transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 9.53674e-07, 0.839686, 5.08367)
-
-[node name="MeshInstance3D" parent="Kitchen/SceneLoader/TeleportPoint" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.491993)
 
 [node name="OldTestRooms" type="Node3D" parent="."]
 
@@ -542,6 +553,12 @@ transform = Transform3D(-0.576026, -0.0962183, -0.811746, 0, 0.993044, -0.117708
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -5.22182, 2.34912, 10.4362)
 
+[node name="SceneLoader to entrance" parent="Bathroom" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -2.51132, 0)
+
+[node name="TeleportPoint" parent="Bathroom/SceneLoader to entrance" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34107e-07, 0.839686, -17.4454)
+
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
 [connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
@@ -561,11 +578,6 @@ transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -5.22182, 2
 [editable path="Entrance/SceneLoaderEntranceToPartyRoom"]
 [editable path="Entrance/SceneLoader kitchen"]
 [editable path="Entrance/SceneLoaderbathroom"]
-[editable path="PartyRoom"]
-[editable path="PartyRoom/DiscoLightDecoration"]
-[editable path="PartyRoom/DiscoLightDecoration/added drapes"]
-[editable path="PartyRoom/SceneLoaderPartyRoomToEntrance"]
-[editable path="PartyRoom/SceneLoaderPartyRoomToLibrary"]
 [editable path="Library"]
 [editable path="Library/SceneLoaderLibraryToPartyRoom"]
 [editable path="Library/BackWall/Bookshelves/Upstairs"]
@@ -578,9 +590,8 @@ transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -5.22182, 2
 [editable path="Library/WallLamps/WallLamp5"]
 [editable path="Library/Props/Desk/desk_lamp"]
 [editable path="Library/Props/Desk2/desk_lamp"]
-[editable path="Kitchen"]
-[editable path="Kitchen/Room"]
-[editable path="Kitchen/SceneLoader"]
-[editable path="Kitchen/simple lamp"]
 [editable path="OldTestRooms/Room/QuestionMark"]
 [editable path="Outside/SceneLoader"]
+[editable path="Bathroom"]
+[editable path="Bathroom/SceneLoader to entrance"]
+[editable path="Bathroom/bathroom disco"]
