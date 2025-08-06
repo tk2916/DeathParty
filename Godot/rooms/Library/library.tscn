@@ -1,6 +1,6 @@
 [gd_scene load_steps=99 format=4 uid="uid://d3cv36i34m681"]
 
-[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://scene_loader.tscn" id="1_j03r7"]
+[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
 [ext_resource type="Texture2D" uid="uid://d2qmky6uvbv5h" path="res://rooms/Library/library layout_woodlight1.png" id="2_nt7ft"]
@@ -43,7 +43,6 @@
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="41_nbcih"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="42_fh3n2"]
 [ext_resource type="PackedScene" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
-[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="44_508o3"]
 [ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
@@ -998,11 +997,12 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 shape = SubResource("BoxShape3D_obdan")
 
-[node name="SceneLoader" parent="." instance=ExtResource("1_j03r7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9357, -3.75046, 7.14174)
+[node name="SceneLoaderLibraryToPartyRoom" parent="." instance=ExtResource("1_j03r7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -3.8112, 1.54392)
 scene_going_right = "PartyRoom"
+scene_going_left = "PartyRoom"
 
-[node name="CollisionShape3D" parent="SceneLoader" index="0"]
+[node name="CollisionShape3D" parent="SceneLoaderLibraryToPartyRoom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57187, 0.747803, -1.67758)
 
 [node name="Lights" type="Node3D" parent="."]
@@ -1051,7 +1051,7 @@ spot_attenuation = -0.49
 spot_angle = 19.94
 
 [node name="floor" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.140782, 0, -6.98784e-08, 0, 0.187118, 0, 4.58725e-08, 0, -0.214455, -2.75759, -0.34643, 2.42161)
+transform = Transform3D(-0.140782, 0, -6.98784e-08, 0, 0.187118, 0, 4.58725e-08, 0, -0.214455, -6.0559, -0.34643, 2.42161)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2126, 0, 0)
@@ -1582,7 +1582,7 @@ material = SubResource("FogMaterial_obdan")
 [node name="Nora" parent="." instance=ExtResource("44_j03r7")]
 transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, -4.21185, -4.41003, 0.530073)
 
-[editable path="SceneLoader"]
+[editable path="SceneLoaderLibraryToPartyRoom"]
 [editable path="BackWall/Bookshelves/Upstairs"]
 [editable path="Balcony/Railings"]
 [editable path="Chandelierr"]
@@ -1593,4 +1593,3 @@ transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, -4.21185
 [editable path="WallLamps/WallLamp5"]
 [editable path="Props/Desk/desk_lamp"]
 [editable path="Props/Desk2/desk_lamp"]
-[editable path="SceneLoaderLibraryToPartyRoom"]
