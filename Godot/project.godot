@@ -79,6 +79,11 @@ enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/fm
 
 gui_object=""
 loadable_scene=""
+material_wood=""
+material_tile=""
+material_grass=""
+material_concrete=""
+material_carpet=""
 
 [input]
 
