@@ -993,18 +993,18 @@ script/source = "extends FmodEventEmitter3D
 
 @onready var timer: Timer = $Timer
 
+# min and max intervals between creaks
+var min_time := 45.0
+var max_time := 180.0
+
 
 func _ready() -> void:
-	timer.wait_time = randf_range(20, 80)
-
-
-func _process(delta: float) -> void:
-	pass
+	timer.wait_time = randf_range(min_time, max_time)
 
 
 func _on_timer_timeout() -> void:
 	play()
-	timer.wait_time = randf_range(20, 80)
+	timer.wait_time = randf_range(min_time, max_time)
 "
 
 [sub_resource type="FogMaterial" id="FogMaterial_obdan"]
