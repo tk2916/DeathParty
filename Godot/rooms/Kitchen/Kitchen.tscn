@@ -1,5 +1,6 @@
-[gd_scene load_steps=74 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=75 format=4 uid="uid://cjo88oqrqtxdm"]
 
+[ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bwam0r715obls" path="res://Assets/props/alcohol/beer_box/Beer box.glb" id="1_htgpp"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="2_kbocy"]
@@ -536,9 +537,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e3smd")
 
-[node name="Kitchen" type="Area3D"]
+[node name="Kitchen" type="Area3D" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(0.914625, 0, 0, 0, 0.914625, 0, 0, 0, 0.914625, 0, 0, 0)
 collision_mask = 2
+script = ExtResource("1_e7jho")
+room_area = NodePath("RoomArea")
+metadata/_custom_type_script = "uid://23e11u4fm3n6"
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186689, -1.09334, -0.186689)
