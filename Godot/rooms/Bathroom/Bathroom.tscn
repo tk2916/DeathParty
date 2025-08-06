@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://k7mfqdmon2lt" path="res://rooms/Bathroom/Bathroom layout_graftextur.png" id="9_r7br8"]
 [ext_resource type="PackedScene" uid="uid://d0ub3da87w3lj" path="res://rooms/Bathroom/Bathroom stalls.glb" id="11_moj8i"]
 [ext_resource type="PackedScene" uid="uid://cfgi25lk3v8uw" path="res://rooms/Bathroom/graff.glb" id="12_qgpod"]
+[ext_resource type="PackedScene" uid="uid://d2hhfivdkffuw" path="res://Assets/environment/bathroom_sink.tscn" id="13_htvqj"]
 [ext_resource type="PackedScene" uid="uid://c0b7wj6yxm6wm" path="res://rooms/Bathroom/bathroom disco.glb" id="13_uea66"]
 [ext_resource type="PackedScene" uid="uid://c1nd01uwlqaij" path="res://Assets/CharacterAssets/drug_dealer/drug_dealer.tscn" id="14_duuvr"]
 [ext_resource type="PackedScene" uid="uid://c75vy0mpx33of" path="res://Assets/props/hot_dog_stand/hot_dog_stand.glb" id="15_6xvpw"]
-[ext_resource type="PackedScene" uid="uid://ljiexrmjiqqb" path="res://rooms/Bathroom/bathroom sink.glb" id="16_5awov"]
 [ext_resource type="PackedScene" uid="uid://cfw0wk6bmu4yf" path="res://rooms/Bathroom/fancy mirror.glb" id="17_r7br8"]
 [ext_resource type="PackedScene" uid="uid://dnjuthbkigfl0" path="res://rooms/Bathroom/tissuebox.glb" id="18_alw3p"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="19_r2w82"]
@@ -543,6 +543,9 @@ material = SubResource("FogMaterial_qlpr6")
 [node name="Bathroom stalls" parent="." instance=ExtResource("11_moj8i")]
 transform = Transform3D(0.973203, 0, 0, 0, 0.973203, 0, 0, 0, 0.973203, -3.22659, -1.4682, -2.54998)
 
+[node name="bathroom sink" parent="." instance=ExtResource("13_htvqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18989, -1.51587, -2.83917)
+
 [node name="graff" parent="." instance=ExtResource("12_qgpod")]
 transform = Transform3D(0.952515, 0, -0.0293682, 0, 0.952968, 0, 0.0293682, 0, 0.952515, -6.70712, -1.22399, -0.862577)
 
@@ -611,9 +614,6 @@ transform = Transform3D(0.837511, 0, 0.487972, 0, 0.969299, 0, -0.487972, 0, 0.8
 
 [node name="hot_dog_stand" parent="." instance=ExtResource("15_6xvpw")]
 transform = Transform3D(-0.69411, 0, 0.676574, 0, 0.969299, 0, -0.676574, 0, -0.69411, -6.13996, -2.39737, 0.687645)
-
-[node name="bathroom sink" parent="." instance=ExtResource("16_5awov")]
-transform = Transform3D(1.01621, 0, 0, 0, 0.860503, 0, 0, 0, 0.931101, 3.18989, -1.51587, -2.83917)
 
 [node name="fancy mirror" parent="." instance=ExtResource("17_r7br8")]
 transform = Transform3D(0.965329, 0, 0, 0, 0.965329, 0, 0, 0, 0.965329, 3.01783, 0.141108, -4.4494)
