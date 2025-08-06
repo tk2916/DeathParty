@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=39 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="1_qlpr6"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dddkplho0vktg" path="res://rooms/Bathroom/Bathroom layout_standardwood.png" id="8_5awov"]
 [ext_resource type="Texture2D" uid="uid://k7mfqdmon2lt" path="res://rooms/Bathroom/Bathroom layout_graftextur.png" id="9_r7br8"]
 [ext_resource type="PackedScene" uid="uid://d0ub3da87w3lj" path="res://rooms/Bathroom/Bathroom stalls.glb" id="11_moj8i"]
+[ext_resource type="PackedScene" uid="uid://cfgi25lk3v8uw" path="res://rooms/Bathroom/graff.glb" id="12_qgpod"]
+[ext_resource type="PackedScene" uid="uid://c0b7wj6yxm6wm" path="res://rooms/Bathroom/bathroom disco.glb" id="13_uea66"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -458,7 +460,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vtrip")
 
 [sub_resource type="FogMaterial" id="FogMaterial_qlpr6"]
-density = 0.2
+density = 0.3
 albedo = Color(0.124839, 0.000131686, 0.36268, 1)
 
 [node name="Bathroom" type="Area3D"]
@@ -514,3 +516,49 @@ material = SubResource("FogMaterial_qlpr6")
 
 [node name="Bathroom stalls" parent="." instance=ExtResource("11_moj8i")]
 transform = Transform3D(0.973203, 0, 0, 0, 0.973203, 0, 0, 0, 0.973203, -3.22659, -1.4682, -2.54998)
+
+[node name="graff" parent="." instance=ExtResource("12_qgpod")]
+transform = Transform3D(0.952515, 0, -0.0293682, 0, 0.952968, 0, 0.0293682, 0, 0.952515, -6.70712, -1.22399, -0.862577)
+
+[node name="bathroom disco" parent="." instance=ExtResource("13_uea66")]
+transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, -2.05757, 1.09594, -0.286055)
+
+[node name="Spot" parent="bathroom disco" index="1"]
+transform = Transform3D(0.287923, 0.358925, 0.887847, -0.905447, -0.199897, 0.374442, 0.311875, -0.911709, 0.267432, 2.40237, -0.0998568, -0.0481966)
+visible = false
+light_energy = 60.0
+light_volumetric_fog_energy = 60.0
+shadow_enabled = true
+spot_range = 9.19
+
+[node name="Spot_001" parent="bathroom disco" index="2"]
+transform = Transform3D(0.699638, -0.259043, 0.665886, -0.676833, 0.0583084, 0.733824, -0.228918, -0.964104, -0.134534, 2.56014, -0.145454, 0.0216799)
+light_energy = 50.0
+light_volumetric_fog_energy = 50.0
+shadow_enabled = true
+spot_angle = 33.5
+
+[node name="Spot_005" type="SpotLight3D" parent="bathroom disco"]
+transform = Transform3D(0.482805, -0.0306309, 0.875192, -0.874208, 0.0419901, 0.483732, -0.0515666, -0.998648, -0.00650478, 2.56014, 0.0325853, -0.122295)
+light_color = Color(0.530296, 0.729198, 1, 1)
+light_energy = 40.0
+light_volumetric_fog_energy = 100.0
+shadow_enabled = true
+spot_range = 4096.0
+spot_angle = 18.75
+spot_angle_attenuation = 0.18
+
+[node name="Spot_002" parent="bathroom disco" index="5"]
+light_energy = 50.0
+light_volumetric_fog_energy = 50.0
+shadow_enabled = true
+
+[node name="Spot_003" parent="bathroom disco" index="7"]
+light_energy = 3.0
+shadow_enabled = true
+
+[node name="Spot_004" parent="bathroom disco" index="9"]
+light_energy = 3.0
+shadow_enabled = true
+
+[editable path="bathroom disco"]
