@@ -1,6 +1,6 @@
 [gd_scene load_steps=75 format=4 uid="uid://cjo88oqrqtxdm"]
 
-[ext_resource type="Script" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
+[ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bwam0r715obls" path="res://Assets/props/alcohol/beer_box/Beer box.glb" id="1_htgpp"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="2_kbocy"]
@@ -1604,7 +1604,7 @@ scene_going_left = "Entrance"
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.00765944, 0.747803, 0.801773)
 
 [node name="TeleportPoint" parent="SceneLoader" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35003e-13, 0.839686, 12.2055)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 5.96046e-07, 0.839686, 5.9993)
 
 [node name="simple lamp" parent="." instance=ExtResource("42_e7jho")]
 transform = Transform3D(0.762748, 0, 0.783338, 0, 1.09334, 0, -0.783338, 0, 0.762748, -3.98433, -1.91359, -3.40837)
@@ -1619,6 +1619,9 @@ light_energy = 3.0
 shadow_enabled = true
 omni_range = 2.346
 omni_attenuation = 2.0
+
+[node name="door" parent="." instance=ExtResource("2_kbocy")]
+transform = Transform3D(-4.77916e-08, 0, -1.09334, 0, 1.09334, 0, 1.09334, 0, -4.77916e-08, 8.25604, -1.78701, 1.93738)
 
 [editable path="Room"]
 [editable path="SceneLoader"]

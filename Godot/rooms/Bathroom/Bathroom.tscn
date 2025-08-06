@@ -1,8 +1,9 @@
-[gd_scene load_steps=48 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=49 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="1_qlpr6"]
+[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="2_3y0er"]
 [ext_resource type="Texture2D" uid="uid://cpyd6vsbc6h2e" path="res://rooms/Bathroom/Bathroom layout_Wall 2.jpg" id="2_qlpr6"]
 [ext_resource type="Texture2D" uid="uid://bekk2pej44hkd" path="res://rooms/Bathroom/Bathroom layout_wooddark.png" id="3_moj8i"]
 [ext_resource type="Texture2D" uid="uid://bqar6l142xdsc" path="res://rooms/Bathroom/Bathroom layout_IMG_4162.png" id="4_qgpod"]
@@ -482,6 +483,14 @@ metadata/_custom_type_script = "uid://23e11u4fm3n6"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11203, -0.146205, 0.0554049)
 shape = SubResource("BoxShape3D_qlpr6")
 
+[node name="SceneLoader to entrance" parent="." instance=ExtResource("2_3y0er")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
+scene_going_right = "Entrance"
+scene_going_left = "Entrance"
+
+[node name="TeleportPoint" parent="SceneLoader to entrance" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34107e-07, 0.839686, -17.4454)
+
 [node name="door" parent="." instance=ExtResource("1_qlpr6")]
 transform = Transform3D(0.00813317, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00813317, 5.62697, -1.1792, -0.646434)
 
@@ -639,4 +648,5 @@ transform = Transform3D(-1.21819, 0, 0.312007, 0, 1.25751, 0, -0.312007, 0, -1.2
 [node name="hot_dog_stand" parent="." instance=ExtResource("22_htvqj")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -6.13996, -2.39737, 0.687645)
 
+[editable path="SceneLoader to entrance"]
 [editable path="bathroom disco"]

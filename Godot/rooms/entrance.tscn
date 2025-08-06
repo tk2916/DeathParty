@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=57 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://dp8mxgak36ovb" path="res://Assets/CharacterAssets/Caleb/caleb.tscn" id="35_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="35_nneh3"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
+[ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="36_gfuhi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -671,6 +672,9 @@ shadow_enabled = true
 spot_range = 25.2
 spot_angle = 24.0
 
+[node name="door" parent="." instance=ExtResource("36_gfuhi")]
+transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.5782, 1.21599, 10.4024)
+
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.678955, 0.73418, 0, -0.73418, -0.678955, 7.21701, 7.33275, -6.75585)
 light_color = Color(1, 0.304046, 0.129177, 1)
@@ -686,7 +690,13 @@ scene_going_right = "Kitchen"
 scene_going_left = "Kitchen"
 
 [node name="CollisionShape3D" parent="SceneLoader kitchen" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, 0.112685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, -0.155084)
+
+[node name="TeleportPoint" parent="SceneLoader kitchen" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -3.37467)
+
+[node name="MeshInstance3D" parent="SceneLoader kitchen/TeleportPoint" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.73872, 0, 0)
 
 [node name="SceneLoaderbathroom" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.9534, 1.22732, 9.16798)
@@ -697,10 +707,13 @@ scene_going_left = "Bathroom"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00659275, 0.747803, 0.262373)
 
 [node name="TeleportPoint" parent="SceneLoaderbathroom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.798045, 1.12732, -2.94097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768415, 0.803849, -13.4831)
 
 [node name="MeshInstance3D" parent="SceneLoaderbathroom/TeleportPoint" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.06286, 0)
+
+[node name="door2" parent="." instance=ExtResource("36_gfuhi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.02401, 1.21599, 7.05969)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 

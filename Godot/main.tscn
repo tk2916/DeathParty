@@ -279,7 +279,7 @@ interior = true
 light_data = ExtResource("46_qnost")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5936, 0.220307, 10.1306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7402, 0.220307, 10.1306)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
@@ -328,7 +328,10 @@ transform = Transform3D(0.761812, 0, 0, 0, 0.761812, 0, 0, 0, 0.761812, -43.3922
 transform = Transform3D(0.999989, 0, -2.38032e-13, 0, 0.999989, 0, 2.38032e-13, 0, 0.999989, -0.007658, 0.747803, 0.00735855)
 
 [node name="TeleportPoint" parent="Kitchen/SceneLoader" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, 8.89415)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 9.53674e-07, 0.839686, 5.08367)
+
+[node name="MeshInstance3D" parent="Kitchen/SceneLoader/TeleportPoint" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.491993)
 
 [node name="OldTestRooms" type="Node3D" parent="."]
 
