@@ -37,7 +37,7 @@ _subresources={
 "Idle": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://Assets/CharacterAssets/animations/Idle.res",
+"save_to_file/path": "uid://dsx2n4aihgwfb",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -1836,7 +1836,7 @@ _subresources={
 "RESET": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://Assets/CharacterAssets/animations/RESET.res",
+"save_to_file/path": "uid://ddoi7d38nmhnv",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -3635,7 +3635,7 @@ _subresources={
 "Talk": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://Assets/CharacterAssets/animations/Talk.res",
+"save_to_file/path": "uid://cyoxo7ixjd45l",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -5434,7 +5434,7 @@ _subresources={
 "Turn": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://Assets/CharacterAssets/animations/Turn.res",
+"save_to_file/path": "uid://bj6b1b7eg33qw",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -7233,7 +7233,7 @@ _subresources={
 "Walk": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://Assets/CharacterAssets/animations/walking.res",
+"save_to_file/path": "uid://crj3hwna1rdlf",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
