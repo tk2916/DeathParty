@@ -688,12 +688,11 @@ transform = Transform3D(0.891742, 0, -0.452544, 0, 1, 0, 0.452544, 0, 0.891742, 
 [node name="hot_dog_stand" parent="." instance=ExtResource("37_0ritw")]
 transform = Transform3D(0.874772, 0, 0.484535, 0, 1, 0, -0.484535, 0, 0.874772, 5.81894, -0.0412288, 3.6559)
 
-[node name="SceneLoader" parent="." instance=ExtResource("35_nneh3")]
+[node name="SceneLoader kitchen" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)
 scene_going_right = "Kitchen"
-scene_going_left = "Kitchen"
 
-[node name="CollisionShape3D" parent="SceneLoader" index="0"]
+[node name="CollisionShape3D" parent="SceneLoader kitchen" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, 0.112685)
 
 [node name="SceneLoaderbathroom" parent="." instance=ExtResource("35_nneh3")]
@@ -707,6 +706,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00659275, 0.747803, 0.2623
 [node name="TeleportPoint" parent="SceneLoaderbathroom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.798045, 1.12732, -2.94097)
 
+[node name="MeshInstance3D" parent="SceneLoaderbathroom/TeleportPoint" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.06286, 0)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
 [editable path="WallLamps/WallLamp2"]
@@ -715,5 +717,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.798045, 1.12732, -2.94097)
 [editable path="Windows/ArchWindow2"]
 [editable path="Chandeliers/Chandelier"]
 [editable path="SceneLoaderEntranceToPartyRoom"]
-[editable path="SceneLoader"]
+[editable path="SceneLoader kitchen"]
 [editable path="SceneLoaderbathroom"]
