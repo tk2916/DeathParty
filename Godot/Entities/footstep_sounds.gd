@@ -1,4 +1,7 @@
-extends FmodEventEmitter3D
+class_name FootstepSounds extends FmodEventEmitter3D
+
+
+var previous_position: Vector3 = global_position
 
 
 # Called when the node enters the scene tree for the first time.
@@ -7,20 +10,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(delta: float) -> void:
+	previous_position = global_position
+
 
 func play_footstep_sound() -> void:
-	# (this is called by the AnimationPlayer on the
-	# frames where the boots touch the ground)
-	
-	# check if player is holding a move input and play a footstep if they are
-	# this can probably be handled better by moving around the
-	# direction vars and just checking those instead
-	
-	# (we have to check for movement because otherwise the animation blending
-	# causes footsteps to keep playing as the player stops moving and the walk
-	# anim fades into the idle one)
-	for action in InputMap.get_actions():
-		if action.begins_with("move_") and Input.is_action_pressed(action):
-			play()
+	if global_position != position:
+		play()
