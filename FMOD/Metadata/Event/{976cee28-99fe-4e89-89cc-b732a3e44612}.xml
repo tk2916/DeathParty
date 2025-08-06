@@ -5,7 +5,7 @@
 			<value>013_SFX_SinkDrip</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ee2216ad-7676-4c73-95fd-97f287c6f46c}</destination>
@@ -267,6 +267,7 @@
 	<object class="MixerBusEffectChain" id="{c9eeb077-5503-41fc-bac4-b067dc5883ef}">
 		<relationship name="effects">
 			<destination>{424d8c96-2922-45d3-b9ea-fbf3cf464062}</destination>
+			<destination>{970291ae-6aa6-4491-8361-4c2707ef2b1b}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a98cd800-8f66-4ee0-a2e9-f901ed5eb00d}" />
@@ -328,6 +329,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{424d8c96-2922-45d3-b9ea-fbf3cf464062}" />
+	<object class="SpatialiserEffect" id="{970291ae-6aa6-4491-8361-4c2707ef2b1b}">
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{6a301aa1-9a64-46c7-950e-c097eb6df6ca}">
 		<property name="position">
 			<value>0</value>

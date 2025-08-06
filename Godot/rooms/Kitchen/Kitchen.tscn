@@ -1,6 +1,6 @@
 [gd_scene load_steps=75 format=4 uid="uid://cjo88oqrqtxdm"]
 
-[ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
+[ext_resource type="Script" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bwam0r715obls" path="res://Assets/props/alcohol/beer_box/Beer box.glb" id="1_htgpp"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="2_kbocy"]
@@ -1201,6 +1201,12 @@ light_color = Color(1, 0, 0.216667, 1)
 light_energy = 30.0
 shadow_opacity = 0.84
 omni_range = 3.654
+
+[node name="ElectricalHum" type="FmodEventEmitter3D" parent="Props/NeonSign"]
+event_name = "event:/000_SFX/000_Demo_Test/012_SFX_ElectricHum"
+event_guid = "{5400becd-0db7-41ef-9585-f90cc8bc9bad}"
+autoplay = true
+volume = 0.5
 
 [node name="Posters" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48306, 2.14708, -5.89583)
