@@ -42,7 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://d3lt3kgvcji47" path="res://Assets/props/balloons/balloons_four_short.tscn" id="40_obdan"]
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="41_nbcih"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="42_fh3n2"]
-[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
+[ext_resource type="PackedScene" uid="uid://gu7mwgusye5o" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
 [ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
@@ -1002,7 +1002,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.403
 scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
 
-[node name="CollisionShape3D" parent="SceneLoaderLibraryToPartyRoom" index="1"]
+[node name="CollisionShape3D" parent="SceneLoaderLibraryToPartyRoom" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57187, 0.747803, -1.67758)
 
 [node name="Lights" type="Node3D" parent="."]
