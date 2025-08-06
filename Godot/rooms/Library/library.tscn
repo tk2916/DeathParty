@@ -1,6 +1,6 @@
-[gd_scene load_steps=100 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=101 format=4 uid="uid://d3cv36i34m681"]
 
-[ext_resource type="Script" path="res://rooms/Library/library.gd" id="1_508o3"]
+[ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -987,6 +987,26 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wa8ra")
 
+[sub_resource type="GDScript" id="GDScript_508o3"]
+script/source = "extends FmodEventEmitter3D
+
+
+@onready var timer: Timer = $Timer
+
+
+func _ready() -> void:
+	timer.wait_time = randf_range(20, 80)
+
+
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_timer_timeout() -> void:
+	play()
+	timer.wait_time = randf_range(20, 80)
+"
+
 [sub_resource type="FogMaterial" id="FogMaterial_obdan"]
 density = 0.1
 albedo = Color(2.76752e-07, 0.142261, 0.181713, 1)
@@ -1213,6 +1233,15 @@ skeleton = NodePath("")
 
 [node name="Railings" parent="Balcony" instance=ExtResource("2_6fo57")]
 transform = Transform3D(-4.99212, 0, 1.74137e-06, 0, 5.34422, 0, -1.62664e-06, 0, -5.34422, -2.78296, 5.34237, 16.5994)
+
+[node name="WoodCreakSound" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/009_SFX_WoodCreak"
+event_guid = "{f38bbadd-9a04-4803-8491-24000f134dfa}"
+script = SubResource("GDScript_508o3")
+
+[node name="Timer" type="Timer" parent="WoodCreakSound"]
+wait_time = 20.0
+autostart = true
 
 [node name="Bookshelves" type="Node3D" parent="."]
 
@@ -1585,6 +1614,8 @@ material = SubResource("FogMaterial_obdan")
 
 [node name="Nora" parent="." instance=ExtResource("44_j03r7")]
 transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, -4.21185, -4.41003, 0.530073)
+
+[connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 
 [editable path="SceneLoaderLibraryToPartyRoom"]
 [editable path="BackWall/Bookshelves/Upstairs"]
