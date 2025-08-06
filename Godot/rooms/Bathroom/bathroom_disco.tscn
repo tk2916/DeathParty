@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://1yet4f7pbq0m"]
+
+[ext_resource type="PackedScene" uid="uid://c0b7wj6yxm6wm" path="res://rooms/Bathroom/bathroom disco.glb" id="1_wognu"]
+
+[node name="bathroom disco" instance=ExtResource("1_wognu")]
+
+[node name="Spot" parent="." index="1"]
+transform = Transform3D(0.171835, 0.547991, 0.818644, -0.913345, -0.222778, 0.340838, 0.369152, -0.806273, 0.462224, 2.44389, -0.0598609, -0.00415659)
+visible = false
