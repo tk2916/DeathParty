@@ -35,9 +35,9 @@ import_script/path=""
 _subresources={
 "animations": {
 "Idle": {
-"save_to_file/enabled": false,
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://Assets/CharacterAssets/Olivia/animations/Idle.res",
+"save_to_file/enabled": true,
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Assets/CharacterAssets/animations/Idle.res",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -1834,9 +1834,9 @@ _subresources={
 "slices/amount": 0
 },
 "RESET": {
-"save_to_file/enabled": false,
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://Assets/CharacterAssets/Olivia/animations/RESET.res",
+"save_to_file/enabled": true,
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Assets/CharacterAssets/animations/RESET.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -3633,9 +3633,9 @@ _subresources={
 "slices/amount": 0
 },
 "Talk": {
-"save_to_file/enabled": false,
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://Assets/CharacterAssets/Olivia/animations/Talk.res",
+"save_to_file/enabled": true,
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Assets/CharacterAssets/animations/Talk.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -5432,9 +5432,9 @@ _subresources={
 "slices/amount": 0
 },
 "Turn": {
-"save_to_file/enabled": false,
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://Assets/CharacterAssets/Olivia/animations/Turn.res",
+"save_to_file/enabled": true,
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Assets/CharacterAssets/animations/Turn.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
