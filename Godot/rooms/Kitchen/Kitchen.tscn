@@ -1206,7 +1206,7 @@ omni_range = 3.654
 event_name = "event:/000_SFX/000_Demo_Test/012_SFX_ElectricHum"
 event_guid = "{5400becd-0db7-41ef-9585-f90cc8bc9bad}"
 autoplay = true
-volume = 0.25
+volume = 0.5
 
 [node name="Posters" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48306, 2.14708, -5.89583)

@@ -5,7 +5,7 @@
 			<value>012_SFX_ElectricHum</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ee2216ad-7676-4c73-95fd-97f287c6f46c}</destination>
@@ -274,6 +274,7 @@
 	<object class="MixerBusEffectChain" id="{5aae9093-c1d8-4cef-aa64-9fa8e149edfe}">
 		<relationship name="effects">
 			<destination>{a0481357-ac42-4b27-a9bb-0809558cb2d0}</destination>
+			<destination>{e6b68361-6ffa-4a64-86d8-acb2599549f6}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e8f32027-4867-46d9-9fae-e73a780f29b9}" />
@@ -332,6 +333,7 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{a0481357-ac42-4b27-a9bb-0809558cb2d0}" />
+	<object class="SpatialiserEffect" id="{e6b68361-6ffa-4a64-86d8-acb2599549f6}" />
 	<object class="AutomationPoint" id="{49007a40-bd14-4d80-94a6-76997fae8546}">
 		<property name="position">
 			<value>0</value>
