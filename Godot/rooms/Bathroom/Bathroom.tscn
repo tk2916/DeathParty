@@ -16,12 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://d2hhfivdkffuw" path="res://Assets/environment/bathroom_sink.tscn" id="13_htvqj"]
 [ext_resource type="PackedScene" uid="uid://c0b7wj6yxm6wm" path="res://rooms/Bathroom/bathroom disco.glb" id="13_uea66"]
 [ext_resource type="PackedScene" uid="uid://c1nd01uwlqaij" path="res://Assets/CharacterAssets/drug_dealer/drug_dealer.tscn" id="14_duuvr"]
-[ext_resource type="PackedScene" uid="uid://c75vy0mpx33of" path="res://Assets/props/hot_dog_stand/hot_dog_stand.glb" id="15_6xvpw"]
 [ext_resource type="PackedScene" uid="uid://cfw0wk6bmu4yf" path="res://rooms/Bathroom/fancy mirror.glb" id="17_r7br8"]
 [ext_resource type="PackedScene" uid="uid://dnjuthbkigfl0" path="res://rooms/Bathroom/tissuebox.glb" id="18_alw3p"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="19_r2w82"]
 [ext_resource type="PackedScene" uid="uid://srm6yxmh01rl" path="res://rooms/Bathroom/toilet.glb" id="20_6wfjx"]
 [ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="21_hbt0t"]
+[ext_resource type="PackedScene" uid="uid://bgjtl8sm74fd2" path="res://Assets/props/hot_dog_stand/hot_dog_stand.tscn" id="22_htvqj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -612,9 +612,6 @@ omni_range = 5.236
 [node name="drug_dealer" parent="." instance=ExtResource("14_duuvr")]
 transform = Transform3D(0.837511, 0, 0.487972, 0, 0.969299, 0, -0.487972, 0, 0.837511, -5.67725, -2.35214, 1.31915)
 
-[node name="hot_dog_stand" parent="." instance=ExtResource("15_6xvpw")]
-transform = Transform3D(-0.69411, 0, 0.676574, 0, 0.969299, 0, -0.676574, 0, -0.69411, -6.13996, -2.39737, 0.687645)
-
 [node name="fancy mirror" parent="." instance=ExtResource("17_r7br8")]
 transform = Transform3D(0.965329, 0, 0, 0, 0.965329, 0, 0, 0, 0.965329, 3.01783, 0.141108, -4.4494)
 
@@ -632,5 +629,8 @@ transform = Transform3D(0.934045, 0, 0, 0, 0.934045, 0, 0, 0, 0.934045, -4.77023
 
 [node name="bunny" parent="." instance=ExtResource("21_hbt0t")]
 transform = Transform3D(-1.21819, 0, 0.312007, 0, 1.25751, 0, -0.312007, 0, -1.21819, 3.54358, -2.39688, -1.79044)
+
+[node name="hot_dog_stand" parent="." instance=ExtResource("22_htvqj")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -6.13996, -2.39737, 0.687645)
 
 [editable path="bathroom disco"]

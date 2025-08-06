@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgjtl8sm74fd2"]
+
+[ext_resource type="PackedScene" uid="uid://c75vy0mpx33of" path="res://Assets/props/hot_dog_stand/hot_dog_stand.glb" id="1_t1ick"]
+
+[node name="hot_dog_stand" instance=ExtResource("1_t1ick")]
+
+[node name="truck" parent="." index="0"]
+lod_bias = 0.1
