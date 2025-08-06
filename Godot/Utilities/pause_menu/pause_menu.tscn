@@ -185,6 +185,7 @@ text = "no"
 [node name="ClickSound" type="FmodEventEmitter2D" parent="Audio"]
 event_name = "event:/000_SFX/000_Demo_Test/007_SFX_UIClick"
 event_guid = "{e96fe609-82c4-494e-9458-401b87f34d25}"
+volume = 0.75
 unique_name_in_owner = true
 
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
