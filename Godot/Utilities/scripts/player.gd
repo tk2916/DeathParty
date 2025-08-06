@@ -127,22 +127,6 @@ func rotate_model(delta: float) -> void:
 		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
 
 
-func play_footstep_sound() -> void:
-	# (this is called by the AnimationPlayer on the
-	# frames where the boots touch the ground)
-	
-	# check if player is holding a move input and play a footstep if they are
-	# this can probably be handled better by moving around the
-	# direction vars and just checking those instead
-	
-	# (we have to check for movement because otherwise the animation blending
-	# causes footsteps to keep playing as the player stops moving and the walk
-	# anim fades into the idle one)
-	for action in InputMap.get_actions():
-		if action.begins_with("move_") and Input.is_action_pressed(action):
-			footstep_sounds.play()
-
-
 func _on_world_boundary_body_entered(body : Node3D) -> void:
 	if body == self:
 		print("player out of bounds, resetting position . . .")

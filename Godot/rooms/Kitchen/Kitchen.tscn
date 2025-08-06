@@ -703,7 +703,7 @@ transform = Transform3D(1, 0, -1.16415e-10, 0, 1, 0, 1.16415e-10, 0, 1, 0.007521
 [node name="Cube_006" parent="Room" index="0"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, 0.0494708, -1.03363, 0.0173402)
 
-[node name="Floor" type="StaticBody3D" parent="Room"]
+[node name="Floor" type="StaticBody3D" parent="Room" groups=["material_tile"]]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -0.0494708, 1.03363, -0.0173402)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor"]
