@@ -269,7 +269,7 @@ room_area = NodePath("RoomArea")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 5.28294, 3.89569)
 shape = SubResource("BoxShape3D_nneh3")
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="." groups=["material_wood"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01929, -0.13, -11.1878)

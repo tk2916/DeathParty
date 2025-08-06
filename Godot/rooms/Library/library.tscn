@@ -1,6 +1,6 @@
 [gd_scene load_steps=100 format=4 uid="uid://d3cv36i34m681"]
 
-[ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
+[ext_resource type="Script" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -1054,7 +1054,7 @@ spot_range = 19.152
 spot_attenuation = -0.49
 spot_angle = 19.94
 
-[node name="floor" type="StaticBody3D" parent="."]
+[node name="floor" type="StaticBody3D" parent="." groups=["material_wood"]]
 transform = Transform3D(-0.140782, 0, -6.98784e-08, 0, 0.187118, 0, 4.58725e-08, 0, -0.214455, -6.0559, -0.34643, 2.42161)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
@@ -1066,7 +1066,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, -1.13687e-13, 0, 1, 0, 1.13687e-13, 0, 1, 0.534134, -22.1713, 2.42637)
 shape = SubResource("BoxShape3D_yidfh")
 
-[node name="carpet" parent="floor" instance=ExtResource("13_1lqw2")]
+[node name="carpet" parent="floor" groups=["material_carpet"] instance=ExtResource("13_1lqw2")]
 transform = Transform3D(-2.9369, 0, 9.56965e-07, 0, 2.92642, 0, -8.31998e-07, 0, -2.55338, -10.0396, -21.5728, -0.537831)
 
 [node name="LeftWall" type="Node3D" parent="."]
