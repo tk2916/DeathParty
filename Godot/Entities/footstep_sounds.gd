@@ -18,11 +18,12 @@ func _physics_process(_delta: float) -> void:
 func play_footstep_sound() -> void:
 	# use the raycast to get the surface the character is standing on
 	var surface: Node3D = ray_cast.get_collider()
+	#print("surface: ", surface)
+
 	var surface_groups: Array
 
 	# get all the groups the surface node is in
 	if surface:
-		#print("surface: ", surface)
 		surface_groups = surface.get_groups()
 		#print("surface groups: ", surface_groups)
 
@@ -30,7 +31,7 @@ func play_footstep_sound() -> void:
 
 	# if the surface is in a group starting with "material_",
 	# store the name of the material
-	for group in surface_groups:
+	for group: String in surface_groups:
 		if group.begins_with("material"):
 			surface_material = group.trim_prefix("material_")
 			#print("surface material: ", surface_material)
