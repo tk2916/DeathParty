@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cf7gkb37rdvf1" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers/pumpkin with beers.glb" id="1_hjxcw"]
 
 [node name="PumpkinWithBeers" instance=ExtResource("1_hjxcw")]
+
+[node name="Object_234_001" parent="." index="0"]
+lod_bias = 0.1

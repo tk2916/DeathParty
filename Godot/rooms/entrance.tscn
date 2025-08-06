@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=58 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -35,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://dp8mxgak36ovb" path="res://Assets/CharacterAssets/Caleb/caleb.tscn" id="35_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="35_nneh3"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
+[ext_resource type="PackedScene" uid="uid://c1nd01uwlqaij" path="res://Assets/CharacterAssets/drug_dealer/drug_dealer.tscn" id="36_gfuhi"]
+[ext_resource type="PackedScene" uid="uid://c75vy0mpx33of" path="res://Assets/props/hot_dog_stand/hot_dog_stand.glb" id="37_0ritw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -257,8 +259,8 @@ size = Vector3(2.746, 0.043, 0.790504)
 size = Vector3(3, 2, 1)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
-density = 0.03
-albedo = Color(0.17, 0.2115, 1, 1)
+density = 0.05
+albedo = Color(0.00933332, 0, 0.28, 1)
 
 [node name="Entrance" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
@@ -659,23 +661,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87366, 5.24725, 4.8063)
 size = Vector3(21.9939, 12.4945, 22.3923)
 material = SubResource("FogMaterial_nneh3")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.911568, 0.411148, 0, -0.411148, -0.911568, 2.06323, 7.1542, -6.52839)
-light_color = Color(1, 0.352, 0.19, 1)
-light_energy = 4.089
-light_volumetric_fog_energy = 20.0
-light_specular = 0.0
-light_cull_mask = 4294966783
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_blur = 2.611
-directional_shadow_mode = 0
-directional_shadow_split_1 = 0.29
-directional_shadow_fade_start = 1.0
-directional_shadow_max_distance = 81.9
-
 [node name="Caleb" parent="." instance=ExtResource("35_gfuhi")]
 transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.678955, 0.73418, 0, -0.73418, -0.678955, -2.87887, 7.33275, -6.75585)
+light_color = Color(1, 0.304046, 0.129177, 1)
+light_energy = 80.0
+light_volumetric_fog_energy = 80.0
+shadow_enabled = true
+spot_range = 25.2
+spot_angle = 24.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.678955, 0.73418, 0, -0.73418, -0.678955, 7.21701, 7.33275, -6.75585)
+light_color = Color(1, 0.304046, 0.129177, 1)
+light_energy = 80.0
+light_volumetric_fog_energy = 80.0
+shadow_enabled = true
+spot_range = 25.2
+spot_angle = 24.0
+
+[node name="drug_dealer" parent="." instance=ExtResource("36_gfuhi")]
+transform = Transform3D(0.891742, 0, -0.452544, 0, 1, 0, 0.452544, 0, 0.891742, 4.79781, -0.0340238, 3.53103)
+
+[node name="hot_dog_stand" parent="." instance=ExtResource("37_0ritw")]
+transform = Transform3D(0.874772, 0, 0.484535, 0, 1, 0, -0.484535, 0, 0.874772, 5.81894, -0.0412288, 3.6559)
 
 [node name="SceneLoader" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)

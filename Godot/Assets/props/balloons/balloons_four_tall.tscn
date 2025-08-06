@@ -46,5 +46,6 @@ shadow_mesh = SubResource("ArrayMesh_tox3y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.241219, 0, 0, 0, -8.87953e-09, -0.257833, 0, 0.20314, -1.12702e-08, 0, 3.565, 0.1)
+lod_bias = 0.1
 mesh = SubResource("ArrayMesh_i4sxs")
 skeleton = NodePath("")

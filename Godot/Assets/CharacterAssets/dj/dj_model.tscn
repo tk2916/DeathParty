@@ -46,6 +46,9 @@ bones/29/rotation = Quaternion(-0.310002, 0.0961028, 0.0283154, 0.945442)
 bones/30/rotation = Quaternion(0.525681, 0.166956, -0.0483272, 0.832736)
 bones/31/rotation = Quaternion(0.360907, 0.115833, -0.0426699, 0.924396)
 
+[node name="DJ_002" parent="Model/Skeleton3D" index="0"]
+lod_bias = 0.25
+
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "dance"
 

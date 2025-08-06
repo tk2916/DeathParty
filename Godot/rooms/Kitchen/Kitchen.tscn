@@ -9,17 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://bce1xv0wcorsw" path="res://Assets/environment/fridge/fridge.tscn" id="5_qn7eg"]
 [ext_resource type="PackedScene" uid="uid://bxsjt7jdg8hv3" path="res://Assets/environment/kiss_the_cook_sign/Kitchen Neon sign.glb" id="6_84i0v"]
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="6_l47d5"]
-[ext_resource type="PackedScene" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
+[ext_resource type="PackedScene" uid="uid://bhe0kgbucqoad" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="7_84i0v"]
 [ext_resource type="PackedScene" uid="uid://dwtxi47usnits" path="res://Assets/props/bar/Bar.glb" id="10_6xo0a"]
-[ext_resource type="PackedScene" uid="uid://b7vveikx7vsny" path="res://Assets/props/keg/keg.glb" id="11_n7s6h"]
 [ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="12_pxkqo"]
 [ext_resource type="PackedScene" uid="uid://c1y2mld3gpxw8" path="res://Assets/props/pan.tscn" id="14_54x08"]
 [ext_resource type="PackedScene" uid="uid://doj2p1ypfieac" path="res://Assets/props/pot.tscn" id="15_htgpp"]
 [ext_resource type="PackedScene" uid="uid://bvjqxnm7cpxq0" path="res://Assets/environment/cupboard/cupboard.tscn" id="16_htgpp"]
 [ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/posters/student_athlete_poster/student_athlete_poster.glb" id="16_xg0f7"]
 [ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/posters/sunday_light_poster/sunday_light_poster.glb" id="17_jqlwo"]
-[ext_resource type="PackedScene" path="res://Assets/props/string_lights/string_lights_horizontal_bright.tscn" id="18_54x08"]
+[ext_resource type="PackedScene" uid="uid://c0775400o470y" path="res://Assets/props/string_lights/string_lights_horizontal_bright.tscn" id="18_54x08"]
 [ext_resource type="PackedScene" uid="uid://ciymie8xu8utv" path="res://Assets/props/flags/party_flags/party_flags_yellow.tscn" id="18_htgpp"]
 [ext_resource type="PackedScene" uid="uid://xgjnbxm5g4j0" path="res://Assets/props/alcohol/beer/beer.glb" id="21_l5f4f"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/props/alcohol/sunday_light/sunday light.glb" id="22_3yrsa"]
@@ -39,16 +38,17 @@
 [ext_resource type="PackedScene" uid="uid://te45o0a3h24h" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_hanging.tscn" id="31_hc0kg"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="32_obamy"]
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="33_6ieyk"]
-[ext_resource type="PackedScene" uid="uid://cnhhx5201iwk0" path="res://Assets/props/desk_lamp/Modern_Desk_Lamp.glb" id="39_h2hdd"]
+[ext_resource type="PackedScene" uid="uid://ml4kn25ykoyy" path="res://Assets/props/keg/keg.tscn" id="34_e7jho"]
 [ext_resource type="PackedScene" uid="uid://cnb05rd1rv7e7" path="res://Assets/CharacterAssets/rowan/rowan.tscn" id="41_h3uy3"]
+[ext_resource type="PackedScene" uid="uid://byj5oetmgrptr" path="res://Assets/props/desk_lamp/simple_lamp.tscn" id="42_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="42_et00h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
 size = Vector3(15, 5, 13)
 
 [sub_resource type="FogMaterial" id="FogMaterial_kbocy"]
-density = 0.2
-albedo = Color(0.239445, 0.224837, 0, 1)
+density = 0.25
+albedo = Color(0.134405, 0.125009, 6.01634e-08, 1)
 edge_fade = 0.107177
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ootlj"]
@@ -696,6 +696,9 @@ omni_range = 3.654
 [node name="Room" parent="." instance=ExtResource("1_ootlj")]
 transform = Transform3D(1, 0, -1.16415e-10, 0, 1, 0, 1.16415e-10, 0, 1, 0.00752163, -0.00630164, 0.000434397)
 
+[node name="Cube_006" parent="Room" index="0"]
+transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, 0.0494708, -1.03363, 0.0173402)
+
 [node name="Floor" type="StaticBody3D" parent="Room"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -0.0494708, 1.03363, -0.0173402)
 
@@ -1087,16 +1090,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12519, -0.278946, -2.16853
 
 [node name="LightFixture" type="MeshInstance3D" parent="LightFixtures"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -4.27512, -0.0159965, -0.0074451)
+lod_bias = 0.01
 mesh = SubResource("ArrayMesh_xispf")
 skeleton = NodePath("")
 
 [node name="LightFixture2" type="MeshInstance3D" parent="LightFixtures"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, -0.120412, -0.0159965, -0.0074451)
+lod_bias = 0.01
 mesh = SubResource("ArrayMesh_xispf")
 skeleton = NodePath("")
 
 [node name="LightFixture3" type="MeshInstance3D" parent="LightFixtures"]
 transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435, 0, -0.222464, 4.3623, -0.0159965, -0.0074451)
+lod_bias = 0.01
 mesh = SubResource("ArrayMesh_xispf")
 skeleton = NodePath("")
 
@@ -1114,26 +1120,6 @@ transform = Transform3D(0.878684, 0, 0, 0, 0.878684, 0, 0, 0, 0.878684, -0.31219
 
 [node name="Bar" parent="." instance=ExtResource("10_6xo0a")]
 transform = Transform3D(0.872326, 0, -0.488926, 0, 1, 0, 0.488926, 0, 0.872326, -5.10501, -2.30629, -2.06597)
-
-[node name="Modern desk lamp" parent="Bar" instance=ExtResource("39_h2hdd")]
-transform = Transform3D(0.0174282, 0, -0.00725821, 0, 0.0188791, 0, 0.00725821, 0, 0.0174282, 0.449571, 0.36568, -1.89671)
-visible = false
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Bar/Modern desk lamp"]
-transform = Transform3D(53.622, -21.7408, 2.43121, -16.9299, -37.1646, 41.0618, -13.8546, -38.7302, -40.7666, -1.15701, 33.1371, 12.5819)
-light_energy = 16.0
-shadow_enabled = true
-shadow_bias = 5.252
-shadow_opacity = 0.99
-shadow_blur = 0.889
-spot_range = 2.892
-spot_attenuation = 2.5
-spot_angle = 40.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Modern desk lamp"]
-transform = Transform3D(57.9128, 0, -3.8147e-06, 0, 57.9129, 0, 3.8147e-06, 0, 57.9128, 38.8296, 31.0241, 110.427)
-light_energy = 2.066
-omni_range = 1.584
 
 [node name="blue goose2" parent="Bar" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.654846, 0, -0.755762, 0, 1, 0, 0.755762, 0, 0.654846, 0.334109, 0.36635, -0.46438)
@@ -1429,17 +1415,17 @@ visible = false
 [node name="Kegs" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41068, -0.0487316, 1.02282)
 
-[node name="keg" parent="Props/Kegs" instance=ExtResource("11_n7s6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268425, -0.201374, -1.02467)
+[node name="keg" parent="Props/Kegs" instance=ExtResource("34_e7jho")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0.268425, -0.201374, -1.02467)
 
-[node name="keg2" parent="Props/Kegs" instance=ExtResource("11_n7s6h")]
-transform = Transform3D(-0.905065, 0, -0.425274, 0, 1, 0, 0.425274, 0, -0.905065, 1.48545, -0.201374, -0.396375)
+[node name="keg2" parent="Props/Kegs" instance=ExtResource("34_e7jho")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 1.48545, -0.201374, -0.396375)
 
-[node name="keg4" parent="Props/Kegs" instance=ExtResource("11_n7s6h")]
-transform = Transform3D(0.432495, 0, -0.901636, 0, 1, 0, 0.901636, 0, 0.432495, -0.964726, -0.201374, 1.61887)
+[node name="keg3" parent="Props/Kegs" instance=ExtResource("34_e7jho")]
+transform = Transform3D(-0.271654, -0.766044, 0.582563, -0.906308, -3.9616e-08, -0.422618, 0.323744, -0.642788, -0.694272, 0.811285, -0.327664, 0.490275)
 
-[node name="keg3" parent="Props/Kegs" instance=ExtResource("11_n7s6h")]
-transform = Transform3D(-0.292615, -0.739246, 0.60654, -0.905025, 0.00931996, -0.425255, 0.308716, -0.67337, -0.671764, 0.811285, -0.327664, 0.490275)
+[node name="keg4" parent="Props/Kegs" instance=ExtResource("34_e7jho")]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, -0.964726, -0.201374, 1.61887)
 
 [node name="Banner" parent="Props" instance=ExtResource("24_wf8rc")]
 transform = Transform3D(-0.627266, 0, 0.261048, 0, 1.09334, 0, -0.175407, 0, -0.933521, -10.5356, 2.43569, -5.89187)
@@ -1603,6 +1589,22 @@ transform = Transform3D(1.00847, 0, -0.858491, 0, 1.3244, 0, 0.858491, 0, 1.0084
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.4836, -2.64353, 1.23196)
 scene_going_right = "Entrance"
 
+[node name="CollisionShape3D" parent="SceneLoader" index="0"]
+transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.454394, 0.747803, -0.173068)
+
+[node name="simple lamp" parent="." instance=ExtResource("42_e7jho")]
+transform = Transform3D(0.762748, 0, 0.783338, 0, 1.09334, 0, -0.783338, 0, 0.762748, -3.98433, -1.91359, -3.40837)
+
+[node name="SpotLight3D" parent="simple lamp" index="1"]
+transform = Transform3D(-0.0641164, -0.570502, 0.81879, 0.0515789, 0.817487, 0.573633, -0.996608, 0.0790115, -0.0229884, -0.202683, 0.568085, 0.0407047)
+light_energy = 16.0
+light_volumetric_fog_energy = 10.0
+
+[node name="OmniLight3D" parent="simple lamp" index="2"]
+light_energy = 3.0
+shadow_enabled = true
+omni_range = 2.346
+omni_attenuation = 2.0
 [node name="CollisionShape3D" parent="SceneLoader" index="1"]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.00765944, 0.747803, 0.801773)
 
@@ -1611,3 +1613,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35003e-13, 0.839686, 12.20
 
 [editable path="Room"]
 [editable path="SceneLoader"]
+[editable path="simple lamp"]

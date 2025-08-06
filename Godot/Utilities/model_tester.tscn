@@ -1,6 +1,11 @@
-[gd_scene load_steps=0 format=3 uid="uid://d1ct8m7506ubx"]
+[gd_scene load_steps=2 format=3 uid="uid://d1ct8m7506ubx"]
+
+[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="1_hem7l"]
 
 [node name="ModelTester" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="PumpkinWithBeers" parent="." instance=ExtResource("1_hem7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

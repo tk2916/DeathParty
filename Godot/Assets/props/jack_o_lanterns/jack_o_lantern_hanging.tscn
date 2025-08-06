@@ -118,5 +118,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_16umd")
 
 [node name="JackOLantern" type="MeshInstance3D" parent="."]
 transform = Transform3D(-5.76016e-09, 0.0135627, -0.131276, 0, 0.155023, 0.0114851, 0.131777, 5.92846e-10, -5.73824e-09, 0, 0, 0)
+lod_bias = 0.25
 mesh = SubResource("ArrayMesh_vgkhh")
 skeleton = NodePath("")
