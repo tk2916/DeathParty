@@ -77,7 +77,7 @@ func new_item(item_name:String):
 	var instance : Node3D = model.instantiate()
 	var static_body : ObjectViewerInteractable = create_clickable_item(item_resource, instance)
 	item_instances.push_back(static_body)
-	print("Static body name: ", static_body.name)
+	#print("Static body name: ", static_body.name)
 
 func delete_item(item_name:String):
 	var position = 0
