@@ -267,7 +267,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 9.31323e-10, -4.21885e-14, -9.31323e-10, 1, -7.3328e-12, 4.81837e-14, 7.90124e-12, 0.999995, -9.49187, 2.65703, -3.92628)
 shape = SubResource("BoxShape3D_gdnwb")
 
-[node name="Landing" type="StaticBody3D" parent="."]
+[node name="Landing" type="StaticBody3D" parent="." groups=["material_wood"]]
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Landing"]
@@ -291,7 +291,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0227661, 0.0509186, 0.0592651)
 shape = SubResource("BoxShape3D_3vxeb")
 
-[node name="LeftStairs" type="StaticBody3D" parent="."]
+[node name="LeftStairs" type="StaticBody3D" parent="." groups=["material_carpet"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29098, -0.232776, 0.643276)
 collision_mask = 0
 
@@ -323,7 +323,7 @@ shape = SubResource("BoxShape3D_dl7dj")
 transform = Transform3D(0.229725, -0.601913, -0.764806, -0.0482232, 0.777818, -0.626638, 0.97206, 0.180836, 0.149658, 1.55242, 1.81774, -1.49898)
 shape = SubResource("BoxShape3D_euuoc")
 
-[node name="RightStairs" type="StaticBody3D" parent="."]
+[node name="RightStairs" type="StaticBody3D" parent="." groups=["material_carpet"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33958, -0.143257, 0.660885)
 collision_mask = 0
 
