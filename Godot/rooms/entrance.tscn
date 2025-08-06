@@ -652,7 +652,7 @@ offload_delay = 0.0
 scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
 
-[node name="CollisionShape3D" parent="SceneLoaderEntranceToPartyRoom" index="1"]
+[node name="CollisionShape3D" parent="SceneLoaderEntranceToPartyRoom" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
 shape = SubResource("BoxShape3D_gfuhi")
 
@@ -693,7 +693,15 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.071
 scene_going_right = "Kitchen"
 scene_going_left = "Kitchen"
 
-[node name="CollisionShape3D" parent="SceneLoader" index="1"]
+[node name="CollisionShape3D" parent="SceneLoader" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, 0.112685)
+
+[node name="SceneLoader bathroom" parent="." instance=ExtResource("35_nneh3")]
+transform = Transform3D(0.00612608, 0, -0.999981, 0, 1, 0, 0.999981, 0, 0.00612608, 12.727, 0, 8.4075)
+scene_going_right = "Bathroom"
+scene_going_left = "Bathroom"
+
+[node name="CollisionShape3D" parent="SceneLoader bathroom" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, 0.112685)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
@@ -705,3 +713,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, 0.1126
 [editable path="Chandeliers/Chandelier"]
 [editable path="SceneLoaderEntranceToPartyRoom"]
 [editable path="SceneLoader"]
+[editable path="SceneLoader bathroom"]
