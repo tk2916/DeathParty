@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=46 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="1_qlpr6"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://c75vy0mpx33of" path="res://Assets/props/hot_dog_stand/hot_dog_stand.glb" id="15_6xvpw"]
 [ext_resource type="PackedScene" uid="uid://ljiexrmjiqqb" path="res://rooms/Bathroom/bathroom sink.glb" id="16_5awov"]
 [ext_resource type="PackedScene" uid="uid://cfw0wk6bmu4yf" path="res://rooms/Bathroom/fancy mirror.glb" id="17_r7br8"]
+[ext_resource type="PackedScene" uid="uid://dnjuthbkigfl0" path="res://rooms/Bathroom/tissuebox.glb" id="18_alw3p"]
+[ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="19_r2w82"]
+[ext_resource type="PackedScene" uid="uid://srm6yxmh01rl" path="res://rooms/Bathroom/toilet.glb" id="20_6wfjx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -595,9 +598,21 @@ transform = Transform3D(0.837511, 0, 0.487972, 0, 0.969299, 0, -0.487972, 0, 0.8
 transform = Transform3D(-0.69411, 0, 0.676574, 0, 0.969299, 0, -0.676574, 0, -0.69411, -6.13996, -2.39737, 0.687645)
 
 [node name="bathroom sink" parent="." instance=ExtResource("16_5awov")]
-transform = Transform3D(0.931101, 0, 0, 0, 0.931101, 0, 0, 0, 0.931101, 3.26942, -1.43056, -2.83907)
+transform = Transform3D(1.01621, 0, 0, 0, 0.931101, 0, 0, 0, 0.931101, 3.18989, -1.46637, -2.83917)
 
 [node name="fancy mirror" parent="." instance=ExtResource("17_r7br8")]
-transform = Transform3D(0.932472, 0, 0, 0, 0.932472, 0, 0, 0, 0.932472, 3.05309, 0.198647, -4.4494)
+transform = Transform3D(0.965329, 0, 0, 0, 0.965329, 0, 0, 0, 0.965329, 3.01783, 0.141108, -4.4494)
+
+[node name="tissuebox" parent="." instance=ExtResource("18_alw3p")]
+transform = Transform3D(1.29289, 0, 0, 0, 1.29289, 0, 0, 0, 1.29289, 5.34513, -0.00661792, -3.07714)
+
+[node name="Trashcan" parent="." instance=ExtResource("19_r2w82")]
+transform = Transform3D(0.805545, 0, -0.0977813, 0, 0.894754, 0, 0.0977813, 0, 0.805545, 4.9036, -1.80825, -2.8243)
+
+[node name="toilet" parent="." instance=ExtResource("20_6wfjx")]
+transform = Transform3D(0.934045, 0, 0, 0, 0.934045, 0, 0, 0, 0.934045, -1.40973, -1.76603, -3.70842)
+
+[node name="toilet2" parent="." instance=ExtResource("20_6wfjx")]
+transform = Transform3D(0.934045, 0, 0, 0, 0.934045, 0, 0, 0, 0.934045, -4.77023, -1.76603, -3.70842)
 
 [editable path="bathroom disco"]
