@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=48 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -564,6 +564,32 @@ light_volumetric_fog_energy = 30.0
 shadow_enabled = true
 spot_angle = 33.5
 
+[node name="Spot_002" parent="bathroom disco" index="4"]
+light_energy = 50.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+
+[node name="Spot_003" parent="bathroom disco" index="6"]
+transform = Transform3D(0.333739, 0.925876, 0.177118, -0.469895, 0.000514512, 0.882722, 0.8172, -0.377826, 0.435237, -2.53491, -0.119762, 0.0641021)
+light_energy = 50.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+spot_angle = 29.5
+
+[node name="Spot_004" parent="bathroom disco" index="8"]
+light_energy = 50.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+
+[node name="LigthM_1_ligthm_low_0_001" parent="bathroom disco" index="10"]
+lod_bias = 0.1
+
+[node name="LigthM_1_ligthm_low_0_002" parent="bathroom disco" index="11"]
+lod_bias = 0.1
+
+[node name="LigthM_1_ligthm_low_0_004" parent="bathroom disco" index="12"]
+lod_bias = 0.1
+
 [node name="Spot_005" type="SpotLight3D" parent="bathroom disco"]
 transform = Transform3D(0.482805, -0.0306309, 0.875192, -0.874208, 0.0419901, 0.483732, -0.0515666, -0.998648, -0.00650478, 2.56014, 0.0325853, -0.122295)
 light_color = Color(0.530296, 0.729198, 1, 1)
@@ -573,23 +599,6 @@ shadow_enabled = true
 spot_range = 4096.0
 spot_angle = 18.75
 spot_angle_attenuation = 0.18
-
-[node name="Spot_002" parent="bathroom disco" index="5"]
-light_energy = 50.0
-light_volumetric_fog_energy = 30.0
-shadow_enabled = true
-
-[node name="Spot_003" parent="bathroom disco" index="7"]
-transform = Transform3D(0.333739, 0.925876, 0.177118, -0.469895, 0.000514512, 0.882722, 0.8172, -0.377826, 0.435237, -2.53491, -0.119762, 0.0641021)
-light_energy = 50.0
-light_volumetric_fog_energy = 30.0
-shadow_enabled = true
-spot_angle = 29.5
-
-[node name="Spot_004" parent="bathroom disco" index="9"]
-light_energy = 50.0
-light_volumetric_fog_energy = 30.0
-shadow_enabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, -5.7006, 0, -1.43361)
