@@ -279,7 +279,7 @@ interior = true
 light_data = ExtResource("46_qnost")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44635, 0.312047, 10.1303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.513, 0.312047, -1.25407)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
@@ -302,14 +302,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.180967, -4.96324)
 [node name="TeleportPoint" parent="Entrance/SceneLoaderEntranceToPartyRoom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113162, -4.40737)
 
-[node name="door" parent="Entrance" index="20"]
-transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.5782, 1.21599, 10.4024)
-
 [node name="SceneLoader kitchen" parent="Entrance" index="22"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0.25356, 8.12601)
-
-[node name="CollisionShape3D" parent="Entrance/SceneLoader kitchen" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, -0.155084)
 
 [node name="TeleportPoint" parent="Entrance/SceneLoader kitchen" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414903, 0.276754, -3.37467)
@@ -319,12 +313,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.265869, 0, 0)
 
 [node name="SceneLoaderbathroom" parent="Entrance" index="23"]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.9534, 0.773034, 9.16798)
-
-[node name="TeleportPoint" parent="Entrance/SceneLoaderbathroom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768415, 0.803849, -13.4831)
-
-[node name="door2" parent="Entrance" index="24"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.02401, 1.21599, 7.05969)
 
 [node name="PartyRoom" parent="." groups=["loadable_scene"] instance=ExtResource("41_gngh3")]
 transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.999999, -24.161, 0, -17.392)
@@ -555,9 +543,6 @@ transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -5.22182, 2
 
 [node name="SceneLoader to entrance" parent="Bathroom" index="1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -2.51132, 0)
-
-[node name="TeleportPoint" parent="Bathroom/SceneLoader to entrance" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34107e-07, 0.839686, -17.4454)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
