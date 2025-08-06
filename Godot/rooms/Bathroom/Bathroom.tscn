@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=37 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="1_qlpr6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://do5ja47jg3qy" path="res://rooms/Bathroom/Bathroom layout_IMG_4617.png" id="7_6xvpw"]
 [ext_resource type="Texture2D" uid="uid://dddkplho0vktg" path="res://rooms/Bathroom/Bathroom layout_standardwood.png" id="8_5awov"]
 [ext_resource type="Texture2D" uid="uid://k7mfqdmon2lt" path="res://rooms/Bathroom/Bathroom layout_graftextur.png" id="9_r7br8"]
+[ext_resource type="PackedScene" uid="uid://d0ub3da87w3lj" path="res://rooms/Bathroom/Bathroom stalls.glb" id="11_moj8i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -27,7 +28,7 @@ albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 0.757044, 0.970704, 1)
-emission_energy_multiplier = 2.76667
+emission_energy_multiplier = 6.66
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yr5lc"]
 _surfaces = [{
@@ -422,6 +423,7 @@ resource_name = "Material.042"
 cull_mode = 2
 albedo_texture = ExtResource("1_3eiq5")
 normal_enabled = true
+normal_scale = 0.1
 normal_texture = ExtResource("2_qlpr6")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vtrip"]
@@ -436,7 +438,6 @@ _surfaces = [{
 "vertex_count": 6,
 "vertex_data": PackedByteArray("AAAAAEDcAAD//wAA//8AAP//AABA3AAAAAAAAP//AAAAAAAAAAAAAP//AAAAAAAA")
 }]
-blend_shape_mode = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kve7a"]
 resource_name = "Bathroom layout_Cube_076"
@@ -457,6 +458,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vtrip")
 
 [sub_resource type="FogMaterial" id="FogMaterial_qlpr6"]
+density = 0.2
+albedo = Color(0.124839, 0.000131686, 0.36268, 1)
 
 [node name="Bathroom" type="Area3D"]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, 0, 0, 0)
@@ -508,3 +511,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07193, 0.13258, 0.90654)
 size = Vector3(13.8771, 5.07922, 11.6302)
 material = SubResource("FogMaterial_qlpr6")
+
+[node name="Bathroom stalls" parent="." instance=ExtResource("11_moj8i")]
+transform = Transform3D(0.973203, 0, 0, 0, 0.973203, 0, 0, 0, 0.973203, -3.22659, -1.4682, -2.54998)
