@@ -121,7 +121,7 @@ func load_scene(scene_name:String) -> void:
 	print("Attempting to load ", scene_name)
 	if main_node == null: return
 	if scene_name == "" or !scene_to_file.has(scene_name): 
-		assert(false, "Scene " + scene_name + " doesn't exist/isn't tagged with loadable_scene!")
+a		assert(false, "Scene " + scene_name + " doesn't exist/isn't tagged with loadable_scene!")
 		return
 	var scene : PackedScene = scene_to_file[scene_name]
 	#trying to load the currently loaded scene

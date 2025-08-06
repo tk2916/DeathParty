@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=34 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Texture2D" uid="uid://cpyd6vsbc6h2e" path="res://rooms/Bathroom/Bathroom layout_Wall 2.jpg" id="2_qlpr6"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://do5ja47jg3qy" path="res://rooms/Bathroom/Bathroom layout_IMG_4617.png" id="7_6xvpw"]
 [ext_resource type="Texture2D" uid="uid://dddkplho0vktg" path="res://rooms/Bathroom/Bathroom layout_standardwood.png" id="8_5awov"]
 [ext_resource type="Texture2D" uid="uid://k7mfqdmon2lt" path="res://rooms/Bathroom/Bathroom layout_graftextur.png" id="9_r7br8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
+size = Vector3(13.2642, 4.39355, 10.2759)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vsl4"]
 resource_name = "Material.043"
@@ -452,7 +455,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vtrip")
 
-[node name="Bathroom" type="Area3D" groups=["loadable_scene"]]
+[node name="Bathroom" type="Area3D"]
+
+[node name="RoomArea" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11203, -0.146205, 0.0554049)
+shape = SubResource("BoxShape3D_qlpr6")
 
 [node name="Plane_014" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12358, 2.01022, 0.28027)
