@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8kaqd0dtqsp1"]
+[gd_scene load_steps=11 format=3 uid="uid://b8kaqd0dtqsp1"]
 
 [ext_resource type="Script" uid="uid://btdxsedihjw8m" path="res://Utilities/scripts/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://xmpgbqfcvdsh" path="res://Assets/CharacterAssets/olivia/olivia_model.tscn" id="2_gb1tc"]
+[ext_resource type="Script" uid="uid://cs01ojctwo1d3" path="res://Entities/footstep_sounds.gd" id="3_xd3k7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gb1tc"]
 radius = 0.2
@@ -61,5 +62,6 @@ parameters/TimeScale/scale = 1.0
 [node name="FootstepSounds" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/footsteps"
 event_guid = "{a434b914-a600-404d-b1ec-780f1a8849c1}"
+script = ExtResource("3_xd3k7")
 
 [editable path="PlayerModel"]
