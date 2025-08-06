@@ -279,7 +279,7 @@ interior = true
 light_data = ExtResource("46_qnost")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44633, 0.309486, 10.1306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44635, 0.312047, 10.1303)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
@@ -595,3 +595,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34107e-07, 0.839686, -17.44
 [editable path="Bathroom"]
 [editable path="Bathroom/SceneLoader to entrance"]
 [editable path="Bathroom/bathroom disco"]
+[editable path="Bathroom/walllamp"]
+[editable path="Bathroom/walllamp2"]
