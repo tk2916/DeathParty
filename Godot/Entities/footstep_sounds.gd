@@ -2,18 +2,14 @@ class_name FootstepSounds extends FmodEventEmitter3D
 
 
 var previous_position: Vector3 = global_position
+var speed: Vector3
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	speed = global_position - previous_position
 	previous_position = global_position
 
 
 func play_footstep_sound() -> void:
-	if global_position != position:
+	if speed != Vector3.ZERO:
 		play()
