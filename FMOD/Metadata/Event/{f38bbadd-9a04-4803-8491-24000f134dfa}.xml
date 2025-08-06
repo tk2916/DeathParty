@@ -5,7 +5,7 @@
 			<value>009_SFX_WoodCreak</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ee2216ad-7676-4c73-95fd-97f287c6f46c}</destination>
@@ -108,8 +108,14 @@
 	<object class="MixerBusPanner" id="{7fd57b74-6c54-4764-bde5-100b7ad16aee}" />
 	<object class="SingleSound" id="{7c7fd4bb-d9a8-4cd8-817b-b7eb10acdcee}">
 		<property name="length">
-			<value>3.0826666666666669</value>
+			<value>5.492687563574572</value>
 		</property>
+		<property name="pitch">
+			<value>-10</value>
+		</property>
+		<relationship name="fadeOutCurve">
+			<destination>{2aedea6d-1faf-43af-8b8a-e3f6f31dff9b}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{a9784c5e-45c8-4a54-a6a7-65408edee50d}</destination>
 		</relationship>
@@ -178,10 +184,19 @@
 	<object class="MixerBusEffectChain" id="{416e6bf5-2c2c-4c99-8af1-6a71c3214000}">
 		<relationship name="effects">
 			<destination>{996bc666-08d9-45d5-b230-9f9e0d192f5c}</destination>
+			<destination>{919e8f66-9597-4c16-86a1-3a41de25b78c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{cc210cb2-21e3-44af-8921-4d0f79b3e45f}" />
 	<object class="MixerBusFader" id="{22d8c932-4d2e-4c21-8f0c-da811a634596}" />
+	<object class="FadeCurve" id="{2aedea6d-1faf-43af-8b8a-e3f6f31dff9b}">
+		<relationship name="startPoint">
+			<destination>{16da8e13-0413-4678-a1bd-92762f22c2e3}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{26fb0272-e37f-4f9f-8aa8-7c45e23f24ae}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{00a3bf2b-5e75-4758-87da-c872bacbc301}">
 		<relationship name="effects">
 			<destination>{3a25bd26-f2f6-451e-9678-dddf34dff786}</destination>
@@ -202,6 +217,26 @@
 	</object>
 	<object class="MixerBusPanner" id="{278510cc-1947-47b1-9616-f8acc0eb93a4}" />
 	<object class="MixerBusFader" id="{996bc666-08d9-45d5-b230-9f9e0d192f5c}" />
+	<object class="SpatialiserEffect" id="{919e8f66-9597-4c16-86a1-3a41de25b78c}" />
+	<object class="AutomationPoint" id="{16da8e13-0413-4678-a1bd-92762f22c2e3}">
+		<property name="position">
+			<value>3.5</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.25471893</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{26fb0272-e37f-4f9f-8aa8-7c45e23f24ae}">
+		<property name="position">
+			<value>5.492687563574572</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MultibandEqEffect" id="{3a25bd26-f2f6-451e-9678-dddf34dff786}">
 		<property name="filterTypeA">
 			<value>8</value>
