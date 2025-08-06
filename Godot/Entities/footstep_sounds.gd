@@ -33,7 +33,7 @@ func play_footstep_sound() -> void:
 	for group in surface_groups:
 		if group.begins_with("material"):
 			surface_material = group.trim_prefix("material_")
-			print("surface material: ", surface_material)
+			#print("surface material: ", surface_material)
 			break
 
 	# set the fmod land texture parameter based on the surface material
