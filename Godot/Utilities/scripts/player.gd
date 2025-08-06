@@ -24,13 +24,15 @@ var blend_speed : float = 8
 var walk_blend : float = 0
 var current_animation : AnimationState = AnimationState.IDLE
 
+var movement_disabled : bool = false
+
 
 func _ready() -> void:
 	original_camera_position = player_camera_location.position
 
 
 func _physics_process(delta : float) -> void:
-	if DialogueSystem.in_dialogue or GuiSystem.in_gui:
+	if DialogueSystem.in_dialogue or GuiSystem.in_gui or movement_disabled:
 		player_velocity = Vector3.ZERO
 		handle_animations(delta)
 		return

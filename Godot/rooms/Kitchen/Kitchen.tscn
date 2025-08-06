@@ -41,7 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="33_6ieyk"]
 [ext_resource type="PackedScene" uid="uid://cnhhx5201iwk0" path="res://Assets/props/desk_lamp/Modern_Desk_Lamp.glb" id="39_h2hdd"]
 [ext_resource type="PackedScene" uid="uid://cnb05rd1rv7e7" path="res://Assets/CharacterAssets/rowan/rowan.tscn" id="41_h3uy3"]
-[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://scene_loader.tscn" id="42_et00h"]
+[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="42_et00h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
 size = Vector3(15, 5, 13)
@@ -1604,7 +1604,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.4448
 scene_going_right = "Entrance"
 
 [node name="CollisionShape3D" parent="SceneLoader" index="0"]
-transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.00765991, 0.747803, 0.0436192)
+transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.00765944, 0.747803, 0.801773)
 
 [editable path="Room"]
 [editable path="SceneLoader"]
