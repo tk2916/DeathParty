@@ -1600,11 +1600,14 @@ transform = Transform3D(0.274326, 0, -0.793551, 0, 0.83963, 0, 0.793551, 0, 0.27
 transform = Transform3D(1.00847, 0, -0.858491, 0, 1.3244, 0, 0.858491, 0, 1.00847, 3.60612, -3.0926, -0.911231)
 
 [node name="SceneLoader" parent="." instance=ExtResource("42_et00h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.44481, -2.64353, 1.23196)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.4836, -2.64353, 1.23196)
 scene_going_right = "Entrance"
 
-[node name="CollisionShape3D" parent="SceneLoader" index="0"]
+[node name="CollisionShape3D" parent="SceneLoader" index="1"]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.00765944, 0.747803, 0.801773)
+
+[node name="TeleportPoint" parent="SceneLoader" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35003e-13, 0.839686, 12.2055)
 
 [editable path="Room"]
 [editable path="SceneLoader"]

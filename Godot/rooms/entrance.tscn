@@ -677,6 +677,14 @@ directional_shadow_max_distance = 81.9
 [node name="Caleb" parent="." instance=ExtResource("35_gfuhi")]
 transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
 
+[node name="SceneLoader" parent="." instance=ExtResource("35_nneh3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)
+scene_going_right = "Kitchen"
+scene_going_left = "Kitchen"
+
+[node name="CollisionShape3D" parent="SceneLoader" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, 0.112685)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
 [editable path="WallLamps/WallLamp2"]
@@ -685,3 +693,4 @@ transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.90
 [editable path="Windows/ArchWindow2"]
 [editable path="Chandeliers/Chandelier"]
 [editable path="SceneLoaderEntranceToPartyRoom"]
+[editable path="SceneLoader"]
