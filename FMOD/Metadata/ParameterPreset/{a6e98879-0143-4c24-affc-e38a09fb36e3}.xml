@@ -19,11 +19,11 @@
 			<value>5</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>Concrete</value>
-			<value>Carpet</value>
-			<value>Tile</value>
-			<value>Wood</value>
-			<value>Grass</value>
+			<value>concrete</value>
+			<value>carpet</value>
+			<value>tile</value>
+			<value>wood</value>
+			<value>grass</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>
