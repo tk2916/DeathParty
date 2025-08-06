@@ -22,7 +22,6 @@ func _ready() -> void:
 	if teleport_pos == Vector3(-1,-1,-1):
 		teleport_pos = teleport_point.global_position
 	#print("Sceneloader ready, teleport left: ", position_left)
-	color_rect.modulate.a = 0
 	
 	print("Scene going left: ", self.name, scene_going_left)
 	#print("Teleport left: ", position_left)
