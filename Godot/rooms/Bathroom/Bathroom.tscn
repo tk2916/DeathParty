@@ -37,7 +37,7 @@ cull_mode = 2
 albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
 emission_enabled = true
 emission = Color(1, 0.757044, 0.970704, 1)
-emission_energy_multiplier = 4.0
+emission_energy_multiplier = 6.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yr5lc"]
 _surfaces = [{
@@ -468,7 +468,7 @@ shadow_mesh = SubResource("ArrayMesh_vtrip")
 
 [sub_resource type="FogMaterial" id="FogMaterial_qlpr6"]
 density = 0.2
-albedo = Color(0.427007, 0.3276, 0.52, 1)
+albedo = Color(0.381767, 0.234, 0.52, 1)
 
 [node name="Bathroom" type="Area3D"]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, 0, 0, 0)
@@ -554,7 +554,7 @@ spot_range = 9.19
 
 [node name="Spot_001" parent="bathroom disco" index="2"]
 transform = Transform3D(0.699638, -0.259043, 0.665886, -0.676833, 0.0583084, 0.733824, -0.228918, -0.964104, -0.134534, 2.56014, -0.145454, 0.0216799)
-light_energy = 30.0
+light_energy = 50.0
 light_volumetric_fog_energy = 30.0
 shadow_enabled = true
 spot_angle = 33.5
@@ -562,7 +562,7 @@ spot_angle = 33.5
 [node name="Spot_005" type="SpotLight3D" parent="bathroom disco"]
 transform = Transform3D(0.482805, -0.0306309, 0.875192, -0.874208, 0.0419901, 0.483732, -0.0515666, -0.998648, -0.00650478, 2.56014, 0.0325853, -0.122295)
 light_color = Color(0.530296, 0.729198, 1, 1)
-light_energy = 30.0
+light_energy = 50.0
 light_volumetric_fog_energy = 30.0
 shadow_enabled = true
 spot_range = 4096.0
@@ -570,19 +570,19 @@ spot_angle = 18.75
 spot_angle_attenuation = 0.18
 
 [node name="Spot_002" parent="bathroom disco" index="5"]
-light_energy = 30.0
+light_energy = 50.0
 light_volumetric_fog_energy = 30.0
 shadow_enabled = true
 
 [node name="Spot_003" parent="bathroom disco" index="7"]
 transform = Transform3D(0.333739, 0.925876, 0.177118, -0.469895, 0.000514512, 0.882722, 0.8172, -0.377826, 0.435237, -2.53491, -0.119762, 0.0641021)
-light_energy = 30.0
+light_energy = 50.0
 light_volumetric_fog_energy = 30.0
 shadow_enabled = true
 spot_angle = 29.5
 
 [node name="Spot_004" parent="bathroom disco" index="9"]
-light_energy = 30.0
+light_energy = 50.0
 light_volumetric_fog_energy = 30.0
 shadow_enabled = true
 
