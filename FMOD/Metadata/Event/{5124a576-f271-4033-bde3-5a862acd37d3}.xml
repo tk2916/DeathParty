@@ -107,6 +107,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{29440a52-8ec2-4879-99b3-1bbbc95809db}">
+		<property name="volume">
+			<value>5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{8dbe6b74-f236-47d2-af6f-55df41554ef3}</destination>
 		</relationship>
@@ -392,7 +395,7 @@
 			<value>1</value>
 		</property>
 		<property name="soundSize">
-			<value>50</value>
+			<value>30</value>
 		</property>
 	</object>
 	<object class="ProxyEffect" id="{9d77c6a4-01b0-4010-95df-f96e641f3dfa}">

@@ -1604,7 +1604,7 @@ transform = Transform3D(-1.40787, 0.0652232, -0.783576, -0.572475, -1.18663, 0.9
 event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
 autoplay = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
 
 [node name="Sam" parent="." instance=ExtResource("43_obdan")]
 transform = Transform3D(0.988015, 0, 0.500924, 0, 1.10774, 0, -0.500924, 0, 0.988015, -5.80014, -4.36304, 2.33793)
