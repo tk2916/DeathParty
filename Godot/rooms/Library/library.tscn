@@ -1025,6 +1025,7 @@ shape = SubResource("BoxShape3D_obdan")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -3.8112, 7.39135)
 scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
+play_door_sound = true
 
 [node name="CollisionShape3D" parent="SceneLoaderLibraryToPartyRoom" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57187, 0.747803, -1.67758)
