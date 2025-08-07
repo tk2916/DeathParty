@@ -6,9 +6,10 @@ class_name SceneLoader extends Area3D
 @export var offload_delay : float = 2.0
 @export var scene_going_right : String
 @export var scene_going_left : String
-@export var door_sound: bool = false
+@export var play_door_sound: bool = false
 
 @onready var color_rect : ColorRect = $CanvasLayer/ColorRect
+@onready var door_sound: FmodEventEmitter3D = %DoorSound
 
 var teleport_pos : Vector3 = Vector3(-1,-1,-1)
 
