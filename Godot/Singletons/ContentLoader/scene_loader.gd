@@ -54,7 +54,9 @@ func _on_body_entered(body: Node3D) -> void:
 		
 	if teleport_player:
 		loading_screen_on(teleport_pos)
-		door_sound.play()
+
+		if play_door_sound:
+			door_sound.play()
 
 
 func _on_body_exited(body: Node3D) -> void:
