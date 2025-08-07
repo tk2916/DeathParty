@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cquq11cila5gi" path="res://Assets/JournalTextures/max_page_2.png" id="5_pumia"]
 [ext_resource type="PackedScene" uid="uid://csrnib2iw1f4u" path="res://drag_and_drop_polaroids_test.tscn" id="6_m4qnh"]
 [ext_resource type="Texture2D" uid="uid://qrmyl6gi72sv" path="res://Assets/JournalTextures/max_page_4.png" id="7_rr134"]
-[ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
+[ext_resource type="Script" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
 vertex_color_use_as_albedo = true
@@ -153,23 +153,27 @@ bookflip_instance = NodePath("../bookflip")
 [node name="ShowInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/311_SFX_UI_BagOpen"
 event_guid = "{5d531e04-a10a-46f9-8522-9d0137defd96}"
+volume = 0.5
 unique_name_in_owner = true
 
 [node name="HideInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/310_SFX_UI_BagClose"
 event_guid = "{69c3d9f1-cb46-4217-817c-0a5e223ab1e1}"
+volume = 0.5
 unique_name_in_owner = true
 
 [node name="JournalOpenSound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/302_SFX_UI_JournalOpen"
 event_guid = "{30f0e84f-546b-4951-8546-610e533ebe87}"
 attached = false
+volume = 0.5
 unique_name_in_owner = true
 
 [node name="JournalCloseSound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/301_SFX_UI_JournalClose"
 event_guid = "{9355ad2b-58c5-4861-8f53-fe56b2894e62}"
 attached = false
+volume = 0.5
 unique_name_in_owner = true
 
 [node name="BackpackBackground" type="MeshInstance3D" parent="."]

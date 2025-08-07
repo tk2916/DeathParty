@@ -31,7 +31,7 @@ mesh = SubResource("BoxMesh_qelyj")
 event_name = "event:/door"
 event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
 attached = false
-volume = 0.25
+volume = 0.3
 unique_name_in_owner = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
