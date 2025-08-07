@@ -5,7 +5,7 @@
 			<value>door</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2eaff166-939c-4264-a05d-2dfe42472786}</destination>
@@ -118,7 +118,6 @@
 	<object class="MixerBusEffectChain" id="{270de029-83d9-41ce-9d25-1fd1e1d18616}">
 		<relationship name="effects">
 			<destination>{0098a5bf-91e2-457c-929b-40c464465baf}</destination>
-			<destination>{7e24d718-5912-4fb0-a627-dc1ae4afd6d7}</destination>
 			<destination>{5df77fc0-9bf4-4e9d-98c5-ab2b6074f459}</destination>
 		</relationship>
 	</object>
@@ -182,7 +181,6 @@
 	</object>
 	<object class="MixerBusFader" id="{baf80758-9686-410d-a5de-aa887e836c3b}" />
 	<object class="MixerBusFader" id="{0098a5bf-91e2-457c-929b-40c464465baf}" />
-	<object class="SpatialiserEffect" id="{7e24d718-5912-4fb0-a627-dc1ae4afd6d7}" />
 	<object class="SFXReverbEffect" id="{5df77fc0-9bf4-4e9d-98c5-ab2b6074f459}">
 		<property name="decayTime">
 			<value>400</value>
