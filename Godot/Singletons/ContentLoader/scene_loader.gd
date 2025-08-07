@@ -1,12 +1,15 @@
 class_name SceneLoader extends Area3D
 
+
 @export var disabled_on_first_pass : bool = false
 @export var teleport_player : bool = true
 @export var offload_delay : float = 2.0
 @export var scene_going_right : String
 @export var scene_going_left : String
+@export var play_door_sound: bool = false
 
 @onready var color_rect : ColorRect = $CanvasLayer/ColorRect
+@onready var door_sound: FmodEventEmitter3D = %DoorSound
 
 var teleport_pos : Vector3 = Vector3(-1,-1,-1)
 
@@ -52,17 +55,23 @@ func _on_body_entered(body: Node3D) -> void:
 	if teleport_player:
 		loading_screen_on(teleport_pos)
 
+		if play_door_sound:
+			door_sound.play()
+
+
 func _on_body_exited(body: Node3D) -> void:
 	if !(body.is_in_group("player")): return
 	player_touched = false
 	await get_tree().create_timer(offload_delay).timeout #wait a bit so the player doesn't see it being unloaded
 	ContentLoader.offload_old_scenes()
-	
+
+
 func loading_screen_on(new_global_position : Vector3):
 	print("Loading screen on")
 	var tween : Tween = ContentLoader.fade_loading_screen_in(1)
 	tween.tween_callback(loading_screen_off.bind(new_global_position))
-	
+
+
 func loading_screen_off(new_global_position : Vector3):
 	print("Teleporting player to: ", new_global_position)
 	player.global_position = new_global_position

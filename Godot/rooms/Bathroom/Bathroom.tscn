@@ -496,6 +496,7 @@ shape = SubResource("BoxShape3D_qlpr6")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
 scene_going_right = "Entrance"
 scene_going_left = "Entrance"
+play_door_sound = true
 
 [node name="TeleportPoint" parent="SceneLoader to entrance" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34107e-07, 0.839686, -17.4454)
