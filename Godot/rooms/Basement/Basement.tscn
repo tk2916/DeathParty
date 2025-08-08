@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=68 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b7hdemy013yw5" path="res://rooms/Basement/DDR.glb" id="17_780xq"]
 [ext_resource type="PackedScene" uid="uid://dklyqnksqstxi" path="res://rooms/Basement/arcade.glb" id="18_7eb3f"]
 [ext_resource type="PackedScene" uid="uid://bfsk7udiphl1k" path="res://rooms/Basement/standing_lamp.tscn" id="19_gmle0"]
+[ext_resource type="PackedScene" uid="uid://d0qviybdp0h2g" path="res://Assets/props/speaker/speaker.tscn" id="20_nngqx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -983,3 +984,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07153, 1.26083, -4.3489)
 
 [node name="standing lamp2" parent="." instance=ExtResource("19_gmle0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.857364, 1.26083, -4.3489)
+
+[node name="Speaker" parent="." instance=ExtResource("20_nngqx")]
+transform = Transform3D(-0.701151, 0, 0.0502468, 0, 0.808011, 0, -0.0502468, 0, -0.701151, -0.144429, 0.298317, -3.75863)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.352477, 0.729376, -0.58632, 0.199292, 0.553654, 0.808548, 0.914353, -0.401844, 0.0497918, -5.96949, 3.71235, -3.56116)
+light_color = Color(0.633333, 0, 1, 1)
+light_energy = 70.0
+light_volumetric_fog_energy = 70.0
+shadow_enabled = true
+shadow_opacity = 0.81
+spot_range = 12.377
+spot_angle = 12.69
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.305374, 0.604638, -0.735636, 0.26501, 0.688053, 0.675538, 0.914613, -0.401243, 0.0498782, -7.69402, 4.14462, -3.56116)
+light_color = Color(0, 0.316667, 1, 1)
+light_energy = 100.0
+light_volumetric_fog_energy = 100.0
+shadow_opacity = 0.81
+spot_range = 12.377
+spot_angle = 12.69
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(0.344022, 0.726636, -0.594685, 0.196428, 0.563635, 0.802329, 0.918186, -0.392832, 0.0511709, -6.4534, 4.14462, -3.56116)
+light_color = Color(0, 0.916667, 1, 1)
+light_energy = 50.0
+light_volumetric_fog_energy = 50.0
+shadow_opacity = 0.81
+spot_range = 12.377
+spot_angle = 12.69
+
+[node name="Speaker2" parent="." instance=ExtResource("20_nngqx")]
+transform = Transform3D(-0.446003, 0, -0.54334, 0, 0.808011, 0, 0.54334, 0, -0.446003, 3.88528, 0.298317, -3.75863)
