@@ -8,7 +8,7 @@ emission_box_extents = Vector3(1, 1, 1)
 direction = Vector3(0, 0, 0)
 spread = 180.0
 initial_velocity_min = 0.25
-initial_velocity_max = 1.25
+initial_velocity_max = 0.5
 gravity = Vector3(0, -0.05, 0)
 damping_min = 0.05
 damping_max = 0.05
@@ -19,15 +19,22 @@ turbulence_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8etm"]
 transparency = 1
 albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="SphereMesh" id="SphereMesh_d8etm"]
 material = SubResource("StandardMaterial3D_d8etm")
-radius = 0.007
-height = 0.014
+radius = 0.004
+height = 0.008
+radial_segments = 12
+rings = 12
 
 [node name="Dust" type="GPUParticles3D"]
-amount = 500
-lifetime = 5.0
+gi_mode = 2
+amount = 300
+lifetime = 4.0
 preprocess = 2.0
 speed_scale = 0.25
 randomness = 0.25
