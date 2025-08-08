@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=36 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dijllg5x7mlpw" path="res://rooms/bedroom/bed.glb" id="5_rbtdn"]
 [ext_resource type="PackedScene" uid="uid://ccdvf3dyy0lwq" path="res://rooms/bedroom/star carpet.glb" id="6_50ggb"]
 [ext_resource type="PackedScene" uid="uid://b8ucr48tcuk2p" path="res://rooms/bedroom/dorm desk.glb" id="7_7a5mm"]
+[ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="8_8bc0i"]
+[ext_resource type="PackedScene" uid="uid://bjlg5o0t38qqs" path="res://rooms/bedroom/shoe rack.glb" id="9_l0p45"]
+[ext_resource type="PackedScene" uid="uid://dg5lud6e674m5" path="res://rooms/bedroom/dorm bookshelf.glb" id="10_0aena"]
+[ext_resource type="PackedScene" uid="uid://ftb0qukctuch" path="res://rooms/bedroom/bed shelf.glb" id="11_k241v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.28317, 3.2551, 5.78491)
@@ -379,7 +383,7 @@ mesh = SubResource("ArrayMesh_sokvp")
 skeleton = NodePath("")
 
 [node name="floor" type="StaticBody3D" parent="."]
-transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.163027, 0.788694, 1.41961)
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.163027, 0.746751, 1.41961)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
 transform = Transform3D(1, 0, 0, 0, 0.999904, 0, 0, 0, 1, -0.135777, -0.999505, 0.0552955)
@@ -411,3 +415,15 @@ transform = Transform3D(1.14277, 0, 0, 0, 1.14277, 0, 0, 0, 1.14277, 0.137042, 0
 
 [node name="dorm desk" parent="." instance=ExtResource("7_7a5mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16856, 0.479424, -0.573044)
+
+[node name="dorm chair" parent="." instance=ExtResource("8_8bc0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96153, 0.575425, 0.0296352)
+
+[node name="shoe rack" parent="." instance=ExtResource("9_l0p45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56799, 0.356955, 3.73264)
+
+[node name="dorm bookshelf" parent="." instance=ExtResource("10_0aena")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9219, 1.40266, 2.56387)
+
+[node name="bed shelf" parent="." instance=ExtResource("11_k241v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477808, 0.91408, -0.951489)

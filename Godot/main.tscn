@@ -286,7 +286,7 @@ collision_mask = 1
 floor_constant_speed = true
 
 [node name="PlayerCameraLocation" parent="Player" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70938, 8.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42401, 7.19858)
 
 [node name="Skeleton3D" parent="Player/PlayerModel/Model" index="0"]
 bones/0/position = Vector3(0.0295796, -0.0804331, -9.32385)
