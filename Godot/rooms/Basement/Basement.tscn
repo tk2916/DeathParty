@@ -1313,7 +1313,7 @@ transform = Transform3D(-0.182731, 0, -0.254795, 0, 0.492083, 0, 0.254795, 0, -0
 transform = Transform3D(0.120934, 0, -0.992661, 0, 1, 0, 0.992661, 0, 0.120934, -6.51766, 1.91201, -2.51796)
 
 [node name="DIE flag2" parent="." instance=ExtResource("45_x2dx7")]
-transform = Transform3D(-0.999562, 0, -0.0295964, 0, 1, 0, 0.0295964, 0, -0.999562, 9.27197, 2.12555, 2.5099)
+transform = Transform3D(-0.999562, 0, -0.0295964, 0, 1, 0, 0.0295964, 0, -0.999562, 9.27197, 1.91201, 2.20991)
 
 [editable path="DDR"]
 [editable path="walllamp"]
