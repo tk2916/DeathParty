@@ -352,7 +352,7 @@ density = 0.2
 albedo = Color(0.292251, 0.00104838, 0.609301, 1)
 emission = Color(0.0467014, 2.51483e-06, 0.277994, 1)
 
-[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area")]
+[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 script = ExtResource("1_lxtj2")
 room_area = NodePath("RoomArea")
