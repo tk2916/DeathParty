@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=90 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -32,6 +32,16 @@
 [ext_resource type="PackedScene" uid="uid://bij3bw4s6epdt" path="res://rooms/Basement/caution tape.glb" id="30_lgro0"]
 [ext_resource type="PackedScene" uid="uid://cn6shp7xdi6q5" path="res://Assets/props/posters/enjoy_poster/enjoy_poster.glb" id="30_p6v3q"]
 [ext_resource type="PackedScene" uid="uid://bw2herdlwxvnh" path="res://rooms/Basement/bean bag.glb" id="32_hcwc4"]
+[ext_resource type="PackedScene" uid="uid://bdcfyi83q8umf" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
+[ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="34_u8b43"]
+[ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/posters/student_athlete_poster/student_athlete_poster.glb" id="35_15vnp"]
+[ext_resource type="PackedScene" uid="uid://bjutys11t6nx5" path="res://Assets/props/posters/drink_sign/drink_sign.glb" id="36_qpo1s"]
+[ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/posters/sunday_light_poster/sunday_light_poster.glb" id="37_ollvv"]
+[ext_resource type="PackedScene" uid="uid://d3lt3kgvcji47" path="res://Assets/props/balloons/balloons_four_short.tscn" id="38_4fe3s"]
+[ext_resource type="PackedScene" uid="uid://48e2dw6eco7w" path="res://Assets/props/balloons/balloons_three_short.tscn" id="39_wvlev"]
+[ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="40_p14ay"]
+[ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="41_pts78"]
+[ext_resource type="PackedScene" uid="uid://cf7gkb37rdvf1" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers/pumpkin with beers.glb" id="42_f8de0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -791,8 +801,9 @@ shadow_mesh = SubResource("ArrayMesh_f00i4")
 size = Vector3(19.1345, 0.121216, 12.7817)
 
 [sub_resource type="FogMaterial" id="FogMaterial_42eom"]
-density = 0.2
-albedo = Color(0.46148, 0.153147, 0.107912, 1)
+density = 0.15
+albedo = Color(0.667716, 0.231725, 9.62615e-08, 1)
+emission = Color(0.18, 0.111, 0, 1)
 
 [node name="Basement" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
@@ -984,6 +995,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14678, -0.0683068, -1.77238
 [node name="DDR" parent="." instance=ExtResource("17_780xq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50864, -0.069099, -1.96294)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="DDR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28483, 1.61824, -2.12835)
+light_color = Color(0, 0.816667, 1, 1)
+light_energy = 16.0
+omni_range = 1.816
+
 [node name="arcade" parent="." instance=ExtResource("18_7eb3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5624, 0.920734, -0.0396044)
 
@@ -1002,19 +1019,18 @@ transform = Transform3D(-0.701151, 0, 0.0502468, 0, 0.808011, 0, -0.0502468, 0, 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.315013, 0.62868, -0.711005, 0.25441, 0.665795, 0.701421, 0.914354, -0.401844, 0.0497917, -5.96949, 3.71235, -3.56116)
 light_color = Color(0.633333, 0, 1, 1)
-light_energy = 60.0
-light_volumetric_fog_energy = 60.0
+light_energy = 50.0
+light_volumetric_fog_energy = 30.0
 shadow_enabled = true
 shadow_opacity = 0.81
 spot_range = 6.556
 spot_angle = 23.94
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(0.242045, 0.444518, -0.862449, 0.32388, 0.80088, 0.50368, 0.914613, -0.401243, 0.0498782, -7.69402, 4.14462, -3.56116)
+transform = Transform3D(0.242045, 0.444518, -0.862449, 0.32388, 0.80088, 0.50368, 0.914613, -0.401243, 0.0498785, -8.23394, 4.14462, -3.56116)
 light_color = Color(0, 0.316667, 1, 1)
-light_energy = 70.0
-light_indirect_energy = 70.0
-light_volumetric_fog_energy = 100.0
+light_energy = 100.0
+light_volumetric_fog_energy = 50.0
 shadow_opacity = 0.81
 spot_range = 9.272
 spot_angle = 21.44
@@ -1022,7 +1038,7 @@ spot_angle = 21.44
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(0.189923, 0.323153, -0.927093, 0.347655, 0.860962, 0.371322, 0.918186, -0.392832, 0.0511709, -10.691, 5.54537, -3.56116)
 light_color = Color(0, 0.916667, 1, 1)
-light_energy = 70.0
+light_energy = 50.0
 light_volumetric_fog_energy = 70.0
 shadow_opacity = 0.81
 spot_range = 14.719
@@ -1032,11 +1048,11 @@ spot_angle = 18.94
 transform = Transform3D(-0.446003, 0, -0.54334, 0, 0.808011, 0, 0.54334, 0, -0.446003, 3.88528, 0.298317, -3.75863)
 
 [node name="long lamp" parent="." instance=ExtResource("21_23mk7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65431, 1.24598, 0.866532)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65431, 1.06331, 0.866532)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="long lamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774646, 0.384915, -0.552745)
-light_color = Color(1, 0.85, 0, 1)
+light_color = Color(1, 0.9905, 0.43, 1)
 light_energy = 5.0
 shadow_enabled = true
 omni_range = 0.442
@@ -1044,9 +1060,9 @@ omni_attenuation = 2.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="long lamp"]
 transform = Transform3D(0.556366, -0.817943, 0.146379, 0.49777, 0.469132, 0.729479, -0.665343, -0.332995, 0.668156, -0.795456, 0.366522, -0.550674)
-light_color = Color(1, 0.666667, 0, 1)
+light_color = Color(1, 0.983333, 0, 1)
 light_energy = 20.0
-light_volumetric_fog_energy = 50.0
+light_volumetric_fog_energy = 40.0
 spot_range = 4.718
 spot_angle = 70.48
 
@@ -1084,13 +1100,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50381, 1.15375, -3.99383)
 transform = Transform3D(0.545341, 0, -0.838214, 0, 1, 0, 0.838214, 0, 0.545341, 4.54794, 1.15375, -4.19695)
 
 [node name="plant pot 4" parent="." instance=ExtResource("25_488em")]
-transform = Transform3D(-0.37383, 0, -0.927497, 0, 1, 0, 0.927497, 0, -0.37383, 8.98019, 1.15375, 2.21738)
+transform = Transform3D(-0.37383, 0, -0.927497, 0, 1, 0, 0.927497, 0, -0.37383, 8.98019, 1.15375, 2.36215)
 
 [node name="plant_pot" parent="." instance=ExtResource("26_l1moi")]
 transform = Transform3D(0.753456, 0, 0, 0, 0.753456, 0, 0, 0, 0.753456, -2.1573, 0.208019, -4.08019)
 
 [node name="plant_pot2" parent="." instance=ExtResource("26_l1moi")]
-transform = Transform3D(0.196113, 0, -0.727485, 0, 0.753456, 0, 0.727485, 0, 0.196113, 8.49375, 0.208019, 2.02048)
+transform = Transform3D(0.196113, 0, -0.727485, 0, 0.753456, 0, 0.727485, 0, 0.196113, 8.49375, 0.208019, 2.16525)
 
 [node name="blue carpet" parent="." instance=ExtResource("27_8d7c1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97757, -0.0169306, 0.1808)
@@ -1124,4 +1140,57 @@ omni_range = 1.324
 [node name="bean bag" parent="." instance=ExtResource("32_hcwc4")]
 transform = Transform3D(0.782456, 0, -0.622706, 0, 1, 0, 0.622706, 0, 0.782456, -2.47983, 0.325959, 0.296821)
 
+[node name="game room" parent="." instance=ExtResource("33_ln2a6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.82501, 2.21104, -4.66621)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="game room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.194063, 0, -0.0413523)
+light_color = Color(1, 0.783333, 0, 1)
+light_energy = 10.0
+omni_range = 1.01
+omni_attenuation = 1.5
+
+[node name="die_frat_logo_poster" parent="game room" instance=ExtResource("34_u8b43")]
+transform = Transform3D(-1.39553e-08, -7.34783e-10, -0.319701, -0.0168099, 0.319259, 8.32667e-17, 0.319259, 0.0168099, -1.39746e-08, 0.100251, -0.400463, -8.82316)
+
+[node name="enjoy_poster" parent="game room" instance=ExtResource("30_p6v3q")]
+transform = Transform3D(-1.04632e-08, 9.75616e-10, -0.240409, 0.0223195, 0.239371, 0, 0.23937, -0.0223195, -1.05086e-08, 0.119379, -0.0344913, -5.37628)
+
+[node name="sexy_poster" parent="game room" instance=ExtResource("29_g225s")]
+transform = Transform3D(-2.5324e-08, 0, -0.579345, 0, 0.579345, 0, 0.579345, 0, -2.5324e-08, 0.0664196, -0.622416, -4.22439)
+
+[node name="student_athlete_poster" parent="game room" instance=ExtResource("35_15vnp")]
+transform = Transform3D(-0.364106, 0, 3.18311e-08, 0, 0.364106, 0, -3.18311e-08, 0, -0.364106, -0.567827, -0.121294, 0.675385)
+
+[node name="drink_sign" parent="game room" instance=ExtResource("36_qpo1s")]
+transform = Transform3D(-2.38875e-08, 0, -0.546483, 0, 0.546483, 0, 0.546483, 0, -2.38875e-08, 0.117074, -0.494823, -12.1247)
+
+[node name="sunday_light_poster" parent="game room" instance=ExtResource("37_ollvv")]
+transform = Transform3D(-0.513903, 0, 4.49268e-08, 0, 0.513904, 0, -4.49268e-08, 0, -0.513903, -2.08966, -0.530758, 0.671055)
+
+[node name="BalloonsFourShort" parent="game room" instance=ExtResource("38_4fe3s")]
+transform = Transform3D(-0.156904, -0.18235, -3.13178e-08, 6.79352e-09, 4.49495e-08, -0.20847, 0.165359, -0.173026, -2.11518e-08, -3.72664, -1.3342, -0.199423)
+
+[node name="BalloonsFourShort" parent="." instance=ExtResource("38_4fe3s")]
+transform = Transform3D(-0.208088, 0.0571547, 2.91611e-09, 6.39496e-09, 4.18671e-08, -0.197715, -0.0523803, -0.227054, -3.5723e-08, 8.69137, 0.978745, 1.69532)
+
+[node name="BalloonsThreeShort" parent="." instance=ExtResource("39_wvlev")]
+transform = Transform3D(-0.0403287, 0.198337, 5.39178e-08, 3.85857e-17, 7.28369e-08, -0.154817, -0.172796, -0.0462894, -1.25838e-08, 8.96428, 1.51626, 0.0689929)
+
+[node name="BalloonsThreeShort2" parent="." instance=ExtResource("39_wvlev")]
+transform = Transform3D(0.130316, 0.0593822, 1.5913e-08, 3.049e-17, 5.75545e-08, -0.12059, -0.0517354, 0.149578, 4.00832e-08, 9.25041, 1.5742, 1.01329)
+
+[node name="JackOLantern" parent="." instance=ExtResource("40_p14ay")]
+transform = Transform3D(-0.12105, 0, -0.0520773, 0, 0.155615, 0, 0.0520773, 0, -0.12105, 8.85283, 2.16079, 1.20072)
+
+[node name="JackOLanternSquashed" parent="." instance=ExtResource("41_pts78")]
+transform = Transform3D(-1.62142e-08, 0, -0.370938, 0, 0.235724, 0, 0.370938, 0, -1.62142e-08, -0.611922, 0.0703211, 1.6193)
+
+[node name="JackOLantern2" parent="." instance=ExtResource("40_p14ay")]
+transform = Transform3D(2.66617e-08, 0, -0.203317, 0, 0.240096, 0, 0.203317, 0, 2.66617e-08, -0.126865, 0.0479977, 1.39134)
+
+[node name="pumpkin with beers" parent="." instance=ExtResource("42_f8de0")]
+transform = Transform3D(-0.944112, 0, 0.329625, 0, 1, 0, -0.329625, 0, -0.944112, 1.74167, 0.85667, -1.73556)
+
+[editable path="DDR"]
 [editable path="walllamp"]
