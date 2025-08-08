@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=44 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://coofv85sr5rrg" path="res://rooms/bedroom/cactus.glb" id="15_lwekq"]
 [ext_resource type="PackedScene" uid="uid://bf33in3d2kinf" path="res://rooms/bedroom/cork board.glb" id="16_i33k8"]
 [ext_resource type="PackedScene" uid="uid://c5rhah4rw0jyh" path="res://Assets/props/desk_lamp/simple lamp.glb" id="17_bmvp4"]
+[ext_resource type="PackedScene" uid="uid://nr3mtthefaha" path="res://rooms/bedroom/box suitcase.glb" id="18_do83d"]
+[ext_resource type="PackedScene" uid="uid://cmb225vqtsp61" path="res://rooms/bedroom/painting box.glb" id="19_srxuo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.28317, 3.2551, 5.78491)
@@ -406,7 +408,7 @@ material = SubResource("FogMaterial_lxtj2")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.758851, 0.651264, 0, -0.651264, -0.758851, 0.763988, 2.52618, -2.35974)
-light_color = Color(1, 0.8, 0, 1)
+light_color = Color(1, 0.9, 0, 1)
 light_energy = 50.0
 light_volumetric_fog_energy = 5.0
 shadow_enabled = true
@@ -426,10 +428,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16856, 0.252177, -0.573044
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96153, 0.348179, 0.0296352)
 
 [node name="shoe rack" parent="." instance=ExtResource("9_l0p45")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56799, 0.129708, 3.73264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48193, 0.129708, 2.03498)
 
 [node name="dorm bookshelf" parent="." instance=ExtResource("10_0aena")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9219, 1.17541, 2.56387)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84835, 1.17541, 2.56387)
 
 [node name="bed shelf" parent="." instance=ExtResource("11_k241v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477808, 0.686834, -0.951489)
@@ -444,13 +446,13 @@ transform = Transform3D(0.994757, 0, 0, 0, 0.994757, 0, 0, 0, 0.994757, 0.315391
 transform = Transform3D(0.889036, 0, 0, 0, 0.889036, 0, 0, 0, 0.889036, 0.737707, 0.946561, -1.1835)
 
 [node name="cactus" parent="." instance=ExtResource("15_lwekq")]
-transform = Transform3D(0.889036, 0, 0, 0, 0.889036, 0, 0, 0, 0.889036, -0.155221, 0.884213, -0.921782)
+transform = Transform3D(0.889036, 0, 0, 0, 0.889036, 0, 0, 0, 0.889036, -0.169996, 0.884213, -0.458177)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(0.889036, 0, 0, 0, 0.889036, 0, 0, 0, 0.889036, 0.67855, 1.11105, -1.42053)
 light_color = Color(1, 0.983333, 0, 1)
 light_energy = 8.111
-light_volumetric_fog_energy = 8.0
+light_volumetric_fog_energy = 5.0
 shadow_enabled = true
 omni_range = 2.467
 omni_attenuation = 0.0
@@ -458,5 +460,20 @@ omni_attenuation = 0.0
 [node name="cork board" parent="." instance=ExtResource("16_i33k8")]
 transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 1.4748, -1.18352)
 
+[node name="box suitcase" parent="." instance=ExtResource("18_do83d")]
+transform = Transform3D(0.957283, 0, 0.418028, 0, 1.04458, 0, -0.418028, 0, 0.957283, 1.90577, 1.88868, 2.21055)
+
 [node name="simple lamp" parent="." instance=ExtResource("17_bmvp4")]
-transform = Transform3D(-0.46781, 0, -0.756002, 0, 0.889036, 0, 0.756002, 0, -0.46781, -1.52325, 0.677393, -0.564903)
+transform = Transform3D(-0.46781, 0, -0.756002, -0.161528, 0.868506, 0.0999528, 0.738544, 0.189952, -0.457007, -1.52325, 0.712452, -0.564903)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="simple lamp"]
+transform = Transform3D(0.0645595, -0.0204927, 0.997704, -0.0993463, -0.994954, -0.0140077, 0.992956, -0.0982138, -0.0662696, -0.217141, 0.577336, -0.014565)
+light_color = Color(0, 0.9, 1, 1)
+light_energy = 7.0
+light_volumetric_fog_energy = 5.0
+spot_range = 2.02
+spot_attenuation = 2.0
+spot_angle = 50.29
+
+[node name="painting box" parent="." instance=ExtResource("19_srxuo")]
+transform = Transform3D(0.989325, 0, 0, 0, 0.989325, 0, 0, 0, 0.989325, -0.254911, 0.711352, -0.848161)
