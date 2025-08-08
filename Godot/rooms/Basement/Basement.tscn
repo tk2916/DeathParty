@@ -989,32 +989,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.857364, 1.26083, -4.3489)
 transform = Transform3D(-0.701151, 0, 0.0502468, 0, 0.808011, 0, -0.0502468, 0, -0.701151, -0.144429, 0.298317, -3.75863)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.352477, 0.729376, -0.58632, 0.199292, 0.553654, 0.808548, 0.914353, -0.401844, 0.0497918, -5.96949, 3.71235, -3.56116)
+transform = Transform3D(0.315013, 0.62868, -0.711005, 0.25441, 0.665795, 0.701421, 0.914354, -0.401844, 0.0497917, -5.96949, 3.71235, -3.56116)
 light_color = Color(0.633333, 0, 1, 1)
 light_energy = 70.0
 light_volumetric_fog_energy = 70.0
 shadow_enabled = true
 shadow_opacity = 0.81
 spot_range = 12.377
-spot_angle = 12.69
+spot_angle = 30.19
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(0.305374, 0.604638, -0.735636, 0.26501, 0.688053, 0.675538, 0.914613, -0.401243, 0.0498782, -7.69402, 4.14462, -3.56116)
+transform = Transform3D(0.242045, 0.444518, -0.862449, 0.32388, 0.80088, 0.50368, 0.914613, -0.401243, 0.0498782, -7.69402, 4.14462, -3.56116)
 light_color = Color(0, 0.316667, 1, 1)
 light_energy = 100.0
 light_volumetric_fog_energy = 100.0
 shadow_opacity = 0.81
 spot_range = 12.377
-spot_angle = 12.69
+spot_angle = 23.94
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
-transform = Transform3D(0.344022, 0.726636, -0.594685, 0.196428, 0.563635, 0.802329, 0.918186, -0.392832, 0.0511709, -6.4534, 4.14462, -3.56116)
+transform = Transform3D(0.189923, 0.323153, -0.927093, 0.347655, 0.860962, 0.371322, 0.918186, -0.392832, 0.0511709, -10.691, 5.54537, -3.56116)
 light_color = Color(0, 0.916667, 1, 1)
-light_energy = 50.0
-light_volumetric_fog_energy = 50.0
+light_energy = 70.0
+light_volumetric_fog_energy = 70.0
 shadow_opacity = 0.81
-spot_range = 12.377
-spot_angle = 12.69
+spot_range = 16.522
+spot_angle = 21.44
 
 [node name="Speaker2" parent="." instance=ExtResource("20_nngqx")]
 transform = Transform3D(-0.446003, 0, -0.54334, 0, 0.808011, 0, 0.54334, 0, -0.446003, 3.88528, 0.298317, -3.75863)
