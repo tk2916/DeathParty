@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=61 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://b47c4xafc6vd0" path="res://rooms/Basement/basement pipes.glb" id="8_ygom3"]
 [ext_resource type="PackedScene" uid="uid://digj36e65i3p8" path="res://rooms/Basement/washing machines.glb" id="9_c5yie"]
 [ext_resource type="PackedScene" uid="uid://b1wma1kfe38jc" path="res://rooms/Basement/metal stand.glb" id="10_42eom"]
+[ext_resource type="PackedScene" uid="uid://cqcn068clm262" path="res://rooms/Basement/laundry basket.glb" id="11_1otdw"]
+[ext_resource type="PackedScene" uid="uid://cbwmq0sp2ktvk" path="res://rooms/Basement/big sofa.glb" id="12_bac7h"]
+[ext_resource type="PackedScene" uid="uid://csdhsb0ammaco" path="res://rooms/Basement/brown carpet.glb" id="13_4b70u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -935,3 +938,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.09931, 1.02466, -4.1438)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00891113, 1.89271, 1.73157)
 size = Vector3(19.3308, 3.70522, 13.4128)
 material = SubResource("FogMaterial_42eom")
+
+[node name="laundry basket" parent="." instance=ExtResource("11_1otdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.45197, 0.174254, -3.31208)
+
+[node name="laundry basket2" parent="." instance=ExtResource("11_1otdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30712, 1.14273, -4.14902)
+
+[node name="laundry basket3" parent="." instance=ExtResource("11_1otdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99051, 2.29922, -4.14902)
+
+[node name="big sofa" parent="." instance=ExtResource("12_bac7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86754, 0.433345, 0.174147)
+
+[node name="brown carpet" parent="." instance=ExtResource("13_4b70u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59882, -0.0315972, -2.02806)
