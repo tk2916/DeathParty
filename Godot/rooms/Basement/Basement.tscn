@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=75 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -22,6 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://d0qviybdp0h2g" path="res://Assets/props/speaker/speaker.tscn" id="20_nngqx"]
 [ext_resource type="PackedScene" uid="uid://b2hj2hkqqebk1" path="res://rooms/Basement/long lamp.glb" id="21_23mk7"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="22_jwnd2"]
+[ext_resource type="PackedScene" uid="uid://cn7rh42oxgt76" path="res://rooms/Basement/foosball table.glb" id="23_cafew"]
+[ext_resource type="PackedScene" uid="uid://blcjd4dasmq7c" path="res://Assets/props/beer_pong_table/Beerpong table.glb" id="24_ona0c"]
+[ext_resource type="PackedScene" uid="uid://dmy0dkjekw84j" path="res://Assets/props/plants/plant pot 2.glb" id="25_488em"]
+[ext_resource type="PackedScene" uid="uid://cubcxrhw7wq5g" path="res://Assets/props/plants/plant_pot.glb" id="26_l1moi"]
+[ext_resource type="PackedScene" uid="uid://8tkdjm8bpqyb" path="res://rooms/Basement/blue carpet.glb" id="27_8d7c1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -1060,5 +1065,29 @@ light_energy = 5.0
 light_volumetric_fog_energy = 5.0
 shadow_enabled = false
 omni_attenuation = 1.5
+
+[node name="foosball table" parent="." instance=ExtResource("23_cafew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96249, 0.754805, 0.55918)
+
+[node name="Beerpong table" parent="." instance=ExtResource("24_ona0c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.87934, -0.0690991, 5.14282)
+
+[node name="plant pot 2" parent="." instance=ExtResource("25_488em")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50381, 1.15375, -3.99383)
+
+[node name="plant pot 3" parent="." instance=ExtResource("25_488em")]
+transform = Transform3D(0.545341, 0, -0.838214, 0, 1, 0, 0.838214, 0, 0.545341, 4.54794, 1.15375, -4.19695)
+
+[node name="plant pot 4" parent="." instance=ExtResource("25_488em")]
+transform = Transform3D(-0.37383, 0, -0.927497, 0, 1, 0, 0.927497, 0, -0.37383, 8.98019, 1.15375, 2.21738)
+
+[node name="plant_pot" parent="." instance=ExtResource("26_l1moi")]
+transform = Transform3D(0.753456, 0, 0, 0, 0.753456, 0, 0, 0, 0.753456, -2.1573, 0.208019, -4.08019)
+
+[node name="plant_pot2" parent="." instance=ExtResource("26_l1moi")]
+transform = Transform3D(0.196113, 0, -0.727485, 0, 0.753456, 0, 0.727485, 0, 0.196113, 8.49375, 0.208019, 2.02048)
+
+[node name="blue carpet" parent="." instance=ExtResource("27_8d7c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97757, -0.0169306, 0.1808)
 
 [editable path="walllamp"]
