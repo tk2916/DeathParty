@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=58 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b5yohrcvl2y3j" path="res://rooms/Basement/basement layout_woodmedium.png" id="4_c5yie"]
 [ext_resource type="Texture2D" uid="uid://7oqsupnu0m38" path="res://rooms/Basement/basement layout_TCom_ConcreteBunker0258_1_S.jpg" id="5_42eom"]
 [ext_resource type="Texture2D" uid="uid://cetoey0b2j10g" path="res://rooms/Basement/basement layout_image.png" id="6_1otdw"]
+[ext_resource type="PackedScene" uid="uid://b47c4xafc6vd0" path="res://rooms/Basement/basement pipes.glb" id="8_ygom3"]
+[ext_resource type="PackedScene" uid="uid://digj36e65i3p8" path="res://rooms/Basement/washing machines.glb" id="9_c5yie"]
+[ext_resource type="PackedScene" uid="uid://b1wma1kfe38jc" path="res://rooms/Basement/metal stand.glb" id="10_42eom"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -765,6 +768,10 @@ shadow_mesh = SubResource("ArrayMesh_f00i4")
 [sub_resource type="BoxShape3D" id="BoxShape3D_e2jnh"]
 size = Vector3(19.1345, 0.121216, 12.7817)
 
+[sub_resource type="FogMaterial" id="FogMaterial_42eom"]
+density = 0.1
+albedo = Color(0.501972, 0.169838, 0.121073, 1)
+
 [node name="Basement" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
 script = ExtResource("1_e2jnh")
@@ -911,3 +918,20 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0297737, -0.129707, 1.57738)
 shape = SubResource("BoxShape3D_e2jnh")
+
+[node name="basement pipes" parent="." instance=ExtResource("8_ygom3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.24418, 1.84719, -4.15661)
+
+[node name="washing machines" parent="." instance=ExtResource("9_c5yie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.85388, 1.09507, -4.01401)
+
+[node name="washing machines2" parent="." instance=ExtResource("9_c5yie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.038, 1.09507, -4.01401)
+
+[node name="metal stand" parent="." instance=ExtResource("10_42eom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.09931, 1.02466, -4.1438)
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00891113, 1.89271, 1.73157)
+size = Vector3(19.3308, 3.70522, 13.4128)
+material = SubResource("FogMaterial_42eom")
