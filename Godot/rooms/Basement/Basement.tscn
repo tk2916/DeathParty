@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=54 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cetoey0b2j10g" path="res://rooms/Basement/basement layout_image.png" id="6_1otdw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
-size = Vector3(19.3558, 5.38727, 13.0126)
+size = Vector3(19.3558, 3.62344, 13.0126)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2iql"]
 resource_name = "Material.071"
@@ -351,6 +351,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5amiq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ygom3"]
+size = Vector3(28.2686, 1, 10.9129)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vyamp"]
 _surfaces = [{
@@ -768,7 +771,7 @@ script = ExtResource("1_e2jnh")
 room_area = NodePath("RoomArea")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149936, 2.5059, 1.54768)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149936, 1.62399, 1.54768)
 shape = SubResource("BoxShape3D_xu4va")
 
 [node name="Cube_026" type="MeshInstance3D" parent="."]
@@ -821,10 +824,17 @@ transform = Transform3D(-0.121382, -0.139074, -0.000142667, -0.139075, 0.121382,
 mesh = SubResource("ArrayMesh_rttw7")
 skeleton = NodePath("")
 
-[node name="Cube_038" type="MeshInstance3D" parent="."]
+[node name="Stairs" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, 1.68477, -0.0436244, -1.51532)
+
+[node name="Cube_038" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_2qd06")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs"]
+transform = Transform3D(0.757781, -0.652508, -0.000187202, 0.652508, 0.757781, 0.000504301, -0.000187202, -0.000504301, 1, 39.6838, 8.72673, 12.3545)
+shape = SubResource("BoxShape3D_ygom3")
 
 [node name="Cube_040" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, 1.68477, -0.0436244, -1.51532)
