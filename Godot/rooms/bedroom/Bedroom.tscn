@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=45 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c5rhah4rw0jyh" path="res://Assets/props/desk_lamp/simple lamp.glb" id="17_bmvp4"]
 [ext_resource type="PackedScene" uid="uid://nr3mtthefaha" path="res://rooms/bedroom/box suitcase.glb" id="18_do83d"]
 [ext_resource type="PackedScene" uid="uid://cmb225vqtsp61" path="res://rooms/bedroom/painting box.glb" id="19_srxuo"]
+[ext_resource type="PackedScene" uid="uid://cti1dqpvxgmcc" path="res://rooms/bedroom/closet.glb" id="20_yfvte"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.28317, 3.2551, 5.78491)
@@ -477,3 +478,6 @@ spot_angle = 50.29
 
 [node name="painting box" parent="." instance=ExtResource("19_srxuo")]
 transform = Transform3D(0.989325, 0, 0, 0, 0.989325, 0, 0, 0, 0.989325, -0.254911, 0.711352, -0.848161)
+
+[node name="closet" parent="." instance=ExtResource("20_yfvte")]
+transform = Transform3D(0.91709, 0, 0, 0, 0.91709, 0, 0, 0, 0.91709, -2.19916, 1.18239, 1.9379)
