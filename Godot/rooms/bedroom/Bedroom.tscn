@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=42 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -12,6 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dg5lud6e674m5" path="res://rooms/bedroom/dorm bookshelf.glb" id="10_0aena"]
 [ext_resource type="PackedScene" uid="uid://ftb0qukctuch" path="res://rooms/bedroom/bed shelf.glb" id="11_k241v"]
 [ext_resource type="PackedScene" uid="uid://bgeyi70mq0w08" path="res://rooms/bedroom/dorm string lights.glb" id="12_0ajex"]
+[ext_resource type="PackedScene" uid="uid://7m16a0qo1h75" path="res://rooms/bedroom/hanging ivy.glb" id="13_ufsvp"]
+[ext_resource type="PackedScene" uid="uid://bgfgfyll18c40" path="res://rooms/bedroom/small pot plant.glb" id="14_nca0r"]
+[ext_resource type="PackedScene" uid="uid://coofv85sr5rrg" path="res://rooms/bedroom/cactus.glb" id="15_lwekq"]
+[ext_resource type="PackedScene" uid="uid://bf33in3d2kinf" path="res://rooms/bedroom/cork board.glb" id="16_i33k8"]
+[ext_resource type="PackedScene" uid="uid://c5rhah4rw0jyh" path="res://Assets/props/desk_lamp/simple lamp.glb" id="17_bmvp4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.28317, 3.2551, 5.78491)
@@ -341,9 +346,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_05wcp")
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
-density = 0.15
-albedo = Color(0.36424, 0.00164771, 0.747017, 1)
-emission = Color(0.0859668, 5.53504e-06, 0.406558, 1)
+density = 0.2
+albedo = Color(0.292251, 0.00104838, 0.609301, 1)
+emission = Color(0.0467014, 2.51483e-06, 0.277994, 1)
 
 [node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
@@ -405,7 +410,7 @@ light_color = Color(1, 0.8, 0, 1)
 light_energy = 50.0
 light_volumetric_fog_energy = 5.0
 shadow_enabled = true
-spot_range = 25.198
+spot_range = 10.0
 spot_angle = 22.5
 
 [node name="bed" parent="." instance=ExtResource("5_rbtdn")]
@@ -430,4 +435,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9219, 1.17541, 2.56387)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477808, 0.686834, -0.951489)
 
 [node name="dorm string lights" parent="." instance=ExtResource("12_0ajex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185131, 2.52463, 1.8809)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.147555, 2.40365, 2.00679)
+
+[node name="hanging ivy" parent="." instance=ExtResource("13_ufsvp")]
+transform = Transform3D(0.994757, 0, 0, 0, 0.994757, 0, 0, 0, 0.994757, 0.315391, 2.14341, -0.413654)
+
+[node name="small pot plant" parent="." instance=ExtResource("14_nca0r")]
+transform = Transform3D(0.889036, 0, 0, 0, 0.889036, 0, 0, 0, 0.889036, 0.737707, 0.946561, -1.1835)
+
+[node name="cactus" parent="." instance=ExtResource("15_lwekq")]
+transform = Transform3D(0.889036, 0, 0, 0, 0.889036, 0, 0, 0, 0.889036, -0.155221, 0.884213, -0.921782)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.889036, 0, 0, 0, 0.889036, 0, 0, 0, 0.889036, 0.67855, 1.11105, -1.42053)
+light_color = Color(1, 0.983333, 0, 1)
+light_energy = 8.111
+light_volumetric_fog_energy = 8.0
+shadow_enabled = true
+omni_range = 2.467
+omni_attenuation = 0.0
+
+[node name="cork board" parent="." instance=ExtResource("16_i33k8")]
+transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 1.4748, -1.18352)
+
+[node name="simple lamp" parent="." instance=ExtResource("17_bmvp4")]
+transform = Transform3D(-0.46781, 0, -0.756002, 0, 0.889036, 0, 0.756002, 0, -0.46781, -1.52325, 0.677393, -0.564903)
