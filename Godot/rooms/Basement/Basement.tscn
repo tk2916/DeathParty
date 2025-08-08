@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=98 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -43,6 +43,8 @@
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="41_pts78"]
 [ext_resource type="PackedScene" uid="uid://cf7gkb37rdvf1" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers/pumpkin with beers.glb" id="42_f8de0"]
 [ext_resource type="PackedScene" uid="uid://dumxf0hd1v7eh" path="res://rooms/Basement/snacks on table.glb" id="43_6xnej"]
+[ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="44_5vrx5"]
+[ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="45_x2dx7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -804,7 +806,7 @@ size = Vector3(19.1345, 0.121216, 12.7817)
 [sub_resource type="FogMaterial" id="FogMaterial_42eom"]
 density = 0.2
 albedo = Color(0.667716, 0.231725, 9.62615e-08, 1)
-emission = Color(0.18, 0.111, 0, 1)
+emission = Color(0.14, 0.0606667, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6xnej"]
 load_path = "res://.godot/imported/snacks on table_Image_0_12.png-c81c7e4327e47b71317b2fbccd438682.s3tc.ctex"
@@ -1303,6 +1305,15 @@ transform = Transform3D(0.0970067, -0.00132902, 0.059569, -0.0025887, 0.113615, 
 transform = Transform3D(0.0958002, 0.00582073, -0.0612289, -0.0025887, 0.113615, 0.00675044, 0.0614505, -0.00428822, 0.0957392, 0.069334, 0.0918103, -2.12836)
 mesh = SubResource("ArrayMesh_xtkkb")
 skeleton = NodePath("")
+
+[node name="JackOLanternTall" parent="." instance=ExtResource("44_5vrx5")]
+transform = Transform3D(-0.182731, 0, -0.254795, 0, 0.492083, 0, 0.254795, 0, -0.182731, 5.38416, 0.303926, -4.21811)
+
+[node name="DIE flag" parent="." instance=ExtResource("45_x2dx7")]
+transform = Transform3D(0.120934, 0, -0.992661, 0, 1, 0, 0.992661, 0, 0.120934, -6.51766, 1.91201, -2.51796)
+
+[node name="DIE flag2" parent="." instance=ExtResource("45_x2dx7")]
+transform = Transform3D(-0.999562, 0, -0.0295964, 0, 1, 0, 0.0295964, 0, -0.999562, 9.27197, 2.12555, 2.5099)
 
 [editable path="DDR"]
 [editable path="walllamp"]
