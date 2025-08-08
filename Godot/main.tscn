@@ -286,7 +286,7 @@ collision_mask = 1
 floor_constant_speed = true
 
 [node name="PlayerCameraLocation" parent="Player" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42401, 7.19858)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64674, 7.19858)
 
 [node name="Skeleton3D" parent="Player/PlayerModel/Model" index="0"]
 bones/0/position = Vector3(0.0295796, -0.0804331, -9.32385)
@@ -583,7 +583,7 @@ transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 14.4393)
 
 [node name="Bedroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_h8e4i")]
-transform = Transform3D(1.07722, 0, 0, 0, 1.07722, 0, 0, 0, 1.07722, -38.6877, 0, 22.5507)
+transform = Transform3D(1.15875, 0, 0, 0, 1.15875, 0, 0, 0, 1.15875, -39.3372, 0.0111146, 23.4832)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
