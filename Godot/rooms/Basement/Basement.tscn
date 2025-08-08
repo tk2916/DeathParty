@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cetoey0b2j10g" path="res://rooms/Basement/basement layout_image.png" id="6_1otdw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
-size = Vector3(19.3558, 3.62344, 13.0126)
+size = Vector3(19.3558, 3.4958, 13.0126)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2iql"]
 resource_name = "Material.071"
@@ -771,7 +771,7 @@ script = ExtResource("1_e2jnh")
 room_area = NodePath("RoomArea")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149936, 1.62399, 1.54768)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149936, 1.56017, 1.54768)
 shape = SubResource("BoxShape3D_xu4va")
 
 [node name="Cube_026" type="MeshInstance3D" parent="."]

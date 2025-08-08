@@ -709,7 +709,7 @@ play_door_sound = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00659275, 0.747803, 0.262373)
 
 [node name="TeleportPoint" parent="SceneLoaderbasement" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.792852, -0.514506, -4.78628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788603, -1.86279, -6.29928)
 
 [node name="MeshInstance3D" parent="SceneLoaderbasement/TeleportPoint" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.06286, 0)
