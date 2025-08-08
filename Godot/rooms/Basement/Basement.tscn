@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=70 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://dklyqnksqstxi" path="res://rooms/Basement/arcade.glb" id="18_7eb3f"]
 [ext_resource type="PackedScene" uid="uid://bfsk7udiphl1k" path="res://rooms/Basement/standing_lamp.tscn" id="19_gmle0"]
 [ext_resource type="PackedScene" uid="uid://d0qviybdp0h2g" path="res://Assets/props/speaker/speaker.tscn" id="20_nngqx"]
+[ext_resource type="PackedScene" uid="uid://b2hj2hkqqebk1" path="res://rooms/Basement/long lamp.glb" id="21_23mk7"]
+[ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="22_jwnd2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -780,7 +782,7 @@ size = Vector3(19.1345, 0.121216, 12.7817)
 
 [sub_resource type="FogMaterial" id="FogMaterial_42eom"]
 density = 0.2
-albedo = Color(0.38115, 0.120424, 0.0822086, 1)
+albedo = Color(0.46148, 0.153147, 0.107912, 1)
 
 [node name="Basement" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
@@ -845,7 +847,6 @@ skeleton = NodePath("")
 transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, 1.68477, -0.0436244, -1.51532)
 
 [node name="Cube_038" type="MeshInstance3D" parent="Stairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_2qd06")
 skeleton = NodePath("")
 
@@ -991,21 +992,22 @@ transform = Transform3D(-0.701151, 0, 0.0502468, 0, 0.808011, 0, -0.0502468, 0, 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.315013, 0.62868, -0.711005, 0.25441, 0.665795, 0.701421, 0.914354, -0.401844, 0.0497917, -5.96949, 3.71235, -3.56116)
 light_color = Color(0.633333, 0, 1, 1)
-light_energy = 70.0
-light_volumetric_fog_energy = 70.0
+light_energy = 60.0
+light_volumetric_fog_energy = 60.0
 shadow_enabled = true
 shadow_opacity = 0.81
-spot_range = 12.377
-spot_angle = 30.19
+spot_range = 6.556
+spot_angle = 23.94
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(0.242045, 0.444518, -0.862449, 0.32388, 0.80088, 0.50368, 0.914613, -0.401243, 0.0498782, -7.69402, 4.14462, -3.56116)
 light_color = Color(0, 0.316667, 1, 1)
-light_energy = 100.0
+light_energy = 70.0
+light_indirect_energy = 70.0
 light_volumetric_fog_energy = 100.0
 shadow_opacity = 0.81
-spot_range = 12.377
-spot_angle = 23.94
+spot_range = 9.272
+spot_angle = 21.44
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(0.189923, 0.323153, -0.927093, 0.347655, 0.860962, 0.371322, 0.918186, -0.392832, 0.0511709, -10.691, 5.54537, -3.56116)
@@ -1013,8 +1015,50 @@ light_color = Color(0, 0.916667, 1, 1)
 light_energy = 70.0
 light_volumetric_fog_energy = 70.0
 shadow_opacity = 0.81
-spot_range = 16.522
-spot_angle = 21.44
+spot_range = 14.719
+spot_angle = 18.94
 
 [node name="Speaker2" parent="." instance=ExtResource("20_nngqx")]
 transform = Transform3D(-0.446003, 0, -0.54334, 0, 0.808011, 0, 0.54334, 0, -0.446003, 3.88528, 0.298317, -3.75863)
+
+[node name="long lamp" parent="." instance=ExtResource("21_23mk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65431, 1.24598, 0.866532)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="long lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774646, 0.384915, -0.552745)
+light_color = Color(1, 0.85, 0, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 0.442
+omni_attenuation = 2.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="long lamp"]
+transform = Transform3D(0.556366, -0.817943, 0.146379, 0.49777, 0.469132, 0.729479, -0.665343, -0.332995, 0.668156, -0.795456, 0.366522, -0.550674)
+light_color = Color(1, 0.666667, 0, 1)
+light_energy = 20.0
+light_volumetric_fog_energy = 50.0
+spot_range = 4.718
+spot_angle = 70.48
+
+[node name="walllamp" parent="." instance=ExtResource("22_jwnd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.58973, 2.29688, -2.88273)
+
+[node name="SpotLight3D" parent="walllamp" index="1"]
+transform = Transform3D(0.997322, 0.00265438, 0.0730856, -0.0731338, 0.0361977, 0.996665, 0, -0.999341, 0.0362949, 0.427708, -0.0126276, 0)
+light_color = Color(0.98, 0.5684, 0.4312, 1)
+light_energy = 30.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = false
+spot_range = 4.04
+spot_attenuation = 1.0
+spot_angle = 31.56
+
+[node name="OmniLight3D" parent="walllamp" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409633, -0.294649, 0.0134349)
+light_color = Color(1, 0.865, 0.46, 1)
+light_energy = 5.0
+light_volumetric_fog_energy = 5.0
+shadow_enabled = false
+omni_attenuation = 1.5
+
+[editable path="walllamp"]
