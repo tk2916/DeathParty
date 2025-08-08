@@ -301,7 +301,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o7qs3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lxtj2"]
-size = Vector3(7.38405, 0.258667, 5.59253)
+size = Vector3(7.38405, 0.258667, 8.04614)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01edu"]
 resource_name = "Material.224"
@@ -341,11 +341,12 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_05wcp")
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
-density = 0.1
-albedo = Color(0.43118, 0.00235167, 0.875076, 1)
-emission = Color(0.123667, 0, 0.53, 1)
+density = 0.15
+albedo = Color(0.36424, 0.00164771, 0.747017, 1)
+emission = Color(0.0859668, 5.53504e-06, 0.406558, 1)
 
 [node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area")]
+transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 script = ExtResource("1_lxtj2")
 room_area = NodePath("RoomArea")
 
@@ -354,44 +355,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.147324, 1.6794, 1.46326)
 shape = SubResource("BoxShape3D_aasoq")
 
 [node name="Cube_011" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.486179, 1.90537, -1.22166)
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.42145, 1.7186, -1.22166)
 mesh = SubResource("ArrayMesh_b6wpa")
 skeleton = NodePath("")
 
 [node name="Cube_012" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.163398, 2.87614, 1.39022)
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.0986689, 2.68937, 1.39022)
 mesh = SubResource("ArrayMesh_s1q2i")
 skeleton = NodePath("")
 
 [node name="Cube_019" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, -1.95128, 1.51272, 2.21262)
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, -2.01601, 1.32595, 2.21262)
 mesh = SubResource("ArrayMesh_tvkqg")
 skeleton = NodePath("")
 
 [node name="Cube_022" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 2.27904, 1.53263, 1.42364)
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 2.21431, 1.34586, 1.42364)
 mesh = SubResource("ArrayMesh_noy2h")
 skeleton = NodePath("")
 
 [node name="Cube_072" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.00126571, 0.73191, 9.34621e-08, -4.67688e-08, 8.72506e-08, -0.784651, -0.78465, 0.00118063, 4.69197e-08, 0.751146, 1.70087, -1.37021)
+transform = Transform3D(0.00126571, 0.73191, 9.34621e-08, -4.67688e-08, 8.72506e-08, -0.784651, -0.78465, 0.00118063, 4.69197e-08, 0.686417, 1.5141, -1.37021)
 mesh = SubResource("ArrayMesh_73bkq")
 skeleton = NodePath("")
 
 [node name="Cube_044" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.750861, 1.65472, -1.30567)
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.686132, 1.46795, -1.30567)
 mesh = SubResource("ArrayMesh_sokvp")
 skeleton = NodePath("")
 
 [node name="floor" type="StaticBody3D" parent="."]
-transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.163027, 0.746751, 1.41961)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 0.999904, 0, 0, 0, 1, -0.135777, -0.999505, 0.0552955)
+transform = Transform3D(1, 0, 0, 0, 0.999904, 0, 0, 0, 1, -0.135777, -0.242519, 1.2821)
 shape = SubResource("BoxShape3D_lxtj2")
 
 [node name="Cube_006" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(1.23113, 0, 6.98492e-10, 0, 1.23113, 0, -6.98492e-10, 0, 1.23113, 0.121708, -0.865032, 0.000214413)
+transform = Transform3D(-4.79537e-08, 0, 0.805901, 0, 0.805901, 0, -1.09705, 0, -3.52271e-08, 0, -0.112812, 1.44152)
 mesh = SubResource("ArrayMesh_vaxmu")
 
 [node name="FogVolume" type="FogVolume" parent="."]
@@ -409,25 +409,25 @@ spot_range = 25.198
 spot_angle = 22.5
 
 [node name="bed" parent="." instance=ExtResource("5_rbtdn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67075, 0.622908, -0.321667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67075, 0.59249, -0.321667)
 
 [node name="star carpet" parent="." instance=ExtResource("6_50ggb")]
-transform = Transform3D(1.14277, 0, 0, 0, 1.14277, 0, 0, 0, 1.14277, 0.137042, -0.0756586, 1.50737)
+transform = Transform3D(1.14277, 0, 0, 0, 1.14277, 0, 0, 0, 1.14277, 0.137042, -0.106077, 1.50737)
 
 [node name="dorm desk" parent="." instance=ExtResource("7_7a5mm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16856, 0.282595, -0.573044)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16856, 0.252177, -0.573044)
 
 [node name="dorm chair" parent="." instance=ExtResource("8_8bc0i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96153, 0.378596, 0.0296352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96153, 0.348179, 0.0296352)
 
 [node name="shoe rack" parent="." instance=ExtResource("9_l0p45")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56799, 0.160126, 3.73264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56799, 0.129708, 3.73264)
 
 [node name="dorm bookshelf" parent="." instance=ExtResource("10_0aena")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9219, 1.20583, 2.56387)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9219, 1.17541, 2.56387)
 
 [node name="bed shelf" parent="." instance=ExtResource("11_k241v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477808, 0.717251, -0.951489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477808, 0.686834, -0.951489)
 
 [node name="dorm string lights" parent="." instance=ExtResource("12_0ajex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00579154, 0.102543, 0.0507338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185131, 2.52463, 1.8809)
