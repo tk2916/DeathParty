@@ -492,14 +492,14 @@ metadata/_custom_type_script = "uid://23e11u4fm3n6"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11203, -0.146205, 0.0554049)
 shape = SubResource("BoxShape3D_qlpr6")
 
-[node name="SceneLoader to entrance" parent="." instance=ExtResource("2_3y0er")]
+[node name="SceneLoader to Partyroom" parent="." instance=ExtResource("2_3y0er")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
-scene_going_right = "Entrance"
-scene_going_left = "Entrance"
+scene_going_right = "PartyRoom"
+scene_going_left = "PartyRoom"
 play_door_sound = true
 
-[node name="TeleportPoint" parent="SceneLoader to entrance" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34107e-07, 0.839686, -17.4454)
+[node name="TeleportPoint" parent="SceneLoader to Partyroom" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6921e-07, 0.839686, 3.22009)
 
 [node name="door" parent="." instance=ExtResource("1_qlpr6")]
 transform = Transform3D(0.00813317, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00813317, 5.62697, -1.1792, -0.646434)
@@ -819,7 +819,7 @@ transform = Transform3D(0.50997, 0, -0.963695, 0, 1.09031, 0, 0.963695, 0, 0.509
 [node name="sunday light" parent="." instance=ExtResource("32_o8af5")]
 transform = Transform3D(0.510693, 0, -0.963312, 0, 1.09031, 0, 0.963312, 0, 0.510693, -5.70016, -1.33278, 1.05747)
 
-[editable path="SceneLoader to entrance"]
+[editable path="SceneLoader to Partyroom"]
 [editable path="bathroom disco"]
 [editable path="walllamp"]
 [editable path="walllamp2"]
