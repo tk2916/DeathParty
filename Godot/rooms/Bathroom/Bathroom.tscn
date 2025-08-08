@@ -509,20 +509,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12358, 2.01022, 0.28027)
 mesh = SubResource("ArrayMesh_wucsk")
 skeleton = NodePath("")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Plane_014"]
-transform = Transform3D(1.09031, 0, 0, 0, 0.00433877, 1.0903, 0, -1.0903, 0.00433877, -0.847789, -0.196537, 0.182246)
-light_energy = 5.0
-light_volumetric_fog_energy = 10.0
-spot_range = 7.236
-spot_angle = 36.56
-
 [node name="SpotLight3D2" type="SpotLight3D" parent="Plane_014"]
-transform = Transform3D(1.09031, 0, 0, 0, 0.00433877, 1.0903, 0, -1.0903, 0.00433877, -3.60669, -0.196537, 0.182246)
-light_energy = 5.0
-light_volumetric_fog_energy = 15.0
+transform = Transform3D(1.09031, 0, 0, 0, 0.00433878, 1.0903, 0, -1.0903, 0.00433878, -3.60669, -0.196537, -3.74853)
+light_energy = 40.0
+light_volumetric_fog_energy = 50.0
 shadow_enabled = true
-spot_range = 7.236
-spot_angle = 36.56
+spot_range = 5.743
+spot_angle = 37.81
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Plane_014"]
+transform = Transform3D(1.09031, 0, 0, 0, 0.00433878, 1.0903, 0, -1.0903, 0.00433878, -0.884387, -0.196537, -3.74853)
+light_energy = 40.0
+light_volumetric_fog_energy = 50.0
+shadow_enabled = true
+spot_range = 5.743
+spot_angle = 37.81
 
 [node name="Cube_009" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.888331, 0, 0, 0, 0.888331, 0, 0, 0, 0.888331, -1.08867, -0.179583, -0.581938)
