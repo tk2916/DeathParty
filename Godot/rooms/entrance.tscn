@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=59 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="36_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="37_0ritw"]
+[ext_resource type="PackedScene" uid="uid://bjq5n5r2olwdr" path="res://Assets/particles/dust.tscn" id="38_db6t0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -726,6 +727,15 @@ transform = Transform3D(0.992866, 0, -0.119236, 0, 1, 0, 0.119236, 0, 0.992866, 
 
 [node name="DIE flag3" parent="." instance=ExtResource("37_0ritw")]
 transform = Transform3D(0.380489, 0, -0.924785, 0, 1, 0, 0.924785, 0, 0.380489, -1.14086, 5.33207, 1.54244)
+
+[node name="Particles" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 2)
+
+[node name="Dust" parent="Particles" instance=ExtResource("38_db6t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
+
+[node name="Dust2" parent="Particles" instance=ExtResource("38_db6t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
