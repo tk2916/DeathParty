@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b7s06uof0swcc"
+path.s3tc="res://.godot/imported/DDR_StingrayPBS3_normal.png-41e3bb5ac825385ebdf24280e4f9baef.s3tc.ctex"
+path.etc2="res://.godot/imported/DDR_StingrayPBS3_normal.png-41e3bb5ac825385ebdf24280e4f9baef.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "c97716e848e18cc6045e2bb3a720f219"
+}
+
+[deps]
+
+source_file="res://rooms/Basement/DDR_StingrayPBS3_normal.png"
+dest_files=["res://.godot/imported/DDR_StingrayPBS3_normal.png-41e3bb5ac825385ebdf24280e4f9baef.s3tc.ctex", "res://.godot/imported/DDR_StingrayPBS3_normal.png-41e3bb5ac825385ebdf24280e4f9baef.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://rooms/Basement/DDR_StingrayPBS3_normal.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
