@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=63 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://u4nxa6hg17ur" path="res://Assets/textures/entrance_room_environment/entrance room layout_wood.png" id="14_5do41"]
 [ext_resource type="PackedScene" uid="uid://dwrmfilc6xeol" path="res://Assets/environment/wall_lamps/wall_lamp_tube/wall_lamp_tube.tscn" id="15_isgae"]
 [ext_resource type="PackedScene" uid="uid://lq5aie0hhjaf" path="res://Assets/environment/glowing_doorway.tscn" id="16_hprob"]
+[ext_resource type="Texture2D" uid="uid://d3c0nx21gc4yv" path="res://Assets/textures/entrance_room_props/entrance room props_Screenshot 2025-07-11 142940.png" id="16_q6uhu"]
 [ext_resource type="PackedScene" uid="uid://b0v4k6w4378h1" path="res://Assets/environment/arch_window.tscn" id="17_kauli"]
 [ext_resource type="PackedScene" uid="uid://bgrvflukoipup" path="res://Assets/environment/stone_arch_window.tscn" id="18_rseg0"]
 [ext_resource type="PackedScene" uid="uid://s8nqkwhr8xqp" path="res://Assets/environment/chandelier.tscn" id="19_a28ps"]
@@ -256,6 +257,48 @@ shadow_mesh = SubResource("ArrayMesh_x338u")
 [sub_resource type="BoxShape3D" id="BoxShape3D_3k57g"]
 size = Vector3(2.746, 0.043, 0.790504)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8a5oh"]
+resource_name = "Material.101"
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.0818182)
+albedo_texture = ExtResource("16_q6uhu")
+emission_enabled = true
+emission_energy_multiplier = 35.0
+emission_texture = ExtResource("16_q6uhu")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3qtki"]
+_surfaces = [{
+"aabb": AABB(-11.7332, -6.49229, -1, 23.4665, 12.9846, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material.101",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lkai6"]
+resource_name = "entrance room props_Cube_050"
+_surfaces = [{
+"aabb": AABB(-11.7332, -6.49229, -1, 23.4665, 12.9846, 2),
+"attribute_data": PackedByteArray("E/2+/P//mYAy/XGC3f///93///9AgJmA//+ZgFyA/v9cgP7/k4JxgkCAmYCsgr78rIK+/DL9cYKTgnGCE/2+/N3///+sgr78XID+/xP9vvxAgJmAMv1xgv//mYCTgnGC"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_8a5oh"),
+"name": "Material.101",
+"primitive": 3,
+"uv_scale": Vector4(2.03631, 2.07509, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AQQAAP//AAAVAgAA/////88CAAAAAAAAuwQAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAADAE////////9gH/////AACyAv//AAD//+wE//8AAP//AAAAAP////8AAP///////wAAAAAAAP//AAAAAAAAAAAAAP//AAD//wAA//8AAAAAAAAAAAAA//8AAP////8AAAAAAAD/////AAAAAP//AAAAAP///////wAAsPsmwiJBRYKGQQyD7/qHwv9//v//f/7//3/+//9//v+/vX97JQLtPu4CiD5dvbx6/3//f/9//3//f/9//3//f/9//z//f/8//3//P/9//z//vwAA/78AAP+/AAD/vwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3qtki")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gfuhi"]
 size = Vector3(3, 2, 1)
 
@@ -490,6 +533,16 @@ light_color = Color(1, 0.622, 0.37, 1)
 light_energy = 11.045
 omni_range = 5.058
 
+[node name="GlowingDoorway2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.27963, 0, -0.000756004, 0, 0.320847, 0, 0.000946833, 0, -0.223272, -0.417228, 6.54585, -6.26398)
+mesh = SubResource("ArrayMesh_lkai6")
+skeleton = NodePath("")
+
+[node name="GlowingDoorway3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.27963, 0, -0.000756004, 0, 0.320847, 0, 0.000946833, 0, -0.223272, 4.71571, 6.54585, -6.26398)
+mesh = SubResource("ArrayMesh_lkai6")
+skeleton = NodePath("")
+
 [node name="Windows" type="Node3D" parent="."]
 
 [node name="ArchWindow" parent="Windows" instance=ExtResource("17_kauli")]
@@ -503,6 +556,7 @@ transform = Transform3D(-0.219323, 0, -0.00202499, 0, 0.219331, 0, 0.00202499, 0
 
 [node name="OmniLight3D" parent="Windows/ArchWindow2" index="0"]
 transform = Transform3D(4.55929, 3.72529e-09, -1.86265e-09, 0, 2.61511, 3.73478, 3.72529e-09, -3.73476, 2.61509, 0.0129051, 2.5, -2.89687)
+light_color = Color(1, 0.258824, 0.403922, 1)
 
 [node name="StoneArchWindow" parent="Windows" instance=ExtResource("18_rseg0")]
 transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 1.66168e-15, 0.015603, -1.67707e-09, 1.68993, -4.44232, 1.01296, -5.84098)
@@ -665,26 +719,24 @@ material = SubResource("FogMaterial_nneh3")
 [node name="Caleb" parent="." instance=ExtResource("35_gfuhi")]
 transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.678955, 0.73418, 0, -0.73418, -0.678955, -2.87887, 7.33275, -6.75585)
-light_color = Color(1, 0.304046, 0.129177, 1)
-light_energy = 80.0
-light_volumetric_fog_energy = 80.0
-shadow_enabled = true
-spot_range = 25.2
-spot_angle = 24.0
-
 [node name="door" parent="." instance=ExtResource("36_gfuhi")]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.5782, 1.21599, 10.4024)
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.678955, 0.73418, 0, -0.73418, -0.678955, 7.21701, 7.33275, -6.75585)
-light_color = Color(1, 0.304046, 0.129177, 1)
-light_energy = 80.0
-light_volumetric_fog_energy = 80.0
-shadow_enabled = true
-spot_range = 25.2
-spot_angle = 24.0
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, -2.94736, 7.98428, -6.75585)
+light_color = Color(1, 0.268927, 0.349748, 1)
+light_energy = 50.0
+light_volumetric_fog_energy = 50.0
+spot_range = 18.879
+spot_angle = 15.25
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, 7.30322, 7.98428, -6.75585)
+light_color = Color(1, 0.268927, 0.349748, 1)
+light_energy = 50.0
+light_volumetric_fog_energy = 50.0
+spot_range = 18.879
+spot_angle = 15.25
 
 [node name="SceneLoader kitchen" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)
