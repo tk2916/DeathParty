@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=50 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://blvkc3v2k85hb" path="res://Assets/environment/star_carpet.tscn" id="20_y7msa"]
 [ext_resource type="PackedScene" uid="uid://crphthphoofl5" path="res://rooms/bedroom/closet.glb" id="20_yfvte"]
 [ext_resource type="PackedScene" uid="uid://dvox0p4f1j5l1" path="res://rooms/bedroom/teddy bear.glb" id="21_y7msa"]
+[ext_resource type="Texture2D" uid="uid://baaaci2x23qpb" path="res://rooms/bedroom/sunset_sunset.png" id="22_aea1s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.28317, 3.2551, 5.78491)
@@ -354,6 +355,48 @@ density = 0.18
 albedo = Color(0.304857, 0.00114282, 0.633416, 1)
 emission = Color(0.0660114, 3.82639e-06, 0.341219, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7orw5"]
+resource_name = "Material.009"
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.511364)
+albedo_texture = ExtResource("22_aea1s")
+emission_enabled = true
+emission_energy_multiplier = 10.0
+emission_texture = ExtResource("22_aea1s")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_feiac"]
+_surfaces = [{
+"aabb": AABB(-11.7332, -6.49229, -1, 23.4665, 12.9846, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material.009",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_movx4"]
+resource_name = "sunset_Cube_007"
+_surfaces = [{
+"aabb": AABB(-11.7332, -6.49229, -1, 23.4665, 12.9846, 2),
+"attribute_data": PackedByteArray("Ef27/P//LYAx/QeC3f///93////vfy2A//8tgAuA/v8LgP7/Q4IHgu9/LYBdgrv8XYK7/DH9B4JDggeCEf27/N3///9dgrv8C4D+/xH9u/zvfy2AMf0Hgv//LYBDggeC"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_7orw5"),
+"name": "Material.009",
+"primitive": 3,
+"uv_scale": Vector4(1.98926, 1.98136, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AQQAAP//AAAVAgAA/////88CAAAAAAAAuwQAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAADAE////////9gH/////AACyAv//AAD//+wE//8AAP//AAAAAP////8AAP///////wAAAAAAAP//AAAAAAAAAAAAAP//AAD//wAA//8AAAAAAAAAAAAA//8AAP////8AAAAAAAD/////AAAAAP//AAAAAP///////wAAsPsmwiJBRYKGQQyD7/qHwv9//v//f/7//3/+//9//v+/vX97JQLtPu4CiD5dvbx6/3//f/9//3//f/9//3//f/9//z//f/8//3//P/9//z//vwAA/78AAP+/AAD/vwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_feiac")
+
 [node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 script = ExtResource("1_lxtj2")
@@ -584,5 +627,13 @@ transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.106077,
 
 [node name="teddy bear" parent="." instance=ExtResource("21_y7msa")]
 transform = Transform3D(0.697622, 0.169452, -0.776749, -0.113228, 1.04404, 0.12607, 0.786913, 0, 0.706751, 2.00757, 0.667446, 0.559175)
+
+[node name="sunset" type="Node3D" parent="."]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.703348, 1.5229, -1.46966)
+
+[node name="Cube_014" type="MeshInstance3D" parent="sunset"]
+transform = Transform3D(-0.0307569, 0, 0.000324337, 0, 0.0915331, 0, -0.000116987, 0, -0.0852711, 0, 0, 0)
+mesh = SubResource("ArrayMesh_movx4")
+skeleton = NodePath("")
 
 [editable path="closet"]
