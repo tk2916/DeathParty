@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=103 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -44,7 +44,9 @@
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="41_nbcih"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="42_fh3n2"]
 [ext_resource type="PackedScene" uid="uid://gu7mwgusye5o" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
+[ext_resource type="PackedScene" uid="uid://dvox0p4f1j5l1" path="res://rooms/bedroom/teddy bear.glb" id="44_dffff"]
 [ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
+[ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="45_owm1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15.626, 10, 12)
@@ -1600,6 +1602,9 @@ transform = Transform3D(-1.35006, 0, 0, 0, 1, 0, 0, 0, 1, 1.04046, -2.19247, -1.
 [node name="CobwebWide2" parent="Props/Cobwebs" instance=ExtResource("41_nbcih")]
 transform = Transform3D(-1.40787, 0.0652232, -0.783576, -0.572475, -1.18663, 0.92981, -0.538997, 1.08996, 1.05916, 2.57088, -3.17418, 5.25622)
 
+[node name="bunny" parent="Props" instance=ExtResource("45_owm1a")]
+transform = Transform3D(1.02778, 0, -0.523341, 0, 1.15335, 0, 0.523341, 0, 1.02778, -3.46439, -4.35576, 2.26879)
+
 [node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
@@ -1619,6 +1624,9 @@ transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, -4.21185
 
 [node name="door" parent="." instance=ExtResource("15_e63ox")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.65109, -3.18053, 6.81311)
+
+[node name="teddy bear" parent="." instance=ExtResource("44_dffff")]
+transform = Transform3D(1.12195, 0, 0.670834, 0, 1.3072, 0, -0.670834, 0, 1.12195, -6.78328, -4.08373, 2.44692)
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 
