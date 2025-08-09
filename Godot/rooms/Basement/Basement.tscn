@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://b1wma1kfe38jc" path="res://rooms/Basement/metal stand.glb" id="10_42eom"]
 [ext_resource type="PackedScene" uid="uid://cqcn068clm262" path="res://rooms/Basement/laundry basket.glb" id="11_1otdw"]
 [ext_resource type="PackedScene" uid="uid://cbwmq0sp2ktvk" path="res://rooms/Basement/big sofa.glb" id="12_bac7h"]
-[ext_resource type="PackedScene" uid="uid://csdhsb0ammaco" path="res://rooms/Basement/brown carpet.glb" id="13_4b70u"]
 [ext_resource type="PackedScene" uid="uid://c7ss5lax14vpn" path="res://Assets/props/wooden_table/wood_table.glb" id="14_p1m6r"]
 [ext_resource type="PackedScene" uid="uid://bcv7t6l4ofq86" path="res://rooms/Basement/tv stand.glb" id="15_xaevv"]
 [ext_resource type="PackedScene" uid="uid://bmmcqxu3d1tr5" path="res://rooms/Basement/tv.glb" id="16_4bbn0"]
@@ -44,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://cf7gkb37rdvf1" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers/pumpkin with beers.glb" id="42_f8de0"]
 [ext_resource type="PackedScene" uid="uid://dumxf0hd1v7eh" path="res://rooms/Basement/snacks on table.glb" id="43_6xnej"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="44_5vrx5"]
+[ext_resource type="PackedScene" uid="uid://ct88jby2wdhev" path="res://Assets/environment/brown_carpet.tscn" id="45_rvhly"]
 [ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="45_x2dx7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
@@ -941,7 +941,7 @@ transform = Transform3D(-0.121382, -0.139074, -0.000142667, -0.139075, 0.121382,
 mesh = SubResource("ArrayMesh_rttw7")
 skeleton = NodePath("")
 
-[node name="Stairs" type="StaticBody3D" parent="."]
+[node name="Stairs" type="StaticBody3D" parent="." groups=["material_wood"]]
 transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, 1.68477, -0.0436244, -1.51532)
 
 [node name="Cube_038" type="MeshInstance3D" parent="Stairs"]
@@ -1012,7 +1012,7 @@ transform = Transform3D(-0.195769, 0, -0.000151303, 0, 0.195769, 0, 0.000151303,
 mesh = SubResource("ArrayMesh_nqj7v")
 skeleton = NodePath("")
 
-[node name="floor" type="StaticBody3D" parent="."]
+[node name="floor" type="StaticBody3D" parent="." groups=["material_concrete"]]
 
 [node name="Cube_025" type="MeshInstance3D" parent="floor"]
 transform = Transform3D(-0.154672, 0, 0.00011954, 0, 0.154672, 0, 0.00011954, 0, 0.154672, 1.68477, -0.0436244, -1.51532)
@@ -1056,9 +1056,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99051, 2.29922, -4.14902)
 
 [node name="big sofa" parent="." instance=ExtResource("12_bac7h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86754, 0.433345, 0.577801)
-
-[node name="brown carpet" parent="." instance=ExtResource("13_4b70u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59882, -0.0315972, -2.02806)
 
 [node name="wood_table" parent="." instance=ExtResource("14_p1m6r")]
 transform = Transform3D(1.36649, 0, 0, 0, 1.36649, 0, 0, 0, 1.36649, 1.71318, -0.206819, -1.55022)
@@ -1314,6 +1311,9 @@ transform = Transform3D(0.120934, 0, -0.992661, 0, 1, 0, 0.992661, 0, 0.120934, 
 
 [node name="DIE flag2" parent="." instance=ExtResource("45_x2dx7")]
 transform = Transform3D(-0.999562, 0, -0.0295964, 0, 1, 0, 0.0295964, 0, -0.999562, 9.27197, 1.91201, 2.20991)
+
+[node name="Carpet" parent="." instance=ExtResource("45_rvhly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59882, -0.0315972, -2.02806)
 
 [editable path="DDR"]
 [editable path="walllamp"]
