@@ -280,7 +280,7 @@ interior = true
 light_data = ExtResource("46_qnost")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10249, 0.470837, -17.5642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0034, 0.752738, 10.3878)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true

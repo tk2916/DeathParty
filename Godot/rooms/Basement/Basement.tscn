@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=100 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -45,6 +45,8 @@
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="44_5vrx5"]
 [ext_resource type="PackedScene" uid="uid://ct88jby2wdhev" path="res://Assets/environment/brown_carpet.tscn" id="45_rvhly"]
 [ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="45_x2dx7"]
+[ext_resource type="PackedScene" uid="uid://bu4v2b7ungfyw" path="res://rooms/Basement/white Basement wall.glb" id="46_rvhly"]
+[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="47_cdidy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -589,38 +591,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1xmmh")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_0lcfa"]
-_surfaces = [{
-"aabb": AABB(72.8206, -0.14574, -61.2024, 1e-05, 21.7615, 41.3626),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "Material.078",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_bblpt"]
-resource_name = "basement layout_Cube_001"
-_surfaces = [{
-"aabb": AABB(72.8206, -0.14574, -61.2024, 1e-05, 21.7615, 41.3626),
-"attribute_data": PackedByteArray("/////8U+nVD//51QxT7//w=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_e3i1b"),
-"name": "Material.078",
-"primitive": 3,
-"uv_scale": Vector4(4.07826, 3.17554, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAAAA/78AAP//////vwAA//8AAP+/AAAAAP///7//fwAA/38AAP9/AAD/fwAA")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_0lcfa")
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_jvfdu"]
 _surfaces = [{
 "aabb": AABB(-50.6124, 19.9282, -48.6162, 123.433, 1.68752, 41.3626),
@@ -676,6 +646,38 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jvfdu")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0lcfa"]
+_surfaces = [{
+"aabb": AABB(72.8206, -0.14574, -61.2024, 1e-05, 21.7615, 41.3626),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.078",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bblpt"]
+resource_name = "basement layout_Cube_001"
+_surfaces = [{
+"aabb": AABB(72.8206, -0.14574, -61.2024, 1e-05, 21.7615, 41.3626),
+"attribute_data": PackedByteArray("/////8U+nVD//51QxT7//w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_e3i1b"),
+"name": "Material.078",
+"primitive": 3,
+"uv_scale": Vector4(4.07826, 3.17554, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/78AAP//////vwAA//8AAP+/AAAAAP///7//fwAA/38AAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_0lcfa")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_t7yki"]
 _surfaces = [{
@@ -984,17 +986,25 @@ skeleton = NodePath("")
 
 [node name="Cube_103" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.154672, 0, -0.00011954, 0, 0.154672, 0, 0.00011954, 0, -0.154672, 1.68477, -0.0436244, -1.51532)
+visible = false
 mesh = SubResource("ArrayMesh_wooig")
+skeleton = NodePath("")
+
+[node name="white Basement wall" parent="." instance=ExtResource("46_rvhly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.683, -0.0453024, -1.533)
+
+[node name="white Basement wall2" parent="." instance=ExtResource("46_rvhly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.683, -0.0453024, 2.88614)
+
+[node name="Cube_010" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.154672, 0, -0.00011954, 0, 0.154672, 0, 0.00011954, 0, -0.154672, 1.68477, -0.0436244, -1.51532)
+visible = false
+mesh = SubResource("ArrayMesh_mk3mo")
 skeleton = NodePath("")
 
 [node name="Cube_008" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.154672, 0, -0.00011954, 0, 0.154672, 0, 0.00011954, 0, -0.154672, 1.68477, -0.0436244, -1.51532)
 mesh = SubResource("ArrayMesh_bblpt")
-skeleton = NodePath("")
-
-[node name="Cube_010" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.154672, 0, -0.00011954, 0, 0.154672, 0, 0.00011954, 0, -0.154672, 1.68477, -0.0436244, -1.51532)
-mesh = SubResource("ArrayMesh_mk3mo")
 skeleton = NodePath("")
 
 [node name="Cube_020" type="MeshInstance3D" parent="."]
@@ -1315,6 +1325,18 @@ transform = Transform3D(-0.999562, 0, -0.0295964, 0, 1, 0, 0.0295964, 0, -0.9995
 [node name="Carpet" parent="." instance=ExtResource("45_rvhly")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59882, -0.0315972, -2.02806)
 
+[node name="SceneLoader to entrance" parent="." instance=ExtResource("47_cdidy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74461, 2.07904, -3.58745)
+scene_going_right = "Entrance"
+scene_going_left = "Entrance"
+
+[node name="CollisionShape3D" parent="SceneLoader to entrance" index="0"]
+transform = Transform3D(0.999951, 0, -7.78044e-13, 0, 1, 0, 7.78044e-13, 0, 0.999951, 0.128552, 1.33243, -0.360749)
+
+[node name="TeleportPoint" parent="SceneLoader to entrance" index="1"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0.355531, 2.24203, -7.00042)
+
 [editable path="DDR"]
 [editable path="walllamp"]
 [editable path="snacks on table"]
+[editable path="SceneLoader to entrance"]
