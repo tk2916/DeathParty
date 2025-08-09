@@ -349,9 +349,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_05wcp")
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
-density = 0.2
-albedo = Color(0.292251, 0.00104838, 0.609301, 1)
-emission = Color(0.0467014, 2.51483e-06, 0.277994, 1)
+density = 0.18
+albedo = Color(0.304857, 0.00114282, 0.633416, 1)
+emission = Color(0.0660114, 3.82639e-06, 0.341219, 1)
 
 [node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
@@ -372,13 +372,28 @@ transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.00
 mesh = SubResource("ArrayMesh_s1q2i")
 skeleton = NodePath("")
 
+[node name="Cube_013" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.0989254, 2.68683, 4.78635)
+mesh = SubResource("ArrayMesh_s1q2i")
+skeleton = NodePath("")
+
 [node name="Cube_019" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, -2.01601, 1.32595, 2.21262)
 mesh = SubResource("ArrayMesh_tvkqg")
 skeleton = NodePath("")
 
+[node name="Cube_020" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, -2.01601, 1.32595, 5.61204)
+mesh = SubResource("ArrayMesh_tvkqg")
+skeleton = NodePath("")
+
 [node name="Cube_022" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 2.21431, 1.34586, 1.42364)
+mesh = SubResource("ArrayMesh_noy2h")
+skeleton = NodePath("")
+
+[node name="Cube_023" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 2.21431, 1.34586, 4.82383)
 mesh = SubResource("ArrayMesh_noy2h")
 skeleton = NodePath("")
 
@@ -403,13 +418,13 @@ transform = Transform3D(-4.79537e-08, 0, 0.805901, 0, 0.805901, 0, -1.09705, 0, 
 mesh = SubResource("ArrayMesh_vaxmu")
 
 [node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165577, 1.80608, 2.14244)
-size = Vector3(4.34741, 3.49082, 6.92798)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165577, 1.80608, 3.0778)
+size = Vector3(4.34741, 3.49082, 9.16467)
 material = SubResource("FogMaterial_lxtj2")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.758851, 0.651264, 0, -0.651264, -0.758851, 0.763988, 2.52618, -2.35974)
-light_color = Color(1, 0.9, 0, 1)
+transform = Transform3D(0.889039, 0, 0, 0, -0.674648, 0.578999, 0, -0.578999, -0.674648, 0.765139, 2.52618, -2.36261)
+light_color = Color(0.966667, 1, 0, 1)
 light_energy = 50.0
 light_volumetric_fog_energy = 5.0
 shadow_enabled = true
@@ -440,6 +455,84 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477808, 0.686834, -0.951489
 [node name="dorm string lights" parent="." instance=ExtResource("12_0ajex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.147555, 2.40365, 2.00679)
 
+[node name="OmniLight3D3" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0, -0.0516343, 1.95433)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 15.0
+omni_range = 0.726
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.439212, 0.00854063, 2.25138)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 15.0
+omni_range = 0.726
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.852154, -0.0516343, 1.17177)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 15.0
+omni_range = 0.726
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.852154, -0.0516343, 0.346062)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 15.0
+omni_range = 0.726
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.542011, -0.0516343, 1.49401)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 15.0
+omni_range = 0.726
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.811346, -0.0370543, 2.66837)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 15.0
+omni_range = 0.726
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.148322, -0.0516343, 0.0861404)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 15.0
+omni_range = 0.726
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.31894, -0.0516343, 0.00310421)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 15.0
+omni_range = 0.726
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.962074, 0.244284, -0.328704)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 20.0
+omni_range = 0.42
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.83411, 0.0754538, -0.921376)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 20.0
+omni_range = 0.619
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.470457, -0.143424, -1.17964)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 20.0
+omni_range = 0.619
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.0410955, -0.262261, -1.51534)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 30.0
+omni_range = 0.726
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="dorm string lights"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.934021, -0.262261, -2.12872)
+light_color = Color(0.898333, 0.98, 0, 1)
+light_energy = 30.0
+omni_range = 0.726
+
 [node name="hanging ivy" parent="." instance=ExtResource("13_ufsvp")]
 transform = Transform3D(0.994757, 0, 0, 0, 0.994757, 0, 0, 0, 0.994757, 0.315391, 2.14341, -0.413654)
 
@@ -451,7 +544,7 @@ transform = Transform3D(0.889036, 0, 0, 0, 0.889036, 0, 0, 0, 0.889036, -0.16999
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(0.889036, 0, 0, 0, 0.889036, 0, 0, 0, 0.889036, 0.67855, 1.11105, -1.42053)
-light_color = Color(1, 0.983333, 0, 1)
+light_color = Color(0.9, 1, 0, 1)
 light_energy = 8.111
 light_volumetric_fog_energy = 5.0
 shadow_enabled = true
