@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c8kxw67uw7fvd"
+path.s3tc="res://.godot/imported/Bartender_bartender_model_aiStandardSurface1_BaseColor.png-2ee48961a76ed859302c22a9f6ca5263.s3tc.ctex"
+path.etc2="res://.godot/imported/Bartender_bartender_model_aiStandardSurface1_BaseColor.png-2ee48961a76ed859302c22a9f6ca5263.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "27ee5c26cbd1c3250f73967815cd28fc"
+}
+
+[deps]
+
+source_file="res://Assets/CharacterAssets/bartender/Bartender_bartender_model_aiStandardSurface1_BaseColor.png"
+dest_files=["res://.godot/imported/Bartender_bartender_model_aiStandardSurface1_BaseColor.png-2ee48961a76ed859302c22a9f6ca5263.s3tc.ctex", "res://.godot/imported/Bartender_bartender_model_aiStandardSurface1_BaseColor.png-2ee48961a76ed859302c22a9f6ca5263.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

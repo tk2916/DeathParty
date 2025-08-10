@@ -280,7 +280,7 @@ interior = true
 light_data = ExtResource("46_qnost")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3894, 0.590108, -14.9421)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3894, 0.590108, 5.78764)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
@@ -337,85 +337,11 @@ default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)
 script = null
 
-[node name="entrance wall" parent="Entrance" index="1"]
-transform = Transform3D(1.18683, 0, 0, 0, 1.18683, 0, 0, 0, 1.18683, -6.55623, 2.06447, 4.11958)
-
-[node name="MAT_wallpaper_DIFFUSE" parent="Entrance/entrance wall" index="0"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
-
-[node name="MAT_wallpaper_DIFFUSE2" parent="Entrance/entrance wall" index="1"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
-
-[node name="MAT_wallpaper_DIFFUSE3" parent="Entrance/entrance wall" index="2"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
-
-[node name="entrance wall3" parent="Entrance" index="2"]
-transform = Transform3D(-1.18683, 0, 1.03756e-07, 0, 1.18683, 0, -1.03756e-07, 0, -1.18683, 11.9283, 2.06447, 4.11958)
-
-[node name="MAT_wallpaper_DIFFUSE" parent="Entrance/entrance wall3" index="0"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
-
-[node name="MAT_wallpaper_DIFFUSE2" parent="Entrance/entrance wall3" index="1"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
-
-[node name="MAT_wallpaper_DIFFUSE3" parent="Entrance/entrance wall3" index="2"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
-
-[node name="entrance wall2" parent="Entrance" index="3"]
-transform = Transform3D(-5.18781e-08, 0, -1.18683, 0, 1.18683, 0, 1.18683, 0, -5.18781e-08, 0.304595, 2.06447, -5.53636)
-
-[node name="MAT_wallpaper_DIFFUSE" parent="Entrance/entrance wall2" index="0"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
-
-[node name="MAT_wallpaper_DIFFUSE2" parent="Entrance/entrance wall2" index="1"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
-
-[node name="MAT_wallpaper_DIFFUSE3" parent="Entrance/entrance wall2" index="2"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
-
-[node name="WoodDoorway" parent="Entrance" index="10"]
-transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 1.921, 0.135, -5.46368)
-
-[node name="GlowingDoorway" parent="Entrance" index="14"]
-transform = Transform3D(-0.214602, 0, -0.000750626, 0, 0.216691, 0, 0.000726646, 0, -0.221684, 1.8862, 1.30482, -5.99366)
-
-[node name="GlowingDoorway2" parent="Entrance" index="15"]
-transform = Transform3D(-0.27963, 0, -0.000756004, 0, 0.320847, 0, 0.000946833, 0, -0.223272, -0.417228, 6.54585, -6.26398)
-
-[node name="GlowingDoorway3" parent="Entrance" index="16"]
-transform = Transform3D(-0.27963, 0, -0.000756004, 0, 0.320847, 0, 0.000946833, 0, -0.223272, 4.71571, 6.54585, -6.26398)
-
-[node name="OmniLight3D" parent="Entrance/Windows/ArchWindow2" index="0"]
-light_color = Color(1, 0.258824, 0.403922, 1)
-
-[node name="StoneArchWindow" parent="Entrance/Windows" index="2"]
-transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 1.66168e-15, 0.015603, -1.67707e-09, 1.68993, -4.44232, 1.01296, -5.75913)
-
-[node name="StoneArchWindow2" parent="Entrance/Windows" index="3"]
-transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 1.66168e-15, 0.015603, -1.67707e-09, 1.68993, -2.43198, 1.01296, -5.77769)
-
-[node name="StoneArchWindow3" parent="Entrance/Windows" index="4"]
-transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 0, 0.015603, -1.67707e-09, 1.68993, 6.99915, 1.01296, -5.78229)
-
-[node name="StoneArchWindow4" parent="Entrance/Windows" index="5"]
-transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 0, 0.015603, -1.67707e-09, 1.68993, 9.19657, 1.01296, -5.80257)
-
 [node name="SceneLoaderEntranceToPartyRoom" parent="Entrance" index="21"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.180967, -4.96324)
 
 [node name="TeleportPoint" parent="Entrance/SceneLoaderEntranceToPartyRoom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113162, -4.40737)
-
-[node name="door" parent="Entrance" index="24"]
-transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.3882, 1.21599, 10.4024)
-
-[node name="SpotLight3D3" parent="Entrance" index="25"]
-transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, -2.94736, 7.98428, -6.75585)
-light_color = Color(1, 0.268927, 0.349748, 1)
-
-[node name="SpotLight3D4" parent="Entrance" index="26"]
-transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, 7.30322, 7.98428, -6.75585)
-light_color = Color(1, 0.268927, 0.349748, 1)
 
 [node name="SceneLoader kitchen" parent="Entrance" index="27"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0.25356, 8.12601)
@@ -440,12 +366,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.403
 
 [node name="TeleportPoint" parent="Library/SceneLoaderLibraryToPartyRoom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715306, 0.0133139, -7.4692)
-
-[node name="dorm bookshelf" parent="Library/Bookshelves" index="4"]
-transform = Transform3D(1.70295, 0, 0, 0, 1.70295, 0, 0, 0, 1.70295, 4.29309, -2.20448, 7.02446)
-
-[node name="door" parent="Library" index="20"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.90362, -3.25214, 4.02877)
 
 [node name="JackOLanternTall2" parent="Library" instance=ExtResource("42_0cp0l")]
 transform = Transform3D(-1.34361e-08, 0, -0.24748, 0, 0.290456, 0, 0.307382, 0, -1.08177e-08, -8.31708, -4.23481, 4.92798)
@@ -661,21 +581,6 @@ transform = Transform3D(-0.576026, -0.0962183, -0.811746, 0, 0.993044, -0.117708
 
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
-
-[node name="SpotLight3D3" parent="Bathroom/Plane_014" index="1"]
-transform = Transform3D(1.09031, 0, 0, 0, 0.00433879, 1.0903, 0, -1.0903, 0.00433879, -0.884387, -0.196537, -3.74853)
-
-[node name="SpotLight3D5" parent="Bathroom/Plane_014" index="2"]
-transform = Transform3D(1.09031, 0, 0, 0, 0.0633896, 1.08847, 0, -1.08847, 0.0633896, 4.53389, -0.196537, -3.74853)
-
-[node name="bathroom sink" parent="Bathroom" index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18989, -1.56048, -3.80021)
-
-[node name="OmniLight3D" parent="Bathroom/walllamp" index="2"]
-light_color = Color(1, 0.716667, 0, 1)
-
-[node name="OmniLight3D" parent="Bathroom/walllamp2" index="2"]
-light_color = Color(1, 0.766667, 0, 1)
 
 [node name="Basement" parent="." groups=["loadable_scene"] instance=ExtResource("38_b1qrp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 14.4393)

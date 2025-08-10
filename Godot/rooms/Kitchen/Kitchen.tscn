@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=79 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bwam0r715obls" path="res://Assets/props/alcohol/beer_box/Beer box.glb" id="1_htgpp"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://cnb05rd1rv7e7" path="res://Assets/CharacterAssets/rowan/rowan.tscn" id="41_h3uy3"]
 [ext_resource type="PackedScene" uid="uid://byj5oetmgrptr" path="res://Assets/props/desk_lamp/simple_lamp.tscn" id="42_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="42_et00h"]
+[ext_resource type="PackedScene" uid="uid://c8rq8p1i25wix" path="res://Assets/CharacterAssets/bartender/bartender.tscn" id="44_p4v0j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
 size = Vector3(15, 5, 13)
@@ -1154,7 +1155,7 @@ spot_angle = 43.93
 transform = Transform3D(0.878684, 0, 0, 0, 0.878684, 0, 0, 0, 0.878684, -0.31219, -2.22854, -3.70571)
 
 [node name="Bar" parent="." instance=ExtResource("10_6xo0a")]
-transform = Transform3D(0.872326, 0, -0.488926, 0, 1, 0, 0.488926, 0, 0.872326, -5.10501, -2.30629, -2.06597)
+transform = Transform3D(0.826821, 0, -0.463421, 0, 0.947835, 0, 0.463421, 0, 0.826821, -5.10501, -2.37436, -2.06597)
 
 [node name="blue goose2" parent="Bar" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.654846, 0, -0.755762, 0, 1, 0, 0.755762, 0, 0.654846, 0.334109, 0.36635, -0.46438)
@@ -1185,6 +1186,20 @@ transform = Transform3D(0.0468997, 0.228721, -0.133245, -0.263346, 0.0539996, 0,
 
 [node name="pumpkin with beers" parent="Bar" instance=ExtResource("29_nw002")]
 transform = Transform3D(-1.08319, 0, 0.14863, 0, 1.09334, 0, -0.14863, 0, -1.08319, 0.26093, 0.67095, -1.4185)
+
+[node name="simple lamp" parent="Bar" instance=ExtResource("42_e7jho")]
+transform = Transform3D(0.28237, 0, 1.05625, 0, 1.09334, 0, -1.05625, 0, 0.28237, 0.321263, 0.3927, -1.71894)
+
+[node name="SpotLight3D" parent="Bar/simple lamp" index="1"]
+transform = Transform3D(-0.0641164, -0.570502, 0.81879, 0.0515789, 0.817487, 0.573633, -0.996608, 0.0790115, -0.0229884, -0.202683, 0.568085, 0.0407047)
+light_energy = 16.0
+light_volumetric_fog_energy = 10.0
+
+[node name="OmniLight3D" parent="Bar/simple lamp" index="2"]
+light_energy = 3.0
+shadow_enabled = true
+omni_range = 2.346
+omni_attenuation = 2.0
 
 [node name="Trash" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266067, -2.71812, -1.91791)
@@ -1638,20 +1653,6 @@ transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.00765
 [node name="TeleportPoint" parent="SceneLoader" index="1"]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 5.96046e-07, 0.839686, 5.9993)
 
-[node name="simple lamp" parent="." instance=ExtResource("42_e7jho")]
-transform = Transform3D(0.762748, 0, 0.783338, 0, 1.09334, 0, -0.783338, 0, 0.762748, -3.98433, -1.91359, -3.40837)
-
-[node name="SpotLight3D" parent="simple lamp" index="1"]
-transform = Transform3D(-0.0641164, -0.570502, 0.81879, 0.0515789, 0.817487, 0.573633, -0.996608, 0.0790115, -0.0229884, -0.202683, 0.568085, 0.0407047)
-light_energy = 16.0
-light_volumetric_fog_energy = 10.0
-
-[node name="OmniLight3D" parent="simple lamp" index="2"]
-light_energy = 3.0
-shadow_enabled = true
-omni_range = 2.346
-omni_attenuation = 2.0
-
 [node name="door" parent="." instance=ExtResource("2_kbocy")]
 transform = Transform3D(-4.77916e-08, 0, -1.09334, 0, 1.09334, 0, 1.09334, 0, -4.77916e-08, 8.25604, -1.78701, 1.93738)
 
@@ -1677,6 +1678,9 @@ randomness = 0.25
 process_material = SubResource("ParticleProcessMaterial_e7jho")
 draw_pass_1 = SubResource("SphereMesh_l32yv")
 
+[node name="Bartender" parent="." instance=ExtResource("44_p4v0j")]
+transform = Transform3D(0.803282, 0, 0.741715, 0, 1.09334, 0, -0.741715, 0, 0.803282, -6.1496, -3.10612, -1.83261)
+
 [editable path="Room"]
+[editable path="Bar/simple lamp"]
 [editable path="SceneLoader"]
-[editable path="simple lamp"]
