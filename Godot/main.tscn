@@ -1,10 +1,11 @@
-[gd_scene load_steps=67 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=68 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Texture2D" uid="uid://dckqjt7kdk82j" path="res://Assets/textures/Blaubeuren Night 1k (1).hdr" id="1_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
 [ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
+[ext_resource type="PackedScene" uid="uid://dw34g4c5db1uf" path="res://Utilities/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="Script" uid="uid://b5yrwvs426aci" path="res://World/WorldScripts/outside.gd" id="5_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://dr2o8ey3n88sr" path="res://World/room.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cfn5yvo0kg0up" path="res://World/floor.tscn" id="8_efxa6"]
@@ -173,6 +174,9 @@ script = ExtResource("26_lswn8")
 json_file = ExtResource("27_a6jrf")
 json_file2 = ExtResource("27_xuqvo")
 test_inventory_item = NodePath("../OldTestRooms/UpperRoom/HotDogStand")
+
+[node name="DevMenu" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_h8e4i")]
+player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
