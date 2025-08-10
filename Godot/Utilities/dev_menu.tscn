@@ -17,9 +17,18 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PlayerSpeedButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 text = "increase player speed"
 
-[connection signal="toggled" from="MarginContainer/Button" to="." method="_on_button_toggled"]
+[node name="PlayerSpeedNote" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "warning: can cause bugs if you go
+too fast when loading
+into another room"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/PlayerSpeedButton" to="." method="_on_player_speed_button_toggled"]

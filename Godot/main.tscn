@@ -176,6 +176,7 @@ json_file2 = ExtResource("27_xuqvo")
 test_inventory_item = NodePath("../OldTestRooms/UpperRoom/HotDogStand")
 
 [node name="DevMenu" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_h8e4i")]
+visible = false
 player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
