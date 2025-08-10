@@ -1,8 +1,9 @@
-extends Control
+extends CanvasLayer
 
 
 @export var player: CharacterBody3D
 
+var player_added_speed := 10.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,4 +16,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_toggled(toggled_on: bool) -> void:
-	pass
+	if toggled_on:
+		player.player_speed += player_added_speed
+	elif not toggled_on:
+		player.player_speed -= player_added_speed
