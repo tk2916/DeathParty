@@ -28,7 +28,7 @@
 [ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="26_mav1h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
-size = Vector3(8.04827, 3.47472, 11.0452)
+size = Vector3(4.23928, 3.15956, 8.65055)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gjmr"]
 resource_name = "Material.213"
@@ -628,7 +628,7 @@ script = ExtResource("1_lxtj2")
 room_area = NodePath("RoomArea")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.330058, 1.56959, 2.25774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109923, 1.47272, 3.11237)
 shape = SubResource("BoxShape3D_aasoq")
 
 [node name="Cube_011" type="MeshInstance3D" parent="."]

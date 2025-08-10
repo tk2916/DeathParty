@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjvs5qtk2spb"]
+
+[ext_resource type="PackedScene" uid="uid://hl56t3rfk1uo" path="res://rooms/bedroom/Bedroom.tscn" id="1_t5x2y"]
+[ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="2_x5kap"]
+[ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="3_alhl2"]
+
+[sub_resource type="Curve3D" id="Curve3D_t5x2y"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.079, 1.468, 0.912, 0, 0, 0, 0, 0, 0, 0, 1.93722, 9.26709),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_t5x2y")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.991763, -0.00712262, -0.127881, 0, 0.998452, -0.0556111, 0.128079, -0.055153, -0.990228, -1.079, 1.468, 0.912)
+
+[node name="Bedroom" parent="." node_paths=PackedStringArray("path_follow_node") instance=ExtResource("1_t5x2y")]
+path_follow_node = NodePath("../Path3D/PathFollow3D")
+
+[node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node") instance=ExtResource("2_x5kap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.079, 1.468, 0.912)
+main_camera = NodePath(".")
+camera_location_node = NodePath("../Player/PlayerCameraLocation")
+default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
+
+[node name="Player" parent="." instance=ExtResource("3_alhl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0627796, 0.667089)
+
+[editable path="Player"]
