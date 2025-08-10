@@ -337,13 +337,13 @@ default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)
 script = null
 
-[node name="SceneLoaderEntranceToPartyRoom" parent="Entrance" index="18"]
+[node name="SceneLoaderEntranceToPartyRoom" parent="Entrance" index="21"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.180967, -4.96324)
 
 [node name="TeleportPoint" parent="Entrance/SceneLoaderEntranceToPartyRoom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113162, -4.40737)
 
-[node name="SceneLoader kitchen" parent="Entrance" index="24"]
+[node name="SceneLoader kitchen" parent="Entrance" index="27"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0.25356, 8.12601)
 
 [node name="TeleportPoint" parent="Entrance/SceneLoader kitchen" index="1"]

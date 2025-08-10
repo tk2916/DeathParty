@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=104 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dyj4kpvw1jya" path="res://Assets/environment/carpet/carpet.tscn" id="13_1lqw2"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="14_a1w3s"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="15_e63ox"]
+[ext_resource type="PackedScene" uid="uid://dg5lud6e674m5" path="res://rooms/bedroom/dorm bookshelf.glb" id="15_jpbuu"]
 [ext_resource type="PackedScene" uid="uid://xukwgg26fv7r" path="res://Assets/props/flags/usa_flag/usa_flag.glb" id="15_ypgds"]
 [ext_resource type="PackedScene" uid="uid://conilv6pb6vsk" path="res://Assets/props/banners/die_banner/die_banner.glb" id="16_6posu"]
 [ext_resource type="PackedScene" uid="uid://d0npqij1rnr1s" path="res://Assets/environment/bookshelves/bookshelf_ornate/bookshelf_ornate.tscn" id="18_62c4v"]
@@ -1261,8 +1262,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312,
 [node name="Bookshelf4" parent="Bookshelves" instance=ExtResource("8_nt7ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312, 8.67255)
 
-[node name="Bookshelf5" parent="Bookshelves" instance=ExtResource("8_nt7ft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, 4.46457, -2.9312, 6.65061)
+[node name="dorm bookshelf" parent="Bookshelves" instance=ExtResource("15_jpbuu")]
+transform = Transform3D(1.70295, 0, 0, 0, 1.70295, 0, 0, 0, 1.70295, 4.29309, -2.20448, 7.02446)
 
 [node name="Door" parent="." instance=ExtResource("15_e63ox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91573, -3.23279, -1.95305)
@@ -1623,7 +1624,7 @@ material = SubResource("FogMaterial_obdan")
 transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, -4.21185, -4.41003, 0.530073)
 
 [node name="door" parent="." instance=ExtResource("15_e63ox")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.65109, -3.18053, 6.81311)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.90362, -3.25214, 4.02877)
 
 [node name="teddy bear" parent="." instance=ExtResource("44_dffff")]
 transform = Transform3D(1.12195, 0, 0.670834, 0, 1.3072, 0, -0.670834, 0, 1.12195, -6.78328, -4.08373, 2.44692)
