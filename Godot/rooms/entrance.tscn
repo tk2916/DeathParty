@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=73 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="36_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="37_0ritw"]
+[ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="39_t7spl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -347,6 +348,14 @@ size = Vector3(3, 2, 1)
 density = 0.06
 albedo = Color(0.316676, 0.00123956, 0.652151, 1)
 emission = Color(0.0630584, 5.49413e-05, 0.20964, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
+size = Vector3(17.9089, 3.18161, 0.503846)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
+albedo_color = Color(0.281989, 0.500556, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
 lifetime_randomness = 0.1
@@ -902,6 +911,33 @@ transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.90
 [node name="door" parent="." instance=ExtResource("36_gfuhi")]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.3882, 1.21599, 10.4024)
 
+[node name="SceneLoader to bedroom" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("39_t7spl")
+scene_going_right = "Bedroom"
+scene_going_left = "Bedroom"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader to bedroom"]
+transform = Transform3D(0.999988, 0, -3.76588e-13, 0, 1, 0, 3.76588e-13, 0, 0.999988, -1.47154, 0.747803, -0.0853052)
+shape = SubResource("BoxShape3D_3cled")
+
+[node name="TeleportPoint" type="Node3D" parent="SceneLoader to bedroom"]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.7695)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader to bedroom/TeleportPoint"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_6wayg")
+mesh = SubResource("BoxMesh_qelyj")
+
+[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader to bedroom"]
+event_name = "event:/door"
+event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
+attached = false
+volume = 0.3
+unique_name_in_owner = true
+
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, -2.94736, 7.98428, -6.75585)
 light_color = Color(1, 0.268927, 0.349748, 1)
@@ -986,6 +1022,8 @@ process_material = SubResource("ParticleProcessMaterial_d8etm")
 draw_pass_1 = SubResource("SphereMesh_d8etm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="SceneLoader to bedroom" to="SceneLoader to bedroom" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneLoader to bedroom" to="SceneLoader to bedroom" method="_on_body_exited"]
 
 [editable path="WallLamps/WallLamp2"]
 [editable path="WallLamps/WallLamp3"]

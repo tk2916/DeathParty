@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=73 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -25,9 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://clld388t2g78n" path="res://rooms/bedroom/punk posters_vinyl.png" id="23_rjuee"]
 [ext_resource type="Texture2D" uid="uid://dpgoxcccpv2um" path="res://rooms/bedroom/punk posters_IMG_2068.png" id="24_mav1h"]
 [ext_resource type="Texture2D" uid="uid://pllqh6hglgvf" path="res://rooms/bedroom/punk posters_Untitled_Artwork.png" id="25_e0ilc"]
+[ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="26_mav1h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
-size = Vector3(4.28317, 3.2551, 5.78491)
+size = Vector3(8.04827, 3.47472, 11.0452)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gjmr"]
 resource_name = "Material.213"
@@ -613,13 +614,21 @@ height = 0.015
 radial_segments = 12
 rings = 12
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
+size = Vector3(17.9089, 3.18161, 0.503846)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
+albedo_color = Color(0.281989, 0.500556, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
+
 [node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 script = ExtResource("1_lxtj2")
 room_area = NodePath("RoomArea")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.147324, 1.6794, 1.46326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.330058, 1.56959, 2.25774)
 shape = SubResource("BoxShape3D_aasoq")
 
 [node name="Cube_011" type="MeshInstance3D" parent="."]
@@ -906,5 +915,35 @@ speed_scale = 0.3
 randomness = 0.25
 process_material = SubResource("ParticleProcessMaterial_rjuee")
 draw_pass_1 = SubResource("SphereMesh_mav1h")
+
+[node name="SceneLoader to entrance" type="Area3D" parent="."]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.816608, -0.0933874, 6.39353)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("26_mav1h")
+scene_going_right = "Entrance"
+scene_going_left = "Entrance"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader to entrance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926189, 1.403, -1.34445)
+shape = SubResource("BoxShape3D_3cled")
+
+[node name="TeleportPoint" type="Node3D" parent="SceneLoader to entrance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.455, 0.839686, -18.6226)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader to entrance/TeleportPoint"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_6wayg")
+mesh = SubResource("BoxMesh_qelyj")
+
+[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader to entrance"]
+event_name = "event:/door"
+event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
+attached = false
+volume = 0.3
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="SceneLoader to entrance" to="SceneLoader to entrance" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneLoader to entrance" to="SceneLoader to entrance" method="_on_body_exited"]
 
 [editable path="closet"]
