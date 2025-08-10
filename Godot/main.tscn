@@ -280,13 +280,13 @@ interior = true
 light_data = ExtResource("46_qnost")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3894, 0.590108, 5.78764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6198, 0.590108, 5.78764)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
 
 [node name="PlayerCameraLocation" parent="Player" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80794, 7.19858)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83448, 7.19858)
 
 [node name="Skeleton3D" parent="Player/PlayerModel/Model" index="0"]
 bones/0/position = Vector3(0.0295796, -0.0804331, -9.32385)

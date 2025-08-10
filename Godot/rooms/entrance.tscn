@@ -344,8 +344,9 @@ shadow_mesh = SubResource("ArrayMesh_3qtki")
 size = Vector3(3, 2, 1)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
-density = 0.05
-albedo = Color(0.00933332, 0, 0.28, 1)
+density = 0.06
+albedo = Color(0.316676, 0.00123956, 0.652151, 1)
+emission = Color(0.0630584, 5.49413e-05, 0.20964, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
 lifetime_randomness = 0.1
@@ -550,14 +551,14 @@ transform = Transform3D(1.46343, 0, 0.0332099, 0, 1.46381, 0, -0.0332099, 0, 1.4
 [node name="OmniLight3D" type="OmniLight3D" parent="Staircase"]
 transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -3.19848, 0.876022, 1.20675)
 light_color = Color(0.87, 0.77198, 0.4176, 1)
-light_energy = 6.211
+light_energy = 10.0
 omni_range = 2.872
 omni_attenuation = 0.667
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Staircase"]
 transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -0.0718786, 2.77427, -2.68568)
 light_color = Color(0.87, 0.77198, 0.4176, 1)
-light_energy = 6.211
+light_energy = 10.0
 omni_range = 2.872
 omni_attenuation = -1.937
 
@@ -578,7 +579,7 @@ omni_attenuation = -2.021
 [node name="OmniLight3D4" type="OmniLight3D" parent="Staircase"]
 transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 3.07413, 0.764043, 0.553632)
 light_color = Color(0.87, 0.77198, 0.4176, 1)
-light_energy = 5.856
+light_energy = 10.0
 shadow_enabled = true
 omni_range = 2.872
 omni_attenuation = 0.667
@@ -656,7 +657,7 @@ omni_attenuation = 0.792
 [node name="OmniLight3D2" type="OmniLight3D" parent="GlowingDoorway"]
 transform = Transform3D(4.51041, 0, 0, 0, 4.51044, 0, 0, 0, 4.51041, -1.40476, -0.759202, -29.8609)
 light_color = Color(1, 0.622, 0.37, 1)
-light_energy = 11.045
+light_energy = 15.0
 omni_range = 5.058
 
 [node name="GlowingDoorway2" type="MeshInstance3D" parent="."]
@@ -699,10 +700,62 @@ transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 0, 0
 [node name="Chandeliers" type="Node3D" parent="."]
 
 [node name="Chandelier" parent="Chandeliers" instance=ExtResource("19_a28ps")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.57116, 6.93289, 0.502097)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.864103, 6.93289, 0.502097)
+
+[node name="OmniLight3D" parent="Chandeliers/Chandelier/Lights" index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.90729, 0.151968, 2.56974)
+light_color = Color(0.98, 0.25872, 0.0392, 1)
+
+[node name="OmniLight3D2" parent="Chandeliers/Chandelier/Lights" index="1"]
+light_energy = 5.0
+
+[node name="OmniLight3D3" parent="Chandeliers/Chandelier/Lights" index="2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.79069, 0.151968, -2.00234)
+
+[node name="OmniLight3D4" parent="Chandeliers/Chandelier/Lights" index="3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.81726, 0.151968, 2.53793)
+light_energy = 5.0
+
+[node name="OmniLight3D5" parent="Chandeliers/Chandelier/Lights" index="4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.00381756, 0.151968, 4.70326)
+light_color = Color(0.98, 0.41552, 0.0392, 1)
+light_energy = 5.0
+
+[node name="OmniLight3D8" parent="Chandeliers/Chandelier/Lights" index="7"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.00381756, 1.68393, 2.84634)
+
+[node name="OmniLight3D12" parent="Chandeliers/Chandelier/Lights" index="11"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.10392, 1.38321, 1.48745)
+light_color = Color(1, 0.333333, 0, 1)
 
 [node name="Chandelier2" parent="Chandeliers" instance=ExtResource("19_a28ps")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 6.06403, 6.92268, 0.317129)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 5.01838, 6.93289, 0.502097)
+
+[node name="OmniLight3D" parent="Chandeliers/Chandelier2/Lights" index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.90729, 0.151968, 2.56974)
+light_color = Color(0.98, 0.25872, 0.0392, 1)
+
+[node name="OmniLight3D2" parent="Chandeliers/Chandelier2/Lights" index="1"]
+light_energy = 5.0
+
+[node name="OmniLight3D3" parent="Chandeliers/Chandelier2/Lights" index="2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.79069, 0.151968, -2.00234)
+
+[node name="OmniLight3D4" parent="Chandeliers/Chandelier2/Lights" index="3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.81726, 0.151968, 2.53793)
+light_energy = 5.0
+
+[node name="OmniLight3D5" parent="Chandeliers/Chandelier2/Lights" index="4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.00381756, 0.151968, 4.70326)
+light_color = Color(0.98, 0.41552, 0.0392, 1)
+light_energy = 5.0
+
+[node name="OmniLight3D8" parent="Chandeliers/Chandelier2/Lights" index="7"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.00381756, 1.68393, 2.84634)
+
+[node name="OmniLight3D12" parent="Chandeliers/Chandelier2/Lights" index="11"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.10392, 1.38321, 1.48745)
+light_color = Color(1, 0.333333, 0, 1)
 
 [node name="Painting" parent="." instance=ExtResource("20_2fk3d")]
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.33357, 5.93565, -5.9708)
@@ -710,7 +763,8 @@ transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.33357, 5.
 [node name="SpotLight3D2" type="SpotLight3D" parent="Painting"]
 transform = Transform3D(0.683149, 0, 0, 0, 0.0696059, 0.679594, 0, -0.679594, 0.0696059, 0, 2.09361, 1.38245)
 light_color = Color(1, 0.7615, 0.47, 1)
-light_energy = 4.555
+light_energy = 15.0
+light_volumetric_fog_energy = 5.0
 shadow_enabled = true
 spot_range = 5.963
 spot_attenuation = -1.15
@@ -851,16 +905,16 @@ transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.0028
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, -2.94736, 7.98428, -6.75585)
 light_color = Color(1, 0.268927, 0.349748, 1)
-light_energy = 50.0
-light_volumetric_fog_energy = 50.0
+light_energy = 30.0
+light_volumetric_fog_energy = 30.0
 spot_range = 18.879
 spot_angle = 15.25
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, 7.30322, 7.98428, -6.75585)
 light_color = Color(1, 0.268927, 0.349748, 1)
-light_energy = 50.0
-light_volumetric_fog_energy = 50.0
+light_energy = 30.0
+light_volumetric_fog_energy = 30.0
 spot_range = 18.879
 spot_angle = 15.25
 
@@ -904,7 +958,7 @@ transform = Transform3D(-0.97208, 0, -0.23465, 0, 1, 0, 0.23465, 0, -0.97208, 8.
 transform = Transform3D(0.992866, 0, -0.119236, 0, 1, 0, 0.119236, 0, 0.992866, -3.43955, 3.35038, 6.29816)
 
 [node name="DIE flag3" parent="." instance=ExtResource("37_0ritw")]
-transform = Transform3D(0.380489, 0, -0.924785, 0, 1, 0, 0.924785, 0, 0.380489, -1.14086, 5.33207, 1.54244)
+transform = Transform3D(0.380489, 0, -0.924785, 0, 1, 0, 0.924785, 0, 0.380489, -0.417163, 5.33207, 1.54967)
 
 [node name="Particles" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 2)
@@ -938,6 +992,7 @@ draw_pass_1 = SubResource("SphereMesh_d8etm")
 [editable path="Windows/ArchWindow"]
 [editable path="Windows/ArchWindow2"]
 [editable path="Chandeliers/Chandelier"]
+[editable path="Chandeliers/Chandelier2"]
 [editable path="SceneLoaderEntranceToPartyRoom"]
 [editable path="SceneLoader kitchen"]
 [editable path="SceneLoaderbasement"]
