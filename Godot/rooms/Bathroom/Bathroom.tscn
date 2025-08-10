@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=61 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -481,6 +481,37 @@ shadow_mesh = SubResource("ArrayMesh_vtrip")
 density = 0.3
 albedo = Color(0.186, 0, 0.36, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o8af5"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.5
+gravity = Vector3(0, -0.05, 0)
+damping_min = 0.05
+damping_max = 0.05
+scale_min = 0.5
+scale_max = 0.75
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyvi5"]
+transparency = 1
+albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_jy5jw"]
+material = SubResource("StandardMaterial3D_uyvi5")
+radius = 0.008
+height = 0.015
+radial_segments = 12
+rings = 12
+
 [node name="Bathroom" type="Area3D" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, 0, 0, 0)
 collision_mask = 2
@@ -828,6 +859,28 @@ transform = Transform3D(0.50997, 0, -0.963695, 0, 1.09031, 0, 0.963695, 0, 0.509
 
 [node name="sunday light" parent="." instance=ExtResource("32_o8af5")]
 transform = Transform3D(0.510693, 0, -0.963312, 0, 1.09031, 0, 0.963312, 0, 0.510693, -5.70016, -1.33278, 1.05747)
+
+[node name="Dust" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.433087, 0, 0, 0, 0.765298, 0, 0, 0, 0.595745, 2.7953, -0.829269, -2.49083)
+gi_mode = 2
+amount = 100
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_o8af5")
+draw_pass_1 = SubResource("SphereMesh_jy5jw")
+
+[node name="Dust2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1.16347, 0, 0, 0, 0.421934, 0, 0, 0, 0.449475, -4.11461, -0.661146, 0.609382)
+gi_mode = 2
+amount = 200
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_o8af5")
+draw_pass_1 = SubResource("SphereMesh_jy5jw")
 
 [editable path="SceneLoader to Partyroom"]
 [editable path="bathroom disco"]

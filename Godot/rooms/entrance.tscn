@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=69 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -39,7 +39,6 @@
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="36_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="37_0ritw"]
-[ext_resource type="PackedScene" uid="uid://bjq5n5r2olwdr" path="res://Assets/particles/dust.tscn" id="38_db6t0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -347,6 +346,37 @@ size = Vector3(3, 2, 1)
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
 density = 0.05
 albedo = Color(0.00933332, 0, 0.28, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.5
+gravity = Vector3(0, -0.05, 0)
+damping_min = 0.05
+damping_max = 0.05
+scale_min = 0.5
+scale_max = 0.75
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8etm"]
+transparency = 1
+albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_d8etm"]
+material = SubResource("StandardMaterial3D_d8etm")
+radius = 0.01
+height = 0.02
+radial_segments = 12
+rings = 12
 
 [node name="Entrance" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
@@ -879,11 +909,27 @@ transform = Transform3D(0.380489, 0, -0.924785, 0, 1, 0, 0.924785, 0, 0.380489, 
 [node name="Particles" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 2)
 
-[node name="Dust" parent="Particles" instance=ExtResource("38_db6t0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
+[node name="Dust" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.00759745, -0.892238)
+gi_mode = 2
+amount = 100
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_d8etm")
+draw_pass_1 = SubResource("SphereMesh_d8etm")
 
-[node name="Dust2" parent="Particles" instance=ExtResource("38_db6t0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+[node name="Dust2" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21182, 0.00759745, -1.60561)
+gi_mode = 2
+amount = 200
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_d8etm")
+draw_pass_1 = SubResource("SphereMesh_d8etm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 

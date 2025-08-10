@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=69 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -354,7 +354,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_05wcp")
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
-density = 0.18
+density = 0.2
 albedo = Color(0.304857, 0.00114282, 0.633416, 1)
 emission = Color(0.0660114, 3.82639e-06, 0.341219, 1)
 
@@ -582,6 +582,37 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dr3iw")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rjuee"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.5
+gravity = Vector3(0, -0.05, 0)
+damping_min = 0.05
+damping_max = 0.05
+scale_min = 0.5
+scale_max = 0.75
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4v0j"]
+transparency = 1
+albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_mav1h"]
+material = SubResource("StandardMaterial3D_p4v0j")
+radius = 0.008
+height = 0.015
+radial_segments = 12
+rings = 12
+
 [node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 script = ExtResource("1_lxtj2")
@@ -654,7 +685,7 @@ material = SubResource("FogMaterial_lxtj2")
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.889039, 0, 0, 0, -0.674648, 0.578999, 0, -0.578999, -0.674648, 0.765139, 2.52618, -2.36261)
 light_color = Color(0.966667, 1, 0, 1)
-light_energy = 50.0
+light_energy = 70.0
 light_volumetric_fog_energy = 5.0
 shadow_enabled = true
 spot_range = 10.0
@@ -853,5 +884,27 @@ skeleton = NodePath("")
 transform = Transform3D(-8.12822e-09, 0.185952, -8.12822e-09, 0, -8.12822e-09, -0.185952, -0.185952, -8.12822e-09, 3.55296e-16, -3.41236, -0.198552, 4.50018)
 mesh = SubResource("ArrayMesh_jtb5n")
 skeleton = NodePath("")
+
+[node name="Dust" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.357413, 0, 0, 0, 0.709267, 0, 0, 0, 0.542528, 0.488564, 1.79881, 0.991255)
+gi_mode = 2
+amount = 200
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_rjuee")
+draw_pass_1 = SubResource("SphereMesh_mav1h")
+
+[node name="Dust2" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.140425, 0, 0, 0, 0.133539, 0, 0, 0, 0.165071, -0.92669, 1.37059, -1.08633)
+gi_mode = 2
+amount = 200
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_rjuee")
+draw_pass_1 = SubResource("SphereMesh_mav1h")
 
 [editable path="closet"]

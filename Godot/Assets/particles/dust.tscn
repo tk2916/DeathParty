@@ -26,14 +26,14 @@ particles_anim_loop = false
 
 [sub_resource type="SphereMesh" id="SphereMesh_d8etm"]
 material = SubResource("StandardMaterial3D_d8etm")
-radius = 0.004
-height = 0.008
+radius = 0.01
+height = 0.02
 radial_segments = 12
 rings = 12
 
 [node name="Dust" type="GPUParticles3D"]
 gi_mode = 2
-amount = 300
+amount = 100
 lifetime = 4.0
 preprocess = 2.0
 speed_scale = 0.25
