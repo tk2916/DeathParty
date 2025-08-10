@@ -337,57 +337,6 @@ default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)
 script = null
 
-[node name="WoodArchWide2" parent="Entrance/WoodArches" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 0.475, -1.607)
-
-[node name="Chandelier" parent="Entrance/Chandeliers" index="0"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.864103, 6.93289, 0.502097)
-
-[node name="OmniLight3D" parent="Entrance/Chandeliers/Chandelier/Lights" index="0"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.90729, 0.151968, 2.56974)
-light_color = Color(0.98, 0.25872, 0.0392, 1)
-
-[node name="OmniLight3D3" parent="Entrance/Chandeliers/Chandelier/Lights" index="2"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.79069, 0.151968, -2.00234)
-
-[node name="OmniLight3D4" parent="Entrance/Chandeliers/Chandelier/Lights" index="3"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.81726, 0.151968, 2.53793)
-
-[node name="OmniLight3D5" parent="Entrance/Chandeliers/Chandelier/Lights" index="4"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.00381756, 0.151968, 4.70326)
-light_color = Color(0.98, 0.41552, 0.0392, 1)
-
-[node name="OmniLight3D8" parent="Entrance/Chandeliers/Chandelier/Lights" index="7"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.00381756, 1.68393, 2.84634)
-
-[node name="OmniLight3D12" parent="Entrance/Chandeliers/Chandelier/Lights" index="11"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.10392, 1.38321, 1.48745)
-light_color = Color(1, 0.333333, 0, 1)
-
-[node name="Chandelier2" parent="Entrance/Chandeliers" index="1"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 5.01838, 6.93289, 0.502097)
-
-[node name="OmniLight3D" parent="Entrance/Chandeliers/Chandelier2/Lights" index="0"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.90729, 0.151968, 2.56974)
-light_color = Color(0.98, 0.25872, 0.0392, 1)
-
-[node name="OmniLight3D3" parent="Entrance/Chandeliers/Chandelier2/Lights" index="2"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.79069, 0.151968, -2.00234)
-
-[node name="OmniLight3D4" parent="Entrance/Chandeliers/Chandelier2/Lights" index="3"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.81726, 0.151968, 2.53793)
-
-[node name="OmniLight3D5" parent="Entrance/Chandeliers/Chandelier2/Lights" index="4"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.00381756, 0.151968, 4.70326)
-light_color = Color(0.98, 0.41552, 0.0392, 1)
-
-[node name="OmniLight3D8" parent="Entrance/Chandeliers/Chandelier2/Lights" index="7"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.00381756, 1.68393, 2.84634)
-
-[node name="OmniLight3D12" parent="Entrance/Chandeliers/Chandelier2/Lights" index="11"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.10392, 1.38321, 1.48745)
-light_color = Color(1, 0.333333, 0, 1)
-
 [node name="SceneLoaderEntranceToPartyRoom" parent="Entrance" index="21"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.180967, -4.96324)
 
@@ -402,9 +351,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414903, 0.276754, -3.37467)
 
 [node name="MeshInstance3D" parent="Entrance/SceneLoader kitchen/TeleportPoint" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.265869, 0, 0)
-
-[node name="DIE flag3" parent="Entrance" index="33"]
-transform = Transform3D(0.380489, 0, -0.924785, 0, 1, 0, 0.924785, 0, 0.380489, -0.417163, 5.33207, 1.54967)
 
 [node name="Dust" parent="Entrance/Particles" index="0"]
 transform = Transform3D(0.609914, 0, 0, 0, 1.38209, 0, 0, 0, 1, -4.5, 0.770933, -0.646791)

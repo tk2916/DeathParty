@@ -1,6 +1,6 @@
 [gd_scene load_steps=112 format=4 uid="uid://3iwh0xc60rih"]
 
-[ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
+[ext_resource type="Script" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
 [ext_resource type="Texture2D" uid="uid://jiacg077gvxe" path="res://rooms/Basement/basement layout_woodlight1.png" id="2_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://4iykxcokw2c6" path="res://rooms/Basement/basement layout_stainless steel.png" id="3_ygom3"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bmmcqxu3d1tr5" path="res://rooms/Basement/tv.glb" id="16_4bbn0"]
 [ext_resource type="PackedScene" uid="uid://b7hdemy013yw5" path="res://rooms/Basement/DDR.glb" id="17_780xq"]
 [ext_resource type="PackedScene" uid="uid://dklyqnksqstxi" path="res://rooms/Basement/arcade.glb" id="18_7eb3f"]
-[ext_resource type="PackedScene" uid="uid://bfsk7udiphl1k" path="res://rooms/Basement/standing_lamp.tscn" id="19_gmle0"]
+[ext_resource type="PackedScene" path="res://rooms/Basement/standing_lamp.tscn" id="19_gmle0"]
 [ext_resource type="PackedScene" uid="uid://d0qviybdp0h2g" path="res://Assets/props/speaker/speaker.tscn" id="20_nngqx"]
 [ext_resource type="PackedScene" uid="uid://b2hj2hkqqebk1" path="res://rooms/Basement/long lamp.glb" id="21_23mk7"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="22_jwnd2"]
@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bij3bw4s6epdt" path="res://rooms/Basement/caution tape.glb" id="30_lgro0"]
 [ext_resource type="PackedScene" uid="uid://cn6shp7xdi6q5" path="res://Assets/props/posters/enjoy_poster/enjoy_poster.glb" id="30_p6v3q"]
 [ext_resource type="PackedScene" uid="uid://bw2herdlwxvnh" path="res://rooms/Basement/bean bag.glb" id="32_hcwc4"]
-[ext_resource type="PackedScene" uid="uid://bdcfyi83q8umf" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
+[ext_resource type="PackedScene" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
 [ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="34_u8b43"]
 [ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/posters/student_athlete_poster/student_athlete_poster.glb" id="35_15vnp"]
 [ext_resource type="PackedScene" uid="uid://bjutys11t6nx5" path="res://Assets/props/posters/drink_sign/drink_sign.glb" id="36_qpo1s"]
@@ -1283,6 +1283,7 @@ transform = Transform3D(0.782456, 0, -0.622706, 0, 1, 0, 0.622706, 0, 0.782456, 
 
 [node name="game room" parent="." instance=ExtResource("33_ln2a6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.82501, 2.21104, -4.66621)
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="game room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.194063, 0, -0.0413523)
@@ -1290,27 +1291,6 @@ light_color = Color(1, 0.783333, 0, 1)
 light_energy = 10.0
 omni_range = 1.01
 omni_attenuation = 1.5
-
-[node name="die_frat_logo_poster" parent="game room" instance=ExtResource("34_u8b43")]
-transform = Transform3D(-1.39553e-08, -7.34783e-10, -0.319701, -0.0168099, 0.319259, 8.32667e-17, 0.319259, 0.0168099, -1.39746e-08, 0.100251, -0.400463, -8.82316)
-
-[node name="enjoy_poster" parent="game room" instance=ExtResource("30_p6v3q")]
-transform = Transform3D(-1.04632e-08, 9.75616e-10, -0.240409, 0.0223195, 0.239371, 0, 0.23937, -0.0223195, -1.05086e-08, 0.119379, -0.0344913, -5.37628)
-
-[node name="sexy_poster" parent="game room" instance=ExtResource("29_g225s")]
-transform = Transform3D(-2.5324e-08, 0, -0.579345, 0, 0.579345, 0, 0.579345, 0, -2.5324e-08, 0.0664196, -0.622416, -4.22439)
-
-[node name="student_athlete_poster" parent="game room" instance=ExtResource("35_15vnp")]
-transform = Transform3D(-0.364106, 0, 3.18311e-08, 0, 0.364106, 0, -3.18311e-08, 0, -0.364106, -0.567827, -0.121294, 0.675385)
-
-[node name="drink_sign" parent="game room" instance=ExtResource("36_qpo1s")]
-transform = Transform3D(-2.38875e-08, 0, -0.546483, 0, 0.546483, 0, 0.546483, 0, -2.38875e-08, 0.117074, -0.494823, -12.1247)
-
-[node name="sunday_light_poster" parent="game room" instance=ExtResource("37_ollvv")]
-transform = Transform3D(-0.513903, 0, 4.49268e-08, 0, 0.513904, 0, -4.49268e-08, 0, -0.513903, -2.08966, -0.530758, 0.671055)
-
-[node name="BalloonsFourShort" parent="game room" instance=ExtResource("38_4fe3s")]
-transform = Transform3D(-0.156904, -0.18235, -3.13178e-08, 6.79352e-09, 4.49495e-08, -0.20847, 0.165359, -0.173026, -2.11518e-08, -3.72664, -1.3342, -0.199423)
 
 [node name="BalloonsFourShort" parent="." instance=ExtResource("38_4fe3s")]
 transform = Transform3D(-0.208088, 0.0571547, 2.91611e-09, 6.39496e-09, 4.18671e-08, -0.197715, -0.0523803, -0.227054, -3.5723e-08, 8.69137, 0.978745, 1.69532)
@@ -1411,6 +1391,27 @@ skeleton = NodePath("")
 
 [node name="asian flag" parent="." instance=ExtResource("51_hfud8")]
 transform = Transform3D(0.983166, 0, -0.182716, 0, 1, 0, 0.182716, 0, 0.983166, 1.85717, 2.82626, -4.55842)
+
+[node name="die_frat_logo_poster" parent="." instance=ExtResource("34_u8b43")]
+transform = Transform3D(0.319259, 0.0168099, -2.30926e-14, -0.0168099, 0.319259, 8.32667e-17, 4.26326e-14, -1.22125e-15, 0.319701, 0.00185013, 1.81058, -4.76646)
+
+[node name="enjoy_poster2" parent="." instance=ExtResource("30_p6v3q")]
+transform = Transform3D(0.23937, -0.0223195, 1.33227e-14, 0.0223195, 0.239371, 0, 2.66454e-15, 5.55112e-16, 0.240409, 3.44873, 2.17655, -4.78559)
+
+[node name="sexy_poster2" parent="." instance=ExtResource("29_g225s")]
+transform = Transform3D(0.579345, 0, -2.13163e-14, 0, 0.579345, 0, 2.13163e-14, 0, 0.579345, 4.60062, 1.58862, -4.73263)
+
+[node name="student_athlete_poster" parent="." instance=ExtResource("35_15vnp")]
+transform = Transform3D(-1.59155e-08, 0, -0.364106, 0, 0.364106, 0, 0.364106, 0, -1.59155e-08, 9.50039, 2.08975, -4.09838)
+
+[node name="drink_sign" parent="." instance=ExtResource("36_qpo1s")]
+transform = Transform3D(0.546483, 0, 3.55271e-14, 0, 0.546483, 0, -3.55271e-14, 0, 0.546483, -3.29969, 1.71622, -4.78328)
+
+[node name="sunday_light_poster" parent="." instance=ExtResource("37_ollvv")]
+transform = Transform3D(-2.24634e-08, 0, -0.513903, 0, 0.513904, 0, 0.513903, 0, -2.24634e-08, 9.49607, 1.68028, -2.57655)
+
+[node name="BalloonsFourShort2" parent="." instance=ExtResource("38_4fe3s")]
+transform = Transform3D(0.165359, -0.173026, -2.11518e-08, 6.79352e-09, 4.49495e-08, -0.20847, 0.156904, 0.18235, 3.13178e-08, 8.62559, 0.87684, -0.93957)
 
 [editable path="DDR"]
 [editable path="walllamp"]
