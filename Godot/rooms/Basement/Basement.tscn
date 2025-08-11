@@ -1367,6 +1367,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59882, -0.0315972, -2.02806
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74461, 2.07904, -3.58745)
 scene_going_right = "Entrance"
 scene_going_left = "Entrance"
+play_door_sound = true
 
 [node name="CollisionShape3D" parent="SceneLoader to entrance" index="0"]
 transform = Transform3D(0.999951, 0, -7.78044e-13, 0, 1, 0, 7.78044e-13, 0, 0.999951, 0.134892, 1.44708, -0.360749)
