@@ -341,7 +341,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3qtki")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gfuhi"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7spl"]
 size = Vector3(3, 2, 1)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
@@ -897,8 +897,8 @@ scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
 
 [node name="CollisionShape3D" parent="SceneLoaderEntranceToPartyRoom" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
-shape = SubResource("BoxShape3D_gfuhi")
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
+shape = SubResource("BoxShape3D_t7spl")
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87366, 5.24725, 4.8063)
