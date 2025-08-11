@@ -3,6 +3,8 @@ extends CanvasLayer
 
 @export var player: Player
 
+@onready var player_speed_button: Button = %PlayerSpeedButton
+
 var player_added_speed := 10.0
 
 
@@ -24,5 +26,7 @@ func toggle_menu() -> void:
 func _on_player_speed_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		player.player_speed += player_added_speed
+		player_speed_button.text = "reset player speed"
 	elif not toggled_on:
 		player.player_speed -= player_added_speed
+		player_speed_button.text = "increase player speed"
