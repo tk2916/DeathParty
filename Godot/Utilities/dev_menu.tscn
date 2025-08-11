@@ -19,6 +19,7 @@ layout_mode = 2
 [node name="PlayerSpeedButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 toggle_mode = true
 text = "increase player speed"
 
@@ -31,6 +32,7 @@ into another room"
 [node name="SlowMotionButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 toggle_mode = true
 text = "slow motion"
 
