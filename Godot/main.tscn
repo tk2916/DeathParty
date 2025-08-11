@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=67 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Texture2D" uid="uid://dckqjt7kdk82j" path="res://Assets/textures/Blaubeuren Night 1k (1).hdr" id="1_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="42_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
-[ext_resource type="LightmapGIData" uid="uid://dovrf850w07cv" path="res://Assets/textures/lightmaps/main.lmbake" id="46_qnost"]
 [ext_resource type="PackedScene" uid="uid://c1nd01uwlqaij" path="res://Assets/CharacterAssets/drug_dealer/drug_dealer.tscn" id="53_abqjc"]
 [ext_resource type="PackedScene" uid="uid://c75vy0mpx33of" path="res://Assets/props/hot_dog_stand/hot_dog_stand.glb" id="54_6iyjs"]
 [ext_resource type="PackedScene" uid="uid://d0sd1bp5esd04" path="res://Utilities/polaroid_camera/polaroid_layer.tscn" id="55_e71vb"]
@@ -277,12 +276,6 @@ script = ExtResource("3_cyx1q")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
-
-[node name="LightmapGI" type="LightmapGI" parent="."]
-visible = false
-quality = 2
-interior = true
-light_data = ExtResource("46_qnost")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8663, 0.291739, 24.0262)
