@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bce1xv0wcorsw" path="res://Assets/environment/fridge/fridge.tscn" id="5_qn7eg"]
 [ext_resource type="PackedScene" uid="uid://bxsjt7jdg8hv3" path="res://Assets/environment/kiss_the_cook_sign/Kitchen Neon sign.glb" id="6_84i0v"]
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="6_l47d5"]
-[ext_resource type="PackedScene" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
+[ext_resource type="PackedScene" uid="uid://bhe0kgbucqoad" path="res://Assets/environment/drawers.tscn" id="6_t1sd7"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="7_84i0v"]
 [ext_resource type="PackedScene" uid="uid://dwtxi47usnits" path="res://Assets/props/bar/Bar.glb" id="10_6xo0a"]
 [ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="12_pxkqo"]
@@ -1679,7 +1679,7 @@ process_material = SubResource("ParticleProcessMaterial_e7jho")
 draw_pass_1 = SubResource("SphereMesh_l32yv")
 
 [node name="Bartender" parent="." instance=ExtResource("44_p4v0j")]
-transform = Transform3D(0.803282, 0, 0.741715, 0, 1.09334, 0, -0.741715, 0, 0.803282, -6.1496, -3.10612, -1.83261)
+transform = Transform3D(0.711062, 0, 0.844263, 0, 1.14342, 0, -0.844263, 0, 0.711062, -6.16842, -3.1054, -1.79786)
 
 [editable path="Room"]
 [editable path="Bar/simple lamp"]
