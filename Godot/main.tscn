@@ -265,9 +265,6 @@ test_path = "res://Assets/models/bookflip3.tscn"
 [node name="SubViewport" parent="ObjectViewer/SubViewportContainer" index="0"]
 render_target_update_mode = 0
 
-[node name="Light" type="DirectionalLight3D" parent="ObjectViewer/SubViewportContainer/SubViewport" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
-
 [node name="WorldBoundary" type="Area3D" parent="."]
 collision_mask = 2
 
@@ -277,6 +274,9 @@ shape = SubResource("WorldBoundaryShape3D_0cbny")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1vm84")
 script = ExtResource("3_cyx1q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 visible = false
