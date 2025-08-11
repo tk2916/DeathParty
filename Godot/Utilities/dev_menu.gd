@@ -38,5 +38,5 @@ func _on_slow_motion_button_toggled(toggled_on: bool) -> void:
 		Engine.time_scale = 0.25
 		slow_motion_button.text = "reset game speed"
 	elif not toggled_on:
-		Engine.time_scale = 1
+		Engine.time_scale = 1.0
 		slow_motion_button.text = "slow motion"
