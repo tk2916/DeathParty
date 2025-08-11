@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cmink41yr1q8i"]
 
-[ext_resource type="Script" path="res://Utilities/dev_menu.gd" id="1_wbp6d"]
+[ext_resource type="Script" uid="uid://cyq4ufcsp62p7" path="res://Utilities/dev_menu.gd" id="1_wbp6d"]
 
 [node name="DevMenu" type="CanvasLayer"]
 script = ExtResource("1_wbp6d")
@@ -19,6 +19,7 @@ layout_mode = 2
 [node name="PlayerSpeedButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 toggle_mode = true
 text = "increase player speed"
 
@@ -28,4 +29,12 @@ text = "warning: can cause bugs if you go
 too fast when loading
 into another room"
 
+[node name="SlowMotionButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+text = "slow motion"
+
 [connection signal="toggled" from="MarginContainer/VBoxContainer/PlayerSpeedButton" to="." method="_on_player_speed_button_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/SlowMotionButton" to="." method="_on_slow_motion_button_toggled"]

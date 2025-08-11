@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var player: Player
 
 @onready var player_speed_button: Button = %PlayerSpeedButton
+@onready var slow_motion_button: Button = %SlowMotionButton
 
 var player_added_speed := 10.0
 
@@ -30,3 +31,12 @@ func _on_player_speed_button_toggled(toggled_on: bool) -> void:
 	elif not toggled_on:
 		player.player_speed -= player_added_speed
 		player_speed_button.text = "increase player speed"
+
+
+func _on_slow_motion_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		Engine.time_scale = 0.25
+		slow_motion_button.text = "reset game speed"
+	elif not toggled_on:
+		Engine.time_scale = 1.0
+		slow_motion_button.text = "slow motion"
