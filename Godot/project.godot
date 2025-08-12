@@ -87,7 +87,7 @@ material_carpet=""
 
 [gui]
 
-timers/tooltip_delay_sec=0.1
+timers/tooltip_delay_sec=0.05
 
 [input]
 
