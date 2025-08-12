@@ -76,11 +76,9 @@ func store_scene_info(node : Node3D) -> void:
 		on_og_scene_loaded()
 
 func on_og_scene_loaded() -> void:
-	print("Fading screen out")
 	player.set_physics_process(true)
 	player.visible = true
 	fade_loading_screen_out()
-	print("Finished fading screen")
 
 func on_node_added(node:Node) -> void:
 	#if player != null: return

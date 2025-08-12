@@ -9,6 +9,7 @@ func _ready() -> void:
 	if main:
 		canvas_layer = main.get_node("CanvasLayer")
 		text_message_box = canvas_layer.get_node("Phone/Screen/Background/MessageApp")
+		print("Found text message box: ", text_message_box)
 
 const INK_FILE_PATH : String = "res://Assets/InkExamples/"
 var in_dialogue : bool = false #other scripts check this
@@ -41,10 +42,10 @@ var current_choice_labels : Array[Node]
 const INK_INTERPRET_RSC_FILEPATH : String = "res://Singletons/InkInterpreter/ink_interpret_resource_blank.tres"
 var blank_ink_interpret_resource : Resource = load(INK_INTERPRET_RSC_FILEPATH).duplicate(true)
 
-var current_character_resource : Resource = null
+var current_character_resource : CharacterResource = null
 
 #PHONE CONVERSATIONS CAN BE PAUSED AND RETURNED TO
-var current_phone_resource : Resource = null
+var current_phone_resource : ChatResource = null
 var current_conversation : Array[InkLineInfo]
 
 #RANDOM NUMBERS (for dice rolls)
@@ -150,12 +151,14 @@ func say(dialogues : Array[InkLineInfo]):
 	display_current_dialogue()
 
 func load_convo(target_name : String, json_name : String, phone_conversation : bool = false):
+	print("Loading convo: ", target_name, " | ", json_name)
+	var json_file : JSON = load(INK_FILE_PATH+json_name)
 	var target_resource : Resource 
 	if phone_conversation:
 		target_resource = SaveSystem.phone_chat_to_resource[target_name]
 	else:
 		target_resource = SaveSystem.character_to_resource[target_name]
-	var json_file : JSON = load(INK_FILE_PATH+json_name)
+	print("Target resource: ", target_resource)
 	target_resource.load_chat(json_file)
 
 func match_command(text_ : String):
@@ -333,9 +336,9 @@ func from_JSON(file : JSON, saved_ink_resource : InkResource = blank_ink_interpr
 	display_current_container()
 
 #CHARACTER-RELATED
-func to_character(char : Resource, file : JSON):
+func from_character(char : CharacterResource, file : JSON):
 	current_character_resource = char
-	current_character_resource.load_chat(file)
+	from_JSON(file)
 
 #PHONE-RELATED
 func find_contact(chat_name:String):
@@ -347,8 +350,10 @@ func to_phone(chat_name : String, file : JSON): # called to load json into phone
 	current_phone_resource = chat
 	current_phone_resource.load_chat(file)
 
-func start_text_convo(chat_name : String): # called when player opens chat
+func start_text_convo(_text_message_box : DialogueBoxNode,chat_name : String): # called when player opens chat
+	text_message_box = _text_message_box
 	# opens the first loaded conversation or resumes the current one
+	print("Text message box: ", text_message_box)
 	transferDialogueBox(text_message_box)
 	mouse_contained_within_gui = true
 	text_message_box.back_button.mouse_entered.connect(mouse_exited) 

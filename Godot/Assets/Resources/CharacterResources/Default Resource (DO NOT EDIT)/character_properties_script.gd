@@ -23,17 +23,37 @@ var ink_resource = load("res://Singletons/InkInterpreter/ink_interpret_resource.
 
 signal unread
 
-func load_chat(json : JSON):
+func chat_already_loaded(file : JSON):
+	for chat : JSON in upcoming_chats:
+		if chat.resource_path == file.resource_path:
+			return true
+	return false
+
+func load_chat(json : JSON) -> void:
+	print("Loading chat: ", json, " ", name, " id: ", get_instance_id())
+	if chat_already_loaded(json): return
 	upcoming_chats.push_back(json)
+	print("Loaded chat: ", name, " | ", upcoming_chats.size(), " | ", upcoming_chats.front())
 	unread.emit(true)
 	
-func start_chat():
-	var new_json : JSON = upcoming_chats.front()
+func print_all_chats():
+	print(name, "'s chats-------")
+	for chat : JSON in upcoming_chats:
+		print("Chat: ", chat, chat.resource_path)
+	print("------")
+	
+func start_chat() -> void:
+	print("Starting chat, ", name, " | id: ",  get_instance_id())
+	print_all_chats()
+	print("Total chats: ", self.upcoming_chats.size(), self.upcoming_chats.front())
+	var new_json : JSON = self.upcoming_chats.front()
+	print("New json: ", new_json)
 	if new_json == null:
 		if default_chat:
-			DialogueSystem.from_JSON(default_chat)
+			DialogueSystem.from_character(self, default_chat)
 	else:
-		DialogueSystem.from_JSON(new_json)
+		DialogueSystem.from_character(self, new_json)
 		
-func end_chat():
+func end_chat() -> void:
+	print("Ending chat: ", name)
 	upcoming_chats.pop_front()

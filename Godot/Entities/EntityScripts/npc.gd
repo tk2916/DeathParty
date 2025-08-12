@@ -7,6 +7,7 @@ var outline : Node3D
 @export var json_file : JSON
 
 func _ready() -> void:
+	print("Ready: ", name)
 	$InteractionDetector.player_interacted.connect(on_interact)
 	$InteractionDetector.player_in_range.connect(on_in_range)
 	outline = get_node_or_null("Outline")
@@ -14,7 +15,8 @@ func _ready() -> void:
 		outline.visible = false
 		
 	character_resource.unread.connect(on_unread)
-	DialogueSystem.to_character(character_resource, json_file)
+	if json_file:
+		character_resource.load_chat(json_file)
 
 func on_unread():
 	#$SpeechBubble.visible = true
