@@ -947,7 +947,7 @@ unique_name_in_owner = true
 event_name = "event:/900_MX/Olivia room music"
 event_guid = "{ae9cb825-c6ee-408e-a544-82929c10a82d}"
 autoplay = true
-volume = 0.25
+volume = 0.35
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.889039, 0.889039, -0.889039)
 
 [connection signal="body_entered" from="SceneLoader to entrance" to="SceneLoader to entrance" method="_on_body_entered"]
