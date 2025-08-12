@@ -5,7 +5,7 @@
 			<value>Olivia room music</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{6007ae0b-a2c7-45dd-ab32-aa063c8d3fcf}</destination>
@@ -107,10 +107,36 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{d564c0a2-c542-4320-84e9-8fadadbcc4a2}">
 		<relationship name="effects">
+			<destination>{80179a10-7c1a-45e7-8509-d16a1ea15474}</destination>
 			<destination>{b1e05026-6153-4aa7-b676-a4814580815e}</destination>
+			<destination>{7d9fd3d2-f352-4c65-a981-fe53d904e810}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7883bd16-d2de-4f21-abb6-a54472df83ef}" />
 	<object class="MixerBusFader" id="{74c52780-89fe-4e4c-9f7d-8a80b3718618}" />
+	<object class="SpatialiserEffect" id="{80179a10-7c1a-45e7-8509-d16a1ea15474}" />
 	<object class="MixerBusFader" id="{b1e05026-6153-4aa7-b676-a4814580815e}" />
+	<object class="SFXReverbEffect" id="{7d9fd3d2-f352-4c65-a981-fe53d904e810}">
+		<property name="decayTime">
+			<value>500</value>
+		</property>
+		<property name="earlyDelay">
+			<value>3</value>
+		</property>
+		<property name="lateDelay">
+			<value>4</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>10</value>
+		</property>
+		<property name="highCut">
+			<value>160</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>58</value>
+		</property>
+		<property name="wetLevel">
+			<value>-15</value>
+		</property>
+	</object>
 </objects>
