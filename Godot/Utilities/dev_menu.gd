@@ -24,6 +24,10 @@ func toggle_menu() -> void:
 	visible = !visible
 
 
+func _on_reset_player_button_pressed() -> void:
+	player.reset_position()
+
+
 func _on_player_speed_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		player.player_speed += player_added_speed
