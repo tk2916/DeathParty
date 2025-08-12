@@ -1,6 +1,6 @@
-[gd_scene load_steps=101 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=107 format=4 uid="uid://d3cv36i34m681"]
 
-[ext_resource type="Script" path="res://rooms/Library/library.gd" id="1_508o3"]
+[ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dyj4kpvw1jya" path="res://Assets/environment/carpet/carpet.tscn" id="13_1lqw2"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="14_a1w3s"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="15_e63ox"]
+[ext_resource type="PackedScene" uid="uid://dg5lud6e674m5" path="res://rooms/bedroom/dorm bookshelf.glb" id="15_jpbuu"]
 [ext_resource type="PackedScene" uid="uid://xukwgg26fv7r" path="res://Assets/props/flags/usa_flag/usa_flag.glb" id="15_ypgds"]
 [ext_resource type="PackedScene" uid="uid://conilv6pb6vsk" path="res://Assets/props/banners/die_banner/die_banner.glb" id="16_6posu"]
 [ext_resource type="PackedScene" uid="uid://d0npqij1rnr1s" path="res://Assets/environment/bookshelves/bookshelf_ornate/bookshelf_ornate.tscn" id="18_62c4v"]
@@ -44,7 +45,9 @@
 [ext_resource type="PackedScene" uid="uid://bjguuep7ueh1l" path="res://Assets/props/cobwebs/cobweb_wide.tscn" id="41_nbcih"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="42_fh3n2"]
 [ext_resource type="PackedScene" uid="uid://gu7mwgusye5o" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
+[ext_resource type="PackedScene" uid="uid://dvox0p4f1j5l1" path="res://rooms/bedroom/teddy bear.glb" id="44_dffff"]
 [ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
+[ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="45_owm1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15.626, 10, 12)
@@ -88,8 +91,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjh1m")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yidfh"]
-size = Vector3(150, 1, 58.238)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpbuu"]
+size = Vector3(100, 1, 58.238)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gde20"]
 resource_name = "Material.151"
@@ -1011,6 +1014,37 @@ func _on_timer_timeout() -> void:
 density = 0.1
 albedo = Color(2.76752e-07, 0.142261, 0.181713, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jpbuu"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.5
+gravity = Vector3(0, -0.05, 0)
+damping_min = 0.05
+damping_max = 0.05
+scale_min = 0.5
+scale_max = 0.75
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8etm"]
+transparency = 1
+albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_vinq0"]
+material = SubResource("StandardMaterial3D_d8etm")
+radius = 0.008
+height = 0.01
+radial_segments = 12
+rings = 12
+
 [node name="Library" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
 script = ExtResource("1_508o3")
@@ -1035,8 +1069,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57187, 0.747803, -1.67758)
 [node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
 transform = Transform3D(0.0293456, -0.714521, 0.698998, 0.0299709, 0.699614, 0.713892, -0.99912, -8.58179e-09, 0.0419454, 9.48549, 5.81339, 1.47308)
 light_color = Color(0.4464, 0.87358, 0.93, 1)
-light_energy = 200.0
-light_volumetric_fog_energy = 4.0
+light_energy = 50.0
+light_volumetric_fog_energy = 20.0
 light_specular = 0.767
 shadow_enabled = true
 shadow_bias = 0.145
@@ -1065,7 +1099,6 @@ spot_angle_attenuation = 1.62451
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Lights"]
 transform = Transform3D(0.721555, 0.0256846, 0.691881, -0.692357, 0.0267677, 0.721058, 1.52747e-09, -0.999312, 0.0370973, 3.17909, 1.1554, 1.00444)
-visible = false
 light_color = Color(0.4176, 0.81722, 0.87, 1)
 light_energy = 2.4
 shadow_enabled = true
@@ -1076,7 +1109,7 @@ spot_attenuation = -0.49
 spot_angle = 19.94
 
 [node name="floor" type="StaticBody3D" parent="." groups=["material_wood"]]
-transform = Transform3D(-0.140782, 0, -6.98784e-08, 0, 0.187118, 0, 4.58725e-08, 0, -0.214455, -6.0559, -0.34643, 2.42161)
+transform = Transform3D(-0.140782, 0, -8.35119e-08, 0, 0.187118, 0, 5.48225e-08, 0, -0.214455, -6.0559, -0.34643, 2.42161)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2126, 0, 0)
@@ -1084,11 +1117,11 @@ mesh = SubResource("ArrayMesh_4apcc")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, -1.13687e-13, 0, 1, 0, 1.13687e-13, 0, 1, 0.534134, -22.1713, 2.42637)
-shape = SubResource("BoxShape3D_yidfh")
+transform = Transform3D(1, 0, -1.13687e-13, 0, 1, 0, 1.13687e-13, 0, 1, -24, -22.171, 2.4)
+shape = SubResource("BoxShape3D_jpbuu")
 
 [node name="carpet" parent="floor" groups=["material_carpet"] instance=ExtResource("13_1lqw2")]
-transform = Transform3D(-2.9369, 0, 9.56965e-07, 0, 2.92642, 0, -8.31998e-07, 0, -2.55338, -10.0396, -21.5728, -0.537831)
+transform = Transform3D(-2.9369, 0, 9.94323e-07, 0, 2.92642, 0, -1.14367e-06, 0, -2.55338, -10.0396, -21.5728, -0.537831)
 
 [node name="LeftWall" type="Node3D" parent="."]
 
@@ -1259,8 +1292,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312,
 [node name="Bookshelf4" parent="Bookshelves" instance=ExtResource("8_nt7ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, -10.0088, -2.9312, 8.67255)
 
-[node name="Bookshelf5" parent="Bookshelves" instance=ExtResource("8_nt7ft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, -8.52651e-14, 0, 1, 4.46457, -2.9312, 6.65061)
+[node name="dorm bookshelf" parent="Bookshelves" instance=ExtResource("15_jpbuu")]
+transform = Transform3D(1.70295, 0, 0, 0, 1.70295, 0, 0, 0, 1.70295, 4.29309, -2.20448, 7.02446)
 
 [node name="Door" parent="." instance=ExtResource("15_e63ox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91573, -3.23279, -1.95305)
@@ -1600,6 +1633,9 @@ transform = Transform3D(-1.35006, 0, 0, 0, 1, 0, 0, 0, 1, 1.04046, -2.19247, -1.
 [node name="CobwebWide2" parent="Props/Cobwebs" instance=ExtResource("41_nbcih")]
 transform = Transform3D(-1.40787, 0.0652232, -0.783576, -0.572475, -1.18663, 0.92981, -0.538997, 1.08996, 1.05916, 2.57088, -3.17418, 5.25622)
 
+[node name="bunny" parent="Props" instance=ExtResource("45_owm1a")]
+transform = Transform3D(1.02778, 0, -0.523341, 0, 1.15335, 0, 0.523341, 0, 1.02778, -3.46439, -4.37312, 2.26879)
+
 [node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
@@ -1618,7 +1654,21 @@ material = SubResource("FogMaterial_obdan")
 transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, -4.21185, -4.41003, 0.530073)
 
 [node name="door" parent="." instance=ExtResource("15_e63ox")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.65109, -3.18053, 6.81311)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.90362, -3.25214, 4.02877)
+
+[node name="teddy bear" parent="." instance=ExtResource("44_dffff")]
+transform = Transform3D(1.12195, 0, 0.670834, 0, 1.3072, 0, -0.670834, 0, 1.12195, -6.78328, -4.08373, 2.44692)
+
+[node name="Dust" type="GPUParticles3D" parent="."]
+transform = Transform3D(1.33147, -0.634947, 0, 0.83756, 1.00937, 0, 0, 0, 0.664309, 0.365089, -3.04455, 1.00228)
+gi_mode = 2
+amount = 300
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_jpbuu")
+draw_pass_1 = SubResource("SphereMesh_vinq0")
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 

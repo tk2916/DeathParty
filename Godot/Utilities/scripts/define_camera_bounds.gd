@@ -111,6 +111,7 @@ func compress_vector3(vec: Vector3) -> float:
 
 ## Functions for emitting GlobalCameraScript signals
 func remove_all_bounds(body: Node3D) -> void:
+	GlobalCameraScript.camera_on_player.emit(false)
 	GlobalCameraScript.remove_camera_bounds_LR.emit()
 	GlobalCameraScript.remove_camera_bounds_y.emit()
 	GlobalCameraScript.remove_camera_bounds_depth.emit()

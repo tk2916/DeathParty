@@ -1,10 +1,11 @@
-[gd_scene load_steps=65 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=67 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Texture2D" uid="uid://dckqjt7kdk82j" path="res://Assets/textures/Blaubeuren Night 1k (1).hdr" id="1_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
 [ext_resource type="Script" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
+[ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="Script" uid="uid://b5yrwvs426aci" path="res://World/WorldScripts/outside.gd" id="5_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://dr2o8ey3n88sr" path="res://World/room.tscn" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cfn5yvo0kg0up" path="res://World/floor.tscn" id="8_efxa6"]
@@ -21,14 +22,15 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
+[ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
 [ext_resource type="PackedScene" uid="uid://bschhxvd0bvn7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
+[ext_resource type="PackedScene" uid="uid://hl56t3rfk1uo" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="40_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://cltuhd3m7kclu" path="res://World/room2.tscn" id="40_d2t1y"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="42_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
-[ext_resource type="LightmapGIData" uid="uid://dovrf850w07cv" path="res://Assets/textures/lightmaps/main.lmbake" id="46_qnost"]
 [ext_resource type="PackedScene" uid="uid://c1nd01uwlqaij" path="res://Assets/CharacterAssets/drug_dealer/drug_dealer.tscn" id="53_abqjc"]
 [ext_resource type="PackedScene" uid="uid://c75vy0mpx33of" path="res://Assets/props/hot_dog_stand/hot_dog_stand.glb" id="54_6iyjs"]
 [ext_resource type="PackedScene" uid="uid://d0sd1bp5esd04" path="res://Utilities/polaroid_camera/polaroid_layer.tscn" id="55_e71vb"]
@@ -58,7 +60,6 @@ ssao_detail = 0.0
 ssao_horizon = 0.66
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 1.5
 sdfgi_energy = 1.25
 glow_enabled = true
 glow_intensity = 0.5
@@ -173,6 +174,10 @@ json_file = ExtResource("27_a6jrf")
 json_file2 = ExtResource("27_xuqvo")
 test_inventory_item = NodePath("../OldTestRooms/UpperRoom/HotDogStand")
 
+[node name="DevMenu" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_h8e4i")]
+visible = false
+player = NodePath("../Player")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 process_mode = 3
@@ -259,9 +264,6 @@ test_path = "res://Assets/models/bookflip3.tscn"
 [node name="SubViewport" parent="ObjectViewer/SubViewportContainer" index="0"]
 render_target_update_mode = 0
 
-[node name="Light" type="DirectionalLight3D" parent="ObjectViewer/SubViewportContainer/SubViewport" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
-
 [node name="WorldBoundary" type="Area3D" parent="."]
 collision_mask = 2
 
@@ -272,14 +274,11 @@ shape = SubResource("WorldBoundaryShape3D_0cbny")
 environment = SubResource("Environment_1vm84")
 script = ExtResource("3_cyx1q")
 
-[node name="LightmapGI" type="LightmapGI" parent="."]
-visible = false
-quality = 2
-interior = true
-light_data = ExtResource("46_qnost")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.513, 0.312047, -1.25407)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8663, 0.291739, 24.0262)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
@@ -296,13 +295,13 @@ default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)
 script = null
 
-[node name="SceneLoaderEntranceToPartyRoom" parent="Entrance" index="16"]
+[node name="SceneLoaderEntranceToPartyRoom" parent="Entrance" index="21"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.180967, -4.96324)
 
 [node name="TeleportPoint" parent="Entrance/SceneLoaderEntranceToPartyRoom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113162, -4.40737)
 
-[node name="SceneLoader kitchen" parent="Entrance" index="22"]
+[node name="SceneLoader kitchen" parent="Entrance" index="28"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0.25356, 8.12601)
 
 [node name="TeleportPoint" parent="Entrance/SceneLoader kitchen" index="1"]
@@ -311,8 +310,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414903, 0.276754, -3.37467)
 [node name="MeshInstance3D" parent="Entrance/SceneLoader kitchen/TeleportPoint" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.265869, 0, 0)
 
-[node name="SceneLoaderbathroom" parent="Entrance" index="23"]
-transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.9534, 0.773034, 9.16798)
+[node name="Dust" parent="Entrance/Particles" index="0"]
+transform = Transform3D(0.609914, 0, 0, 0, 1.38209, 0, 0, 0, 1, -4.5, 0.770933, -0.646791)
 
 [node name="PartyRoom" parent="." groups=["loadable_scene"] instance=ExtResource("41_gngh3")]
 transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.999999, -24.161, 0, -17.392)
@@ -332,7 +331,17 @@ transform = Transform3D(-1.34361e-08, 0, -0.24748, 0, 0.290456, 0, 0.307382, 0, 
 [node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
 transform = Transform3D(0.761812, 0, 0, 0, 0.761812, 0, 0, 0, 0.761812, -43.3922, 2.37168, 6.27324)
 
+[node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
+transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
+
+[node name="Basement" parent="." groups=["loadable_scene"] instance=ExtResource("38_b1qrp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 14.4393)
+
+[node name="Bedroom" parent="." instance=ExtResource("39_h8e4i")]
+transform = Transform3D(1.15875, 0, 0, 0, 1.15875, 0, 0, 0, 1.15875, -39.7969, 0.0111146, 22.715)
+
 [node name="OldTestRooms" type="Node3D" parent="."]
+visible = false
 
 [node name="Room" parent="OldTestRooms" groups=["loadable_scene"] instance=ExtResource("40_d2t1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
@@ -482,67 +491,61 @@ transform = Transform3D(0.857017, 0, 0.375384, 0, 0.935624, 0, -0.375384, 0, 0.8
 [node name="HotDogStand" parent="OldTestRooms/UpperRoom" instance=ExtResource("54_6iyjs")]
 transform = Transform3D(-0.0530506, 0, 0.998592, 0, 1, 0, -0.998592, 0, -0.0530506, -2, -0.05, -0.5)
 
-[node name="Outside" type="Area3D" parent="." node_paths=PackedStringArray("room_area")]
+[node name="Outside" type="Area3D" parent="OldTestRooms" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25, 1, 0)
 collision_mask = 2
 script = ExtResource("5_ycdy4")
 room_area = NodePath("RoomArea")
 
-[node name="RoomArea" type="CollisionShape3D" parent="Outside"]
+[node name="RoomArea" type="CollisionShape3D" parent="OldTestRooms/Outside"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.619537, 0, -0.00170898)
 shape = SubResource("BoxShape3D_06yk2")
 
-[node name="Floor" type="StaticBody3D" parent="Outside"]
+[node name="Floor" type="StaticBody3D" parent="OldTestRooms/Outside"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OldTestRooms/Outside/Floor"]
 shape = SubResource("BoxShape3D_bv50f")
 debug_color = Color(0, 0.6, 0.701961, 0.270588)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/Outside/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.255252, 0.00739336, -0.00523806)
 mesh = SubResource("BoxMesh_06yk2")
 skeleton = NodePath("../..")
 
-[node name="SceneLoader" parent="Outside" instance=ExtResource("40_0cp0l")]
+[node name="SceneLoader" parent="OldTestRooms/Outside" instance=ExtResource("40_0cp0l")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.67903, 0.0996799, 0.0315633)
 
-[node name="CollisionShape3D" parent="Outside/SceneLoader" index="0"]
+[node name="CollisionShape3D" parent="OldTestRooms/Outside/SceneLoader" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.761902)
 shape = SubResource("BoxShape3D_3cled")
 
-[node name="Hallway" type="Area3D" parent="." node_paths=PackedStringArray("room_area", "path_follow_node")]
+[node name="Hallway" type="Area3D" parent="OldTestRooms" node_paths=PackedStringArray("room_area", "path_follow_node")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.50047, -0.233272, -6.99844)
 collision_mask = 2
 script = ExtResource("13_ycdy4")
 room_area = NodePath("RoomArea")
 path_follow_node = NodePath("Path3D/PathFollow3D")
 
-[node name="RoomArea" type="CollisionShape3D" parent="Hallway"]
+[node name="RoomArea" type="CollisionShape3D" parent="OldTestRooms/Hallway"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 shape = SubResource("BoxShape3D_vivmo")
 
-[node name="HallwayFloor" type="StaticBody3D" parent="Hallway"]
+[node name="HallwayFloor" type="StaticBody3D" parent="OldTestRooms/Hallway"]
 collision_mask = 0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HallwayFloor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/Hallway/HallwayFloor"]
 mesh = SubResource("BoxMesh_dg77c")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hallway/HallwayFloor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OldTestRooms/Hallway/HallwayFloor"]
 shape = SubResource("ConcavePolygonShape3D_ycdy4")
 
-[node name="Path3D" type="Path3D" parent="Hallway"]
+[node name="Path3D" type="Path3D" parent="OldTestRooms/Hallway"]
 curve = SubResource("Curve3D_6iyjs")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Hallway/Path3D"]
+[node name="PathFollow3D" type="PathFollow3D" parent="OldTestRooms/Hallway/Path3D"]
 transform = Transform3D(-0.576026, -0.0962183, -0.811746, 0, 0.993044, -0.117708, 0.817429, -0.0678031, -0.572022, -7.82933, 2, 8.6)
-
-[node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
-transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -5.22182, 2.34912, 10.4362)
-
-[node name="SceneLoader to entrance" parent="Bathroom" index="1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -2.51132, 0)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
@@ -560,9 +563,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.8225
 [editable path="Entrance/Windows/ArchWindow"]
 [editable path="Entrance/Windows/ArchWindow2"]
 [editable path="Entrance/Chandeliers/Chandelier"]
+[editable path="Entrance/Chandeliers/Chandelier2"]
 [editable path="Entrance/SceneLoaderEntranceToPartyRoom"]
 [editable path="Entrance/SceneLoader kitchen"]
-[editable path="Entrance/SceneLoaderbathroom"]
+[editable path="Entrance/SceneLoaderbasement"]
 [editable path="Library"]
 [editable path="Library/SceneLoaderLibraryToPartyRoom"]
 [editable path="Library/BackWall/Bookshelves/Upstairs"]
@@ -576,9 +580,4 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.8225
 [editable path="Library/Props/Desk/desk_lamp"]
 [editable path="Library/Props/Desk2/desk_lamp"]
 [editable path="OldTestRooms/Room/QuestionMark"]
-[editable path="Outside/SceneLoader"]
-[editable path="Bathroom"]
-[editable path="Bathroom/SceneLoader to entrance"]
-[editable path="Bathroom/bathroom disco"]
-[editable path="Bathroom/walllamp"]
-[editable path="Bathroom/walllamp2"]
+[editable path="OldTestRooms/Outside/SceneLoader"]

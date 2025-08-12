@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjq5n5r2olwdr"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.5
+gravity = Vector3(0, -0.05, 0)
+damping_min = 0.05
+damping_max = 0.05
+scale_min = 0.5
+scale_max = 0.75
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8etm"]
+transparency = 1
+albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_d8etm"]
+material = SubResource("StandardMaterial3D_d8etm")
+radius = 0.01
+height = 0.02
+radial_segments = 12
+rings = 12
+
+[node name="Dust" type="GPUParticles3D"]
+gi_mode = 2
+amount = 100
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.25
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_d8etm")
+draw_pass_1 = SubResource("SphereMesh_d8etm")
