@@ -198,7 +198,6 @@ custom_arrow_step = 0.1
 [node name="FPSLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
 tooltip_text = "FPS Limit
-
 limits the game's frame rate to the specified number (set to 0 to disable)
 
 NOTE: enabling Vertical Sync will override this limit if your monitor's refresh rate is lower than the limit you set here"
