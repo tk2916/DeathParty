@@ -84,6 +84,12 @@ focus_neighbor_bottom = NodePath("../VSyncOptionButton")
 
 [node name="VSyncLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
+tooltip_text = "Vertical Sync
+Locks the game's framerate to your monitor's refresh rate to prevent jitter and screen tearing
+
+Adaptive: locks the framerate when it exceeds the refresh rate
+Enabled: always locks the framerate (may cause stutters if performance drops)"
+mouse_filter = 1
 theme = ExtResource("2_e2l73")
 text = "Vertical Sync"
 
