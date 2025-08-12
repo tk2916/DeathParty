@@ -88,7 +88,6 @@ material_carpet=""
 [gui]
 
 timers/tooltip_delay_sec=0.1
-theme/custom="uid://dr1yk2pxxkcq3"
 
 [input]
 
