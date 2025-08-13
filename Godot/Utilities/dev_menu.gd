@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 @export var player: Player
+@export var party_room_music: FmodEventEmitter3D
 
 @onready var player_speed_button: Button = %PlayerSpeedButton
 @onready var slow_motion_button: Button = %SlowMotionButton
@@ -44,3 +45,7 @@ func _on_slow_motion_button_toggled(toggled_on: bool) -> void:
 	elif not toggled_on:
 		Engine.time_scale = 1.0
 		slow_motion_button.text = "slow motion"
+
+
+func _on_skip_music_button_pressed() -> void:
+	party_room_music.play()
