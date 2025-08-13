@@ -551,7 +551,7 @@ transform = Transform3D(-0.576026, -0.0962183, -0.811746, 0, 0.993044, -0.117708
 event_name = "event:/900_MX/Party Room music"
 event_guid = "{757f62e0-b188-491e-9503-6ad99b13690a}"
 autoplay = true
-volume = 0.75
+volume = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
