@@ -144,7 +144,7 @@
 			<value>1</value>
 		</property>
 		<property name="soundSize">
-			<value>10</value>
+			<value>15</value>
 		</property>
 	</object>
 	<object class="ProxyEffect" id="{2a05735a-c813-40b8-91dd-56dc3839c967}">
