@@ -19,13 +19,13 @@
 			<value>7</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>entrance</value>
-			<value>basement</value>
-			<value>olivia_bedroom</value>
-			<value>kitchen</value>
-			<value>bathroom</value>
-			<value>party_room</value>
-			<value>library</value>
+			<value>Entrance</value>
+			<value>Basement</value>
+			<value>Bedroom</value>
+			<value>Kitchen</value>
+			<value>Bathroom</value>
+			<value>PartyRoom</value>
+			<value>Library</value>
 		</property>
 		<property name="isGlobal">
 			<value>true</value>
