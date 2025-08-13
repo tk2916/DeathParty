@@ -149,7 +149,7 @@ func keep_camera_off_player(body: Node3D) -> void:
 func set_fmod_room_parameter(body: Node3D, room_name: String):
 	print("SETTING FMOD ROOM TO: ", room_name)
 	FmodServer.set_global_parameter_by_name_with_label("Room", room_name)
-	print("FMOD ROOM IS NOW: ", FmodServer.get_global_parameter_desc_by_name("Room"))
+	print("FMOD ROOM IS NOW: ", FmodServer.get_global_parameter_by_name("Room"))
 
 
 ## These functions should be defined in the extended script
