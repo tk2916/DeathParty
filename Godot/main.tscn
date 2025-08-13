@@ -1,22 +1,14 @@
-[gd_scene load_steps=67 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=31 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="Texture2D" uid="uid://dckqjt7kdk82j" path="res://Assets/textures/Blaubeuren Night 1k (1).hdr" id="1_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
-[ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
+[ext_resource type="Script" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu.tscn" id="4_h8e4i"]
-[ext_resource type="Script" uid="uid://b5yrwvs426aci" path="res://World/WorldScripts/outside.gd" id="5_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://dr2o8ey3n88sr" path="res://World/room.tscn" id="7_4c57u"]
-[ext_resource type="PackedScene" uid="uid://cfn5yvo0kg0up" path="res://World/floor.tscn" id="8_efxa6"]
-[ext_resource type="Script" uid="uid://bq22deee5mwhr" path="res://World/WorldScripts/back_room.gd" id="11_efxa6"]
-[ext_resource type="Script" uid="uid://bn07hwlvtlb6h" path="res://World/WorldScripts/room2.gd" id="13_w48qg"]
-[ext_resource type="Script" uid="uid://dmejjh2fyets1" path="res://World/WorldScripts/hallway.gd" id="13_ycdy4"]
-[ext_resource type="Texture2D" uid="uid://dl1rjofu3au18" path="res://Assets/textures/wall.png" id="14_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
-[ext_resource type="Texture2D" uid="uid://b5wj80mxisw7f" path="res://Assets/textures/floor1.png" id="23_facbu"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
@@ -25,17 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
 [ext_resource type="PackedScene" uid="uid://bschhxvd0bvn7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
 [ext_resource type="PackedScene" uid="uid://hl56t3rfk1uo" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
-[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="40_0cp0l"]
-[ext_resource type="PackedScene" uid="uid://cltuhd3m7kclu" path="res://World/room2.tscn" id="40_d2t1y"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="42_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
-[ext_resource type="PackedScene" uid="uid://c1nd01uwlqaij" path="res://Assets/CharacterAssets/drug_dealer/drug_dealer.tscn" id="53_abqjc"]
-[ext_resource type="PackedScene" uid="uid://c75vy0mpx33of" path="res://Assets/props/hot_dog_stand/hot_dog_stand.glb" id="54_6iyjs"]
 [ext_resource type="PackedScene" uid="uid://d0sd1bp5esd04" path="res://Utilities/polaroid_camera/polaroid_layer.tscn" id="55_e71vb"]
 [ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
-[ext_resource type="PackedScene" uid="uid://cfmkgp0rtwry" path="res://Utilities/polaroid_camera/picture_hint.tscn" id="57_rnkwl"]
 [ext_resource type="PackedScene" uid="uid://byfsccg4kb4bw" path="res://polaroid_pop_up.tscn" id="57_vke2r"]
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
 [ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
@@ -74,105 +61,12 @@ adjustment_enabled = true
 adjustment_brightness = 1.19
 adjustment_contrast = 1.03
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
-size = Vector3(11, 3, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
-size = Vector3(11, 0.5, 4)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ycdy4"]
-lightmap_size_hint = Vector2i(79, 66)
-add_uv2 = true
-size = Vector3(11, 0.5, 4)
-
-[sub_resource type="QuadMesh" id="QuadMesh_efxa6"]
-lightmap_size_hint = Vector2i(57, 17)
-add_uv2 = true
-size = Vector2(11, 3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_efxa6"]
-lightmap_size_hint = Vector2i(24, 56)
-add_uv2 = true
-size = Vector3(0.2, 3, 4)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_w48qg"]
-size = Vector3(11, 3, 3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_h8e4i"]
-lightmap_size_hint = Vector2i(20, 51)
-add_uv2 = true
-size = Vector3(0.2, 3, 3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lmeg"]
-albedo_texture = ExtResource("14_4k2k6")
-uv1_scale = Vector3(2, 2, 2)
-
-[sub_resource type="QuadMesh" id="QuadMesh_cegan"]
-lightmap_size_hint = Vector2i(57, 17)
-add_uv2 = true
-size = Vector2(11, 3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_come4"]
-albedo_texture = ExtResource("14_4k2k6")
-uv1_scale = Vector3(2, 1, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cegan"]
-points = PackedVector3Array(5.5, 1.5, 0, 5.5, -1.5, 0, -5.5, 1.5, 0, -5.5, -1.5, 0)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yaehf"]
-size = Vector3(11, 0.5, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_074og"]
-size = Vector3(6, 0.5, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_074og"]
-lightmap_size_hint = Vector2i(74, 66)
-add_uv2 = true
-size = Vector3(11, 0.5, 3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1qrp"]
-albedo_texture = ExtResource("23_facbu")
-uv1_scale = Vector3(4, 4, 4)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_06yk2"]
-size = Vector3(11.7237, 2.5, 3.0083)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bv50f"]
-size = Vector3(11, 0.5, 3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_06yk2"]
-lightmap_size_hint = Vector2i(74, 66)
-add_uv2 = true
-size = Vector3(11, 0.5, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
-size = Vector3(9.43977, 2.49561, 2.26954)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vivmo"]
-size = Vector3(17, 4, 3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dg77c"]
-lightmap_size_hint = Vector2i(104, 96)
-add_uv2 = true
-size = Vector3(17, 0.5, 3)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ycdy4"]
-data = PackedVector3Array(-8.5, 0.25, 1.5, 8.5, 0.25, 1.5, -8.5, -0.25, 1.5, 8.5, 0.25, 1.5, 8.5, -0.25, 1.5, -8.5, -0.25, 1.5, 8.5, 0.25, -1.5, -8.5, 0.25, -1.5, 8.5, -0.25, -1.5, -8.5, 0.25, -1.5, -8.5, -0.25, -1.5, 8.5, -0.25, -1.5, 8.5, 0.25, 1.5, 8.5, 0.25, -1.5, 8.5, -0.25, 1.5, 8.5, 0.25, -1.5, 8.5, -0.25, -1.5, 8.5, -0.25, 1.5, -8.5, 0.25, -1.5, -8.5, 0.25, 1.5, -8.5, -0.25, -1.5, -8.5, 0.25, 1.5, -8.5, -0.25, 1.5, -8.5, -0.25, -1.5, 8.5, 0.25, 1.5, -8.5, 0.25, 1.5, 8.5, 0.25, -1.5, -8.5, 0.25, 1.5, -8.5, 0.25, -1.5, 8.5, 0.25, -1.5, -8.5, -0.25, 1.5, 8.5, -0.25, 1.5, -8.5, -0.25, -1.5, 8.5, -0.25, 1.5, 8.5, -0.25, -1.5, -8.5, -0.25, -1.5)
-
-[sub_resource type="Curve3D" id="Curve3D_6iyjs"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -7.82933, 2, 8.6, 0, 0, 0, 0, 0, 0, 7.02904, 4.15456, 19.0704),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
 [node name="Main" type="Node3D"]
 
-[node name="GameLogic" type="Node" parent="." node_paths=PackedStringArray("test_inventory_item")]
+[node name="GameLogic" type="Node" parent="."]
 script = ExtResource("26_lswn8")
 json_file = ExtResource("27_a6jrf")
 json_file2 = ExtResource("27_xuqvo")
-test_inventory_item = NodePath("../OldTestRooms/UpperRoom/HotDogStand")
 
 [node name="DevMenu" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_h8e4i")]
 visible = false
@@ -239,9 +133,6 @@ viewfinder_camera = NodePath("PictureExample/Camera2D")
 top_level = true
 light_mask = 2
 visibility_layer = 2
-
-[node name="shoot" parent="PolaroidCamera" index="1" node_paths=PackedStringArray("question_mark")]
-question_mark = NodePath("../../OldTestRooms/Room/QuestionMark")
 
 [node name="TextureRect" type="ColorRect" parent="PolaroidCamera/shoot" index="0"]
 layout_mode = 0
@@ -346,218 +237,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 14.4393)
 [node name="Bedroom" parent="." instance=ExtResource("39_h8e4i")]
 transform = Transform3D(1.15875, 0, 0, 0, 1.15875, 0, 0, 0, 1.15875, -39.7969, 0.0111146, 22.715)
 
-[node name="OldTestRooms" type="Node3D" parent="."]
-visible = false
-
-[node name="Room" parent="OldTestRooms" groups=["loadable_scene"] instance=ExtResource("40_d2t1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
-
-[node name="QuestionMark" parent="OldTestRooms/Room" instance=ExtResource("57_rnkwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57451, 0.929534, 3.25658)
-
-[node name="Music" type="FmodEventEmitter3D" parent="OldTestRooms/Room"]
-event_name = "event:/music"
-event_guid = "{736a96ee-aebb-4593-a094-6f5e9ab9f738}"
-autoplay = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 0.25)
-
-[node name="CrowdSounds" type="FmodEventEmitter3D" parent="OldTestRooms/Room"]
-event_name = "event:/crowd"
-event_guid = "{9e4d86e6-afa7-406e-ba12-08656547d254}"
-autoplay = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, -0.5)
-
-[node name="BackRoom" type="Area3D" parent="OldTestRooms" node_paths=PackedStringArray("room_area")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.003)
-collision_mask = 2
-script = ExtResource("11_efxa6")
-room_area = NodePath("RoomArea")
-
-[node name="RoomArea" type="CollisionShape3D" parent="OldTestRooms/BackRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-shape = SubResource("BoxShape3D_ycdy4")
-debug_color = Color(4.81307e-07, 0.6058, 0.665263, 0.42)
-
-[node name="BackRoomFloor" type="StaticBody3D" parent="OldTestRooms/BackRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.5)
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OldTestRooms/BackRoom/BackRoomFloor"]
-shape = SubResource("BoxShape3D_dg77c")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/BackRoom/BackRoomFloor"]
-mesh = SubResource("BoxMesh_ycdy4")
-skeleton = NodePath("../../../../root/@EditorNode@21282/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11491/@VSplitContainer@11143/@HSplitContainer@11145/@HSplitContainer@11147/@Control@11148/@SubViewportContainer@11149/@SubViewport@11150/Main")
-
-[node name="BackRoomCeiling" type="StaticBody3D" parent="OldTestRooms/BackRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0.5)
-collision_mask = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/BackRoom/BackRoomCeiling"]
-mesh = SubResource("BoxMesh_ycdy4")
-skeleton = NodePath("../../../../root/@EditorNode@21282/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11491/@VSplitContainer@11143/@HSplitContainer@11145/@HSplitContainer@11147/@Control@11148/@SubViewportContainer@11149/@SubViewport@11150")
-
-[node name="BackRoomBackWall" type="MeshInstance3D" parent="OldTestRooms/BackRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.5)
-mesh = SubResource("QuadMesh_efxa6")
-
-[node name="BackLeftWall" type="StaticBody3D" parent="OldTestRooms/BackRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 1.5, 0.5)
-collision_mask = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/BackRoom/BackLeftWall"]
-mesh = SubResource("BoxMesh_efxa6")
-
-[node name="BackRightWall" type="StaticBody3D" parent="OldTestRooms/BackRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.5, 0.5)
-collision_mask = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/BackRoom/BackRightWall"]
-mesh = SubResource("BoxMesh_efxa6")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="OldTestRooms/BackRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
-light_energy = 10.0
-shadow_enabled = true
-omni_range = 1.0
-omni_attenuation = 2.0
-
-[node name="UpperRoom" parent="OldTestRooms" node_paths=PackedStringArray("things_to_hide", "room_area") instance=ExtResource("7_4c57u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3.5, 0)
-collision_mask = 2
-script = ExtResource("13_w48qg")
-things_to_hide = NodePath("ThingsToHide")
-room_area = NodePath("RoomArea")
-
-[node name="RoomArea" type="CollisionShape3D" parent="OldTestRooms/UpperRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-shape = SubResource("BoxShape3D_w48qg")
-debug_color = Color(0, 0.6, 0.701961, 0.513726)
-
-[node name="ThingsToHide" type="Node3D" parent="OldTestRooms/UpperRoom"]
-
-[node name="LeftWall" type="StaticBody3D" parent="OldTestRooms/UpperRoom/ThingsToHide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3999, 1.50095, -2.30074e-05)
-collision_mask = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/UpperRoom/ThingsToHide/LeftWall"]
-mesh = SubResource("BoxMesh_h8e4i")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_4lmeg")
-
-[node name="RightWall" type="StaticBody3D" parent="OldTestRooms/UpperRoom/ThingsToHide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.5, 0)
-collision_mask = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/UpperRoom/ThingsToHide/RightWall"]
-mesh = SubResource("BoxMesh_h8e4i")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_4lmeg")
-
-[node name="UpperLevel" parent="OldTestRooms/UpperRoom/ThingsToHide" instance=ExtResource("8_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
-collision_layer = 1
-
-[node name="BackWall" type="StaticBody3D" parent="OldTestRooms/UpperRoom/ThingsToHide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011703, 1.49595, -1.49338)
-collision_mask = 0
-
-[node name="BackWallMesh" type="MeshInstance3D" parent="OldTestRooms/UpperRoom/ThingsToHide/BackWall"]
-mesh = SubResource("QuadMesh_cegan")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_come4")
-
-[node name="BackWallCollision" type="CollisionShape3D" parent="OldTestRooms/UpperRoom/ThingsToHide/BackWall"]
-shape = SubResource("ConvexPolygonShape3D_cegan")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="OldTestRooms/UpperRoom/ThingsToHide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29609, 2.39456, 1.41032)
-shadow_enabled = true
-omni_range = 40.0
-
-[node name="Floor" type="StaticBody3D" parent="OldTestRooms/UpperRoom"]
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OldTestRooms/UpperRoom/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.5)
-shape = SubResource("BoxShape3D_yaehf")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="OldTestRooms/UpperRoom/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.25, -1)
-shape = SubResource("BoxShape3D_074og")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/UpperRoom/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.15139, -1.40667e-05, -0.275095, 1.75002)
-mesh = SubResource("BoxMesh_074og")
-surface_material_override/0 = SubResource("StandardMaterial3D_b1qrp")
-
-[node name="DrugDealer" parent="OldTestRooms/UpperRoom" instance=ExtResource("53_abqjc")]
-transform = Transform3D(0.857017, 0, 0.375384, 0, 0.935624, 0, -0.375384, 0, 0.857017, -2, -0.025, 0.5)
-
-[node name="HotDogStand" parent="OldTestRooms/UpperRoom" instance=ExtResource("54_6iyjs")]
-transform = Transform3D(-0.0530506, 0, 0.998592, 0, 1, 0, -0.998592, 0, -0.0530506, -2, -0.05, -0.5)
-
-[node name="Outside" type="Area3D" parent="OldTestRooms" node_paths=PackedStringArray("room_area")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25, 1, 0)
-collision_mask = 2
-script = ExtResource("5_ycdy4")
-room_area = NodePath("RoomArea")
-
-[node name="RoomArea" type="CollisionShape3D" parent="OldTestRooms/Outside"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.619537, 0, -0.00170898)
-shape = SubResource("BoxShape3D_06yk2")
-
-[node name="Floor" type="StaticBody3D" parent="OldTestRooms/Outside"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OldTestRooms/Outside/Floor"]
-shape = SubResource("BoxShape3D_bv50f")
-debug_color = Color(0, 0.6, 0.701961, 0.270588)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/Outside/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.255252, 0.00739336, -0.00523806)
-mesh = SubResource("BoxMesh_06yk2")
-skeleton = NodePath("../..")
-
-[node name="SceneLoader" parent="OldTestRooms/Outside" instance=ExtResource("40_0cp0l")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.67903, 0.0996799, 0.0315633)
-
-[node name="CollisionShape3D" parent="OldTestRooms/Outside/SceneLoader" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.761902)
-shape = SubResource("BoxShape3D_3cled")
-
-[node name="Hallway" type="Area3D" parent="OldTestRooms" node_paths=PackedStringArray("room_area", "path_follow_node")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.50047, -0.233272, -6.99844)
-collision_mask = 2
-script = ExtResource("13_ycdy4")
-room_area = NodePath("RoomArea")
-path_follow_node = NodePath("Path3D/PathFollow3D")
-
-[node name="RoomArea" type="CollisionShape3D" parent="OldTestRooms/Hallway"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
-shape = SubResource("BoxShape3D_vivmo")
-
-[node name="HallwayFloor" type="StaticBody3D" parent="OldTestRooms/Hallway"]
-collision_mask = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OldTestRooms/Hallway/HallwayFloor"]
-mesh = SubResource("BoxMesh_dg77c")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OldTestRooms/Hallway/HallwayFloor"]
-shape = SubResource("ConcavePolygonShape3D_ycdy4")
-
-[node name="Path3D" type="Path3D" parent="OldTestRooms/Hallway"]
-curve = SubResource("Curve3D_6iyjs")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="OldTestRooms/Hallway/Path3D"]
-transform = Transform3D(-0.576026, -0.0962183, -0.811746, 0, 0.993044, -0.117708, 0.817429, -0.0678031, -0.572022, -7.82933, 2, 8.6)
-
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
 [connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
 [connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
-[connection signal="input_event" from="OldTestRooms/Room/QuestionMark" to="PolaroidCamera" method="_on_question_mark_input_event"]
 
 [editable path="CanvasLayer/BasicGUI"]
 [editable path="PolaroidCamera"]
@@ -585,5 +268,3 @@ transform = Transform3D(-0.576026, -0.0962183, -0.811746, 0, 0.993044, -0.117708
 [editable path="Library/WallLamps/WallLamp5"]
 [editable path="Library/Props/Desk/desk_lamp"]
 [editable path="Library/Props/Desk2/desk_lamp"]
-[editable path="OldTestRooms/Room/QuestionMark"]
-[editable path="OldTestRooms/Outside/SceneLoader"]
