@@ -52,7 +52,7 @@ func on_contact_press(contact : Resource):
 	if contact_pressed: return # prevent multiple presses
 	contact_pressed = true
 	contact_name_label.text = "[color=black]"+contact.name+"[/color]"
-	DialogueSystem.start_text_convo(contact.name)
+	DialogueSystem.start_text_convo(self, contact.name)
 	tweenForward()
 	contact_pressed = false
 	

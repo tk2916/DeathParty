@@ -127,9 +127,13 @@ func rotate_model(delta: float) -> void:
 		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
 
 
+func reset_position():
+	global_position = spawn_position
+	##ALSO MAKE IT SO IT LOADS THE ORIGINAL SCENES
+	ContentLoader.reset()
+
+
 func _on_world_boundary_body_entered(body : Node3D) -> void:
 	if body == self:
 		print("player out of bounds, resetting position . . .")
-		global_position = spawn_position
-		##ALSO MAKE IT SO IT LOADS THE ORIGINAL SCENES
-		ContentLoader.reset()
+		reset_position()

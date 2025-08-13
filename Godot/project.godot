@@ -85,6 +85,10 @@ material_grass=""
 material_concrete=""
 material_carpet=""
 
+[gui]
+
+timers/tooltip_delay_sec=0.05
+
 [input]
 
 dialogic_default_action={

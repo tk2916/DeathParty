@@ -84,6 +84,12 @@ focus_neighbor_bottom = NodePath("../VSyncOptionButton")
 
 [node name="VSyncLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
+tooltip_text = "Vertical Sync
+Locks the game's frame rate to your monitor's refresh rate to prevent jitter and screen tearing
+
+Adaptive: locks the frame rate when it goes higher than the refresh rate
+Enabled: always locks the frame rate (may cause stutters if performance drops)"
+mouse_filter = 1
 theme = ExtResource("2_e2l73")
 text = "Vertical Sync"
 
@@ -191,6 +197,11 @@ custom_arrow_step = 0.1
 
 [node name="FPSLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
+tooltip_text = "FPS Limit
+Limits the game's frame rate to the specified number (set to 0 to disable)
+
+NOTE: enabling Vertical Sync will override this limit if your monitor's refresh rate is lower than the limit you set here"
+mouse_filter = 1
 theme = ExtResource("2_e2l73")
 text = "FPS Limit"
 
