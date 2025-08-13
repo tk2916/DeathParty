@@ -5,7 +5,7 @@
 			<value>002_SFX_Paranormal</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ee2216ad-7676-4c73-95fd-97f287c6f46c}</destination>
@@ -267,6 +267,7 @@
 	<object class="MixerBusEffectChain" id="{16ea7b7a-a447-45d3-980f-7d601fb8d175}">
 		<relationship name="effects">
 			<destination>{8df05ae2-ea26-4878-8ec6-72d6f6e828d9}</destination>
+			<destination>{22dfb9f4-936d-47e0-9e74-73ad0116a150}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f0ab6541-17f3-405e-9721-0f7d0c1d86ba}" />
@@ -328,6 +329,7 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{8df05ae2-ea26-4878-8ec6-72d6f6e828d9}" />
+	<object class="SpatialiserEffect" id="{22dfb9f4-936d-47e0-9e74-73ad0116a150}" />
 	<object class="AutomationPoint" id="{1dcc0bc9-a76b-4904-829a-0212f6751155}">
 		<property name="position">
 			<value>0</value>
