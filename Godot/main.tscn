@@ -295,6 +295,12 @@ default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)
 script = null
 
+[node name="GlowingDoorway2" parent="Entrance" index="15"]
+transform = Transform3D(-0.28034, 0, -0.000189264, 0, 0.320847, 0, 0.000949236, 0, -0.0558957, -0.417086, 6.53819, -6.04053)
+
+[node name="GlowingDoorway3" parent="Entrance" index="16"]
+transform = Transform3D(-0.280756, 0, 0.000143311, 0, 0.320847, 0, 0.000950647, 0, 0.0423242, 4.71571, 6.54585, -6.05522)
+
 [node name="SceneLoaderEntranceToPartyRoom" parent="Entrance" index="21"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.180967, -4.96324)
 
