@@ -884,6 +884,12 @@ skeleton = NodePath("")
 [node name="Door" parent="." instance=ExtResource("3_nmyg0")]
 transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, -9.42747, 0.928276, -1.22136)
 
+[node name="BasementDoorAmbience" type="FmodEventEmitter3D" parent="Door"]
+event_name = "event:/000_SFX/000_Demo_Test/002_SFX_Paranormal"
+event_guid = "{847d2150-f532-4821-995f-3086e12780a3}"
+autoplay = true
+volume = 0.25
+
 [node name="Cube_027" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.121382, -0.139074, -0.000142667, -0.139075, 0.121382, -7.31245e-14, 9.38122e-05, 0.000107486, -0.184595, 1.68476, -0.0436239, -1.51532)
 mesh = SubResource("ArrayMesh_rttw7")
