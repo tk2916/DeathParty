@@ -81,62 +81,69 @@ func set_monitor_options() -> void:
 
 # PRESET BUTTONS
 
+
+# very low
 func _on_preset_1_pressed() -> void:
-	aa_option_button.selected = 0
+	aa_option_button.selected = 0 # AA disabled
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 0
+	shadow_size_option_button.selected = 0 # very low shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 0
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 1
+	lod_option_button.selected = 1 # low LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
+# low
 func _on_preset_2_pressed() -> void:
-	aa_option_button.selected = 0
+	aa_option_button.selected = 0 # AA disabled
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 1
+	shadow_size_option_button.selected = 1 # low shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 2
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 1
+	lod_option_button.selected = 1 # low LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
+# medium
 func _on_preset_3_pressed() -> void:
-	aa_option_button.selected = 3
+	aa_option_button.selected = 3 # 2x MSAA
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 2
+	shadow_size_option_button.selected = 2 # medium shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 4
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 2
+	lod_option_button.selected = 2 # medium LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
+# high
 func _on_preset_4_pressed() -> void:
-	aa_option_button.selected = 4
+	aa_option_button.selected = 4 # 4x MSAA
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 2
+	shadow_size_option_button.selected = 2 # medium shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 5
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 3
+	lod_option_button.selected = 3 # high LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
+# ultra
 func _on_preset_5_pressed() -> void:
-	aa_option_button.selected = 5
+	aa_option_button.selected = 5 # 8x MSAA
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 3
+	shadow_size_option_button.selected = 3 # high shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 5
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 3
+	lod_option_button.selected = 3 # high LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
 # DISPLAY SETTINGS
+
 
 func _on_fullscreen_option_button_item_selected(value : int) -> void:
 	Settings.set_fullscreen(value)
