@@ -109,6 +109,7 @@
 	<object class="MixerBusPanner" id="{07ceefd5-fee5-4779-9da8-863f5a1f7734}" />
 	<object class="MixerBusEffectChain" id="{fa874864-88c0-4153-beae-9b013bdf5b5b}">
 		<relationship name="effects">
+			<destination>{32f64370-4925-48da-9b55-40e71c5dcb33}</destination>
 			<destination>{0e485607-02ed-40a5-b1c7-3f1061b69c39}</destination>
 			<destination>{277a0d1b-c2e6-41c9-afc3-dd8fda5b9c52}</destination>
 			<destination>{549c7a89-c7c7-4c81-abca-52ae6d803468}</destination>
@@ -126,6 +127,29 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{2f271e13-c1f1-4896-80e6-c1e297d7e60f}" />
+	<object class="CompressorEffect" id="{32f64370-4925-48da-9b55-40e71c5dcb33}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="wetDryEnabled">
+			<value>true</value>
+		</property>
+		<property name="wetMix">
+			<value>25</value>
+		</property>
+		<property name="threshold">
+			<value>-10</value>
+		</property>
+		<property name="attackTime">
+			<value>25</value>
+		</property>
+		<property name="releaseTime">
+			<value>250</value>
+		</property>
+		<property name="gain">
+			<value>10</value>
+		</property>
+	</object>
 	<object class="SFXReverbEffect" id="{0e485607-02ed-40a5-b1c7-3f1061b69c39}">
 		<property name="decayTime">
 			<value>500</value>
@@ -194,6 +218,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{e6a89db1-f4da-4d71-b48a-450c424f86ec}">
+		<property name="volume">
+			<value>5</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{4b946a93-1356-4262-a4f9-32bd1e4b16bc}</destination>
 		</relationship>
