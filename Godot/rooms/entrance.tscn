@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=75 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -42,7 +42,6 @@
 [ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="39_t7spl"]
 [ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="41_6fv14"]
 [ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/Buff Frat boy/buff.tscn" id="42_wxsgv"]
-[ext_resource type="PackedScene" uid="uid://murri4r3vxla" path="res://Assets/textures/entrance_room_props/entrance wall.glb" id="43_klyfx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
 size = Vector3(17.9089, 3.18161, 0.503846)
@@ -57,6 +56,42 @@ size = Vector3(3, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
+
+[sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
+density = 0.06
+albedo = Color(0.316676, 0.00123956, 0.652151, 1)
+emission = Color(0.0630584, 5.49413e-05, 0.20964, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.5
+gravity = Vector3(0, -0.05, 0)
+damping_min = 0.05
+damping_max = 0.05
+scale_min = 0.5
+scale_max = 0.75
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8etm"]
+transparency = 1
+albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_d8etm"]
+material = SubResource("StandardMaterial3D_d8etm")
+radius = 0.01
+height = 0.02
+radial_segments = 12
+rings = 12
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6fv14"]
 size = Vector3(21, 0.25, 21)
@@ -355,42 +390,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3qtki")
 
-[sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
-density = 0.06
-albedo = Color(0.316676, 0.00123956, 0.652151, 1)
-emission = Color(0.0630584, 5.49413e-05, 0.20964, 1)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
-lifetime_randomness = 0.1
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = 0.25
-initial_velocity_max = 0.5
-gravity = Vector3(0, -0.05, 0)
-damping_min = 0.05
-damping_max = 0.05
-scale_min = 0.5
-scale_max = 0.75
-turbulence_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8etm"]
-transparency = 1
-albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="SphereMesh" id="SphereMesh_d8etm"]
-material = SubResource("StandardMaterial3D_d8etm")
-radius = 0.01
-height = 0.02
-radial_segments = 12
-rings = 12
-
 [node name="Entrance" type="Area3D" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012352, 0, 0.00779819)
 collision_mask = 2
@@ -553,6 +552,36 @@ spot_attenuation = -1.15
 spot_angle = 31.0
 spot_angle_attenuation = 0.574349
 
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87366, 5.24725, 4.8063)
+size = Vector3(21.9939, 12.4945, 22.3923)
+material = SubResource("FogMaterial_nneh3")
+
+[node name="Particles" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 2)
+
+[node name="Dust" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.00759745, -0.892238)
+gi_mode = 2
+amount = 100
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_d8etm")
+draw_pass_1 = SubResource("SphereMesh_d8etm")
+
+[node name="Dust2" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21182, 0.00759745, -1.60561)
+gi_mode = 2
+amount = 200
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_d8etm")
+draw_pass_1 = SubResource("SphereMesh_d8etm")
+
 [node name="Room" type="Node3D" parent="."]
 
 [node name="Floor" type="StaticBody3D" parent="Room" groups=["material_wood"]]
@@ -638,6 +667,12 @@ skeleton = NodePath("")
 transform = Transform3D(0.219332, 0, 0, 0, 0.219331, 0, 0, 0, 0.219332, 1.92124, 10.5271, -0.979369)
 mesh = SubResource("ArrayMesh_rx0xm")
 skeleton = NodePath("")
+
+[node name="BasementDoor" parent="." instance=ExtResource("36_gfuhi")]
+transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.3882, 1.21599, 10.4024)
+
+[node name="KitchenDoor" parent="." instance=ExtResource("36_gfuhi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.02401, 1.21599, 7.05969)
 
 [node name="Pillars" type="Node3D" parent="."]
 
@@ -909,8 +944,19 @@ transform = Transform3D(-2.21576, 0, -0.00750261, 0, 2.21576, 0, 0.00750261, 0, 
 [node name="CobwebCorner" parent="Props/Cobwebs" instance=ExtResource("31_t511r")]
 transform = Transform3D(-1.21144, 0, -0.00410198, 0, 1.21144, 0, 0.00410198, 0, -1.21144, 4.41995, 3.77072, -3.01604)
 
-[node name="Flags" parent="Props" instance=ExtResource("32_6emc0")]
+[node name="Flags" type="Node3D" parent="Props"]
+
+[node name="PartyFlags" parent="Props/Flags" instance=ExtResource("32_6emc0")]
 transform = Transform3D(0.895593, 0, 0, 0, 1, 0, 0, 0, 1, 0.0257375, 2.62743, 0.6112)
+
+[node name="DIE flag" parent="Props/Flags" instance=ExtResource("37_0ritw")]
+transform = Transform3D(-0.97208, 0, -0.23465, 0, 1, 0, 0.23465, 0, -0.97208, 5.83876, 3.35038, 0.536944)
+
+[node name="DIE flag2" parent="Props/Flags" instance=ExtResource("37_0ritw")]
+transform = Transform3D(0.992866, 0, -0.119236, 0, 1, 0, 0.119236, 0, 0.992866, -5.93955, 3.35038, 6.29816)
+
+[node name="DIE flag3" parent="Props/Flags" instance=ExtResource("37_0ritw")]
+transform = Transform3D(0.380489, 0, -0.924785, 0, 1, 0, 0.924785, 0, 0.380489, -2.91716, 5.33207, 1.54967)
 
 [node name="JackOLanterns" type="Node3D" parent="Props"]
 transform = Transform3D(-1.09141, 0, -0.00369554, 0, 1.09141, 0, 0.00369554, 0, -1.09141, 4.32052, 4.98032, 14.9358)
@@ -980,57 +1026,6 @@ transform = Transform3D(0.0360417, -0.000988545, 0.196724, 0.000148181, 0.235998
 
 [node name="JackOLantern5" parent="Props/JackOLanterns/Balcony/Right" instance=ExtResource("33_hdy2l")]
 transform = Transform3D(0.125, 0, 0.216506, 0, 0.295, 0, -0.216506, 0, 0.125, 2.72332, 1.04498, 15.2458)
-
-[node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87366, 5.24725, 4.8063)
-size = Vector3(21.9939, 12.4945, 22.3923)
-material = SubResource("FogMaterial_nneh3")
-
-[node name="door" parent="." instance=ExtResource("36_gfuhi")]
-transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.3882, 1.21599, 10.4024)
-
-[node name="door2" parent="." instance=ExtResource("36_gfuhi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.02401, 1.21599, 7.05969)
-
-[node name="DIE flag" parent="." instance=ExtResource("37_0ritw")]
-transform = Transform3D(-0.97208, 0, -0.23465, 0, 1, 0, 0.23465, 0, -0.97208, 8.33876, 3.35038, 0.536944)
-
-[node name="DIE flag2" parent="." instance=ExtResource("37_0ritw")]
-transform = Transform3D(0.992866, 0, -0.119236, 0, 1, 0, 0.119236, 0, 0.992866, -3.43955, 3.35038, 6.29816)
-
-[node name="DIE flag3" parent="." instance=ExtResource("37_0ritw")]
-transform = Transform3D(0.380489, 0, -0.924785, 0, 1, 0, 0.924785, 0, 0.380489, -0.417163, 5.33207, 1.54967)
-
-[node name="Particles" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 2)
-
-[node name="Dust" type="GPUParticles3D" parent="Particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.00759745, -0.892238)
-gi_mode = 2
-amount = 100
-lifetime = 4.0
-preprocess = 2.0
-speed_scale = 0.3
-randomness = 0.25
-process_material = SubResource("ParticleProcessMaterial_d8etm")
-draw_pass_1 = SubResource("SphereMesh_d8etm")
-
-[node name="Dust2" type="GPUParticles3D" parent="Particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21182, 0.00759745, -1.60561)
-gi_mode = 2
-amount = 200
-lifetime = 4.0
-preprocess = 2.0
-speed_scale = 0.3
-randomness = 0.25
-process_material = SubResource("ParticleProcessMaterial_d8etm")
-draw_pass_1 = SubResource("SphereMesh_d8etm")
-
-[node name="entrance wall4" parent="." instance=ExtResource("43_klyfx")]
-transform = Transform3D(-4.37114e-08, 0, -2.2498, 0, 1, 0, 1, 0, -9.83421e-08, 3.15324, 6.15922, -6.21814)
-
-[node name="entrance wall5" parent="." instance=ExtResource("43_klyfx")]
-transform = Transform3D(-4.37114e-08, 0, -2.2498, 0, 1, 0, 1, 0, -9.83421e-08, 3.15324, 1.0469, -6.55197)
 
 [node name="NPCs" type="Node3D" parent="."]
 
