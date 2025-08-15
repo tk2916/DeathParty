@@ -47,6 +47,46 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fv14"]
+size = Vector3(21, 0.25, 21)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5drps"]
+resource_name = "Material.005"
+cull_mode = 2
+albedo_texture = ExtResource("3_ekhf5")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_62tgi"]
+_surfaces = [{
+"aabb": AABB(-61.5454, 0, -31.7316, 123.091, 1e-05, 63.4631),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_38cnj"]
+resource_name = "entrance room layout_Plane_018"
+_surfaces = [{
+"aabb": AABB(-61.5454, 0, -31.7316, 123.091, 1e-05, 63.4631),
+"attribute_data": PackedByteArray("DD//////DD//////DD8MPw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_5drps"),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(4.06033, 4.06033, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_62tgi")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlg7v"]
 resource_name = "MAT_wallpaper_DIFFUSE"
 cull_mode = 2
@@ -87,46 +127,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bq5h0")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6fv14"]
-size = Vector3(21, 0.25, 21)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5drps"]
-resource_name = "Material.005"
-cull_mode = 2
-albedo_texture = ExtResource("3_ekhf5")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_62tgi"]
-_surfaces = [{
-"aabb": AABB(-61.5454, 0, -31.7316, 123.091, 1e-05, 63.4631),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "Material.005",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_38cnj"]
-resource_name = "entrance room layout_Plane_018"
-_surfaces = [{
-"aabb": AABB(-61.5454, 0, -31.7316, 123.091, 1e-05, 63.4631),
-"attribute_data": PackedByteArray("DD//////DD//////DD8MPw=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_5drps"),
-"name": "Material.005",
-"primitive": 3,
-"uv_scale": Vector4(4.06033, 4.06033, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_62tgi")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vk8x"]
 resource_name = "Material.116"
@@ -401,60 +401,6 @@ room_area = NodePath("RoomArea")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 5.28294, 3.89569)
 shape = SubResource("BoxShape3D_nneh3")
 
-[node name="entrance wall" type="Node3D" parent="."]
-transform = Transform3D(1.18683, 0, 0, 0, 1.18683, 0, 0, 0, 1.18683, -6.55623, 2.06447, 4.11958)
-
-[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="entrance wall"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
-
-[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="entrance wall"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
-
-[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="entrance wall"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
-
-[node name="entrance wall3" type="Node3D" parent="."]
-transform = Transform3D(-1.18683, 0, 1.03756e-07, 0, 1.18683, 0, -1.03756e-07, 0, -1.18683, 11.9283, 2.06447, 4.11958)
-
-[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="entrance wall3"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
-
-[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="entrance wall3"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
-
-[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="entrance wall3"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
-
-[node name="entrance wall2" type="Node3D" parent="."]
-transform = Transform3D(-5.18781e-08, 0, -1.18683, 0, 1.18683, 0, 1.18683, 0, -5.18781e-08, 0.304595, 2.06447, -5.53636)
-
-[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="entrance wall2"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
-
-[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="entrance wall2"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
-
-[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="entrance wall2"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
-
 [node name="Floor" type="StaticBody3D" parent="." groups=["material_wood"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
@@ -471,14 +417,68 @@ skeleton = NodePath("")
 [node name="LeftWall" parent="Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(-6.39852e-08, 0, 1.46381, 0, 1.46381, 0, -1.46381, 0, -6.39852e-08, -7.23962, 0.827875, 4.05607)
 
+[node name="Wallpaper" type="Node3D" parent="Walls/LeftWall"]
+transform = Transform3D(-3.54404e-08, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -3.54404e-08, -0.0433867, 0.844778, 0.466857)
+
+[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Walls/LeftWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="Walls/LeftWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="Walls/LeftWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
 [node name="LeftWall2" parent="Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(1.4637, 0, -0.018292, 0, 1.46381, 0, 0.018292, 0, 1.4637, 2.34854, 0.827875, -6.22015)
 
 [node name="BackWall" parent="Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.36038, 0.827875, -6.22)
 
+[node name="Wallpaper" type="Node3D" parent="Walls/BackWall"]
+transform = Transform3D(-3.54405e-08, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -3.54405e-08, -1.40441, 0.844778, 0.467028)
+
+[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Walls/BackWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="Walls/BackWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="Walls/BackWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
 [node name="RightWall" parent="Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(1.10515e-07, 0, -1.46381, 0, 1.46381, 0, 1.46381, 0, 1.10515e-07, 12.6604, 0.827875, 4.05607)
+
+[node name="Wallpaper" type="Node3D" parent="Walls/RightWall"]
+transform = Transform3D(-1.32093e-07, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -1.32093e-07, 0.0433867, 0.844778, 0.500134)
+
+[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Walls/RightWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="Walls/RightWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="Walls/RightWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
 
 [node name="Ceiling" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.219332, 0, 0, 0, 0.219331, 0, 0, 0, 0.219332, 1.92124, 10.5271, -0.979369)
