@@ -604,7 +604,7 @@ shape = SubResource("BoxShape3D_h2hdd")
 [node name="Boundaries" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.07735, 5.79472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.07735, 4.92005)
 shape = SubResource("BoxShape3D_p4v0j")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
