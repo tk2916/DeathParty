@@ -434,7 +434,7 @@ transform = Transform3D(0.999988, 0, -3.76588e-13, 0, 1, 0, 3.76588e-13, 0, 0.99
 shape = SubResource("BoxShape3D_3cled")
 
 [node name="TeleportPoint" type="Node3D" parent="BedroomSceneLoader"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.7695)
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.2702)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BedroomSceneLoader/TeleportPoint"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
