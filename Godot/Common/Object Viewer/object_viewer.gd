@@ -3,12 +3,13 @@ class_name ObjectViewer extends Control
 #The item that will be viewed by the object viewer
 @export var active_item : Node3D
 @export var rotate_off : bool = false
+@export var parent : CanvasLayer
 
 @export var test_path : String
 var pressed : bool = false
 
 #Moves the item and camara offscreen by pushing it by a large offset
-@export var hide_offset : int = -1000
+#@export var hide_offset : int = -1000
 
 @onready var sub_viewport : SubViewport = $SubViewportContainer/SubViewport
 @onready var model_holder : Node3D =  $"SubViewportContainer/SubViewport/Model Holder"
@@ -25,6 +26,8 @@ var pressed : bool = false
 @onready var blur : Panel = $Blur
 @onready var custom_background_container : Control = $CustomBackground
 @onready var item_info : ItemInfoContainer = $ItemInfo
+@onready var exit_button_parent : Control = $ObjectViewerExit
+@onready var exit_button : Button = $ObjectViewerExit/Button
 
 var light_up_shader : ShaderMaterial = preload("res://Assets/Shaders/LightUpShader.tres")
 
@@ -67,16 +70,18 @@ func set_item_properties(scene : Node3D) -> Node3D:
 	#apply shader that lights up the mesh
 	#apply_shader_to_meshes_recursive(self)
 	
-	scene.transform.origin.y = scene.transform.origin.y + hide_offset
-	scene.transform.origin.z = scene.transform.origin.z + hide_offset
+	#scene.transform.origin.y = scene.transform.origin.y + hide_offset
+	#scene.transform.origin.z = scene.transform.origin.z + hide_offset
 	model_holder.add_child(scene)
 
 	active_item = scene
 	#light.visible = true
+	parent.visible = true
 	enabled.emit(true, camera_3d)
 	return scene
 	
 func remove_current_item(queue_free : bool = true) -> void:
+	parent.visible = false
 	Interact.clear_active_subviewport()
 	#light.visible = false
 	#Remove ALL items in the model holder
@@ -91,21 +96,29 @@ func remove_current_item(queue_free : bool = true) -> void:
 		model_holder.remove_child(child)
 		if queue_free and !(child is Journal):
 			child.queue_free()
-		else:
+		#else:
 			#REMOVE OFFSET
-			child.transform.origin.y = child.transform.origin.y - hide_offset
-			child.transform.origin.z = child.transform.origin.z - hide_offset
+			#child.transform.origin.y = child.transform.origin.y - hide_offset
+			#child.transform.origin.z = child.transform.origin.z - hide_offset
 		
 	active_item = null
+	
+func close_item_info():
+	item_info.visible = false
+	exit_button_parent.visible = true
 
 #TODO
 #At origin, the object interferes with the world map. Need to move it away from the world map so that it's visible properly.
 #Also need to assign object based on "item" variable not hard coded. 
 func _ready() -> void:	
 	#set_item(test_path)
-	camera_3d.transform.origin.y = camera_3d.transform.origin.y + hide_offset
-	camera_3d.transform.origin.z = camera_3d.transform.origin.z + hide_offset
-	item_info.visible = false
+	#camera_3d.transform.origin.y = camera_3d.transform.origin.y + hide_offset
+	#camera_3d.transform.origin.z = camera_3d.transform.origin.z + hide_offset
+	close_item_info()
+	exit_button.pressed.connect(func():
+		GuiSystem.hide_journal()
+		remove_current_item()
+		)
 
 func zoom(factor : float):
 	active_item.scale = active_item.scale*factor
@@ -142,4 +155,5 @@ func set_background(scene : PackedScene = null) -> void:
 		
 func view_item_info(title : String, description : String):
 	item_info.set_text(description)
+	exit_button_parent.visible = false
 	item_info.visible = true

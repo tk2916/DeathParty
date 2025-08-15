@@ -16,8 +16,9 @@ func _ready() -> void:
 func on_mouse_pos_changed(delta : Vector2):
 	if !dragging:
 		return
-	var origin : Vector3 = Interact.camera3d.project_ray_origin(Interact.mouse)
-	var direction : Vector3 = Interact.camera3d.project_ray_normal(Interact.mouse)
+	var viewport_mouse = get_viewport().get_mouse_position()
+	var origin : Vector3 = Interact.camera3d.project_ray_origin(viewport_mouse)
+	var direction : Vector3 = Interact.camera3d.project_ray_normal(viewport_mouse)
 	var intersection : Vector3 = parallel_plane.intersects_ray(origin, direction)
 	
 	if intersection:
