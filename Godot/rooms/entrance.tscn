@@ -822,14 +822,14 @@ skeleton = NodePath("")
 [node name="ArchWindow2" parent="Windows" instance=ExtResource("17_kauli")]
 transform = Transform3D(-0.219323, 0, -0.00202499, 0, 0.219331, 0, 0.00202499, 0, -0.219323, 7.233, 5.752, -6)
 
+[node name="OmniLight3D" parent="Windows/ArchWindow2" index="0"]
+transform = Transform3D(4.55929, 3.72529e-09, -1.86265e-09, 0, 2.61511, 3.73478, 3.72529e-09, -3.73476, 2.61509, 0.0129051, 2.5, -2.89687)
+light_color = Color(1, 0.258824, 0.403922, 1)
+
 [node name="GlowingDoorway" type="MeshInstance3D" parent="Windows/ArchWindow2"]
 transform = Transform3D(1.28115, 0, -0.000389167, 0, 1.46284, 0, 0.0074905, 0, 0.0665617, 11.4748, 3.61942, 0.300953)
 mesh = SubResource("ArrayMesh_lkai6")
 skeleton = NodePath("")
-
-[node name="OmniLight3D" parent="Windows/ArchWindow2" index="1"]
-transform = Transform3D(4.55929, 3.72529e-09, -1.86265e-09, 0, 2.61511, 3.73478, 3.72529e-09, -3.73476, 2.61509, 0.0129051, 2.5, -2.89687)
-light_color = Color(1, 0.258824, 0.403922, 1)
 
 [node name="StoneArchWindow" parent="Windows" instance=ExtResource("18_rseg0")]
 transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 1.66168e-15, 0.015603, -1.67707e-09, 1.68993, -4.44232, 1.01296, -5.75913)

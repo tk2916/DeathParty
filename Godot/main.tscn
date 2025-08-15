@@ -187,27 +187,6 @@ default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)
 script = null
 
-[node name="GlowingDoorway2" parent="Entrance" index="15"]
-transform = Transform3D(-0.28034, 0, -0.000189264, 0, 0.320847, 0, 0.000949236, 0, -0.0558957, -0.417086, 6.53819, -6.04053)
-
-[node name="GlowingDoorway3" parent="Entrance" index="16"]
-transform = Transform3D(-0.280756, 0, 0.000143311, 0, 0.320847, 0, 0.000950647, 0, 0.0423242, 4.71571, 6.54585, -6.05522)
-
-[node name="SceneLoaderEntranceToPartyRoom" parent="Entrance" index="21"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.180967, -4.96324)
-
-[node name="TeleportPoint" parent="Entrance/SceneLoaderEntranceToPartyRoom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113162, -4.40737)
-
-[node name="SceneLoader kitchen" parent="Entrance" index="28"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0.25356, 8.12601)
-
-[node name="TeleportPoint" parent="Entrance/SceneLoader kitchen" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414903, 0.276754, -3.37467)
-
-[node name="MeshInstance3D" parent="Entrance/SceneLoader kitchen/TeleportPoint" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.265869, 0, 0)
-
 [node name="Dust" parent="Entrance/Particles" index="0"]
 transform = Transform3D(0.609914, 0, 0, 0, 1.38209, 0, 0, 0, 1, -4.5, 0.770933, -0.646791)
 
@@ -255,15 +234,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 [editable path="Polaroid"]
 [editable path="ObjectViewer"]
 [editable path="Entrance"]
+[editable path="Entrance/KitchenSceneLoader"]
+[editable path="Entrance/PartyRoomSceneLoader"]
+[editable path="Entrance/BasementSceneLoader"]
 [editable path="Entrance/WallLamps/WallLamp2"]
 [editable path="Entrance/WallLamps/WallLamp3"]
 [editable path="Entrance/Windows/ArchWindow"]
 [editable path="Entrance/Windows/ArchWindow2"]
 [editable path="Entrance/Chandeliers/Chandelier"]
 [editable path="Entrance/Chandeliers/Chandelier2"]
-[editable path="Entrance/SceneLoaderEntranceToPartyRoom"]
-[editable path="Entrance/SceneLoader kitchen"]
-[editable path="Entrance/SceneLoaderbasement"]
 [editable path="Library"]
 [editable path="Library/SceneLoaderLibraryToPartyRoom"]
 [editable path="Library/BackWall/Bookshelves/Upstairs"]
