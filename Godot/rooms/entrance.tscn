@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=77 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -21,11 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://bgrvflukoipup" path="res://Assets/environment/stone_arch_window.tscn" id="18_rseg0"]
 [ext_resource type="PackedScene" uid="uid://s8nqkwhr8xqp" path="res://Assets/environment/chandelier.tscn" id="19_a28ps"]
 [ext_resource type="PackedScene" uid="uid://bc16ymtogijdr" path="res://Assets/environment/painting.tscn" id="20_2fk3d"]
-[ext_resource type="PackedScene" uid="uid://cx1p52tb5hskc" path="res://Assets/props/sofas/sofa_brown_round/sofa_brown_round.glb" id="21_xkbqc"]
-[ext_resource type="PackedScene" uid="uid://k58x5f81dijv" path="res://Assets/props/wooden_table/wood table.glb" id="22_2pr3v"]
 [ext_resource type="PackedScene" uid="uid://b1e31j7rea4bf" path="res://Assets/props/table_tennis_table/table_tennis_table.tscn" id="23_ogwe6"]
 [ext_resource type="PackedScene" uid="uid://tlr6nrrq3hp0" path="res://Assets/props/banners/happy_halloween_banner.tscn" id="25_6v65a"]
 [ext_resource type="PackedScene" uid="uid://48e2dw6eco7w" path="res://Assets/props/balloons/balloons_three_short.tscn" id="26_80mb7"]
+[ext_resource type="PackedScene" uid="uid://c088ha3843ea2" path="res://Assets/props/wooden_table/wood_table.tscn" id="26_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://d3lt3kgvcji47" path="res://Assets/props/balloons/balloons_four_short.tscn" id="27_yoltj"]
 [ext_resource type="PackedScene" uid="uid://dxahcd25ocjsx" path="res://Assets/props/balloons/balloons_four_tall.tscn" id="28_vqd5x"]
 [ext_resource type="PackedScene" uid="uid://c5eugkbr3dtpg" path="res://Assets/props/balloons/balloons_three_floating.tscn" id="29_kkgt5"]
@@ -40,11 +39,18 @@
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="36_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="37_0ritw"]
 [ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="39_t7spl"]
+[ext_resource type="PackedScene" uid="uid://c43bqwa4bftlx" path="res://Assets/props/sofas/sofa_brown_round/sofa_brown_round.tscn" id="39_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="41_6fv14"]
 [ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/Buff Frat boy/buff.tscn" id="42_wxsgv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxsgv"]
+size = Vector3(20, 10, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klyfx"]
+size = Vector3(20, 10, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
 size = Vector3(17.9089, 3.18161, 0.503846)
@@ -400,6 +406,21 @@ room_area = NodePath("RoomArea")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 5.28294, 3.89569)
 shape = SubResource("BoxShape3D_nneh3")
 
+[node name="Boundaries" type="StaticBody3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.8, 5, 4)
+shape = SubResource("BoxShape3D_wxsgv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.1, 5, 4)
+shape = SubResource("BoxShape3D_wxsgv")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 5, -5.7)
+shape = SubResource("BoxShape3D_klyfx")
+
 [node name="BedroomSceneLoader" type="Area3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
 collision_layer = 2
@@ -413,7 +434,7 @@ transform = Transform3D(0.999988, 0, -3.76588e-13, 0, 1, 0, 3.76588e-13, 0, 0.99
 shape = SubResource("BoxShape3D_3cled")
 
 [node name="TeleportPoint" type="Node3D" parent="BedroomSceneLoader"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.7695)
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.2702)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BedroomSceneLoader/TeleportPoint"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -615,6 +636,11 @@ skeleton = NodePath("")
 
 [node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="Room/Walls/LeftWall/Wallpaper"]
 transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE4" type="MeshInstance3D" parent="Room/Walls/LeftWall/Wallpaper"]
+transform = Transform3D(6.48689, 1.21973e-19, -1.53481e-26, 0, -1.56367e-07, -8.71356, -1.21973e-19, 3.57725, -3.80882e-07, 7.59696, 0.737454, -8.8515)
 mesh = SubResource("ArrayMesh_bl2fo")
 skeleton = NodePath("")
 
@@ -909,14 +935,14 @@ transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.33357, 5.
 [node name="Props" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
 
-[node name="Sofa2" parent="Props" instance=ExtResource("21_xkbqc")]
-transform = Transform3D(0.546029, 0, -0.457507, 0, 0.712363, 0, 0.457507, 0, 0.546029, 7.37286, 0.533729, 6.12981)
-
-[node name="WoodTable" parent="Props" instance=ExtResource("22_2pr3v")]
-transform = Transform3D(0.209918, 0, 0, 0, 0.209918, 0, 0, 0, 0.209918, 4.81138, -0.0335322, 5.76666)
+[node name="Table" parent="Props" instance=ExtResource("26_wxsgv")]
+transform = Transform3D(0.21, 0, 0, 0, 0.21, 0, 0, 0, 0.21, 4.81138, -0.0335322, 5.76666)
 
 [node name="TableTennisTable" parent="Props" instance=ExtResource("23_ogwe6")]
 transform = Transform3D(0.148415, 0, -0.0793759, 0, 0.168307, 0, 0.0793759, 0, 0.148415, -0.391999, 0.0044325, 5.48762)
+
+[node name="Sofa" parent="Props" instance=ExtResource("39_wxsgv")]
+transform = Transform3D(0.545424, 0, -0.457665, 0, 0.712, 0, 0.457665, 0, 0.545424, 7.37286, 0.533729, 6.12981)
 
 [node name="HappyHalloweenBanner" parent="Props" instance=ExtResource("25_6v65a")]
 transform = Transform3D(-1.07816, 0.00995462, 4.3513e-10, 0, -4.71301e-08, 1.07821, 0.00995462, 1.07816, 4.71281e-08, -0.192, 2.99, 0.15)

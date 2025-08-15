@@ -44,6 +44,5 @@ shadow_mesh = SubResource("ArrayMesh_nj725")
 
 [node name="BalloonsFourShort" type="MeshInstance3D"]
 transform = Transform3D(0.229867, -0.0615858, -6.65502e-09, 7.1889e-09, 3.63242e-08, -0.257833, 0.0731305, 0.193579, 4.62639e-08, 0, 0, 0)
-lod_bias = 0.1
 mesh = SubResource("ArrayMesh_hwa8i")
 skeleton = NodePath("")
