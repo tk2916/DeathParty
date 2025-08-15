@@ -17,13 +17,15 @@ point_count = 2
 curve = SubResource("Curve3D_t5x2y")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.991763, -0.00712262, -0.127881, 0, 0.998452, -0.0556111, 0.128079, -0.055153, -0.990228, -1.079, 1.468, 0.912)
+transform = Transform3D(-0.991762, -0.00712257, -0.127881, 6.98491e-10, 0.998446, -0.0556109, 0.128079, -0.0551527, -0.990226, -1.079, 1.468, 0.912)
 
 [node name="Bedroom" parent="." node_paths=PackedStringArray("path_follow_node") instance=ExtResource("1_t5x2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 path_follow_node = NodePath("../Path3D/PathFollow3D")
 
 [node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node") instance=ExtResource("2_x5kap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.079, 1.468, 0.912)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.968779, 1.26923, 0.299325)
+fov = 50.0
 main_camera = NodePath(".")
 camera_location_node = NodePath("../Player/PlayerCameraLocation")
 default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")

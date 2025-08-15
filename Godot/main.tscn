@@ -171,8 +171,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8663, 0.291739, 24.0262)
-collision_layer = 2
-collision_mask = 1
 floor_constant_speed = true
 
 [node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node") instance=ExtResource("3_dg77c")]
