@@ -228,9 +228,6 @@ default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)
 script = null
 
-[node name="TeleportPoint" parent="Entrance/BedroomSceneLoader" index="1"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.2702)
-
 [node name="Dust" parent="Entrance/Particles" index="0"]
 transform = Transform3D(0.609914, 0, 0, 0, 1.38209, 0, 0, 0, 1, -4.5, 0.770933, -0.646791)
 

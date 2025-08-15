@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=4 uid="uid://dxv1m51cs7gn8"]
+
+[ext_resource type="Texture2D" uid="uid://cg563r0drvkek" path="res://Assets/props/alcohol/beer_box/Beer box_BeerCaton Color.png" id="1_daxgk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhkey"]
+resource_name = "Material.017"
+cull_mode = 2
+albedo_texture = ExtResource("1_daxgk")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7he1m"]
+_surfaces = [{
+"aabb": AABB(-1, -0.769607, -1.24929, 2, 1.53921, 2.49857),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material.017",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAv/MERb+T6J8/AACAv/MERT+T6J+/AACAv/MERT+T6J8/AACAv/MERb+T6J+/AACAP/MERT+T6J+/AACAP/MERb+T6J8/AACAP/MERT+T6J8/AACAP/MERb+T6J+/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kesf1"]
+resource_name = "Beer box_Cube"
+lightmap_size_hint = Vector2i(22, 14)
+_surfaces = [{
+"aabb": AABB(-1, -0.769607, -1.24929, 2, 1.53921, 2.49857),
+"attribute_data": PackedByteArray("WIuXPqB/Sj6MLno/btt2PzWfpT6pKQ4/AABAP7dtGz/BUhM+eOadPowuej+3bRs/LIHzPqqs4z4AAEA/btt2PyyB8z6qrOM+jC66PCVJEj10O+8+AsNAPwAAgD6SJMk+NZ+lPqkpDj+MLro8kiTJPraOHj+vbyQ/AACAPiVJEj22jh4/r28kP0YXHT8lSRI9pJglP3D5fz900cU+kiTJPnQ77z4Cw0A/dNHFPiVJEj2giUw/HKZjP0YXHT+SJMk+Mt4bPgDA0Th00cU+t20bP8FSEz545p0+RhcdP27bdj+iFtI4EM/iPXTRxT5u23Y/WIuXPqB/Sj5GFx0/t20bP1z+UT9AAv4+AACAPrdtGz/tX00/rQVjP4wuujxu23Y/AmUfP0DPIz+MLro8t20bP0b5fz+ONz4/AACAPm7bdj9QsXs+ViwxPwAAQD8lSRI9GlG1OvdWfz+MLno/kiTJPsBStTpWLDE/AABAP5IkyT5QsXs+91Z/P4wuej8lSRI9"),
+"format": 34359742519,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_fhkey"),
+"name": "Material.017",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACAv/MERb+T6J8/AACAv/MERT+T6J+/AACAv/MERT+T6J8/AACAv/MERb+T6J+/AACAv/MERb+T6J+/AACAP/MERT+T6J+/AACAv/MERT+T6J+/AACAP/MERb+T6J+/AACAP/MERb+T6J+/AACAP/MERT+T6J8/AACAP/MERT+T6J+/AACAP/MERb+T6J8/AACAP/MERb+T6J8/AACAv/MERT+T6J8/AACAP/MERT+T6J8/AACAv/MERb+T6J8/AACAv/MERb+T6J+/AACAP/MERb+T6J8/AACAP/MERb+T6J+/AACAv/MERb+T6J8/AACAP/MERT+T6J+/AACAv/MERT+T6J8/AACAv/MERT+T6J+/AACAP/MERT+T6J8/AAD/f+W1AIAAAP9/5bUAgAAA/3/ltQCAAAD/f+W1AID/////5bXymv/////ltfKa/////+W18pr/////5bXymv///3//f/Ka////f/9/8pr///9//3/ymv///3//f/Ka/3//fxlK8pr/f/9/GUrymv9//38ZSvKa/3//fxlK8pr/fwAA5jX/v/9/AADmNf+//38AAOY1/7//fwAA5jX/v/9///////+//3///////7//f///////v/9///////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7he1m")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_daxgk"]
+size = Vector3(0.75, 0.5, 1)
+
+[node name="BeerBox" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.360866, 0, 0, 0, 0.360866, 0, 0, 0, 0.360866, -0.0997064, 0.00358231, -0.102254)
+mesh = SubResource("ArrayMesh_kesf1")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.1)
+shape = SubResource("BoxShape3D_daxgk")
