@@ -576,6 +576,10 @@ script = ExtResource("1_e7jho")
 room_area = NodePath("RoomArea")
 metadata/_custom_type_script = "uid://23e11u4fm3n6"
 
+[node name="RoomArea" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186689, -1.09334, -0.186689)
+shape = SubResource("BoxShape3D_h2hdd")
+
 [node name="EntranceSceneLoader" parent="." instance=ExtResource("42_et00h")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.4836, -2.64353, 1.23196)
 scene_going_right = "Entrance"
@@ -587,10 +591,6 @@ transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.00765
 
 [node name="TeleportPoint" parent="EntranceSceneLoader" index="1"]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 5.96046e-07, 0.839686, 5.9993)
-
-[node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186689, -1.09334, -0.186689)
-shape = SubResource("BoxShape3D_h2hdd")
 
 [node name="SceneLights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21547, -0.923839, -4.21413)
