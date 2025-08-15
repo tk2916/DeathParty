@@ -5,7 +5,7 @@ var control : Control
 var resize_x : bool
 var padding_bottom : float
 
-func _init(_control : Control, _label : RichTextLabel, _resize_x : bool = true, _padding_bottom : float = 0):
+func _init(_control : Control, _label : RichTextLabel, _resize_x : bool = true, _resize_y : bool = true, _padding_bottom : float = 0):
 	control = _control
 	label = _label
 	resize_x = _resize_x

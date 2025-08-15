@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dckqjt7kdk82j" path="res://Assets/textures/Blaubeuren Night 1k (1).hdr" id="1_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
-[ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
+[ext_resource type="Script" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
-[ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu.tscn" id="4_h8e4i"]
+[ext_resource type="PackedScene" path="res://Utilities/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="42_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://d0sd1bp5esd04" path="res://Utilities/polaroid_camera/polaroid_layer.tscn" id="55_e71vb"]
-[ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
+[ext_resource type="PackedScene" path="res://Utilities/stats.tscn" id="56_e71vb"]
 [ext_resource type="PackedScene" uid="uid://byfsccg4kb4bw" path="res://polaroid_pop_up.tscn" id="57_vke2r"]
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
 [ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
@@ -147,13 +147,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.2135, 0)
 Camera_2D = NodePath("../../../../PolaroidCamera/PictureExample/Camera2D")
 polaroid_camera = NodePath("../../../../PolaroidCamera")
 View_Finder = NodePath("../../../../PolaroidCamera/PictureExample/ViewFinder")
-object_viewer = NodePath("../../../../ObjectViewer")
+object_viewer = NodePath("../../../../ObjectViewerCanvasLayer")
 
-[node name="ObjectViewer" parent="." instance=ExtResource("2_a6jrf")]
+[node name="ObjectViewerCanvasLayer" parent="." instance=ExtResource("2_a6jrf")]
 visible = false
-test_path = "res://Assets/models/bookflip3.tscn"
 
-[node name="SubViewport" parent="ObjectViewer/SubViewportContainer" index="0"]
+[node name="SubViewport" parent="ObjectViewerCanvasLayer/ObjectViewer/SubViewportContainer" index="0"]
 render_target_update_mode = 0
 
 [node name="WorldBoundary" type="Area3D" parent="."]
@@ -253,7 +252,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 [editable path="CanvasLayer/BasicGUI"]
 [editable path="PolaroidCamera"]
 [editable path="Polaroid"]
-[editable path="ObjectViewer"]
+[editable path="ObjectViewerCanvasLayer"]
 [editable path="Entrance"]
 [editable path="Entrance/WallLamps/WallLamp2"]
 [editable path="Entrance/WallLamps/WallLamp3"]

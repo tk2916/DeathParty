@@ -9,12 +9,13 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="Panel" type="Panel" node_paths=PackedStringArray("button", "text_label")]
-anchors_preset = 15
+[node name="ProtagChoice" type="Panel" node_paths=PackedStringArray("button", "text_label")]
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_mx7id")
 script = ExtResource("1_ih1n7")
 button = NodePath("MarginContainer/RichTextLabel/Button")
@@ -22,15 +23,15 @@ text_label = NodePath("MarginContainer/RichTextLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 13
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 13
-theme_override_constants/margin_bottom = 15
+grow_vertical = 0
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 8
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2

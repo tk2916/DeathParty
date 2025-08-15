@@ -1,6 +1,6 @@
 class_name ItemInfoContainer extends Control
 
-@onready var button : Button = $TextureRect/Button
+@onready var button : Button = $ItemInfoExit/Button
 @onready var description_label : RichTextLabel = $DescriptionBacker/Description
 
 func _ready() -> void:
@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func on_button_pressed():
 	self.visible = false
-	GuiSystem.show_journal()
+	GuiSystem.show_journal(true)
 	
 func set_text(description : String):
 	description_label.text = description

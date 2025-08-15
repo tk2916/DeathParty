@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://buutas4n7320a" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_script.gd" id="1_xrgtu"]
 [ext_resource type="Script" uid="uid://bfr8xxiuuihhi" path="res://Assets/GUIDesignScripts/resize_to_text.gd" id="2_qauwv"]
 
-[node name="MarginContainer2" type="MarginContainer" node_paths=PackedStringArray("Text")]
+[node name="ProtagLine" type="MarginContainer" node_paths=PackedStringArray("Text")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
