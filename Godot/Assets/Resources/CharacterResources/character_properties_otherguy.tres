@@ -13,7 +13,6 @@ name_color = "blue"
 text_color = "green"
 character_notes = Array[String]([])
 character_description = ""
-profile_image = ExtResource("3_miu7s")
 profile_tag = "@profiletag123"
 profile_quote = "inspirational quote goes here."
 profile_join_date = "Month 8, 20XX"
