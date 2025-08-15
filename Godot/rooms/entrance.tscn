@@ -43,6 +43,9 @@
 [ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="41_6fv14"]
 [ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/Buff Frat boy/buff.tscn" id="42_wxsgv"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
+size = Vector3(19.459, 10.481, 20)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
 size = Vector3(17.9089, 3.18161, 0.503846)
 
@@ -53,9 +56,6 @@ albedo_color = Color(0.281989, 0.500556, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t7spl"]
 size = Vector3(3, 2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
-size = Vector3(19.459, 10.481, 20)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
 density = 0.06
@@ -396,6 +396,10 @@ collision_mask = 2
 script = ExtResource("1_3k57g")
 room_area = NodePath("RoomArea")
 
+[node name="RoomArea" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 5.28294, 3.89569)
+shape = SubResource("BoxShape3D_nneh3")
+
 [node name="BedroomSceneLoader" type="Area3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
 collision_layer = 2
@@ -462,10 +466,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788603, -1.86279, -6.29928)
 
 [node name="MeshInstance3D" parent="BasementSceneLoader/TeleportPoint" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.06286, 0)
-
-[node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 5.28294, 3.89569)
-shape = SubResource("BoxShape3D_nneh3")
 
 [node name="SceneLights" type="Node3D" parent="."]
 
