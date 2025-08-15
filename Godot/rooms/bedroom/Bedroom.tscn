@@ -1,10 +1,11 @@
-[gd_scene load_steps=130 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=131 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
 [ext_resource type="Texture2D" uid="uid://bxnmt5pyq0b7a" path="res://rooms/bedroom/Bedroom_white wall.png" id="2_lxtj2"]
 [ext_resource type="PackedScene" uid="uid://x8vl3v7s7cat" path="res://rooms/bedroom/side wall.glb" id="3_ra5m4"]
 [ext_resource type="Texture2D" uid="uid://da6uohi5m03mo" path="res://rooms/bedroom/Bedroom_woodmedium.png" id="3_rbtdn"]
+[ext_resource type="PackedScene" uid="uid://8npa6vrpy0jb" path="res://rooms/bedroom/punk posters.glb" id="3_w0jyq"]
 [ext_resource type="PackedScene" uid="uid://dijllg5x7mlpw" path="res://rooms/bedroom/bed.glb" id="5_rbtdn"]
 [ext_resource type="PackedScene" uid="uid://b8ucr48tcuk2p" path="res://rooms/bedroom/dorm desk.glb" id="7_7a5mm"]
 [ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="8_8bc0i"]
@@ -1140,13 +1141,58 @@ attached = false
 volume = 0.3
 unique_name_in_owner = true
 
+[node name="punk posters" parent="." instance=ExtResource("3_w0jyq")]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.866294, 1.75662, 1.98393)
+
+[node name="Plane_153" parent="punk posters" index="0"]
+transform = Transform3D(0.00156709, 8.4257e-19, 0.971416, -0.100647, 0.966189, 0.000162364, -0.966188, -0.100647, 0.00155866, 1.13167, 1.09679, -0.195282)
+
+[node name="Plane_043" parent="punk posters" index="2"]
+transform = Transform3D(-0.000740051, -0.600242, -0.799818, 0.000986278, 0.799817, -0.600242, 0.999999, -0.00123313, 5.96046e-08, -0.778301, 0.985761, -1.55184)
+
+[node name="Plane_041" parent="punk posters" index="3"]
+transform = Transform3D(-0.00074029, -0.600242, -1.22961, 0.000986308, 0.799818, -0.922789, 0.999999, -0.00123322, -1.1246e-07, -0.832817, 0.943534, -0.320668)
+
+[node name="Plane_039" parent="punk posters" index="4"]
+transform = Transform3D(1.25895, 0, -0.39986, -0.39986, -1.57467e-07, -1.25895, -5.90501e-08, 1.32093, -1.57467e-07, -0.740211, -0.617599, 0.84733)
+
+[node name="Plane_049" parent="punk posters" index="5"]
+transform = Transform3D(0.390451, 5.59805e-08, 0.156533, 0.156533, -1.39636e-07, -0.390451, 0, 0.420659, -1.5044e-07, -1.31529, -0.758156, 0.848489)
+
+[node name="Plane_050" parent="punk posters" index="6"]
+transform = Transform3D(1.32093, 0, 0, 0, -4.72401e-07, -1.32093, 0, 1.32093, -4.72401e-07, -0.783874, -0.4996, 0.84733)
+
+[node name="Plane_054" parent="punk posters" index="7"]
+transform = Transform3D(1, 0, 0, 0, -3.57628e-07, -1, 0, 1, -3.57628e-07, 0.681946, 0.922954, -3.58652)
+
+[node name="Plane_036" parent="punk posters" index="8"]
+transform = Transform3D(-0.0239555, 0.602108, -0.798055, 0.0153786, -0.797968, -0.602504, -0.999595, -0.0267063, 0.00985616, -0.753893, 0.942708, 1.39852)
+
+[node name="Plane_037" parent="punk posters" index="9"]
+transform = Transform3D(-1.24878e-07, 0.608364, 0.793658, 2.95693e-07, 0.793658, -0.608364, -1, 1.19209e-07, -3.57628e-07, 2.92514, 0.996373, 1.56262)
+
+[node name="Plane_042" parent="punk posters" index="10"]
+transform = Transform3D(-0.0010804, 1.58962, 0.00662414, -0.00143942, 0.00622806, -1.69039, 1.45931, 0.00118302, -0.00166245, -1.24953, -0.414793, 1.77515)
+
+[node name="Plane_047" parent="punk posters" index="11"]
+transform = Transform3D(-0.00192634, -2.64769, 0.105407, 0.00263753, -0.0600223, -4.64986, 2.64837, -0.00186607, 0.00470749, -1.25465, -0.752825, 2.87796)
+
+[node name="Plane_040" parent="punk posters" index="12"]
+transform = Transform3D(-0.0608814, 2.54011, 0.0540959, 0.039084, 0.0550414, -2.54052, -2.54039, -0.060028, -0.0403825, 3.44724, -0.212886, -1.64362)
+
+[node name="Object_11_001" parent="punk posters" index="13"]
+transform = Transform3D(0.159198, 0.768296, 0.00735263, -0.768332, 0.15919, 0.00152344, -2.33844e-08, -0.00750879, 0.784615, -0.41085, 0.655015, -3.54823)
+
+[node name="Object_5_004" parent="punk posters" index="14"]
+transform = Transform3D(-0.00126534, 0.632685, 0.464097, -2.40229e-05, -0.464098, 0.632686, 0.78465, 0.00100607, 0.000767779, 2.8961, 1.02278, -1.46072)
+
 [node name="SceneLights" type="Node3D" parent="."]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SceneLights"]
 transform = Transform3D(-0.350812, 0.531941, 0.619968, 0.049527, -0.659627, 0.593995, 0.815395, 0.268926, 0.230653, 3.51498, 2.62447, 1.63089)
 light_color = Color(1, 0.8, 0, 1)
 light_energy = 70.0
-light_volumetric_fog_energy = 50.0
+light_volumetric_fog_energy = 70.0
 shadow_enabled = true
 spot_range = 10.0
 spot_angle = 22.5
@@ -1168,9 +1214,9 @@ material = SubResource("FogMaterial_lxtj2")
 [node name="Particles" type="Node3D" parent="."]
 
 [node name="Dust" type="GPUParticles3D" parent="Particles"]
-transform = Transform3D(0.357413, 0, 0, 0, 0.709267, 0, 0, 0, 0.542528, 0.488564, 1.79881, 0.991255)
+transform = Transform3D(0.803284, 0, 0, 0, 0.709267, 0, 0, 0, 0.542528, 0.411122, 1.79881, 0.412785)
 gi_mode = 2
-amount = 200
+amount = 300
 lifetime = 4.0
 preprocess = 2.0
 speed_scale = 0.3
@@ -1358,10 +1404,10 @@ transform = Transform3D(1.60367e-05, 0.000101135, 5.43222e-06, 4.62205e-05, -2.4
 transform = Transform3D(0.0134157, 4.00487e-05, 1.80865e-09, -1.80388e-09, -1.59929e-09, 0.0134158, 4.00487e-05, -0.0134157, -1.5939e-09, 0.57176, 0.392841, 1.05393)
 
 [node name="Conection_Maps_0" parent="Closet" index="28"]
-transform = Transform3D(0.158576, 0, -0.00896881, 0, 0.253809, 0, 0.0264243, 0, 0.0538232, 0.241776, -0.176737, 1.4452)
+transform = Transform3D(0.158576, 0, -0.00896881, 0, 0.253809, 0, 0.0264243, 0, 0.0538232, 0.241776, -0.176737, 1.29695)
 
 [node name="Pc_cableMesh_Maps_0_001" parent="Closet" index="29"]
-transform = Transform3D(0.571761, 0, -0.00652635, 0, 0.571798, 0, 0.00652636, 0, 0.571761, 0.94975, -1.18466, 1.01755)
+transform = Transform3D(0.571761, 0, -0.00652635, 0, 0.571798, 0, 0.00652636, 0, 0.571761, 0.94975, -1.18466, 0.869304)
 
 [node name="Desk" parent="." instance=ExtResource("7_7a5mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16856, 0.252177, -0.573044)
@@ -1396,7 +1442,7 @@ transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 
 transform = Transform3D(0.900741, 0, 0, 0, 0.900741, 0, 0, 0, 0.900741, -0.0326812, 0.0543425, 0.0114737)
 
 [node name="SuitcaseAndBox" parent="." instance=ExtResource("18_do83d")]
-transform = Transform3D(0.957283, 0, 0.418028, 0, 1.04458, 0, -0.418028, 0, 0.957283, 1.83164, 1.88894, 3.56135)
+transform = Transform3D(0.957283, 0, 0.418028, 0, 1.04458, 0, -0.418028, 0, 0.957283, 1.83164, 1.88894, 4.60999)
 
 [node name="StarRug" parent="." groups=["material_carpet"] instance=ExtResource("20_y7msa")]
 transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.106077, 1.50737)
@@ -1412,13 +1458,13 @@ skeleton = NodePath("")
 [node name="Props" type="Node3D" parent="."]
 
 [node name="Guitar" parent="Props" instance=ExtResource("27_e0ilc")]
-transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.77992, 0.43937, 3.26625)
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.77992, 0.43937, 3.15722)
 
 [node name="WallDecorations" type="Node3D" parent="Props"]
 transform = Transform3D(1.01561, 0, 0, 0, 1.01561, 0, 0, 0, 1.01561, 1.4671, 1.56823, -0.635197)
 
 [node name="Plane_005" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(0.269376, 0, 0, 0, -1.06213e-08, -0.352078, 0, 0.242987, -1.53898e-08, -0.913377, 0.0778903, -0.546945)
+transform = Transform3D(0.232896, 0, 0, 0, -9.18293e-09, -0.304398, 0, 0.210081, -1.33057e-08, -0.900089, 0.0039593, -0.522095)
 mesh = SubResource("ArrayMesh_ll47b")
 skeleton = NodePath("")
 
@@ -1428,22 +1474,22 @@ mesh = SubResource("ArrayMesh_4hxa0")
 skeleton = NodePath("")
 
 [node name="Plane_007" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(0.128384, 0, 0, 0, -5.61184e-09, -0.128384, 0, 0.128384, -5.61184e-09, -1.93608, 1.04677, -0.521385)
+transform = Transform3D(0.128384, 0, 0, 0, -5.61184e-09, -0.128384, 0, 0.128384, -5.61184e-09, -1.7271, 0.763736, -0.521385)
 mesh = SubResource("ArrayMesh_rqjn5")
 skeleton = NodePath("")
 
 [node name="Plane_008" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(-6.30276e-05, -0.212389, 7.59562e-08, 0, -7.59562e-08, -0.212389, 0.212389, -6.30276e-05, 2.25404e-11, 0.717237, -0.345602, 0.6974)
+transform = Transform3D(-6.30276e-05, -0.212389, 7.59562e-08, 0, -7.59562e-08, -0.212389, 0.212389, -6.30276e-05, 2.25404e-11, 0.717237, -0.345602, 0.871734)
 mesh = SubResource("ArrayMesh_rqjn5")
 skeleton = NodePath("")
 
 [node name="Plane_009" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(0.128384, 0, 0, 0, -4.59136e-08, -0.128384, 0, 0.128384, -4.59136e-08, -2.3424, 0.761861, -0.527551)
+transform = Transform3D(0.128384, 0, 0, 0, -4.59136e-08, -0.128384, 0, 0.128384, -4.59136e-08, -2.16257, 0.761861, -0.527551)
 mesh = SubResource("ArrayMesh_gm4vu")
 skeleton = NodePath("")
 
 [node name="Plane_010" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(0.185952, 0, 0, 0, -8.12822e-09, -0.185952, 0, 0.185952, -8.12822e-09, -0.890317, 1.0455, -0.531841)
+transform = Transform3D(0.185952, 0, 0, 0, -8.12822e-09, -0.185952, 0, 0.185952, -8.12822e-09, -0.753718, 0.929385, -0.500769)
 mesh = SubResource("ArrayMesh_jtb5n")
 skeleton = NodePath("")
 
@@ -1562,5 +1608,6 @@ skeleton = NodePath("")
 [connection signal="body_entered" from="EntranceSceneLoader" to="EntranceSceneLoader" method="_on_body_entered"]
 [connection signal="body_exited" from="EntranceSceneLoader" to="EntranceSceneLoader" method="_on_body_exited"]
 
+[editable path="punk posters"]
 [editable path="Bed"]
 [editable path="Closet"]
