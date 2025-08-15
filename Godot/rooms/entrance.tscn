@@ -639,6 +639,11 @@ transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442
 mesh = SubResource("ArrayMesh_bl2fo")
 skeleton = NodePath("")
 
+[node name="MAT_wallpaper_DIFFUSE4" type="MeshInstance3D" parent="Room/Walls/LeftWall/Wallpaper"]
+transform = Transform3D(6.48689, 1.21973e-19, -1.53481e-26, 0, -1.56367e-07, -8.71356, -1.21973e-19, 3.57725, -3.80882e-07, 7.59696, 0.737454, -8.8515)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
 [node name="LeftWall2" parent="Room/Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(1.4637, 0, -0.018292, 0, 1.46381, 0, 0.018292, 0, 1.4637, 2.34854, 0.827875, -6.22015)
 
