@@ -102,6 +102,10 @@ func remove_current_item(queue_free : bool = true) -> void:
 			#child.transform.origin.z = child.transform.origin.z - hide_offset
 		
 	active_item = null
+	
+func close_item_info():
+	item_info.visible = false
+	exit_button_parent.visible = true
 
 #TODO
 #At origin, the object interferes with the world map. Need to move it away from the world map so that it's visible properly.
@@ -110,8 +114,7 @@ func _ready() -> void:
 	#set_item(test_path)
 	#camera_3d.transform.origin.y = camera_3d.transform.origin.y + hide_offset
 	#camera_3d.transform.origin.z = camera_3d.transform.origin.z + hide_offset
-	item_info.visible = false
-	exit_button_parent.visible = true
+	close_item_info()
 	exit_button.pressed.connect(func():
 		GuiSystem.hide_journal()
 		remove_current_item()

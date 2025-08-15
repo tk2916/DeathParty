@@ -97,7 +97,7 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="ObjectViewer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
 
-[node name="ItemInfo" type="Control" parent="ObjectViewer"]
+[node name="ItemInfo" type="Control" parent="ObjectViewer" node_paths=PackedStringArray("object_viewer")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,6 +105,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_o7dqn")
+object_viewer = NodePath("..")
 
 [node name="ItemInfoExit" type="ColorRect" parent="ObjectViewer/ItemInfo"]
 layout_mode = 1
@@ -138,11 +139,11 @@ anchor_right = 0.92
 anchor_bottom = 0.07
 color = Color(0.154876, 0.154876, 0.154876, 0.643137)
 script = ExtResource("3_o7dqn")
-label = NodePath("Description")
+label = NodePath("Text")
 resize_x = false
 padding_bottom = 10.0
 
-[node name="Description" type="RichTextLabel" parent="ObjectViewer/ItemInfo/DescriptionBacker"]
+[node name="Text" type="RichTextLabel" parent="ObjectViewer/ItemInfo/DescriptionBacker"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03
@@ -178,3 +179,5 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o7dqn")
 text = "Back"
 flat = true
+
+[connection signal="resized" from="ObjectViewer/ItemInfo/DescriptionBacker/Text" to="ObjectViewer/ItemInfo/DescriptionBacker" method="_on_text_resized"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ibs6xbf36j7"]
+[gd_scene load_steps=19 format=3 uid="uid://ibs6xbf36j7"]
 
 [ext_resource type="Script" uid="uid://hxb8rnfqqsl" path="res://Assets/GUIPrefabs/PhonePrefabs/MessageAppAssets/message_app_dialogue_box.gd" id="1_pesbb"]
 [ext_resource type="Texture2D" uid="uid://crrdum07mi87s" path="res://Assets/PhoneTextures/Chats_home_bg.png" id="2_my33r"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://ddiut72q13vxf" path="res://Assets/PhoneTextures/text_box_outline_chats.png" id="11_wopup"]
 [ext_resource type="Texture2D" uid="uid://dkn8phr2m0gll" path="res://Assets/PhoneTextures/send_arrow.png" id="12_3r0rs"]
 [ext_resource type="FontFile" uid="uid://w4kmxbbwxg4c" path="res://Assets/Fonts/Inria_Sans/InriaSans-Regular.ttf" id="14_dpya1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tb7f1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8bu3"]
 
@@ -190,9 +192,9 @@ include_am_pm = false
 
 [node name="TextInputArea" type="Control" parent="HBoxContainer/MessagePanel"]
 layout_mode = 1
-anchor_top = 0.9
+anchor_top = 0.87
 anchor_right = 1.0
-anchor_bottom = 0.95
+anchor_bottom = 0.92
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -206,6 +208,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_wopup")
 expand_mode = 1
+stretch_mode = 5
 
 [node name="Send" type="TextureRect" parent="HBoxContainer/MessagePanel/TextInputArea"]
 layout_mode = 1
@@ -237,15 +240,24 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.85
 grow_horizontal = 2
-grow_vertical = 2
 follow_focus = true
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 script = ExtResource("4_q2qpm")
 
 [node name="DialogueContainer" type="VBoxContainer" parent="HBoxContainer/MessagePanel/TextsArea/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="TouchScreen" type="Panel" parent="HBoxContainer/MessagePanel/TextsArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.85
+grow_horizontal = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tb7f1")
 
 [node name="ChoiceContainer" type="HBoxContainer" parent="HBoxContainer/MessagePanel/TextsArea"]
 layout_mode = 1
@@ -255,7 +267,7 @@ anchor_top = 0.85
 anchor_right = 0.97
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 5
@@ -291,5 +303,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r8bu3")
 flat = true
+
+[connection signal="mouse_entered" from="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" to="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" to="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxContainer/MessagePanel/TextsArea/TouchScreen" to="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" method="_on_touch_screen_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MessagePanel/TextsArea/TouchScreen" to="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" method="_on_touch_screen_mouse_exited"]
