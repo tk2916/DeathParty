@@ -47,10 +47,10 @@
 size = Vector3(19.459, 10.481, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxsgv"]
-size = Vector3(20, 2, 0.1)
+size = Vector3(20, 10, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_klyfx"]
-size = Vector3(20, 2, 0.1)
+size = Vector3(20, 10, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
 size = Vector3(17.9089, 3.18161, 0.503846)
@@ -410,15 +410,15 @@ shape = SubResource("BoxShape3D_nneh3")
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.8, 1, 4)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.8, 5, 4)
 shape = SubResource("BoxShape3D_wxsgv")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.1, 1, 4)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.1, 5, 4)
 shape = SubResource("BoxShape3D_wxsgv")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 1, -5.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 5, -5.7)
 shape = SubResource("BoxShape3D_klyfx")
 
 [node name="BedroomSceneLoader" type="Area3D" parent="."]
