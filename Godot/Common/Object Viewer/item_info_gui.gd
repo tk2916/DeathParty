@@ -2,7 +2,7 @@ class_name ItemInfoContainer extends Control
 
 @export var object_viewer : ObjectViewer
 @onready var button : Button = $ItemInfoExit/Button
-@onready var description_label : RichTextLabel = $DescriptionBacker/Description
+@onready var description_label : RichTextLabel = $DescriptionBacker/Text
 
 func _ready() -> void:
 	button.pressed.connect(on_button_pressed)
