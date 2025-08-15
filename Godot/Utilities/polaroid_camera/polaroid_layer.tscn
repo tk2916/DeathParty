@@ -1,18 +1,19 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0sd1bp5esd04"]
+[gd_scene load_steps=25 format=3 uid="uid://d0sd1bp5esd04"]
 
+[ext_resource type="Script" uid="uid://b3i26ci7xpdmw" path="res://Utilities/polaroid_camera/node_2d.gd" id="1_ngt84"]
 [ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
-[ext_resource type="Texture2D" uid="uid://d16vdeadxk8ym" path="res://Assets/PNGAssets/temp_CameraViewfinder.png" id="2_wiexo"]
 [ext_resource type="Texture2D" uid="uid://c7sn438n6fn2n" path="res://Assets/PNGAssets/green_lens.png" id="4_a6jrl"]
+[ext_resource type="Texture2D" uid="uid://d0wh17uflmu80" path="res://Assets/PNGAssets/viewfinder_temp.png" id="4_ngt84"]
+[ext_resource type="Texture2D" uid="uid://bguqofaqotvqq" path="res://Assets/PNGAssets/count.png" id="5_8fs6k"]
 [ext_resource type="Script" uid="uid://cg5lhigmboc73" path="res://Utilities/polaroid_camera/view_finder.gd" id="5_hbg1w"]
 [ext_resource type="Script" uid="uid://bd5wy6rj1xank" path="res://Utilities/polaroid_camera/filter_control.gd" id="5_omcg7"]
-[ext_resource type="Texture2D" uid="uid://dvmapa8mr3qjl" path="res://Assets/PNGAssets/temp_filter_base.png" id="6_a6jrl"]
 [ext_resource type="Script" uid="uid://qfuy0m0xcjwf" path="res://Utilities/polaroid_camera/picturetake.gd" id="6_or4cw"]
+[ext_resource type="Texture2D" uid="uid://dmjabxitkh0gc" path="res://Assets/PNGAssets/filter_base.png" id="7_8fs6k"]
 [ext_resource type="Texture2D" uid="uid://cpnc2vyb05nwa" path="res://Assets/PNGAssets/white_filter.png" id="7_lj084"]
 [ext_resource type="Texture2D" uid="uid://b8qkp14uuseo8" path="res://Assets/PNGAssets/red_filter.png" id="8_8fs6k"]
 [ext_resource type="Texture2D" uid="uid://hp4v04ump2xc" path="res://Assets/PNGAssets/blue_filter.png" id="9_ngt84"]
 [ext_resource type="Texture2D" uid="uid://b0db0vs3ncxa" path="res://Assets/PNGAssets/green_filter.png" id="10_4q0hv"]
 [ext_resource type="Texture2D" uid="uid://bv6px42lbjq5f" path="res://Assets/PNGAssets/temp_rotate_arrow.png" id="11_42nwo"]
-[ext_resource type="Texture2D" uid="uid://bidahofkbic31" path="res://Assets/PNGAssets/Ellipse.png" id="12_8fs6k"]
 [ext_resource type="Texture2D" uid="uid://byff66mcg00wk" path="res://Assets/PNGAssets/pointer.png" id="13_lj084"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4tks"]
@@ -41,7 +42,24 @@ radius = 21.095
 [node name="PolaroidCamera" type="CanvasLayer"]
 follow_viewport_enabled = true
 
-[node name="PictureExample" type="TextureRect" parent="."]
+[node name="body" type="Node2D" parent="."]
+script = ExtResource("1_ngt84")
+
+[node name="count" type="TextureRect" parent="body"]
+top_level = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -378.0
+offset_top = -54.0
+offset_right = 379.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_8fs6k")
+
+[node name="MainImage" type="TextureRect" parent="body"]
 offset_left = -13.0
 offset_top = -18.0
 offset_right = 1303.0
@@ -50,32 +68,26 @@ scale = Vector2(1, 1.0079)
 texture = ExtResource("1_t72bm")
 expand_mode = 1
 
-[node name="ViewFinder" type="TextureRect" parent="PictureExample" node_paths=PackedStringArray("viewfinder_camera")]
+[node name="ViewFinder" type="TextureRect" parent="body/MainImage" node_paths=PackedStringArray("viewfinder_camera")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 1226.0
 offset_bottom = 632.0
-texture = ExtResource("2_wiexo")
+texture = ExtResource("4_ngt84")
 expand_mode = 1
 script = ExtResource("5_hbg1w")
 viewfinder_camera = NodePath("../Camera2D")
 
-[node name="filter" type="ColorRect" parent="PictureExample/ViewFinder"]
+[node name="filter" type="TextureRect" parent="body/MainImage/ViewFinder"]
 layout_mode = 0
-offset_right = 1314.0
-offset_bottom = 751.0
-color = Color(0.576471, 0, 0, 0.00392157)
-
-[node name="TextureRect" type="TextureRect" parent="PictureExample/ViewFinder"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 31.0
-offset_right = 1157.0
-offset_bottom = 571.0
+offset_left = 407.0
+offset_top = 126.0
+offset_right = 819.0
+offset_bottom = 505.0
 texture = ExtResource("4_a6jrl")
 expand_mode = 1
 
-[node name="Camera2D" type="Camera2D" parent="PictureExample"]
+[node name="Camera2D" type="Camera2D" parent="body/MainImage"]
 position = Vector2(23, 24.804)
 scale = Vector2(1e-05, 1.0079e-05)
 anchor_mode = 0
@@ -92,6 +104,7 @@ drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 
 [node name="shoot" type="Button" parent="."]
+visible = false
 offset_left = -5.0
 offset_top = -8.0
 offset_right = 1278.0
@@ -110,18 +123,18 @@ offset_top = -8.0
 offset_right = 1307.0
 offset_bottom = 746.0
 
-[node name="filter_control" type="Node2D" parent="." node_paths=PackedStringArray("filter", "left_button", "right_button", "lens")]
+[node name="filter_control" type="Node2D" parent="." node_paths=PackedStringArray("left_button", "right_button", "lens", "ViewFinder")]
 position = Vector2(-40, -51)
 script = ExtResource("5_omcg7")
-filter = NodePath("../PictureExample/ViewFinder/filter")
 left_button = NodePath("rotate_left _button/left_button")
 right_button = NodePath("rotate_right_button/right_button")
-lens = NodePath("../PictureExample/ViewFinder/TextureRect")
+lens = NodePath("../body/MainImage/ViewFinder/filter")
+ViewFinder = NodePath("../body/MainImage/ViewFinder")
 
 [node name="filter_base" type="Sprite2D" parent="filter_control"]
 position = Vector2(184, 171)
 scale = Vector2(0.56, 0.56)
-texture = ExtResource("6_a6jrl")
+texture = ExtResource("7_8fs6k")
 
 [node name="white_filter" type="Sprite2D" parent="filter_control/filter_base"]
 position = Vector2(-1.78572, -66.0714)
@@ -161,10 +174,6 @@ texture = ExtResource("10_4q0hv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="filter_control/filter_base/green_filter/green"]
 shape = SubResource("CircleShape2D_ngt84")
 
-[node name="center" type="Sprite2D" parent="filter_control/filter_base"]
-position = Vector2(-1.7857, -5.96046e-07)
-texture = ExtResource("12_8fs6k")
-
 [node name="rotate_left _button" type="Sprite2D" parent="filter_control"]
 position = Vector2(148, 266)
 scale = Vector2(0.0997929, 0.0997929)
@@ -189,8 +198,7 @@ offset_right = 169.0
 offset_bottom = 171.0
 
 [node name="selector" type="Area2D" parent="filter_control"]
-top_level = true
-position = Vector2(145, 84)
+position = Vector2(184.46, 136.02)
 
 [node name="selector_shape" type="CollisionShape2D" parent="filter_control/selector"]
 position = Vector2(-2, -2)

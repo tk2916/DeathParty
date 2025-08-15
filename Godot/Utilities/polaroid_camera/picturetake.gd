@@ -3,10 +3,8 @@ extends Button
 @export var Polaroid_image : MeshInstance3D
 
 func _on_pressed():
-	#question mark dissapears after picture is taken
 	#question_mark.visible=false
-	#player can't shoot more than once 
-	#sdisabled=true
+	#disabled=true
 	await get_tree().create_timer(0.3).timeout
 	#code for flash 
 	$flash.visible=true
