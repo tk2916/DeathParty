@@ -329,6 +329,13 @@ func set_aa(mode : int) -> void:
 	save_settings()
 
 
+# NOTE: according to documentation, 1.0 should be performant and
+# 'perceptually lossless' so i dont think we need to go lower than that 🤓
+# i set these values high temporarily and they should probably be
+# adjusted and all brought closer to 1.0 as geometry gets more optimised 💭
+# maybe in the final game, this setting should be removed OR there should just
+# be 2 settings like 'high' or 'default' (1.0) and 'low' (2.0 or 4.0)
+#	- jack
 func apply_lod(level : int) -> void:
 	if level == 0: # Very Low
 		get_viewport().mesh_lod_threshold = 16.0

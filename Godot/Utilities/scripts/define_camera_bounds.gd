@@ -21,6 +21,12 @@ var background_plane: Plane
 var default_depth: Vector3
 
 
+# connect the signal to set the fmod parameter for the current room
+# when the player enters
+func _enter_tree() -> void:
+	body_entered.connect(func(body: Node3D) -> void: set_fmod_room_parameter(body, self.name))
+
+
 func _ready() -> void:
 	assert(room_area, "Room area not defined! Go to this room's properties in the Inspector and assign a CollisionShape3D containing the room to the Room Area property")
 	call_deferred("calculate_bounds")
@@ -140,6 +146,13 @@ func keep_camera_on_player(body: Node3D) -> void:
 
 func keep_camera_off_player(body: Node3D) -> void:
 	GlobalCameraScript.camera_on_player.emit(false)
+
+
+func set_fmod_room_parameter(body: Node3D, room_name: String) -> void:
+	#print("SETTING FMOD ROOM TO: ", room_name)
+	if body.is_in_group("player"):
+		FmodServer.set_global_parameter_by_name_with_label("Room", room_name)
+	#print("FMOD ROOM IS NOW: ", FmodServer.get_global_parameter_by_name("Room"))
 
 
 ## These functions should be defined in the extended script

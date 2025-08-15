@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TaskResource" load_steps=2 format=3 uid="uid://cpd7intfkhq3l"]
+
+[ext_resource type="Script" uid="uid://cvt183j47uyr1" path="res://Assets/Resources/TaskResources/Default Resource (DO NOT EDIT)/task_properties_script.gd" id="1_og8k4"]
+
+[resource]
+script = ExtResource("1_og8k4")
+name = "Self Help"
+description = "Help yourself"

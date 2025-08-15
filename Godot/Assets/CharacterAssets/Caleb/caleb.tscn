@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp8mxgak36ovb"]
+[gd_scene load_steps=3 format=3 uid="uid://dp8mxgak36ovb"]
 
 [ext_resource type="PackedScene" uid="uid://csoh6pwblyomm" path="res://Assets/CharacterAssets/Caleb/Caleb.glb" id="1_q5ip8"]
+[ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="2_hq7c8"]
 
 [node name="Caleb" instance=ExtResource("1_q5ip8")]
 transform = Transform3D(1.09713, 0, 0, 0, 1.09713, 0, 0, 0, 1.09713, 0, 0, 0)
@@ -116,3 +117,10 @@ lod_bias = 0.25
 
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "idle"
+
+[node name="InteractionDetector" parent="." index="3" instance=ExtResource("2_hq7c8")]
+
+[node name="CollisionShape3D" parent="InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0166416, 0.888489, -0.0242138)
+
+[editable path="InteractionDetector"]

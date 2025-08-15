@@ -91,8 +91,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjh1m")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yidfh"]
-size = Vector3(150, 1, 58.238)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpbuu"]
+size = Vector3(100, 1, 58.238)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gde20"]
 resource_name = "Material.151"
@@ -1109,7 +1109,7 @@ spot_attenuation = -0.49
 spot_angle = 19.94
 
 [node name="floor" type="StaticBody3D" parent="." groups=["material_wood"]]
-transform = Transform3D(-0.140782, 0, -6.98784e-08, 0, 0.187118, 0, 4.58725e-08, 0, -0.214455, -6.0559, -0.34643, 2.42161)
+transform = Transform3D(-0.140782, 0, -8.35119e-08, 0, 0.187118, 0, 5.48225e-08, 0, -0.214455, -6.0559, -0.34643, 2.42161)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2126, 0, 0)
@@ -1117,11 +1117,11 @@ mesh = SubResource("ArrayMesh_4apcc")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, -1.13687e-13, 0, 1, 0, 1.13687e-13, 0, 1, 0.534134, -22.1713, 2.42637)
-shape = SubResource("BoxShape3D_yidfh")
+transform = Transform3D(1, 0, -1.13687e-13, 0, 1, 0, 1.13687e-13, 0, 1, -24, -22.171, 2.4)
+shape = SubResource("BoxShape3D_jpbuu")
 
 [node name="carpet" parent="floor" groups=["material_carpet"] instance=ExtResource("13_1lqw2")]
-transform = Transform3D(-2.9369, 0, 9.56965e-07, 0, 2.92642, 0, -8.31998e-07, 0, -2.55338, -10.0396, -21.5728, -0.537831)
+transform = Transform3D(-2.9369, 0, 9.94323e-07, 0, 2.92642, 0, -1.14367e-06, 0, -2.55338, -10.0396, -21.5728, -0.537831)
 
 [node name="LeftWall" type="Node3D" parent="."]
 
@@ -1271,6 +1271,7 @@ transform = Transform3D(-4.99212, 0, 1.74137e-06, 0, 5.34422, 0, -1.62664e-06, 0
 [node name="WoodCreakSound" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/000_SFX/000_Demo_Test/009_SFX_WoodCreak"
 event_guid = "{f38bbadd-9a04-4803-8491-24000f134dfa}"
+volume = 0.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -2)
 script = SubResource("GDScript_508o3")
 

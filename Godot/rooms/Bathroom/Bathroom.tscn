@@ -611,7 +611,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18989, -1.56048, -3.80021)
 event_name = "event:/000_SFX/000_Demo_Test/013_SFX_SinkDrip"
 event_guid = "{976cee28-99fe-4e89-89cc-b732a3e44612}"
 autoplay = true
-volume = 0.5
+volume = 0.25
 
 [node name="graff" parent="." instance=ExtResource("12_qgpod")]
 transform = Transform3D(0.9525, -8.933e-05, -0.0298424, 0.000101212, 0.952968, 0.00037871, 0.0298424, -0.000381688, 0.9525, -6.70712, -1.22399, -0.862577)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=76 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -40,6 +40,9 @@
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="36_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="37_0ritw"]
 [ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="39_t7spl"]
+[ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="41_6fv14"]
+[ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/Buff Frat boy/buff.tscn" id="42_wxsgv"]
+[ext_resource type="PackedScene" uid="uid://murri4r3vxla" path="res://Assets/textures/entrance_room_props/entrance wall.glb" id="43_klyfx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -85,8 +88,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bq5h0")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lgvpl"]
-size = Vector3(21.4614, 0.25, 52.1901)
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fv14"]
+size = Vector3(21, 0.25, 21)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5drps"]
 resource_name = "Material.005"
@@ -341,7 +344,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3qtki")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gfuhi"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7spl"]
 size = Vector3(3, 2, 1)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
@@ -389,6 +392,7 @@ radial_segments = 12
 rings = 12
 
 [node name="Entrance" type="Area3D" node_paths=PackedStringArray("room_area")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012352, 0, 0.00779819)
 collision_mask = 2
 script = ExtResource("1_3k57g")
 room_area = NodePath("RoomArea")
@@ -454,8 +458,8 @@ skeleton = NodePath("")
 [node name="Floor" type="StaticBody3D" parent="." groups=["material_wood"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01929, -0.13, -11.1878)
-shape = SubResource("BoxShape3D_lgvpl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01929, -0.13, 4.3122)
+shape = SubResource("BoxShape3D_6fv14")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(0.169721, 0, 0, 0, 0.219331, 0, 0, 0, 0.33362, 2.89129, 0, 4.34803)
@@ -670,12 +674,12 @@ light_energy = 15.0
 omni_range = 5.058
 
 [node name="GlowingDoorway2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.27963, 0, -0.000756004, 0, 0.320847, 0, 0.000946833, 0, -0.223272, -0.417228, 6.54585, -6.26398)
+transform = Transform3D(-0.280443, 0, -0.000107166, 0, 0.320847, 0, 0.000949585, 0, -0.0316495, -0.417228, 6.54585, -6.03108)
 mesh = SubResource("ArrayMesh_lkai6")
 skeleton = NodePath("")
 
 [node name="GlowingDoorway3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.27963, 0, -0.000756004, 0, 0.320847, 0, 0.000946833, 0, -0.223272, 4.71571, 6.54585, -6.26398)
+transform = Transform3D(-0.281, 0, -4.94336e-05, 0, 0.320847, 0, 0.00095147, 0, -0.0145993, 4.71571, 6.54585, -6.04277)
 mesh = SubResource("ArrayMesh_lkai6")
 skeleton = NodePath("")
 
@@ -897,8 +901,8 @@ scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
 
 [node name="CollisionShape3D" parent="SceneLoaderEntranceToPartyRoom" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
-shape = SubResource("BoxShape3D_gfuhi")
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
+shape = SubResource("BoxShape3D_t7spl")
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87366, 5.24725, 4.8063)
@@ -1020,6 +1024,18 @@ speed_scale = 0.3
 randomness = 0.25
 process_material = SubResource("ParticleProcessMaterial_d8etm")
 draw_pass_1 = SubResource("SphereMesh_d8etm")
+
+[node name="Jack" parent="." instance=ExtResource("41_6fv14")]
+transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 7.11645, 0.0308121, 2.20707)
+
+[node name="Buff" parent="." instance=ExtResource("42_wxsgv")]
+transform = Transform3D(1.12943, 0, 0.489686, 0, 1.23102, 0, -0.489686, 0, 1.12943, -2.4123, 0.382724, 1.50786)
+
+[node name="entrance wall4" parent="." instance=ExtResource("43_klyfx")]
+transform = Transform3D(-4.37114e-08, 0, -2.2498, 0, 1, 0, 1, 0, -9.83421e-08, 3.15324, 6.15922, -6.21814)
+
+[node name="entrance wall5" parent="." instance=ExtResource("43_klyfx")]
+transform = Transform3D(-4.37114e-08, 0, -2.2498, 0, 1, 0, 1, 0, -9.83421e-08, 3.15324, 1.0469, -6.55197)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="SceneLoader to bedroom" to="SceneLoader to bedroom" method="_on_body_entered"]

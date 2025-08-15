@@ -314,8 +314,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o7qs3")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lxtj2"]
-size = Vector3(7.38405, 0.258667, 8.04614)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mav1h"]
+size = Vector3(5.25, 0.259, 8.046)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01edu"]
 resource_name = "Material.224"
@@ -680,7 +680,7 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
 transform = Transform3D(1, 0, 0, 0, 0.999904, 0, 0, 0, 1, -0.135777, -0.242519, 1.2821)
-shape = SubResource("BoxShape3D_lxtj2")
+shape = SubResource("BoxShape3D_mav1h")
 
 [node name="Cube_006" type="MeshInstance3D" parent="floor"]
 transform = Transform3D(-4.79537e-08, 0, 0.805901, 0, 0.805901, 0, -1.09705, 0, -3.52271e-08, 0, -0.112812, 1.44152)
@@ -943,6 +943,16 @@ attached = false
 volume = 0.3
 unique_name_in_owner = true
 
+[node name="Music" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/900_MX/Olivia room music"
+event_guid = "{ae9cb825-c6ee-408e-a544-82929c10a82d}"
+autoplay = true
+volume = 0.5
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.889039, 0.889039, -0.889039)
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="SceneLoader to entrance" to="." method="_on_scene_loader_body_entered"]
 [connection signal="body_entered" from="SceneLoader to entrance" to="SceneLoader to entrance" method="_on_body_entered"]
 [connection signal="body_exited" from="SceneLoader to entrance" to="SceneLoader to entrance" method="_on_body_exited"]
 

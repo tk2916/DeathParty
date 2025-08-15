@@ -13,7 +13,12 @@ var pressed : bool = false
 @onready var sub_viewport : SubViewport = $SubViewportContainer/SubViewport
 @onready var model_holder : Node3D =  $"SubViewportContainer/SubViewport/Model Holder"
 @onready var camera_3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
-@onready var light : DirectionalLight3D = $SubViewportContainer/SubViewport/Light
+
+# NOTE: the lines in this script that reference 'light' are commented out
+# to avoid crashes (since the directional light in the object viewer
+# was moved to the main scene)
+
+#@onready var light : DirectionalLight3D = $SubViewportContainer/SubViewport/Light
 
 #Custom background
 @onready var color_rect : ColorRect = $ColorRect
@@ -65,15 +70,15 @@ func set_item_properties(scene : Node3D) -> Node3D:
 	scene.transform.origin.y = scene.transform.origin.y + hide_offset
 	scene.transform.origin.z = scene.transform.origin.z + hide_offset
 	model_holder.add_child(scene)
-	
+
 	active_item = scene
-	light.visible = true
+	#light.visible = true
 	enabled.emit(true, camera_3d)
 	return scene
 	
 func remove_current_item(queue_free : bool = true) -> void:
 	Interact.clear_active_subviewport()
-	light.visible = false
+	#light.visible = false
 	#Remove ALL items in the model holder
 	enabled.emit(false, camera_3d)
 	

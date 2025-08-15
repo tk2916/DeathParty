@@ -1,5 +1,9 @@
 extends Room3D
 
+
+@onready var music: FmodEventEmitter3D = %Music
+
+
 func _ready() -> void:
 	super()
 	GlobalPlayerScript.player_moved.connect(_calculate_progress_ratio)
@@ -8,6 +12,10 @@ func _ready() -> void:
 func handle_player_entrance(body: Node3D) -> void:
 	remove_all_bounds(body)
 	rotate_player(body)
-	bind_camera_path(body)
-	
-	#FmodServer.set_global_parameter_by_name_with_label("room", "outside")
+
+	keep_camera_on_player(body)
+
+
+func _on_scene_loader_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		music.stop()
