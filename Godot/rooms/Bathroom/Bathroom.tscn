@@ -529,6 +529,9 @@ scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
 play_door_sound = true
 
+[node name="CollisionShape3D" parent="SceneLoader to Partyroom" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646526, 0.638772, -0.771466)
+
 [node name="TeleportPoint" parent="SceneLoader to Partyroom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6921e-07, 0.839686, 3.22009)
 
