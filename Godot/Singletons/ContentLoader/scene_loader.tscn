@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="1_6wayg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
-size = Vector3(8.18843, 4.70209, 1.41507)
+size = Vector3(1, 2, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
 albedo_color = Color(0.281989, 0.500556, 1, 1)
