@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=132 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -55,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://b6xa4gm7si6po" path="res://rooms/bedroom/bed shelf_Image_2_22.png" id="27_qbwcx"]
 [ext_resource type="PackedScene" uid="uid://dt33twp08yxwj" path="res://rooms/bedroom/ dorm crown.glb" id="29_xm2t7"]
 [ext_resource type="PackedScene" uid="uid://dsn1aq6mbpsoh" path="res://rooms/bedroom/evidence.glb" id="30_ke8q4"]
+[ext_resource type="PackedScene" uid="uid://btmj6vlpb2pyw" path="res://rooms/bedroom/desk stuff.glb" id="56_0hleh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(8.04827, 3.47472, 11.0452)
@@ -1299,28 +1300,28 @@ transform = Transform3D(-0.696936, 0.207826, 0.294561, 0.319385, 0.0586274, 0.71
 transform = Transform3D(0.273872, 0.669572, -0.303882, 0.0614045, -0.34397, -0.702561, -0.732735, 0.221439, -0.172457, 0.206445, 0.0567842, -0.471885)
 
 [node name="star_0" parent="Bed" index="4"]
-transform = Transform3D(14.4186, 9.74556, 4.12158, 0.551518, -7.64908, 16.157, 10.5669, -12.8987, -6.46723, -0.186786, 0.14363, 0.577822)
+transform = Transform3D(14.4186, 9.74556, 4.12158, 0.551518, -7.64908, 16.157, 10.5669, -12.8987, -6.46723, -0.272274, 0.14363, 0.555621)
 
 [node name="star_1" parent="Bed" index="5"]
-transform = Transform3D(14.4186, 9.74556, 4.12158, 0.551518, -7.64908, 16.157, 10.5669, -12.8987, -6.46723, -0.18798, 0.140983, 0.57959)
+transform = Transform3D(14.4186, 9.74556, 4.12158, 0.551518, -7.64908, 16.157, 10.5669, -12.8987, -6.46723, -0.273468, 0.140983, 0.557389)
 
 [node name="star_2" parent="Bed" index="6"]
-transform = Transform3D(14.4186, 9.74556, 4.12158, 0.551518, -7.64908, 16.157, 10.5669, -12.8987, -6.46723, -0.150413, 0.0738626, 0.531833)
+transform = Transform3D(14.4186, 9.74556, 4.12158, 0.551518, -7.64908, 16.157, 10.5669, -12.8987, -6.46723, -0.235901, 0.0738626, 0.509631)
 
 [node name="sm_Material_008_0" parent="Bed" index="7"]
-transform = Transform3D(-0.0202895, 0.0287411, 0.00818428, 0.0127153, -0.000241761, 0.0338913, 0.0261525, 0.0224154, -0.0101284, -0.0722162, -0.0208331, 0.776353)
+transform = Transform3D(-0.0202895, 0.0287411, 0.00818428, 0.0127153, -0.000241761, 0.0338913, 0.0261525, 0.0224154, -0.0101284, -0.00533831, -0.0208331, 0.7464)
 
 [node name="����������_1_��������_003" parent="Bed" index="8"]
 transform = Transform3D(0.000561522, 0.000139254, 3.34228e-05, -0.000140688, 0.000511144, 0.000233996, 2.67493e-05, -0.000234853, 0.000529098, -0.142345, -0.0451072, 0.6679)
 
 [node name="Sphere_0" parent="Bed" index="9"]
-transform = Transform3D(0.126056, 0.115689, 2.50614e-08, -1.52972e-08, -2.03963e-08, 0.171096, 0.115689, -0.126056, -4.68362e-09, 0.137741, -0.0249619, 0.692766)
+transform = Transform3D(0.126056, 0.115689, 2.50614e-08, -1.52972e-08, -2.03963e-08, 0.171096, 0.115689, -0.126056, -4.68362e-09, 0.222058, -0.0249619, 0.74444)
 
 [node name="Head_low__0" parent="Bed" index="10"]
-transform = Transform3D(-0.0347272, 0.154886, -0.0188652, -0.00409744, 0.0184149, 0.158732, 0.155977, 0.0349681, -3.04163e-05, -0.462502, -0.124784, 0.263779)
+transform = Transform3D(-0.0347272, 0.154886, -0.0188652, -0.00409744, 0.0184149, 0.158732, 0.155977, 0.0349681, -3.04163e-05, -0.530991, -0.124784, 0.263779)
 
 [node name="TeddyBear" parent="Bed" instance=ExtResource("21_y7msa")]
-transform = Transform3D(0.697622, 0.169452, -0.776749, -0.113228, 1.04404, 0.12607, 0.786913, 0, 0.706751, 0.33682, 0.074956, 0.413241)
+transform = Transform3D(0.697622, 0.169452, -0.776749, -0.113228, 1.04404, 0.12607, 0.786913, 0, 0.706751, 0.211698, 0.074956, 0.352242)
 
 [node name="BedsideTable" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477808, 0.686834, -0.951489)
@@ -1413,10 +1414,10 @@ transform = Transform3D(0.571761, 0, -0.00652635, 0, 0.571798, 0, 0.00652636, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16856, 0.252177, -0.573044)
 
 [node name="DeskLamp" parent="Desk" instance=ExtResource("17_bmvp4")]
-transform = Transform3D(-0.46781, 0, -0.756002, -0.161528, 0.868506, 0.0999528, 0.738544, 0.189952, -0.457007, -0.10383, 0.460275, 0.00814098)
+transform = Transform3D(-0.46781, 0, -0.756002, -0.161528, 0.868506, 0.0999528, 0.738544, 0.189952, -0.457007, -0.255505, 0.460275, 0.00814098)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Desk/DeskLamp"]
-transform = Transform3D(0.432259, 0.0680435, 0.899182, -0.0294545, -0.995555, 0.089496, 0.901272, -0.06517, -0.428333, -0.244231, 0.577336, -0.0583436)
+transform = Transform3D(0.298142, 0.0270158, 0.954143, -0.123926, -0.990047, 0.066756, 0.946446, -0.138145, -0.291826, -0.244231, 0.577336, -0.0583438)
 light_color = Color(0, 0.9, 1, 1)
 light_energy = 10.0
 light_specular = 8.333
@@ -1603,6 +1604,18 @@ visible = false
 mesh = SubResource("ArrayMesh_sokvp")
 skeleton = NodePath("")
 
+[node name="desk stuff" parent="." instance=ExtResource("56_0hleh")]
+transform = Transform3D(1.04428, 0, 0, 0, 1.04428, 0, 0, 0, 1.04428, -0.99047, 0.748889, -0.798948)
+
+[node name="pCube9_trousers_0" parent="desk stuff" index="19"]
+transform = Transform3D(0.00504853, 0, 0.00600667, 0, 0.00784651, 0, -0.00600667, 0, 0.00504853, -0.572594, 0.0979841, -0.19839)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="desk stuff"]
+transform = Transform3D(0.851345, 0, 0, 0, 0.851345, 0, 0, 0, 0.851345, 0.144768, 0.0613446, -0.149783)
+light_energy = 3.0
+omni_range = 0.404
+omni_attenuation = 1.5
+
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="EntranceSceneLoader" to="." method="_on_scene_loader_body_entered"]
 [connection signal="body_entered" from="EntranceSceneLoader" to="EntranceSceneLoader" method="_on_body_entered"]
@@ -1611,3 +1624,4 @@ skeleton = NodePath("")
 [editable path="punk posters"]
 [editable path="Bed"]
 [editable path="Closet"]
+[editable path="desk stuff"]
