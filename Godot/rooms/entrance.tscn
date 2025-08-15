@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=75 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -42,10 +42,96 @@
 [ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="39_t7spl"]
 [ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="41_6fv14"]
 [ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/Buff Frat boy/buff.tscn" id="42_wxsgv"]
-[ext_resource type="PackedScene" uid="uid://murri4r3vxla" path="res://Assets/textures/entrance_room_props/entrance wall.glb" id="43_klyfx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
+size = Vector3(17.9089, 3.18161, 0.503846)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
+albedo_color = Color(0.281989, 0.500556, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7spl"]
+size = Vector3(3, 2, 1)
+
+[sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
+density = 0.06
+albedo = Color(0.316676, 0.00123956, 0.652151, 1)
+emission = Color(0.0630584, 5.49413e-05, 0.20964, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.5
+gravity = Vector3(0, -0.05, 0)
+damping_min = 0.05
+damping_max = 0.05
+scale_min = 0.5
+scale_max = 0.75
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8etm"]
+transparency = 1
+albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_d8etm"]
+material = SubResource("StandardMaterial3D_d8etm")
+radius = 0.01
+height = 0.02
+radial_segments = 12
+rings = 12
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fv14"]
+size = Vector3(21, 0.25, 21)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5drps"]
+resource_name = "Material.005"
+cull_mode = 2
+albedo_texture = ExtResource("3_ekhf5")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_62tgi"]
+_surfaces = [{
+"aabb": AABB(-61.5454, 0, -31.7316, 123.091, 1e-05, 63.4631),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_38cnj"]
+resource_name = "entrance room layout_Plane_018"
+_surfaces = [{
+"aabb": AABB(-61.5454, 0, -31.7316, 123.091, 1e-05, 63.4631),
+"attribute_data": PackedByteArray("DD//////DD//////DD8MPw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_5drps"),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(4.06033, 4.06033, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_62tgi")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlg7v"]
 resource_name = "MAT_wallpaper_DIFFUSE"
@@ -87,46 +173,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bq5h0")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6fv14"]
-size = Vector3(21, 0.25, 21)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5drps"]
-resource_name = "Material.005"
-cull_mode = 2
-albedo_texture = ExtResource("3_ekhf5")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_62tgi"]
-_surfaces = [{
-"aabb": AABB(-61.5454, 0, -31.7316, 123.091, 1e-05, 63.4631),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "Material.005",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_38cnj"]
-resource_name = "entrance room layout_Plane_018"
-_surfaces = [{
-"aabb": AABB(-61.5454, 0, -31.7316, 123.091, 1e-05, 63.4631),
-"attribute_data": PackedByteArray("DD//////DD//////DD8MPw=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_5drps"),
-"name": "Material.005",
-"primitive": 3,
-"uv_scale": Vector4(4.06033, 4.06033, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_62tgi")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vk8x"]
 resource_name = "Material.116"
@@ -344,53 +390,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3qtki")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t7spl"]
-size = Vector3(3, 2, 1)
-
-[sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
-density = 0.06
-albedo = Color(0.316676, 0.00123956, 0.652151, 1)
-emission = Color(0.0630584, 5.49413e-05, 0.20964, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
-size = Vector3(17.9089, 3.18161, 0.503846)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
-albedo_color = Color(0.281989, 0.500556, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
-lifetime_randomness = 0.1
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = 0.25
-initial_velocity_max = 0.5
-gravity = Vector3(0, -0.05, 0)
-damping_min = 0.05
-damping_max = 0.05
-scale_min = 0.5
-scale_max = 0.75
-turbulence_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8etm"]
-transparency = 1
-albedo_color = Color(0.882353, 0.882353, 0.784314, 0.196078)
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="SphereMesh" id="SphereMesh_d8etm"]
-material = SubResource("StandardMaterial3D_d8etm")
-radius = 0.01
-height = 0.02
-radial_segments = 12
-rings = 12
-
 [node name="Entrance" type="Area3D" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012352, 0, 0.00779819)
 collision_mask = 2
@@ -401,89 +400,279 @@ room_area = NodePath("RoomArea")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79164, 5.28294, 3.89569)
 shape = SubResource("BoxShape3D_nneh3")
 
-[node name="entrance wall" type="Node3D" parent="."]
-transform = Transform3D(1.18683, 0, 0, 0, 1.18683, 0, 0, 0, 1.18683, -6.55623, 2.06447, 4.11958)
+[node name="BedroomSceneLoader" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("39_t7spl")
+scene_going_right = "Bedroom"
+scene_going_left = "Bedroom"
 
-[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="entrance wall"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BedroomSceneLoader"]
+transform = Transform3D(0.999988, 0, -3.76588e-13, 0, 1, 0, 3.76588e-13, 0, 0.999988, -1.47154, 0.747803, -0.0853052)
+shape = SubResource("BoxShape3D_3cled")
 
-[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="entrance wall"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
+[node name="TeleportPoint" type="Node3D" parent="BedroomSceneLoader"]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.7695)
 
-[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="entrance wall"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BedroomSceneLoader/TeleportPoint"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_6wayg")
+mesh = SubResource("BoxMesh_qelyj")
 
-[node name="entrance wall3" type="Node3D" parent="."]
-transform = Transform3D(-1.18683, 0, 1.03756e-07, 0, 1.18683, 0, -1.03756e-07, 0, -1.18683, 11.9283, 2.06447, 4.11958)
+[node name="DoorSound" type="FmodEventEmitter3D" parent="BedroomSceneLoader"]
+event_name = "event:/door"
+event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
+attached = false
+volume = 0.3
+unique_name_in_owner = true
 
-[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="entrance wall3"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
+[node name="KitchenSceneLoader" parent="." instance=ExtResource("35_nneh3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)
+scene_going_right = "Kitchen"
+scene_going_left = "Kitchen"
+play_door_sound = true
 
-[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="entrance wall3"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
+[node name="CollisionShape3D" parent="KitchenSceneLoader" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, -0.155084)
 
-[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="entrance wall3"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
+[node name="TeleportPoint" parent="KitchenSceneLoader" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -3.37467)
 
-[node name="entrance wall2" type="Node3D" parent="."]
-transform = Transform3D(-5.18781e-08, 0, -1.18683, 0, 1.18683, 0, 1.18683, 0, -5.18781e-08, 0.304595, 2.06447, -5.53636)
+[node name="MeshInstance3D" parent="KitchenSceneLoader/TeleportPoint" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.73872, 0, 0)
 
-[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="entrance wall2"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
+[node name="PartyRoomSceneLoader" parent="." instance=ExtResource("35_nneh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
+offload_delay = 0.0
+scene_going_right = "PartyRoom"
+scene_going_left = "PartyRoom"
 
-[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="entrance wall2"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
+[node name="CollisionShape3D" parent="PartyRoomSceneLoader" index="0"]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
+shape = SubResource("BoxShape3D_t7spl")
 
-[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="entrance wall2"]
-transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
-mesh = SubResource("ArrayMesh_bl2fo")
-skeleton = NodePath("")
+[node name="BasementSceneLoader" parent="." instance=ExtResource("35_nneh3")]
+transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.9534, 1.22732, 9.88085)
+scene_going_right = "Basement"
+scene_going_left = "Basement"
+play_door_sound = true
 
-[node name="Floor" type="StaticBody3D" parent="." groups=["material_wood"]]
+[node name="CollisionShape3D" parent="BasementSceneLoader" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00659275, 0.747803, 0.262373)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+[node name="TeleportPoint" parent="BasementSceneLoader" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788603, -1.86279, -6.29928)
+
+[node name="MeshInstance3D" parent="BasementSceneLoader/TeleportPoint" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.06286, 0)
+
+[node name="SceneLights" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SceneLights"]
+transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, -2.94736, 7.98428, -6.75585)
+light_color = Color(1, 0.268927, 0.349748, 1)
+light_energy = 30.0
+light_volumetric_fog_energy = 30.0
+spot_range = 18.879
+spot_angle = 15.25
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="SceneLights"]
+transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, 7.30322, 7.98428, -6.75585)
+light_color = Color(1, 0.268927, 0.349748, 1)
+light_energy = 30.0
+light_volumetric_fog_energy = 30.0
+spot_range = 18.879
+spot_angle = 15.25
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SceneLights"]
+transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743, -2.26568, 1.27033, 2.35622)
+light_color = Color(0.87, 0.77198, 0.4176, 1)
+light_energy = 10.0
+omni_range = 2.872
+omni_attenuation = 0.667
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="SceneLights"]
+transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743, 2.18062, 4.049, -3.44392)
+light_color = Color(0.87, 0.77198, 0.4176, 1)
+light_energy = 10.0
+omni_range = 2.872
+omni_attenuation = -1.937
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="SceneLights"]
+transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743, 1.04231, 4.63931, -1.43448)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 6.211
+omni_range = 2.215
+omni_attenuation = -2.021
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="SceneLights"]
+transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743, 3.65806, 4.63931, -1.43448)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 6.211
+omni_range = 2.215
+omni_attenuation = -2.021
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="SceneLights"]
+transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743, 6.89216, 1.10641, 1.19211)
+light_color = Color(0.87, 0.77198, 0.4176, 1)
+light_energy = 10.0
+shadow_enabled = true
+omni_range = 2.872
+omni_attenuation = 0.667
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SceneLights"]
+transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743, -0.666405, 1.49946, 0.947785)
+light_color = Color(0.79, 0.66834, 0.4424, 1)
+light_energy = 0.5
+shadow_enabled = true
+omni_range = 1.895
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="SceneLights"]
+transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743, 5.63488, 1.49946, 0.917387)
+light_color = Color(0.79, 0.66834, 0.4424, 1)
+light_energy = 0.5
+shadow_enabled = true
+omni_range = 1.895
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="SceneLights"]
+transform = Transform3D(-0.999994, 0, -0.003386, 0, 1, 0, 0.003386, 0, -0.999994, 2.21008, 1.14031, 0.625003)
+light_color = Color(1, 0.622, 0.37, 1)
+light_energy = 15.0
+omni_range = 5.058
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="SceneLights"]
+transform = Transform3D(1, 0, 0, 0, 0.10189, 0.994796, 0, -0.994796, 0.10189, 2.33357, 9.0003, -3.94716)
+light_color = Color(1, 0.7615, 0.47, 1)
+light_energy = 15.0
+light_volumetric_fog_energy = 5.0
+shadow_enabled = true
+spot_range = 5.963
+spot_attenuation = -1.15
+spot_angle = 31.0
+spot_angle_attenuation = 0.574349
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87366, 5.24725, 4.8063)
+size = Vector3(21.9939, 12.4945, 22.3923)
+material = SubResource("FogMaterial_nneh3")
+
+[node name="Particles" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 2)
+
+[node name="Dust" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.00759745, -0.892238)
+gi_mode = 2
+amount = 100
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_d8etm")
+draw_pass_1 = SubResource("SphereMesh_d8etm")
+
+[node name="Dust2" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21182, 0.00759745, -1.60561)
+gi_mode = 2
+amount = 200
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_d8etm")
+draw_pass_1 = SubResource("SphereMesh_d8etm")
+
+[node name="Room" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Room" groups=["material_wood"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01929, -0.13, 4.3122)
 shape = SubResource("BoxShape3D_6fv14")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
 transform = Transform3D(0.169721, 0, 0, 0, 0.219331, 0, 0, 0, 0.33362, 2.89129, 0, 4.34803)
 mesh = SubResource("ArrayMesh_38cnj")
 skeleton = NodePath("")
 
-[node name="Walls" type="Node3D" parent="."]
+[node name="Walls" type="Node3D" parent="Room"]
 
-[node name="LeftWall" parent="Walls" instance=ExtResource("4_tmedt")]
+[node name="LeftWall" parent="Room/Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(-6.39852e-08, 0, 1.46381, 0, 1.46381, 0, -1.46381, 0, -6.39852e-08, -7.23962, 0.827875, 4.05607)
 
-[node name="LeftWall2" parent="Walls" instance=ExtResource("4_tmedt")]
+[node name="Wallpaper" type="Node3D" parent="Room/Walls/LeftWall"]
+transform = Transform3D(-3.54404e-08, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -3.54404e-08, -0.0433867, 0.844778, 0.466857)
+
+[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Room/Walls/LeftWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="Room/Walls/LeftWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="Room/Walls/LeftWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="LeftWall2" parent="Room/Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(1.4637, 0, -0.018292, 0, 1.46381, 0, 0.018292, 0, 1.4637, 2.34854, 0.827875, -6.22015)
 
-[node name="BackWall" parent="Walls" instance=ExtResource("4_tmedt")]
+[node name="BackWall" parent="Room/Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.36038, 0.827875, -6.22)
 
-[node name="RightWall" parent="Walls" instance=ExtResource("4_tmedt")]
+[node name="Wallpaper" type="Node3D" parent="Room/Walls/BackWall"]
+transform = Transform3D(-3.54405e-08, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -3.54405e-08, -1.40441, 0.844778, 0.467028)
+
+[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Room/Walls/BackWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="Room/Walls/BackWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="Room/Walls/BackWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="RightWall" parent="Room/Walls" instance=ExtResource("4_tmedt")]
 transform = Transform3D(1.10515e-07, 0, -1.46381, 0, 1.46381, 0, 1.46381, 0, 1.10515e-07, 12.6604, 0.827875, 4.05607)
 
-[node name="Ceiling" type="MeshInstance3D" parent="."]
+[node name="Wallpaper" type="Node3D" parent="Room/Walls/RightWall"]
+transform = Transform3D(-1.32093e-07, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -1.32093e-07, 0.0433867, 0.844778, 0.500134)
+
+[node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Room/Walls/RightWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE2" type="MeshInstance3D" parent="Room/Walls/RightWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, -0.821678)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="MAT_wallpaper_DIFFUSE3" type="MeshInstance3D" parent="Room/Walls/RightWall/Wallpaper"]
+transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.220492, 0.0170863, -6.99287)
+mesh = SubResource("ArrayMesh_bl2fo")
+skeleton = NodePath("")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Room"]
 transform = Transform3D(0.219332, 0, 0, 0, 0.219331, 0, 0, 0, 0.219332, 1.92124, 10.5271, -0.979369)
 mesh = SubResource("ArrayMesh_rx0xm")
 skeleton = NodePath("")
+
+[node name="BasementDoor" parent="." instance=ExtResource("36_gfuhi")]
+transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.3882, 1.21599, 10.4024)
+
+[node name="KitchenDoor" parent="." instance=ExtResource("36_gfuhi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.02401, 1.21599, 7.05969)
 
 [node name="Pillars" type="Node3D" parent="."]
 
@@ -561,56 +750,6 @@ transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 1.921, 0.13
 [node name="Staircase" parent="." instance=ExtResource("13_27q15")]
 transform = Transform3D(1.46343, 0, 0.0332099, 0, 1.46381, 0, -0.0332099, 0, 1.46343, 2.375, -0.012, 0.484)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -3.19848, 0.876022, 1.20675)
-light_color = Color(0.87, 0.77198, 0.4176, 1)
-light_energy = 10.0
-omni_range = 2.872
-omni_attenuation = 0.667
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -0.0718786, 2.77427, -2.68568)
-light_color = Color(0.87, 0.77198, 0.4176, 1)
-light_energy = 10.0
-omni_range = 2.872
-omni_attenuation = -1.937
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -0.880456, 3.17754, -1.33093)
-light_color = Color(1, 0.69, 0.4, 1)
-light_energy = 6.211
-omni_range = 2.215
-omni_attenuation = -2.021
-
-[node name="OmniLight3D7" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 0.906032, 3.17754, -1.29039)
-light_color = Color(1, 0.69, 0.4, 1)
-light_energy = 6.211
-omni_range = 2.215
-omni_attenuation = -2.021
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 3.07413, 0.764043, 0.553632)
-light_color = Color(0.87, 0.77198, 0.4176, 1)
-light_energy = 10.0
-shadow_enabled = true
-omni_range = 2.872
-omni_attenuation = 0.667
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, -2.08439, 1.03255, 0.269615)
-light_color = Color(0.79, 0.66834, 0.4424, 1)
-light_energy = 0.5
-shadow_enabled = true
-omni_range = 1.895
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="Staircase"]
-transform = Transform3D(0.68315, 0, -9.31323e-10, 0, 0.683149, 0, 9.31323e-10, 0, 0.68315, 2.2197, 1.03255, 0.346517)
-light_color = Color(0.79, 0.66834, 0.4424, 1)
-light_energy = 0.5
-shadow_enabled = true
-omni_range = 1.895
-
 [node name="LandingStairs" type="StaticBody3D" parent="." groups=["material_wood"]]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 2.275, 3, -1.8)
 
@@ -667,22 +806,6 @@ shadow_enabled = true
 omni_range = 5.946
 omni_attenuation = 0.792
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="GlowingDoorway"]
-transform = Transform3D(4.51041, 0, 0, 0, 4.51044, 0, 0, 0, 4.51041, -1.40476, -0.759202, -29.8609)
-light_color = Color(1, 0.622, 0.37, 1)
-light_energy = 15.0
-omni_range = 5.058
-
-[node name="GlowingDoorway2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.280443, 0, -0.000107166, 0, 0.320847, 0, 0.000949585, 0, -0.0316495, -0.417228, 6.54585, -6.03108)
-mesh = SubResource("ArrayMesh_lkai6")
-skeleton = NodePath("")
-
-[node name="GlowingDoorway3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.281, 0, -4.94336e-05, 0, 0.320847, 0, 0.00095147, 0, -0.0145993, 4.71571, 6.54585, -6.04277)
-mesh = SubResource("ArrayMesh_lkai6")
-skeleton = NodePath("")
-
 [node name="Windows" type="Node3D" parent="."]
 
 [node name="ArchWindow" parent="Windows" instance=ExtResource("17_kauli")]
@@ -691,12 +814,22 @@ transform = Transform3D(-0.219323, 0, -0.00202499, 0, 0.219331, 0, 0.00202499, 0
 [node name="OmniLight3D" parent="Windows/ArchWindow" index="0"]
 visible = false
 
+[node name="GlowingDoorway" type="MeshInstance3D" parent="Windows/ArchWindow"]
+transform = Transform3D(1.27861, 0, -0.000843666, 0, 1.46284, 0, 0.00747565, 0, 0.144298, -11.1606, 3.61942, 0.00395775)
+mesh = SubResource("ArrayMesh_lkai6")
+skeleton = NodePath("")
+
 [node name="ArchWindow2" parent="Windows" instance=ExtResource("17_kauli")]
 transform = Transform3D(-0.219323, 0, -0.00202499, 0, 0.219331, 0, 0.00202499, 0, -0.219323, 7.233, 5.752, -6)
 
 [node name="OmniLight3D" parent="Windows/ArchWindow2" index="0"]
 transform = Transform3D(4.55929, 3.72529e-09, -1.86265e-09, 0, 2.61511, 3.73478, 3.72529e-09, -3.73476, 2.61509, 0.0129051, 2.5, -2.89687)
 light_color = Color(1, 0.258824, 0.403922, 1)
+
+[node name="GlowingDoorway" type="MeshInstance3D" parent="Windows/ArchWindow2"]
+transform = Transform3D(1.28115, 0, -0.000389167, 0, 1.46284, 0, 0.0074905, 0, 0.0665617, 11.4748, 3.61942, 0.300953)
+mesh = SubResource("ArrayMesh_lkai6")
+skeleton = NodePath("")
 
 [node name="StoneArchWindow" parent="Windows" instance=ExtResource("18_rseg0")]
 transform = Transform3D(-1.68993, 1.8164e-07, 0.015603, 2.55183e-07, 1.203, 1.66168e-15, 0.015603, -1.67707e-09, 1.68993, -4.44232, 1.01296, -5.75913)
@@ -773,17 +906,6 @@ light_color = Color(1, 0.333333, 0, 1)
 [node name="Painting" parent="." instance=ExtResource("20_2fk3d")]
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.33357, 5.93565, -5.9708)
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Painting"]
-transform = Transform3D(0.683149, 0, 0, 0, 0.0696059, 0.679594, 0, -0.679594, 0.0696059, 0, 2.09361, 1.38245)
-light_color = Color(1, 0.7615, 0.47, 1)
-light_energy = 15.0
-light_volumetric_fog_energy = 5.0
-shadow_enabled = true
-spot_range = 5.963
-spot_attenuation = -1.15
-spot_angle = 31.0
-spot_angle_attenuation = 0.574349
-
 [node name="Props" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
 
@@ -822,8 +944,19 @@ transform = Transform3D(-2.21576, 0, -0.00750261, 0, 2.21576, 0, 0.00750261, 0, 
 [node name="CobwebCorner" parent="Props/Cobwebs" instance=ExtResource("31_t511r")]
 transform = Transform3D(-1.21144, 0, -0.00410198, 0, 1.21144, 0, 0.00410198, 0, -1.21144, 4.41995, 3.77072, -3.01604)
 
-[node name="Flags" parent="Props" instance=ExtResource("32_6emc0")]
+[node name="Flags" type="Node3D" parent="Props"]
+
+[node name="PartyFlags" parent="Props/Flags" instance=ExtResource("32_6emc0")]
 transform = Transform3D(0.895593, 0, 0, 0, 1, 0, 0, 0, 1, 0.0257375, 2.62743, 0.6112)
+
+[node name="DIE flag" parent="Props/Flags" instance=ExtResource("37_0ritw")]
+transform = Transform3D(-0.97208, 0, -0.23465, 0, 1, 0, 0.23465, 0, -0.97208, 5.83876, 3.35038, 0.536944)
+
+[node name="DIE flag2" parent="Props/Flags" instance=ExtResource("37_0ritw")]
+transform = Transform3D(0.992866, 0, -0.119236, 0, 1, 0, 0.119236, 0, 0.992866, -5.93955, 3.35038, 6.29816)
+
+[node name="DIE flag3" parent="Props/Flags" instance=ExtResource("37_0ritw")]
+transform = Transform3D(0.380489, 0, -0.924785, 0, 1, 0, 0.924785, 0, 0.380489, -2.91716, 5.33207, 1.54967)
 
 [node name="JackOLanterns" type="Node3D" parent="Props"]
 transform = Transform3D(-1.09141, 0, -0.00369554, 0, 1.09141, 0, 0.00369554, 0, -1.09141, 4.32052, 4.98032, 14.9358)
@@ -894,159 +1027,27 @@ transform = Transform3D(0.0360417, -0.000988545, 0.196724, 0.000148181, 0.235998
 [node name="JackOLantern5" parent="Props/JackOLanterns/Balcony/Right" instance=ExtResource("33_hdy2l")]
 transform = Transform3D(0.125, 0, 0.216506, 0, 0.295, 0, -0.216506, 0, 0.125, 2.72332, 1.04498, 15.2458)
 
-[node name="SceneLoaderEntranceToPartyRoom" parent="." instance=ExtResource("35_nneh3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
-offload_delay = 0.0
-scene_going_right = "PartyRoom"
-scene_going_left = "PartyRoom"
+[node name="NPCs" type="Node3D" parent="."]
 
-[node name="CollisionShape3D" parent="SceneLoaderEntranceToPartyRoom" index="0"]
-transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
-shape = SubResource("BoxShape3D_t7spl")
-
-[node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87366, 5.24725, 4.8063)
-size = Vector3(21.9939, 12.4945, 22.3923)
-material = SubResource("FogMaterial_nneh3")
-
-[node name="Caleb" parent="." instance=ExtResource("35_gfuhi")]
+[node name="Caleb" parent="NPCs" instance=ExtResource("35_gfuhi")]
 transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
 
-[node name="door" parent="." instance=ExtResource("36_gfuhi")]
-transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.3882, 1.21599, 10.4024)
-
-[node name="SceneLoader to bedroom" type="Area3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("39_t7spl")
-scene_going_right = "Bedroom"
-scene_going_left = "Bedroom"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader to bedroom"]
-transform = Transform3D(0.999988, 0, -3.76588e-13, 0, 1, 0, 3.76588e-13, 0, 0.999988, -1.47154, 0.747803, -0.0853052)
-shape = SubResource("BoxShape3D_3cled")
-
-[node name="TeleportPoint" type="Node3D" parent="SceneLoader to bedroom"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.7695)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader to bedroom/TeleportPoint"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_6wayg")
-mesh = SubResource("BoxMesh_qelyj")
-
-[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader to bedroom"]
-event_name = "event:/door"
-event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
-attached = false
-volume = 0.3
-unique_name_in_owner = true
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, -2.94736, 7.98428, -6.75585)
-light_color = Color(1, 0.268927, 0.349748, 1)
-light_energy = 30.0
-light_volumetric_fog_energy = 30.0
-spot_range = 18.879
-spot_angle = 15.25
-
-[node name="SpotLight3D4" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.733303, 0.679902, 0, -0.679902, -0.733303, 7.30322, 7.98428, -6.75585)
-light_color = Color(1, 0.268927, 0.349748, 1)
-light_energy = 30.0
-light_volumetric_fog_energy = 30.0
-spot_range = 18.879
-spot_angle = 15.25
-
-[node name="SceneLoader kitchen" parent="." instance=ExtResource("35_nneh3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)
-scene_going_right = "Kitchen"
-scene_going_left = "Kitchen"
-play_door_sound = true
-
-[node name="CollisionShape3D" parent="SceneLoader kitchen" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, -0.155084)
-
-[node name="TeleportPoint" parent="SceneLoader kitchen" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -3.37467)
-
-[node name="MeshInstance3D" parent="SceneLoader kitchen/TeleportPoint" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.73872, 0, 0)
-
-[node name="SceneLoaderbasement" parent="." instance=ExtResource("35_nneh3")]
-transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.9534, 1.22732, 9.88085)
-scene_going_right = "Basement"
-scene_going_left = "Basement"
-play_door_sound = true
-
-[node name="CollisionShape3D" parent="SceneLoaderbasement" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00659275, 0.747803, 0.262373)
-
-[node name="TeleportPoint" parent="SceneLoaderbasement" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788603, -1.86279, -6.29928)
-
-[node name="MeshInstance3D" parent="SceneLoaderbasement/TeleportPoint" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.06286, 0)
-
-[node name="door2" parent="." instance=ExtResource("36_gfuhi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.02401, 1.21599, 7.05969)
-
-[node name="DIE flag" parent="." instance=ExtResource("37_0ritw")]
-transform = Transform3D(-0.97208, 0, -0.23465, 0, 1, 0, 0.23465, 0, -0.97208, 8.33876, 3.35038, 0.536944)
-
-[node name="DIE flag2" parent="." instance=ExtResource("37_0ritw")]
-transform = Transform3D(0.992866, 0, -0.119236, 0, 1, 0, 0.119236, 0, 0.992866, -3.43955, 3.35038, 6.29816)
-
-[node name="DIE flag3" parent="." instance=ExtResource("37_0ritw")]
-transform = Transform3D(0.380489, 0, -0.924785, 0, 1, 0, 0.924785, 0, 0.380489, -0.417163, 5.33207, 1.54967)
-
-[node name="Particles" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 2)
-
-[node name="Dust" type="GPUParticles3D" parent="Particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.00759745, -0.892238)
-gi_mode = 2
-amount = 100
-lifetime = 4.0
-preprocess = 2.0
-speed_scale = 0.3
-randomness = 0.25
-process_material = SubResource("ParticleProcessMaterial_d8etm")
-draw_pass_1 = SubResource("SphereMesh_d8etm")
-
-[node name="Dust2" type="GPUParticles3D" parent="Particles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21182, 0.00759745, -1.60561)
-gi_mode = 2
-amount = 200
-lifetime = 4.0
-preprocess = 2.0
-speed_scale = 0.3
-randomness = 0.25
-process_material = SubResource("ParticleProcessMaterial_d8etm")
-draw_pass_1 = SubResource("SphereMesh_d8etm")
-
-[node name="Jack" parent="." instance=ExtResource("41_6fv14")]
+[node name="Jack" parent="NPCs" instance=ExtResource("41_6fv14")]
 transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 7.11645, 0.0308121, 2.20707)
 
-[node name="Buff" parent="." instance=ExtResource("42_wxsgv")]
+[node name="Buff" parent="NPCs" instance=ExtResource("42_wxsgv")]
 transform = Transform3D(1.12943, 0, 0.489686, 0, 1.23102, 0, -0.489686, 0, 1.12943, -2.4123, 0.382724, 1.50786)
 
-[node name="entrance wall4" parent="." instance=ExtResource("43_klyfx")]
-transform = Transform3D(-4.37114e-08, 0, -2.2498, 0, 1, 0, 1, 0, -9.83421e-08, 3.15324, 6.15922, -6.21814)
-
-[node name="entrance wall5" parent="." instance=ExtResource("43_klyfx")]
-transform = Transform3D(-4.37114e-08, 0, -2.2498, 0, 1, 0, 1, 0, -9.83421e-08, 3.15324, 1.0469, -6.55197)
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="SceneLoader to bedroom" to="SceneLoader to bedroom" method="_on_body_entered"]
-[connection signal="body_exited" from="SceneLoader to bedroom" to="SceneLoader to bedroom" method="_on_body_exited"]
+[connection signal="body_entered" from="BedroomSceneLoader" to="BedroomSceneLoader" method="_on_body_entered"]
+[connection signal="body_exited" from="BedroomSceneLoader" to="BedroomSceneLoader" method="_on_body_exited"]
 
+[editable path="KitchenSceneLoader"]
+[editable path="PartyRoomSceneLoader"]
+[editable path="BasementSceneLoader"]
 [editable path="WallLamps/WallLamp2"]
 [editable path="WallLamps/WallLamp3"]
 [editable path="Windows/ArchWindow"]
 [editable path="Windows/ArchWindow2"]
 [editable path="Chandeliers/Chandelier"]
 [editable path="Chandeliers/Chandelier2"]
-[editable path="SceneLoaderEntranceToPartyRoom"]
-[editable path="SceneLoader kitchen"]
-[editable path="SceneLoaderbasement"]
