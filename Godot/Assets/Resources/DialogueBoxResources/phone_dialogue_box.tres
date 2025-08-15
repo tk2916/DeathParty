@@ -20,5 +20,5 @@ line_separation = 0
 include_speaker_in_text = false
 prefix_choices_with_player_name = false
 clear_box_after_each_dialogue = false
-text_animation = "typewriter"
-image_key = "torso"
+text_animation = "none"
+image_key = "profile"

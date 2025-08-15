@@ -36,7 +36,7 @@ func on_user_pressed(char_resource : CharacterResource) -> void:
 	user_pressed = true
 	
 	## Apply profile info
-	image_label.texture = char_resource.profile_image
+	image_label.texture = char_resource.image_profile
 	name_label.text = char_resource.name
 	tag_label.text = char_resource.profile_tag
 	quote_label.text = char_resource.profile_quote

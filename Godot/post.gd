@@ -9,7 +9,7 @@ class_name Post extends Control
 @export var tag_label : RichTextLabel
 
 func _ready() -> void:
-	image_label.texture = character_resource.profile_image
+	image_label.texture = character_resource.image_profile
 	name_label.text = character_resource.name
 	tag_label.text = character_resource.profile_tag
 	

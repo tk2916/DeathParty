@@ -31,7 +31,7 @@ func _ready() -> void:
 	camera3d = main_camera3d
 	var main : Node = get_tree().root.get_node_or_null("Main")
 	if main:
-		object_viewer = main.get_node("ObjectViewer")
+		object_viewer = main.get_node("ObjectViewerCanvasLayer/ObjectViewer")
 		object_viewer.enabled.connect(switch_camera)
 	
 func switch_camera(enabled, new_cam = null):
@@ -76,26 +76,26 @@ func _input(event: InputEvent) -> void:
 func mouse_in_world_projection() -> Vector3:
 	return camera3d.project_position(mouse, DIST)
 
-func create_debug_dot(coords: Vector2, color:Color=Color.BLUE):
-	var viewport : Viewport = camera3d.get_viewport()
-	var debug_dot : ColorRect
-	
-	# Create new debug dot
-	debug_dot = ColorRect.new()
-	debug_dot.color = color
-	debug_dot.size = Vector2(10, 10)  # 10x10 pixel red dot
-	debug_dot.position = coords - Vector2(5, 5)  # Center the dot on the coordinates
-	debug_dot.z_index = 1000  # Make sure it's on top
-	debug_dot.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't interfere with mouse events
-	
-	# Add to viewport
-	if viewport == null: return
-	viewport.add_child(debug_dot)
-	
-	# Optional: Make it fade after a short time
-	var tween = viewport.create_tween()
-	tween.tween_property(debug_dot, "modulate:a", 0.0, 2)
-	tween.tween_callback(func(): if debug_dot: debug_dot.queue_free())
+#func create_debug_dot(coords: Vector2, color:Color=Color.BLUE):
+	#var viewport : Viewport = camera3d.get_viewport()
+	#var debug_dot : ColorRect
+	#
+	## Create new debug dot
+	#debug_dot = ColorRect.new()
+	#debug_dot.color = color
+	#debug_dot.size = Vector2(10, 10)  # 10x10 pixel red dot
+	#debug_dot.position = coords - Vector2(5, 5)  # Center the dot on the coordinates
+	#debug_dot.z_index = 1000  # Make sure it's on top
+	#debug_dot.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't interfere with mouse events
+	#
+	## Add to viewport
+	#if viewport == null: return
+	#viewport.add_child(debug_dot)
+	#
+	## Optional: Make it fade after a short time
+	#var tween = viewport.create_tween()
+	#tween.tween_property(debug_dot, "modulate:a", 0.0, 2)
+	#tween.tween_callback(func(): if debug_dot: debug_dot.queue_free())
 
 func get_mouse_world_pos() -> void:
 	if camera3d == null: return

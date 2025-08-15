@@ -22,7 +22,7 @@ func _ready() -> void:
 	journal_open_sound = journal_instance.get_node("Sounds/JournalOpenSound")
 	journal_close_sound = journal_instance.get_node("Sounds/JournalCloseSound")
 	
-	object_viewer = main.get_node("ObjectViewer")
+	object_viewer = main.get_node("ObjectViewerCanvasLayer/ObjectViewer")
 	var gui_objects : Array[Node] = get_tree().get_nodes_in_group("gui_object")
 	for obj in gui_objects:
 		gui_dict[obj.name] = obj
@@ -40,13 +40,15 @@ func check_for_open_guis():
 			break
 	return any_open_guis
 
-func show_journal():
+func show_journal(inventory_open : bool = false):
 	close_all_guis()
 	journal_instance.reset_properties()
 	inventory_showing = false
 	print("Setting journal: ", journal_instance.position)
 	object_viewer.set_preexisting_item(journal_instance)
 	Interact.set_active_subviewport(journal_instance.bookflip.page1_subviewport)
+	if inventory_open:
+		journal_instance.show_inventory()
 	journal_open_sound.play()
 	object_viewer.visible = true
 	in_gui = true
