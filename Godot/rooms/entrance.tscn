@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=79 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -60,8 +60,14 @@ albedo_color = Color(0.281989, 0.500556, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdf33"]
+size = Vector3(1.25, 2, 0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_t7spl"]
 size = Vector3(3, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_la1vu"]
+size = Vector3(1.25, 2, 0.5)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
 density = 0.06
@@ -455,7 +461,8 @@ scene_going_left = "Kitchen"
 play_door_sound = true
 
 [node name="CollisionShape3D" parent="KitchenSceneLoader" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, -0.155084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29234, 1.2478, 0.644916)
+shape = SubResource("BoxShape3D_kdf33")
 
 [node name="TeleportPoint" parent="KitchenSceneLoader" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -3.37467)
@@ -480,7 +487,8 @@ scene_going_left = "Basement"
 play_door_sound = true
 
 [node name="CollisionShape3D" parent="BasementSceneLoader" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00659275, 0.747803, 0.262373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496214, -0.052197, 1.26097)
+shape = SubResource("BoxShape3D_la1vu")
 
 [node name="TeleportPoint" parent="BasementSceneLoader" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788603, -1.86279, -6.29928)
