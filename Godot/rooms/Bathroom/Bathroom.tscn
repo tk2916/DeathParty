@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=70 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -35,6 +35,33 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o8af5"]
+size = Vector3(2.5, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyvi5"]
+size = Vector3(1.75, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jy5jw"]
+size = Vector3(5, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjeq7"]
+size = Vector3(6, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17afp"]
+size = Vector3(6, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c8t5l"]
+size = Vector3(1, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqfen"]
+size = Vector3(4, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0gtm2"]
+size = Vector3(0.75, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46x1s"]
+size = Vector3(14, 2, 0.1)
 
 [sub_resource type="FogMaterial" id="FogMaterial_qlpr6"]
 density = 0.3
@@ -522,6 +549,44 @@ metadata/_custom_type_script = "uid://23e11u4fm3n6"
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11203, -0.146205, 0.0554049)
 shape = SubResource("BoxShape3D_qlpr6")
+
+[node name="Boundaries" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94384, -1.4174, -3.05287)
+shape = SubResource("BoxShape3D_o8af5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.64089, -1.4174, -2.48718)
+shape = SubResource("BoxShape3D_uyvi5")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 5.448, -1.4174, 0.519922)
+shape = SubResource("BoxShape3D_jy5jw")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -7.652, -1.4174, 0.519922)
+shape = SubResource("BoxShape3D_rjeq7")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.652, -1.4174, -2.38008)
+shape = SubResource("BoxShape3D_17afp")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -1.51751, -1.4174, -2.03728)
+shape = SubResource("BoxShape3D_c8t5l")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.517512, -1.4174, -2.53728)
+shape = SubResource("BoxShape3D_kqfen")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.44505, -1.4174, -2.86437)
+shape = SubResource("BoxShape3D_0gtm2")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.28073, -1.4174, 2.36912)
+shape = SubResource("BoxShape3D_46x1s")
 
 [node name="PartyRoomSceneLoader" parent="." instance=ExtResource("2_3y0er")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)

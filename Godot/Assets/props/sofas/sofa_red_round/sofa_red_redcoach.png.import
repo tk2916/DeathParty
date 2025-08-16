@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5edwr62vncqu"
-path.s3tc="res://.godot/imported/sofa_red_redcoach.png-d46dfd4ae57d29268f516449fb355b46.s3tc.ctex"
-path.etc2="res://.godot/imported/sofa_red_redcoach.png-d46dfd4ae57d29268f516449fb355b46.etc2.ctex"
+path.s3tc="res://.godot/imported/sofa_red_redcoach.png-146e93d5644f85e331b1de4be7213ed1.s3tc.ctex"
+path.etc2="res://.godot/imported/sofa_red_redcoach.png-146e93d5644f85e331b1de4be7213ed1.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/props/sofas/sofa_red/sofa_red_redcoach.png"
-dest_files=["res://.godot/imported/sofa_red_redcoach.png-d46dfd4ae57d29268f516449fb355b46.s3tc.ctex", "res://.godot/imported/sofa_red_redcoach.png-d46dfd4ae57d29268f516449fb355b46.etc2.ctex"]
+source_file="res://Assets/props/sofas/sofa_red_round/sofa_red_redcoach.png"
+dest_files=["res://.godot/imported/sofa_red_redcoach.png-146e93d5644f85e331b1de4be7213ed1.s3tc.ctex", "res://.godot/imported/sofa_red_redcoach.png-146e93d5644f85e331b1de4be7213ed1.etc2.ctex"]
 
 [params]
 
