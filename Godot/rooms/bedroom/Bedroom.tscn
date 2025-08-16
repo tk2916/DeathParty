@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=148 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://b6xa4gm7si6po" path="res://rooms/bedroom/bed shelf_Image_2_22.png" id="27_qbwcx"]
 [ext_resource type="PackedScene" uid="uid://dt33twp08yxwj" path="res://rooms/bedroom/ dorm crown.glb" id="29_xm2t7"]
 [ext_resource type="PackedScene" uid="uid://dsn1aq6mbpsoh" path="res://rooms/bedroom/evidence.glb" id="30_ke8q4"]
+[ext_resource type="Texture2D" uid="uid://cgvs4fwjt83jn" path="res://rooms/bedroom/punk posters_IMG_0684.png" id="51_kvlly"]
 [ext_resource type="PackedScene" uid="uid://btmj6vlpb2pyw" path="res://rooms/bedroom/desk stuff.glb" id="56_0hleh"]
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="57_6hcck"]
 
@@ -785,6 +786,44 @@ shadow_mesh = SubResource("ArrayMesh_feiac")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvlly"]
 albedo_texture = ExtResource("4_tluma")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa2sn"]
+resource_name = "Material.135"
+cull_mode = 2
+albedo_texture = ExtResource("51_kvlly")
+roughness = 0.896702
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uaxv5"]
+_surfaces = [{
+"aabb": AABB(0.302864, 0, -0.233438, 0.382805, 1e-05, 0.466876),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.135",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pya40"]
+resource_name = "punk posters_Plane_055"
+_surfaces = [{
+"aabb": AABB(0.302864, 0, -0.233438, 0.382805, 1e-05, 0.466876),
+"attribute_data": PackedByteArray("+QIQ/m3+ZwFt/hD++QJnAQ=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_oa2sn"),
+"name": "Material.135",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uaxv5")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gonjx"]
 resource_name = "Material.014"
 cull_mode = 2
@@ -1481,7 +1520,7 @@ transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 
 transform = Transform3D(0.900741, 0, 0, 0, 0.900741, 0, 0, 0, 0.900741, -0.0326812, 0.0543425, 0.0114737)
 
 [node name="SuitcaseAndBox" parent="." instance=ExtResource("18_do83d")]
-transform = Transform3D(0.957283, 0, 0.418028, 0, 1.04458, 0, -0.418028, 0, 0.957283, 1.83164, 1.88894, 4.60999)
+transform = Transform3D(0.957283, 0, 0.418028, 0, 1.04458, 0, -0.418028, 0, 0.957283, 1.87073, 1.88894, 4.12525)
 
 [node name="StarRug" parent="." groups=["material_carpet"] instance=ExtResource("20_y7msa")]
 transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.106077, 1.50737)
@@ -1542,10 +1581,15 @@ transform = Transform3D(-0.00192634, -2.64769, 0.105407, 0.00263753, -0.0600223,
 [node name="Plane_040" parent="Props/WallDecorations/PunkPosters" index="12"]
 transform = Transform3D(-0.0608814, 2.54011, 0.0540959, 0.039084, 0.0550414, -2.54052, -2.54039, -0.060028, -0.0403825, 3.44724, -0.212886, -1.64362)
 
-[node name="Object_11_001" parent="Props/WallDecorations/PunkPosters" index="13"]
+[node name="Plane_044" type="MeshInstance3D" parent="Props/WallDecorations/PunkPosters"]
+transform = Transform3D(-0.00188725, 1.47306, -2.07096, 0.0723226, -2.07009, -1.47251, -2.54039, -0.0600281, -0.0403825, -0.620104, 1.04143, 3.10797)
+mesh = SubResource("ArrayMesh_pya40")
+skeleton = NodePath("")
+
+[node name="Object_11_001" parent="Props/WallDecorations/PunkPosters" index="14"]
 transform = Transform3D(0.159198, 0.768296, 0.00735263, -0.768332, 0.15919, 0.00152344, -2.33844e-08, -0.00750879, 0.784615, -0.41085, 0.655015, -3.54823)
 
-[node name="Object_5_004" parent="Props/WallDecorations/PunkPosters" index="14"]
+[node name="Object_5_004" parent="Props/WallDecorations/PunkPosters" index="15"]
 transform = Transform3D(-0.00161334, 0.806693, 0.591739, -3.063e-05, -0.591739, 0.806694, 1.00045, 0.00128277, 0.000978943, 2.85973, 1.01891, -1.91203)
 
 [node name="Poster" type="MeshInstance3D" parent="Props/WallDecorations"]
@@ -1574,7 +1618,7 @@ mesh = SubResource("ArrayMesh_rqjn5")
 skeleton = NodePath("")
 
 [node name="Record3" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(-6.30276e-05, -0.212389, 7.59562e-08, 0, -7.59562e-08, -0.212389, 0.212389, -6.30276e-05, 2.25404e-11, 0.717237, -0.345602, 0.871734)
+transform = Transform3D(-0.106434, 4.29865e-09, 0.0983417, 0.0983417, 4.65238e-09, 0.106434, 0, 0.144911, -6.33427e-09, -1.954, 1.16713, -0.565351)
 mesh = SubResource("ArrayMesh_rqjn5")
 skeleton = NodePath("")
 
