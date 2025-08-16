@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=71 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bekk2pej44hkd" path="res://rooms/Bathroom/Bathroom layout_wooddark.png" id="3_moj8i"]
 [ext_resource type="Texture2D" uid="uid://bqar6l142xdsc" path="res://rooms/Bathroom/Bathroom layout_IMG_4162.png" id="4_qgpod"]
 [ext_resource type="Texture2D" uid="uid://cfw17stkpko7w" path="res://rooms/Bathroom/Bathroom layout_IMG_0536.png" id="5_uea66"]
+[ext_resource type="PackedScene" uid="uid://d1dmvsqupb3xm" path="res://Assets/CharacterAssets/Jesus/jesus.tscn" id="5_uyvi5"]
 [ext_resource type="Texture2D" uid="uid://bmub61elciuu6" path="res://rooms/Bathroom/Bathroom layout_woodlight1.png" id="6_duuvr"]
 [ext_resource type="Texture2D" uid="uid://do5ja47jg3qy" path="res://rooms/Bathroom/Bathroom layout_IMG_4617.png" id="7_6xvpw"]
 [ext_resource type="Texture2D" uid="uid://dddkplho0vktg" path="res://rooms/Bathroom/Bathroom layout_standardwood.png" id="8_5awov"]
@@ -908,7 +909,7 @@ transform = Transform3D(1.87055, 0, 0, 0, 1.87055, 0, 0, 0, 1.87055, -0.6827, 1.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09237, -1.21258, 0.742732)
 
 [node name="BlueGoose" parent="Props/Drinks" instance=ExtResource("31_hu3hd")]
-transform = Transform3D(0.50997, 0, -0.963695, 0, 1.09031, 0, 0.963695, 0, 0.50997, 3.99299, -0.0592566, -2.05984)
+transform = Transform3D(0.466029, 0, -0.880659, 0, 0.996364, 0, 0.880659, 0, 0.466029, 3.92402, -0.0592569, -1.91722)
 
 [node name="SundayLight" parent="Props/Drinks" instance=ExtResource("32_o8af5")]
 transform = Transform3D(0.510693, 0, -0.963312, 0, 1.09031, 0, 0.963312, 0, 0.510693, 3.6972, -0.0806365, -1.56451)
@@ -966,6 +967,9 @@ transform = Transform3D(-0.011095, 0.22973, 0.05187, 0.2355, 0.0113736, -8.48408
 
 [node name="NPCs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38037, -2.15731, 1.0661)
+
+[node name="jesus" parent="NPCs" instance=ExtResource("5_uyvi5")]
+transform = Transform3D(1.17787, 0, -0.0929695, 0, 1.18154, 0, 0.0929695, 0, 1.17787, 2.08641, -0.238866, -2.44266)
 
 [node name="DrugDealer" parent="NPCs" instance=ExtResource("14_duuvr")]
 transform = Transform3D(0.647317, 0, 0.721472, 0, 0.969299, 0, -0.721472, 0, 0.647317, -0.395593, -0.194828, 0.09628)
