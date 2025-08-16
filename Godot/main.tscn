@@ -170,7 +170,7 @@ script = ExtResource("3_cyx1q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1944, 0.735779, 67.1785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1944, 0.735779, 24.1785)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
@@ -237,12 +237,6 @@ transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.99
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
 transform = Transform3D(1.08001, 0, 0, 0, 1.08001, 0, 0, 0, 1.08001, 0.698557, 4.7584, -20.5061)
 
-[node name="SceneLoaderLibraryToPartyRoom" parent="Library" index="1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -4.13118, 3.92343)
-
-[node name="TeleportPoint" parent="Library/SceneLoaderLibraryToPartyRoom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715306, 0.0133139, -7.4692)
-
 [node name="JackOLanternTall2" parent="Library" instance=ExtResource("42_0cp0l")]
 transform = Transform3D(-1.34361e-08, 0, -0.24748, 0, 0.290456, 0, 0.307382, 0, -1.08177e-08, -8.31708, -4.23481, 4.92798)
 
@@ -289,10 +283,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 [editable path="Entrance/Chandeliers/Chandelier"]
 [editable path="Entrance/Chandeliers/Chandelier2"]
 [editable path="Library"]
-[editable path="Library/SceneLoaderLibraryToPartyRoom"]
-[editable path="Library/BackWall/Bookshelves/Upstairs"]
+[editable path="Library/PartyRoomSceneLoader"]
+[editable path="Library/Room/BackWall/Bookshelves/Upstairs"]
 [editable path="Library/Balcony/Railings"]
-[editable path="Library/Chandelierr"]
+[editable path="Library/Chandelier"]
 [editable path="Library/WallLamps/WallLamp"]
 [editable path="Library/WallLamps/WallLamp2"]
 [editable path="Library/WallLamps/WallLamp3"]
