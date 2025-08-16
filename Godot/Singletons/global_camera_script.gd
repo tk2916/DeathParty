@@ -23,12 +23,12 @@ signal bind_camera_path(follow_node: PathFollow3D)
 # room_basis: the basis of the given room
 signal bind_camera_LR(left_bound: Plane, right_bound: Plane, room_basis: Basis)
 
-# lower_bound: global_position.y value that the camera's global_position.y cannot GO UNDER
-# upper_bound: global_position.y value that the camera's global_position.y cannot EXCEED
+## [b]lower_bound[/b]: global_position.y value that the camera's global_position.y cannot GO UNDER
+## [b]upper_bound[/b]: global_position.y value that the camera's global_position.y cannot EXCEED
 signal bind_camera_y(lower_bound: float, upper_bound: float)
 
-# inner_bound: plane defining how far the camera can move in the rotated -z direction
-# outer_bound: plane defining how far the camera can move in the rotated +z direction
+## inner_bound: plane defining how far the camera can move in the rotated -z direction
+## outer_bound: plane defining how far the camera can move in the rotated +z direction
 signal bind_camera_depth(inner_bound: Plane, outer_bound: Plane, room_basis: Basis)
 
 # Signal when left and right bounds are no longer needed

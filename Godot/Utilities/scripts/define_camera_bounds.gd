@@ -126,7 +126,11 @@ func remove_all_bounds(body: Node3D) -> void:
 func bind_camera_LR(body: Node3D) -> void:
 	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
 
-
+## [param lower]: global y-value that the camera cannot go UNDER
+## [br]
+## [param upper]: global y-value that the camera cannot go OVER
+## [br][br]
+## [param lower] and [param upper] default to the center of the room's height [br][br]
 func bind_camera_y(body: Node3D, lower: float = lower_bound, upper: float = upper_bound) -> void:
 	GlobalCameraScript.bind_camera_y.emit(lower, upper)
 
