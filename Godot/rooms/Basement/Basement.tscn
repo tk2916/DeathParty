@@ -33,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://dwnml6bm37e42" path="res://rooms/Basement/snacks on table_Image_1_10.png" id="26_gyrii"]
 [ext_resource type="PackedScene" uid="uid://cubcxrhw7wq5g" path="res://Assets/props/plants/plant_pot.glb" id="26_l1moi"]
 [ext_resource type="Texture2D" uid="uid://bxkhw3ocktaig" path="res://rooms/Basement/snacks on table_Image_0_11.png" id="27_1modm"]
-[ext_resource type="PackedScene" uid="uid://8tkdjm8bpqyb" path="res://rooms/Basement/blue carpet.glb" id="27_8d7c1"]
 [ext_resource type="PackedScene" uid="uid://h7vyawprgyhu" path="res://Assets/props/posters/sexy_poster/sexy_poster.glb" id="29_g225s"]
 [ext_resource type="PackedScene" uid="uid://bob22jb2j8cwe" path="res://Assets/props/ddr_machine.tscn" id="29_us8ff"]
 [ext_resource type="PackedScene" uid="uid://bij3bw4s6epdt" path="res://rooms/Basement/caution tape.glb" id="30_lgro0"]
@@ -55,6 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="43_hfud8"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="44_5vrx5"]
 [ext_resource type="PackedScene" uid="uid://ct88jby2wdhev" path="res://Assets/environment/brown_carpet.tscn" id="45_rvhly"]
+[ext_resource type="PackedScene" uid="uid://ddnufg0xo58tv" path="res://Assets/environment/blue_carpet.tscn" id="45_us8ff"]
 [ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="45_x2dx7"]
 [ext_resource type="PackedScene" uid="uid://bu4v2b7ungfyw" path="res://rooms/Basement/white Basement wall.glb" id="46_rvhly"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="47_cdidy"]
@@ -2167,6 +2167,14 @@ light_energy = 10.0
 omni_range = 1.01
 omni_attenuation = 1.5
 
+[node name="Carpets" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59882, -0.0315972, -2.02806)
+
+[node name="BrownCarpet" parent="Carpets" instance=ExtResource("45_rvhly")]
+
+[node name="Carpet" parent="Carpets" instance=ExtResource("45_us8ff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37875, 0.0146666, 2.20886)
+
 [node name="Props" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80221, 1.21951, 0.941289)
 
@@ -2268,14 +2276,6 @@ transform = Transform3D(0.999999, 0, 1.11759e-08, 0, 1, 0, -2.23517e-08, 0, 0.99
 
 [node name="BeanBag" parent="Props" instance=ExtResource("60_5ryib")]
 transform = Transform3D(0.782456, 0, -0.622706, 0, 1, 0, 0.622706, 0, 0.782456, -9.28204, -0.893553, -0.644468)
-
-[node name="Carpets" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59882, -0.0315972, -2.02806)
-
-[node name="BrownCarpet" parent="Carpets" instance=ExtResource("45_rvhly")]
-
-[node name="BlueCarpet" parent="Carpets" instance=ExtResource("27_8d7c1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37875, 0.0146666, 2.20886)
 
 [editable path="EntranceSceneLoader"]
 [editable path="ArcadeMachines/DDRMachine"]
