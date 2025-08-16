@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dph5ihe40llhe"]
+
+[ext_resource type="PackedScene" uid="uid://cx5yhju3nu7fy" path="res://rooms/Exterior Frat Lawn/Exterior.glb" id="1_1x3x6"]
+[ext_resource type="PackedScene" uid="uid://dblk64m32mbah" path="res://rooms/Exterior Frat Lawn/Exterior ground.glb" id="2_jo7yt"]
+
+[node name="Exterior" instance=ExtResource("1_1x3x6")]
+
+[node name="Exterior ground" parent="." index="95" instance=ExtResource("2_jo7yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.452639, -7.09999, 34.1502)
