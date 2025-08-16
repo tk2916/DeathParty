@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://bhe0kgbucqoad"]
+[gd_scene load_steps=6 format=4 uid="uid://bhe0kgbucqoad"]
 
 [ext_resource type="Texture2D" uid="uid://csynwowllvh4t" path="res://rooms/Kitchen/Kitchen Setup_standardwood.png" id="1_7qpkc"]
 
@@ -42,14 +42,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_h2hdd")
 
-[node name="Drawers" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_rfld1"]
+size = Vector3(1.25, 1, 3.25)
 
-[node name="Cylinder_088" type="MeshInstance3D" parent="."]
+[node name="Drawers" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.222739, 0.00368192, -3.11955e-10, -4.83195e-18, -4.5127e-08, -0.269051, -0.00216653, 0.378535, -3.20718e-08, -3.85251, 1.65958, 3.96312)
 mesh = SubResource("ArrayMesh_kyy70")
 skeleton = NodePath("")
 
-[node name="Cylinder_002" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.222739, 0.00488763, 3.13202e-11, 2.59314e-11, 2.94017e-20, -0.269051, -0.00216653, 0.502492, -3.04644e-13, -3.83631, 1.65958, 5.51184)
 mesh = SubResource("ArrayMesh_kyy70")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4, 1.7, 4.9)
+shape = SubResource("BoxShape3D_rfld1")

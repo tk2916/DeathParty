@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dugg5j3vcgmvm"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://dugg5j3vcgmvm"]
 
 [ext_resource type="Texture2D" uid="uid://bjmwboxfv10fk" path="res://Assets/CharacterAssets/rowan/polaroid_rowan.png" id="1_d86ht"]
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="1_toiu1"]
+[ext_resource type="Texture2D" uid="uid://dlooichshuir8" path="res://Assets/CharacterAssets/rowan/rowan_circle.png" id="2_nyvch"]
 
 [resource]
 script = ExtResource("1_toiu1")
@@ -11,3 +12,8 @@ name_color = ""
 text_color = ""
 character_notes = Array[String]([])
 character_description = ""
+image_profile = ExtResource("2_nyvch")
+profile_tag = "@profiletag123"
+profile_quote = "inspirational quote goes here."
+profile_join_date = "Month 8, 20XX"
+profile_friends = 359

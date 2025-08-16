@@ -17,8 +17,8 @@ var in_dialogue : bool = false #other scripts check this
 var mouse_contained_within_gui : bool = true
 
 #DIALOGUE BOX PROPERTIES
-var dialogue_container : VBoxContainer
-var choice_container : VBoxContainer
+var dialogue_container : BoxContainer
+var choice_container : BoxContainer
 var image_container : TextureRect
 var name_container : RichTextLabel
 

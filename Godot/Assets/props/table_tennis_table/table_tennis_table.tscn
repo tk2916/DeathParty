@@ -1,6 +1,5 @@
 [gd_scene load_steps=8 format=4 uid="uid://b1e31j7rea4bf"]
 
-[ext_resource type="PackedScene" uid="uid://ylsnhs2heyj3" path="res://Assets/props/table_tennis_table/table tennis_table.glb" id="1_scygc"]
 [ext_resource type="Texture2D" uid="uid://7byjttmt2klg" path="res://Assets/props/table_tennis_table/table tennis_table_ping_pong_baseColor.jpg" id="2_uo8p3"]
 [ext_resource type="Texture2D" uid="uid://b4tn6t8kk2ja8" path="res://Assets/props/table_tennis_table/table tennis_table_ping_pong_metallicRoughness.png" id="3_vo0k2"]
 [ext_resource type="Texture2D" uid="uid://cxc47n3ive051" path="res://Assets/props/table_tennis_table/table tennis_table_ping_pong_normal.png" id="4_gfnab"]
@@ -50,7 +49,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_23qmm")
 
-[node name="TableTennisTable" instance=ExtResource("1_scygc")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_cveqy"]
+size = Vector3(15, 5, 9)
 
-[node name="ping pong_ping pong_0" parent="." index="0"]
+[node name="TableTennisTable" type="StaticBody3D"]
+
+[node name="ping pong_ping pong_0" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.722224, -0.335908, -2.5878e-07, -2.37381e-08, -6.64667e-07, 0.796518, -0.335908, -0.722224, -6.12681e-07, 2.97971, 0, -2.28276)
 mesh = SubResource("ArrayMesh_3n8qs")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.908647, 0, 0.417566, 0, 1, 0, -0.417566, 0, 0.908647, 2.9682, 2.8, -2.21577)
+shape = SubResource("BoxShape3D_cveqy")
