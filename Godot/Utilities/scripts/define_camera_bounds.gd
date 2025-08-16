@@ -131,6 +131,18 @@ func bind_camera_LR(body: Node3D) -> void:
 ## [param upper]: global y-value that the camera cannot go OVER
 ## [br][br]
 ## [param lower] and [param upper] default to the center of the room's height [br][br]
+##[codeblock]
+##|------------------|
+##|                  |
+##|---upper value----|
+##|==================|
+##|=== camera can ===|
+##|== only be here ==|
+##|==================|
+##|---lower value----|
+##|                  |
+##|------------------|
+##[/codeblock]
 func bind_camera_y(body: Node3D, lower: float = lower_bound, upper: float = upper_bound) -> void:
 	GlobalCameraScript.bind_camera_y.emit(lower, upper)
 
