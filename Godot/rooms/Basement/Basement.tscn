@@ -1,6 +1,6 @@
 [gd_scene load_steps=109 format=4 uid="uid://3iwh0xc60rih"]
 
-[ext_resource type="Script" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
+[ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
 [ext_resource type="PackedScene" uid="uid://drj74iejy03cg" path="res://Assets/environment/heavy_door.tscn" id="3_nmyg0"]
 [ext_resource type="Texture2D" uid="uid://b5yohrcvl2y3j" path="res://rooms/Basement/basement layout_woodmedium.png" id="4_c5yie"]
