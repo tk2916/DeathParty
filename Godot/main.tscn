@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
-[ext_resource type="PackedScene" uid="uid://cx5yhju3nu7fy" path="res://rooms/Exterior Frat Lawn/Exterior.glb" id="27_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://dph5ihe40llhe" path="res://rooms/Exterior Frat Lawn/Exterior.tscn" id="27_qsp4k"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
@@ -170,7 +170,7 @@ script = ExtResource("3_cyx1q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8663, 0.291739, 24.0262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1944, 0.735779, 67.1785)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
@@ -300,8 +300,8 @@ autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 
-[node name="Exterior" parent="." instance=ExtResource("27_qsp4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.29152, 5.87106, 53.3936)
+[node name="Exterior" parent="." groups=["loadable_scene"] instance=ExtResource("27_qsp4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7203, 7.1292, 54.0265)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
