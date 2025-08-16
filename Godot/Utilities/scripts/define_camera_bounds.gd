@@ -127,8 +127,8 @@ func bind_camera_LR(body: Node3D) -> void:
 	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
 
 
-func bind_camera_y(body: Node3D) -> void:
-	GlobalCameraScript.bind_camera_y.emit(lower_bound, upper_bound)
+func bind_camera_y(body: Node3D, lower: float = lower_bound, upper: float = upper_bound) -> void:
+	GlobalCameraScript.bind_camera_y.emit(lower, upper)
 
 
 func bind_camera_depth(body: Node3D) -> void:
