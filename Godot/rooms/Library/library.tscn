@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://xukwgg26fv7r" path="res://Assets/props/flags/usa_flag/usa_flag.glb" id="15_ypgds"]
 [ext_resource type="PackedScene" uid="uid://conilv6pb6vsk" path="res://Assets/props/banners/die_banner/die_banner.glb" id="16_6posu"]
 [ext_resource type="PackedScene" uid="uid://d0npqij1rnr1s" path="res://Assets/environment/bookshelves/bookshelf_ornate/bookshelf_ornate.tscn" id="18_62c4v"]
-[ext_resource type="PackedScene" uid="uid://b88jesrolvfy2" path="res://Assets/props/sofas/sofa_red/sofa_red.glb" id="19_woadg"]
+[ext_resource type="PackedScene" uid="uid://b88jesrolvfy2" path="res://Assets/props/sofas/sofa_red_round/sofa_red.glb" id="19_woadg"]
 [ext_resource type="PackedScene" uid="uid://c7ss5lax14vpn" path="res://Assets/props/wooden_table/wood_table.glb" id="20_3v00t"]
 [ext_resource type="PackedScene" uid="uid://dmy0dkjekw84j" path="res://Assets/props/plants/plant pot 2.glb" id="21_w06or"]
 [ext_resource type="PackedScene" uid="uid://cubcxrhw7wq5g" path="res://Assets/props/plants/plant_pot.glb" id="22_pxykb"]

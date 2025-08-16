@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b88jesrolvfy2"
-path="res://.godot/imported/sofa_red.glb-f3c896909b398003d9bd8e858bde2ac9.scn"
+path="res://.godot/imported/sofa_red.glb-d27586a32c9db7e8e03da78ad3f8ceb9.scn"
 
 [deps]
 
-source_file="res://Assets/props/sofas/sofa_red/sofa_red.glb"
-dest_files=["res://.godot/imported/sofa_red.glb-f3c896909b398003d9bd8e858bde2ac9.scn"]
+source_file="res://Assets/props/sofas/sofa_red_round/sofa_red.glb"
+dest_files=["res://.godot/imported/sofa_red.glb-d27586a32c9db7e8e03da78ad3f8ceb9.scn"]
 
 [params]
 
