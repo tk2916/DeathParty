@@ -1627,7 +1627,7 @@ shape = SubResource("BoxShape3D_iwxp5")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394772, 1, 6.29552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394772, 1, 5.25684)
 shape = SubResource("BoxShape3D_vwb2v")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
