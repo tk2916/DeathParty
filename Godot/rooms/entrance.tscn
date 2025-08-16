@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=80 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -51,6 +51,9 @@ size = Vector3(20, 10, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_klyfx"]
 size = Vector3(20, 10, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihq26"]
+size = Vector3(5, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
 size = Vector3(17.9089, 3.18161, 0.503846)
@@ -426,6 +429,10 @@ shape = SubResource("BoxShape3D_wxsgv")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 5, -5.7)
 shape = SubResource("BoxShape3D_klyfx")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -2.8)
+shape = SubResource("BoxShape3D_ihq26")
 
 [node name="BedroomSceneLoader" type="Area3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
@@ -1067,10 +1074,10 @@ transform = Transform3D(0.125, 0, 0.216506, 0, 0.295, 0, -0.216506, 0, 0.125, 2.
 transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
 
 [node name="Jack" parent="NPCs" instance=ExtResource("41_6fv14")]
-transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 7.11645, 0.0308121, 2.20707)
+transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.51645, 3.63081, -3.79293)
 
 [node name="Buff" parent="NPCs" instance=ExtResource("42_wxsgv")]
-transform = Transform3D(1.12943, 0, 0.489686, 0, 1.23102, 0, -0.489686, 0, 1.12943, -2.4123, 0.382724, 1.50786)
+transform = Transform3D(1.12943, 0, 0.489686, 0, 1.23102, 0, -0.489686, 0, 1.12943, 0.9877, 3.58272, -4.29214)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="BedroomSceneLoader" to="BedroomSceneLoader" method="_on_body_entered"]
