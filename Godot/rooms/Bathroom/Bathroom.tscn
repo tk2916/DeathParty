@@ -550,18 +550,6 @@ metadata/_custom_type_script = "uid://23e11u4fm3n6"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11203, -0.146205, 0.0554049)
 shape = SubResource("BoxShape3D_qlpr6")
 
-[node name="PartyRoomSceneLoader" parent="." instance=ExtResource("2_3y0er")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
-scene_going_right = "PartyRoom"
-scene_going_left = "PartyRoom"
-play_door_sound = true
-
-[node name="CollisionShape3D" parent="PartyRoomSceneLoader" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646526, 0.638772, -0.771466)
-
-[node name="TeleportPoint" parent="PartyRoomSceneLoader" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16869e-07, 0.839686, 4.3104)
-
 [node name="Boundaries" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
@@ -599,6 +587,18 @@ shape = SubResource("BoxShape3D_0gtm2")
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.28073, -1.4174, 2.36912)
 shape = SubResource("BoxShape3D_46x1s")
+
+[node name="PartyRoomSceneLoader" parent="." instance=ExtResource("2_3y0er")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
+scene_going_right = "PartyRoom"
+scene_going_left = "PartyRoom"
+play_door_sound = true
+
+[node name="CollisionShape3D" parent="PartyRoomSceneLoader" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646526, 0.638772, -0.771466)
+
+[node name="TeleportPoint" parent="PartyRoomSceneLoader" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16869e-07, 0.839686, 4.3104)
 
 [node name="SceneLights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14101, 3.67368, -2.90071)
