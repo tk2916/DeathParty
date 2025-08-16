@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=117 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -32,8 +32,8 @@
 [ext_resource type="PackedScene" uid="uid://cubcxrhw7wq5g" path="res://Assets/props/plants/plant_pot.glb" id="22_pxykb"]
 [ext_resource type="PackedScene" uid="uid://3loxlhscoqmb" path="res://Assets/props/wood_desk/wood_desk.glb" id="23_pxykb"]
 [ext_resource type="PackedScene" uid="uid://dn8tphi4h7qm7" path="res://Assets/props/desk_lamp/desk_lamp.tscn" id="24_c2j7r"]
-[ext_resource type="PackedScene" uid="uid://b1sudygpot6ot" path="res://Assets/props/chairs/chair/chair.glb" id="25_l64a3"]
 [ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://Assets/props/globe/globe.glb" id="26_nuxp6"]
+[ext_resource type="PackedScene" uid="uid://bn0e3t8q36pow" path="res://Assets/environment/wood_desk.tscn" id="31_vinq0"]
 [ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="33_3aaxv"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="34_sy7sl"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="35_tm5mn"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://gu7mwgusye5o" path="res://Assets/CharacterAssets/sam/sam.tscn" id="43_obdan"]
 [ext_resource type="PackedScene" uid="uid://dvox0p4f1j5l1" path="res://rooms/bedroom/teddy bear.glb" id="44_dffff"]
 [ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
+[ext_resource type="PackedScene" uid="uid://beusior7ym8c4" path="res://Assets/props/chairs/chair/chair.tscn" id="45_jpbuu"]
 [ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="45_owm1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
@@ -1637,7 +1638,7 @@ transform = Transform3D(0.967414, 0, 0.253201, 0, 1, 0, -0.253201, 0, 0.967414, 
 [node name="Sofa" parent="Props" instance=ExtResource("19_woadg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25107, -4.86221, 0.193233)
 
-[node name="Desk" parent="Props" instance=ExtResource("23_pxykb")]
+[node name="Desk" parent="Props" instance=ExtResource("31_vinq0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07045, -4.41228, 1.5837)
 
 [node name="desk_lamp" parent="Props/Desk" instance=ExtResource("24_c2j7r")]
@@ -1663,15 +1664,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.611948, 0.814677, -0.182961
 [node name="OmniLight3D" parent="Props/Desk2/desk_lamp" index="1"]
 light_energy = 1.979
 omni_range = 0.782
-
-[node name="Chair" parent="Props" instance=ExtResource("25_l64a3")]
-transform = Transform3D(0.83297, 0, -0.553319, 0, 1, 0, 0.553319, 0, 0.83297, -6.464, -4.41174, 0.369319)
-
-[node name="Chair2" parent="Props" instance=ExtResource("25_l64a3")]
-transform = Transform3D(0.996384, 0, -0.0849648, 0, 1, 0, 0.0849648, 0, 0.996384, 0.234775, -4.40411, -0.659418)
-
-[node name="Chair3" parent="Props" instance=ExtResource("25_l64a3")]
-transform = Transform3D(-0.0983471, 0, 0.995152, 0, 1, 0, -0.995152, 0, -0.0983471, -8.46623, -4.41174, 5.18043)
 
 [node name="Table" parent="Props" instance=ExtResource("20_3v00t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3195, -4.41052, 0.949388)
@@ -1721,6 +1713,15 @@ transform = Transform3D(-0.491038, 0, -0.0713108, 0, 0.315318, 0, 0.0713108, 0, 
 
 [node name="TeddyBear" parent="Props" instance=ExtResource("44_dffff")]
 transform = Transform3D(1.12195, 0, 0.670834, 0, 1.3072, 0, -0.670834, 0, 1.12195, -6.78328, -4.08373, 2.44692)
+
+[node name="Chair" parent="Props" instance=ExtResource("45_jpbuu")]
+transform = Transform3D(0.83297, 0, -0.553319, 0, 1, 0, 0.553319, 0, 0.83297, -6.464, -4.41174, 0.369319)
+
+[node name="Chair2" parent="Props" instance=ExtResource("45_jpbuu")]
+transform = Transform3D(0.996384, 0, -0.0849648, 0, 1, 0, 0.0849648, 0, 0.996384, 0.234775, -4.40411, -0.659418)
+
+[node name="Chair3" parent="Props" instance=ExtResource("45_jpbuu")]
+transform = Transform3D(-0.0983471, 0, 0.995152, 0, 1, 0, -0.995152, 0, -0.0983471, -8.46623, -4.41174, 5.18043)
 
 [node name="NPCs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00599, -4.38653, 1.434)
