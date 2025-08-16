@@ -1581,16 +1581,16 @@ transform = Transform3D(-0.00192634, -2.64769, 0.105407, 0.00263753, -0.0600223,
 [node name="Plane_040" parent="Props/WallDecorations/PunkPosters" index="12"]
 transform = Transform3D(-0.0608814, 2.54011, 0.0540959, 0.039084, 0.0550414, -2.54052, -2.54039, -0.060028, -0.0403825, 3.44724, -0.212886, -1.64362)
 
+[node name="Object_11_001" parent="Props/WallDecorations/PunkPosters" index="13"]
+transform = Transform3D(0.159198, 0.768296, 0.00735263, -0.768332, 0.15919, 0.00152344, -2.33844e-08, -0.00750879, 0.784615, -0.41085, 0.655015, -3.54823)
+
+[node name="Object_5_004" parent="Props/WallDecorations/PunkPosters" index="14"]
+transform = Transform3D(-0.00161334, 0.806693, 0.591739, -3.063e-05, -0.591739, 0.806694, 1.00045, 0.00128277, 0.000978943, 2.85973, 1.01891, -1.91203)
+
 [node name="Plane_044" type="MeshInstance3D" parent="Props/WallDecorations/PunkPosters"]
 transform = Transform3D(-0.00188725, 1.47306, -2.07096, 0.0723226, -2.07009, -1.47251, -2.54039, -0.0600281, -0.0403825, -0.620104, 1.04143, 3.10797)
 mesh = SubResource("ArrayMesh_pya40")
 skeleton = NodePath("")
-
-[node name="Object_11_001" parent="Props/WallDecorations/PunkPosters" index="14"]
-transform = Transform3D(0.159198, 0.768296, 0.00735263, -0.768332, 0.15919, 0.00152344, -2.33844e-08, -0.00750879, 0.784615, -0.41085, 0.655015, -3.54823)
-
-[node name="Object_5_004" parent="Props/WallDecorations/PunkPosters" index="15"]
-transform = Transform3D(-0.00161334, 0.806693, 0.591739, -3.063e-05, -0.591739, 0.806694, 1.00045, 0.00128277, 0.000978943, 2.85973, 1.01891, -1.91203)
 
 [node name="Poster" type="MeshInstance3D" parent="Props/WallDecorations"]
 transform = Transform3D(0.232896, 0, 0, 0, -9.18293e-09, -0.304398, 0, 0.210081, -1.33057e-08, -0.900089, 0.0039593, -0.522095)
