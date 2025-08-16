@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=180 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bxkhw3ocktaig" path="res://rooms/Basement/snacks on table_Image_0_11.png" id="27_1modm"]
 [ext_resource type="PackedScene" uid="uid://8tkdjm8bpqyb" path="res://rooms/Basement/blue carpet.glb" id="27_8d7c1"]
 [ext_resource type="PackedScene" uid="uid://h7vyawprgyhu" path="res://Assets/props/posters/sexy_poster/sexy_poster.glb" id="29_g225s"]
+[ext_resource type="PackedScene" uid="uid://bob22jb2j8cwe" path="res://Assets/props/ddr_machine.tscn" id="29_us8ff"]
 [ext_resource type="PackedScene" uid="uid://bij3bw4s6epdt" path="res://rooms/Basement/caution tape.glb" id="30_lgro0"]
 [ext_resource type="PackedScene" uid="uid://cn6shp7xdi6q5" path="res://Assets/props/posters/enjoy_poster/enjoy_poster.glb" id="30_p6v3q"]
 [ext_resource type="PackedScene" uid="uid://bdcfyi83q8umf" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
@@ -70,13 +71,19 @@ size = Vector3(19.3558, 3.4958, 13.0126)
 size = Vector3(5, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ryib"]
-size = Vector3(4, 2, 0.1)
+size = Vector3(4, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_us8ff"]
 size = Vector3(0.4, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hqqhr"]
-size = Vector3(6, 2, 0.1)
+size = Vector3(3.5, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v3tt6"]
+size = Vector3(1.25, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jle5p"]
+size = Vector3(5, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ukpq5"]
 size = Vector3(1.25, 2, 0.1)
@@ -1597,7 +1604,7 @@ shape = SubResource("BoxShape3D_1modm")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12516, 1, -3.39109)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12516, 1, -3.69109)
 shape = SubResource("BoxShape3D_5ryib")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
@@ -1607,13 +1614,23 @@ shape = SubResource("BoxShape3D_us8ff")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32516, 1, -3.89109)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32516, 1, -4.39109)
 shape = SubResource("BoxShape3D_5ryib")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.32516, 1, -0.891087)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.82516, 1, 0.408913)
 shape = SubResource("BoxShape3D_hqqhr")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 8.92516, 1, -4.79109)
+shape = SubResource("BoxShape3D_v3tt6")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.52516, 1, -2.59109)
+shape = SubResource("BoxShape3D_jle5p")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Boundaries"]
@@ -1993,14 +2010,18 @@ shape = SubResource("BoxShape3D_dttvy")
 [node name="ArcadeMachines" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.21115, 0.59079, -0.347395)
 
-[node name="DDRMachine" parent="ArcadeMachines" instance=ExtResource("17_780xq")]
+[node name="DDR" parent="ArcadeMachines" instance=ExtResource("29_us8ff")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70251, -0.659889, -1.61554)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="ArcadeMachines/DDRMachine"]
+[node name="OmniLight3D" type="OmniLight3D" parent="ArcadeMachines/DDR"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28483, 1.61824, -2.12835)
 light_color = Color(0, 0.816667, 1, 1)
 light_energy = 16.0
 omni_range = 1.816
+
+[node name="DDRMachine" parent="ArcadeMachines" instance=ExtResource("17_780xq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70251, -0.659889, -1.61554)
+visible = false
 
 [node name="ArcadeMachine" parent="ArcadeMachines" instance=ExtResource("18_7eb3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35125, 0.329944, 0.307791)
