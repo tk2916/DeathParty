@@ -585,7 +585,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.4450
 shape = SubResource("BoxShape3D_0gtm2")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.28073, -1.4174, 2.36912)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.28073, -1.4174, 1.6059)
 shape = SubResource("BoxShape3D_46x1s")
 
 [node name="PartyRoomSceneLoader" parent="." instance=ExtResource("2_3y0er")]
