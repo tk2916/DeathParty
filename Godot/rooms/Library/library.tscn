@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=118 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
 [ext_resource type="PackedScene" uid="uid://beusior7ym8c4" path="res://Assets/props/chairs/chair/chair.tscn" id="45_jpbuu"]
 [ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="45_owm1a"]
+[ext_resource type="PackedScene" uid="uid://ddiqilmdbakfb" path="res://Assets/CharacterAssets/angel/angel.tscn" id="50_m1j1w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15.626, 10, 12)
@@ -1732,14 +1733,14 @@ transform = Transform3D(-0.0983471, 0, 0.995152, 0, 1, 0, -0.995152, 0, -0.09834
 [node name="NPCs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00599, -4.38653, 1.434)
 
-[node name="Sam" parent="NPCs" instance=ExtResource("43_obdan")]
-transform = Transform3D(0.988015, 0, 0.500924, 0, 1.10774, 0, -0.500924, 0, 0.988015, -0.794145, 0.0234947, 0.903929)
-
 [node name="Nora" parent="NPCs" instance=ExtResource("44_j03r7")]
-transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, 0.794145, -0.0234952, -0.903928)
+transform = Transform3D(0.863531, 0, 0.20899, 0, 0.888461, 0, -0.20899, 0, 0.863531, -2.09278, -0.0234952, 1.42795)
+
+[node name="angel" parent="NPCs" instance=ExtResource("50_m1j1w")]
+transform = Transform3D(1.04394, 0, 0.287276, 0, 1.08275, 0, -0.287276, 0, 1.04394, 0.640378, 0.0198874, -0.0244191)
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("45_owm1a")]
-transform = Transform3D(1.02778, 0, -0.523341, 0, 1.15335, 0, 0.523341, 0, 1.02778, 1.5416, 0.0134149, 0.834789)
+transform = Transform3D(0.736692, 0, -0.887413, 0, 1.15335, 0, 0.887413, 0, 0.736692, 1.8323, 0.0134149, 0.409096)
 
 [node name="WoodCreakSound" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/000_SFX/000_Demo_Test/009_SFX_WoodCreak"
@@ -1757,6 +1758,9 @@ event_name = "event:/outdoor ambience"
 event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
+
+[node name="Sam" parent="." instance=ExtResource("43_obdan")]
+transform = Transform3D(1.06079, 0, 0.419076, 0, 1.14057, 0, -0.419076, 0, 1.06079, -5.74484, -4.35297, 2.17626)
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 

@@ -970,7 +970,7 @@ transform = Transform3D(-0.011095, 0.22973, 0.05187, 0.2355, 0.0113736, -8.48408
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38037, -2.15731, 1.0661)
 
 [node name="cop" parent="NPCs" instance=ExtResource("34_jy5jw")]
-transform = Transform3D(1.11444, 0, -0.531562, 0, 1.23472, 0, 0.531562, 0, 1.11444, 3.92892, -0.240664, -2.37366)
+transform = Transform3D(0.723134, 0, 1.00081, 0, 1.23472, 0, -1.00081, 0, 0.723134, -0.00377321, -0.195413, -1.60742)
 
 [node name="Jesus" parent="NPCs" instance=ExtResource("5_uyvi5")]
 transform = Transform3D(1.17787, 0, -0.0929695, 0, 1.18154, 0, 0.0929695, 0, 1.17787, 2.08641, -0.238866, -1.93973)
