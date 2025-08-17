@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=81 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -42,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://c43bqwa4bftlx" path="res://Assets/props/sofas/sofa_brown_round/sofa_brown_round.tscn" id="39_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="41_6fv14"]
 [ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/Buff Frat boy/buff.tscn" id="42_wxsgv"]
+[ext_resource type="PackedScene" uid="uid://bgeabboi8mw6q" path="res://rooms/Exterior Frat Lawn/beer spider.glb" id="43_klyfx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -52,6 +53,9 @@ size = Vector3(20, 10, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_klyfx"]
 size = Vector3(20, 10, 0.1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihq26"]
+size = Vector3(5, 2, 0.1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
 size = Vector3(17.9089, 3.18161, 0.503846)
 
@@ -60,8 +64,14 @@ albedo_color = Color(0.281989, 0.500556, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdf33"]
+size = Vector3(1.25, 2, 0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_t7spl"]
 size = Vector3(3, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_la1vu"]
+size = Vector3(1.25, 2, 0.5)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
 density = 0.06
@@ -421,6 +431,10 @@ shape = SubResource("BoxShape3D_wxsgv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 5, -5.7)
 shape = SubResource("BoxShape3D_klyfx")
 
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -2.8)
+shape = SubResource("BoxShape3D_ihq26")
+
 [node name="BedroomSceneLoader" type="Area3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
 collision_layer = 2
@@ -455,13 +469,14 @@ scene_going_left = "Kitchen"
 play_door_sound = true
 
 [node name="CollisionShape3D" parent="KitchenSceneLoader" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, -0.155084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29234, 1.2478, 0.644916)
+shape = SubResource("BoxShape3D_kdf33")
 
 [node name="TeleportPoint" parent="KitchenSceneLoader" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -3.37467)
 
 [node name="MeshInstance3D" parent="KitchenSceneLoader/TeleportPoint" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.73872, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.23872, 0, 0)
 
 [node name="PartyRoomSceneLoader" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
@@ -480,7 +495,8 @@ scene_going_left = "Basement"
 play_door_sound = true
 
 [node name="CollisionShape3D" parent="BasementSceneLoader" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00659275, 0.747803, 0.262373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496214, -0.052197, 1.26097)
+shape = SubResource("BoxShape3D_la1vu")
 
 [node name="TeleportPoint" parent="BasementSceneLoader" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788603, -1.86279, -6.29928)
@@ -518,7 +534,6 @@ transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743
 light_color = Color(0.87, 0.77198, 0.4176, 1)
 light_energy = 10.0
 omni_range = 2.872
-omni_attenuation = -1.937
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="SceneLights"]
 transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743, 1.04231, 4.63931, -1.43448)
@@ -622,7 +637,7 @@ skeleton = NodePath("")
 transform = Transform3D(-6.39852e-08, 0, 1.46381, 0, 1.46381, 0, -1.46381, 0, -6.39852e-08, -7.23962, 0.827875, 4.05607)
 
 [node name="Wallpaper" type="Node3D" parent="Room/Walls/LeftWall"]
-transform = Transform3D(-3.54404e-08, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -3.54404e-08, -0.0433867, 0.844778, 0.466857)
+transform = Transform3D(-3.54404e-08, 0, -0.810782, 0, 0.720388, 0, 0.810782, 0, -3.54404e-08, -0.0433867, 0.723483, 0.466857)
 
 [node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Room/Walls/LeftWall/Wallpaper"]
 transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
@@ -651,7 +666,7 @@ transform = Transform3D(1.4637, 0, -0.018292, 0, 1.46381, 0, 0.018292, 0, 1.4637
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.36038, 0.827875, -6.22)
 
 [node name="Wallpaper" type="Node3D" parent="Room/Walls/BackWall"]
-transform = Transform3D(-3.54405e-08, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -3.54405e-08, -1.40441, 0.844778, 0.467028)
+transform = Transform3D(-3.54405e-08, 0, -0.810782, 0, 0.73688, 0, 0.810782, 0, -3.54405e-08, -1.40441, 0.692583, 0.467028)
 
 [node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Room/Walls/BackWall/Wallpaper"]
 transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
@@ -672,7 +687,7 @@ skeleton = NodePath("")
 transform = Transform3D(1.10515e-07, 0, -1.46381, 0, 1.46381, 0, 1.46381, 0, 1.10515e-07, 12.6604, 0.827875, 4.05607)
 
 [node name="Wallpaper" type="Node3D" parent="Room/Walls/RightWall"]
-transform = Transform3D(-1.32093e-07, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -1.32093e-07, 0.0433867, 0.844778, 0.500134)
+transform = Transform3D(-1.32093e-07, 0, -0.810782, 0, 0.744098, 0, 0.810782, 0, -1.32093e-07, 0.0433867, 0.701127, 0.500134)
 
 [node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Room/Walls/RightWall/Wallpaper"]
 transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
@@ -938,6 +953,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
 [node name="Table" parent="Props" instance=ExtResource("26_wxsgv")]
 transform = Transform3D(0.21, 0, 0, 0, 0.21, 0, 0, 0, 0.21, 4.81138, -0.0335322, 5.76666)
 
+[node name="BeerSpider" parent="Props/Table" instance=ExtResource("43_klyfx")]
+transform = Transform3D(1.54854, 0, -1.96996, 0, 2.50574, 0, 1.96996, 0, 1.54854, -0.0478554, 3.817, 1.34324)
+
 [node name="TableTennisTable" parent="Props" instance=ExtResource("23_ogwe6")]
 transform = Transform3D(0.148415, 0, -0.0793759, 0, 0.168307, 0, 0.0793759, 0, 0.148415, -0.391999, 0.0044325, 5.48762)
 
@@ -1059,10 +1077,10 @@ transform = Transform3D(0.125, 0, 0.216506, 0, 0.295, 0, -0.216506, 0, 0.125, 2.
 transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
 
 [node name="Jack" parent="NPCs" instance=ExtResource("41_6fv14")]
-transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 7.11645, 0.0308121, 2.20707)
+transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.59408, 3.63081, -3.38941)
 
 [node name="Buff" parent="NPCs" instance=ExtResource("42_wxsgv")]
-transform = Transform3D(1.12943, 0, 0.489686, 0, 1.23102, 0, -0.489686, 0, 1.12943, -2.4123, 0.382724, 1.50786)
+transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.58272, -3.50614)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="BedroomSceneLoader" to="BedroomSceneLoader" method="_on_body_entered"]

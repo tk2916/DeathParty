@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5edwr62vncqu"
-path.s3tc="res://.godot/imported/sofa_red_redcoach.png-d46dfd4ae57d29268f516449fb355b46.s3tc.ctex"
-path.etc2="res://.godot/imported/sofa_red_redcoach.png-d46dfd4ae57d29268f516449fb355b46.etc2.ctex"
+uid="uid://dj2kkd15yuake"
+path.s3tc="res://.godot/imported/Exterior_Door.png-bdd6177f774534277e0d20d0925bf52a.s3tc.ctex"
+path.etc2="res://.godot/imported/Exterior_Door.png-bdd6177f774534277e0d20d0925bf52a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "931128195b629e69a4b9b097b2ae49e5"
+"md5": "8b310b130c090a21ae0f51b83386e09b"
 }
 
 [deps]
 
-source_file="res://Assets/props/sofas/sofa_red/sofa_red_redcoach.png"
-dest_files=["res://.godot/imported/sofa_red_redcoach.png-d46dfd4ae57d29268f516449fb355b46.s3tc.ctex", "res://.godot/imported/sofa_red_redcoach.png-d46dfd4ae57d29268f516449fb355b46.etc2.ctex"]
+source_file="res://rooms/Exterior Frat Lawn/Exterior_Door.png"
+dest_files=["res://.godot/imported/Exterior_Door.png-bdd6177f774534277e0d20d0925bf52a.s3tc.ctex", "res://.godot/imported/Exterior_Door.png-bdd6177f774534277e0d20d0925bf52a.etc2.ctex"]
 
 [params]
 

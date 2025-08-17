@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b88jesrolvfy2"
-path="res://.godot/imported/sofa_red.glb-f3c896909b398003d9bd8e858bde2ac9.scn"
+uid="uid://bgeabboi8mw6q"
+path="res://.godot/imported/beer spider.glb-71ea96f7ac3273147b3b56f61a03618e.scn"
 
 [deps]
 
-source_file="res://Assets/props/sofas/sofa_red/sofa_red.glb"
-dest_files=["res://.godot/imported/sofa_red.glb-f3c896909b398003d9bd8e858bde2ac9.scn"]
+source_file="res://rooms/Exterior Frat Lawn/beer spider.glb"
+dest_files=["res://.godot/imported/beer spider.glb-71ea96f7ac3273147b3b56f61a03618e.scn"]
 
 [params]
 

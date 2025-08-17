@@ -45,9 +45,17 @@ text = "slow motion"
 [node name="SkipMusicButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-text = "skip music"
+text = "skip party room music to next track"
+
+[node name="HideUIButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+text = "hide UI"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ResetPlayerButton" to="." method="_on_reset_player_button_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/PlayerSpeedButton" to="." method="_on_player_speed_button_toggled"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/SlowMotionButton" to="." method="_on_slow_motion_button_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SkipMusicButton" to="." method="_on_skip_music_button_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HideUIButton" to="." method="_on_hide_ui_button_toggled"]
