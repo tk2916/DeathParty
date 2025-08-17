@@ -33,12 +33,12 @@ plane = Plane(0, 1, 0, -5)
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rqtf5"]
 panorama = ExtResource("1_0cp0l")
 
-[sub_resource type="Sky" id="Sky_abqjc"]
+[sub_resource type="Sky" id="Sky_lswn8"]
 sky_material = SubResource("PanoramaSkyMaterial_rqtf5")
 
 [sub_resource type="Environment" id="Environment_1vm84"]
 background_mode = 2
-sky = SubResource("Sky_abqjc")
+sky = SubResource("Sky_lswn8")
 ssao_enabled = true
 ssao_radius = 11.47
 ssao_intensity = 15.71

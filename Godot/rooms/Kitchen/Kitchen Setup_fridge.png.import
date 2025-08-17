@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg17fmu2ym0i2"
-path.s3tc="res://.godot/imported/dorm bookshelf_Image_0.jpg-e26a1387e7b6c4fee0936485028acb8d.s3tc.ctex"
-path.etc2="res://.godot/imported/dorm bookshelf_Image_0.jpg-e26a1387e7b6c4fee0936485028acb8d.etc2.ctex"
+uid="uid://bm3t3fwebjshi"
+path.s3tc="res://.godot/imported/Kitchen Setup_fridge.png-b12d733dcd8437e783f7d40cfd702d08.s3tc.ctex"
+path.etc2="res://.godot/imported/Kitchen Setup_fridge.png-b12d733dcd8437e783f7d40cfd702d08.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "4215edbc5fc14b1e573b22c8a1165083"
+"md5": "ba3c17e944c8543274a603afb2c30c4b"
 }
 
 [deps]
 
-source_file="res://rooms/bedroom/dorm bookshelf_Image_0.jpg"
-dest_files=["res://.godot/imported/dorm bookshelf_Image_0.jpg-e26a1387e7b6c4fee0936485028acb8d.s3tc.ctex", "res://.godot/imported/dorm bookshelf_Image_0.jpg-e26a1387e7b6c4fee0936485028acb8d.etc2.ctex"]
+source_file="res://rooms/Kitchen/Kitchen Setup_fridge.png"
+dest_files=["res://.godot/imported/Kitchen Setup_fridge.png-b12d733dcd8437e783f7d40cfd702d08.s3tc.ctex", "res://.godot/imported/Kitchen Setup_fridge.png-b12d733dcd8437e783f7d40cfd702d08.etc2.ctex"]
 
 [params]
 

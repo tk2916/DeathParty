@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
 [ext_resource type="Texture2D" uid="uid://bxnmt5pyq0b7a" path="res://rooms/bedroom/Bedroom_white wall.png" id="2_lxtj2"]
 [ext_resource type="PackedScene" uid="uid://x8vl3v7s7cat" path="res://rooms/bedroom/side wall.glb" id="3_ra5m4"]
-[ext_resource type="Texture2D" uid="uid://da6uohi5m03mo" path="res://rooms/bedroom/Bedroom_woodmedium.png" id="3_rbtdn"]
+[ext_resource type="Texture2D" uid="uid://bxej6ebm3jetb" path="res://rooms/bedroom/Bedroom_woodmedium.png" id="3_rbtdn"]
 [ext_resource type="PackedScene" uid="uid://8npa6vrpy0jb" path="res://rooms/bedroom/punk posters.glb" id="3_w0jyq"]
 [ext_resource type="Texture2D" uid="uid://d0vlsucaate3q" path="res://rooms/bedroom/punk posters_singer poster.png" id="4_tluma"]
 [ext_resource type="PackedScene" uid="uid://dijllg5x7mlpw" path="res://rooms/bedroom/bed.glb" id="5_rbtdn"]
@@ -99,7 +99,7 @@ albedo_color = Color(0.281989, 0.500556, 1, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_tluma"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.909, 1.368, 1.702, 0, 0, 0, 0, 0, 0, 0, 1.502, 7.822),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.909, 1.3, 1.702, 0, 0, 0, 0, 0, 0, 0, 1.502, 7.822),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -1225,7 +1225,7 @@ unique_name_in_owner = true
 curve = SubResource("Curve3D_tluma")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.989141, -0.00318109, -0.146881, 1.16414e-10, 0.99974, -0.0216525, 0.146916, -0.0214172, -0.988905, -0.909, 1.368, 1.702)
+transform = Transform3D(-0.989141, -0.00479394, -0.146837, 2.32829e-10, 0.999441, -0.0326306, 0.146916, -0.0322761, -0.988609, -0.909, 1.3, 1.702)
 
 [node name="punk posters" parent="." instance=ExtResource("3_w0jyq")]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.866294, 1.75662, 1.98393)

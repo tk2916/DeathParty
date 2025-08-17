@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da6uohi5m03mo"
+uid="uid://bxej6ebm3jetb"
 path.s3tc="res://.godot/imported/Bedroom_woodmedium.png-28d3f523d12dfa0fa78d742bb09c55bb.s3tc.ctex"
 path.etc2="res://.godot/imported/Bedroom_woodmedium.png-28d3f523d12dfa0fa78d742bb09c55bb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "665dee248e7ad8d9c044c26d33801a6f"
 }
 
 [deps]
