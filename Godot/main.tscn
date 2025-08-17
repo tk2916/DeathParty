@@ -264,7 +264,7 @@ autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 
-[node name="Storageroom" parent="." groups=["loadable_scene"] instance=ExtResource("28_xuqvo")]
+[node name="Storageroom" parent="." instance=ExtResource("28_xuqvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9561, -6.80027, 12.5747)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
