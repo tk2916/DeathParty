@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=81 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -42,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://c43bqwa4bftlx" path="res://Assets/props/sofas/sofa_brown_round/sofa_brown_round.tscn" id="39_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="41_6fv14"]
 [ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/Buff Frat boy/buff.tscn" id="42_wxsgv"]
+[ext_resource type="PackedScene" uid="uid://bgeabboi8mw6q" path="res://rooms/Exterior Frat Lawn/beer spider.glb" id="43_klyfx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -1077,6 +1078,9 @@ transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.
 
 [node name="Buff" parent="NPCs" instance=ExtResource("42_wxsgv")]
 transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.58272, -3.50614)
+
+[node name="beer spider" parent="NPCs" instance=ExtResource("43_klyfx")]
+transform = Transform3D(0.325193, 0, -0.413692, 0, 0.526205, 0, 0.413692, 0, 0.325193, 7.30133, 0.768038, 6.04874)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="BedroomSceneLoader" to="BedroomSceneLoader" method="_on_body_entered"]
