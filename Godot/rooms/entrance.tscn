@@ -533,7 +533,6 @@ transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743
 light_color = Color(0.87, 0.77198, 0.4176, 1)
 light_energy = 10.0
 omni_range = 2.872
-omni_attenuation = -1.937
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="SceneLights"]
 transform = Transform3D(0.999743, 0, 0.0226874, 0, 1, 0, -0.0226874, 0, 0.999743, 1.04231, 4.63931, -1.43448)
@@ -637,7 +636,7 @@ skeleton = NodePath("")
 transform = Transform3D(-6.39852e-08, 0, 1.46381, 0, 1.46381, 0, -1.46381, 0, -6.39852e-08, -7.23962, 0.827875, 4.05607)
 
 [node name="Wallpaper" type="Node3D" parent="Room/Walls/LeftWall"]
-transform = Transform3D(-3.54404e-08, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -3.54404e-08, -0.0433867, 0.844778, 0.466857)
+transform = Transform3D(-3.54404e-08, 0, -0.810782, 0, 0.720388, 0, 0.810782, 0, -3.54404e-08, -0.0433867, 0.723483, 0.466857)
 
 [node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Room/Walls/LeftWall/Wallpaper"]
 transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
@@ -666,7 +665,7 @@ transform = Transform3D(1.4637, 0, -0.018292, 0, 1.46381, 0, 0.018292, 0, 1.4637
 transform = Transform3D(1.46381, 0, 0, 0, 1.46381, 0, 0, 0, 1.46381, 2.36038, 0.827875, -6.22)
 
 [node name="Wallpaper" type="Node3D" parent="Room/Walls/BackWall"]
-transform = Transform3D(-3.54405e-08, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -3.54405e-08, -1.40441, 0.844778, 0.467028)
+transform = Transform3D(-3.54405e-08, 0, -0.810782, 0, 0.73688, 0, 0.810782, 0, -3.54405e-08, -1.40441, 0.692583, 0.467028)
 
 [node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Room/Walls/BackWall/Wallpaper"]
 transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
@@ -687,7 +686,7 @@ skeleton = NodePath("")
 transform = Transform3D(1.10515e-07, 0, -1.46381, 0, 1.46381, 0, 1.46381, 0, 1.10515e-07, 12.6604, 0.827875, 4.05607)
 
 [node name="Wallpaper" type="Node3D" parent="Room/Walls/RightWall"]
-transform = Transform3D(-1.32093e-07, 0, -0.810782, 0, 0.810782, 0, 0.810782, 0, -1.32093e-07, 0.0433867, 0.844778, 0.500134)
+transform = Transform3D(-1.32093e-07, 0, -0.810782, 0, 0.744098, 0, 0.810782, 0, -1.32093e-07, 0.0433867, 0.701127, 0.500134)
 
 [node name="MAT_wallpaper_DIFFUSE" type="MeshInstance3D" parent="Room/Walls/RightWall/Wallpaper"]
 transform = Transform3D(-0.0154235, 3.57722, -4.25978e-07, -1.0661e-07, -4.26442e-07, -3.57725, -3.57722, -0.0154235, 1.08448e-07, -0.217319, 0, 5.3584)
@@ -1074,10 +1073,10 @@ transform = Transform3D(0.125, 0, 0.216506, 0, 0.295, 0, -0.216506, 0, 0.125, 2.
 transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
 
 [node name="Jack" parent="NPCs" instance=ExtResource("41_6fv14")]
-transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.51645, 3.63081, -3.79293)
+transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.59408, 3.63081, -3.38941)
 
 [node name="Buff" parent="NPCs" instance=ExtResource("42_wxsgv")]
-transform = Transform3D(1.12943, 0, 0.489686, 0, 1.23102, 0, -0.489686, 0, 1.12943, 0.9877, 3.58272, -4.29214)
+transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.58272, -3.50614)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="BedroomSceneLoader" to="BedroomSceneLoader" method="_on_body_entered"]
