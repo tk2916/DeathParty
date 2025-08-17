@@ -299,7 +299,8 @@ func display_current_container():
 			else:
 				current_dialogue_box.visible = false
 				current_dialogue_box.queue_free()
-				current_character_resource.end_chat()
+				if current_character_resource:
+					current_character_resource.end_chat()
 			in_dialogue = false
 			current_conversation = []
 			return
