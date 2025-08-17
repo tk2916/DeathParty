@@ -17,6 +17,8 @@ var og_scene : String
 
 var loading_screen : ColorRect
 
+signal finished_loaded
+
 func _ready() -> void:
 	if main_node:
 		loading_screen = main_node.get_node("CanvasLayer/LoadingScreen")
@@ -79,6 +81,7 @@ func on_og_scene_loaded() -> void:
 	player.set_physics_process(true)
 	player.visible = true
 	fade_loading_screen_out()
+	finished_loaded.emit()
 
 func on_node_added(node:Node) -> void:
 	#if player != null: return
