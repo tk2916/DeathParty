@@ -178,7 +178,7 @@ default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
 [node name="FmodListener3D" type="FmodListener3D" parent="MainCamera"]
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8663, 0.291739, 6.0262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8663, 0.291739, 26.0262)
 floor_constant_speed = true
 
 [node name="PlayerCameraLocation" parent="Player" index="1"]

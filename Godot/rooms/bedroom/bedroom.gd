@@ -14,10 +14,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property(path_follow_node, "progress_ratio", 1, 0.7)
-		
-	
-	look_straight = Vector3(path_follow_node.global_position.x, path_follow_node.global_position.y, -basis.z.z)
-	path_follow_node.look_at(look_straight) # Look straight ahead
 
 
 func handle_player_entrance(body: Node3D) -> void:

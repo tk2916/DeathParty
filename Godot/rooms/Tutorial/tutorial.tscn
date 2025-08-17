@@ -43,7 +43,7 @@ adjustment_contrast = 1.03
 tempcam = NodePath("../MainCamera")
 
 [node name="PathFollow3D" parent="Bedroom/Path3D" index="0"]
-transform = Transform3D(-0.989141, -0.00479394, -0.146837, 2.32829e-10, 0.999441, -0.0326306, 0.146916, -0.032276, -0.988609, -0.909, 1.3, 1.702)
+transform = Transform3D(0.999992, 0, 0, 0, 0.999974, 0, 0, 0, 0.999987, -0.909, 1.3, 1.702)
 
 [node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node") instance=ExtResource("2_x5kap")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02245, 1.53874, 1.91443)
