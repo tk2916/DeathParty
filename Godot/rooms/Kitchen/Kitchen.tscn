@@ -643,6 +643,7 @@ play_door_sound = true
 
 [node name="CollisionShape3D" parent="EntranceSceneLoader" index="0"]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.773, 0.747803, 0.145767)
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" parent="EntranceSceneLoader" index="1"]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 5.96046e-07, 0.839686, 5.9993)

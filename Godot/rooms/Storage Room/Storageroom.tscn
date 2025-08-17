@@ -1,7 +1,8 @@
-[gd_scene load_steps=128 format=4 uid="uid://c7033b4susyvc"]
+[gd_scene load_steps=125 format=4 uid="uid://c7033b4susyvc"]
 
 [ext_resource type="Texture2D" uid="uid://dyjte23t0re4y" path="res://rooms/Storage Room/storage layout_damged wall.png" id="1_od2cs"]
 [ext_resource type="Script" uid="uid://uvrra8rcndm8" path="res://rooms/Storage Room/storageroom.gd" id="1_tlveg"]
+[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="2_llsdw"]
 [ext_resource type="Texture2D" uid="uid://0ynv0cuef208" path="res://rooms/Storage Room/storage layout_standardwood.png" id="2_tlveg"]
 [ext_resource type="Texture2D" uid="uid://b5ro8g34xwcad" path="res://rooms/Storage Room/storage layout_paint broken tiles.png" id="3_8hkeh"]
 [ext_resource type="Texture2D" uid="uid://bgndscsrovpt7" path="res://rooms/Storage Room/storage layout_woodmedium.png" id="4_llsdw"]
@@ -17,18 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://b43mv6qsy3nan" path="res://rooms/Storage Room/storage layout_stainless steel.png" id="14_ahlak"]
 [ext_resource type="Texture2D" uid="uid://fakfjibs86fh" path="res://rooms/Storage Room/storage layout_wine cut.jpg" id="15_x5dx1"]
 [ext_resource type="Texture2D" uid="uid://d3ufnfikudi3k" path="res://rooms/Storage Room/storage layout_IMG_4936.jpg" id="16_4adys"]
-[ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="18_8hkeh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_od2cs"]
-size = Vector3(19.8651, 9.10616, 11.1942)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
-size = Vector3(1.15015, 2, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
-albedo_color = Color(0.281989, 0.500556, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
+size = Vector3(19.865, 6, 11.194)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp1se"]
 resource_name = "Dirty wall"
@@ -274,10 +266,8 @@ shadow_mesh = SubResource("ArrayMesh_m8x3v")
 size = Vector3(20.3087, 1, 12.1218)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t0vps"]
-load_path = "res://.godot/imported/storage layout_wood_4.png-e8440d163af5e9c06877e4db294e273d.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_72dah"]
-load_path = "res://.godot/imported/storage layout_wood.png-50082ea8e6adbed14e89072e42116221.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oy3si"]
 resource_name = "woooood"
@@ -1577,35 +1567,20 @@ script = ExtResource("1_tlveg")
 room_area = NodePath("RoomArea")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.723723, 1.88713, 2.53735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.723723, -0.11287, 2.53735)
 shape = SubResource("BoxShape3D_od2cs")
 
-[node name="SceneLoader to basement" type="Area3D" parent="."]
-transform = Transform3D(0.0549502, 0, -0.998489, 0, 1, 0, 0.998489, 0, 0.0549502, 6.89666, 0.818195, -0.733242)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("18_8hkeh")
+[node name="BasementSceneLoader" parent="." instance=ExtResource("2_llsdw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.89666, 0.818195, -0.733242)
 scene_going_right = "Basement"
 scene_going_left = "Basement"
+play_door_sound = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader to basement"]
-transform = Transform3D(1.00001, 0, -1.86265e-08, 0, 1, 0, 1.86265e-08, 0, 1.00001, -0.0109558, 0.747803, -0.117277)
-shape = SubResource("BoxShape3D_3cled")
+[node name="CollisionShape3D" parent="BasementSceneLoader" index="0"]
+debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="TeleportPoint" type="Node3D" parent="SceneLoader to basement"]
+[node name="TeleportPoint" parent="BasementSceneLoader" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86145, 3.34968, -5.46577)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader to basement/TeleportPoint"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_6wayg")
-mesh = SubResource("BoxMesh_qelyj")
-
-[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader to basement"]
-event_name = "event:/door"
-event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
-attached = false
-volume = 0.3
-unique_name_in_owner = true
 
 [node name="room" type="Node3D" parent="."]
 
@@ -1653,7 +1628,6 @@ skeleton = NodePath("")
 transform = Transform3D(0.791451, 0, 0.000213347, 0, 0.791451, 0, 0.000213347, 0, -0.791451, 0.646446, -2.0408, 3.07714)
 
 [node name="Plane" type="MeshInstance3D" parent="room/floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_eunft")
 skeleton = NodePath("")
 
@@ -2089,5 +2063,4 @@ transform = Transform3D(-0.396759, -0.677707, 0.0984367, -0.167783, -0.0140992, 
 mesh = SubResource("ArrayMesh_rn4ji")
 skeleton = NodePath("")
 
-[connection signal="body_entered" from="SceneLoader to basement" to="SceneLoader to basement" method="_on_body_entered"]
-[connection signal="body_exited" from="SceneLoader to basement" to="SceneLoader to basement" method="_on_body_exited"]
+[editable path="BasementSceneLoader"]

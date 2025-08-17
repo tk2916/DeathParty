@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0cbny"]
-plane = Plane(0, 1, 0, -5)
+plane = Plane(0, 1, 0, -25)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rqtf5"]
 panorama = ExtResource("1_0cp0l")
@@ -238,6 +238,9 @@ transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.99
 
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
 transform = Transform3D(1.08001, 0, 0, 0, 1.08001, 0, 0, 0, 1.08001, 0.698557, 4.7584, -20.5061)
+
+[node name="CollisionShape3D" parent="Library/PartyRoomSceneLoader" index="0"]
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="JackOLanternTall2" parent="Library" instance=ExtResource("42_0cp0l")]
 transform = Transform3D(-1.34361e-08, 0, -0.24748, 0, 0.290456, 0, 0.307382, 0, -1.08177e-08, -8.31708, -4.23481, 4.92798)
