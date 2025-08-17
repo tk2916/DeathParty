@@ -168,8 +168,17 @@ script = ExtResource("3_cyx1q")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
 
+[node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node") instance=ExtResource("3_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8663, 1.88831, 13.6475)
+fov = 30.0
+main_camera = NodePath(".")
+camera_location_node = NodePath("../Player/PlayerCameraLocation")
+default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
+
+[node name="FmodListener3D" type="FmodListener3D" parent="MainCamera"]
+
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8663, 0.291739, 24.0262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8663, 0.291739, 6.0262)
 floor_constant_speed = true
 
 [node name="PlayerCameraLocation" parent="Player" index="1"]
@@ -211,15 +220,6 @@ bones/36/rotation = Quaternion(-0.0352797, -0.0221421, 0.993457, -0.106345)
 bones/37/rotation = Quaternion(-0.0686435, 0.0458988, 0.00123403, 0.996584)
 bones/38/rotation = Quaternion(0.51367, -0.00785039, -0.125553, 0.848716)
 bones/39/rotation = Quaternion(0.324006, 0.073712, -0.0247328, 0.942855)
-
-[node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node") instance=ExtResource("3_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.444, 2, 9.6)
-fov = 30.0
-main_camera = NodePath(".")
-camera_location_node = NodePath("../Player/PlayerCameraLocation")
-default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
-
-[node name="FmodListener3D" type="FmodListener3D" parent="MainCamera"]
 
 [node name="Entrance" parent="." groups=["loadable_scene"] instance=ExtResource("42_0n3wm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)

@@ -2,6 +2,7 @@ extends Room3D
 
 @onready var music: FmodEventEmitter3D = %Music
 @onready var look_straight: Vector3 = Vector3(path_follow_node.global_position.x, path_follow_node.global_position.y, -basis.z.z)
+@export var tempcam: Camera3D
 
 func _ready() -> void:
 	super()
@@ -13,6 +14,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property(path_follow_node, "progress_ratio", 1, 0.7)
+		
 	
 	look_straight = Vector3(path_follow_node.global_position.x, path_follow_node.global_position.y, -basis.z.z)
 	path_follow_node.look_at(look_straight) # Look straight ahead

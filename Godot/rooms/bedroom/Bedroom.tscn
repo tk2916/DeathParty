@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=145 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -96,6 +96,13 @@ size = Vector3(17.9089, 3.18161, 0.503846)
 albedo_color = Color(0.281989, 0.500556, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
+
+[sub_resource type="Curve3D" id="Curve3D_tluma"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.909, 1.368, 1.702, 0, 0, 0, 0, 0, 0, 0, 1.502, 7.822),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvlly"]
 albedo_texture = ExtResource("4_tluma")
@@ -1138,10 +1145,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o7qs3")
 
-[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
+[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area", "path_follow_node") groups=["loadable_scene"]]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 script = ExtResource("1_lxtj2")
 room_area = NodePath("RoomArea")
+path_follow_node = NodePath("Path3D/PathFollow3D")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109923, 1.47272, 3.11237)
@@ -1212,6 +1220,12 @@ event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
 attached = false
 volume = 0.3
 unique_name_in_owner = true
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_tluma")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.989141, -0.00318109, -0.146881, 1.16414e-10, 0.99974, -0.0216525, 0.146916, -0.0214172, -0.988905, -0.909, 1.368, 1.702)
 
 [node name="punk posters" parent="." instance=ExtResource("3_w0jyq")]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.866294, 1.75662, 1.98393)
