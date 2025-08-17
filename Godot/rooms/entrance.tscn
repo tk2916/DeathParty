@@ -953,6 +953,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
 [node name="Table" parent="Props" instance=ExtResource("26_wxsgv")]
 transform = Transform3D(0.21, 0, 0, 0, 0.21, 0, 0, 0, 0.21, 4.81138, -0.0335322, 5.76666)
 
+[node name="BeerSpider" parent="Props/Table" instance=ExtResource("43_klyfx")]
+transform = Transform3D(1.54854, 0, -1.96996, 0, 2.50574, 0, 1.96996, 0, 1.54854, -0.0478554, 3.817, 1.34324)
+
 [node name="TableTennisTable" parent="Props" instance=ExtResource("23_ogwe6")]
 transform = Transform3D(0.148415, 0, -0.0793759, 0, 0.168307, 0, 0.0793759, 0, 0.148415, -0.391999, 0.0044325, 5.48762)
 
@@ -1078,9 +1081,6 @@ transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.
 
 [node name="Buff" parent="NPCs" instance=ExtResource("42_wxsgv")]
 transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.58272, -3.50614)
-
-[node name="beer spider" parent="NPCs" instance=ExtResource("43_klyfx")]
-transform = Transform3D(0.325193, 0, -0.413692, 0, 0.526205, 0, 0.413692, 0, 0.325193, 7.30133, 0.768038, 6.04874)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="BedroomSceneLoader" to="BedroomSceneLoader" method="_on_body_entered"]
