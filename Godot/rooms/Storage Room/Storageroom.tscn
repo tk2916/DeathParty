@@ -104,6 +104,7 @@ size = Vector3(1, 0.275391, 1.30273)
 
 [node name="Storageroom" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, 0, 0, 0)
+collision_mask = 2
 script = ExtResource("1_tlveg")
 room_area = NodePath("RoomArea")
 
