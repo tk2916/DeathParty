@@ -100,8 +100,8 @@ size = Vector3(20, 2, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4rf7n"]
 size = Vector3(6.73199, 2, 0.1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mhqqj"]
-size = Vector3(3.57178, 3, 0.1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mtohm"]
+size = Vector3(5.5, 3, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyrii"]
 size = Vector3(4, 5, 0.1)
@@ -1660,8 +1660,8 @@ shape = SubResource("BoxShape3D_4rf7n")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -5.16061, 1.5, -2.63916)
-shape = SubResource("BoxShape3D_mhqqj")
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -6.66061, 1.5, -2.63916)
+shape = SubResource("BoxShape3D_mtohm")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="Boundaries"]
