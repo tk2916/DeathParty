@@ -99,9 +99,9 @@ albedo_color = Color(0.281989, 0.500556, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
-density = 0.05
-albedo = Color(0.33537, 0.000877135, 0.843699, 1)
-emission = Color(0.0999547, 7.17148e-06, 0.452356, 1)
+density = 0.12
+albedo = Color(0.282681, 0.000620117, 0.7224, 1)
+emission = Color(0.0542566, 3.0563e-06, 0.30273, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rjuee"]
 lifetime_randomness = 0.1
@@ -1377,18 +1377,20 @@ transform = Transform3D(14.4186, 9.74556, 4.12158, 0.551518, -7.64908, 16.157, 1
 
 [node name="sm_Material_008_0" parent="Bed" index="7"]
 transform = Transform3D(-0.0202895, 0.0287411, 0.00818428, 0.0127153, -0.000241761, 0.0338913, 0.0261525, 0.0224154, -0.0101284, -0.00533831, -0.0208331, 0.7464)
+visible = false
 
 [node name="����������_1_��������_003" parent="Bed" index="8"]
 transform = Transform3D(0.000561522, 0.000139254, 3.34228e-05, -0.000140688, 0.000511144, 0.000233996, 2.67493e-05, -0.000234853, 0.000529098, -0.142345, -0.0451072, 0.6679)
+visible = false
 
 [node name="Sphere_0" parent="Bed" index="9"]
-transform = Transform3D(0.126056, 0.115689, 2.50614e-08, -1.52972e-08, -2.03963e-08, 0.171096, 0.115689, -0.126056, -4.68362e-09, 0.222058, -0.0249619, 0.74444)
+transform = Transform3D(0.126056, 0.115689, 2.50614e-08, -1.52972e-08, -2.03963e-08, 0.171096, 0.115689, -0.126056, -4.68362e-09, 0.0352641, -0.0249619, 0.718785)
 
 [node name="Head_low__0" parent="Bed" index="10"]
 transform = Transform3D(-0.0347272, 0.154886, -0.0188652, -0.00409744, 0.0184149, 0.158732, 0.155977, 0.0349681, -3.04163e-05, -0.530991, -0.124784, 0.263779)
 
 [node name="TeddyBear" parent="Bed" instance=ExtResource("21_y7msa")]
-transform = Transform3D(0.697622, 0.169452, -0.776749, -0.113228, 1.04404, 0.12607, 0.786913, 0, 0.706751, 0.211698, 0.074956, 0.352242)
+transform = Transform3D(0.697622, 0.169452, -0.776749, -0.113228, 1.04404, 0.12607, 0.786913, 0, 0.706751, 0.229167, 0.074956, 0.490367)
 
 [node name="BedsideTable" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477808, 0.686834, -0.951489)
@@ -1485,6 +1487,7 @@ transform = Transform3D(1.04428, 0, 0, 0, 1.04428, 0, 0, 0, 1.04428, 0.17809, 0.
 
 [node name="pCube9_trousers_0" parent="Desk/DeskObjects" index="19"]
 transform = Transform3D(0.00504853, 0, 0.00600667, 0, 0.00784651, 0, -0.00600667, 0, 0.00504853, -0.572594, 0.0979841, -0.19839)
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Desk/DeskObjects"]
 transform = Transform3D(0.851345, 0, 0, 0, 0.851345, 0, 0, 0, 0.851345, 0.144768, 0.0613446, -0.149783)

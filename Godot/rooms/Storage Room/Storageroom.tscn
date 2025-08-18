@@ -10,9 +10,9 @@
 size = Vector3(19.865, 6, 11.194)
 
 [sub_resource type="FogMaterial" id="FogMaterial_llsdw"]
-density = 0.1
-albedo = Color(0.157776, 0.286043, 1, 1)
-emission = Color(0.00710019, 0, 0.17823, 1)
+density = 0.05
+albedo = Color(0.0238578, 0, 0.415764, 1)
+emission = Color(0.00410117, 0, 0.130552, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llsdw"]
 resource_name = "Material.238"
@@ -125,7 +125,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9043, -1.61389, 17.3855)
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354242, 1.53392, 3.23217)
-visible = false
 size = Vector3(18.1474, 7.24989, 11.2072)
 material = SubResource("FogMaterial_llsdw")
 
@@ -169,3 +168,4 @@ shape = SubResource("BoxShape3D_5lh07")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0716217, 0.0274063, -0.0360123)
 
 [editable path="BasementSceneLoader"]
+[editable path="storage layout"]

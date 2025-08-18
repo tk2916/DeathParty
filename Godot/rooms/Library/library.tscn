@@ -1765,6 +1765,7 @@ transform = Transform3D(1.06079, 0, 0.419076, 0, 1.14057, 0, -0.419076, 0, 1.060
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3859, -0.711992, 11.5815)
+light_color = Color(0.257257, 0.502887, 1, 1)
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 

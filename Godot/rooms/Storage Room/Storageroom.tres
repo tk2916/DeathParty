@@ -1,0 +1,14 @@
+[gd_resource type="Environment" format=3 uid="uid://xb320wluubdk"]
+
+[resource]
+background_mode = 1
+background_color = Color(0.0483713, 3.35592e-05, 0.187253, 1)
+ambient_light_color = Color(0.0292836, 6.85863e-07, 0.233634, 1)
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+fog_enabled = true
+volumetric_fog_enabled = true
+adjustment_enabled = true
