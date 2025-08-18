@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0cbny"]
-plane = Plane(0, 1, 0, -25)
+plane = Plane(0, 1, 0, -10)
 
 [node name="Main" type="Node3D"]
 
