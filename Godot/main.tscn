@@ -220,7 +220,6 @@ bones/39/rotation = Quaternion(0.324006, 0.073712, -0.0247328, 0.942855)
 
 [node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node") instance=ExtResource("3_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.444, 2, 9.6)
-environment = null
 fov = 30.0
 main_camera = NodePath(".")
 camera_location_node = NodePath("../Player/PlayerCameraLocation")
