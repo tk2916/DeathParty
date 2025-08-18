@@ -9,6 +9,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_od2cs"]
 size = Vector3(19.865, 6, 11.194)
 
+[sub_resource type="FogMaterial" id="FogMaterial_llsdw"]
+density = 0.1
+albedo = Color(0.157776, 0.286043, 1, 1)
+emission = Color(0.00710019, 0, 0.17823, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llsdw"]
 resource_name = "Material.238"
 cull_mode = 2
@@ -97,11 +102,6 @@ size = Vector3(1.14105, 1, 1.25378)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5lh07"]
 size = Vector3(1, 0.275391, 1.30273)
 
-[sub_resource type="FogMaterial" id="FogMaterial_llsdw"]
-density = 0.1
-albedo = Color(0.157776, 0.286043, 1, 1)
-emission = Color(0.00710019, 0, 0.17823, 1)
-
 [node name="Storageroom" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, 0, 0, 0)
 script = ExtResource("1_tlveg")
@@ -123,7 +123,13 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 [node name="TeleportPoint" parent="BasementSceneLoader" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9043, -1.61389, 17.3855)
 
-[node name="floor" type="StaticBody3D" parent="."]
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354242, 1.53392, 3.23217)
+visible = false
+size = Vector3(18.1474, 7.24989, 11.2072)
+material = SubResource("FogMaterial_llsdw")
+
+[node name="floor" type="StaticBody3D" parent="." groups=["material_concrete"]]
 transform = Transform3D(0.791451, 0, 0.000213347, 0, 0.791451, 0, 0.000213347, 0, -0.791451, 0.646446, -2.0408, 3.07714)
 
 [node name="Plane" type="MeshInstance3D" parent="floor"]
@@ -134,7 +140,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 2.91038e-11, 0, 1, 0, -2.91038e-11, 0, 1, -0.250947, -0.516059, -0.359879)
 shape = SubResource("BoxShape3D_tlveg")
 
-[node name="stairs" type="StaticBody3D" parent="."]
+[node name="stairs" type="StaticBody3D" parent="." groups=["material_wood"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.92081, 0.360981, -0.696759)
 
 [node name="Cube_217" type="MeshInstance3D" parent="stairs"]
@@ -158,12 +164,6 @@ shape = SubResource("BoxShape3D_j6q1p")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="stairs"]
 transform = Transform3D(1, 0, 0, 0, 0.786073, -0.618134, 0, 0.618134, 0.786073, -2.48088, -2.1817, 1.20159)
 shape = SubResource("BoxShape3D_5lh07")
-
-[node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354242, 1.53392, 3.23217)
-visible = false
-size = Vector3(18.1474, 7.24989, 11.2072)
-material = SubResource("FogMaterial_llsdw")
 
 [node name="storage layout" parent="." instance=ExtResource("4_7sccd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0716217, 0.0274063, -0.0360123)
