@@ -1,9 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://csddlxbt5psnk"]
+[gd_scene load_steps=2 format=3 uid="uid://csddlxbt5psnk"]
 
-[ext_resource type="Script" uid="uid://cp1q87o4wv6ew" path="res://Entities/EntityScripts/main_camera.gd" id="1_1owse"]
-[ext_resource type="Environment" uid="uid://br0jgc2ampxai" path="res://environments/kitchen.tres" id="1_m1o6j"]
+[ext_resource type="Script" uid="uid://cp1q87o4wv6ew" path="res://Entities/EntityScripts/main_camera.gd" id="1_1owse"]  
 
 [node name="MainCamera" type="Camera3D"]
-environment = ExtResource("1_m1o6j")
 fov = 35.0
 script = ExtResource("1_1owse")
