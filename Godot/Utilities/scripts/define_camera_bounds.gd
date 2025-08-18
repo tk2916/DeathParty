@@ -4,6 +4,7 @@ class_name Room3D
 
 @export var room_area: CollisionShape3D
 @export var path_follow_node: PathFollow3D
+@export var room_environment: Environment
 
 # offsets must be changd MANUALLY if the MainCamera's default position or fov change
 # offset's x value is the desired distance from the edges of the area
@@ -25,6 +26,8 @@ var default_depth: Vector3
 # when the player enters
 func _enter_tree() -> void:
 	body_entered.connect(func(body: Node3D) -> void: set_fmod_room_parameter(body, self.name))
+	body_entered.connect(func(body: Node3D) -> void: set_environment(body))
+	body_exited.connect(func(body: Node3D) -> void: clear_environment(body))
 
 
 func _ready() -> void:
@@ -164,11 +167,35 @@ func keep_camera_off_player(body: Node3D) -> void:
 	GlobalCameraScript.camera_on_player.emit(false)
 
 
+# set the parameter that tells fmod which room the player is currently in
+# (based on the name the Room3D node)
 func set_fmod_room_parameter(body: Node3D, room_name: String) -> void:
 	#print("SETTING FMOD ROOM TO: ", room_name)
 	if body.is_in_group("player"):
 		FmodServer.set_global_parameter_by_name_with_label("Room", room_name)
 	#print("FMOD ROOM IS NOW: ", FmodServer.get_global_parameter_by_name("Room"))
+
+
+# override the WorldEnvironment with this room's environment
+# (if one has been set for this room)
+func set_environment(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		var camera: Camera3D = get_tree().current_scene.get_node("MainCamera")
+		if room_environment:
+			# wait for clear_environment() from the previous room to run first
+			await get_tree().process_frame
+			camera.environment = room_environment
+
+
+
+# NOTE: should maybe check `if room_environment:` here too to save it running
+#		this when it doesnt have to (or doing anything weird i didnt think of)
+#		but i think it works and i dont want to touch it 🙂
+#			- jack
+func clear_environment(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		var camera: Camera3D = get_tree().current_scene.get_node("MainCamera")
+		camera.environment = null
 
 
 ## These functions should be defined in the extended script
