@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://c7033b4susyvc"]
+[gd_scene load_steps=50 format=4 uid="uid://c7033b4susyvc"]
 
 [ext_resource type="Script" uid="uid://uvrra8rcndm8" path="res://rooms/Storage Room/storageroom.gd" id="1_tlveg"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="2_llsdw"]
@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://cqdag5ycycjqo" path="res://rooms/Storage Room/wine barrels_red wood.png" id="11_tlveg"]
 [ext_resource type="Texture2D" uid="uid://cu5gnx6bmbcaw" path="res://rooms/Storage Room/wine barrels_red wood_6.png" id="12_8hkeh"]
 [ext_resource type="PackedScene" uid="uid://b6eekoy4x82ku" path="res://rooms/Storage Room/hang lights.glb" id="15_ssa8o"]
+[ext_resource type="PackedScene" uid="uid://dx2e8w1p1nwx5" path="res://rooms/Storage Room/dirty mattress.glb" id="16_od2cs"]
+[ext_resource type="PackedScene" uid="uid://beusior7ym8c4" path="res://Assets/props/chairs/chair/chair.tscn" id="17_tlveg"]
+[ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="18_8hkeh"]
+[ext_resource type="PackedScene" uid="uid://btpa3cwked3ip" path="res://Assets/props/speaker/speaker.glb" id="19_llsdw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_od2cs"]
 size = Vector3(19.865, 6, 11.194)
@@ -443,6 +447,12 @@ shape = SubResource("BoxShape3D_5lh07")
 [node name="storage layout" parent="." instance=ExtResource("4_7sccd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0716217, 0.0274063, -0.0360123)
 
+[node name="Plane_019" parent="storage layout" index="69"]
+transform = Transform3D(-0.169386, -0.0802153, 0.127601, -0.00126429, 0.368408, 0.131956, 0.0862956, -0.152054, 0.252396, -6.74251, -0.174623, 0.182387)
+
+[node name="Cube_103" parent="storage layout" index="91"]
+transform = Transform3D(-0.58905, -0.829907, 0.161284, -0.208976, -0.0475431, -1.00787, -0.819199, 0.608878, 0.141134, -6.7085, -0.94511, 0.119267)
+
 [node name="broken pool table" parent="." instance=ExtResource("6_vl1a6")]
 transform = Transform3D(-0.850781, 0, 0.474181, 0, 0.974, 0, 0.474181, 0, 0.850781, -4.20719, -1.30756, 3.09228)
 
@@ -527,6 +537,18 @@ light_energy = 10.0
 light_specular = 2.722
 omni_range = 1.25
 omni_attenuation = 1.5
+
+[node name="dirty mattress" parent="." instance=ExtResource("16_od2cs")]
+transform = Transform3D(-0.736118, 0.201987, -0.346775, 0.221853, 0.808519, 0, 0.334414, -0.0917614, -0.763328, 7.56462, -1.20849, 6.50004)
+
+[node name="Chair" parent="." instance=ExtResource("17_tlveg")]
+transform = Transform3D(1.13943, 0, 0, 0, 1.13943, 0, 0, 0, 1.13943, -3.54215, -1.03883, 3.22251)
+
+[node name="dorm chair" parent="." instance=ExtResource("18_8hkeh")]
+transform = Transform3D(-0.102656, 0, -1.1348, 0, 1.13943, 0, 1.1348, 0, -0.102656, -6.66006, -1.51472, 5.4549)
+
+[node name="speaker" parent="." instance=ExtResource("19_llsdw")]
+transform = Transform3D(-0.524465, 0, 0.727804, 0, 0.897086, 0, -0.727804, 0, -0.524465, 8.21727, -1.67421, 6.59796)
 
 [editable path="BasementSceneLoader"]
 [editable path="storage layout"]
