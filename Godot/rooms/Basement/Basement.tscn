@@ -111,7 +111,8 @@ size = Vector3(2, 2, 1.415)
 
 [sub_resource type="FogMaterial" id="FogMaterial_42eom"]
 density = 0.1
-albedo = Color(0.63, 0.2205, 0, 1)
+albedo = Color(0.511676, 0.129354, 0, 1)
+emission = Color(0.0508749, 0.00727955, 0, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hfud8"]
 lifetime_randomness = 0.1
