@@ -1,11 +1,11 @@
 [gd_scene load_steps=33 format=3 uid="uid://beuct1pjdlayy"]
 
-[ext_resource type="Texture2D" uid="uid://dckqjt7kdk82j" path="res://Assets/textures/Blaubeuren Night 1k (1).hdr" id="1_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
 [ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu.tscn" id="4_h8e4i"]
+[ext_resource type="Texture2D" uid="uid://2v2ny7qnnj1v" path="res://Assets/textures/shanghai_bund_1k.hdr" id="15_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
@@ -33,13 +33,14 @@
 plane = Plane(0, 1, 0, -25)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rqtf5"]
-panorama = ExtResource("1_0cp0l")
+panorama = ExtResource("15_xuqvo")
 
 [sub_resource type="Sky" id="Sky_abqjc"]
 sky_material = SubResource("PanoramaSkyMaterial_rqtf5")
 
 [sub_resource type="Environment" id="Environment_1vm84"]
 background_mode = 2
+background_energy_multiplier = 2.0
 sky = SubResource("Sky_abqjc")
 ssao_enabled = true
 ssao_radius = 11.47
@@ -168,9 +169,6 @@ shape = SubResource("WorldBoundaryShape3D_0cbny")
 environment = SubResource("Environment_1vm84")
 script = ExtResource("3_cyx1q")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.392798, -0.711992, 2.126)
-
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1944, 0.735779, 24.1785)
 collision_layer = 2
@@ -238,9 +236,6 @@ transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.99
 
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
 transform = Transform3D(1.08001, 0, 0, 0, 1.08001, 0, 0, 0, 1.08001, 0.698557, 4.7584, -20.5061)
-
-[node name="CollisionShape3D" parent="Library/PartyRoomSceneLoader" index="0"]
-debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="JackOLanternTall2" parent="Library" instance=ExtResource("42_0cp0l")]
 transform = Transform3D(-1.34361e-08, 0, -0.24748, 0, 0.290456, 0, 0.307382, 0, -1.08177e-08, -8.31708, -4.23481, 4.92798)

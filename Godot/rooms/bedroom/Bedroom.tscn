@@ -99,9 +99,9 @@ albedo_color = Color(0.281989, 0.500556, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
-density = 0.2
-albedo = Color(0.304857, 0.00114282, 0.633416, 1)
-emission = Color(0.040501, 2.27418e-06, 0.257692, 1)
+density = 0.05
+albedo = Color(0.33537, 0.000877135, 0.843699, 1)
+emission = Color(0.0999547, 7.17148e-06, 0.452356, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rjuee"]
 lifetime_randomness = 0.1
@@ -828,7 +828,6 @@ shadow_mesh = SubResource("ArrayMesh_uaxv5")
 resource_name = "Material.014"
 cull_mode = 2
 albedo_texture = ExtResource("23_rjuee")
-roughness = 0.834764
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cd1fl"]
 _surfaces = [{
@@ -866,7 +865,6 @@ shadow_mesh = SubResource("ArrayMesh_cd1fl")
 resource_name = "Material.030"
 cull_mode = 2
 albedo_texture = ExtResource("25_e0ilc")
-roughness = 0.877682
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dr3iw"]
 _surfaces = [{
@@ -904,7 +902,6 @@ shadow_mesh = SubResource("ArrayMesh_dr3iw")
 resource_name = "Material.029"
 cull_mode = 2
 albedo_texture = ExtResource("24_mav1h")
-roughness = 0.828326
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mai2o"]
 _surfaces = [{
@@ -1273,8 +1270,8 @@ omni_range = 1.307
 omni_attenuation = 0.0
 
 [node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165577, 1.80608, 3.0778)
-size = Vector3(4.34741, 3.49082, 9.16467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108142, 1.48716, 3.05256)
+size = Vector3(4.46228, 3.40737, 9.21515)
 material = SubResource("FogMaterial_lxtj2")
 
 [node name="Particles" type="Node3D" parent="."]
@@ -1354,6 +1351,11 @@ skeleton = NodePath("")
 
 [node name="Crown" parent="Room/RightWall/Ceiling" instance=ExtResource("29_xm2t7")]
 transform = Transform3D(0.991342, 0, 0, 0, 0.979302, 0, 0, 0, 0.945473, 0.128323, 2.74207, 1.27473)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room"]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0, 1.25121, 1.05365)
+light_color = Color(0.6485, 0.43, 1, 1)
+omni_range = 4.261
 
 [node name="Bed" parent="." instance=ExtResource("5_rbtdn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67075, 0.59249, -0.321667)
@@ -1496,13 +1498,8 @@ transform = Transform3D(-0.447974, 0, -0.723946, -0.154679, 0.831679, 0.0957146,
 [node name="SpotLight3D" type="SpotLight3D" parent="Desk/DeskObjects/DeskLamp"]
 transform = Transform3D(0.298142, 0.0270158, 0.954143, -0.123926, -0.990047, 0.066756, 0.946446, -0.138145, -0.291826, -0.244231, 0.577336, -0.0583438)
 light_color = Color(0, 0.9, 1, 1)
-light_energy = 10.0
-light_specular = 8.333
+light_energy = 5.0
 shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 10.0
-spot_range = 3.599
-spot_angle = 46.54
 
 [node name="Chair" parent="." instance=ExtResource("8_8bc0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96153, 0.348179, 0.0296352)
@@ -1633,76 +1630,80 @@ transform = Transform3D(0.884583, 0, -0.0888701, 0, 0.889036, 0, 0.0888701, 0, 0
 transform = Transform3D(1.12248, 0, 0, 0, 1.12248, 0, 0, 0, 1.12248, 0.824843, 2.53968, 1.6457)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -0.495502, -0.357151, 2.30363)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -0.495731, -0.406991, 2.23458)
 light_color = Color(0.85, 0, 1, 1)
-light_energy = 5.0
-omni_range = 0.726
+light_energy = 4.0
+omni_range = 0.653
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.18877, -0.303542, 2.67519)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.18877, -0.327956, 2.67519)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 5.0
-omni_range = 0.726
+light_energy = 4.0
+omni_range = 0.653
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, 0.155785, -0.357151, 1.3656)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, 0.392259, -0.268273, 0.97756)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 15.0
-omni_range = 0.726
+light_specular = 1.833
+omni_range = 0.766
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, 0.155785, -0.243273, 0.756615)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, 0.118818, -0.236614, 0.758134)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 5.0
-omni_range = 0.726
+light_energy = 3.0
+light_specular = 0.0
+omni_range = 0.899
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -0.120516, -0.357151, 1.65268)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -0.120516, -0.310647, 1.65268)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 15.0
-omni_range = 0.726
+light_energy = 4.0
+omni_range = 0.653
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.56224, -0.2181, 3.011)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.56224, -0.171596, 3.011)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 5.0
-omni_range = 0.726
+light_energy = 4.0
+omni_range = 0.653
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -0.471248, -0.239745, 0.461018)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -0.471248, -0.193241, 0.461018)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 5.0
-omni_range = 0.726
+light_energy = 3.0
+omni_range = 0.948
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.46048, -0.0935218, 0.0288521)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.11496, -0.14465, 0.158684)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 20.0
-omni_range = 0.42
+light_energy = 3.0
+omni_range = 0.852
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.34648, -0.24393, -0.49915)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.34364, -0.197666, -0.360934)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 20.0
-omni_range = 0.619
+light_energy = 3.0
+light_specular = 3.141
+omni_range = 0.883
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.02251, -0.438925, -0.729234)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -1.02251, -0.199891, -0.959426)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 20.0
-omni_range = 0.619
+light_energy = 3.0
+omni_range = 1.173
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -0.566774, -0.544795, -1.0283)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, -0.469363, -0.339802, -1.11758)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 30.0
-omni_range = 0.726
+light_energy = 4.0
+light_specular = 8.389
+omni_range = 0.653
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="Props/StringLights"]
-transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, 0.228269, -0.35355, -1.56947)
+transform = Transform3D(0.792031, 0, 0, 0, 0.792031, 0, 0, 0, 0.792031, 0.386591, -0.392309, -1.9307)
 light_color = Color(0.85098, 0, 1, 1)
-light_energy = 30.0
-omni_range = 0.726
+light_energy = 3.0
+light_specular = 1.833
+omni_range = 0.957
 
 [node name="LaundryBasket" parent="Props" instance=ExtResource("57_6hcck")]
 transform = Transform3D(-0.446636, 0.000419213, -0.62511, 0.000833922, 0.768274, -8.06254e-05, 0.625109, -0.000725388, -0.446636, 1.6601, 0.192241, 1.29007)
