@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=34 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
@@ -63,6 +63,9 @@ volumetric_fog_anisotropy = 0.6
 adjustment_enabled = true
 adjustment_brightness = 1.19
 adjustment_contrast = 1.03
+
+[sub_resource type="Resource" id="Resource_xuqvo"]
+metadata/__load_path__ = "res://environments/kitchen.tres"
 
 [node name="Main" type="Node3D"]
 
@@ -217,6 +220,7 @@ bones/39/rotation = Quaternion(0.324006, 0.073712, -0.0247328, 0.942855)
 
 [node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node") instance=ExtResource("3_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.444, 2, 9.6)
+environment = null
 fov = 30.0
 main_camera = NodePath(".")
 camera_location_node = NodePath("../Player/PlayerCameraLocation")
@@ -242,6 +246,7 @@ transform = Transform3D(-1.34361e-08, 0, -0.24748, 0, 0.290456, 0, 0.307382, 0, 
 
 [node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
 transform = Transform3D(0.761812, 0, 0, 0, 0.761812, 0, 0, 0, 0.761812, -43.3922, 2.37168, 6.27324)
+room_environment = SubResource("Resource_xuqvo")
 
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
