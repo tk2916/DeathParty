@@ -1,11 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=30 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
 [ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu.tscn" id="4_h8e4i"]
-[ext_resource type="Texture2D" uid="uid://2v2ny7qnnj1v" path="res://Assets/textures/shanghai_bund_1k.hdr" id="15_xuqvo"]
+[ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
@@ -31,38 +31,6 @@
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0cbny"]
 plane = Plane(0, 1, 0, -25)
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rqtf5"]
-panorama = ExtResource("15_xuqvo")
-
-[sub_resource type="Sky" id="Sky_abqjc"]
-sky_material = SubResource("PanoramaSkyMaterial_rqtf5")
-
-[sub_resource type="Environment" id="Environment_1vm84"]
-background_mode = 2
-background_energy_multiplier = 2.0
-sky = SubResource("Sky_abqjc")
-ssao_enabled = true
-ssao_radius = 11.47
-ssao_intensity = 15.71
-ssao_power = 0.247408
-ssao_detail = 0.0
-ssao_horizon = 0.66
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-sdfgi_energy = 1.25
-glow_enabled = true
-glow_intensity = 0.5
-glow_strength = 0.9
-glow_blend_mode = 1
-fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
-volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.26, 0.26, 0.26, 1)
-volumetric_fog_anisotropy = 0.6
-adjustment_enabled = true
-adjustment_brightness = 1.19
-adjustment_contrast = 1.03
 
 [node name="Main" type="Node3D"]
 
@@ -166,7 +134,7 @@ collision_mask = 2
 shape = SubResource("WorldBoundaryShape3D_0cbny")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_1vm84")
+environment = ExtResource("15_xuqvo")
 script = ExtResource("3_cyx1q")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]

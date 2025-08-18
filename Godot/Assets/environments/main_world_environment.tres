@@ -1,0 +1,35 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://x61s5mmwqag1"]
+
+[ext_resource type="Texture2D" uid="uid://2v2ny7qnnj1v" path="res://Assets/textures/shanghai_bund_1k.hdr" id="1_5xbyc"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rqtf5"]
+panorama = ExtResource("1_5xbyc")
+
+[sub_resource type="Sky" id="Sky_abqjc"]
+sky_material = SubResource("PanoramaSkyMaterial_rqtf5")
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_abqjc")
+ssao_enabled = true
+ssao_radius = 11.47
+ssao_intensity = 15.71
+ssao_power = 0.247408
+ssao_detail = 0.0
+ssao_horizon = 0.66
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_energy = 1.25
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 0.9
+glow_blend_mode = 1
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.26, 0.26, 0.26, 1)
+volumetric_fog_anisotropy = 0.6
+adjustment_enabled = true
+adjustment_brightness = 1.19
+adjustment_contrast = 1.03
