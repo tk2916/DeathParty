@@ -246,6 +246,7 @@
 		<relationship name="effects">
 			<destination>{3598f947-d897-4d32-acae-f18cfbce405a}</destination>
 			<destination>{6369c151-5d42-4602-b121-c6f14078581a}</destination>
+			<destination>{e32ea281-ae0a-48b5-b5dd-7ad95bd0ed40}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{97bdbbed-17db-4e41-af96-914948602f36}" />
@@ -382,6 +383,14 @@
 		<property name="soundSize">
 			<value>0.25</value>
 		</property>
+	</object>
+	<object class="ProxyEffect" id="{e32ea281-ae0a-48b5-b5dd-7ad95bd0ed40}">
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="preset">
+			<destination>{cc4f9bb5-d18e-443d-90c1-fdda0baac2b8}</destination>
+		</relationship>
 	</object>
 	<object class="MultibandEqEffect" id="{9d7a06e1-74ad-4e3e-a37c-86be64793fb8}">
 		<property name="filterTypeA">
