@@ -14,9 +14,10 @@ func _physics_process(_delta: float) -> void:
 
 
 # this func should be called from character animations
-# on the frame before their feet touch the ground
+# on the frame their feet touch the ground
 func play_footstep_sound() -> void:
 	# use the raycast to get the surface the character is standing on
+	#print("RAYCASTING . . .")
 	var surface: Node3D = ray_cast.get_collider()
 	#print("surface: ", surface)
 
@@ -44,3 +45,4 @@ func play_footstep_sound() -> void:
 	# play a step sound if the character is moving
 	if speed != Vector3.ZERO:
 		play()
+		#print("STEP")
