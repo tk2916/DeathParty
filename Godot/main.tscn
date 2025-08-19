@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu.tscn" id="4_h8e4i"]
-[ext_resource type="Environment" uid="uid://dg6cs3u27vudl" path="res://Assets/environments/exterior_world_environment.tres" id="15_xuqvo"]
+[ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
@@ -133,7 +133,7 @@ collision_mask = 2
 shape = SubResource("WorldBoundaryShape3D_0cbny")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("15_xuqvo")
+environment = ExtResource("15_a6jrf")
 script = ExtResource("3_cyx1q")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]

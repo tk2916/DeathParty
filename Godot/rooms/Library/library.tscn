@@ -82,8 +82,9 @@ size = Vector3(3, 2, 0.1)
 size = Vector3(15, 2, 0.1)
 
 [sub_resource type="FogMaterial" id="FogMaterial_obdan"]
-density = 0.1
-albedo = Color(2.76752e-07, 0.142261, 0.181713, 1)
+density = 0.05
+albedo = Color(1.8049e-08, 0.0864846, 0.0941538, 1)
+emission = Color(5.07629e-09, 0.00595898, 0.00719015, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jpbuu"]
 lifetime_randomness = 0.1
@@ -1144,7 +1145,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.234054, 0, -1.90503)
 transform = Transform3D(0.0293456, -0.714521, 0.698998, 0.0299709, 0.699614, 0.713892, -0.99912, -8.58179e-09, 0.0419454, 9.48549, 5.81339, 1.47308)
 light_color = Color(0.4464, 0.87358, 0.93, 1)
 light_energy = 50.0
-light_volumetric_fog_energy = 20.0
+light_volumetric_fog_energy = 70.0
 light_specular = 0.767
 shadow_enabled = true
 shadow_bias = 0.145
@@ -1153,7 +1154,7 @@ shadow_opacity = 0.73
 shadow_blur = 0.125
 spot_range = 33.251
 spot_attenuation = 0.5
-spot_angle = 18.0
+spot_angle = 14.25
 spot_angle_attenuation = 1.62451
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="SceneLights"]
@@ -1184,7 +1185,6 @@ spot_angle = 19.94
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SceneLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3859, -0.711992, 11.5815)
-light_color = Color(0.257257, 0.502887, 1, 1)
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36763, 1.7031, 2.47758)

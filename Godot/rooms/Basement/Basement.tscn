@@ -123,9 +123,9 @@ size = Vector3(4, 5, 0.1)
 size = Vector3(2, 2, 1.415)
 
 [sub_resource type="FogMaterial" id="FogMaterial_42eom"]
-density = 0.15
-albedo = Color(0.446896, 0.0900979, 0, 1)
-emission = Color(0.14, 0.0373333, 0, 1)
+density = 0.1
+albedo = Color(0.564632, 0.196598, 0, 1)
+emission = Color(0.191437, 0.0852589, 3.60981e-08, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hfud8"]
 lifetime_randomness = 0.1
@@ -1827,7 +1827,7 @@ shape = SubResource("BoxShape3D_iwxp5")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394772, 1, 5.25684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394772, 1, 4.02173)
 shape = SubResource("BoxShape3D_vwb2v")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
