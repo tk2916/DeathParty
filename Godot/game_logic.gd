@@ -6,7 +6,11 @@ extends Node
 @export var message_box : Control
 
 @export var test_inventory_item : Node3D
-	
+
+func _init() -> void:
+	ContentLoader.finished_loaded.connect(func():
+		ContentLoader.teleport_player("Kitchen"))
+
 func _ready() -> void:
 	DialogueSystem.to_phone("Caleb, Rowan, Nora, You", json_file)
 	DialogueSystem.to_phone("Caleb", json_file2)

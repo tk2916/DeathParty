@@ -24,17 +24,18 @@ func _ready() -> void:
 	label.text = text
 	#sub_viewport.pressed.connect(button_pressed)
 	$Cube.get_surface_override_material(0).albedo_color = color
-	sub_viewport.get_node("ColorRect").color = color
+	var color_rect : ColorRect = sub_viewport.get_node("ColorRect")
+	color_rect.color = color
 	og_rotation = rotation
 	rotation = default_rotation
 
-func return_to_original_pos():
+func return_to_original_pos() -> void:
 	up_direction = global_transform.basis.y.normalized()
-	var offset = up_direction*offset_distance
+	var offset : Vector3 = up_direction*offset_distance
 	global_position = global_position - offset
 	rotation = default_rotation
 
-func move_upward():
+func move_upward() -> void:
 	up_direction = global_transform.basis.y.normalized()
 	var offset = up_direction*offset_distance
 	global_position = global_position + offset

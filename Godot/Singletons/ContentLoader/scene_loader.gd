@@ -8,7 +8,6 @@ class_name SceneLoader extends Area3D
 @export var scene_going_left : String
 @export var play_door_sound: bool = false
 
-@onready var color_rect : ColorRect = $CanvasLayer/ColorRect
 @onready var door_sound: FmodEventEmitter3D = %DoorSound
 
 var teleport_pos : Vector3 = Vector3(-1,-1,-1)
@@ -17,21 +16,14 @@ var player : Player
 var player_touched : bool = false
 
 func _ready() -> void:
-	#print("Sceneloader ready")
-	#if position_left != Vector3(-1,-1,-1): return
 	var teleport_point : Node3D = $TeleportPoint
-	#print("OnReady positions: ", teleport_left.global_position, teleport_right.global_position)
 	teleport_point.visible = false
 	if teleport_pos == Vector3(-1,-1,-1):
 		teleport_pos = teleport_point.global_position
-	#print("Sceneloader ready, teleport left: ", position_left)
-	
-	print("Scene going left: ", self.name, scene_going_left)
-	#print("Teleport left: ", position_left)
 
-func is_player_facing_collider(player) -> bool:
-	var player_forward = -player.transform.basis.z
-	var dot_product = player_forward.dot(self.transform.basis.z)
+func is_player_facing_collider(player_model : Node3D) -> bool:
+	var player_forward : Vector3 = -player_model.transform.basis.z
+	var dot_product : float = player_forward.dot(self.transform.basis.z)
 	return dot_product > 0 #facing towards if > 0
 
 func _on_body_entered(body: Node3D) -> void:
@@ -66,12 +58,12 @@ func _on_body_exited(body: Node3D) -> void:
 	ContentLoader.offload_old_scenes()
 
 
-func loading_screen_on(new_global_position : Vector3):
+func loading_screen_on(new_global_position : Vector3) -> void:
 	print("Loading screen on")
 	var tween : Tween = ContentLoader.fade_loading_screen_in(1)
 	tween.tween_callback(loading_screen_off.bind(new_global_position))
 
 
-func loading_screen_off(new_global_position : Vector3):
+func loading_screen_off(new_global_position : Vector3) -> void:
 	print("Teleporting player to: ", new_global_position)
 	player.global_position = new_global_position

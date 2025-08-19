@@ -19,11 +19,11 @@ class_name CharacterResource extends Resource
 var upcoming_chats : Array[JSON] = []
 @export var default_chat : JSON
 
-var ink_resource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
+var ink_resource : InkResource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
 
 signal unread
 
-func chat_already_loaded(file : JSON):
+func chat_already_loaded(file : JSON) -> bool:
 	for chat : JSON in upcoming_chats:
 		if chat.resource_path == file.resource_path:
 			return true
@@ -34,7 +34,7 @@ func load_chat(json : JSON) -> void:
 	upcoming_chats.push_back(json)
 	unread.emit(true)
 	
-func print_all_chats():
+func print_all_chats() -> void:
 	print(name, "'s chats-------")
 	for chat : JSON in upcoming_chats:
 		print("Chat: ", chat, chat.resource_path)
