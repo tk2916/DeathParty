@@ -1959,7 +1959,7 @@ mesh = SubResource("ArrayMesh_g5x68")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Room/Floor"]
-transform = Transform3D(-0.154672, 0, -0.00011954, 0, 0.154672, 0, 0.00011954, 0, -0.154672, 1.68944, -0.0436244, 4.53592)
+transform = Transform3D(-0.154672, 0, -0.00011954, 0, 0.154672, 0, 0.00011954, 0, -0.154672, 1.689, -0.044, 4.348)
 mesh = SubResource("ArrayMesh_g5x68")
 skeleton = NodePath("")
 
@@ -2042,7 +2042,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.683, -0.0453024, -1.533)
 
 [node name="Ceiling2" parent="Room/Ceiling" instance=ExtResource("46_rvhly")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.683, -0.0453024, 2.88614)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.745, -0.045, 4.706)
 
 [node name="Door" parent="." instance=ExtResource("3_nmyg0")]
 transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, -9.42747, 0.928276, -1.22136)
