@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=29 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://hl56t3rfk1uo" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
-[ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="42_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://d0sd1bp5esd04" path="res://Utilities/polaroid_camera/polaroid_layer.tscn" id="55_e71vb"]
 [ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
@@ -202,9 +201,6 @@ transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.99
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
 transform = Transform3D(1.08001, 0, 0, 0, 1.08001, 0, 0, 0, 1.08001, 0.698557, 4.7584, -20.5061)
 
-[node name="JackOLanternTall2" parent="Library" instance=ExtResource("42_0cp0l")]
-transform = Transform3D(-1.34361e-08, 0, -0.24748, 0, 0.290456, 0, 0.307382, 0, -1.08177e-08, -8.31708, -4.23481, 4.92798)
-
 [node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
 transform = Transform3D(0.761812, 0, 0, 0, 0.761812, 0, 0, 0, 0.761812, -43.3922, 2.37168, 6.27324)
 
@@ -220,15 +216,15 @@ transform = Transform3D(1.15875, 0, 0, 0, 1.15875, 0, 0, 0, 1.15875, -39.7969, 0
 [node name="Exterior" parent="." groups=["loadable_scene"] instance=ExtResource("27_qsp4k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7203, 7.1292, 54.0265)
 
+[node name="Storageroom" parent="." instance=ExtResource("28_xuqvo")]
+transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579, -1.32205, -3.35617)
+
 [node name="PartyRoomMusic" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/900_MX/Party Room music"
 event_guid = "{757f62e0-b188-491e-9503-6ad99b13690a}"
 autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
-
-[node name="Storageroom" parent="." instance=ExtResource("28_xuqvo")]
-transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579, -1.32205, -3.35617)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
@@ -240,15 +236,3 @@ transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579
 [editable path="Polaroid"]
 [editable path="ObjectViewerCanvasLayer"]
 [editable path="Player"]
-[editable path="Library"]
-[editable path="Library/PartyRoomSceneLoader"]
-[editable path="Library/Room/BackWall/Bookshelves/Upstairs"]
-[editable path="Library/Balcony/Railings"]
-[editable path="Library/Chandelier"]
-[editable path="Library/WallLamps/WallLamp"]
-[editable path="Library/WallLamps/WallLamp2"]
-[editable path="Library/WallLamps/WallLamp3"]
-[editable path="Library/WallLamps/WallLamp4"]
-[editable path="Library/WallLamps/WallLamp5"]
-[editable path="Library/Props/Desk/desk_lamp"]
-[editable path="Library/Props/Desk2/desk_lamp"]
