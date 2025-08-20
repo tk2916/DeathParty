@@ -54,6 +54,10 @@ focus_mode = 0
 toggle_mode = true
 text = "hide UI"
 
+[node name="TeleportButtonContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ResetPlayerButton" to="." method="_on_reset_player_button_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/PlayerSpeedButton" to="." method="_on_player_speed_button_toggled"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/SlowMotionButton" to="." method="_on_slow_motion_button_toggled"]
