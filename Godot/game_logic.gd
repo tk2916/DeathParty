@@ -7,9 +7,9 @@ extends Node
 
 @export var test_inventory_item : Node3D
 
-func _init() -> void:
-	ContentLoader.finished_loading.connect(func():
-		ContentLoader.direct_teleport_player("Bathroom"))
+#func _init() -> void:
+	#ContentLoader.finished_loading.connect(func():
+		#ContentLoader.direct_teleport_player("Bathroom"))
 
 func _ready() -> void:
 	DialogueSystem.to_phone("Caleb, Rowan, Nora, You", json_file)
