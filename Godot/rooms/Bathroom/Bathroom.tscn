@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="31_hu3hd"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/props/alcohol/sunday_light/sunday light.glb" id="32_o8af5"]
 [ext_resource type="PackedScene" uid="uid://522s4uc8y6ni" path="res://Assets/CharacterAssets/Cop/cop.tscn" id="34_jy5jw"]
-[ext_resource type="PackedScene" uid="uid://qlwirfl7ycga" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="35_rjeq7"]
+[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="35_rjeq7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -591,17 +591,17 @@ shape = SubResource("BoxShape3D_0gtm2")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.28073, -1.4174, 1.51291)
 shape = SubResource("BoxShape3D_46x1s")
 
-[node name="PartyRoomSceneLoader" parent="." instance=ExtResource("2_3y0er")]
+[node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("2_3y0er")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
 scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
 play_door_sound = true
 
-[node name="CollisionShape3D" parent="PartyRoomSceneLoader" index="0"]
+[node name="CollisionShape3D" parent="SceneLoader_PartyRoom" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646526, 0.638772, -0.771466)
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="TeleportPoint" parent="PartyRoomSceneLoader" index="1"]
+[node name="TeleportPoint" parent="SceneLoader_PartyRoom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16869e-07, 0.839686, 4.3104)
 
 [node name="SceneLights" type="Node3D" parent="."]
@@ -994,7 +994,7 @@ transform = Transform3D(0.744814, 0, 0.869726, 0, 1.14506, 0, -0.869726, 0, 0.74
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 0, -0.645291, 9.33631)
 
-[editable path="PartyRoomSceneLoader"]
+[editable path="SceneLoader_PartyRoom"]
 [editable path="WallLamp"]
 [editable path="WallLamp2"]
 [editable path="DiscoLights"]

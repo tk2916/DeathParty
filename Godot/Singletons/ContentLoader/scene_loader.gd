@@ -38,32 +38,28 @@ func _on_body_entered(body: Node3D) -> void:
 	player = body as Player
 	var is_facing_collider : bool = is_player_facing_collider(player.model)
 	if is_facing_collider == false:
-		ContentLoader.load_scene(scene_going_right)
+		ContentLoader.scene_loader_load(scene_going_right, teleport_pos)
 		print("Loaded scene going right: ", scene_going_right)
 	elif is_facing_collider == true:
-		ContentLoader.load_scene(scene_going_left)
+		ContentLoader.scene_loader_load(scene_going_left, teleport_pos)
 		print("Loaded scene going left: ", scene_going_left)
-		
-	if teleport_player:
-		loading_screen_on(teleport_pos)
+	
+	if play_door_sound:
+		door_sound.play()
 
-		if play_door_sound:
-			door_sound.play()
-
-
-func _on_body_exited(body: Node3D) -> void:
-	if !(body.is_in_group("player")): return
-	player_touched = false
-	await get_tree().create_timer(offload_delay).timeout #wait a bit so the player doesn't see it being unloaded
-	ContentLoader.offload_old_scenes()
-
-
-func loading_screen_on(new_global_position : Vector3) -> void:
-	print("Loading screen on")
-	var tween : Tween = ContentLoader.fade_loading_screen_in(1)
-	tween.tween_callback(loading_screen_off.bind(new_global_position))
-
-
-func loading_screen_off(new_global_position : Vector3) -> void:
-	print("Teleporting player to: ", new_global_position)
-	player.global_position = new_global_position
+#func _on_body_exited(body: Node3D) -> void:
+	#if !(body.is_in_group("player")): return
+	#player_touched = false
+	##wait a bit so the player doesn't see it being unloaded
+	#ContentLoader.offload_old_scenes()
+#
+#
+#func loading_screen_on(new_global_position : Vector3) -> void:
+	#print("Loading screen on")
+	#var tween : Tween = ContentLoader.fade_loading_screen_in(1)
+	#tween.tween_callback(loading_screen_off.bind(new_global_position))
+#
+#
+#func loading_screen_off(new_global_position : Vector3) -> void:
+	#print("Teleporting player to: ", new_global_position)
+	#player.global_position = new_global_position

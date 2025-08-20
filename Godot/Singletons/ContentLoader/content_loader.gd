@@ -19,11 +19,12 @@ var loaded_scenes : Array[Node3D]
 var og_scene : String
 var loading_screen : ColorRect
 
-var initial_load : bool = true
-signal finished_loaded
+var loaded : bool = false
+signal finished_loading
 signal added_scene
 
 func _ready() -> void:
+	print(tree.get_nodes_in_group("loadable_scene"))
 	if main_node:
 		main_node.ready.connect(load_player)
 		added_scene.connect(find_room_teleport_points)
@@ -58,13 +59,12 @@ func find_room_teleport_points() -> void:
 	for scene_name : String in scene_data_dict:
 		var scene_data : SceneData = scene_data_dict[scene_name]
 		for loader : SceneLoaderData in scene_data.get_all_scene_loaders():
-			var target_scene_name : String = loader.target_scene_name	
+			var target_scene_name : String = loader.target_scene_name
+			print("From ", scene_name, ": ", target_scene_name, " loader: ", loader.name)
 			if scene_data_dict.has(target_scene_name) and scene_data_dict[target_scene_name].main_teleport_point == Vector3(-1,-1,-1):
 				scene_data_dict[target_scene_name].set_main_teleport(loader.name, loader.teleport_pos)
 
 func store_scene_info(node : Node3D) -> void:
-	print("Storing scene info for ", node.name, " | ", Time.get_ticks_msec())
-	added_scene.emit()
 	var filepath : String = node.scene_file_path
 	var node_name : String = node.name
 	
@@ -85,23 +85,26 @@ func store_scene_info(node : Node3D) -> void:
 	if scene_aabb.intersects(player_aabb): #check intersection
 		og_scene = node.name
 		load_scene(og_scene)
+	
+	print("Stored scene info for ", node.name, " | ", Time.get_ticks_msec())
+	added_scene.emit()
 
 func load_player() -> void:
-	initial_load = false
+	loaded = true
 	if !is_instance_valid(player):
 		player = player_file.instantiate()
 		player.global_position = player_spawn_pos
 	player.ready.connect(func() -> void:
 		fade_loading_screen_out()
 		print("Faded screen out")
-		finished_loaded.emit()
+		finished_loading.emit()
 		)
 	main_node.add_child.call_deferred(player)
 	main_camera.player = player
 	print("Creating player: ", player)
 	
 func on_node_added(node:Node) -> void:
-	if !initial_load or !(node is Node3D): return
+	if loaded or !(node is Node3D): return
 	if node.is_in_group("player"):
 		print("Player added")
 		fade_loading_screen_in()
@@ -182,11 +185,20 @@ func offload_old_scene() -> void:
 	main_node.remove_child.call_deferred(
 		old_loaded_scene)
 	old_loaded_scene.queue_free()
-	
-func teleport_player(scene_name : String) -> void:
-	load_scene(scene_name).ready.connect(func():
-		print("Sending player to ", scene_data_dict[scene_name].main_teleport_point_name)
-		player.global_position = scene_data_dict[scene_name].main_teleport_point
-		main_camera.reset_camera_position()
-		offload_old_scenes()
+
+func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
+	fade_loading_screen_in().finished.connect(func():
+		load_scene(scene_name).ready.connect(func():
+			print("Teleporting player to ", scene_name)
+			player.global_position = new_position
+			main_camera.reset_camera_position()
+			offload_old_scenes()
+			await tree.create_timer(1).timeout
+			fade_loading_screen_out()
+		)
 	)
+
+func direct_teleport_player(scene_name : String) -> void:
+	var target_pos : Vector3 = scene_data_dict[scene_name].main_teleport_point
+	assert(target_pos != Vector3(-1,-1,-1), "" + scene_name + " doesn't have a teleport point assigned. Check that all your SceneLoaders are following the naming convention 'SceneLoader_<scene name (case-sensitive)>'!")
+	scene_loader_load(scene_name, target_pos)

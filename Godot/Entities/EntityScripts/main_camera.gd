@@ -54,7 +54,7 @@ func set_up_camera():
 	reset_camera_position()
 
 func _ready() -> void:
-	ContentLoader.finished_loaded.connect(set_up_camera)
+	ContentLoader.finished_loading.connect(set_up_camera)
 
 func _physics_process(delta: float) -> void:
 	if default_player_camera_location_node == null: return
@@ -95,13 +95,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		main_camera.global_position = camera_location
 
-
 func _move_camera_smooth(new_location_node: Node3D) -> void:
 	camera_smooth = true
 	camera_speed = CAMERA_TRANSITION_SPEED
 	camera_location_node = new_location_node
 	camera_location = camera_location_node.global_position
-
 
 func _move_camera_jump(new_location_node: Node3D) -> void:
 	camera_smooth = false
@@ -110,11 +108,10 @@ func _move_camera_jump(new_location_node: Node3D) -> void:
 
 func reset_camera_position() -> void:
 	if set_up == false: return
-	self.global_position = default_player_camera_location_node.global_position
+	self.global_position = camera_location
 
 func _change_current_camera(new_camera: Camera3D) -> void:
 	new_camera.make_current()
-
 
 func _change_camera_state(tf: bool) -> void:
 	camera_on_player = tf
