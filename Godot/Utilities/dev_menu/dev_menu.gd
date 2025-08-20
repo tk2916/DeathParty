@@ -17,14 +17,16 @@ var player_added_speed := 10.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var rooms = get_tree().get_nodes_in_group("loadable_scene")
+	# get a list of all the rooms
+	var rooms: Array = get_tree().get_nodes_in_group("loadable_scene")
 
-	for room in rooms:
+	# add a button for teleporting to each room to the dev menu
+	for room: Node3D in rooms:
 		var teleport_button: Button = teleport_button_scene.instantiate()
-		teleport_button.text = room.name
 
-		teleport_button.pressed.connect(func():ContentLoader.direct_teleport_player(teleport_button.text))
-		
+		teleport_button.text = room.name
+		teleport_button.pressed.connect(func() -> void:ContentLoader.direct_teleport_player(teleport_button.text))
+
 		teleport_button_container.add_child(teleport_button)
 
 
