@@ -20,8 +20,11 @@ func _ready() -> void:
 	var rooms = get_tree().get_nodes_in_group("loadable_scene")
 
 	for room in rooms:
-		var teleport_button = teleport_button_scene.instantiate()
+		var teleport_button: Button = teleport_button_scene.instantiate()
 		teleport_button.text = room.name
+
+		teleport_button.pressed.connect(func():ContentLoader.direct_teleport_player(teleport_button.text))
+		
 		teleport_button_container.add_child(teleport_button)
 
 
