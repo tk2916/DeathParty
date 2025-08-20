@@ -54,6 +54,10 @@ focus_mode = 0
 toggle_mode = true
 text = "hide UI"
 
+[node name="TeleportLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "teleport to a room:"
+
 [node name="TeleportButtonContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
