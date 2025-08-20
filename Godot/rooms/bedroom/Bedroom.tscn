@@ -140,191 +140,6 @@ height = 0.015
 radial_segments = 12
 rings = 12
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5w1r"]
-resource_name = "Material.137"
-cull_mode = 2
-albedo_texture = ExtResource("3_oa6uc")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_sjg8b"]
-_surfaces = [{
-"aabb": AABB(0.630193, 0, -0.404019, 0.796531, 1e-05, 0.808038),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "Material.137",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_68lsw"]
-resource_name = "polaroids and poster_Plane_057"
-_surfaces = [{
-"aabb": AABB(0.630193, 0, -0.404019, 0.796531, 1e-05, 0.808038),
-"attribute_data": PackedByteArray("XYD/////9n//////XYD2fw=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_d5w1r"),
-"name": "Material.137",
-"primitive": 3,
-"uv_scale": Vector4(2.00574, 2.00048, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_sjg8b")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f555w"]
-resource_name = "polaroids"
-cull_mode = 2
-albedo_texture = ExtResource("4_fa1og")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_756aj"]
-_surfaces = [{
-"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "polaroids",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_avely"]
-resource_name = "polaroids and poster_Plane_001"
-_surfaces = [{
-"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
-"attribute_data": PackedByteArray("YAhI+2P80wFj/Ej7YQhH+2EI0wFj/NMB"),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAwAEAAUA"),
-"material": SubResource("StandardMaterial3D_f555w"),
-"name": "polaroids",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 6,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAP///78AAAAAAAD/v///AAAAAP+/////f////3////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_756aj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2f16f"]
-resource_name = "polaroids.002"
-cull_mode = 2
-albedo_texture = ExtResource("5_dyybh")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_py818"]
-_surfaces = [{
-"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "polaroids.002",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_msydh"]
-resource_name = "polaroids and poster_Plane_003"
-_surfaces = [{
-"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
-"attribute_data": PackedByteArray("GwAI/yH/kAAh/wj/GwAI/xsAkAAh/5AA"),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAwAEAAUA"),
-"material": SubResource("StandardMaterial3D_2f16f"),
-"name": "polaroids.002",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 6,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAP///78AAAAAAAD/v///AAAAAP+/////f////3////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_py818")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wij4"]
-resource_name = "polaroids.003"
-cull_mode = 2
-albedo_texture = ExtResource("6_0t478")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_i7xwd"]
-_surfaces = [{
-"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "polaroids.003",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_23liv"]
-resource_name = "polaroids and poster_Plane_006"
-_surfaces = [{
-"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
-"attribute_data": PackedByteArray("GwAI/yH/kAAh/wj/GwAI/xsAkAAh/5AA"),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAwAEAAUA"),
-"material": SubResource("StandardMaterial3D_5wij4"),
-"name": "polaroids.003",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 6,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAP///78AAAAAAAD/v///AAAAAP+/////f////3////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_i7xwd")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7as25"]
-resource_name = "polaroids.004"
-cull_mode = 2
-albedo_texture = ExtResource("7_84fnt")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_hvt58"]
-_surfaces = [{
-"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "polaroids.004",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_v5tcb"]
-resource_name = "polaroids and poster_Plane_007"
-_surfaces = [{
-"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
-"attribute_data": PackedByteArray("GwAI/yH/kAAh/wj/GwAI/xsAkAAh/5AA"),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAwAEAAUA"),
-"material": SubResource("StandardMaterial3D_7as25"),
-"name": "polaroids.004",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 6,
-"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAP///78AAAAAAAD/v///AAAAAP+/////f////3////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_hvt58")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_mav1h"]
 size = Vector3(5.25, 0.259, 8.046)
 
@@ -1266,6 +1081,191 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_n8tma")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5w1r"]
+resource_name = "Material.137"
+cull_mode = 2
+albedo_texture = ExtResource("3_oa6uc")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sjg8b"]
+_surfaces = [{
+"aabb": AABB(0.630193, 0, -0.404019, 0.796531, 1e-05, 0.808038),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.137",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_68lsw"]
+resource_name = "polaroids and poster_Plane_057"
+_surfaces = [{
+"aabb": AABB(0.630193, 0, -0.404019, 0.796531, 1e-05, 0.808038),
+"attribute_data": PackedByteArray("XYD/////9n//////XYD2fw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_d5w1r"),
+"name": "Material.137",
+"primitive": 3,
+"uv_scale": Vector4(2.00574, 2.00048, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_sjg8b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f555w"]
+resource_name = "polaroids"
+cull_mode = 2
+albedo_texture = ExtResource("4_fa1og")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_756aj"]
+_surfaces = [{
+"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "polaroids",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_avely"]
+resource_name = "polaroids and poster_Plane_001"
+_surfaces = [{
+"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
+"attribute_data": PackedByteArray("YAhI+2P80wFj/Ej7YQhH+2EI0wFj/NMB"),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUA"),
+"material": SubResource("StandardMaterial3D_f555w"),
+"name": "polaroids",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAP///78AAAAAAAD/v///AAAAAP+/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_756aj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2f16f"]
+resource_name = "polaroids.002"
+cull_mode = 2
+albedo_texture = ExtResource("5_dyybh")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_py818"]
+_surfaces = [{
+"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "polaroids.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_msydh"]
+resource_name = "polaroids and poster_Plane_003"
+_surfaces = [{
+"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
+"attribute_data": PackedByteArray("GwAI/yH/kAAh/wj/GwAI/xsAkAAh/5AA"),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUA"),
+"material": SubResource("StandardMaterial3D_2f16f"),
+"name": "polaroids.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAP///78AAAAAAAD/v///AAAAAP+/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_py818")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wij4"]
+resource_name = "polaroids.003"
+cull_mode = 2
+albedo_texture = ExtResource("6_0t478")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i7xwd"]
+_surfaces = [{
+"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "polaroids.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_23liv"]
+resource_name = "polaroids and poster_Plane_006"
+_surfaces = [{
+"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
+"attribute_data": PackedByteArray("GwAI/yH/kAAh/wj/GwAI/xsAkAAh/5AA"),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUA"),
+"material": SubResource("StandardMaterial3D_5wij4"),
+"name": "polaroids.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAP///78AAAAAAAD/v///AAAAAP+/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i7xwd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7as25"]
+resource_name = "polaroids.004"
+cull_mode = 2
+albedo_texture = ExtResource("7_84fnt")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hvt58"]
+_surfaces = [{
+"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "polaroids.004",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v5tcb"]
+resource_name = "polaroids and poster_Plane_007"
+_surfaces = [{
+"aabb": AABB(-0.209112, 0, -0.0860507, 0.119086, 1e-05, 0.174668),
+"attribute_data": PackedByteArray("GwAI/yH/kAAh/wj/GwAI/xsAkAAh/5AA"),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUA"),
+"material": SubResource("StandardMaterial3D_7as25"),
+"name": "polaroids.004",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAP///78AAAAAAAD/v///AAAAAP+/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hvt58")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gjmr"]
 resource_name = "Material.213"
 cull_mode = 2
@@ -1563,34 +1563,6 @@ process_material = SubResource("ParticleProcessMaterial_rjuee")
 draw_pass_1 = SubResource("SphereMesh_mav1h")
 
 [node name="Room" type="Node3D" parent="."]
-
-[node name="polaroids and poster" type="Node3D" parent="Room"]
-transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.684697, 1.19279, 2.30504)
-
-[node name="Plane_046" type="MeshInstance3D" parent="Room/polaroids and poster"]
-transform = Transform3D(0.78685, 4.8414e-08, 0.135375, 0.135375, -2.814e-07, -0.78685, 0, 0.798411, -2.85534e-07, -1.42133, 1.14328, -3.91731)
-mesh = SubResource("ArrayMesh_68lsw")
-skeleton = NodePath("")
-
-[node name="Plane_001" type="MeshInstance3D" parent="Room/polaroids and poster"]
-transform = Transform3D(1.38332, -3.76841e-08, -0.105372, -0.105372, -4.94715e-07, -1.38332, 0, 1.38733, -4.96148e-07, -0.902753, -0.872878, 0.491149)
-mesh = SubResource("ArrayMesh_avely")
-skeleton = NodePath("")
-
-[node name="Plane_002" type="MeshInstance3D" parent="Room/polaroids and poster"]
-transform = Transform3D(1.364, 9.06116e-08, 0.253368, 0.253368, -4.87803e-07, -1.364, 0, 1.38733, -4.96148e-07, -0.740166, -0.687096, 0.491149)
-mesh = SubResource("ArrayMesh_msydh")
-skeleton = NodePath("")
-
-[node name="Plane_003" type="MeshInstance3D" parent="Room/polaroids and poster"]
-transform = Transform3D(1.38733, 0, 0, 0, -4.96148e-07, -1.38733, 0, 1.38733, -4.96148e-07, -1.15224, 0.206772, 0.489395)
-mesh = SubResource("ArrayMesh_23liv")
-skeleton = NodePath("")
-
-[node name="Plane_004" type="MeshInstance3D" parent="Room/polaroids and poster"]
-transform = Transform3D(1.37425, -6.79698e-08, -0.190057, -0.190057, -4.9147e-07, -1.37425, 0, 1.38733, -4.96148e-07, -0.914433, -0.583365, 0.491149)
-mesh = SubResource("ArrayMesh_v5tcb")
-skeleton = NodePath("")
 
 [node name="Floor" type="StaticBody3D" parent="Room" groups=["material_wood"]]
 
@@ -1935,6 +1907,31 @@ skeleton = NodePath("")
 [node name="Record3" type="MeshInstance3D" parent="Props/WallDecorations"]
 transform = Transform3D(-0.106434, 4.29865e-09, 0.0983417, 0.0983417, 4.65238e-09, 0.106434, 0, 0.144911, -6.33427e-09, -1.954, 1.16713, -0.565351)
 mesh = SubResource("ArrayMesh_rqjn5")
+skeleton = NodePath("")
+
+[node name="Poster4" type="MeshInstance3D" parent="Props/WallDecorations"]
+transform = Transform3D(0.688788, 4.23804e-08, 0.118504, 0.118504, -2.4633e-07, -0.688788, 0, 0.698909, -2.49949e-07, -3.36292, 0.631129, -0.534068)
+mesh = SubResource("ArrayMesh_68lsw")
+skeleton = NodePath("")
+
+[node name="Poster5" type="MeshInstance3D" parent="Props/WallDecorations"]
+transform = Transform3D(1.21092, -3.29877e-08, -0.09224, -0.09224, -4.33061e-07, -1.21092, 0, 1.21443, -4.34315e-07, -2.90897, -1.13376, 3.32498)
+mesh = SubResource("ArrayMesh_avely")
+skeleton = NodePath("")
+
+[node name="Poster6" type="MeshInstance3D" parent="Props/WallDecorations"]
+transform = Transform3D(1.19401, 7.93191e-08, 0.221792, 0.221792, -4.2701e-07, -1.19401, 0, 1.21443, -4.34315e-07, -2.76665, -0.971136, 3.32498)
+mesh = SubResource("ArrayMesh_msydh")
+skeleton = NodePath("")
+
+[node name="Poster7" type="MeshInstance3D" parent="Props/WallDecorations"]
+transform = Transform3D(1.21443, 0, 0, 0, -4.34315e-07, -1.21443, 0, 1.21443, -4.34315e-07, -3.12737, -0.188666, 3.32345)
+mesh = SubResource("ArrayMesh_23liv")
+skeleton = NodePath("")
+
+[node name="Poster8" type="MeshInstance3D" parent="Props/WallDecorations"]
+transform = Transform3D(1.20298, -5.9499e-08, -0.166371, -0.166371, -4.3022e-07, -1.20298, 0, 1.21443, -4.34315e-07, -2.9192, -0.880332, 3.32498)
+mesh = SubResource("ArrayMesh_v5tcb")
 skeleton = NodePath("")
 
 [node name="Ivy" parent="Props" instance=ExtResource("13_ufsvp")]
