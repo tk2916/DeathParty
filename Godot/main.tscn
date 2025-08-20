@@ -139,7 +139,7 @@ environment = ExtResource("15_a6jrf")
 script = ExtResource("3_cyx1q")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9457, 1.00096, 9.44558)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9457, 1.27341, 66.231)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
