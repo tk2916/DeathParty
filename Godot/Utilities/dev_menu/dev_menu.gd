@@ -25,7 +25,7 @@ func _ready() -> void:
 		var teleport_button: Button = teleport_button_scene.instantiate()
 
 		teleport_button.text = room.name
-		teleport_button.pressed.connect(func() -> void:ContentLoader.direct_teleport_player(teleport_button.text))
+		teleport_button.pressed.connect(func() -> void: teleport_player(teleport_button.text))
 
 		teleport_button_container.add_child(teleport_button)
 
@@ -73,3 +73,7 @@ func _on_hide_ui_button_toggled(toggled_on: bool) -> void:
 	elif not toggled_on:
 		game_ui.show()
 		hide_ui_button.text = "hide UI"
+
+
+func teleport_player(room: String) -> void:
+	ContentLoader.direct_teleport_player(room)
