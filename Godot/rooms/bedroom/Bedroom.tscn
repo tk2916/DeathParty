@@ -36,7 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://cmb225vqtsp61" path="res://rooms/bedroom/painting box.glb" id="19_srxuo"]
 [ext_resource type="Texture2D" uid="uid://mgt0sm3t58yc" path="res://rooms/bedroom/bed shelf_Image_1_7.png" id="20_gua8r"]
 [ext_resource type="Texture2D" uid="uid://ctikjc8t4babt" path="res://rooms/bedroom/bed shelf_Image_4.png" id="20_w0jyq"]
-[ext_resource type="PackedScene" path="res://Assets/environment/star_carpet.tscn" id="20_y7msa"]
+[ext_resource type="PackedScene" uid="uid://blvkc3v2k85hb" path="res://Assets/environment/star_carpet.tscn" id="20_y7msa"]
 [ext_resource type="PackedScene" uid="uid://crphthphoofl5" path="res://rooms/bedroom/closet.glb" id="20_yfvte"]
 [ext_resource type="Texture2D" uid="uid://w0wnxiacl8ka" path="res://rooms/bedroom/bed shelf_Image_5.png" id="21_0hleh"]
 [ext_resource type="Texture2D" uid="uid://babb10s7m4kn6" path="res://rooms/bedroom/bed shelf_Image_0_11.png" id="21_w0jyq"]
