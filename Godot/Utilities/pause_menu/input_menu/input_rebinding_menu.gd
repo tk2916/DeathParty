@@ -17,12 +17,13 @@ func _ready() -> void:
 
 
 func populate_list() -> void:
-	# loop thru actions in map
+	# loop thru our editable actions in the input map
 	for action in editable_inputs.keys():
 		# instantiate binding item scene
+		# (this is the label and buttons for each binding in the menu)
 		var binding_item = binding_item_prefab.instantiate()
 
-		# get references to control nodes in scene
+		# get references to buttons
 		var label_action = binding_item.find_child("ActionName")
 		#TODO: give these clearer names like input_a_button
 		var input_a = binding_item.find_child("InputA")
@@ -79,6 +80,4 @@ func _input(event : InputEvent) -> void:
 
 			button_to_change = null
 
-			#TODO: stop this from causing crashes if player
-			# exits menu during binding
 			changing_input = false
