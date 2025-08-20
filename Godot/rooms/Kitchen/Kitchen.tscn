@@ -1,6 +1,6 @@
 [gd_scene load_steps=86 format=4 uid="uid://cjo88oqrqtxdm"]
 
-[ext_resource type="Script" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
+[ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="2_kbocy"]
 [ext_resource type="Texture2D" uid="uid://bno7ud54oxh6n" path="res://rooms/Kitchen/kitchen molding_standardwood.png" id="3_kyy70"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bvjqxnm7cpxq0" path="res://Assets/environment/cupboard/cupboard.tscn" id="16_htgpp"]
 [ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/posters/student_athlete_poster/student_athlete_poster.glb" id="16_xg0f7"]
 [ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/posters/sunday_light_poster/sunday_light_poster.glb" id="17_jqlwo"]
-[ext_resource type="PackedScene" path="res://Assets/props/string_lights/string_lights_horizontal_bright.tscn" id="18_54x08"]
+[ext_resource type="PackedScene" uid="uid://c0775400o470y" path="res://Assets/props/string_lights/string_lights_horizontal_bright.tscn" id="18_54x08"]
 [ext_resource type="PackedScene" uid="uid://ciymie8xu8utv" path="res://Assets/props/flags/party_flags/party_flags_yellow.tscn" id="18_htgpp"]
 [ext_resource type="PackedScene" uid="uid://xgjnbxm5g4j0" path="res://Assets/props/alcohol/beer/beer.glb" id="21_l5f4f"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/props/alcohol/sunday_light/sunday light.glb" id="22_3yrsa"]
@@ -40,7 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://ml4kn25ykoyy" path="res://Assets/props/keg/keg.tscn" id="34_e7jho"]
 [ext_resource type="PackedScene" uid="uid://beusior7ym8c4" path="res://Assets/props/chairs/chair/chair.tscn" id="35_p4v0j"]
 [ext_resource type="PackedScene" uid="uid://cnb05rd1rv7e7" path="res://Assets/CharacterAssets/rowan/rowan.tscn" id="41_h3uy3"]
-[ext_resource type="PackedScene" path="res://Assets/props/desk_lamp/simple_lamp.tscn" id="42_e7jho"]
+[ext_resource type="PackedScene" uid="uid://byj5oetmgrptr" path="res://Assets/props/desk_lamp/simple_lamp.tscn" id="42_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="42_et00h"]
 [ext_resource type="PackedScene" uid="uid://dxv1m51cs7gn8" path="res://Assets/props/alcohol/beer_box/beer_box.tscn" id="42_p4v0j"]
 [ext_resource type="PackedScene" uid="uid://c8rq8p1i25wix" path="res://Assets/CharacterAssets/bartender/bartender.tscn" id="44_p4v0j"]
@@ -983,7 +983,7 @@ transform = Transform3D(0.242503, 0, -0.634988, 0, 0.679718, 0, 0.634988, 0, 0.2
 transform = Transform3D(-0.440466, 0.120748, -0.306446, 0.107798, 0.536375, 0.056404, 0.311238, -0.0148914, -0.453221, -4.85103, 2.21728, 4.90188)
 
 [node name="pumpkin with beers4" parent="Counter/Stove" instance=ExtResource("29_nw002")]
-transform = Transform3D(-0.807923, 0, 0.516549, 0, 0.958936, 0, -0.516549, 0, -0.807923, -4.26071, 2.29299, 4.87994)
+transform = Transform3D(-0.807923, 0, 0.516549, 0, 0.958936, 0, -0.516549, 0, -0.807923, -4.26122, 2.29299, 4.88038)
 
 [node name="Pot" parent="Counter/Stove" instance=ExtResource("15_htgpp")]
 transform = Transform3D(0.578032, 0, -0.357624, 0, 0.679718, 0, 0.357624, 0, 0.578032, -4.81958, 2.04959, 4.89271)
@@ -1326,10 +1326,6 @@ transform = Transform3D(-0.0437774, 0, -1.82251, 0, 1.82303, 0, 1.82251, 0, -0.0
 [node name="trash7" parent="Trash" instance=ExtResource("27_b6r2c")]
 transform = Transform3D(-0.956679, 0, -1.55184, 0, 1.82303, 0, 1.55184, 0, -0.956679, 7.06528, -0.180813, 1.82775)
 
-[node name="pumpkin with beers" parent="Trash" instance=ExtResource("29_nw002")]
-transform = Transform3D(-1.09327, 0, -0.013052, 0, 1.09334, 0, 0.013052, 0, -1.09327, 5.56857, 2.91215, 0.554941)
-visible = false
-
 [node name="Props" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87571, -2.44683, 0.820077)
 
@@ -1540,14 +1536,6 @@ transform = Transform3D(0.245875, 0, 0, 0, 0.245875, 0, 0, 0, 0.245875, 0.741225
 [node name="Chairs" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.873823, -0.408064, -0.869725)
 
-[node name="FoldingChairs" parent="Props/Chairs" instance=ExtResource("26_eupok")]
-transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -9.45312, 0.532502, 3.5064)
-visible = false
-
-[node name="FoldingChairs2" parent="Props/Chairs" instance=ExtResource("26_eupok")]
-transform = Transform3D(-1.00437, 0, -0.432029, 0, 1.09334, 0, 0.432029, 0, -1.00437, 5.5781, 0.532502, 0.29255)
-visible = false
-
 [node name="Chair" parent="Props/Chairs" instance=ExtResource("35_p4v0j")]
 transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -8.27693, -0.266488, 0.502031)
 
@@ -1593,7 +1581,6 @@ transform = Transform3D(1.39879, 0, 0, 0, 1.39879, 0, 0, 0, 1.39879, -6.43133, -
 
 [node name="HangingPumpkins" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44204, 2.45267, -2.10183)
-visible = false
 
 [node name="JackOLanternHanging" parent="Props/HangingPumpkins" instance=ExtResource("31_hc0kg")]
 transform = Transform3D(1.231, 0, 0, 0, 1.231, 0, 0, 0, 1.231, 5.42186, 0.011635, 0.0469019)
@@ -1740,6 +1727,12 @@ transform = Transform3D(1.00847, 0, -0.858491, 0, 1.3244, 0, 0.858491, 0, 1.0084
 
 [node name="Bartender" parent="NPCs" instance=ExtResource("44_p4v0j")]
 transform = Transform3D(0.711062, 0, 0.844263, 0, 1.14342, 0, -0.844263, 0, 0.711062, -6.16842, -3.1054, -1.79786)
+
+[node name="folded chairs" parent="." instance=ExtResource("26_eupok")]
+transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -7.21247, -2.32239, 3.40963)
+
+[node name="folded chairs2" parent="." instance=ExtResource("26_eupok")]
+transform = Transform3D(-1.09118, 0, -0.0688421, 0, 1.09334, 0, 0.0688421, 0, -1.09118, 7.59115, -2.33863, -0.217396)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="Room"]

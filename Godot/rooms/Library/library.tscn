@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=120 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -51,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="45_owm1a"]
 [ext_resource type="PackedScene" uid="uid://ddiqilmdbakfb" path="res://Assets/CharacterAssets/angel/angel.tscn" id="50_m1j1w"]
 [ext_resource type="PackedScene" uid="uid://qlwirfl7ycga" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="51_ndciv"]
+[ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="52_rwfot"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15.626, 10, 12)
@@ -1773,6 +1774,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
 
 [node name="Blk Bunny" parent="." instance=ExtResource("51_ndciv")]
 transform = Transform3D(0.91048, 0, -0.715011, 0, 1.15768, 0, 0.715011, 0, 0.91048, -3.60521, -4.36904, 0.899375)
+
+[node name="folded chairs" parent="." instance=ExtResource("52_rwfot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.15962, -3.71333, 7.38065)
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 
