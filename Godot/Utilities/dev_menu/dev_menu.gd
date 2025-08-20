@@ -9,12 +9,20 @@ extends CanvasLayer
 @onready var slow_motion_button: Button = %SlowMotionButton
 @onready var hide_ui_button: Button = %HideUIButton
 
+@onready var teleport_button_container: GridContainer = %TeleportButtonContainer
+@export var teleport_button_scene: PackedScene
+
 var player_added_speed := 10.0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	var rooms = get_tree().get_nodes_in_group("loadable_scene")
+
+	for room in rooms:
+		var teleport_button = teleport_button_scene.instantiate()
+		teleport_button.text = room.name
+		teleport_button_container.add_child(teleport_button)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

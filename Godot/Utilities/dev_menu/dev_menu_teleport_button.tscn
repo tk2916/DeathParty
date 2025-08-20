@@ -5,3 +5,4 @@
 [node name="TeleportButton" type="Button"]
 focus_mode = 0
 theme = ExtResource("1_tcodu")
+theme_override_font_sizes/font_size = 12
