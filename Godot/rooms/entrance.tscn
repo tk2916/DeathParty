@@ -435,7 +435,7 @@ shape = SubResource("BoxShape3D_klyfx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -2.8)
 shape = SubResource("BoxShape3D_ihq26")
 
-[node name="BedroomSceneLoader" type="Area3D" parent="."]
+[node name="SceneLoader_Bedroom" type="Area3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
 collision_layer = 2
 collision_mask = 2
@@ -443,68 +443,68 @@ script = ExtResource("39_t7spl")
 scene_going_right = "Bedroom"
 scene_going_left = "Bedroom"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BedroomSceneLoader"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Bedroom"]
 transform = Transform3D(0.999988, 0, -3.76588e-13, 0, 1, 0, 3.76588e-13, 0, 0.999988, -1.47154, 0.747803, -0.0853052)
 shape = SubResource("BoxShape3D_3cled")
 
-[node name="TeleportPoint" type="Node3D" parent="BedroomSceneLoader"]
+[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Bedroom"]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.2702)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BedroomSceneLoader/TeleportPoint"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Bedroom/TeleportPoint"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_6wayg")
 mesh = SubResource("BoxMesh_qelyj")
 
-[node name="DoorSound" type="FmodEventEmitter3D" parent="BedroomSceneLoader"]
+[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Bedroom"]
 event_name = "event:/door"
 event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
 attached = false
 volume = 0.3
 unique_name_in_owner = true
 
-[node name="KitchenSceneLoader" parent="." instance=ExtResource("35_nneh3")]
+[node name="SceneLoader_Kitchen" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)
 scene_going_right = "Kitchen"
 scene_going_left = "Kitchen"
 play_door_sound = true
 
-[node name="CollisionShape3D" parent="KitchenSceneLoader" index="0"]
+[node name="CollisionShape3D" parent="SceneLoader_Kitchen" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29234, 1.2478, 0.644916)
 shape = SubResource("BoxShape3D_kdf33")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="TeleportPoint" parent="KitchenSceneLoader" index="1"]
+[node name="TeleportPoint" parent="SceneLoader_Kitchen" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -3.37467)
 
-[node name="MeshInstance3D" parent="KitchenSceneLoader/TeleportPoint" index="0"]
+[node name="MeshInstance3D" parent="SceneLoader_Kitchen/TeleportPoint" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.23872, 0, 0)
 
-[node name="PartyRoomSceneLoader" parent="." instance=ExtResource("35_nneh3")]
+[node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
 offload_delay = 0.0
 scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
 
-[node name="CollisionShape3D" parent="PartyRoomSceneLoader" index="0"]
+[node name="CollisionShape3D" parent="SceneLoader_PartyRoom" index="0"]
 transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
 shape = SubResource("BoxShape3D_t7spl")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="BasementSceneLoader" parent="." instance=ExtResource("35_nneh3")]
+[node name="SceneLoader_Basement" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.9534, 1.22732, 9.88085)
 scene_going_right = "Basement"
 scene_going_left = "Basement"
 play_door_sound = true
 
-[node name="CollisionShape3D" parent="BasementSceneLoader" index="0"]
+[node name="CollisionShape3D" parent="SceneLoader_Basement" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496214, -0.052197, 1.26097)
 shape = SubResource("BoxShape3D_la1vu")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="TeleportPoint" parent="BasementSceneLoader" index="1"]
+[node name="TeleportPoint" parent="SceneLoader_Basement" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788603, -1.86279, -6.29928)
 
-[node name="MeshInstance3D" parent="BasementSceneLoader/TeleportPoint" index="0"]
+[node name="MeshInstance3D" parent="SceneLoader_Basement/TeleportPoint" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.06286, 0)
 
 [node name="SceneLights" type="Node3D" parent="."]
@@ -1086,12 +1086,12 @@ transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.
 transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.58272, -3.50614)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="BedroomSceneLoader" to="BedroomSceneLoader" method="_on_body_entered"]
-[connection signal="body_exited" from="BedroomSceneLoader" to="BedroomSceneLoader" method="_on_body_exited"]
+[connection signal="body_entered" from="SceneLoader_Bedroom" to="SceneLoader_Bedroom" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneLoader_Bedroom" to="SceneLoader_Bedroom" method="_on_body_exited"]
 
-[editable path="KitchenSceneLoader"]
-[editable path="PartyRoomSceneLoader"]
-[editable path="BasementSceneLoader"]
+[editable path="SceneLoader_Kitchen"]
+[editable path="SceneLoader_PartyRoom"]
+[editable path="SceneLoader_Basement"]
 [editable path="WallLamps/WallLamp2"]
 [editable path="WallLamps/WallLamp3"]
 [editable path="Windows/ArchWindow"]

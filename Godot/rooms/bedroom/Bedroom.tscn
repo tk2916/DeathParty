@@ -36,7 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://cmb225vqtsp61" path="res://rooms/bedroom/painting box.glb" id="19_srxuo"]
 [ext_resource type="Texture2D" uid="uid://mgt0sm3t58yc" path="res://rooms/bedroom/bed shelf_Image_1_7.png" id="20_gua8r"]
 [ext_resource type="Texture2D" uid="uid://ctikjc8t4babt" path="res://rooms/bedroom/bed shelf_Image_4.png" id="20_w0jyq"]
-[ext_resource type="PackedScene" uid="uid://blvkc3v2k85hb" path="res://Assets/environment/star_carpet.tscn" id="20_y7msa"]
+[ext_resource type="PackedScene" path="res://Assets/environment/star_carpet.tscn" id="20_y7msa"]
 [ext_resource type="PackedScene" uid="uid://crphthphoofl5" path="res://rooms/bedroom/closet.glb" id="20_yfvte"]
 [ext_resource type="Texture2D" uid="uid://w0wnxiacl8ka" path="res://rooms/bedroom/bed shelf_Image_5.png" id="21_0hleh"]
 [ext_resource type="Texture2D" uid="uid://babb10s7m4kn6" path="res://rooms/bedroom/bed shelf_Image_0_11.png" id="21_w0jyq"]
@@ -1486,7 +1486,7 @@ shape = SubResource("BoxShape3D_7octt")
 transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -2.002, 0.889039, 4.33741)
 shape = SubResource("BoxShape3D_qbwcx")
 
-[node name="EntranceSceneLoader" type="Area3D" parent="."]
+[node name="SceneLoader_Entrance" type="Area3D" parent="."]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.816608, -0.0933874, 5.45903)
 collision_layer = 2
 collision_mask = 2
@@ -1494,19 +1494,19 @@ script = ExtResource("26_mav1h")
 scene_going_right = "Entrance"
 scene_going_left = "Entrance"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EntranceSceneLoader"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Entrance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926189, 1.403, -1.34445)
 shape = SubResource("BoxShape3D_3cled")
 
-[node name="TeleportPoint" type="Node3D" parent="EntranceSceneLoader"]
+[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Entrance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.455, 0.839686, -18.6226)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="EntranceSceneLoader/TeleportPoint"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Entrance/TeleportPoint"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_6wayg")
 mesh = SubResource("BoxMesh_qelyj")
 
-[node name="DoorSound" type="FmodEventEmitter3D" parent="EntranceSceneLoader"]
+[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Entrance"]
 event_name = "event:/door"
 event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
 attached = false
@@ -2052,9 +2052,9 @@ mesh = SubResource("ArrayMesh_sokvp")
 skeleton = NodePath("")
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="body_entered" from="EntranceSceneLoader" to="." method="_on_scene_loader_body_entered"]
-[connection signal="body_entered" from="EntranceSceneLoader" to="EntranceSceneLoader" method="_on_body_entered"]
-[connection signal="body_exited" from="EntranceSceneLoader" to="EntranceSceneLoader" method="_on_body_exited"]
+[connection signal="body_entered" from="SceneLoader_Entrance" to="." method="_on_scene_loader_body_entered"]
+[connection signal="body_entered" from="SceneLoader_Entrance" to="SceneLoader_Entrance" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneLoader_Entrance" to="SceneLoader_Entrance" method="_on_body_exited"]
 
 [editable path="Bed"]
 [editable path="Closet"]

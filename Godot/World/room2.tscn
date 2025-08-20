@@ -227,7 +227,7 @@ mesh = SubResource("CylinderMesh_lquwl")
 
 [node name="InteractionDetector" parent="ThingsToHide/NPC" instance=ExtResource("10_cf8rj")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ThingsToHide/NPC/InteractionDetector"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ThingsToHide/NPC/InteractionDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
 shape = SubResource("BoxShape3D_kek77")
 
@@ -283,6 +283,3 @@ event_name = "event:/crowd"
 event_guid = "{9e4d86e6-afa7-406e-ba12-08656547d254}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, -0.5)
-
-[connection signal="body_entered" from="ThingsToHide/NPC/InteractionDetector" to="ThingsToHide/NPC/InteractionDetector" method="_on_body_entered"]
-[connection signal="body_exited" from="ThingsToHide/NPC/InteractionDetector" to="ThingsToHide/NPC/InteractionDetector" method="_on_body_exited"]

@@ -37,6 +37,7 @@ func _ready() -> void:
 
 func calculate_bounds() -> void:
 	# Calling await in _ready is bad practice, I think
+	if get_tree() == null: return
 	await get_tree().process_frame # Wait a frame before calculating center - required if scene is loaded at runtime
 	room_area_center = room_area.global_transform.origin
 	room_area_shape = room_area.shape

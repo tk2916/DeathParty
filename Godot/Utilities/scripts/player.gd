@@ -27,7 +27,7 @@ var current_animation : AnimationState = AnimationState.IDLE
 var movement_disabled : bool = false
 
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	original_camera_position = player_camera_location.position
 
 

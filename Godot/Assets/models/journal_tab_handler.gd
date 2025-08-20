@@ -1,8 +1,8 @@
 extends Node
 class_name JournalTabHandler
 
-var left_tabs : Array[Node]
-var right_tabs : Array[Node]
+var left_tabs : Array[JournalTab]
+var right_tabs : Array[JournalTab]
 
 var amount_of_tabs : int
 
@@ -21,7 +21,7 @@ var SIDES : Dictionary[String, bool] = {
 }
 
 #all tabs are on the right at the beginning
-func _init(_left_tabs : Array[Node], _right_tabs : Array[Node]) -> void:
+func _init(_left_tabs : Array[JournalTab], _right_tabs : Array[JournalTab]) -> void:
 	print("Tab handler")
 	left_tabs = _left_tabs
 	right_tabs = _right_tabs
@@ -30,7 +30,7 @@ func _init(_left_tabs : Array[Node], _right_tabs : Array[Node]) -> void:
 		tab_index_to_side.push_back(SIDES.RIGHT)
 	flip_page(0)
 
-func toggle_tab_visibility(to_side : bool, tab_index : int):
+func toggle_tab_visibility(to_side : bool, tab_index : int) -> void:
 	right_tabs[tab_index].toggle_visible(!to_side)
 	left_tabs[tab_index].toggle_visible(to_side)
 
