@@ -1486,27 +1486,27 @@ shape = SubResource("BoxShape3D_7octt")
 transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -2.002, 0.889039, 4.33741)
 shape = SubResource("BoxShape3D_qbwcx")
 
-[node name="SceneLoader_Entrance" type="Area3D" parent="."]
+[node name="SceneLoader_Exterior" type="Area3D" parent="."]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.816608, -0.0933874, 5.45903)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("26_mav1h")
-scene_going_right = "Entrance"
-scene_going_left = "Entrance"
+scene_going_right = "Exterior"
+scene_going_left = "Exterior"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Entrance"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Exterior"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926189, 1.403, -1.34445)
 shape = SubResource("BoxShape3D_3cled")
 
-[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Entrance"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.455, 0.839686, -18.6226)
+[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Exterior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2492, 0.839686, 64.2138)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Entrance/TeleportPoint"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Exterior/TeleportPoint"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_6wayg")
 mesh = SubResource("BoxMesh_qelyj")
 
-[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Entrance"]
+[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Exterior"]
 event_name = "event:/door"
 event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
 attached = false
@@ -2055,9 +2055,9 @@ skeleton = NodePath("")
 light_color = Color(0.6485, 0.43, 1, 1)
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="body_entered" from="SceneLoader_Entrance" to="." method="_on_scene_loader_body_entered"]
-[connection signal="body_entered" from="SceneLoader_Entrance" to="SceneLoader_Entrance" method="_on_body_entered"]
-[connection signal="body_exited" from="SceneLoader_Entrance" to="SceneLoader_Entrance" method="_on_body_exited"]
+[connection signal="body_entered" from="SceneLoader_Exterior" to="." method="_on_scene_loader_body_entered"]
+[connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_exited"]
 
 [editable path="Bed"]
 [editable path="Closet"]
