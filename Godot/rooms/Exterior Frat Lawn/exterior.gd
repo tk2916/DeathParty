@@ -11,3 +11,4 @@ func handle_player_entrance(body: Node3D) -> void:
 	keep_camera_on_player(body)
 	bind_camera_LR(body)
 	bind_camera_y(body, 3)
+	set_camera_offset(Vector3(0, 0, .15))
