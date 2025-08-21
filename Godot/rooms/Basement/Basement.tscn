@@ -41,7 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://2t8atxx1eno6" path="res://rooms/Basement/DDR_StingrayPBS3_emissive.png" id="31_kk7s6"]
 [ext_resource type="Texture2D" uid="uid://b7s06uof0swcc" path="res://rooms/Basement/DDR_StingrayPBS3_normal.png" id="32_g8hj1"]
 [ext_resource type="Texture2D" uid="uid://bqfsggxrom6e3" path="res://rooms/Basement/DDR_StingrayPBS2_baseColor.png" id="33_1mcaq"]
-[ext_resource type="PackedScene" uid="uid://bdcfyi83q8umf" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
+[ext_resource type="PackedScene" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
 [ext_resource type="Texture2D" uid="uid://bpfxxcii5umf2" path="res://rooms/Basement/long lamp_stainless steel.png" id="34_5ryib"]
 [ext_resource type="Texture2D" uid="uid://ctk2px7ruxhou" path="res://rooms/Basement/DDR_StingrayPBS2_metallicRoughness.png" id="34_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="34_u8b43"]
@@ -2120,6 +2120,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.24418, 1.84719, -4.15661)
 
 [node name="PipeSound" type="FmodEventEmitter3D" parent="Pipes"]
+event_name = "event:/000_SFX/000_Demo_Test/014_SFX_Pipe"
 event_guid = "{1cd8e74a-80a5-4514-bf89-daa69b02ae2f}"
 autoplay = true
 volume = 2.0
