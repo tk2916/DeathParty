@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp8mxgak36ovb"]
+[gd_scene load_steps=5 format=3 uid="uid://dp8mxgak36ovb"]
 
 [ext_resource type="PackedScene" uid="uid://csoh6pwblyomm" path="res://Assets/CharacterAssets/Caleb/Caleb.glb" id="1_q5ip8"]
-[ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="2_hq7c8"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_f3byp"]
+[ext_resource type="Resource" uid="uid://clfvsvp2igosb" path="res://Assets/Resources/CharacterResources/character_properties_caleb.tres" id="3_gvj3b"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/caleb_test_dialogue_1.json" id="4_exglj"]
 
-[node name="Caleb" instance=ExtResource("1_q5ip8")]
+[node name="Caleb" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_q5ip8")]
 transform = Transform3D(1.09713, 0, 0, 0, 1.09713, 0, 0, 0, 1.09713, 0, 0, 0)
+script = ExtResource("2_f3byp")
+character_resource = ExtResource("3_gvj3b")
+json_file = ExtResource("4_exglj")
+primary_mesh = NodePath("Model/Skeleton3D/caleb_base_v04_003")
 
 [node name="Skateboard_004" parent="." index="0"]
 lod_bias = 0.25
@@ -117,10 +123,3 @@ lod_bias = 0.25
 
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "idle"
-
-[node name="InteractionDetector" parent="." index="3" instance=ExtResource("2_hq7c8")]
-
-[node name="CollisionShape3D" parent="InteractionDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0166416, 0.888489, -0.0242138)
-
-[editable path="InteractionDetector"]

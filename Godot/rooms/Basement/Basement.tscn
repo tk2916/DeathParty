@@ -2120,6 +2120,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.24418, 1.84719, -4.15661)
 
 [node name="PipeSound" type="FmodEventEmitter3D" parent="Pipes"]
+event_name = "event:/000_SFX/000_Demo_Test/014_SFX_Pipe"
 event_guid = "{1cd8e74a-80a5-4514-bf89-daa69b02ae2f}"
 autoplay = true
 volume = 2.0

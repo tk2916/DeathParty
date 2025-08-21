@@ -61,7 +61,7 @@ func create_clickable_item(item_resource : InventoryItemResource, item : Node3D)
 	collision_shape.shape = BoxShape3D.new()
 	collision_shape.shape.extents = Vector3(.2,.5,.2)
 	
-	static_body.global_position = item.global_position
+	#static_body.global_position = item.global_position
 	static_body.add_child(collision_shape)
 	static_body.add_child(item)
 	

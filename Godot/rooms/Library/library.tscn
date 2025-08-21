@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=122 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -49,8 +49,10 @@
 [ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
 [ext_resource type="PackedScene" uid="uid://beusior7ym8c4" path="res://Assets/props/chairs/chair/chair.tscn" id="45_jpbuu"]
 [ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="45_owm1a"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="49_x38pf"]
 [ext_resource type="PackedScene" uid="uid://ddiqilmdbakfb" path="res://Assets/CharacterAssets/angel/angel.tscn" id="50_m1j1w"]
-[ext_resource type="PackedScene" uid="uid://qlwirfl7ycga" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="51_ndciv"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/sample_dialogue_template.json" id="50_yma0n"]
+[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="51_ndciv"]
 [ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="52_rwfot"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
@@ -1748,12 +1750,21 @@ transform = Transform3D(0.863531, 0, 0.20899, 0, 0.888461, 0, -0.20899, 0, 0.863
 
 [node name="angel" parent="NPCs" instance=ExtResource("50_m1j1w")]
 transform = Transform3D(1.04394, 0, 0.287276, 0, 1.08275, 0, -0.287276, 0, 1.04394, 0.640378, 0.0198874, -0.0244191)
+script = ExtResource("49_x38pf")
+json_file = ExtResource("50_yma0n")
+use_first_mesh = true
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("45_owm1a")]
 transform = Transform3D(0.736692, 0, -0.887413, 0, 1.15335, 0, 0.887413, 0, 0.736692, 1.8323, 0.0134149, 0.409096)
+script = ExtResource("49_x38pf")
+json_file = ExtResource("50_yma0n")
+use_first_mesh = true
 
 [node name="Sam" parent="NPCs" instance=ExtResource("43_obdan")]
 transform = Transform3D(1.06079, 0, 0.419076, 0, 1.14057, 0, -0.419076, 0, 1.06079, -0.73885, 0.0335598, 0.74226)
+script = ExtResource("49_x38pf")
+json_file = ExtResource("50_yma0n")
+use_first_mesh = true
 
 [node name="WoodCreakSound" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/000_SFX/000_Demo_Test/009_SFX_WoodCreak"

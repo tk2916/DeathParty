@@ -26,7 +26,7 @@ func on_tasks_change(action:String, item:String) -> void:
 	if action == "add":
 		new_task(item)
 	else:
-		var task_resource = SaveSystem.task_exists(item)
+		var task_resource : TaskResource = SaveSystem.task_exists(item)
 		task_resource.complete()
 
 func _ready() -> void:

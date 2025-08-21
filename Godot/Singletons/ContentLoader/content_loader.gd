@@ -191,7 +191,7 @@ func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 		load_scene(scene_name).ready.connect(func():
 			print("Teleporting player to ", scene_name)
 			player.global_position = new_position
-			main_camera.reset_camera_position()
+			#main_camera.reset_camera_position()
 			offload_old_scenes()
 			await tree.create_timer(1).timeout
 			fade_loading_screen_out()

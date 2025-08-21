@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfxvpoegl0xb5"]
+[gd_scene load_steps=5 format=3 uid="uid://cfxvpoegl0xb5"]
 
 [ext_resource type="PackedScene" uid="uid://c53usghwv4r2l" path="res://Assets/CharacterAssets/nora/Nora.glb" id="1_jbvsc"]
-[ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="2_tq80c"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_2wvjm"]
+[ext_resource type="Resource" uid="uid://lfthc37kslft" path="res://Assets/Resources/CharacterResources/character_properties_nora.tres" id="3_1mxnw"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/sample_dialogue_template.json" id="4_wtug5"]
 
-[node name="Nora" instance=ExtResource("1_jbvsc")]
+[node name="Nora" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_jbvsc")]
 transform = Transform3D(0.888461, 0, 0, 0, 0.888461, 0, 0, 0, 0.888461, 0, 0, 0)
+script = ExtResource("2_2wvjm")
+character_resource = ExtResource("3_1mxnw")
+json_file = ExtResource("4_wtug5")
+primary_mesh = NodePath("model/Skeleton3D/nora")
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(-0.0103169, 6.78283, 0.158434)
@@ -155,10 +161,3 @@ blend_shapes/jaw = 0.734385
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "talk"
-
-[node name="InteractionDetector" parent="." index="2" instance=ExtResource("2_tq80c")]
-
-[node name="CollisionShape3D" parent="InteractionDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0613659, 1.18062, 0.109378)
-
-[editable path="InteractionDetector"]
