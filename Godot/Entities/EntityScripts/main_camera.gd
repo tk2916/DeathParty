@@ -11,7 +11,7 @@ var camera_speed: float = PLAYER_CAMERA_FOLLOW_SPEED
 
 var camera_location: Vector3
 var camera_on_player: bool = true
-var camera_smooth: bool = true
+var camera_smooth: bool = false
 
 var camera_bound_LR: bool = false
 var camera_left_bound: Plane
@@ -93,18 +93,14 @@ func _physics_process(delta: float) -> void:
 	if camera_smooth:
 		main_camera.global_transform = main_camera.global_transform.interpolate_with(camera_location_node.global_transform, delta * camera_speed)
 	else:
-		main_camera.global_position = camera_location
+		main_camera.global_transform = camera_location_node.global_transform
 
-func _move_camera_smooth(new_location_node: Node3D) -> void:
+func _move_camera_smooth() -> void:
 	camera_smooth = true
 	camera_speed = CAMERA_TRANSITION_SPEED
-	camera_location_node = new_location_node
-	camera_location = camera_location_node.global_position
 
-func _move_camera_jump(new_location_node: Node3D) -> void:
+func _move_camera_jump() -> void:
 	camera_smooth = false
-	camera_location_node = new_location_node
-	camera_location = camera_location_node.global_position
 
 func reset_camera_position() -> void:
 	if set_up == false: return

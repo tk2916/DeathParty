@@ -191,14 +191,16 @@ func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 		load_scene(scene_name).ready.connect(func():
 			print("Teleporting player to ", scene_name)
 			player.global_position = new_position
-			main_camera.reset_camera_position()
+			#main_camera.reset_camera_position()
 			offload_old_scenes()
 			await tree.create_timer(1).timeout
 			fade_loading_screen_out()
+			GlobalCameraScript.move_camera_smooth.emit()
 		)
 	)
 
 func direct_teleport_player(scene_name : String) -> void:
 	var target_pos : Vector3 = scene_data_dict[scene_name].main_teleport_point
 	assert(target_pos != Vector3(-1,-1,-1), "" + scene_name + " doesn't have a teleport point assigned. Check that all your SceneLoaders are following the naming convention 'SceneLoader_<scene name (case-sensitive)>'!")
+	GlobalCameraScript.move_camera_jump.emit()
 	scene_loader_load(scene_name, target_pos)
