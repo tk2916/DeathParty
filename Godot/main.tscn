@@ -139,7 +139,7 @@ environment = ExtResource("15_a6jrf")
 script = ExtResource("3_cyx1q")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9457, 1.27341, 106.231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7486, 0.887426, 103.671)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
@@ -173,9 +173,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 14.4393)
 [node name="Bedroom" parent="." instance=ExtResource("39_h8e4i")]
 transform = Transform3D(1.15875, 0, 0, 0, 1.15875, 0, 0, 0, 1.15875, -39.7969, 0.0111146, 22.715)
 
-[node name="Exterior" parent="." groups=["loadable_scene"] instance=ExtResource("27_qsp4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7203, 7.1292, 54.0265)
-
 [node name="Storageroom" parent="." instance=ExtResource("28_xuqvo")]
 transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579, -1.32205, -3.35617)
 
@@ -185,6 +182,9 @@ event_guid = "{757f62e0-b188-491e-9503-6ad99b13690a}"
 autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
+
+[node name="Exterior" parent="." instance=ExtResource("27_qsp4k")]
+transform = Transform3D(0.791022, 0, 0, 0, 0.791022, 0, 0, 0, 0.791022, -17.1306, 5.92461, 69.5327)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
