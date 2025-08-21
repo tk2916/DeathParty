@@ -99,8 +99,6 @@
 	<object class="MultiSound" id="{9a2d0fb5-1cea-4eac-b930-e29a57623fd3}">
 		<relationship name="sounds">
 			<destination>{079949e1-c7c8-4fd6-8885-f0b3d2bc1a11}</destination>
-			<destination>{08a2b6d7-6abf-40e3-966d-3ce276c10163}</destination>
-			<destination>{7efd44cf-3e66-4e34-bc00-64fe92ae489c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{39368f94-880b-49bf-a05c-aaba9a3c53a2}">
@@ -128,8 +126,6 @@
 			<destination>{aa25eb6f-c8b5-4b8d-8980-1554122afd46}</destination>
 		</relationship>
 	</object>
-	<object class="CommandSound" id="{08a2b6d7-6abf-40e3-966d-3ce276c10163}" />
-	<object class="ProgrammerSound" id="{7efd44cf-3e66-4e34-bc00-64fe92ae489c}" />
 	<object class="MixerBusFader" id="{2f271e13-c1f1-4896-80e6-c1e297d7e60f}" />
 	<object class="CompressorEffect" id="{32f64370-4925-48da-9b55-40e71c5dcb33}">
 		<property name="bypass">

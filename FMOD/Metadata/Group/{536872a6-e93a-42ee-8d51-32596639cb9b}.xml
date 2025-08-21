@@ -4,6 +4,9 @@
 		<property name="name">
 			<value>Diagetic Music</value>
 		</property>
+		<relationship name="automators">
+			<destination>{14013346-67e2-4650-9742-20576c17d076}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{378ac653-c116-4cb6-94fd-0df6d36a305e}</destination>
 		</relationship>
@@ -14,6 +17,14 @@
 			<destination>{9fab94d1-6375-44dd-8a07-10800f698760}</destination>
 		</relationship>
 	</object>
+	<object class="Automator" id="{14013346-67e2-4650-9742-20576c17d076}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>volume</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{29b6542a-89d7-4b3b-9c95-0e56e0561087}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{378ac653-c116-4cb6-94fd-0df6d36a305e}">
 		<relationship name="effects">
 			<destination>{a6dcd238-5eb9-47fc-b1f7-b4fb829ed780}</destination>
@@ -21,6 +32,15 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d3241a77-b2d6-4371-82de-668554e394ed}" />
+	<object class="AutomationCurve" id="{29b6542a-89d7-4b3b-9c95-0e56e0561087}">
+		<relationship name="parameter">
+			<destination>{35cc3876-b902-4015-a79c-a7d1685e17c0}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{35d3af21-3778-4f81-adc9-ebde41c8e233}</destination>
+			<destination>{c26a1112-345b-4788-b073-3edc6353c547}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{a6dcd238-5eb9-47fc-b1f7-b4fb829ed780}" />
 	<object class="MultibandEqEffect" id="{89b4e616-099f-44b4-ae7c-bff43153162a}">
 		<property name="frequencyA">
@@ -32,6 +52,25 @@
 		<relationship name="automators">
 			<destination>{da524423-5591-4388-9bd9-f47fea8dc399}</destination>
 		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{35d3af21-3778-4f81-adc9-ebde41c8e233}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>-80</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{c26a1112-345b-4788-b073-3edc6353c547}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curveShape">
+			<value>1</value>
+		</property>
 	</object>
 	<object class="Automator" id="{da524423-5591-4388-9bd9-f47fea8dc399}">
 		<property name="nameOfPropertyBeingAutomated">
@@ -56,6 +95,9 @@
 		</property>
 		<property name="value">
 			<value>22000</value>
+		</property>
+		<property name="curveShape">
+			<value>-1</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{a8935439-dc2c-44e6-af02-da8cfd7502db}">
