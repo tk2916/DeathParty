@@ -13,6 +13,7 @@ extends CanvasLayer
 @export var teleport_button_scene: PackedScene
 
 var player_added_speed := 10.0
+var current_room: String
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +29,8 @@ func _ready() -> void:
 		teleport_button.pressed.connect(func() -> void: teleport_player(teleport_button.text))
 
 		teleport_button_container.add_child(teleport_button)
+
+		current_room = ContentLoader.og_scene
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,4 +79,6 @@ func _on_hide_ui_button_toggled(toggled_on: bool) -> void:
 
 
 func teleport_player(room: String) -> void:
-	ContentLoader.direct_teleport_player(room)
+	if room != current_room:
+		ContentLoader.direct_teleport_player(room)
+		current_room = room
