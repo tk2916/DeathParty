@@ -42,6 +42,7 @@ func check_for_open_guis():
 			break
 	return any_open_guis
 
+
 func show_journal(inventory_open : bool = false):
 	close_all_guis()
 	journal_instance.reset_properties()
@@ -53,6 +54,7 @@ func show_journal(inventory_open : bool = false):
 		journal_instance.show_inventory()
 	journal_open_sound.play()
 	journal_music.find_child("MusicTimer").start()
+	FmodServer.set_global_parameter_by_name("InJournal", 1)
 	object_viewer.visible = true
 	in_gui = true
 	in_journal = true
@@ -61,12 +63,13 @@ func hide_journal():
 	if not in_journal: return
 	close_all_guis()
 	journal_close_sound.play()
+	journal_music.stop()
+	FmodServer.set_global_parameter_by_name("InJournal", 0)
 	object_viewer.visible = false
 	object_viewer.remove_current_item(false)
 	Interact.clear_active_subviewport()
 	in_gui = false
 	in_journal = false
-	journal_music.stop()
 
 
 func show_gui(name:String):
