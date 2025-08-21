@@ -173,7 +173,7 @@ unique_name_in_owner = true
 [node name="JournalMusic" type="FmodEventEmitter3D" parent="Sounds"]
 event_name = "event:/900_MX/Journal Music"
 event_guid = "{bf365bef-0e83-47ed-9c13-76896f23b8d3}"
-volume = 0.75
+volume = 0.5
 unique_name_in_owner = true
 
 [node name="MusicTimer" type="Timer" parent="Sounds/JournalMusic"]
