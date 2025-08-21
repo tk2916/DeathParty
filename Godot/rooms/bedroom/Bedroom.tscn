@@ -105,7 +105,7 @@ albedo_color = Color(0.281989, 0.500556, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
-density = 0.03
+density = 0.07
 albedo = Color(0.282681, 0.000620117, 0.7224, 1)
 emission = Color(0.0542566, 3.0563e-06, 0.30273, 1)
 
@@ -1499,7 +1499,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926189, 1.403, -1.34445)
 shape = SubResource("BoxShape3D_3cled")
 
 [node name="TeleportPoint" type="Node3D" parent="SceneLoader_Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2492, 0.839686, 64.2138)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5743, 0.839686, 65.876)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Exterior/TeleportPoint"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -1519,7 +1519,7 @@ unique_name_in_owner = true
 transform = Transform3D(-0.350812, 0.531941, 0.619968, 0.049527, -0.659627, 0.593995, 0.815395, 0.268926, 0.230653, 3.51498, 2.62447, 1.63089)
 light_color = Color(1, 0.55, 0, 1)
 light_energy = 80.0
-light_volumetric_fog_energy = 80.0
+light_volumetric_fog_energy = 100.0
 shadow_enabled = true
 spot_range = 10.0
 spot_angle = 22.5
