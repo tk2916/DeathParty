@@ -11,7 +11,7 @@ var camera_speed: float = PLAYER_CAMERA_FOLLOW_SPEED
 
 var camera_location: Vector3
 var camera_on_player: bool = true
-var camera_smooth: bool = false
+var camera_smooth: bool = true
 
 var camera_bound_LR: bool = false
 var camera_left_bound: Plane
@@ -92,8 +92,15 @@ func _physics_process(delta: float) -> void:
 	# camera either moves smoothly or jumps to the next position
 	if camera_smooth:
 		main_camera.global_transform = main_camera.global_transform.interpolate_with(camera_location_node.global_transform, delta * camera_speed)
+		print("smooth")
+		print(main_camera.global_transform)
+		print()
 	else:
 		main_camera.global_transform = camera_location_node.global_transform
+		print("jump")
+		print(main_camera.global_transform)
+		print()
+	
 
 func _move_camera_smooth() -> void:
 	camera_smooth = true
