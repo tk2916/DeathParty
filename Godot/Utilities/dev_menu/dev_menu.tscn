@@ -66,6 +66,11 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 3
 
+[node name="TeleportWarning" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "WARNING: dont try to tp to the room youre currently in or the
+game might crash lol"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ResetPlayerButton" to="." method="_on_reset_player_button_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/PlayerSpeedButton" to="." method="_on_player_speed_button_toggled"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/SlowMotionButton" to="." method="_on_slow_motion_button_toggled"]
