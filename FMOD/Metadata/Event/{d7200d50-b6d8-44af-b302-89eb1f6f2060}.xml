@@ -139,7 +139,7 @@
 			<value>1</value>
 		</property>
 		<property name="volume">
-			<value>-10</value>
+			<value>-5</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{4264eadd-e249-4986-89cf-680321bf6dc4}</destination>
