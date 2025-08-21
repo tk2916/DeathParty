@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="31_hu3hd"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/props/alcohol/sunday_light/sunday light.glb" id="32_o8af5"]
 [ext_resource type="PackedScene" uid="uid://522s4uc8y6ni" path="res://Assets/CharacterAssets/Cop/cop.tscn" id="34_jy5jw"]
-[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="35_rjeq7"]
+[ext_resource type="PackedScene" uid="uid://qlwirfl7ycga" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="35_rjeq7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -985,7 +985,7 @@ transform = Transform3D(0.647317, 0, 0.721472, 0, 0.969299, 0, -0.721472, 0, 0.6
 [node name="Bunny" parent="NPCs" instance=ExtResource("21_hbt0t")]
 transform = Transform3D(-1.21819, 0, 0.312007, 0, 1.25751, 0, -0.312007, 0, -1.21819, 7.92395, -0.239568, -2.85654)
 
-[node name="Blk Bunny" parent="NPCs" instance=ExtResource("35_rjeq7")]
+[node name="Bunny2" parent="NPCs" instance=ExtResource("35_rjeq7")]
 transform = Transform3D(1.26223, 0, 0, 0, 1.26223, 0, 0, 0, 1.26223, 6.98782, -0.240322, -3.62567)
 
 [node name="cop" parent="NPCs" instance=ExtResource("34_jy5jw")]
