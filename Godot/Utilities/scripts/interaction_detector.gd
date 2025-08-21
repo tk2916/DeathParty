@@ -3,6 +3,8 @@
 ## then manually create a collision object as a child of the created instance
 class_name InteractionDetector extends Area3D
 
+@export var collision_shape : CollisionShape3D
+
 signal player_interacted()
 signal player_in_range(tf : bool)
 

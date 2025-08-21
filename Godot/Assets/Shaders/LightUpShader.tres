@@ -1,3 +1,4 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dlhvvfgrqs5ib"]
 
 [resource]
+resource_local_to_scene = true

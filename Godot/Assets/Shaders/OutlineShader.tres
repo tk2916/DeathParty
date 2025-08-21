@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://k6q37c1q8h81" path="res://Assets/Shaders/outline_shader.gdshader" id="1_lr5g6"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_lr5g6")
 shader_parameter/color = Color(1, 1, 1, 1)
