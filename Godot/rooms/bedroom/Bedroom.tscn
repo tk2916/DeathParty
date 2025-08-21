@@ -2051,6 +2051,9 @@ visible = false
 mesh = SubResource("ArrayMesh_sokvp")
 skeleton = NodePath("")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_color = Color(0.6485, 0.43, 1, 1)
+
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="SceneLoader_Entrance" to="." method="_on_scene_loader_body_entered"]
 [connection signal="body_entered" from="SceneLoader_Entrance" to="SceneLoader_Entrance" method="_on_body_entered"]
