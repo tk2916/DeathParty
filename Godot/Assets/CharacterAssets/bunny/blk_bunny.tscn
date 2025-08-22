@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://qlwirfl7ycga"]
+[gd_scene load_steps=3 format=3 uid="uid://cjkogt4y2w5dp"]
 
 [ext_resource type="PackedScene" uid="uid://vcggh24vgfnh" path="res://Assets/CharacterAssets/bunny/Blk Bunny.glb" id="1_fxskl"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_fpg7b"]
 
 [node name="Bunny" instance=ExtResource("1_fxskl")]
 transform = Transform3D(1.15768, 0, 0, 0, 1.15768, 0, 0, 0, 1.15768, 0, 0, 0)
+script = ExtResource("2_fpg7b")
 
 [node name="Skeleton3D" parent="model_001" index="0"]
 bones/0/position = Vector3(5.89427, 1.07844, -95.6209)

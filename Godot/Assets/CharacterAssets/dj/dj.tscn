@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://becw5ybscvsv7"]
+[gd_scene load_steps=3 format=3 uid="uid://becw5ybscvsv7"]
 
 [ext_resource type="PackedScene" uid="uid://ctpv1cs78urg8" path="res://Assets/CharacterAssets/dj/dj.glb" id="1_v0rpg"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_axy1y"]
 
 [node name="dj2" instance=ExtResource("1_v0rpg")]
 transform = Transform3D(1.10468, 0, 0, 0, 1.10468, 0, 0, 0, 1.10468, 0, 0, 0)
+script = ExtResource("2_axy1y")
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(0.37117, 0.916718, -93.3276)

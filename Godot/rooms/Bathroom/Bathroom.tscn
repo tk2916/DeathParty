@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=73 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -32,11 +32,9 @@
 [ext_resource type="PackedScene" uid="uid://db6cyshdnsaxs" path="res://Assets/environment/trash/trash.glb" id="29_k4jsb"]
 [ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://Assets/props/red_cup/red_cup.glb" id="30_3wfjx"]
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="31_hu3hd"]
-[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="32_c8t5l"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/props/alcohol/sunday_light/sunday light.glb" id="32_o8af5"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/sample_dialogue_template.json" id="33_kqfen"]
 [ext_resource type="PackedScene" uid="uid://522s4uc8y6ni" path="res://Assets/CharacterAssets/Cop/cop.tscn" id="34_jy5jw"]
-[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="35_rjeq7"]
+[ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="35_rjeq7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -549,7 +547,6 @@ transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_qgpod")
 room_area = NodePath("RoomArea")
-metadata/_custom_type_script = "uid://23e11u4fm3n6"
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11203, -0.146205, 0.0554049)
@@ -980,31 +977,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38037, -2.15731, 1.0661)
 
 [node name="Jesus" parent="NPCs" instance=ExtResource("5_uyvi5")]
 transform = Transform3D(1.17787, 0, -0.0929695, 0, 1.18154, 0, 0.0929695, 0, 1.17787, 2.08641, -0.238866, -1.49376)
-script = ExtResource("32_c8t5l")
-json_file = ExtResource("33_kqfen")
-use_first_mesh = true
 
 [node name="DrugDealer" parent="NPCs" instance=ExtResource("14_duuvr")]
 transform = Transform3D(0.647317, 0, 0.721472, 0, 0.969299, 0, -0.721472, 0, 0.647317, -0.395593, -0.194828, 0.09628)
-script = ExtResource("32_c8t5l")
-json_file = ExtResource("33_kqfen")
-use_first_mesh = true
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("21_hbt0t")]
 transform = Transform3D(-1.21819, 0, 0.312007, 0, 1.25751, 0, -0.312007, 0, -1.21819, 7.92395, -0.239568, -2.85654)
-script = ExtResource("32_c8t5l")
-json_file = ExtResource("33_kqfen")
-use_first_mesh = true
 
 [node name="Bunny2" parent="NPCs" instance=ExtResource("35_rjeq7")]
 transform = Transform3D(1.26223, 0, 0, 0, 1.26223, 0, 0, 0, 1.26223, 6.98782, -0.240322, -3.62567)
-script = ExtResource("32_c8t5l")
-json_file = ExtResource("33_kqfen")
-use_first_mesh = true
 
 [node name="cop" parent="NPCs" instance=ExtResource("34_jy5jw")]
 transform = Transform3D(0.744814, 0, 0.869726, 0, 1.14506, 0, -0.869726, 0, 0.744814, 0.247368, -0.232421, -1.38849)
-json_file = ExtResource("33_kqfen")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 0, -0.645291, 9.33631)

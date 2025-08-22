@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddiqilmdbakfb"]
+[gd_scene load_steps=3 format=3 uid="uid://ddiqilmdbakfb"]
 
 [ext_resource type="PackedScene" uid="uid://dy3mkor638arc" path="res://Assets/CharacterAssets/angel/angel.glb" id="1_hn8kl"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_hdmtj"]
 
 [node name="angel" instance=ExtResource("1_hn8kl")]
 transform = Transform3D(1.08275, 0, 0, 0, 1.08275, 0, 0, 0, 1.08275, 0, 0, 0)
+script = ExtResource("2_hdmtj")
 
 [node name="Skeleton3D" parent="model angel" index="0"]
 bones/0/position = Vector3(0.00466147, 0.00995347, -0.542686)

@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://dph5ihe40llhe" path="res://rooms/Exterior Frat Lawn/Exterior.tscn" id="27_qsp4k"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://c7033b4susyvc" path="res://rooms/Storage Room/Storageroom.tscn" id="28_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
@@ -29,6 +28,9 @@
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
 [ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
 
+[sub_resource type="Resource" id="Resource_a6jrf"]
+metadata/__load_path__ = "res://Assets/InkExamples/example.ink7.json"
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0cbny"]
 plane = Plane(0, 1, 0, -10)
 
@@ -37,7 +39,7 @@ plane = Plane(0, 1, 0, -10)
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource("26_lswn8")
 json_file = ExtResource("27_a6jrf")
-json_file2 = ExtResource("27_xuqvo")
+json_file2 = SubResource("Resource_a6jrf")
 
 [node name="DevMenu" parent="." node_paths=PackedStringArray("player", "party_room_music", "game_ui") instance=ExtResource("4_h8e4i")]
 visible = false

@@ -21,6 +21,6 @@ func _on_body_entered(body: Node3D) -> void:
 
 func _on_body_exited(body : Node3D) -> void:
 	if body.is_in_group("player"):
-		print("Player exited")
+		#print("Player exited")
 		player_currently_in_range = false
 		player_in_range.emit(false)

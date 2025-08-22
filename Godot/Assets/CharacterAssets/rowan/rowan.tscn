@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnb05rd1rv7e7"]
+[gd_scene load_steps=3 format=3 uid="uid://cnb05rd1rv7e7"]
 
 [ext_resource type="PackedScene" uid="uid://w3x7mmteni4v" path="res://Assets/CharacterAssets/rowan/rowan.glb" id="1_r6ajk"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_a5xla"]
 
 [node name="rowan" instance=ExtResource("1_r6ajk")]
 transform = Transform3D(1.21133, 0, 0, 0, 1.21133, 0, 0, 0, 1.21133, 0, 0, 0)
+script = ExtResource("2_a5xla")
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(-2.69325, 4.95199, -350.086)

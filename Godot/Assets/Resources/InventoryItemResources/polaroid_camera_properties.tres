@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=2 format=3 uid="uid://b3l1pgn80j4yf"]
+
+[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_properties_script.gd" id="1_4dwtx"]
+
+[resource]
+script = ExtResource("1_4dwtx")
+name = "Polaroid Camera"
+description = "Use it to take pictures"
+inventory_scale = 1.0
+inventory_position = Vector2(0, 0)

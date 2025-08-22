@@ -15,3 +15,28 @@ func get_collision_shape_aabb(collision_shape : CollisionShape3D):
 	var aabb : AABB = AABB(-shape.size / 2.0, shape.size)
 	aabb = collision_shape.global_transform * aabb
 	return aabb
+
+func print_array(arr:Array):
+	print("Printing array ", arr, ": ")
+	for item in arr:
+		print(item)
+	print("End array")
+
+##get descendants
+func is_of_type_in_array(node : Node, types : Array[Variant]):
+	for type in types:
+		if is_instance_of(node, type):
+			return true
+	return false
+
+func get_descendants(node:Node, type_list : Array[Variant] = [], exclude : bool = true) -> Array[Node]: #recursive
+	var descendants : Array[Node] = []
+	for child in node.get_children():
+		var in_type_list : bool = is_of_type_in_array(child, type_list)
+		if (
+			(!in_type_list and exclude) #Not on blacklist
+			or (in_type_list and !exclude) #On whitelist
+		):
+			descendants.append(child)
+			descendants.append_array(get_descendants(child, type_list))
+	return descendants

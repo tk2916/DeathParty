@@ -17,9 +17,6 @@ var loaded_scenes : Array[SceneData]
 var og_scene : String
 var loading_screen : ColorRect
 
-#QUADRANTS
-var current_interactables : Array[InteractableData] = []
-
 var loaded : bool = false
 signal finished_loading
 signal added_scene
@@ -61,34 +58,26 @@ func find_room_teleport_points() -> void:
 		var scene_data : SceneData = scene_data_dict[scene_name]
 		for loader : SceneLoaderData in scene_data.get_all_scene_loaders():
 			var target_scene_name : String = loader.target_scene_name
-			print("From ", scene_name, ": ", target_scene_name, " loader: ", loader.name)
+			#print("From ", scene_name, ": ", target_scene_name, " loader: ", loader.name)
 			if scene_data_dict.has(target_scene_name) and scene_data_dict[target_scene_name].main_teleport_point == Vector3(-1,-1,-1):
 				scene_data_dict[target_scene_name].set_main_teleport(loader.name, loader.teleport_pos)
 
 func store_scene_info(node : Node3D) -> void:
 	var filepath : String = node.scene_file_path
+	
 	var node_name : String = node.name
-	
-	var new_scene_data : SceneData = SceneData.new()
-	new_scene_data.file = load(filepath)
-	new_scene_data.position = node.position
-	new_scene_data.name = node_name
-	
-	for child in node.get_children():
-		if child is SceneLoader:
-			##Save SceneLoader data to reapply on load in (it keeps getting lost)
-			new_scene_data.add_scene_loader(child)
-	
-	var collision_shape : CollisionShape3D = node.get_node("RoomArea")
-	new_scene_data.scene_aabb = Utils.get_collision_shape_aabb(collision_shape)
-	
-	new_scene_data.create_quadrants()
-	new_scene_data.assign_interactables(current_interactables)
-	current_interactables = []
+	var node_file = load(filepath)
+	var node_position = node.position
+	var node_instance = node
+	var new_scene_data : SceneData = SceneData.new(
+		node_name, 
+		node_file, 
+		node_position, 
+		node_instance,
+		main_node,
+		)
 	scene_data_dict[node_name] = new_scene_data
 	
-	main_node.remove_child.call_deferred(node)
-	node.queue_free()
 	if new_scene_data.scene_aabb.intersects(player_aabb): #check intersection
 		og_scene = node.name
 		load_scene(og_scene)
@@ -124,13 +113,9 @@ func on_node_added(node:Node) -> void:
 	elif node.is_in_group("loadable_scene"):
 		print("Found loadable scene: ", node.name)
 		node.ready.connect(store_scene_info.bind(node))
-	elif node is Interactable:
-		var node_scene : PackedScene = load(node.scene_file_path)
-		var node_pos : Vector3 = node.position
-		var collision_shape : CollisionShape3D = node.interaction_detector.collision_shape
-		var node_aabb = Utils.get_collision_shape_aabb(collision_shape)
-		var data : InteractableData = InteractableData.new(node_scene, node_pos, node_aabb)
-		current_interactables.push_back(data)
+
+func update_player_aabb():
+	player_aabb = calculate_node_aabb(player)
 
 func calculate_node_aabb(node3d : Node3D) -> AABB:
 	var visual_nodes : Array[Node] = node3d.find_children("*", "VisualInstance3D", true, false)
@@ -168,7 +153,7 @@ func load_scene(scene_name:String) -> Node3D:
 	
 	var scene_data : SceneData = scene_data_dict[scene_name]
 	print(1)
-	var scene_instance : Node3D = scene_data.load_in(main_node)
+	var scene_instance : Node3D = scene_data.load_in()
 	loaded_scenes.push_front(scene_data)
 	return scene_instance
 
@@ -184,7 +169,7 @@ func offload_old_scenes() -> void:
 func offload_old_scene() -> void:
 	if main_node == null: return
 	var old_loaded_scene : SceneData = loaded_scenes.pop_back()
-	old_loaded_scene.offload(main_node)
+	old_loaded_scene.offload()
 
 func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 	fade_loading_screen_in().finished.connect(func():
@@ -202,5 +187,3 @@ func direct_teleport_player(scene_name : String) -> void:
 	var target_pos : Vector3 = scene_data_dict[scene_name].main_teleport_point
 	assert(target_pos != Vector3(-1,-1,-1), "" + scene_name + " doesn't have a teleport point assigned. Check that all your SceneLoaders are following the naming convention 'SceneLoader_<scene name (case-sensitive)>'!")
 	scene_loader_load(scene_name, target_pos)
-	
-##CONTENT STREAMING WITHIN SCENE (partition into grid)

@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://gu7mwgusye5o"]
+[gd_scene load_steps=3 format=3 uid="uid://gu7mwgusye5o"]
 
 [ext_resource type="PackedScene" uid="uid://30rrr1wnucl1" path="res://Assets/CharacterAssets/sam/sam.glb" id="1_bln48"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_ecovt"]
 
 [node name="Sam" instance=ExtResource("1_bln48")]
 transform = Transform3D(1.14057, 0, 0, 0, 1.14057, 0, 0, 0, 1.14057, 0, 0, 0)
+script = ExtResource("2_ecovt")
 
 [node name="Skeleton3D" parent="iDLE" index="0"]
 bones/0/position = Vector3(-6.05362, 89.8173, 3.70347)
