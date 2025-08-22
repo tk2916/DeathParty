@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=87 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="42_et00h"]
 [ext_resource type="PackedScene" uid="uid://dxv1m51cs7gn8" path="res://Assets/props/alcohol/beer_box/beer_box.tscn" id="42_p4v0j"]
 [ext_resource type="PackedScene" uid="uid://c8rq8p1i25wix" path="res://Assets/CharacterAssets/bartender/bartender.tscn" id="44_p4v0j"]
+[ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="45_l32yv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
 size = Vector3(15, 5, 13)
@@ -1733,6 +1734,9 @@ transform = Transform3D(-0.806433, 0, 0.738287, 0, 1.09334, 0, -0.738287, 0, -0.
 
 [node name="PumpkinWithBeers2" parent="." instance=ExtResource("5_l32yv")]
 transform = Transform3D(-0.729844, 0, -0.814082, 0, 1.09334, 0, 0.814082, 0, -0.729844, -7.10194, -1.52942, 2.19461)
+
+[node name="beerpong trophie" parent="." instance=ExtResource("45_l32yv")]
+transform = Transform3D(0.566878, 0, -0.0975908, 0, 0.575217, 0, 0.0975908, 0, 0.566878, 4.41617, -0.807845, -1.61054)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="Room"]
