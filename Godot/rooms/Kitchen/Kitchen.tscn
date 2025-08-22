@@ -1723,9 +1723,11 @@ transform = Transform3D(0.274326, 0, -0.793551, 0, 0.83963, 0, 0.793551, 0, 0.27
 
 [node name="Rowan" parent="NPCs" instance=ExtResource("41_h3uy3")]
 transform = Transform3D(1.00847, 0, -0.858491, 0, 1.3244, 0, 0.858491, 0, 1.00847, 3.60612, -3.0926, -0.911231)
+script = null
 
 [node name="Bartender" parent="NPCs" instance=ExtResource("44_p4v0j")]
 transform = Transform3D(0.711062, 0, 0.844263, 0, 1.14342, 0, -0.844263, 0, 0.711062, -6.16842, -3.1054, -1.79786)
+script = null
 
 [node name="folded chairs" parent="." instance=ExtResource("26_eupok")]
 transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -7.21247, -2.32239, 3.40963)

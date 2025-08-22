@@ -2,6 +2,7 @@ class_name Interactable extends Node3D
 
 @export var primary_mesh : MeshInstance3D
 @export var use_first_mesh : bool = true
+@export var outline_thickness : float = .7
 
 var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader.tres")
 var interaction_detector_file = preload("res://Entities/interaction_detector.tscn")
@@ -42,6 +43,7 @@ func create_outline():
 	surface_material = primary_mesh.get_active_material(0)
 	var new_shader : ShaderMaterial = outline_shader.duplicate()
 	new_shader.set_shader_parameter("alpha", 0)
+	new_shader.set_shader_parameter("thickness", outline_thickness)
 	surface_material.next_pass = new_shader
 	
 func toggle_popup(on : bool):

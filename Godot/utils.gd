@@ -33,10 +33,13 @@ func get_descendants(node:Node, type_list : Array[Variant] = [], exclude : bool 
 	var descendants : Array[Node] = []
 	for child in node.get_children():
 		var in_type_list : bool = is_of_type_in_array(child, type_list)
+		#print(node.name + " | In type list: ", in_type_list,  " and ", exclude)
 		if (
 			(!in_type_list and exclude) #Not on blacklist
 			or (in_type_list and !exclude) #On whitelist
 		):
 			descendants.append(child)
-			descendants.append_array(get_descendants(child, type_list))
+			#print("Appended ", child.name)
+		descendants.append_array(get_descendants(child, type_list))
+	#print("Returning")
 	return descendants

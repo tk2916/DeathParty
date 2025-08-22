@@ -2,7 +2,7 @@ class_name SceneData
 
 #Scene Info
 var name : String
-var position : Vector3
+var transform : Transform3D
 var file : PackedScene
 var instance : Node3D = null
 var parent_scene : Node3D = null
@@ -21,19 +21,28 @@ var main_teleport_point_name : String
 var scene_quadrants : Array[QuadrantPlane] = []
 var active_quadrants : Array[Quadrant] = []
 var scene_aabb : AABB
-const WIDTH_DIVIDE = 4
-const HEIGHT_DIVIDE = 4
-const DEPTH_DIVIDE = 4
+var WIDTH_DIVIDE = 4
+var HEIGHT_DIVIDE = 4
+var DEPTH_DIVIDE = 4
 var scene_interactables : Array[InteractableData] = []
 
 ##INITIAL LOAD --------------------------
-func _init(_name : String, _file : PackedScene, _position : Vector3, _instance : Node3D, _parent_scene : Node3D) -> void:
+func _init(
+	_name : String, 
+	_file : PackedScene,
+	_instance : Node3D, 
+	_parent_scene : Node3D,
+	_quadrant_grid : Vector3 = Vector3(1,1,1)
+) -> void:
 	print("Initializing SceneData for ", _name)
 	name = _name
 	file = _file
-	position = _position
+	transform = _instance.transform
 	instance = _instance
 	parent_scene = _parent_scene
+	WIDTH_DIVIDE = _quadrant_grid.x
+	HEIGHT_DIVIDE = _quadrant_grid.y
+	DEPTH_DIVIDE = _quadrant_grid.z
 	var collision_shape : CollisionShape3D = instance.get_node("RoomArea")
 	scene_aabb = Utils.get_collision_shape_aabb(collision_shape)
 	create_quadrants()
@@ -72,13 +81,13 @@ func store_interactable(interactable : Interactable) -> void:
 	var name = interactable.name
 	var packed_scene : PackedScene = load(interactable.scene_file_path)
 	var transform : Transform3D = interactable.transform
+	var global_position : Vector3 = interactable.global_position
 	var collision_shape : CollisionShape3D = interactable.interaction_detector.collision_shape
 	var child_aabb = Utils.get_collision_shape_aabb(collision_shape)
 	var data : InteractableData = InteractableData.new(
 		name,
 		packed_scene, 
-		transform, 
-		child_aabb
+		interactable
 		)
 	scene_interactables.push_back(data)
 	
@@ -99,10 +108,9 @@ func load_in() -> Node3D:
 		loop_through_descendants(scene_loader_on_load, interactable_on_load)
 		print(name, " finished loading")
 		)
-	instance.position = position
+	instance.transform = transform
 	
 	parent_scene.add_child.call_deferred(instance)
-	show_quadrants()
 	update_active_quadrants()
 	GlobalPlayerScript.update_quadrants.connect(update_active_quadrants)
 	return instance
@@ -110,9 +118,14 @@ func load_in() -> Node3D:
 func offload() -> void:
 	active = false
 	GlobalPlayerScript.update_quadrants.disconnect(update_active_quadrants)
+	for quad_plane : QuadrantPlane in scene_quadrants:
+		for quad_row : QuadrantRow in quad_plane.plane:
+			for quad : Quadrant in quad_row.row:
+				quad.set_active(instance, false)
 	parent_scene.remove_child.call_deferred(
 		instance)
 	instance.queue_free()
+	
 ##END LOADING
 
 ##SCENE LOADERS ------------------------------------	
@@ -144,6 +157,8 @@ func create_quadrants():
 	var quad_depth : float = scene_depth / DEPTH_DIVIDE
 	
 	var quad_size = Vector3(quad_width, quad_height, quad_depth)
+	
+	var parent_transform : Transform3D = parent_scene.global_transform
 	
 	#CREATE QUADRANTS
 	var quadrant_id : int = 0
@@ -177,39 +192,41 @@ func assign_interactables(interactables : Array[InteractableData]):
 	#print("Assigning interactables: ", name, " | ", interactables.size())
 	for data : InteractableData in interactables:
 		for quad_plane : QuadrantPlane in scene_quadrants:
-			if data.quadrant_id != -1: break
+			#if data.quadrant_id != -1: break
 			for quad_row : QuadrantRow in quad_plane.plane:
-				if data.quadrant_id != -1: break
+				#if data.quadrant_id != -1: break
 				for quad : Quadrant in quad_row.row:
 					quad.add_interactable(data) #adds it if it intersects
-					if data.quadrant_id != -1: break
+					#if data.quadrant_id != -1: break
 					
 func show_quadrants():
-	for quad_plane : QuadrantPlane in scene_quadrants:
-		for quad_row : QuadrantRow in quad_plane.plane:
-			for i in range(quad_row.size()):
-				var quadrant = quad_row.row[i]
-				
-				# Create a mesh for each quadrant
-				var mesh_instance = MeshInstance3D.new()
-				var box_mesh = BoxMesh.new()
-				box_mesh.size = quadrant.aabb.size
-				mesh_instance.mesh = box_mesh
-				
-				# Position at the center of the AABB
-				mesh_instance.position = quadrant.aabb.get_center()
-				
-				# Create transparent colored material
-				var material = StandardMaterial3D.new()
-				material.albedo_color = Color(randf(), randf(), randf(), 1.0)
-				material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-				material.albedo_color.a = 0.3  # Make it transparent
-				mesh_instance.material_override = material
-				
-				mesh_instance.name = "QuadrantMesh"
-				
-				parent_scene.add_child(mesh_instance)
+	#for quad_plane : QuadrantPlane in scene_quadrants:
+		#for quad_row : QuadrantRow in quad_plane.plane:
+	for i in range(active_quadrants.size()):#quad_row.size()):
+		var quadrant = active_quadrants[i]
 		
+		# Create a mesh for each quadrant
+		var mesh_instance = MeshInstance3D.new()
+		var box_mesh = BoxMesh.new()
+		box_mesh.size = quadrant.aabb.size
+		mesh_instance.mesh = box_mesh
+		
+		# Position at the center of the AABB
+		mesh_instance.position = quadrant.aabb.get_center()
+		
+		# Create transparent colored material
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.GREEN#Color(randf(), randf(), randf(), 1.0)
+		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		material.albedo_color.a = 0.5  # Make it transparent
+		mesh_instance.material_override = material
+		
+		mesh_instance.name = "QuadrantMesh"
+		
+		mesh_instance.add_to_group("quad_box")
+		
+		parent_scene.add_child(mesh_instance)
+
 func update_active_quadrants() -> void:
 	if not active: return
 	ContentLoader.update_player_aabb()
@@ -232,10 +249,13 @@ func update_active_quadrants() -> void:
 			for quad : Quadrant in quad_row.row:
 				quad_i += 1
 				if quad.intersects(player_aabb):
-					#print("New active quadrant: ", quad.id)
+					print("Active quadrant: ", quad.id)
 					player_found = true
 					break
-	
+					
+	#for mesh : Node in parent_scene.get_tree().get_nodes_in_group("quad_box"):
+		#parent_scene.remove_child(mesh)
+		#mesh.queue_free()
 	var adjacent_quadrants = find_adjacent_quadrants(quad_plane_i, quad_row_i, quad_i)
 	#print("Size of adjacent quadrants: ", adjacent_quadrants.size())
 	for quad : Quadrant in active_quadrants:
@@ -246,6 +266,7 @@ func update_active_quadrants() -> void:
 		quad.set_active(instance, true)
 		
 	active_quadrants = adjacent_quadrants
+	#show_quadrants()
 	
 func find_adjacent_quadrants(quad_plane_i : int, quad_row_i : int, quad_i : int) -> Array[Quadrant]:
 	var adjacent : Array[Quadrant] = []

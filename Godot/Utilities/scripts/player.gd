@@ -84,7 +84,7 @@ func _physics_process(delta : float) -> void:
 		previous_position = global_position
 		var quad_dist : float = global_position.distance_squared_to(quadrant_position)
 		#print("quad dist: ", quad_dist)
-		if (quad_dist > 10):
+		if (quad_dist > 6):
 			#only update active quadrants once player has moved > sqrt(10) units
 			GlobalPlayerScript.update_quadrants.emit()
 			quadrant_position = global_position

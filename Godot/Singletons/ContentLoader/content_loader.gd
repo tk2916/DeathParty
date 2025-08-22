@@ -8,6 +8,15 @@ var player_aabb : AABB
 var player_spawn_pos : Vector3
 
 var scene_data_dict : Dictionary[String, SceneData] = {}
+var quadrant_grids : Dictionary[String, Vector3] = {
+	"PartyRoom" = Vector3(5,1,5),
+	"Entrance" = Vector3(1,1,1),
+	"Bathroom" = Vector3(1,1,1),
+	"Library" = Vector3(1,1,1),
+	"Basement" = Vector3(1,1,1),
+	"Kitchen" = Vector3(1,1,1),
+	
+}
 
 @onready var tree : SceneTree = get_tree()
 @onready var main_node : Node3D = tree.root.get_node_or_null("Main")
@@ -66,15 +75,19 @@ func store_scene_info(node : Node3D) -> void:
 	var filepath : String = node.scene_file_path
 	
 	var node_name : String = node.name
-	var node_file = load(filepath)
-	var node_position = node.position
-	var node_instance = node
+	var node_file : PackedScene = load(filepath)
+	var node_instance : Node3D = node
+	var quadrant_grid : Vector3
+	if quadrant_grids.has(node_name):
+		quadrant_grid = quadrant_grids[node_name]
+	else:
+		quadrant_grid = Vector3(1,1,1)
 	var new_scene_data : SceneData = SceneData.new(
 		node_name, 
 		node_file, 
-		node_position, 
 		node_instance,
 		main_node,
+		quadrant_grid,
 		)
 	scene_data_dict[node_name] = new_scene_data
 	

@@ -15,9 +15,9 @@ func set_active(parent_scene : Node3D, _active : bool) -> void:
 	active = _active
 	for obj : InteractableData in loadable_objects:
 		#print("Object in quadrant ", id, ": ", obj.name)
-		if active:
+		if active and obj.active == false:
 			obj.load_in(parent_scene)
-		else:
+		elif !active and obj.active == true:
 			obj.offload()
 	
 func intersects_interactable(data:InteractableData) -> bool:
@@ -27,9 +27,9 @@ func intersects(aabb2:AABB):
 	return aabb.intersects(aabb2)
 
 func add_interactable(data:InteractableData) -> bool:
-	if data.quadrant_id != -1: return false #already assigned
+	#if data.quadrant_id != -1: return false #already assigned
 	if intersects_interactable(data):
-		data.quadrant_id = self.id
+		#data.quadrant_id = self.id
 		loadable_objects.push_back(data)
 		return true
 	else:

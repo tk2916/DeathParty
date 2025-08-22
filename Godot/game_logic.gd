@@ -9,7 +9,7 @@ extends Node
 
 func _init() -> void:
 	ContentLoader.finished_loading.connect(func():
-		ContentLoader.direct_teleport_player("PartyRoom"))
+		ContentLoader.direct_teleport_player("Library"))
 
 func _ready() -> void:
 	DialogueSystem.to_phone("Caleb, Rowan, Nora, You", json_file)
