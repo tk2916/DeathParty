@@ -1996,12 +1996,12 @@ draw_pass_1 = SubResource("SphereMesh_j7vhh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00919437, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
-transform = Transform3D(-0.155, -2.34043e-08, 0.000119794, 2.34044e-08, -0.155, 0, 0.000119794, 1.80884e-11, 0.155, 1.68477, -0.0436244, -1.51532)
+transform = Transform3D(-0.155, -2.34043e-08, 0.000119794, 2.34044e-08, -0.155, 0, 0.000119794, 1.80884e-11, 0.155, 1.68477, -0.0854081, -1.51532)
 mesh = SubResource("ArrayMesh_g5x68")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Room/Floor"]
-transform = Transform3D(-0.155, 0, -0.000119794, 0, -0.155, 0, 0.000119794, 0, -0.155, 1.689, -0.044, 4.348)
+transform = Transform3D(-0.155, 0, -0.000119794, 0, -0.155, 0, 0.000119794, 0, -0.155, 1.689, -0.0857837, 4.348)
 mesh = SubResource("ArrayMesh_g5x68")
 skeleton = NodePath("")
 
