@@ -7,6 +7,7 @@ var object_viewer : ObjectViewer
 
 var journal_open_sound : FmodEventEmitter2D
 var journal_close_sound : FmodEventEmitter2D
+var journal_music : FmodEventEmitter3D
 var journal_backpack_bg : PackedScene = preload("res://Assets/JournalTextures/backpack_background.tscn")
 
 var in_journal : bool = false
@@ -21,6 +22,7 @@ func _ready() -> void:
 	
 	journal_open_sound = journal_instance.get_node("Sounds/JournalOpenSound")
 	journal_close_sound = journal_instance.get_node("Sounds/JournalCloseSound")
+	journal_music = journal_instance.get_node("Sounds/JournalMusic")
 	
 	object_viewer = main.get_node("ObjectViewerCanvasLayer/ObjectViewer")
 	var gui_objects : Array[Node] = get_tree().get_nodes_in_group("gui_object")
@@ -40,6 +42,7 @@ func check_for_open_guis():
 			break
 	return any_open_guis
 
+
 func show_journal(inventory_open : bool = false):
 	close_all_guis()
 	journal_instance.reset_properties()
@@ -50,6 +53,8 @@ func show_journal(inventory_open : bool = false):
 	if inventory_open:
 		journal_instance.show_inventory()
 	journal_open_sound.play()
+	journal_music.find_child("MusicTimer").start()
+	FmodServer.set_global_parameter_by_name("InJournal", 1)
 	object_viewer.visible = true
 	in_gui = true
 	in_journal = true
@@ -58,12 +63,15 @@ func hide_journal():
 	if not in_journal: return
 	close_all_guis()
 	journal_close_sound.play()
+	journal_music.stop()
+	FmodServer.set_global_parameter_by_name("InJournal", 0)
 	object_viewer.visible = false
 	object_viewer.remove_current_item(false)
 	Interact.clear_active_subviewport()
 	in_gui = false
 	in_journal = false
-	
+
+
 func show_gui(name:String):
 	if gui_dict[name].is_in_group("gui_object"):
 		close_all_guis()
