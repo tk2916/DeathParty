@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=174 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://cgvs4fwjt83jn" path="res://rooms/bedroom/punk posters_IMG_0684.png" id="51_kvlly"]
 [ext_resource type="PackedScene" uid="uid://btmj6vlpb2pyw" path="res://rooms/bedroom/desk stuff.glb" id="56_0hleh"]
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="57_6hcck"]
+[ext_resource type="PackedScene" uid="uid://damm3py04oa6j" path="res://rooms/bedroom/Polaroid Camera.glb" id="66_dyybh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(8.04827, 3.47472, 11.0452)
@@ -2053,6 +2054,9 @@ skeleton = NodePath("")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 light_color = Color(0.6485, 0.43, 1, 1)
+
+[node name="Polaroid Camera" parent="." instance=ExtResource("66_dyybh")]
+transform = Transform3D(-0.511012, 0, -0.727501, 0, 0.889039, 0, 0.727501, 0, -0.511012, 1.21963, 0.496567, 0.630633)
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="SceneLoader_Exterior" to="." method="_on_scene_loader_body_entered"]
