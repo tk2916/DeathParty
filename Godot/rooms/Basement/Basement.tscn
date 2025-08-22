@@ -1,4 +1,4 @@
-[gd_scene load_steps=206 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=208 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -77,6 +77,7 @@
 [ext_resource type="Texture2D" uid="uid://pllqh6hglgvf" path="res://rooms/bedroom/punk posters_Untitled_Artwork.png" id="50_eipmn"]
 [ext_resource type="PackedScene" uid="uid://bascssj1owqq1" path="res://rooms/Basement/asian flag.glb" id="51_hfud8"]
 [ext_resource type="Texture2D" uid="uid://cescg2luxp8a1" path="res://rooms/Basement/bean bag_Screenshot_2025-07-07_193553.png" id="77_jle5p"]
+[ext_resource type="VideoStream" uid="uid://durjhoccw8ld2" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -125,8 +126,8 @@ size = Vector3(2, 2, 1.415)
 
 [sub_resource type="FogMaterial" id="FogMaterial_42eom"]
 density = 0.05
-albedo = Color(0.691267, 0.248017, 0, 1)
-emission = Color(0.264203, 0.126673, 3.60981e-08, 1)
+albedo = Color(0.79, 0.184333, 0, 1)
+emission = Color(0.336308, 0.167712, 0, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hfud8"]
 lifetime_randomness = 0.1
@@ -1807,6 +1808,9 @@ shadow_mesh = SubResource("ArrayMesh_40s1y")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rucjk"]
 size = Vector3(1.5, 1, 1.5)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_kk7s6"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Basement" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
 script = ExtResource("1_e2jnh")
@@ -2568,6 +2572,24 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Props/BeanBag"]
 shape = SubResource("BoxShape3D_rucjk")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.158358, 0, 0, 0, 0.146936, 0, 0, 0, 0.144321, 1.87104, 1.41634, -3.98433)
+texture = SubResource("ViewportTexture_kk7s6")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1280, 760)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("78_kk7s6")
+autoplay = true
+expand = true
+loop = true
 
 [editable path="SceneLoader_Entrance"]
 [editable path="SceneLoader_Storageroom"]
