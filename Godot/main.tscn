@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
-[ext_resource type="Script" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
+[ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://vkp1p25gspml" path="res://Utilities/dev_menu/dev_menu_teleport_button.tscn" id="5_xuqvo"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://d0sd1bp5esd04" path="res://Utilities/polaroid_camera/polaroid_layer.tscn" id="55_e71vb"]
-[ext_resource type="PackedScene" path="res://Utilities/stats.tscn" id="56_e71vb"]
+[ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
 [ext_resource type="PackedScene" uid="uid://byfsccg4kb4bw" path="res://polaroid_pop_up.tscn" id="57_vke2r"]
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
 [ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
@@ -161,10 +161,7 @@ script = null
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -24.161, 0, -17.392)
 
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
-transform = Transform3D(1.08001, 0, 0, 0, 1.08001, 0, 0, 0, 1.08001, 0.698557, 4.7584, -20.5061)
-
-[node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
-transform = Transform3D(0.761812, 0, 0, 0, 0.761812, 0, 0, 0, 0.761812, -43.3922, 2.37168, 6.27324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698557, 4.7584, -20.5061)
 
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
@@ -187,6 +184,9 @@ event_guid = "{757f62e0-b188-491e-9503-6ad99b13690a}"
 autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
+
+[node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
+transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 5.7468)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]

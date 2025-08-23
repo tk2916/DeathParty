@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=129 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -53,6 +53,8 @@
 [ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="51_ndciv"]
 [ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="52_rwfot"]
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="53_iso52"]
+[ext_resource type="Texture2D" uid="uid://qatlo1rl0gdd" path="res://rooms/Storage Room/spiderwebs_Untitled_Artwork.png" id="54_yma0n"]
+[ext_resource type="Texture2D" uid="uid://bs6b6l2er7cvd" path="res://rooms/Storage Room/spiderwebs_dsf.png" id="55_hu7nt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15.626, 10, 12)
@@ -1078,6 +1080,85 @@ func _on_timer_timeout() -> void:
 	timer.wait_time = randf_range(min_time, max_time)
 "
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tx6a"]
+resource_name = "Untitled_Artwork"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("54_yma0n")
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_50wqo"]
+_surfaces = [{
+"aabb": AABB(-0.461151, 0, -0.345864, 0.922303, 1e-05, 0.691727),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Untitled_Artwork",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3pk5y"]
+resource_name = "spiderwebs_Untitled_Artwork"
+_surfaces = [{
+"aabb": AABB(-0.461151, 0, -0.345864, 0.922303, 1e-05, 0.691727),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_5tx6a"),
+"name": "Untitled_Artwork",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_50wqo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0r035"]
+resource_name = "dsf"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("55_hu7nt")
+roughness = 0.5
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ku71a"]
+_surfaces = [{
+"aabb": AABB(-0.341527, 0, -0.28429, 0.683054, 1e-05, 0.568579),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "dsf",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0h5f4"]
+resource_name = "spiderwebs_dsf"
+_surfaces = [{
+"aabb": AABB(-0.341527, 0, -0.28429, 0.683054, 1e-05, 0.568579),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_0r035"),
+"name": "dsf",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ku71a")
+
 [node name="Library" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
 script = ExtResource("1_508o3")
@@ -1400,7 +1481,7 @@ skeleton = NodePath("")
 transform = Transform3D(-4.99212, 0, 1.74137e-06, 0, 5.34422, 0, -1.62664e-06, 0, -5.34422, -2.78296, 5.34237, 16.5994)
 
 [node name="Chandelier" parent="." instance=ExtResource("4_30q20")]
-transform = Transform3D(0.301923, 0, 0, 0, 0.301923, 0, 0, 0, 0.301923, -2.7911, 1.19032, 1.48577)
+transform = Transform3D(0.27786, 0, 0, 0, 0.27786, 0, 0, 0, 0.27786, -2.7911, 0.952797, 1.48577)
 
 [node name="OmniLight3D" parent="Chandelier/Lights" index="0"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
@@ -1700,6 +1781,7 @@ transform = Transform3D(0.163367, -0.14946, -0.000216071, -0.000203109, 7.39295e
 transform = Transform3D(1, 0, 0, 0, 0.942486, 0, 0, 0, 1.60611, 2.01854, -5.57936, 4.32193)
 
 [node name="Cobwebs" type="Node3D" parent="Props"]
+visible = false
 
 [node name="CobwebWide" parent="Props/Cobwebs" instance=ExtResource("41_nbcih")]
 transform = Transform3D(1.24701, 0, 0, 0, 1.24701, 0, 0, 0, 1.24701, -8.1461, -2.87329, -0.255474)
@@ -1781,6 +1863,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
 
 [node name="beerpong trophie" parent="." instance=ExtResource("53_iso52")]
 transform = Transform3D(0.313237, 0, 0.303293, 0, 0.43601, 0, -0.303293, 0, 0.313237, 0.969747, -2.87133, 0.861133)
+
+[node name="spiderwebs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89104, -2.13548, 1.2603)
+
+[node name="Untitled_Artwork_001" type="MeshInstance3D" parent="spiderwebs"]
+transform = Transform3D(-3.31784, -0.0200741, 0.596423, -0.506318, -0.00440443, -3.90822, 0.0218053, -3.15671, 0.00166048, -3.46318, -0.248907, -1.73505)
+mesh = SubResource("ArrayMesh_3pk5y")
+skeleton = NodePath("")
+
+[node name="Untitled_Artwork_002" type="MeshInstance3D" parent="spiderwebs"]
+transform = Transform3D(-0.280918, 1.42493, -4.68321, 3.37343, -1.18189, -1.39053, -1.71584, -2.55694, -1.96711, 7.87508, -1.29629, 4.65688)
+mesh = SubResource("ArrayMesh_3pk5y")
+skeleton = NodePath("")
+
+[node name="dsf_006" type="MeshInstance3D" parent="spiderwebs"]
+transform = Transform3D(4.51608, 0.0815808, -0.0625512, -0.0872657, 0.140007, -3.35891, -0.0892539, 3.99095, 0.119113, 5.7503, 0.0206535, -2.45016)
+mesh = SubResource("ArrayMesh_0h5f4")
+skeleton = NodePath("")
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 
