@@ -29,14 +29,6 @@ func _ready() -> void:
 		
 	if popup:
 		popup.visible = false
-
-#func _physics_process(delta: float) -> void:
-	#check distance from player and enable/disable monitoring
-	#var dist_squared = global_position.distance_squared_to(ContentLoader.player.global_position)
-	#if dist_squared < 100:
-		#interaction_detector.monitoring = true
-	#else:
-		#interaction_detector.monitoring = false
 		
 func create_outline():
 	#print("Creating outline")

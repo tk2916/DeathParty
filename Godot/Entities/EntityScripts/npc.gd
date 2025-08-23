@@ -8,7 +8,7 @@ var outline : Node3D
 
 func _ready() -> void:
 	super()
-	print("Ready: ", name)
+	#print("Ready: ", name)
 	if character_resource:
 		character_resource.unread.connect(on_unread)
 		if json_file:

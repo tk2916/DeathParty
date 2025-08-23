@@ -17,7 +17,6 @@ func _init(_name : String, _file : PackedScene, _interactable : Interactable) ->
 	transform = interactable.global_transform
 	var collision_shape : CollisionShape3D = interactable.interaction_detector.collision_shape
 	aabb =  Utils.get_collision_shape_aabb(collision_shape)
-	#g_pos = interactable.global_position
 	print("Initiated interactable data for : ", name, " | file: ", file)
 
 func load_in(_parent_scene : Node3D):
@@ -26,10 +25,6 @@ func load_in(_parent_scene : Node3D):
 	parent_scene = _parent_scene
 	interactable = file.instantiate() as Interactable
 	assert(interactable != null, name + " doesn't have the NPC/Interactable script attached to it in its base scene!")
-	#interactable.transform = transform
-	#interactable.global_position = g_pos
-	
-	#interactable.tree_entered.connect(fade)
 	parent_scene.add_child.call_deferred(interactable)
 	interactable.call_deferred("set_global_transform", transform)
 

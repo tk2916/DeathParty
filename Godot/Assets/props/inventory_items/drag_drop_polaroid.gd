@@ -1,6 +1,5 @@
 class_name DragDropPolaroid extends ObjectViewerDraggable
 var tree : SceneTree
-var main_page_static : MeshInstance3D
 var bookflip_instance : BookFlip
 
 #var grabbed_control : DragDropControl = null
@@ -13,18 +12,16 @@ var item_resource : Resource
 
 var og_scale : Vector3
 
-func _init(_item_resource : Resource, _static_page_1 : MeshInstance3D, _bookflip_instance : BookFlip) -> void:
+func _init(_item_resource : Resource) -> void:
 	super()
 	item_resource = _item_resource
-	bookflip_instance = _bookflip_instance
-	main_page_static = _static_page_1
 	og_scale = Vector3.ONE*_item_resource.inventory_scale
+	scale = og_scale
 
 func _ready() -> void:
 	super()
 	tree = get_tree()
 	mesh = Utils.find_first_child_of_class(self, MeshInstance3D)
-	scale = og_scale
 	
 func return_to_og_position():
 	position = og_position

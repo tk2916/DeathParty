@@ -41,41 +41,10 @@ func on_inventory_change(action:String, item:String) -> void:
 	elif action == "add" and itemCount == 1:
 		new_item(item)
 		refresh_items()
-
-func find_first_mesh(item : Node3D):
-	for thing in item.get_children():
-		if thing is MeshInstance3D:
-			return thing
-
-func create_clickable_item(item_resource : InventoryItemResource, item : Node3D) -> ObjectViewerInteractable:
-	var static_body : ObjectViewerInteractable
-	if item.name.substr(0,8) == "polaroid":
-		static_body = DragDropPolaroid.new(item_resource, static_page_1, bookflip_instance)
-		#static_body.main_page = main_page
-	else:
-		static_body = ClickableInventoryItem.new(item_resource)
-	
-	static_body.name = item_resource.name
-	var collision_shape : CollisionShape3D = CollisionShape3D.new()
-	collision_shape.name = "CollisionShape3D"
-	collision_shape.shape = BoxShape3D.new()
-	collision_shape.shape.extents = Vector3(.2,.5,.2)
-	
-	#static_body.global_position = item.global_position
-	static_body.add_child(collision_shape)
-	static_body.add_child(item)
-	
-	item.position = Vector3.ZERO
-	item.rotate(Vector3(1,0,0), deg_to_rad(90))
-	item.rotate(Vector3(0,1,0), deg_to_rad(180))
-	
-	return static_body
 	
 func new_item(item_name:String):
 	var item_resource : InventoryItemResource = SaveSystem.inventory_item_to_resource[item_name]
-	var model : PackedScene = item_resource.model
-	var instance : Node3D = model.instantiate()
-	var static_body : ObjectViewerInteractable = create_clickable_item(item_resource, instance)
+	var static_body : ObjectViewerInteractable = InventoryUtils.create_clickable_item(item_resource)
 	item_instances.push_back(static_body)
 	#print("Static body name: ", static_body.name)
 
