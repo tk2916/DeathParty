@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=87 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bno7ud54oxh6n" path="res://rooms/Kitchen/kitchen molding_standardwood.png" id="3_kyy70"]
 [ext_resource type="Texture2D" uid="uid://cxgxr1ajrgm1c" path="res://rooms/Kitchen/Kitchen Setup_metal.png" id="3_qn7eg"]
 [ext_resource type="Texture2D" uid="uid://csynwowllvh4t" path="res://rooms/Kitchen/Kitchen Setup_standardwood.png" id="5_8mwvm"]
+[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="5_l32yv"]
 [ext_resource type="PackedScene" uid="uid://bce1xv0wcorsw" path="res://Assets/environment/fridge/fridge.tscn" id="5_qn7eg"]
 [ext_resource type="PackedScene" uid="uid://bxsjt7jdg8hv3" path="res://Assets/environment/kiss_the_cook_sign/Kitchen Neon sign.glb" id="6_84i0v"]
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="6_l47d5"]
@@ -31,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="26_eupok"]
 [ext_resource type="PackedScene" uid="uid://db6cyshdnsaxs" path="res://Assets/environment/trash/trash.glb" id="27_b6r2c"]
 [ext_resource type="PackedScene" uid="uid://bjutys11t6nx5" path="res://Assets/props/posters/drink_sign/drink_sign.glb" id="27_v5gra"]
-[ext_resource type="PackedScene" uid="uid://cf7gkb37rdvf1" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers/pumpkin with beers.glb" id="29_nw002"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="30_6oann"]
 [ext_resource type="PackedScene" uid="uid://te45o0a3h24h" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_hanging.tscn" id="31_hc0kg"]
 [ext_resource type="PackedScene" uid="uid://cwjfbxbvm4u45" path="res://Assets/props/cobwebs/cobweb_corner.tscn" id="32_obamy"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="42_et00h"]
 [ext_resource type="PackedScene" uid="uid://dxv1m51cs7gn8" path="res://Assets/props/alcohol/beer_box/beer_box.tscn" id="42_p4v0j"]
 [ext_resource type="PackedScene" uid="uid://c8rq8p1i25wix" path="res://Assets/CharacterAssets/bartender/bartender.tscn" id="44_p4v0j"]
+[ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="45_l32yv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
 size = Vector3(15, 5, 13)
@@ -895,6 +896,9 @@ visible = false
 mesh = SubResource("ArrayMesh_s8s5b")
 skeleton = NodePath("")
 
+[node name="PumpkinWithBeers" parent="Room" instance=ExtResource("5_l32yv")]
+transform = Transform3D(-1.00264, 0, 0.436023, 0, 1.09334, 0, -0.436023, 0, -1.00264, -0.271077, -0.260996, -6.14923)
+
 [node name="EntranceDoor" parent="." instance=ExtResource("2_kbocy")]
 transform = Transform3D(-4.77916e-08, 0, -1.09334, 0, 1.09334, 0, 1.09334, 0, -4.77916e-08, 8.25604, -1.78701, 1.93738)
 
@@ -980,9 +984,6 @@ transform = Transform3D(0.242503, 0, -0.634988, 0, 0.679718, 0, 0.634988, 0, 0.2
 
 [node name="Pan3" parent="Counter/Stove" instance=ExtResource("14_54x08")]
 transform = Transform3D(-0.440466, 0.120748, -0.306446, 0.107798, 0.536375, 0.056404, 0.311238, -0.0148914, -0.453221, -4.85103, 2.21728, 4.90188)
-
-[node name="pumpkin with beers4" parent="Counter/Stove" instance=ExtResource("29_nw002")]
-transform = Transform3D(-0.807923, 0, 0.516549, 0, 0.958936, 0, -0.516549, 0, -0.807923, -4.26122, 2.29299, 4.88038)
 
 [node name="Pot" parent="Counter/Stove" instance=ExtResource("15_htgpp")]
 transform = Transform3D(0.578032, 0, -0.357624, 0, 0.679718, 0, 0.357624, 0, 0.578032, -4.81958, 2.04959, 4.89271)
@@ -1138,9 +1139,6 @@ transform = Transform3D(-0.770727, 0, 0.570537, 0, 0.958919, 0, -0.570537, 0, -0
 [node name="Fridge" parent="." instance=ExtResource("5_qn7eg")]
 transform = Transform3D(9.65579e-09, -0.220898, 0.000384708, -0.220898, -9.6558e-09, 1.28579e-11, 3.95823e-12, -0.000384708, -0.220898, -0.0816185, -1.8518, -6.04825)
 
-[node name="pumpkin with beers3" parent="Fridge" instance=ExtResource("29_nw002")]
-transform = Transform3D(-1.82332e-07, -4.94961, 1.16469e-07, 4.17478, -2.16355e-07, -2.65893, 2.65893, 2.88104e-10, 4.17478, -7.04098, 0.809667, 0.843002)
-
 [node name="red_cup28" parent="Fridge" instance=ExtResource("25_eupok")]
 transform = Transform3D(4.22059e-08, -1.21696, 3.23791e-08, -0.964566, -5.31952e-08, -0.742029, 0.742029, 7.08363e-11, -0.964566, -5.66248, -1.97153, -2.31753)
 
@@ -1152,9 +1150,6 @@ transform = Transform3D(-1.12768e-07, -4.94953, -1.84639e-07, 2.5742, -2.16351e-
 
 [node name="Drawers" parent="." instance=ExtResource("6_t1sd7")]
 transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, -2.39792, -4.41223, -4.42771)
-
-[node name="pumpkin with beers3" parent="Drawers" instance=ExtResource("29_nw002")]
-transform = Transform3D(-1.03818, 0, -0.737956, 0, 1.27373, 0, 0.737956, 0, -1.03818, -4.51717, 2.54341, 5.6843)
 
 [node name="blue goose3" parent="Drawers" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.840295, 0, -0.251253, 0, 0.877054, 0, 0.251253, 0, 0.840295, -4.10305, 2.15121, 5.07178)
@@ -1278,9 +1273,6 @@ transform = Transform3D(0.190231, 0, 0.189945, 0, 0.268825, 0, -0.189945, 0, 0.1
 [node name="red_cup3" parent="Bar" instance=ExtResource("25_eupok")]
 transform = Transform3D(0.0468997, 0.228721, -0.133245, -0.263346, 0.0539996, 0, 0.0267652, 0.130529, 0.23348, 0.351371, 0.42064, -0.18375)
 
-[node name="pumpkin with beers" parent="Bar" instance=ExtResource("29_nw002")]
-transform = Transform3D(-1.08319, 0, 0.14863, 0, 1.09334, 0, -0.14863, 0, -1.08319, 0.260931, 0.67095, -1.4185)
-
 [node name="simple lamp" parent="Bar" instance=ExtResource("42_e7jho")]
 transform = Transform3D(0.28237, 0, 1.05625, 0, 1.09334, 0, -1.05625, 0, 0.28237, 0.321264, 0.3927, -1.71894)
 
@@ -1294,6 +1286,9 @@ light_energy = 3.0
 shadow_enabled = true
 omni_range = 2.346
 omni_attenuation = 2.0
+
+[node name="PumpkinWithBeers" parent="Bar" instance=ExtResource("5_l32yv")]
+transform = Transform3D(-1.15202, 0, -0.0588421, 0, 1.15352, 0, 0.0588421, 0, -1.15202, 0.205792, 0.701251, -1.3045)
 
 [node name="Trash" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266067, -2.71812, -1.91791)
@@ -1734,6 +1729,15 @@ transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -7.21247, -
 
 [node name="folded chairs2" parent="." instance=ExtResource("26_eupok")]
 transform = Transform3D(-1.09118, 0, -0.0688421, 0, 1.09334, 0, 0.0688421, 0, -1.09118, 7.59115, -2.33863, -0.217396)
+
+[node name="PumpkinWithBeers" parent="." instance=ExtResource("5_l32yv")]
+transform = Transform3D(-0.806433, 0, 0.738287, 0, 1.09334, 0, -0.738287, 0, -0.806433, 1.85998, -1.83526, -5.60301)
+
+[node name="PumpkinWithBeers2" parent="." instance=ExtResource("5_l32yv")]
+transform = Transform3D(-0.729844, 0, -0.814082, 0, 1.09334, 0, 0.814082, 0, -0.729844, -7.10194, -1.52942, 2.19461)
+
+[node name="beerpong trophie" parent="." instance=ExtResource("45_l32yv")]
+transform = Transform3D(0.566878, 0, -0.0975908, 0, 0.575217, 0, 0.0975908, 0, 0.566878, 4.41617, -0.807845, -1.61054)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="Room"]

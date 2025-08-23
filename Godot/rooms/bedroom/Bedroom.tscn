@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=174 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://cgvs4fwjt83jn" path="res://rooms/bedroom/punk posters_IMG_0684.png" id="51_kvlly"]
 [ext_resource type="PackedScene" uid="uid://btmj6vlpb2pyw" path="res://rooms/bedroom/desk stuff.glb" id="56_0hleh"]
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="57_6hcck"]
+[ext_resource type="PackedScene" uid="uid://damm3py04oa6j" path="res://rooms/bedroom/Polaroid Camera.glb" id="66_dyybh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(8.04827, 3.47472, 11.0452)
@@ -105,7 +106,7 @@ albedo_color = Color(0.281989, 0.500556, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
-density = 0.03
+density = 0.07
 albedo = Color(0.282681, 0.000620117, 0.7224, 1)
 emission = Color(0.0542566, 3.0563e-06, 0.30273, 1)
 
@@ -1486,27 +1487,27 @@ shape = SubResource("BoxShape3D_7octt")
 transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -2.002, 0.889039, 4.33741)
 shape = SubResource("BoxShape3D_qbwcx")
 
-[node name="SceneLoader_Entrance" type="Area3D" parent="."]
+[node name="SceneLoader_Exterior" type="Area3D" parent="."]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.816608, -0.0933874, 5.45903)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("26_mav1h")
-scene_going_right = "Entrance"
-scene_going_left = "Entrance"
+scene_going_right = "Exterior"
+scene_going_left = "Exterior"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Entrance"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Exterior"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926189, 1.403, -1.34445)
 shape = SubResource("BoxShape3D_3cled")
 
-[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Entrance"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.455, 0.839686, -18.6226)
+[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Exterior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5743, 0.839686, 65.876)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Entrance/TeleportPoint"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Exterior/TeleportPoint"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_6wayg")
 mesh = SubResource("BoxMesh_qelyj")
 
-[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Entrance"]
+[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Exterior"]
 event_name = "event:/door"
 event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
 attached = false
@@ -1519,7 +1520,7 @@ unique_name_in_owner = true
 transform = Transform3D(-0.350812, 0.531941, 0.619968, 0.049527, -0.659627, 0.593995, 0.815395, 0.268926, 0.230653, 3.51498, 2.62447, 1.63089)
 light_color = Color(1, 0.55, 0, 1)
 light_energy = 80.0
-light_volumetric_fog_energy = 80.0
+light_volumetric_fog_energy = 100.0
 shadow_enabled = true
 spot_range = 10.0
 spot_angle = 22.5
@@ -1859,10 +1860,10 @@ transform = Transform3D(-0.0239555, 0.602108, -0.798055, 0.0153786, -0.797968, -
 transform = Transform3D(-1.41286e-07, 0.688298, 0.897938, 3.34545e-07, 0.897938, -0.688298, -1.13139, 1.34872e-07, -4.04617e-07, 2.83877, 1.03556, 1.52313)
 
 [node name="Plane_042" parent="Props/WallDecorations/PunkPosters" index="10"]
-transform = Transform3D(-0.0010804, 1.58962, 0.00662414, -0.00143942, 0.00622806, -1.69039, 1.45931, 0.00118302, -0.00166245, -1.24953, -0.414793, 1.77515)
+transform = Transform3D(-0.0010804, 1.58962, 0.00662414, -0.00143942, 0.00622806, -1.69039, 1.45931, 0.00118302, -0.00166245, -1.24953, -0.414793, 1.87522)
 
 [node name="Plane_047" parent="Props/WallDecorations/PunkPosters" index="11"]
-transform = Transform3D(-0.00192634, -2.64769, 0.105407, 0.00263753, -0.0600223, -4.64986, 2.64837, -0.00186607, 0.00470749, -1.25465, -0.752825, 2.87796)
+transform = Transform3D(-0.00192634, -2.64769, 0.105407, 0.00263753, -0.0600223, -4.64986, 2.64837, -0.00186607, 0.00470749, -1.19175, -0.752825, 2.69148)
 
 [node name="Plane_040" parent="Props/WallDecorations/PunkPosters" index="12"]
 transform = Transform3D(-0.0608814, 2.54011, 0.0540959, 0.039084, 0.0550414, -2.54052, -2.54039, -0.060028, -0.0403825, 3.44724, -0.212886, -1.64362)
@@ -2051,10 +2052,16 @@ visible = false
 mesh = SubResource("ArrayMesh_sokvp")
 skeleton = NodePath("")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_color = Color(0.6485, 0.43, 1, 1)
+
+[node name="Polaroid Camera" parent="." instance=ExtResource("66_dyybh")]
+transform = Transform3D(-0.511012, 0, -0.727501, 0, 0.889039, 0, 0.727501, 0, -0.511012, 1.21963, 0.496567, 0.630633)
+
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="body_entered" from="SceneLoader_Entrance" to="." method="_on_scene_loader_body_entered"]
-[connection signal="body_entered" from="SceneLoader_Entrance" to="SceneLoader_Entrance" method="_on_body_entered"]
-[connection signal="body_exited" from="SceneLoader_Entrance" to="SceneLoader_Entrance" method="_on_body_exited"]
+[connection signal="body_entered" from="SceneLoader_Exterior" to="." method="_on_scene_loader_body_entered"]
+[connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_exited"]
 
 [editable path="Bed"]
 [editable path="Closet"]
