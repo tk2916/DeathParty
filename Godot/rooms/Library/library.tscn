@@ -50,7 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://beusior7ym8c4" path="res://Assets/props/chairs/chair/chair.tscn" id="45_jpbuu"]
 [ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="45_owm1a"]
 [ext_resource type="PackedScene" uid="uid://ddiqilmdbakfb" path="res://Assets/CharacterAssets/angel/angel.tscn" id="50_m1j1w"]
-[ext_resource type="PackedScene" uid="uid://qlwirfl7ycga" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="51_ndciv"]
+[ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="51_ndciv"]
 [ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="52_rwfot"]
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="53_iso52"]
 
@@ -1082,7 +1082,6 @@ func _on_timer_timeout() -> void:
 collision_mask = 2
 script = ExtResource("1_508o3")
 room_area = NodePath("RoomArea")
-metadata/_custom_type_script = "uid://23e11u4fm3n6"
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31299, 0, 2)
@@ -1752,6 +1751,7 @@ transform = Transform3D(0.863531, 0, 0.20899, 0, 0.888461, 0, -0.20899, 0, 0.863
 
 [node name="angel" parent="NPCs" instance=ExtResource("50_m1j1w")]
 transform = Transform3D(1.04394, 0, 0.287276, 0, 1.08275, 0, -0.287276, 0, 1.04394, 0.640378, 0.0198874, -0.0244191)
+script = null
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("45_owm1a")]
 transform = Transform3D(0.736692, 0, -0.887413, 0, 1.15335, 0, 0.887413, 0, 0.736692, 1.8323, 0.0134149, 0.409096)

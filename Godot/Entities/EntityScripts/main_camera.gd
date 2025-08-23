@@ -99,9 +99,9 @@ func _physics_process(delta: float) -> void:
 		main_camera.global_transform = camera_location_node.global_transform
 		
 	main_camera.global_position += camera_offset
-	print(main_camera.global_position)
-	print(camera_offset)
-	print()
+	#print(main_camera.global_position)
+	#print(camera_offset)
+	#print()
 
 func _move_camera_smooth(new_location_node: Node3D) -> void:
 	camera_smooth = true

@@ -177,8 +177,9 @@ func set_camera_offset(offset: Vector3) -> void:
 # (based on the name the Room3D node)
 func set_fmod_room_parameter(body: Node3D, room_name: String) -> void:
 	#print("SETTING FMOD ROOM TO: ", room_name)
-	if body.is_in_group("player"):
-		FmodServer.set_global_parameter_by_name_with_label("Room", room_name)
+	#if body.is_in_group("player"):
+		#FmodServer.set_global_parameter_by_name_with_label("Room", room_name)
+		pass
 	#print("FMOD ROOM IS NOW: ", FmodServer.get_global_parameter_by_name("Room"))
 
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b28ic62804vjc"]
+[gd_scene load_steps=3 format=3 uid="uid://b28ic62804vjc"]
 
 [ext_resource type="PackedScene" uid="uid://0pmbitl07sm" path="res://Assets/CharacterAssets/Buff Frat boy/Buff red.glb" id="1_l61lp"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_lmmpf"]
 
 [node name="Buff red" instance=ExtResource("1_l61lp")]
 transform = Transform3D(1.17062, 0, 0, 0, 1.17062, 0, 0, 0, 1.17062, 0, 0, 0)
+script = ExtResource("2_lmmpf")
 
 [node name="Skeleton3D" parent="model red" index="0"]
 bones/0/position = Vector3(0.716441, -15.1452, -86.3922)

@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8rq8p1i25wix"]
+[gd_scene load_steps=3 format=3 uid="uid://c8rq8p1i25wix"]
 
 [ext_resource type="PackedScene" uid="uid://ccnq3piokb8b1" path="res://Assets/CharacterAssets/bartender/Bartender.glb" id="1_1fimp"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_8jnbp"]
 
-[node name="Bartender" instance=ExtResource("1_1fimp")]
+[node name="Bartender" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_1fimp")]
 transform = Transform3D(1.00957, 0, 0, 0, 1.0458, 0, 0, 0, 1.00957, 0, 0, 0)
+script = ExtResource("2_8jnbp")
+primary_mesh = NodePath("Model/Skeleton3D/Basemesh_F_020_002")
+outline_thickness = 0.3
 
 [node name="Skeleton3D" parent="Model" index="0"]
 bones/0/position = Vector3(0.0174506, 1.01803, -0.00183699)

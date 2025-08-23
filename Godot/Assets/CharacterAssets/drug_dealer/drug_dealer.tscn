@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1nd01uwlqaij"]
+[gd_scene load_steps=3 format=3 uid="uid://c1nd01uwlqaij"]
 
 [ext_resource type="PackedScene" uid="uid://8pl4qpktu1pb" path="res://Assets/CharacterAssets/drug_dealer/drug_dealer.glb" id="1_t4org"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_bc2ut"]
 
 [node name="drug_dealer" instance=ExtResource("1_t4org")]
+script = ExtResource("2_bc2ut")
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(-0.0856708, 1.72335, -96.1124)

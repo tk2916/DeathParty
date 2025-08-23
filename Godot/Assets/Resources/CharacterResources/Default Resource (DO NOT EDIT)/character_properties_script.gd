@@ -21,7 +21,7 @@ var upcoming_chats : Array[JSON] = []
 
 var ink_resource : InkResource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
 
-signal unread
+signal unread(tf:bool)
 
 func chat_already_loaded(file : JSON) -> bool:
 	for chat : JSON in upcoming_chats:
@@ -51,3 +51,11 @@ func start_chat() -> void:
 		
 func end_chat() -> void:
 	upcoming_chats.pop_front()
+	
+func has_chats() -> bool:
+	if default_chat:
+		return true
+	elif upcoming_chats.size() > 0:
+		return true
+	else:
+		return false

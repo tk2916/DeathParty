@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://k3sqairh3uh4"]
+[gd_scene load_steps=5 format=3 uid="uid://k3sqairh3uh4"]
 
 [ext_resource type="PackedScene" uid="uid://dpfcftvjayo2k" path="res://Assets/CharacterAssets/Buff Frat boy/Buff.glb" id="1_4a2pe"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_md04w"]
+[ext_resource type="Resource" uid="uid://bpephsvb7c542" path="res://Assets/Resources/CharacterResources/character_properties_otherguy.tres" id="3_4i5i1"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/sample_dialogue_template.json" id="4_2klgw"]
 
-[node name="Buff" instance=ExtResource("1_4a2pe")]
+[node name="Buff" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_4a2pe")]
 transform = Transform3D(1.23102, 0, 0, 0, 1.23102, 0, 0, 0, 1.23102, 0, 0, 0)
+script = ExtResource("2_md04w")
+character_resource = ExtResource("3_4i5i1")
+json_file = ExtResource("4_2klgw")
+primary_mesh = NodePath("model/Skeleton3D/Chest_Bow_002")
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(-0.475944, 1.90877, -95.2219)
