@@ -30,6 +30,7 @@ func add_interactable(data:InteractableData) -> bool:
 	#if data.quadrant_id != -1: return false #already assigned
 	if intersects_interactable(data):
 		#data.quadrant_id = self.id
+		data.add_quadrant(self) #an obj might belong to multiple quadrants
 		loadable_objects.push_back(data)
 		return true
 	else:

@@ -231,36 +231,33 @@ func update_active_quadrants() -> void:
 	if not active: return
 	ContentLoader.update_player_aabb()
 	var player_aabb : AABB = ContentLoader.player_aabb
-	#print("Player AABB: ", player_aabb.position, " size: ", player_aabb.size)
-	#print("Player center: ", player_aabb.get_center())
-	print("UPDATING QUADRANTS")
-	var quad_plane_i = -1
-	var quad_row_i = -1
-	var quad_i = -1
-	var player_found : bool = false
-	for quad_plane : QuadrantPlane in scene_quadrants:
-		quad_plane_i+=1
-		quad_row_i = -1
-		if player_found: break
-		for quad_row : QuadrantRow in quad_plane.plane:
-			if player_found: break
-			quad_row_i += 1
-			quad_i = -1
-			for quad : Quadrant in quad_row.row:
-				quad_i += 1
+	var player_center : Vector3 = player_aabb.get_center()
+	#print("UPDATING QUADRANTS")
+	var quad_coords : Vector3 = Vector3()
+	var distance_from_center : float = 10000
+	for i : int in range (scene_quadrants.size()):
+		var quad_plane : QuadrantPlane = scene_quadrants[i]
+		for j : int in range (quad_plane.plane.size()):
+			var quad_row = quad_plane.plane[j]
+			for k : int in range (quad_row.row.size()):
+				var quad : Quadrant = quad_row.row[k]
 				if quad.intersects(player_aabb):
-					print("Active quadrant: ", quad.id)
-					player_found = true
-					break
-					
+					#print("Intersection: ", quad.id)
+					var dist : float = quad.aabb.get_center().distance_squared_to(player_aabb.get_center())
+					if dist < distance_from_center: #put player in closest one
+						distance_from_center = dist
+						quad_coords = Vector3(i,j,k)
+						#print("New active quad: ", quad)
+	
 	#for mesh : Node in parent_scene.get_tree().get_nodes_in_group("quad_box"):
 		#parent_scene.remove_child(mesh)
 		#mesh.queue_free()
-	var adjacent_quadrants = find_adjacent_quadrants(quad_plane_i, quad_row_i, quad_i)
+		
+	var adjacent_quadrants = find_adjacent_quadrants(quad_coords.x, quad_coords.y, quad_coords.z)
 	#print("Size of adjacent quadrants: ", adjacent_quadrants.size())
 	for quad : Quadrant in active_quadrants:
 		if !(quad in adjacent_quadrants):
-			print("Un-activating quadrant ", quad.id)
+			#print("Un-activating quadrant ", quad.id)
 			quad.set_active(instance, false) #offload
 	for quad: Quadrant in adjacent_quadrants:
 		quad.set_active(instance, true)
@@ -271,7 +268,7 @@ func update_active_quadrants() -> void:
 func find_adjacent_quadrants(quad_plane_i : int, quad_row_i : int, quad_i : int) -> Array[Quadrant]:
 	var adjacent : Array[Quadrant] = []
 	#check 3x3 cube
-	var range_min : int = -2
+	var range_min : int = -1
 	var range_max : int = 2
 	for x in range(range_min, range_max):
 		var new_plane_i = quad_plane_i + x
