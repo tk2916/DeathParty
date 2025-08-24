@@ -26,6 +26,7 @@ func handle_player_entrance(body: Node3D) -> void:
 	
 	bind_camera_path(body)
 	bind_camera_LR(body)
+	bind_camera_y(body, 1.6, 1.6)
 	
 	path_follow_node.look_at(look_straight) # Look straight ahead
 	# ^ currently unneeded due to rotation mode None in path follow node
@@ -41,9 +42,9 @@ func _on_scene_loader_body_entered(body: Node3D) -> void:
 
 func _on_play() -> void:
 	var tween: Tween = get_tree().create_tween()
-	tween.tween_property(fade_title, "modulate:a", 0, .9)
+	tween.tween_property(fade_title, "modulate:a", 0, 2)
 	await tween.finished
 	title_screen.visible = false
 	closet.visible = true
-	tween.tween_property(path_follow_node, "progress_ratio", 1, 0.7)
+	tween.tween_property(path_follow_node, "progress_ratio", 1, 1)
 	GlobalCameraScript.camera_on_player.emit(true)
