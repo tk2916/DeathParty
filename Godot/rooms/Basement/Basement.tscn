@@ -1,4 +1,4 @@
-[gd_scene load_steps=208 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=210 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://dwnml6bm37e42" path="res://rooms/Basement/snacks on table_Image_1_10.png" id="26_gyrii"]
 [ext_resource type="PackedScene" uid="uid://cubcxrhw7wq5g" path="res://Assets/props/plants/plant_pot.glb" id="26_l1moi"]
 [ext_resource type="Texture2D" uid="uid://bxkhw3ocktaig" path="res://rooms/Basement/snacks on table_Image_0_11.png" id="27_1modm"]
+[ext_resource type="PackedScene" uid="uid://bont0a7c7jekf" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers.tscn" id="29_g8hj1"]
 [ext_resource type="PackedScene" uid="uid://h7vyawprgyhu" path="res://Assets/props/posters/sexy_poster/sexy_poster.glb" id="29_g225s"]
 [ext_resource type="Texture2D" uid="uid://b7qq0xr1ibvwf" path="res://rooms/Basement/DDR_StingrayPBS3_baseColor.png" id="29_v3tt6"]
 [ext_resource type="Texture2D" uid="uid://cmvpu4ijfuqik" path="res://rooms/Basement/DDR_StingrayPBS3_metallicRoughness.png" id="30_jle5p"]
@@ -65,7 +66,6 @@
 [ext_resource type="Texture2D" uid="uid://c4yltlon28gj8" path="res://rooms/Basement/DDR_StingrayPBS1_metallicRoughness.png" id="41_bu75b"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="41_pts78"]
 [ext_resource type="Texture2D" uid="uid://bbgfgnvnfgg58" path="res://rooms/Basement/DDR_StingrayPBS1_normal.png" id="42_2nnqp"]
-[ext_resource type="PackedScene" uid="uid://cf7gkb37rdvf1" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers/pumpkin with beers.glb" id="42_f8de0"]
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="43_hfud8"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="44_5vrx5"]
 [ext_resource type="PackedScene" uid="uid://ct88jby2wdhev" path="res://Assets/environment/brown_carpet.tscn" id="45_rvhly"]
@@ -76,8 +76,10 @@
 [ext_resource type="Texture2D" uid="uid://dpgoxcccpv2um" path="res://rooms/bedroom/punk posters_IMG_2068.png" id="49_hfud8"]
 [ext_resource type="Texture2D" uid="uid://pllqh6hglgvf" path="res://rooms/bedroom/punk posters_Untitled_Artwork.png" id="50_eipmn"]
 [ext_resource type="PackedScene" uid="uid://bascssj1owqq1" path="res://rooms/Basement/asian flag.glb" id="51_hfud8"]
+[ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="60_1mcaq"]
 [ext_resource type="Texture2D" uid="uid://cescg2luxp8a1" path="res://rooms/Basement/bean bag_Screenshot_2025-07-07_193553.png" id="77_jle5p"]
 [ext_resource type="VideoStream" uid="uid://durjhoccw8ld2" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
+[ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/dino gamer/dino.tscn" id="79_g8hj1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -668,6 +670,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vyamp")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kk7s6"]
+viewport_path = NodePath("TVStand/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xegu"]
 resource_name = "Material.003"
@@ -1808,9 +1813,6 @@ shadow_mesh = SubResource("ArrayMesh_40s1y")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rucjk"]
 size = Vector3(1.5, 1, 1.5)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kk7s6"]
-viewport_path = NodePath("SubViewport")
-
 [node name="Basement" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
 script = ExtResource("1_e2jnh")
@@ -1973,7 +1975,7 @@ process_material = SubResource("ParticleProcessMaterial_hfud8")
 draw_pass_1 = SubResource("SphereMesh_j7vhh")
 
 [node name="Dust2" type="GPUParticles3D" parent="Particles"]
-transform = Transform3D(0.60332, 0, 0, 0, 0.433087, 0, 0, 0, 0.433087, 2.16121, -0.38171, -2.50166)
+transform = Transform3D(0.71334, 0, 0, 0, 0.433087, 0, 0, 0, 0.644377, 4.77201, -1.03614, 0.0111265)
 gi_mode = 2
 amount = 100
 lifetime = 4.0
@@ -1984,7 +1986,29 @@ process_material = SubResource("ParticleProcessMaterial_hfud8")
 draw_pass_1 = SubResource("SphereMesh_j7vhh")
 
 [node name="Dust3" type="GPUParticles3D" parent="Particles"]
-transform = Transform3D(0.73597, 0, 0, 0, 0.433087, 0, 0, 0, 1.64916, 7.67767, -0.38171, -3.64327)
+transform = Transform3D(1.00516, 0, 0, 0, 0.433087, 0, 0, 0, 0.701475, 7.40818, -0.385912, -5.05909)
+gi_mode = 2
+amount = 300
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_hfud8")
+draw_pass_1 = SubResource("SphereMesh_j7vhh")
+
+[node name="Dust4" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(0.536084, 0, 0, 0, 0.723718, 0, 0, 0, 0.701475, 1.8779, -0.385912, -5.05909)
+gi_mode = 2
+amount = 300
+lifetime = 4.0
+preprocess = 2.0
+speed_scale = 0.3
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_hfud8")
+draw_pass_1 = SubResource("SphereMesh_j7vhh")
+
+[node name="Dust5" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(0.391745, 0, 0, 0, 0.528859, 0, 0, 0, 0.512605, -8.66159, -0.939092, -4.31905)
 gi_mode = 2
 amount = 300
 lifetime = 4.0
@@ -2154,13 +2178,31 @@ mesh = SubResource("ArrayMesh_d0lo7")
 skeleton = NodePath("")
 
 [node name="Sofa" parent="." instance=ExtResource("9_5ryib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86754, 0.433345, 0.577801)
+transform = Transform3D(-0.0144858, 0, -0.999895, 0, 1, 0, 0.999895, 0, -0.0144858, 3.27714, 0.479389, 0.607965)
 
 [node name="TVStand" parent="." instance=ExtResource("15_xaevv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46828, -0.195834, -2.31217)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.96008, -0.195834, 2.205)
 
 [node name="TV" parent="TVStand" instance=ExtResource("16_4bbn0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3215, 0.127527, 0.61895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3215, 0.127527, 0.185869)
+
+[node name="Sprite3D" type="Sprite3D" parent="TVStand"]
+transform = Transform3D(0.158358, 0, 0, 0, 0.146936, 0, 0, 0, 0.144321, -1.59724, 1.61217, -2.10524)
+texture = SubResource("ViewportTexture_kk7s6")
+
+[node name="SubViewport" type="SubViewport" parent="TVStand"]
+size = Vector2i(1280, 760)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="TVStand/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("78_kk7s6")
+autoplay = true
+expand = true
+loop = true
 
 [node name="Controller" type="MeshInstance3D" parent="TVStand"]
 transform = Transform3D(0.0970067, -0.00132902, 0.059569, -0.0025887, 0.113615, 0.00675044, -0.0595276, -0.00710658, 0.0967807, -1.2163, 0.985492, -1.26662)
@@ -2168,7 +2210,7 @@ mesh = SubResource("ArrayMesh_xtkkb")
 skeleton = NodePath("")
 
 [node name="Controller2" type="MeshInstance3D" parent="TVStand"]
-transform = Transform3D(0.0958002, 0.00582073, -0.0612289, -0.0025887, 0.113615, 0.00675044, 0.0614505, -0.00428822, 0.0957392, -1.7242, 0.985492, -1.26662)
+transform = Transform3D(0.0503689, 0.00382136, -0.0450004, -0.00153831, 0.0675148, 0.00401139, 0.0451362, -0.00196337, 0.0503542, -2.18737, 1.14176, 2.65486)
 mesh = SubResource("ArrayMesh_jle5p")
 skeleton = NodePath("")
 
@@ -2199,7 +2241,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.038, 1.09507, -4.01401)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.09931, 1.02466, -4.1438)
 
 [node name="WoodTable" type="StaticBody3D" parent="."]
-transform = Transform3D(1.36649, 0, 0, 0, 1.36649, 0, 0, 0, 1.36649, 1.71318, -0.206819, -1.55022)
+transform = Transform3D(0.0737315, 0, -1.3645, 0, 1.36649, 0, 1.3645, 0, 0.0737315, 5.99026, -0.206819, 1.32081)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WoodTable"]
 transform = Transform3D(0.276972, 0, -1.30289, 0, 1.17239, 0, -1.36434, 0, -0.264497, 0, 0, 3.8147e-06)
@@ -2220,7 +2262,7 @@ mesh = SubResource("ArrayMesh_fw4q4")
 skeleton = NodePath("")
 
 [node name="Object_5_001" type="MeshInstance3D" parent="WoodTable/Snacks"]
-transform = Transform3D(0.083332, -0.000141178, -0.0289836, 1.95152e-10, 0.0882276, -0.000429753, 0.028984, 0.000405902, 0.083331, -0.87912, 0.302426, -0.248898)
+transform = Transform3D(0.083332, -0.000141178, -0.0289836, 1.95152e-10, 0.0882276, -0.000429753, 0.028984, 0.000405902, 0.083331, -0.735002, 0.302426, -0.471283)
 mesh = SubResource("ArrayMesh_0kr6l")
 skeleton = NodePath("")
 
@@ -2245,22 +2287,22 @@ mesh = SubResource("ArrayMesh_trdki")
 skeleton = NodePath("")
 
 [node name="box_closed_01_box_0" type="MeshInstance3D" parent="WoodTable/Snacks"]
-transform = Transform3D(0.882787, -0.469774, -2.08616e-07, 4.47035e-08, -3.57628e-07, 1, -0.469774, -0.882787, -3.57628e-07, 0.177783, -0.0200494, 0.524162)
+transform = Transform3D(0.882787, -0.469774, -2.08616e-07, 4.47035e-08, -3.57628e-07, 1, -0.469774, -0.882787, -3.57628e-07, 0.163389, -0.0200494, 0.790545)
 mesh = SubResource("ArrayMesh_naoun")
 skeleton = NodePath("")
 
 [node name="box_opened_02_box_0" type="MeshInstance3D" parent="WoodTable/Snacks"]
-transform = Transform3D(0.56128, 0.827626, 2.38419e-07, 0, -2.38419e-07, 1, 0.827626, -0.56128, -1.19209e-07, -0.361526, 0.0659842, -0.681514)
+transform = Transform3D(0.56128, 0.827626, 2.38419e-07, 0, -2.38419e-07, 1, 0.827626, -0.56128, -1.19209e-07, -0.347735, 0.0659842, -0.936742)
 mesh = SubResource("ArrayMesh_gaql3")
 skeleton = NodePath("")
+
+[node name="PumpkinWithBeers" parent="WoodTable/Snacks" instance=ExtResource("29_g8hj1")]
+transform = Transform3D(-0.838328, 0, -0.545166, 0, 1, 0, 0.545166, 0, -0.838328, 0.244901, 0.155474, -0.0249453)
 
 [node name="box_opened_03_box_0" type="MeshInstance3D" parent="WoodTable/Snacks"]
 transform = Transform3D(-0.583207, 0.812324, 2.08616e-07, 8.9407e-08, -2.38419e-07, 1, 0.812324, 0.583207, 1.19209e-07, -0.965848, 0.0500704, 0.45466)
 mesh = SubResource("ArrayMesh_ffulb")
 skeleton = NodePath("")
-
-[node name="PumpkinWithBeers" parent="WoodTable" instance=ExtResource("42_f8de0")]
-transform = Transform3D(-0.690903, 0, 0.24122, 0, 0.731802, 0, -0.24122, 0, -0.690903, 0.0208493, 0.778263, -0.135632)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WoodTable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
@@ -2311,8 +2353,23 @@ omni_range = 1.816
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70251, -0.659889, -1.61554)
 visible = false
 
+[node name="Balloons" type="Node3D" parent="ArcadeMachines"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.86115, 0.76561, -3.92163)
+
+[node name="BalloonsFourShort" parent="ArcadeMachines/Balloons" instance=ExtResource("38_4fe3s")]
+transform = Transform3D(-0.126874, -0.188826, -3.19962e-08, 6.39496e-09, 4.18671e-08, -0.197715, 0.173053, -0.138438, -1.61518e-08, -0.580989, -0.379554, 0.800135)
+
+[node name="BalloonsThreeShort" parent="ArcadeMachines/Balloons" instance=ExtResource("39_wvlev")]
+transform = Transform3D(-0.0403287, 0.198337, 5.39178e-08, 3.85857e-17, 7.28369e-08, -0.154817, -0.172796, -0.0462894, -1.25838e-08, -0.00440693, 0.159858, -0.856875)
+
+[node name="BalloonsThreeShort2" parent="ArcadeMachines/Balloons" instance=ExtResource("39_wvlev")]
+transform = Transform3D(0.130316, 0.0593822, 1.5913e-08, 3.049e-17, 5.75545e-08, -0.12059, -0.0517354, 0.149578, 4.00832e-08, 0.281723, 0.217798, 0.0874224)
+
+[node name="BalloonsFourShort2" parent="ArcadeMachines/Balloons" instance=ExtResource("38_4fe3s")]
+transform = Transform3D(0.165359, -0.173026, -2.11518e-08, 6.79352e-09, 4.49495e-08, -0.20847, 0.156904, 0.18235, 3.13178e-08, -0.343097, -0.479562, -1.86544)
+
 [node name="ArcadeMachine" parent="ArcadeMachines" instance=ExtResource("18_7eb3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35125, 0.329944, 0.307791)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8527, 0.329944, -3.58395)
 
 [node name="EnjoyPoster" parent="ArcadeMachines/ArcadeMachine" instance=ExtResource("30_p6v3q")]
 transform = Transform3D(0.00032462, 0, -0.251334, 0, 0.20973, 0, 0.251334, 0, 0.00032462, 0.17777, 0.696286, 0.0349257)
@@ -2325,7 +2382,7 @@ shadow_enabled = true
 omni_range = 1.324
 
 [node name="ArcadeMachine2" parent="ArcadeMachines" instance=ExtResource("18_7eb3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35125, 0.329944, 1.30775)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.8552, 0.329944, -3.51393)
 
 [node name="SexyPoster" parent="ArcadeMachines/ArcadeMachine2" instance=ExtResource("29_g225s")]
 transform = Transform3D(-0.0091696, 0, -0.272165, 0, 0.215852, 0, 0.362503, 0, -0.00688446, 0.16398, 0.547106, 0.032746)
@@ -2350,27 +2407,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48019, 0.06584, -1.73848)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0314844, -0.13168, 3.47695)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Lamps/Lamp3"]
-transform = Transform3D(-0.1231, 0.0784816, -0.112971, 2.75068e-09, 0.151602, 0.105319, 0.137557, 0.0702332, -0.101098, 0, 0, 0)
+transform = Transform3D(-0.135759, -0.0713628, 0.102724, 2.75068e-09, 0.151602, 0.105319, -0.12508, 0.0774559, -0.111495, -0.692502, 0.0460439, 2.34348)
 mesh = SubResource("ArrayMesh_vnc2j")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lamps/Lamp3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774646, 0.384915, -0.552745)
+transform = Transform3D(0.25266, 0, -0.967555, 0, 1, 0, 0.967555, 0, 0.25266, -0.0924287, 0.441621, 1.57874)
 light_color = Color(1, 0.9905, 0.43, 1)
 shadow_enabled = true
 omni_range = 0.442
 omni_attenuation = 2.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lamps/Lamp3"]
-transform = Transform3D(0.556366, -0.817943, 0.146379, 0.49777, 0.469132, 0.729479, -0.665343, -0.332995, 0.668156, -0.795456, 0.366522, -0.550674)
+transform = Transform3D(0.881942, 0.226306, -0.413479, 0.242384, 0.534602, 0.809599, 0.404264, -0.81424, 0.416635, -0.0996902, 0.469464, 1.55913)
 light_color = Color(1, 0.983333, 0, 1)
 light_energy = 20.0
 light_volumetric_fog_energy = 20.0
 spot_range = 4.718
-spot_angle = 70.48
+spot_angle = 54.33
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lamps/Lamp3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50189, 0, 3.43263)
 shape = SubResource("BoxShape3D_oc2a0")
 
 [node name="WallLamp" parent="Lamps" instance=ExtResource("22_jwnd2")]
@@ -2395,13 +2452,13 @@ shadow_enabled = false
 omni_attenuation = 1.5
 
 [node name="Speakers" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87043, 0.298317, -3.75863)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.62209, 0.298317, 0.692532)
 
 [node name="Speaker" parent="Speakers" instance=ExtResource("20_nngqx")]
-transform = Transform3D(-0.701151, 0, 0.0502468, 0, 0.808011, 0, -0.0502468, 0, -0.701151, -2.01485, 0, 0)
+transform = Transform3D(-0.656299, 0, -0.251811, 0, 0.808011, 0, 0.251811, 0, -0.656299, -2.00505, 0.00652003, -0.0038271)
 
 [node name="Speaker2" parent="Speakers" instance=ExtResource("20_nngqx")]
-transform = Transform3D(-0.446003, 0, -0.54334, 0, 0.808011, 0, 0.54334, 0, -0.446003, 2.01485, 0, 0)
+transform = Transform3D(-0.446003, 0, -0.54334, 0, 0.808011, 0, 0.54334, 0, -0.446003, 1.81557, 0, 0.257261)
 
 [node name="LavaLamp" type="MeshInstance3D" parent="Speakers/Speaker2"]
 transform = Transform3D(0.0467203, 0, -0.0568272, 0, 0.0351876, 0, 0.056827, 0, 0.0467204, -0.112145, 1.31938, 0.181337)
@@ -2420,16 +2477,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.67215, 0.775458, -1.54871)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17596, 0.378292, -2.44512)
 
 [node name="Plant2" parent="Plants" instance=ExtResource("25_488em")]
-transform = Transform3D(0.545341, 0, -0.838214, 0, 1, 0, 0.838214, 0, 0.545341, 0.875786, 0.378292, -2.64824)
+transform = Transform3D(0.545341, 0, -0.838214, 0, 1, 0, 0.838214, 0, 0.545341, 5.20748, 0.378292, 5.35479)
 
 [node name="Plant3" parent="Plants" instance=ExtResource("25_488em")]
-transform = Transform3D(-0.37383, 0, -0.927497, 0, 1, 0, 0.927497, 0, -0.37383, 5.30804, 0.378292, 3.91086)
+transform = Transform3D(-0.37383, 0, -0.927497, 0, 1, 0, 0.927497, 0, -0.37383, 5.04271, 0.378292, -2.71826)
 
 [node name="Plant4" parent="Plants" instance=ExtResource("26_l1moi")]
 transform = Transform3D(0.753456, 0, 0, 0, 0.753456, 0, 0, 0, 0.753456, -5.82945, -0.567439, -2.53148)
 
 [node name="Plant5" parent="Plants" instance=ExtResource("26_l1moi")]
-transform = Transform3D(0.196113, 0, -0.727485, 0, 0.753456, 0, 0.727485, 0, 0.196113, 4.8216, -0.567439, 3.71396)
+transform = Transform3D(-0.572975, 0, -0.48928, 0, 0.753456, 0, 0.48928, 0, -0.572975, 4.7677, -0.567439, 4.83787)
 
 [node name="GameTables" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.79789, 0.67735, 3.73823)
@@ -2441,7 +2498,10 @@ transform = Transform3D(1.10296, 0, 0, 0, 1.10296, 0, 0, 0, 1.10296, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6544, 0.077455, -3.17905)
 
 [node name="BeerpongTable" parent="GameTables" instance=ExtResource("41_5ryib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6772, -0.746449, 1.40459)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.34566, -0.746449, -2.87085)
+
+[node name="beerpong trophie" parent="GameTables" instance=ExtResource("60_1mcaq")]
+transform = Transform3D(0.457344, 0, 0, 0, 0.457344, 0, 0, 0, 0.457344, 8.2239, 1.19955, -2.63263)
 
 [node name="GameRoomSign" parent="." instance=ExtResource("33_ln2a6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.82501, 2.21104, -4.66621)
@@ -2461,16 +2521,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59882, -0.0315972, -2.02806
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00799513, 0)
 
 [node name="Carpet" parent="Carpets" instance=ExtResource("45_us8ff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37875, 0.0146666, 2.20886)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37875, -0.0305838, 2.20886)
 
 [node name="Props" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80221, 1.21951, 0.941289)
 
 [node name="Posters" type="Node3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93106, 0.322918, -0.447076)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92567, 0.31762, -0.446203)
 
 [node name="USAFlag" parent="Props/Posters" instance=ExtResource("51_hfud8")]
-transform = Transform3D(0.983166, 0, -0.182716, 0, 1, 0, 0.182716, 0, 0.983166, -6.8761, 1.28383, -5.05263)
+transform = Transform3D(-0.126234, 0, -0.992001, 0, 1, 0, 0.992001, 0, -0.126234, 0.653997, 1.28179, 0.103276)
 
 [node name="DIEPoster" parent="Props/Posters" instance=ExtResource("34_u8b43")]
 transform = Transform3D(0.319259, 0.0168099, -2.30926e-14, -0.0168099, 0.319259, 8.32667e-17, 4.26326e-14, -1.22125e-15, 0.319701, -8.73142, 0.26815, -5.26067)
@@ -2505,35 +2565,20 @@ transform = Transform3D(0.196582, -5.97848e-05, -0.0384794, -0.0384794, -4.10659
 mesh = SubResource("ArrayMesh_5yc77")
 skeleton = NodePath("")
 
-[node name="Balloons" type="Node3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16647, 0.13689, -0.0154213)
-
-[node name="BalloonsFourShort" parent="Props/Balloons" instance=ExtResource("38_4fe3s")]
-transform = Transform3D(-0.208088, 0.0571547, 2.91611e-09, 6.39496e-09, 4.18671e-08, -0.197715, -0.0523803, -0.227054, -3.5723e-08, -0.277317, -0.377657, 0.769452)
-
-[node name="BalloonsThreeShort" parent="Props/Balloons" instance=ExtResource("39_wvlev")]
-transform = Transform3D(-0.0403287, 0.198337, 5.39178e-08, 3.85857e-17, 7.28369e-08, -0.154817, -0.172796, -0.0462894, -1.25838e-08, -0.00440693, 0.159858, -0.856875)
-
-[node name="BalloonsThreeShort2" parent="Props/Balloons" instance=ExtResource("39_wvlev")]
-transform = Transform3D(0.130316, 0.0593822, 1.5913e-08, 3.049e-17, 5.75545e-08, -0.12059, -0.0517354, 0.149578, 4.00832e-08, 0.281723, 0.217798, 0.0874224)
-
-[node name="BalloonsFourShort2" parent="Props/Balloons" instance=ExtResource("38_4fe3s")]
-transform = Transform3D(0.165359, -0.173026, -2.11518e-08, 6.79352e-09, 4.49495e-08, -0.20847, 0.156904, 0.18235, 3.13178e-08, -0.343097, -0.479562, -1.86544)
-
 [node name="JackOLanterns" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09753, -0.459809, 0.462498)
 
 [node name="JackOLantern" parent="Props/JackOLanterns" instance=ExtResource("40_p14ay")]
-transform = Transform3D(-0.12105, 0, -0.0520773, 0, 0.155615, 0, 0.0520773, 0, -0.12105, 6.14815, 1.40109, -0.203067)
+transform = Transform3D(-0.200179, 0, -0.12689, 0, 0.279882, 0, 0.12689, 0, -0.200179, 6.07855, 0.396787, -2.74528)
 
 [node name="JackOLanternSquashed" parent="Props/JackOLanterns" instance=ExtResource("41_pts78")]
-transform = Transform3D(-1.62142e-08, 0, -0.370938, 0, 0.235724, 0, 0.370938, 0, -1.62142e-08, -3.3166, -0.689382, 0.215513)
+transform = Transform3D(-1.62142e-08, 0, -0.370938, 0, 0.235724, 0, 0.370938, 0, -1.62142e-08, -8.09686, -0.689382, 0.326792)
 
 [node name="JackOLantern2" parent="Props/JackOLanterns" instance=ExtResource("40_p14ay")]
-transform = Transform3D(2.66617e-08, 0, -0.203317, 0, 0.240096, 0, 0.203317, 0, 2.66617e-08, -2.83155, -0.711705, -0.0124466)
+transform = Transform3D(2.66617e-08, 0, -0.203317, 0, 0.240096, 0, 0.203317, 0, 2.66617e-08, -7.61181, -0.711705, 0.0988324)
 
 [node name="JackOLanternTall" parent="Props/JackOLanterns" instance=ExtResource("44_5vrx5")]
-transform = Transform3D(-0.182731, 0, -0.254795, 0, 0.492083, 0, 0.254795, 0, -0.182731, 2.67948, -0.455777, -5.6219)
+transform = Transform3D(-0.0655382, 0, -0.156537, 0, 0.19157, 0, 0.156537, 0, -0.0655382, -0.592807, 1.43109, -5.5134)
 
 [node name="DIEFlag" parent="Props" instance=ExtResource("45_x2dx7")]
 transform = Transform3D(0.120934, 0, -0.992661, 0, 1, 0, 0.992661, 0, 0.120934, -13.3199, 0.692498, -3.45925)
@@ -2563,7 +2608,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.3240
 transform = Transform3D(0.999999, 0, 1.11759e-08, 0, 1, 0, -2.23517e-08, 0, 0.999999, -15.2987, 0.666198, -1.61046)
 
 [node name="BeanBag" type="StaticBody3D" parent="Props"]
-transform = Transform3D(0.782456, 0, -0.622706, 0, 1, 0, 0.622706, 0, 0.782456, -9.28204, -0.893553, -0.644468)
+transform = Transform3D(0.610449, 0, -0.792055, 0, 1, 0, 0.792055, 0, 0.610449, -9.44954, -0.893553, 2.36803)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Props/BeanBag"]
 transform = Transform3D(-0.129214, -0.0204283, -0.130237, -0.0274893, 0.182532, -0.00135754, 0.128932, 0.0184442, -0.130812, 0, 0, 0)
@@ -2573,23 +2618,32 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Props/BeanBag"]
 shape = SubResource("BoxShape3D_rucjk")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.158358, 0, 0, 0, 0.146936, 0, 0, 0, 0.144321, 1.87104, 1.41634, -3.98433)
-texture = SubResource("ViewportTexture_kk7s6")
+[node name="dino" parent="." instance=ExtResource("79_g8hj1")]
+transform = Transform3D(0.751407, 0, 0.812697, 0, 1.10684, 0, -0.812697, 0, 0.751407, 3.88038, -0.0322655, 0.0567777)
 
-[node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(1280, 760)
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13964, 1.5615, -3.95494)
+light_color = Color(1, 0.569833, 0.11, 1)
+light_energy = 2.0
+omni_range = 2.5
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stream = ExtResource("78_kk7s6")
-autoplay = true
-expand = true
-loop = true
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0386524, 1.42637, -3.95494)
+light_color = Color(1, 0.569833, 0.11, 1)
+light_energy = 2.0
+omni_range = 2.5
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75662, 1.44731, -3.67345)
+light_color = Color(1, 0.377, 0.11, 1)
+light_energy = 3.0
+omni_range = 2.5
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17892, 1.21886, 0.613103)
+light_color = Color(1, 0.3, 0, 1)
+light_energy = 3.0
+omni_range = 1.01
 
 [editable path="SceneLoader_Entrance"]
 [editable path="SceneLoader_Storageroom"]
