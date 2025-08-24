@@ -97,22 +97,15 @@ func _physics_process(delta: float) -> void:
 		main_camera.global_transform = main_camera.global_transform.interpolate_with(camera_location_node.global_transform, delta * camera_speed)
 	else:
 		main_camera.global_transform = camera_location_node.global_transform
-		
+	
 	main_camera.global_position += camera_offset
-	#print(main_camera.global_position)
-	#print(camera_offset)
-	#print()
 
-func _move_camera_smooth(new_location_node: Node3D) -> void:
+func _move_camera_smooth() -> void:
 	camera_smooth = true
 	camera_speed = CAMERA_TRANSITION_SPEED
-	camera_location_node = new_location_node
-	camera_location = camera_location_node.global_position
 
-func _move_camera_jump(new_location_node: Node3D) -> void:
+func _move_camera_jump() -> void:
 	camera_smooth = false
-	camera_location_node = new_location_node
-	camera_location = camera_location_node.global_position
 
 func reset_camera_position() -> void:
 	if set_up == false: return

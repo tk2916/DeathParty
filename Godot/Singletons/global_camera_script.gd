@@ -5,8 +5,8 @@ extends Node
 # Signals for moving the camera to a new position
 # new_camera_position: Vector3 of the desired position
 #    two signals are provided in case both smooth and instant camera movement is desired
-signal move_camera_smooth(new_camera_position_node: Node3D)
-signal move_camera_jump(new_camera_position_node: Node3D)
+signal move_camera_smooth()
+signal move_camera_jump()
 
 # Signal for defining a new camera to be set as the current camera
 signal change_current_camera(new_camera: Camera3D)

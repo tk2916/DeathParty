@@ -188,11 +188,12 @@ func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 	fade_loading_screen_in().finished.connect(func():
 		load_scene(scene_name).ready.connect(func():
 			print("Teleporting player to ", scene_name)
+			GlobalCameraScript.move_camera_jump.emit()
 			player.global_position = new_position
-			#main_camera.reset_camera_position()
 			offload_old_scenes()
 			await tree.create_timer(1).timeout
 			fade_loading_screen_out()
+			GlobalCameraScript.move_camera_smooth.emit()
 		)
 	)
 
