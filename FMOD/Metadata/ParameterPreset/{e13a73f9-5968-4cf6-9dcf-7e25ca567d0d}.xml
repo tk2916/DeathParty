@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="ParameterPreset" id="{e13a73f9-5968-4cf6-9dcf-7e25ca567d0d}">
 		<property name="name">
-			<value>room</value>
+			<value>Room</value>
 		</property>
 		<relationship name="folder">
 			<destination>{27ba4a98-1d2c-4d56-ac43-0841e0a82a48}</destination>
@@ -16,19 +16,23 @@
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>4</value>
+			<value>8</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>outside</value>
-			<value>front room</value>
-			<value>back room</value>
-			<value>upstairs room</value>
+			<value>Entrance</value>
+			<value>Basement</value>
+			<value>Bedroom</value>
+			<value>Kitchen</value>
+			<value>Bathroom</value>
+			<value>PartyRoom</value>
+			<value>Library</value>
+			<value>Storageroom</value>
 		</property>
 		<property name="isGlobal">
 			<value>true</value>
 		</property>
 		<property name="initialValue">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<property name="isExposedRecursively">
 			<value>false</value>

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://s8nqkwhr8xqp"]
+[gd_scene load_steps=24 format=4 uid="uid://s8nqkwhr8xqp"]
 
 [ext_resource type="Texture2D" uid="uid://blp2pjwdx3fv4" path="res://Assets/textures/entrance_room_props/entrance room props_lambert6SG_baseColor.jpg" id="1_nhdpu"]
 [ext_resource type="Texture2D" uid="uid://b140pyhglf4cx" path="res://Assets/textures/entrance_room_props/entrance room props_lambert6SG_metallicRoughness.png" id="2_sfrj7"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://vvc17wk5bba7" path="res://Assets/textures/entrance_room_props/entrance room props_lambert3SG_baseColor.jpg" id="13_bht6h"]
 [ext_resource type="Texture2D" uid="uid://bw6ivoh3ol8ap" path="res://Assets/textures/entrance_room_props/entrance room props_lambert3SG_metallicRoughness.png" id="14_sgkyk"]
 [ext_resource type="Texture2D" uid="uid://f4asxcuigiom" path="res://Assets/textures/entrance_room_props/entrance room props_lambert3SG_normal.png" id="15_ax4c7"]
+[ext_resource type="PackedScene" uid="uid://3p6jhq8h6e4i" path="res://Assets/environment/chandelior bar.glb" id="16_1vkcb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3ucg"]
 resource_name = "lambert6SG"
@@ -225,7 +226,7 @@ skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90729, 0.151968, 2.23766)
-light_color = Color(0.980392, 0.588235, 0.0392157, 1)
+light_color = Color(0.980392, 0.415686, 0.0392157, 1)
 light_energy = 2.0
 omni_range = 0.5
 omni_attenuation = 2.0
@@ -244,7 +245,8 @@ omni_attenuation = 2.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00584, 0.151968, 2.19989)
-light_color = Color(0.980392, 0.588235, 0.0392157, 1)
+light_color = Color(0.980392, 0.415686, 0.0392157, 1)
+light_energy = 2.867
 omni_range = 0.5
 omni_attenuation = 2.0
 
@@ -269,7 +271,7 @@ omni_attenuation = 2.0
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00381766, 1.68393, 2.64443)
-light_color = Color(0.980392, 0.588235, 0.0392157, 1)
+light_color = Color(0.98, 0.41552, 0.0392, 1)
 omni_range = 0.5
 omni_attenuation = 2.0
 
@@ -281,20 +283,24 @@ omni_attenuation = 2.0
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47182, 1.68393, -0.412708)
-light_color = Color(0.980392, 0.588235, 0.0392157, 1)
-light_energy = 2.0
+light_color = Color(0.980392, 0.415686, 0.0392157, 1)
+light_energy = 3.422
 omni_range = 0.5
 omni_attenuation = 2.0
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54402, 1.68393, -1.13581)
-light_color = Color(0.980392, 0.588235, 0.0392157, 1)
+light_color = Color(0.980392, 0.415686, 0.0392157, 1)
+light_energy = 3.844
 omni_range = 0.5
 omni_attenuation = 2.0
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54402, 1.68393, 0.980072)
-light_color = Color(0.980392, 0.588235, 0.0392157, 1)
-light_energy = 3.0
+light_color = Color(0.980392, 0.415686, 0.0392157, 1)
+light_energy = 4.6
 omni_range = 0.5
 omni_attenuation = 2.0
+
+[node name="chandelior bar" parent="." instance=ExtResource("16_1vkcb")]
+transform = Transform3D(5.61817, 0, 0, 0, 3.52113, 0, 0, 0, 3.87769, 0, 13.0462, -0.00364685)

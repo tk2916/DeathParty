@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://iprjr7kw0pf0"]
+
+[ext_resource type="PackedScene" uid="uid://bh12eagb0x4sn" path="res://rooms/Storage Room/Daisy Paint Brush1.glb" id="1_ml8uh"]
+
+[node name="Daisy Paint Brush1" instance=ExtResource("1_ml8uh")]

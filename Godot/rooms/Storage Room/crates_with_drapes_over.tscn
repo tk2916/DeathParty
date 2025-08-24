@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyjml0b5r0a2b"]
+
+[ext_resource type="PackedScene" uid="uid://1wdjcnj5qyj5" path="res://rooms/Storage Room/crates with drapes over.glb" id="1_pmutm"]
+
+[node name="crates with drapes over" instance=ExtResource("1_pmutm")]

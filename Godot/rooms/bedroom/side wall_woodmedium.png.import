@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b3uh0xcge1j4x"
+path.s3tc="res://.godot/imported/side wall_woodmedium.png-b169a7623cb4f18f27469bb7e4ed3198.s3tc.ctex"
+path.etc2="res://.godot/imported/side wall_woodmedium.png-b169a7623cb4f18f27469bb7e4ed3198.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "665dee248e7ad8d9c044c26d33801a6f"
+}
+
+[deps]
+
+source_file="res://rooms/bedroom/side wall_woodmedium.png"
+dest_files=["res://.godot/imported/side wall_woodmedium.png-b169a7623cb4f18f27469bb7e4ed3198.s3tc.ctex", "res://.godot/imported/side wall_woodmedium.png-b169a7623cb4f18f27469bb7e4ed3198.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -24,8 +24,8 @@ var flipping : bool = false
 
 @export var tabs_node_left : Node
 @export var tabs_node_right : Node
-var left_tabs : Array[Node]
-var right_tabs : Array[Node]
+var left_tabs : Array[JournalTab]
+var right_tabs : Array[JournalTab]
 
 var cur_tab : Node
 var old_tab : Node
@@ -37,8 +37,16 @@ var tab_handler : JournalTabHandler
 var cur_subviewport : Viewport  #referenced in other classes
 
 func _ready() -> void:
-	left_tabs = tabs_node_left.get_children()
-	right_tabs = tabs_node_right.get_children()
+	page1_subviewport.size = Vector2i(1920, 1080)
+	page2_subviewport.size = Vector2i(1920, 1080)
+	
+	for tab in tabs_node_left.get_children():
+		if tab is JournalTab:
+			left_tabs.push_back(tab)
+	for tab in tabs_node_right.get_children():
+		if tab is JournalTab:
+			right_tabs.push_back(tab)
+	right_tabs.reverse()
 	
 	tab_handler = JournalTabHandler.new(left_tabs, right_tabs)
 	
@@ -67,11 +75,11 @@ func _ready() -> void:
 	for tab in right_tabs:
 		tab.tab_pressed.connect(on_tab_pressed.bind(tab))
 
-func on_tab_pressed(tab:Node):
+func on_tab_pressed(tab:Node) -> void:
 	var flipBackwards : bool = tab.flip_to_page <= page_tracker
 	bookflip(flipBackwards, tab.flip_to_page)
 	
-func move_tab():
+func move_tab() -> void:
 	tab_handler.flip_page(page_tracker)
 	cur_tab = tab_handler.get_tab_from_page_number(page_tracker)
 	old_tab.return_to_original_pos()

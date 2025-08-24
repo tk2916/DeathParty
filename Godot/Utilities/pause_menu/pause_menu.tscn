@@ -1,27 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8jbowdnorp1f"]
+[gd_scene load_steps=5 format=3 uid="uid://b8jbowdnorp1f"]
 
 [ext_resource type="Script" uid="uid://dkwxukji4mmmu" path="res://Utilities/pause_menu/pause_menu.gd" id="1_52f8u"]
 [ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="2_qpukh"]
-[ext_resource type="Shader" uid="uid://dflfu0c1r3cql" path="res://Utilities/pause_menu/background_blur.gdshader" id="2_srdyt"]
 [ext_resource type="PackedScene" uid="uid://ica25dt1nph6" path="res://Utilities/pause_menu/input_menu/input_rebinding_menu.tscn" id="3_ua3y5"]
 [ext_resource type="PackedScene" uid="uid://b7mfbhjbnelg1" path="res://Utilities/pause_menu/video_menu/video_settings.tscn" id="4_53meo"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pugv6"]
-shader = ExtResource("2_srdyt")
-shader_parameter/strength = 3.3
-shader_parameter/mix_percentage = 0.3
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_52f8u")
 
-[node name="BackgroundBlur" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_pugv6")
+[node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -191,6 +185,7 @@ text = "no"
 [node name="ClickSound" type="FmodEventEmitter2D" parent="Audio"]
 event_name = "event:/000_SFX/000_Demo_Test/007_SFX_UIClick"
 event_guid = "{e96fe609-82c4-494e-9458-401b87f34d25}"
+volume = 0.5
 unique_name_in_owner = true
 
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]

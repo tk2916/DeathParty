@@ -85,13 +85,13 @@ shadow_mesh = SubResource("ArrayMesh_nxku1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2r425"]
 resource_name = "Material.138"
-transparency = 4
+transparency = 1
 cull_mode = 2
 albedo_color = Color(1, 1, 1, 0.222727)
 albedo_texture = ExtResource("2_vg63k")
 roughness = 0.570626
 emission_enabled = true
-emission_energy_multiplier = 8.0
+emission_energy_multiplier = 70.0
 emission_texture = ExtResource("2_vg63k")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tmgi2"]

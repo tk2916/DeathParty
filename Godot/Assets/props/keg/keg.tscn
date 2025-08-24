@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ml4kn25ykoyy"]
+
+[ext_resource type="PackedScene" uid="uid://b7vveikx7vsny" path="res://Assets/props/keg/keg.glb" id="1_ua066"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_shpyq"]
+height = 1.0
+radius = 0.4
+
+[node name="keg" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_shpyq")
+
+[node name="Model" parent="." instance=ExtResource("1_ua066")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.075, 0)

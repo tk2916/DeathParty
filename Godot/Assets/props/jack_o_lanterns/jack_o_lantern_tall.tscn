@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://b413od8ag3jvo"]
+[gd_scene load_steps=7 format=4 uid="uid://b413od8ag3jvo"]
 
 [ext_resource type="Texture2D" uid="uid://n8spnwmpcgt0" path="res://Assets/textures/entrance_room_props/entrance room props_pumpkin1.png" id="1_u04hl"]
-[ext_resource type="Shader" uid="uid://wpntjutfebok" path="res://Assets/props/jack_o_lanterns/candle_flicker.tres" id="2_nj6gn"]
+[ext_resource type="Material" uid="uid://dtjo15ph3udf5" path="res://Assets/props/jack_o_lanterns/inner pump.tres" id="2_nj6gn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfofh"]
 resource_name = "Material.077"
@@ -13,10 +13,6 @@ resource_name = "Material.147"
 cull_mode = 2
 emission_enabled = true
 emission = Color(0.0998528, 0.0065497, 0.0190007, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xag5"]
-render_priority = 0
-shader = ExtResource("2_nj6gn")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7cvgf"]
 _surfaces = [{
@@ -88,7 +84,7 @@ _surfaces = [{
 "index_count": 96,
 "index_data": PackedByteArray("GgACAAAABwAaAAAABgAHAAgABwAGABoAGgAGAAUABAAaAAUAGgAbAAIABAAbABoAGwABAAIAAwAbAAQAGwAcAAEAAwAcABsAHAAJAAEACgAcAAMAHAAdAAkACgAdABwACQAdAB4AHgAdAAoACQAeABEAHgAKAAsAHgAQABEADAAeAAsAHgAfABAADAAfAB4AHwAOABAADQAfAAwAHwANAA4ADwAOAA0AEgATABQAEwAVABQAFgAXABgAFwAZABgA"),
 "lods": [0.101321, PackedByteArray("AAABAAIAAAADAAEAAwAAAAQABAAAAAUAAAAGAAUABwAGAAAABgAHAAgAAwAJAAEACgAJAAMACQAKAAsADAAJAAsADQAJAAwACQANAA4ADwAOAA0ACQAOABAACQAQABEAEgATABQAEwAVABQAFgAXABgAFwAZABgA")],
-"material": SubResource("ShaderMaterial_3xag5"),
+"material": ExtResource("2_nj6gn"),
 "name": "Material.148",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -100,5 +96,6 @@ shadow_mesh = SubResource("ArrayMesh_7cvgf")
 
 [node name="JackOLanternTall" type="MeshInstance3D"]
 transform = Transform3D(-1.37055e-08, 0, -0.313546, 0, 0.492083, 0, 0.313546, 0, -1.37055e-08, 0, 0, 0)
+lod_bias = 0.25
 mesh = SubResource("ArrayMesh_80v84")
 skeleton = NodePath("")

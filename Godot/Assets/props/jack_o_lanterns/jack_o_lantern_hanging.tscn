@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://te45o0a3h24h"]
+[gd_scene load_steps=9 format=4 uid="uid://te45o0a3h24h"]
 
 [ext_resource type="Texture2D" uid="uid://n8spnwmpcgt0" path="res://Assets/textures/entrance_room_props/entrance room props_pumpkin1.png" id="1_p1w38"]
-[ext_resource type="Shader" uid="uid://wpntjutfebok" path="res://Assets/props/jack_o_lanterns/candle_flicker.tres" id="2_vg2ck"]
+[ext_resource type="Material" uid="uid://dtjo15ph3udf5" path="res://Assets/props/jack_o_lanterns/inner pump.tres" id="2_vg2ck"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vg2ck"]
+lightmap_size_hint = Vector2i(5, 34)
+add_uv2 = true
 top_radius = 0.05
 bottom_radius = 0.05
 height = 6.0
@@ -21,10 +23,6 @@ resource_name = "Material.147"
 cull_mode = 2
 emission_enabled = true
 emission = Color(0.0998528, 0.0065497, 0.0190007, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_16umd"]
-render_priority = 0
-shader = ExtResource("2_vg2ck")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_eyy73"]
 _surfaces = [{
@@ -96,7 +94,7 @@ _surfaces = [{
 "index_count": 96,
 "index_data": PackedByteArray("GgABAAIABAAaAAIABQAEAAYABAAFABoAGgAFAAAACAAaAAAAGgAbAAEACAAbABoAGwADAAEABwAbAAgAGwAcAAMABwAcABsAHAAJAAMACgAcAAcAHAAdAAkACgAdABwACQAdAB4AHgAdAAoACQAeABEAHgAKAAsAHgAQABEADAAeAAsAHgAfABAADAAfAB4AHwAOABAADQAfAAwAHwANAA4ADwAOAA0AEgATABQAEwAVABQAFgAXABgAFwAZABgA"),
 "lods": [0.0929194, PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAAFAAAABQAEAAYAAAAHAAMABwAAAAgABwAJAAMACgAJAAcACQAKAAsADAAJAAsADQAJAAwACQANAA4ADwAOAA0ACQAOABAACQAQABEAEgATABQAEwAVABQAFgAXABgAFwAZABgA")],
-"material": SubResource("ShaderMaterial_16umd"),
+"material": ExtResource("2_vg2ck"),
 "name": "Material.148",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -116,5 +114,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_16umd")
 
 [node name="JackOLantern" type="MeshInstance3D" parent="."]
 transform = Transform3D(-5.76016e-09, 0.0135627, -0.131276, 0, 0.155023, 0.0114851, 0.131777, 5.92846e-10, -5.73824e-09, 0, 0, 0)
+lod_bias = 0.25
 mesh = SubResource("ArrayMesh_vgkhh")
 skeleton = NodePath("")

@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://cutn85mci7rcv"]
+
+[ext_resource type="Texture2D" uid="uid://crjuqujgkxygk" path="res://Assets/PhoneTextures/sample_char_pic.png" id="1_kwisn"]
+[ext_resource type="Script" uid="uid://d03h0ytxrinnh" path="res://post.gd" id="1_y8vuy"]
+[ext_resource type="FontFile" uid="uid://bcnpoh5wfcbuq" path="res://Assets/Fonts/Jaldi/Jaldi-Bold.ttf" id="2_qdpgs"]
+[ext_resource type="FontFile" uid="uid://bq7er6hhguye4" path="res://Assets/Fonts/Jaldi/Jaldi-Regular.ttf" id="3_wg6r1"]
+[ext_resource type="Texture2D" uid="uid://base5d87dehd1" path="res://Assets/CharacterAssets/nora/polaroid_nora.png" id="4_ymue7"]
+[ext_resource type="Texture2D" uid="uid://dr4u8riexuw62" path="res://Assets/PhoneTextures/like_and_comment.png" id="5_ymue7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgv03"]
+
+[node name="Post" type="MarginContainer" node_paths=PackedStringArray("button", "image_label", "name_label", "tag_label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_y8vuy")
+button = NodePath("ColorRect/ViewProfile")
+image_label = NodePath("ColorRect/Header/TextureRect")
+name_label = NodePath("ColorRect/Header/Name")
+tag_label = NodePath("ColorRect/Header/Tag")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 460)
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="ColorRect"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.13
+offset_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Header"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.7
+texture = ExtResource("1_kwisn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="ColorRect/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_qdpgs")
+theme_override_font_sizes/normal_font_size = 18
+text = "Nora"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Tag" type="RichTextLabel" parent="ColorRect/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_colors/default_color = Color(0.360784, 0.360784, 0.360784, 1)
+theme_override_fonts/normal_font = ExtResource("3_wg6r1")
+theme_override_font_sizes/normal_font_size = 10
+text = "@nora2948"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="ViewProfile" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.13
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hgv03")
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.15
+anchor_right = 0.95
+anchor_bottom = 0.93
+mouse_filter = 2
+
+[node name="Text" type="RichTextLabel" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_wg6r1")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[color=black]See my outfit for the party! How do you guys like it?"
+scroll_active = false
+
+[node name="Img" type="TextureRect" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_ymue7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LikeComment" type="TextureRect" parent="ColorRect"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.95
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("5_ymue7")
+expand_mode = 1
+stretch_mode = 5

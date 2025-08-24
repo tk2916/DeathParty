@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2hhfivdkffuw"]
+
+[ext_resource type="PackedScene" uid="uid://ljiexrmjiqqb" path="res://rooms/Bathroom/bathroom sink.glb" id="1_ygmmo"]
+
+[node name="bathroom sink" instance=ExtResource("1_ygmmo")]
+
+[node name="Sketchfab Model_002" parent="." index="0"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_001" parent="." index="1"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_039" parent="." index="2"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_040" parent="." index="3"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_041" parent="." index="4"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_042" parent="." index="5"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_043" parent="." index="6"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_044" parent="." index="7"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_045" parent="." index="8"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_046" parent="." index="9"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_047" parent="." index="10"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_048" parent="." index="11"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_049" parent="." index="12"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_050" parent="." index="13"]
+lod_bias = 0.1
+
+[node name="Sketchfab Model_051" parent="." index="14"]
+lod_bias = 0.1
+
+[node name="Cylinder_001" parent="." index="15"]
+lod_bias = 0.1

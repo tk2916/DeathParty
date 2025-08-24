@@ -1,14 +1,12 @@
-[gd_resource type="Resource" load_steps=6 format=3 uid="uid://dfsf66usc4sbb"]
+[gd_resource type="Resource" script_class="DialogueBoxResource" load_steps=5 format=3 uid="uid://dfsf66usc4sbb"]
 
 [ext_resource type="PackedScene" uid="uid://bbdcge3tqhcpw" path="res://Assets/GUIPrefabs/ChoicePrefabs/choice_button_text_message.tscn" id="1_vxqh5"]
-[ext_resource type="PackedScene" uid="uid://ibs6xbf36j7" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/MessageAppAssets/message_app.tscn" id="2_i082f"]
 [ext_resource type="PackedScene" uid="uid://jwdi6yghs0j5" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_text_message.tscn" id="3_8nqjv"]
 [ext_resource type="Script" uid="uid://ckddp2g3xeuu0" path="res://Assets/Resources/DialogueBoxResources/Default Resource (DO NOT EDIT)/dialogue_properties_script.gd" id="3_gd076"]
 [ext_resource type="PackedScene" uid="uid://g8mue586ud5x" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_text_message_protag.tscn" id="4_i082f"]
 
 [resource]
 script = ExtResource("3_gd076")
-dialogue_box = ExtResource("2_i082f")
 dialogue_line = ExtResource("3_8nqjv")
 choice_button = ExtResource("1_vxqh5")
 protagonist_dialogue_line = ExtResource("4_i082f")
@@ -22,5 +20,5 @@ line_separation = 0
 include_speaker_in_text = false
 prefix_choices_with_player_name = false
 clear_box_after_each_dialogue = false
-text_animation = "typewriter"
-image_key = "full"
+text_animation = "none"
+image_key = "profile"

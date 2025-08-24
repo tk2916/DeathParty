@@ -1,4 +1,4 @@
-extends Resource
+class_name InkResource extends Resource
 
 #overall file
 @export var json_file : Dictionary

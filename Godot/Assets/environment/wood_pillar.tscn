@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://bitlbgb4mv2pu"]
+[gd_scene load_steps=6 format=4 uid="uid://bitlbgb4mv2pu"]
 
 [ext_resource type="Texture2D" uid="uid://chro60732i7qv" path="res://Assets/textures/entrance_room_environment/entrance room layout_bwood.png" id="1_pvq02"]
 
@@ -39,9 +39,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8ou7l")
 
-[node name="Pillar" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_c18iw"]
+size = Vector3(0.4, 4, 0.4)
+
+[node name="Pillar" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.14983, -0.00138337, 6.04689e-11, 0, -6.54956e-09, -0.149836, 0.00138337, -0.14983, 6.54926e-09, -2.925, 0, -24.325)
 mesh = SubResource("ArrayMesh_j3ju7")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_c18iw")

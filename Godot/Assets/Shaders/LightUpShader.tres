@@ -1,7 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dlhvvfgrqs5ib"]
-
-[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="1_526ne"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dlhvvfgrqs5ib"]
 
 [resource]
-render_priority = 0
-shader = ExtResource("1_526ne")
+resource_local_to_scene = true

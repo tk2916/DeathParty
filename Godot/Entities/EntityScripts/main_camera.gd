@@ -1,8 +1,9 @@
-extends Node3D
+class_name MainCamera extends Node3D
 
 @export var main_camera: Camera3D
-@export var camera_location_node: Node3D
-@export var default_player_camera_location_node: Node3D
+@export var player : Player
+var camera_location_node: Node3D
+var default_player_camera_location_node: Node3D
 
 var PLAYER_CAMERA_FOLLOW_SPEED: float = 2.5
 var CAMERA_TRANSITION_SPEED: float = 2
@@ -27,8 +28,15 @@ var camera_outer_bound: Plane
 
 var camera_bound_path: bool = false
 
+var camera_offset: Vector3 = Vector3.ZERO
+
+var set_up : bool = false
+
 # Constantly moves the camera's location
-func _ready() -> void:
+func set_up_camera():
+	print("Setting up camera again: ", player, "  ", player.is_inside_tree())
+	camera_location_node = player.get_node("PlayerCameraLocation")
+	default_player_camera_location_node = camera_location_node
 	camera_location = camera_location_node.global_position
 	main_camera.make_current()
 	
@@ -44,9 +52,16 @@ func _ready() -> void:
 	GlobalCameraScript.remove_camera_bounds_path.connect(_unbind_camera_path)
 	GlobalCameraScript.bind_camera_depth.connect(_bind_camera_depth)
 	GlobalCameraScript.remove_camera_bounds_depth.connect(_unbind_camera_depth)
+	GlobalCameraScript.set_camera_offset.connect(_set_camera_offset)
+	set_up = true
+	reset_camera_position()
 
+func _ready() -> void:
+	ContentLoader.finished_loading.connect(set_up_camera)
 
 func _physics_process(delta: float) -> void:
+	if default_player_camera_location_node == null: return
+	if !default_player_camera_location_node.is_inside_tree() or !camera_location_node.is_inside_tree(): return
 	# make camera follow player
 	if camera_on_player:
 		camera_speed = PLAYER_CAMERA_FOLLOW_SPEED
@@ -81,25 +96,23 @@ func _physics_process(delta: float) -> void:
 	if camera_smooth:
 		main_camera.global_transform = main_camera.global_transform.interpolate_with(camera_location_node.global_transform, delta * camera_speed)
 	else:
-		main_camera.global_position = camera_location
+		main_camera.global_transform = camera_location_node.global_transform
+	
+	main_camera.global_position += camera_offset
 
-
-func _move_camera_smooth(new_location_node: Node3D) -> void:
+func _move_camera_smooth() -> void:
 	camera_smooth = true
 	camera_speed = CAMERA_TRANSITION_SPEED
-	camera_location_node = new_location_node
-	camera_location = camera_location_node.global_position
 
-
-func _move_camera_jump(new_location_node: Node3D) -> void:
+func _move_camera_jump() -> void:
 	camera_smooth = false
-	camera_location_node = new_location_node
-	camera_location = camera_location_node.global_position
 
+func reset_camera_position() -> void:
+	if set_up == false: return
+	self.global_position = camera_location
 
 func _change_current_camera(new_camera: Camera3D) -> void:
 	new_camera.make_current()
-
 
 func _change_camera_state(tf: bool) -> void:
 	camera_on_player = tf
@@ -144,3 +157,7 @@ func _bind_camera_depth(inner: Plane, outer: Plane, room_basis: Basis) -> void:
 
 func _unbind_camera_depth() -> void:
 	camera_bound_depth = false
+
+
+func _set_camera_offset(offset: Vector3) -> void:
+	camera_offset = offset

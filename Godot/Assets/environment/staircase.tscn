@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://xy73jdl00liu"]
+[gd_scene load_steps=40 format=4 uid="uid://xy73jdl00liu"]
 
 [ext_resource type="Texture2D" uid="uid://dfcfa5u045e45" path="res://Assets/textures/entrance_room_environment/entrance room layout_carpet.png" id="1_xdkmr"]
 [ext_resource type="Texture2D" uid="uid://bitucfe2mjrgt" path="res://Assets/textures/entrance_room_environment/entrance room layout_yellow.png" id="2_km4hf"]
@@ -218,6 +218,15 @@ size = Vector3(0.728394, 0.0406494, 0.36853)
 [sub_resource type="BoxShape3D" id="BoxShape3D_euuoc"]
 size = Vector3(1.18756, 0.0301514, 0.850113)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_sn4ku"]
+size = Vector3(1.5, 2, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymvk0"]
+size = Vector3(2.5, 2.1, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8hj6"]
+size = Vector3(1.5, 2, 0.25)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_fryst"]
 size = Vector3(1.2229, 0.0301514, 1)
 
@@ -246,6 +255,7 @@ size = Vector3(1.2229, 0.0301514, 0.569982)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.149836, -1.30991e-08, 5.72579e-16, 0, -6.54956e-09, -0.149836, 1.30991e-08, -0.149836, 6.54954e-09, 0, 0, -27)
+lod_bias = 0.1
 mesh = SubResource("ArrayMesh_e18s8")
 skeleton = NodePath("")
 
@@ -266,7 +276,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 9.31323e-10, -4.21885e-14, -9.31323e-10, 1, -7.3328e-12, 4.81837e-14, 7.90124e-12, 0.999995, -9.49187, 2.65703, -3.92628)
 shape = SubResource("BoxShape3D_gdnwb")
 
-[node name="Landing" type="StaticBody3D" parent="."]
+[node name="Landing" type="StaticBody3D" parent="." groups=["material_wood"]]
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Landing"]
@@ -290,7 +300,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0227661, 0.0509186, 0.0592651)
 shape = SubResource("BoxShape3D_3vxeb")
 
-[node name="LeftStairs" type="StaticBody3D" parent="."]
+[node name="LeftStairs" type="StaticBody3D" parent="." groups=["material_carpet"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29098, -0.232776, 0.643276)
 collision_mask = 0
 
@@ -322,7 +332,39 @@ shape = SubResource("BoxShape3D_dl7dj")
 transform = Transform3D(0.229725, -0.601913, -0.764806, -0.0482232, 0.777818, -0.626638, 0.97206, 0.180836, 0.149658, 1.55242, 1.81774, -1.49898)
 shape = SubResource("BoxShape3D_euuoc")
 
-[node name="RightStairs" type="StaticBody3D" parent="."]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="LeftStairs"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8, 0.8, 0)
+shape = SubResource("BoxShape3D_sn4ku")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="LeftStairs"]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -0.606815, 0.8, 0.0517639)
+shape = SubResource("BoxShape3D_sn4ku")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="LeftStairs"]
+transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0.582811, 1.75, -1.55516)
+shape = SubResource("BoxShape3D_ymvk0")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="LeftStairs"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 1.27071, 1.3, -0.763531)
+shape = SubResource("BoxShape3D_l8hj6")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="LeftStairs"]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 7.27412, 0.8, -0.0965926)
+shape = SubResource("BoxShape3D_sn4ku")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="LeftStairs"]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 6.01088, 0.8, 0.117398)
+shape = SubResource("BoxShape3D_sn4ku")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="LeftStairs"]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 6.04193, 1.4, -1.56748)
+shape = SubResource("BoxShape3D_ymvk0")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="LeftStairs"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 5.37071, 1.3, -0.763531)
+shape = SubResource("BoxShape3D_l8hj6")
+
+[node name="RightStairs" type="StaticBody3D" parent="." groups=["material_carpet"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33958, -0.143257, 0.660885)
 collision_mask = 0
 

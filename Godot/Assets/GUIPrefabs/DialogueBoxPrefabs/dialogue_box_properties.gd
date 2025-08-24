@@ -1,8 +1,7 @@
-extends Control
-class_name DialogueBoxProperties
+class_name DialogueBoxProperties extends Control
 
-@export var dialogue_container : VBoxContainer
-@export var choice_container : VBoxContainer
+@export var dialogue_container : BoxContainer
+@export var choice_container : BoxContainer
 @export var image_container : TextureRect
 @export var name_container : RichTextLabel
 

@@ -5,7 +5,7 @@
 			<value>001_SFX_Crowd_A</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ee2216ad-7676-4c73-95fd-97f287c6f46c}</destination>
@@ -267,6 +267,7 @@
 	<object class="MixerBusEffectChain" id="{cfc3f420-55cc-419b-8c8d-46dc6a454b38}">
 		<relationship name="effects">
 			<destination>{46c1f86b-3987-4c0e-a2eb-d83b5d325d92}</destination>
+			<destination>{e6da93ec-bd42-4867-ba7b-f20fae53d807}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{66631d9c-c772-4f56-bd75-0d0b4eaf5842}" />
@@ -327,6 +328,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{46c1f86b-3987-4c0e-a2eb-d83b5d325d92}" />
+	<object class="SpatialiserEffect" id="{e6da93ec-bd42-4867-ba7b-f20fae53d807}">
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>10</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{8da1bb71-8e95-4644-95bd-dba727290000}">
 		<property name="position">
 			<value>0</value>

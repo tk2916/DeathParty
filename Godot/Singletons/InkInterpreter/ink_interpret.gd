@@ -283,7 +283,7 @@ func logical_operation(current_operator):
 	return operate(current_operator, arg2, arg1)
 
 var last_speaker : String = ""
-func break_up_dialogue(dialogue:String) -> Dictionary:
+func break_up_dialogue(dialogue:String) -> InkLineInfo:
 	#name of speaker should be between brackets; if not, infer it from last speaker
 	var char_name : String = ""
 	var recording_name : bool = false
@@ -310,7 +310,7 @@ func break_up_dialogue(dialogue:String) -> Dictionary:
 		last_speaker = char_name
 		
 	var dialogue_text = dialogue.substr(last_bracket_index)
-	return {"speaker":char_name, "text":dialogue_text}
+	return InkLineInfo.new(char_name, dialogue_text)#{"speaker":char_name, "text":dialogue_text}
 
 func redirect(next) -> void:
 	var redirect_location = next["->"]
@@ -461,8 +461,8 @@ func next_line() -> int:
 				var redirect_location = next["*"]
 				#We need to not only get the redirect location but the actual hierarchy of the redirection
 				get_scope(-1)
-				var redirect_location_hierarchy = jump_to_container_temp(redirect_location)
-				rsc.player_choices.push_back({"text":choice_text, "jump":redirect_location_hierarchy})
+				var redirect_location_hierarchy : Array = jump_to_container_temp(redirect_location)
+				rsc.player_choices.push_back(InkChoiceInfo.new(choice_text, redirect_location_hierarchy))#{"text":choice_text, "jump":redirect_location_hierarchy})
 				#print("pushed player choices: ", rsc.player_choices)
 				increment_current_index()
 			elif next.has("->"):
@@ -509,8 +509,8 @@ func get_content():
 			#print("Ending: ", rsc.player_choices)
 			return result
 		elif (current_container_inner_index() > current_container_size()-1) && (rsc.player_choices.size() > 0):
-			print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
-			print("Hierarchy: ", rsc.hierarchy)
+			#print("Current container inner index: ", current_container_inner_index(), " | size: ", current_container_size())
+			#print("Hierarchy: ", rsc.hierarchy)
 			##print("Current index: ", current_index(), " | size: ", rsc.current_array.size(), " | redirect hierarchy: ", rsc.redirect_hierarchy.size())
 			##print("Passed all conditions")
 			#assert(rsc.player_choices.size() > 0, "Content ended but no choices to show.")
@@ -530,7 +530,7 @@ func get_content():
 	
 	return get_content()
 
-func reset_defaults(saved_ink_resource) -> void:#resume_from_hierarchy):
+func reset_defaults(saved_ink_resource : InkResource) -> void:#resume_from_hierarchy):
 	#set all the variables equal to each other
 	var property_list = saved_ink_resource.get_property_list()
 	for n in range(9, property_list.size()):
@@ -551,14 +551,14 @@ func initialize_hierarchy() -> void:
 	else:
 		jump_to_container("0.0")
 
-func get_first_message(temp_json : JSON) -> Dictionary:
+func get_first_message(temp_json : JSON) -> InkLineInfo:
 	var filepath = temp_json.resource_path
 	var json_as_text : String = FileAccess.get_file_as_string(filepath)
 	var json_as_dict : Dictionary = JSON.parse_string(json_as_text)
 	assert(json_as_dict != null, "JSON dictionary is null.")
 	return break_up_dialogue(json_as_dict["root"][0][0].substr(1))
 
-func from_JSON(file : JSON, saved_ink_resource : Resource) -> void:#resume_from_hierarchy : Array = []):
+func from_JSON(file : JSON, saved_ink_resource : InkResource) -> void:#resume_from_hierarchy : Array = []):
 	#reset variables
 	reset_defaults(saved_ink_resource)#resume_from_hierarchy)
 	#print("NEW JSON CALL ---------------------------------- ", rsc.hierarchy)

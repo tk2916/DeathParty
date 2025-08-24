@@ -3,10 +3,11 @@ class_name Player extends CharacterBody3D
 @onready var model : Node3D = %PlayerModel
 @onready var animation_tree : AnimationTree = %AnimationTree
 @onready var previous_position : Vector3 = global_position
+@onready var quadrant_position : Vector3 = global_position
 @onready var footstep_sounds : FmodEventEmitter3D = $FootstepSounds
 @onready var spawn_position : Vector3 = global_position
 
-@export var player_speed : float = 2.0
+@export var player_speed := 2.3
 @export var horizontal_offset : float = 1.3
 
 @export var player_camera_location : Node3D
@@ -24,12 +25,14 @@ var blend_speed : float = 8
 var walk_blend : float = 0
 var current_animation : AnimationState = AnimationState.IDLE
 
+var movement_disabled : bool = false
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	original_camera_position = player_camera_location.position
 
+
 func _physics_process(delta : float) -> void:
-	if DialogueSystem.in_dialogue or GuiSystem.in_gui:
+	if DialogueSystem.in_dialogue or GuiSystem.in_gui or movement_disabled:
 		player_velocity = Vector3.ZERO
 		handle_animations(delta)
 		return
@@ -79,6 +82,12 @@ func _physics_process(delta : float) -> void:
 	if(global_position != previous_position):
 		GlobalPlayerScript.player_moved.emit(global_position)
 		previous_position = global_position
+		var quad_dist : float = global_position.distance_squared_to(quadrant_position)
+		#print("quad dist: ", quad_dist)
+		if (quad_dist > 6):
+			#only update active quadrants once player has moved > sqrt(10) units
+			GlobalPlayerScript.update_quadrants.emit()
+			quadrant_position = global_position
 
 
 func handle_animations(delta: float) -> void:
@@ -96,8 +105,17 @@ func handle_animations(delta: float) -> void:
 			walk_blend = lerpf(walk_blend, 0, blend_speed * delta)
 		AnimationState.WALK:
 			walk_blend = lerpf(walk_blend, 1, blend_speed * delta)
-	
+
 	animation_tree["parameters/Walk Blend/blend_amount"] = walk_blend
+
+	# adjust speed of walk animation based on player_speed
+
+	# NOTE: 2.0 is the player_speed that roughly matches the animation,
+	# so we scale based on that
+	if player_velocity != Vector3.ZERO:
+		animation_tree.set("parameters/TimeScale/scale", player_speed / 2.0)
+	elif player_velocity == Vector3.ZERO:
+		animation_tree.set("parameters/TimeScale/scale", 1.0)
 
 	#prev_movement_direction = movement_direction
 
@@ -115,25 +133,13 @@ func rotate_model(delta: float) -> void:
 		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
 
 
-func play_footstep_sound() -> void:
-	# (this is called by the AnimationPlayer on the
-	# frames where the boots touch the ground)
-	
-	# check if player is holding a move input and play a footstep if they are
-	# this can probably be handled better by moving around the
-	# direction vars and just checking those instead
-	
-	# (we have to check for movement because otherwise the animation blending
-	# causes footsteps to keep playing as the player stops moving and the walk
-	# anim fades into the idle one)
-	for action in InputMap.get_actions():
-		if action.begins_with("move_") and Input.is_action_pressed(action):
-			footstep_sounds.play()
+func reset_position():
+	global_position = spawn_position
+	##ALSO MAKE IT SO IT LOADS THE ORIGINAL SCENES
+	ContentLoader.reset()
 
 
 func _on_world_boundary_body_entered(body : Node3D) -> void:
 	if body == self:
 		print("player out of bounds, resetting position . . .")
-		global_position = spawn_position
-		##ALSO MAKE IT SO IT LOADS THE ORIGINAL SCENES
-		ContentLoader.reset()
+		reset_position()

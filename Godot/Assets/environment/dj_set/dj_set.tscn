@@ -3,3 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://c17bgxcyeal7s" path="res://Assets/environment/dj_set/DJ set.glb" id="1_fvhs3"]
 
 [node name="DJ set" instance=ExtResource("1_fvhs3")]
+
+[node name="Cube_047" parent="." index="0"]
+lod_bias = 0.1
+
+[node name="Cube_048" parent="." index="1"]
+lod_bias = 0.1
+
+[node name="Plane_1312" parent="." index="2"]
+lod_bias = 0.1
+
+[node name="Plane_1313" parent="." index="3"]
+lod_bias = 0.1
+
+[node name="Plane_1314" parent="." index="4"]
+lod_bias = 0.1
+
+[node name="Plane_1323" parent="." index="5"]
+lod_bias = 0.1

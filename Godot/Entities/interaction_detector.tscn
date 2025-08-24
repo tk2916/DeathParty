@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://3dt1w7lckdyq"]
+[gd_scene load_steps=3 format=3 uid="uid://3dt1w7lckdyq"]
 
 [ext_resource type="Script" uid="uid://dc0eglbdf0sq7" path="res://Utilities/scripts/interaction_detector.gd" id="1_ks6yy"]
 
-[node name="InteractionDetector" type="Area3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_awqde"]
+size = Vector3(1.61938, 2.80212, 2.04828)
+
+[node name="InteractionDetector" type="Area3D" node_paths=PackedStringArray("collision_shape")]
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 script = ExtResource("1_ks6yy")
+collision_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0172119, 0.901062, -0.0359802)
+shape = SubResource("BoxShape3D_awqde")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

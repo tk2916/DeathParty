@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
-[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/custom_shader_1.gdshader" id="3_ngl8b"]
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="3_ngl8b"]
 [ext_resource type="Texture2D" uid="uid://b10xkyr1i6p24" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
-[ext_resource type="Script" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
+[ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
 vertex_color_use_as_albedo = true
@@ -43,7 +43,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8532d")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7ovfm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0upgx"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
@@ -53,6 +53,7 @@ viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubView
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_ngl8b")
+shader_parameter/multiplier = 0.6
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xwflh"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
@@ -66,6 +67,7 @@ albedo_texture_force_srgb = true
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_ngl8b")
+shader_parameter/multiplier = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qun6a"]
 resource_local_to_scene = true
@@ -98,12 +100,15 @@ skeleton = NodePath("")
 
 [node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
 transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -0.00238484, 0.0737534, -0.0990923)
-viewport_texture1 = SubResource("ViewportTexture_7ovfm")
+viewport_texture1 = SubResource("ViewportTexture_0upgx")
 viewport_texture2 = SubResource("ViewportTexture_e2q15")
 
 [node name="Cube_004" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="0"]
 material_override = SubResource("ShaderMaterial_47kpb")
 material_overlay = SubResource("StandardMaterial3D_0upgx")
+
+[node name="SubViewport" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D/Cube_004" index="0"]
+size = Vector2i(512, 512)
 
 [node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770157, -0.00923359, -0.157279)
@@ -111,6 +116,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770157, -0.00923359, -0.157
 [node name="Cube_005" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="0"]
 material_override = SubResource("ShaderMaterial_8c4l8")
 material_overlay = SubResource("StandardMaterial3D_qun6a")
+
+[node name="SubViewport" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2/Cube_005" index="0"]
+size = Vector2i(512, 512)
 
 [node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.791528, -0.00345172, -0.159947)
@@ -139,24 +147,40 @@ bookflip_instance = NodePath("../bookflip")
 [node name="ShowInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/311_SFX_UI_BagOpen"
 event_guid = "{5d531e04-a10a-46f9-8522-9d0137defd96}"
+volume = 0.5
 unique_name_in_owner = true
 
 [node name="HideInventorySound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/310_SFX_UI_BagClose"
 event_guid = "{69c3d9f1-cb46-4217-817c-0a5e223ab1e1}"
+volume = 0.5
 unique_name_in_owner = true
 
 [node name="JournalOpenSound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/302_SFX_UI_JournalOpen"
 event_guid = "{30f0e84f-546b-4951-8546-610e533ebe87}"
 attached = false
+volume = 0.5
 unique_name_in_owner = true
 
 [node name="JournalCloseSound" type="FmodEventEmitter2D" parent="Sounds"]
 event_name = "event:/000_SFX/300_UI/301_SFX_UI_JournalClose"
 event_guid = "{9355ad2b-58c5-4861-8f53-fe56b2894e62}"
 attached = false
+volume = 0.5
 unique_name_in_owner = true
+
+[node name="JournalMusic" type="FmodEventEmitter3D" parent="Sounds"]
+event_name = "event:/900_MX/Journal Music"
+event_guid = "{bf365bef-0e83-47ed-9c13-76896f23b8d3}"
+attached = false
+volume = 0.2
+unique_name_in_owner = true
+
+[node name="MusicTimer" type="Timer" parent="Sounds/JournalMusic"]
+unique_name_in_owner = true
+wait_time = 25.0
+one_shot = true
 
 [node name="BackpackBackground" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.65118, 0, 0, 0, 3, 0, 0, 0, 2.83896, 0, 0.0441817, 0.789593)
@@ -177,5 +201,6 @@ shape = SubResource("BoxShape3D_47kpb")
 debug_color = Color(0.0663742, 0.326824, 0.926759, 0.42)
 
 [connection signal="tree_entered" from="ShowInventoryArea" to="ShowInventoryArea" method="_on_tree_entered"]
+[connection signal="timeout" from="Sounds/JournalMusic/MusicTimer" to="." method="_on_music_timer_timeout"]
 
 [editable path="bookflip"]
