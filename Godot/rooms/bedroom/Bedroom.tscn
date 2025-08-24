@@ -1,7 +1,8 @@
-[gd_scene load_steps=175 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=176 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
+[ext_resource type="PackedScene" uid="uid://4au417aywrdh" path="res://title_screen.tscn" id="2_0t478"]
 [ext_resource type="Texture2D" uid="uid://bxnmt5pyq0b7a" path="res://rooms/bedroom/Bedroom_white wall.png" id="2_lxtj2"]
 [ext_resource type="Texture2D" uid="uid://b2y6hf8wf7q63" path="res://rooms/bedroom/polaroids and poster_CMYOK.png" id="3_oa6uc"]
 [ext_resource type="PackedScene" uid="uid://x8vl3v7s7cat" path="res://rooms/bedroom/side wall.glb" id="3_ra5m4"]
@@ -1445,13 +1446,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o7qs3")
 
-[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("closet", "room_area", "path_follow_node") groups=["loadable_scene"]]
+[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("play_button", "fade_title", "title_screen", "closet", "room_area", "path_follow_node") groups=["loadable_scene"]]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_lxtj2")
+play_button = NodePath("TitleScreen/FadeThisOut/Button")
+fade_title = NodePath("TitleScreen/FadeThisOut/TextureRect")
+title_screen = NodePath("TitleScreen")
 closet = NodePath("Closet")
 room_area = NodePath("RoomArea")
 path_follow_node = NodePath("Path3D/PathFollow3D")
+
+[node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109923, 1.47272, 3.11237)

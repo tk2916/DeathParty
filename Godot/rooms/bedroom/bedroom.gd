@@ -1,5 +1,8 @@
 extends Room3D
 
+@export var play_button: Button
+@export var fade_title: Control
+@export var title_screen: CanvasLayer
 @export var closet: Node3D
 
 @onready var music: FmodEventEmitter3D = %Music
@@ -10,14 +13,11 @@ func _ready() -> void:
 	super()
 	#GlobalPlayerScript.player_moved.connect(_calculate_progress_ratio)
 	body_entered.connect(handle_player_entrance)
+	play_button.pressed.connect(_on_play)
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
-		closet.visible = true
-		var tween: Tween = get_tree().create_tween()
-		tween.tween_property(path_follow_node, "progress_ratio", 1, 0.7)
-		GlobalCameraScript.camera_on_player.emit(true)
+	pass
 
 
 func handle_player_entrance(body: Node3D) -> void:
@@ -37,3 +37,13 @@ func handle_player_entrance(body: Node3D) -> void:
 func _on_scene_loader_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		music.stop()
+
+
+func _on_play() -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(fade_title, "modulate:a", 0, .9)
+	await tween.finished
+	title_screen.visible = false
+	closet.visible = true
+	tween.tween_property(path_follow_node, "progress_ratio", 1, 0.7)
+	GlobalCameraScript.camera_on_player.emit(true)
