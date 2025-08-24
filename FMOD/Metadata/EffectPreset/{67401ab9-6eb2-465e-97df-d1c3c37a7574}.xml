@@ -37,31 +37,13 @@
 			<destination>{2761eb62-c6b0-4f63-9caa-bf7092b00a76}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{775190fe-1066-4f64-b071-b21011f55725}</destination>
-			<destination>{fb394464-2e5f-43d5-ad7f-ffb4618c2a9c}</destination>
 			<destination>{81d783fd-add1-4ce4-9ab1-53be103cf437}</destination>
-			<destination>{a8e6684c-e669-45f2-90bc-bb23c87abacb}</destination>
 			<destination>{9f83711c-70c1-4ed4-bd4b-248a8fa782b8}</destination>
 			<destination>{39c57ffa-a9c7-48de-805f-e7d7e8ec39ef}</destination>
 			<destination>{2b54161b-87b8-47eb-afc6-27b1c00218ba}</destination>
 			<destination>{6b8ac69c-7bd9-4426-89f5-8bbb95b412d2}</destination>
+			<destination>{cbe26fc1-b26e-41f0-9763-2c3567a80bce}</destination>
 		</relationship>
-	</object>
-	<object class="AutomationPoint" id="{775190fe-1066-4f64-b071-b21011f55725}">
-		<property name="position">
-			<value>0</value>
-		</property>
-		<property name="value">
-			<value>0</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{fb394464-2e5f-43d5-ad7f-ffb4618c2a9c}">
-		<property name="position">
-			<value>1</value>
-		</property>
-		<property name="value">
-			<value>-15</value>
-		</property>
 	</object>
 	<object class="AutomationPoint" id="{81d783fd-add1-4ce4-9ab1-53be103cf437}">
 		<property name="position">
@@ -69,14 +51,6 @@
 		</property>
 		<property name="value">
 			<value>-15</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{a8e6684c-e669-45f2-90bc-bb23c87abacb}">
-		<property name="position">
-			<value>2</value>
-		</property>
-		<property name="value">
-			<value>-20</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{9f83711c-70c1-4ed4-bd4b-248a8fa782b8}">
@@ -109,6 +83,14 @@
 		</property>
 		<property name="value">
 			<value>-15</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{cbe26fc1-b26e-41f0-9763-2c3567a80bce}">
+		<property name="position">
+			<value>8</value>
+		</property>
+		<property name="value">
+			<value>0</value>
 		</property>
 	</object>
 </objects>
