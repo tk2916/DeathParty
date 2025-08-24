@@ -8,6 +8,6 @@ func _ready() -> void:
 func handle_player_entrance(body: Node3D) -> void:
 	remove_all_bounds(body)
 	rotate_player(body)
-	
 	bind_camera_path(body)
+	
 	move_player_to_foreground(body)

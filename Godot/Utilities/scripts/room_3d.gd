@@ -53,8 +53,8 @@ func calculate_bounds() -> void:
 	var left_point: Vector3 = (room_area_center) + (camera_LR_offset * -basis.x)
 	var right_point: Vector3 = (room_area_center) + (camera_LR_offset * basis.x)
 	
-	# If left bound and right bound go past each other (in the case of small rooms),
-	# center the camera on the room instead
+	 #If left bound and right bound go past each other (in the case of small rooms),
+	 #center the camera on the room instead
 	#if(left_point*basis.x > right_point*basis.x):
 		#left_point = (left_point + right_point)/2
 		#right_point = left_point
@@ -111,7 +111,7 @@ func _calculate_progress_ratio(pos: Vector3) -> void:
 	if has_overlapping_bodies():
 		var player_body: Node3D = get_overlapping_bodies().front()
 		#path_follow_node.look_at(player_body.position + Vector3(0,1.2,0)) # Look at player
-		var look_straight: Vector3 = Vector3(player_body.position.x, path_follow_node.position.y, player_body.position.z)
+		var look_straight: Vector3 = Vector3(path_follow_node.position.x, path_follow_node.position.y, player_body.position.z)
 		path_follow_node.look_at(look_straight) # Look straight ahead
 
 ## @param vec - Vector3, assumes that one coordinate has a value and the others are zero
