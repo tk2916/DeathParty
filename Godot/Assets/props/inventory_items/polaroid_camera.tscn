@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnppp76cl5kso"]
+
+[ext_resource type="PackedScene" uid="uid://damm3py04oa6j" path="res://rooms/bedroom/Polaroid Camera.glb" id="1_vndkk"]
+
+[node name="Polaroid Camera" instance=ExtResource("1_vndkk")]

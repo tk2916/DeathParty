@@ -52,7 +52,7 @@ func _init() -> void:
 func load_directory_into_dictionary(address : String, dict:Dictionary) -> void:
 	var dir : DirAccess = DirAccess.open(address)
 	dir.list_dir_begin()
-	var file_name = dir.get_next()
+	var file_name : String = dir.get_next()
 	if dir:
 		while file_name != "":
 			if !dir.current_is_dir():
@@ -63,9 +63,9 @@ func load_directory_into_dictionary(address : String, dict:Dictionary) -> void:
 	else:
 		print("An error occurred when trying to access the directory " + address)
 
-func create_new_item(name:String, description:String, node:Node3D) -> void:
-	if key_exists(name):
-		print("Item ", name, " already exists!")
+func create_new_item(item_name:String, description:String, node:Node3D) -> void:
+	if key_exists(item_name):
+		print("Item ", item_name, " already exists!")
 		return
 	#save node as scene
 	var scene_save_path : String = "res://Assets/props/inventory_items/" + name + ".tscn"
@@ -95,7 +95,7 @@ func load_inventory() -> void: #Make sure player has an entry for each possible 
 		if !player_data["inventory"].has(item):
 			player_data["inventory"][item] = 0
 	#removing old items that don't exist anymore
-	for item in player_data["inventory"]:
+	for item : String in player_data["inventory"]:
 		if !inventory_item_to_resource.has(item):#player_data_resource["possible_items"].has(item):
 			player_data["inventory"][item] = 0
 			if player_data["journal_entries"].has(item):
@@ -192,7 +192,7 @@ func set_journal_entry(entry_name:String, active:bool) -> void:
 
 #SAVING
 func save_data() -> void:
-	var error = ResourceSaver.save(player_data_resource, PLAYER_DATA_FILE_PATH)
+	var error : Error = ResourceSaver.save(player_data_resource, PLAYER_DATA_FILE_PATH)
 	if error:
 		print("Error saving resource:", error)
 	else:

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce647ee5srh8k"]
+[gd_scene load_steps=3 format=3 uid="uid://ce647ee5srh8k"]
 
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="1_32tcq"]
 [ext_resource type="PackedScene" uid="uid://c6cexkldpdgpq" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma_model.tscn" id="1_x14h6"]
 
 [node name="AlbertoMa" type="Node3D"]
+script = ExtResource("1_32tcq")
 
 [node name="AlbertoMaModel" parent="." instance=ExtResource("1_x14h6")]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)

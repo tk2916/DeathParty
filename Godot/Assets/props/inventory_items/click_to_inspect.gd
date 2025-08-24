@@ -14,20 +14,21 @@ func _init(_resource : InventoryItemResource) -> void:
 func _ready() -> void:
 	tree = get_tree()
 	scale = og_scale
+	print("Inventory item ready ", name)
 	
-func focus_object():
-	GuiSystem.hide_journal()
-	var duplicate : ObjectViewerRotatable = ObjectViewerRotatable.new()
-	for child in self.get_children():
-		if child is CollisionShape3D:
-			child.disabled = false
-		duplicate.add_child(child.duplicate())
-	
-	duplicate.scale = Vector3.ONE*3
-	#duplicate.rotate(Vector3(0,1,0), deg_to_rad(180.0))
-	
-	Interact.object_viewer.set_preexisting_item(duplicate)
-	Interact.object_viewer.view_item_info(resource.name, resource.description)
+#func focus_object():
+	#GuiSystem.hide_journal()
+	#var duplicate : ObjectViewerRotatable = ObjectViewerRotatable.new()
+	#for child in self.get_children():
+		#if child is CollisionShape3D:
+			#child.disabled = false
+		#duplicate.add_child(child.duplicate())
+	#
+	#duplicate.scale = Vector3.ONE*3
+	##duplicate.rotate(Vector3(0,1,0), deg_to_rad(180.0))
+	#
+	#Interact.object_viewer.set_preexisting_item(duplicate)
+	#Interact.object_viewer.view_item_info(resource.name, resource.description)
 
 ##INHERITED
 func enter_hover():
@@ -46,5 +47,5 @@ func on_mouse_down():
 func on_mouse_up():
 	if not clicked_down: return
 	clicked_down = false
-	focus_object()
+	InventoryUtils.show_item_details(resource, self)
 	

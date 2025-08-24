@@ -3,6 +3,7 @@ class_name Player extends CharacterBody3D
 @onready var model : Node3D = %PlayerModel
 @onready var animation_tree : AnimationTree = %AnimationTree
 @onready var previous_position : Vector3 = global_position
+@onready var quadrant_position : Vector3 = global_position
 @onready var footstep_sounds : FmodEventEmitter3D = $FootstepSounds
 @onready var spawn_position : Vector3 = global_position
 
@@ -26,8 +27,7 @@ var current_animation : AnimationState = AnimationState.IDLE
 
 var movement_disabled : bool = false
 
-
-func _ready() -> void:
+func _enter_tree() -> void:
 	original_camera_position = player_camera_location.position
 
 
@@ -82,6 +82,12 @@ func _physics_process(delta : float) -> void:
 	if(global_position != previous_position):
 		GlobalPlayerScript.player_moved.emit(global_position)
 		previous_position = global_position
+		var quad_dist : float = global_position.distance_squared_to(quadrant_position)
+		#print("quad dist: ", quad_dist)
+		if (quad_dist > 6):
+			#only update active quadrants once player has moved > sqrt(10) units
+			GlobalPlayerScript.update_quadrants.emit()
+			quadrant_position = global_position
 
 
 func handle_animations(delta: float) -> void:

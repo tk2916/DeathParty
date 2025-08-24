@@ -24,6 +24,9 @@ func handle_player_entrance(body: Node3D) -> void:
 	
 	path_follow_node.look_at(look_straight) # Look straight ahead
 
+	#keep_camera_on_player(body)
+	#bind_camera_y(body, 1.5, 1.5)
+
 
 func _on_scene_loader_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):

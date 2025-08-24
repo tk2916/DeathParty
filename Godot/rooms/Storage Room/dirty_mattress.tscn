@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7eg8ok2wthhn"]
+
+[ext_resource type="PackedScene" uid="uid://dx2e8w1p1nwx5" path="res://rooms/Storage Room/dirty mattress.glb" id="1_0byi7"]
+
+[node name="dirty mattress" instance=ExtResource("1_0byi7")]

@@ -1,25 +1,26 @@
-[gd_scene load_steps=31 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=30 format=3 uid="uid://beuct1pjdlayy"]
 
-[ext_resource type="Texture2D" uid="uid://dckqjt7kdk82j" path="res://Assets/textures/Blaubeuren Night 1k (1).hdr" id="1_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
 [ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
-[ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu.tscn" id="4_h8e4i"]
+[ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu/dev_menu.tscn" id="4_h8e4i"]
+[ext_resource type="PackedScene" uid="uid://vkp1p25gspml" path="res://Utilities/dev_menu/dev_menu_teleport_button.tscn" id="5_xuqvo"]
+[ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/example.ink7.json" id="27_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://dph5ihe40llhe" path="res://rooms/Exterior Frat Lawn/Exterior.tscn" id="27_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://c7033b4susyvc" path="res://rooms/Storage Room/Storageroom.tscn" id="28_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
 [ext_resource type="PackedScene" uid="uid://bschhxvd0bvn7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
 [ext_resource type="PackedScene" uid="uid://hl56t3rfk1uo" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
-[ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="42_0cp0l"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://d0sd1bp5esd04" path="res://Utilities/polaroid_camera/polaroid_layer.tscn" id="55_e71vb"]
 [ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
@@ -27,51 +28,25 @@
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
 [ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
 
+[sub_resource type="Resource" id="Resource_a6jrf"]
+metadata/__load_path__ = "res://Assets/InkExamples/example.ink7.json"
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0cbny"]
-plane = Plane(0, 1, 0, -5)
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rqtf5"]
-panorama = ExtResource("1_0cp0l")
-
-[sub_resource type="Sky" id="Sky_lswn8"]
-sky_material = SubResource("PanoramaSkyMaterial_rqtf5")
-
-[sub_resource type="Environment" id="Environment_1vm84"]
-background_mode = 2
-sky = SubResource("Sky_lswn8")
-ssao_enabled = true
-ssao_radius = 11.47
-ssao_intensity = 15.71
-ssao_power = 0.247408
-ssao_detail = 0.0
-ssao_horizon = 0.66
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-sdfgi_energy = 1.25
-glow_enabled = true
-glow_intensity = 0.5
-glow_strength = 0.9
-glow_blend_mode = 1
-fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
-volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.26, 0.26, 0.26, 1)
-volumetric_fog_anisotropy = 0.6
-adjustment_enabled = true
-adjustment_brightness = 1.19
-adjustment_contrast = 1.03
+plane = Plane(0, 1, 0, -10)
 
 [node name="Main" type="Node3D"]
 
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource("26_lswn8")
 json_file = ExtResource("27_a6jrf")
-json_file2 = ExtResource("27_xuqvo")
+json_file2 = SubResource("Resource_a6jrf")
 
-[node name="DevMenu" parent="." node_paths=PackedStringArray("player", "party_room_music") instance=ExtResource("4_h8e4i")]
+[node name="DevMenu" parent="." node_paths=PackedStringArray("player", "party_room_music", "game_ui") instance=ExtResource("4_h8e4i")]
 visible = false
 player = NodePath("../Player")
 party_room_music = NodePath("../PartyRoomMusic")
+game_ui = NodePath("../CanvasLayer/BasicGUI")
+teleport_button_scene = ExtResource("5_xuqvo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -162,89 +137,31 @@ collision_mask = 2
 shape = SubResource("WorldBoundaryShape3D_0cbny")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_1vm84")
+environment = ExtResource("15_a6jrf")
 script = ExtResource("3_cyx1q")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 2.126)
-
-[node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "camera_location_node", "default_player_camera_location_node") instance=ExtResource("3_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8663, 1.88831, 13.6475)
-fov = 30.0
-main_camera = NodePath(".")
-camera_location_node = NodePath("../Player/PlayerCameraLocation")
-default_player_camera_location_node = NodePath("../Player/PlayerCameraLocation")
-
-[node name="FmodListener3D" type="FmodListener3D" parent="MainCamera"]
-
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8663, 0.291739, 26.0262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3293, 0.0322108, 25.2049)
+collision_layer = 2
+collision_mask = 1
 floor_constant_speed = true
 
-[node name="PlayerCameraLocation" parent="Player" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59657, 7.62126)
+[node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera") instance=ExtResource("3_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.444, 2, 9.6)
+fov = 30.0
+main_camera = NodePath(".")
 
-[node name="Skeleton3D" parent="Player/PlayerModel/Model" index="0"]
-bones/0/position = Vector3(0.0295796, -0.0804331, -9.32385)
-bones/0/rotation = Quaternion(-0.712307, -0.0197827, -0.0389809, 0.700506)
-bones/1/rotation = Quaternion(-0.0348997, -0.0118929, 0.020375, 0.999112)
-bones/2/rotation = Quaternion(0.00647042, -0.00279029, 0.0518298, 0.998631)
-bones/3/rotation = Quaternion(0.00654267, 0.00178379, 0.0514664, 0.998652)
-bones/4/rotation = Quaternion(0.0550335, -0.001616, -0.0190008, 0.998302)
-bones/5/rotation = Quaternion(0.0134591, 0.00571815, -0.0709066, 0.997376)
-bones/7/rotation = Quaternion(-0.640958, -0.381309, 0.513445, -0.424442)
-bones/8/rotation = Quaternion(0.45149, -0.00398372, -0.0954484, 0.887148)
-bones/9/rotation = Quaternion(0.0174845, -0.0306383, 0.120696, 0.992063)
-bones/10/rotation = Quaternion(0.086195, 0.153718, -0.0342123, 0.983753)
-bones/11/rotation = Quaternion(0.00169958, 0.201694, 0.286243, 0.936687)
-bones/12/rotation = Quaternion(0.178976, -0.0878078, -0.203658, 0.958531)
-bones/13/rotation = Quaternion(0.0692171, 0.00994206, 0.105854, 0.99192)
-bones/15/rotation = Quaternion(0.0900921, -0.00305368, -0.0158986, 0.995802)
-bones/16/rotation = Quaternion(0.160619, 0.000112535, 0.118692, 0.979854)
-bones/17/rotation = Quaternion(0.0767765, -0.0020299, 0.0374367, 0.996343)
-bones/19/rotation = Quaternion(0.606887, -0.419539, 0.547683, 0.394612)
-bones/20/rotation = Quaternion(0.328764, 0.0268606, 0.0357865, 0.943352)
-bones/21/rotation = Quaternion(0.0187895, 0.038118, -0.147722, 0.988115)
-bones/22/rotation = Quaternion(0.10572, -0.246723, 0.0568062, 0.961626)
-bones/23/rotation = Quaternion(0.0251403, -0.208625, -0.295335, 0.931998)
-bones/24/rotation = Quaternion(0.160689, 0.0912211, 0.216488, 0.95864)
-bones/25/rotation = Quaternion(0.0652853, -0.00472605, -0.0568765, 0.996233)
-bones/27/rotation = Quaternion(0.0838844, 0.000943627, 0.0142384, 0.996373)
-bones/28/rotation = Quaternion(0.166833, -7.21989e-05, -0.0884267, 0.982012)
-bones/29/rotation = Quaternion(0.105095, 0.00362597, -0.0599068, 0.99265)
-bones/31/rotation = Quaternion(0.112824, 0.142261, 0.977927, -0.103396)
-bones/32/rotation = Quaternion(-0.221677, -0.0744525, 0.0628221, 0.970242)
-bones/33/rotation = Quaternion(0.474973, -0.0962476, -0.0223585, 0.874435)
-bones/34/rotation = Quaternion(0.33354, -0.0735305, 0.0255869, 0.939516)
-bones/36/rotation = Quaternion(-0.0352797, -0.0221421, 0.993457, -0.106345)
-bones/37/rotation = Quaternion(-0.0686435, 0.0458988, 0.00123403, 0.996584)
-bones/38/rotation = Quaternion(0.51367, -0.00785039, -0.125553, 0.848716)
-bones/39/rotation = Quaternion(0.324006, 0.073712, -0.0247328, 0.942855)
+[node name="FmodListener3D" type="FmodListener3D" parent="MainCamera"]
 
 [node name="Entrance" parent="." groups=["loadable_scene"] instance=ExtResource("42_0n3wm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.512, 0, 0)
 script = null
 
-[node name="Dust" parent="Entrance/Particles" index="0"]
-transform = Transform3D(0.609914, 0, 0, 0, 1.38209, 0, 0, 0, 1, -4.5, 0.770933, -0.646791)
-
 [node name="PartyRoom" parent="." groups=["loadable_scene"] instance=ExtResource("41_gngh3")]
-transform = Transform3D(-0.999999, 0, -0.00151833, 0, 1, 0, 0.00151833, 0, -0.999999, -24.161, 0, -17.392)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -24.161, 0, -17.392)
 
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
-transform = Transform3D(1.08001, 0, 0, 0, 1.08001, 0, 0, 0, 1.08001, 0.698557, 4.7584, -20.5061)
-
-[node name="SceneLoaderLibraryToPartyRoom" parent="Library" index="1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -4.13118, 3.92343)
-
-[node name="TeleportPoint" parent="Library/SceneLoaderLibraryToPartyRoom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715306, 0.0133139, -7.4692)
-
-[node name="JackOLanternTall2" parent="Library" instance=ExtResource("42_0cp0l")]
-transform = Transform3D(-1.34361e-08, 0, -0.24748, 0, 0.290456, 0, 0.307382, 0, -1.08177e-08, -8.31708, -4.23481, 4.92798)
-
-[node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
-transform = Transform3D(0.761812, 0, 0, 0, 0.761812, 0, 0, 0, 0.761812, -43.3922, 2.37168, 6.27324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698557, 4.7584, -20.5061)
 
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
@@ -255,12 +172,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 14.4393)
 [node name="Bedroom" parent="." instance=ExtResource("39_h8e4i")]
 transform = Transform3D(1.15875, 0, 0, 0, 1.15875, 0, 0, 0, 1.15875, -39.7969, 0.0111146, 22.715)
 
+[node name="Storageroom" parent="." instance=ExtResource("28_xuqvo")]
+transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579, -1.32205, -3.35617)
+
+[node name="Exterior" parent="." groups=["loadable_scene"] instance=ExtResource("27_qsp4k")]
+transform = Transform3D(0.791022, 0, 0, 0, 0.791022, 0, 0, 0, 0.791022, -17.1306, 5.92461, 55.0464)
+
 [node name="PartyRoomMusic" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/900_MX/Party Room music"
 event_guid = "{757f62e0-b188-491e-9503-6ad99b13690a}"
 autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
+
+[node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
+transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 5.7468)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
@@ -271,26 +197,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 [editable path="PolaroidCamera"]
 [editable path="Polaroid"]
 [editable path="ObjectViewerCanvasLayer"]
-[editable path="Player"]
-[editable path="Entrance"]
-[editable path="Entrance/KitchenSceneLoader"]
-[editable path="Entrance/PartyRoomSceneLoader"]
-[editable path="Entrance/BasementSceneLoader"]
-[editable path="Entrance/WallLamps/WallLamp2"]
-[editable path="Entrance/WallLamps/WallLamp3"]
-[editable path="Entrance/Windows/ArchWindow"]
-[editable path="Entrance/Windows/ArchWindow2"]
-[editable path="Entrance/Chandeliers/Chandelier"]
-[editable path="Entrance/Chandeliers/Chandelier2"]
-[editable path="Library"]
-[editable path="Library/SceneLoaderLibraryToPartyRoom"]
-[editable path="Library/BackWall/Bookshelves/Upstairs"]
-[editable path="Library/Balcony/Railings"]
-[editable path="Library/Chandelierr"]
-[editable path="Library/WallLamps/WallLamp"]
-[editable path="Library/WallLamps/WallLamp2"]
-[editable path="Library/WallLamps/WallLamp3"]
-[editable path="Library/WallLamps/WallLamp4"]
-[editable path="Library/WallLamps/WallLamp5"]
-[editable path="Library/Props/Desk/desk_lamp"]
-[editable path="Library/Props/Desk2/desk_lamp"]

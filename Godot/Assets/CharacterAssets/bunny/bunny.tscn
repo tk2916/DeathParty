@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1ao6n4p81227"]
+[gd_scene load_steps=4 format=3 uid="uid://d1ao6n4p81227"]
 
 [ext_resource type="PackedScene" uid="uid://d1tlxjennu0on" path="res://Assets/CharacterAssets/bunny/bunny.glb" id="1_0jv36"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_n2xof"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/sample_dialogue_template.json" id="3_nx240"]
 
 [node name="bunny" instance=ExtResource("1_0jv36")]
 transform = Transform3D(1.15335, 0, 0, 0, 1.15335, 0, 0, 0, 1.15335, 0, 0, 0)
+script = ExtResource("2_n2xof")
+json_file = ExtResource("3_nx240")
+use_first_mesh = true
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(2.83126, 3.67619, -100.079)
@@ -94,7 +99,7 @@ bones/63/rotation = Quaternion(0.550088, 0.119268, -0.131616, 0.816)
 bones/64/rotation = Quaternion(0.326606, 0.0435475, -0.0134925, 0.944061)
 
 [node name="phone" parent="model/Skeleton3D" index="0"]
-transform = Transform3D(-0.31625, 0.221513, 0.308336, -0.131806, -0.440396, 0.181198, 0.356043, 0.0337235, 0.340954, -1.56055, 16.9981, -143.596)
+transform = Transform3D(-0.316251, 0.221513, 0.308336, -0.131805, -0.440396, 0.181198, 0.356043, 0.033724, 0.340954, -1.56054, 16.998, -143.596)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "idle"

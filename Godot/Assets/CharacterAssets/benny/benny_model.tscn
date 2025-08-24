@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba276vhgtl31m"]
+[gd_scene load_steps=3 format=3 uid="uid://ba276vhgtl31m"]
 
 [ext_resource type="PackedScene" uid="uid://cixnp82kveg04" path="res://Assets/CharacterAssets/benny/benny_model.glb" id="1_gpcub"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_4tn7w"]
 
 [node name="BennyModel" instance=ExtResource("1_gpcub")]
+script = ExtResource("2_4tn7w")
 
 [node name="Skeleton3D" parent="Model" index="0"]
 bones/0/position = Vector3(57.3634, 68.6813, -110.401)

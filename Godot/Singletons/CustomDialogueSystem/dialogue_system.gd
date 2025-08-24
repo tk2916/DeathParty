@@ -299,7 +299,8 @@ func display_current_container():
 			else:
 				current_dialogue_box.visible = false
 				current_dialogue_box.queue_free()
-				current_character_resource.end_chat()
+				if current_character_resource:
+					current_character_resource.end_chat()
 			in_dialogue = false
 			current_conversation = []
 			return
@@ -324,8 +325,7 @@ func display_current_container():
 func get_first_message(json : JSON):
 	return Ink.get_first_message(json)
 
-
-func from_JSON(file : JSON, saved_ink_resource : InkResource = blank_ink_interpret_resource):#resume_from_hierarchy : Array = []): #non-phone dialoguebox
+func from_JSON(file : JSON, saved_ink_resource : InkResource = blank_ink_interpret_resource) -> void:#resume_from_hierarchy : Array = []): #non-phone dialoguebox
 	assert(file != null, "You forgot to assign a JSON file!")
 	if in_dialogue:
 		print("You can't start a new chat while in a dialogue!")
@@ -336,17 +336,18 @@ func from_JSON(file : JSON, saved_ink_resource : InkResource = blank_ink_interpr
 	display_current_container()
 
 #CHARACTER-RELATED
-func from_character(char : CharacterResource, file : JSON):
-	current_character_resource = char
+func from_character(char_rsc : CharacterResource, file : JSON) -> void:
+	current_character_resource = char_rsc
 	from_JSON(file)
 
 #PHONE-RELATED
-func find_contact(chat_name:String):
+func find_contact(chat_name:String) -> ChatResource:
 	if SaveSystem.phone_chat_to_resource.has(chat_name):
 		return SaveSystem.phone_chat_to_resource[chat_name]
+	return null
 
-func to_phone(chat_name : String, file : JSON): # called to load json into phone
-	var chat : Resource = find_contact(chat_name)
+func to_phone(chat_name : String, file : JSON) -> void: # called to load json into phone
+	var chat : ChatResource = find_contact(chat_name)
 	current_phone_resource = chat
 	current_phone_resource.load_chat(file)
 
@@ -358,24 +359,24 @@ func start_text_convo(_text_message_box : DialogueBoxNode,chat_name : String): #
 	mouse_contained_within_gui = true
 	text_message_box.back_button.mouse_entered.connect(mouse_exited) 
 	text_message_box.back_button.mouse_exited.connect(mouse_entered)
-	var chat = find_contact(chat_name)
+	var chat : ChatResource = find_contact(chat_name)
 	current_phone_resource = chat
 	current_phone_resource.start_chat() # either starts new one of resumes old one
 
-func pause_text_convo():
+func pause_text_convo() -> void:
 	current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy
 	in_dialogue = false
 	dialogue_container.mouse_entered.disconnect(mouse_entered) 
 	dialogue_container.mouse_exited.disconnect(mouse_exited)
 	
-func load_past_messages(past_chats : Array[InkLineInfo]):
+func load_past_messages(past_chats : Array[InkLineInfo]) -> void:
 	#print("Loading past messages: ", past_chats)
 	current_conversation = past_chats
 	for n in range(current_conversation.size()):
-		var chat = current_conversation[n]
+		var chat : InkLineInfo = current_conversation[n]
 		add_new_line(chat, true)
 
 #reset dialogue array
-func _on_visibility_changed(visible_state):
+func _on_visibility_changed(visible_state : bool) -> void:
 	if visible_state:
 		all_dialogues = []
