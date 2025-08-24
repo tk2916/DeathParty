@@ -48,6 +48,7 @@ Utils="*res://utils.gd"
 GuiSystem="*res://Singletons/GuiSystem/gui_system.gd"
 ContentLoader="*res://Singletons/ContentLoader/content_loader.gd"
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+InventoryUtils="*res://inventory_utils.gd"
 
 [debug]
 

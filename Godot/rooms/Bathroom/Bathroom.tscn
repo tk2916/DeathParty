@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=74 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -34,7 +34,8 @@
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="31_hu3hd"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/props/alcohol/sunday_light/sunday light.glb" id="32_o8af5"]
 [ext_resource type="PackedScene" uid="uid://522s4uc8y6ni" path="res://Assets/CharacterAssets/Cop/cop.tscn" id="34_jy5jw"]
-[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="35_rjeq7"]
+[ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="35_rjeq7"]
+[ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/dino gamer/dino.tscn" id="36_17afp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -547,7 +548,6 @@ transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_qgpod")
 room_area = NodePath("RoomArea")
-metadata/_custom_type_script = "uid://23e11u4fm3n6"
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11203, -0.146205, 0.0554049)
@@ -985,11 +985,15 @@ transform = Transform3D(0.647317, 0, 0.721472, 0, 0.969299, 0, -0.721472, 0, 0.6
 [node name="Bunny" parent="NPCs" instance=ExtResource("21_hbt0t")]
 transform = Transform3D(-1.21819, 0, 0.312007, 0, 1.25751, 0, -0.312007, 0, -1.21819, 7.92395, -0.239568, -2.85654)
 
-[node name="Blk Bunny" parent="NPCs" instance=ExtResource("35_rjeq7")]
+[node name="Bunny2" parent="NPCs" instance=ExtResource("35_rjeq7")]
 transform = Transform3D(1.26223, 0, 0, 0, 1.26223, 0, 0, 0, 1.26223, 6.98782, -0.240322, -3.62567)
 
 [node name="cop" parent="NPCs" instance=ExtResource("34_jy5jw")]
 transform = Transform3D(0.744814, 0, 0.869726, 0, 1.14506, 0, -0.869726, 0, 0.744814, 0.247368, -0.232421, -1.38849)
+script = null
+
+[node name="dino" parent="NPCs" instance=ExtResource("36_17afp")]
+transform = Transform3D(1.17834, 0, 0.260541, 0, 1.2068, 0, -0.260541, 0, 1.17834, 2.94863, -0.234269, -4.58556)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 0, -0.645291, 9.33631)

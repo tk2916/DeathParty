@@ -170,6 +170,18 @@ attached = false
 volume = 0.5
 unique_name_in_owner = true
 
+[node name="JournalMusic" type="FmodEventEmitter3D" parent="Sounds"]
+event_name = "event:/900_MX/Journal Music"
+event_guid = "{bf365bef-0e83-47ed-9c13-76896f23b8d3}"
+attached = false
+volume = 0.2
+unique_name_in_owner = true
+
+[node name="MusicTimer" type="Timer" parent="Sounds/JournalMusic"]
+unique_name_in_owner = true
+wait_time = 25.0
+one_shot = true
+
 [node name="BackpackBackground" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.65118, 0, 0, 0, 3, 0, 0, 0, 2.83896, 0, 0.0441817, 0.789593)
 mesh = SubResource("PlaneMesh_ngl8b")
@@ -189,5 +201,6 @@ shape = SubResource("BoxShape3D_47kpb")
 debug_color = Color(0.0663742, 0.326824, 0.926759, 0.42)
 
 [connection signal="tree_entered" from="ShowInventoryArea" to="ShowInventoryArea" method="_on_tree_entered"]
+[connection signal="timeout" from="Sounds/JournalMusic/MusicTimer" to="." method="_on_music_timer_timeout"]
 
 [editable path="bookflip"]

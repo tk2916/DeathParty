@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhbpw48nifdkp"]
+
+[ext_resource type="PackedScene" uid="uid://dkp4cjtt0ufmk" path="res://rooms/Storage Room/brush2.glb" id="1_ibwh1"]
+
+[node name="brush2" instance=ExtResource("1_ibwh1")]

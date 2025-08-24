@@ -126,6 +126,7 @@ func remove_all_bounds(body: Node3D) -> void:
 	GlobalCameraScript.remove_camera_bounds_y.emit()
 	GlobalCameraScript.remove_camera_bounds_depth.emit()
 	GlobalCameraScript.remove_camera_bounds_path.emit()
+	GlobalCameraScript.set_camera_offset.emit(Vector3.ZERO)
 
 func bind_camera_LR(body: Node3D) -> void:
 	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
@@ -166,6 +167,10 @@ func keep_camera_on_player(body: Node3D) -> void:
 
 func keep_camera_off_player(body: Node3D) -> void:
 	GlobalCameraScript.camera_on_player.emit(false)
+
+
+func set_camera_offset(offset: Vector3) -> void:
+	GlobalCameraScript.set_camera_offset.emit(offset)
 
 
 # set the parameter that tells fmod which room the player is currently in

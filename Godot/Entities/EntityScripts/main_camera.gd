@@ -28,6 +28,8 @@ var camera_outer_bound: Plane
 
 var camera_bound_path: bool = false
 
+var camera_offset: Vector3 = Vector3.ZERO
+
 var set_up : bool = false
 
 # Constantly moves the camera's location
@@ -50,6 +52,7 @@ func set_up_camera():
 	GlobalCameraScript.remove_camera_bounds_path.connect(_unbind_camera_path)
 	GlobalCameraScript.bind_camera_depth.connect(_bind_camera_depth)
 	GlobalCameraScript.remove_camera_bounds_depth.connect(_unbind_camera_depth)
+	GlobalCameraScript.set_camera_offset.connect(_set_camera_offset)
 	set_up = true
 	reset_camera_position()
 
@@ -92,15 +95,10 @@ func _physics_process(delta: float) -> void:
 	# camera either moves smoothly or jumps to the next position
 	if camera_smooth:
 		main_camera.global_transform = main_camera.global_transform.interpolate_with(camera_location_node.global_transform, delta * camera_speed)
-		print("smooth")
-		print(main_camera.global_transform)
-		print()
 	else:
 		main_camera.global_transform = camera_location_node.global_transform
-		print("jump")
-		print(main_camera.global_transform)
-		print()
 	
+	main_camera.global_position += camera_offset
 
 func _move_camera_smooth() -> void:
 	camera_smooth = true
@@ -159,3 +157,7 @@ func _bind_camera_depth(inner: Plane, outer: Plane, room_basis: Basis) -> void:
 
 func _unbind_camera_depth() -> void:
 	camera_bound_depth = false
+
+
+func _set_camera_offset(offset: Vector3) -> void:
+	camera_offset = offset

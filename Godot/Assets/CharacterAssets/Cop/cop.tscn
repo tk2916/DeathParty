@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://522s4uc8y6ni"]
+[gd_scene load_steps=3 format=3 uid="uid://522s4uc8y6ni"]
 
 [ext_resource type="PackedScene" uid="uid://gpap6eu8mm6r" path="res://Assets/CharacterAssets/Cop/cop.glb" id="1_cxtj2"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_rsrj8"]
 
-[node name="cop" instance=ExtResource("1_cxtj2")]
+[node name="cop" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_cxtj2")]
 transform = Transform3D(1.05022, 0, 0, 0, 1.05022, 0, 0, 0, 1.05022, 0, 0, 0)
+script = ExtResource("2_rsrj8")
+primary_mesh = NodePath("model cop/Skeleton3D/COP_002")
 
 [node name="Skeleton3D" parent="model cop" index="0"]
 bones/0/position = Vector3(0.0494437, -0.255397, -80.664)

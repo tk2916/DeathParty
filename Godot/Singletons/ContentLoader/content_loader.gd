@@ -7,14 +7,21 @@ var player_file : PackedScene = preload("res://Entities/player.tscn")
 var player_aabb : AABB
 var player_spawn_pos : Vector3
 
-var scene_to_file : Dictionary[String, PackedScene] = {}
-var scene_to_position : Dictionary[String, Vector3] = {}
 var scene_data_dict : Dictionary[String, SceneData] = {}
+var quadrant_grids : Dictionary[String, Vector3] = {
+	"PartyRoom" = Vector3(5,1,5),
+	"Entrance" = Vector3(1,1,1),
+	"Bathroom" = Vector3(1,1,1),
+	"Library" = Vector3(1,1,1),
+	"Basement" = Vector3(1,1,1),
+	"Kitchen" = Vector3(1,1,1),
+	
+}
 
 @onready var tree : SceneTree = get_tree()
 @onready var main_node : Node3D = tree.root.get_node_or_null("Main")
 
-var loaded_scenes : Array[Node3D]
+var loaded_scenes : Array[SceneData]
 @onready var loadable_scenes_size : int = tree.get_nodes_in_group("loadable_scene").size()
 var og_scene : String
 var loading_screen : ColorRect
@@ -60,29 +67,31 @@ func find_room_teleport_points() -> void:
 		var scene_data : SceneData = scene_data_dict[scene_name]
 		for loader : SceneLoaderData in scene_data.get_all_scene_loaders():
 			var target_scene_name : String = loader.target_scene_name
-			print("From ", scene_name, ": ", target_scene_name, " loader: ", loader.name)
+			#print("From ", scene_name, ": ", target_scene_name, " loader: ", loader.name)
 			if scene_data_dict.has(target_scene_name) and scene_data_dict[target_scene_name].main_teleport_point == Vector3(-1,-1,-1):
 				scene_data_dict[target_scene_name].set_main_teleport(loader.name, loader.teleport_pos)
 
 func store_scene_info(node : Node3D) -> void:
 	var filepath : String = node.scene_file_path
-	var node_name : String = node.name
 	
-	scene_to_file[node_name] = load(filepath)
-	scene_to_position[node_name] = node.position
-	scene_data_dict[node_name] = SceneData.new()
-	scene_data_dict[node_name].scene_name = node_name
-	for child in node.get_children():
-		if child is SceneLoader:
-			##Save SceneLoader data to reapply on load in (it keeps getting lost)
-			scene_data_dict[node_name].add_scene_loader(child)
-	var collision_shape : CollisionShape3D = node.get_node("RoomArea")
-	var room_area : BoxShape3D = collision_shape.shape
-	var scene_aabb : AABB = AABB(-room_area.size / 2.0, room_area.size)#calculate_node_aabb(node.get_node("RoomArea"))
-	scene_aabb = collision_shape.global_transform * scene_aabb
-	main_node.remove_child.call_deferred(node)
-	node.queue_free()
-	if scene_aabb.intersects(player_aabb): #check intersection
+	var node_name : String = node.name
+	var node_file : PackedScene = load(filepath)
+	var node_instance : Node3D = node
+	var quadrant_grid : Vector3
+	if quadrant_grids.has(node_name):
+		quadrant_grid = quadrant_grids[node_name]
+	else:
+		quadrant_grid = Vector3(1,1,1)
+	var new_scene_data : SceneData = SceneData.new(
+		node_name, 
+		node_file, 
+		node_instance,
+		main_node,
+		quadrant_grid,
+		)
+	scene_data_dict[node_name] = new_scene_data
+	
+	if new_scene_data.scene_aabb.intersects(player_aabb): #check intersection
 		og_scene = node.name
 		load_scene(og_scene)
 	
@@ -118,6 +127,9 @@ func on_node_added(node:Node) -> void:
 		print("Found loadable scene: ", node.name)
 		node.ready.connect(store_scene_info.bind(node))
 
+func update_player_aabb():
+	player_aabb = calculate_node_aabb(player)
+
 func calculate_node_aabb(node3d : Node3D) -> AABB:
 	var visual_nodes : Array[Node] = node3d.find_children("*", "VisualInstance3D", true, false)
 	assert(!visual_nodes.is_empty(), "There are no visual nodes in this scene!")
@@ -145,32 +157,21 @@ func reset() -> void:
 func load_scene(scene_name:String) -> Node3D:
 	print("Attempting to load ", scene_name)
 	if main_node == null: return
-	if scene_name == "" or !scene_to_file.has(scene_name): 
+	if scene_name == "" or !scene_data_dict.has(scene_name): 
 		assert(false, "Scene " + scene_name + " doesn't exist/isn't tagged with loadable_scene!")
 		return
 	#trying to load the currently loaded scene
 	if loaded_scenes.size() > 0 && loaded_scenes.front().name == scene_name: 
-		return
+		return loaded_scenes.front().instance
 	
-	var scene : PackedScene = scene_to_file[scene_name]
+	var scene_data : SceneData = scene_data_dict[scene_name]
 	print(1)
-	var scene_instance : Node3D = scene.instantiate()
-	scene_instance.position = scene_to_position[scene_name]
-	for child : Node in scene_instance.get_children():
-		if child is SceneLoader: #re-set teleport positions
-			var scene_loader_data : SceneLoaderData = scene_data_dict[scene_name].get_scene_loader(child.name)
-			child.teleport_pos = scene_loader_data.teleport_pos
-	print(2)
-	scene_instance.ready.connect(func() -> void:
-		print(scene_name, " finished loading")
-		)
-	print(3)
-	main_node.add_child.call_deferred(scene_instance)
-	loaded_scenes.push_front(scene_instance)
+	var scene_instance : Node3D = scene_data.load_in()
+	loaded_scenes.push_front(scene_data)
 	return scene_instance
 
 func offload_all_scenes() -> void:
-	offload_old_scene()
+	offload_old_scenes()
 	offload_old_scene()
 
 func offload_old_scenes() -> void:
@@ -180,11 +181,8 @@ func offload_old_scenes() -> void:
 
 func offload_old_scene() -> void:
 	if main_node == null: return
-	var old_loaded_scene : Node3D = loaded_scenes.pop_back()
-	if old_loaded_scene == null: return
-	main_node.remove_child.call_deferred(
-		old_loaded_scene)
-	old_loaded_scene.queue_free()
+	var old_loaded_scene : SceneData = loaded_scenes.pop_back()
+	old_loaded_scene.offload()
 
 func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 	fade_loading_screen_in().finished.connect(func():

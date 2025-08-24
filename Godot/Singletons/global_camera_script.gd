@@ -14,6 +14,9 @@ signal change_current_camera(new_camera: Camera3D)
 # Signal for saying the camera should or shouldn't be on the player
 signal camera_on_player(tf: bool)
 
+# Signal for adding an offset to the camera
+signal set_camera_offset(offset: Vector3)
+
 # Signal for binding the camera to a Path3D
 signal bind_camera_path(follow_node: PathFollow3D)
 
@@ -42,6 +45,8 @@ signal remove_camera_bounds_depth()
 
 # Signal when path bounds are no longer needed
 signal remove_camera_bounds_path()
+
+# Signal to set camera offset
 @warning_ignore_restore("unused_signal")
 
 func remove_all_bounds() -> void:

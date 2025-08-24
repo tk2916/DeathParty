@@ -74,9 +74,9 @@ size = Vector3(3, 2, 1)
 size = Vector3(1.25, 2, 0.5)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
-density = 0.01
-albedo = Color(0.323921, 0.00130194, 0.663257, 1)
-emission = Color(0.180321, 8.64428e-05, 0.602363, 1)
+density = 0.02
+albedo = Color(0.220897, 0.000608132, 0.467971, 1)
+emission = Color(0.0781127, 2.20198e-05, 0.316846, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8etm"]
 lifetime_randomness = 0.1
@@ -435,27 +435,27 @@ shape = SubResource("BoxShape3D_klyfx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -2.8)
 shape = SubResource("BoxShape3D_ihq26")
 
-[node name="SceneLoader_Bedroom" type="Area3D" parent="."]
+[node name="SceneLoader_Exterior" type="Area3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("39_t7spl")
-scene_going_right = "Bedroom"
-scene_going_left = "Bedroom"
+scene_going_right = "Exterior"
+scene_going_left = "Exterior"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Bedroom"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Exterior"]
 transform = Transform3D(0.999988, 0, -3.76588e-13, 0, 1, 0, 3.76588e-13, 0, 0.999988, -1.47154, 0.747803, -0.0853052)
 shape = SubResource("BoxShape3D_3cled")
 
-[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Bedroom"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 12.8719, 0.839686, -13.2702)
+[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Exterior"]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -8.9721, 2.09517, -47.1503)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Bedroom/TeleportPoint"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Exterior/TeleportPoint"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_6wayg")
 mesh = SubResource("BoxMesh_qelyj")
 
-[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Bedroom"]
+[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Exterior"]
 event_name = "event:/door"
 event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
 attached = false
@@ -1086,8 +1086,8 @@ transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.
 transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.58272, -3.50614)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="SceneLoader_Bedroom" to="SceneLoader_Bedroom" method="_on_body_entered"]
-[connection signal="body_exited" from="SceneLoader_Bedroom" to="SceneLoader_Bedroom" method="_on_body_exited"]
+[connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_exited"]
 
 [editable path="SceneLoader_Kitchen"]
 [editable path="SceneLoader_PartyRoom"]

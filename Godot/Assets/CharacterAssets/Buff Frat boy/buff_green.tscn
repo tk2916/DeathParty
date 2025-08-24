@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1gjbrx5kjv5g"]
+[gd_scene load_steps=3 format=3 uid="uid://d1gjbrx5kjv5g"]
 
 [ext_resource type="PackedScene" uid="uid://jeilk8ras2fw" path="res://Assets/CharacterAssets/Buff Frat boy/Buff green.glb" id="1_c34qv"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_a0god"]
 
 [node name="Buff green" instance=ExtResource("1_c34qv")]
 transform = Transform3D(1.17203, 0, 0, 0, 1.17203, 0, 0, 0, 1.17203, 0, 0, 0)
+script = ExtResource("2_a0god")
+use_first_mesh = true
 
 [node name="Skeleton3D" parent="model green" index="0"]
 bones/0/position = Vector3(-13.855, -1.4176, -86.3497)

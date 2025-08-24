@@ -9,7 +9,7 @@ extends Node
 
 #func _init() -> void:
 	#ContentLoader.finished_loading.connect(func():
-		#ContentLoader.direct_teleport_player("Bathroom"))
+		#ContentLoader.direct_teleport_player("Library"))
 
 func _ready() -> void:
 	DialogueSystem.to_phone("Caleb, Rowan, Nora, You", json_file)
@@ -27,6 +27,8 @@ func _ready() -> void:
 	SaveSystem.add_item("Olivia's Polaroid")
 	SaveSystem.add_item("Scissors")
 	SaveSystem.add_item("Pill Bottle")
+	#SaveSystem.add_item("Polaroid Camera")
+	SaveSystem.add_item("ID Card")
 	
 	#SaveSystem.create_new_item("TestItem", "", test_inventory_item)
 	#SaveSystem.add_item("TestItem")

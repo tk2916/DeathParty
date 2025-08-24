@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://qlwirfl7ycga"]
+[gd_scene load_steps=3 format=3 uid="uid://cjkogt4y2w5dp"]
 
 [ext_resource type="PackedScene" uid="uid://vcggh24vgfnh" path="res://Assets/CharacterAssets/bunny/Blk Bunny.glb" id="1_fxskl"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_fpg7b"]
 
-[node name="Blk Bunny" instance=ExtResource("1_fxskl")]
+[node name="Bunny" instance=ExtResource("1_fxskl")]
 transform = Transform3D(1.15768, 0, 0, 0, 1.15768, 0, 0, 0, 1.15768, 0, 0, 0)
+script = ExtResource("2_fpg7b")
 
 [node name="Skeleton3D" parent="model_001" index="0"]
 bones/0/position = Vector3(5.89427, 1.07844, -95.6209)
@@ -94,7 +96,7 @@ bones/63/rotation = Quaternion(0.517284, 0.161203, 0.0276469, 0.84004)
 bones/64/rotation = Quaternion(0.322007, 0.0428873, -0.0134241, 0.94567)
 
 [node name="phone_001" parent="model_001/Skeleton3D" index="0"]
-transform = Transform3D(0.0933047, -0.0397502, -0.483599, -0.340627, -0.356088, -0.0364509, -0.345574, 0.340258, -0.0946425, -2.87868, 14.3439, -88.0256)
+transform = Transform3D(0.0933049, -0.0397509, -0.483599, -0.340627, -0.356087, -0.0364507, -0.345573, 0.340258, -0.0946431, -2.87872, 14.3439, -88.0256)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "talk"
