@@ -37,7 +37,6 @@ func _physics_process(delta) -> void:
 	if Picture.position.y > 155:
 		Picture.position.y = 155
 	
-	print(Picture.position.y)
 #function for when question mark is pressed 
 func _on_question_mark_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	# detects when player clicks on question mark

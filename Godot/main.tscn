@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=4 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=30 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
@@ -33,20 +33,6 @@ metadata/__load_path__ = "res://Assets/InkExamples/example.ink7.json"
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0cbny"]
 plane = Plane(0, 1, 0, -10)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8e4i"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4lmeg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0cp0l"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2t1y"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gngh3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0n3wm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnost"]
 
 [node name="Main" type="Node3D"]
 
@@ -115,47 +101,42 @@ visible = false
 process_mode = 3
 
 [node name="PolaroidCamera" parent="." node_paths=PackedStringArray("viewfinder_camera") instance=ExtResource("55_e71vb")]
-visible = false
 script = ExtResource("65_uatky")
 viewfinder_camera = NodePath("body/MainImage/Camera2D")
 
 [node name="Blur" parent="PolaroidCamera/body/MainImage/ViewFinder" index="2"]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 6525.0
 offset_bottom = 3735.0
 
+[node name="filter_base_button" parent="PolaroidCamera/body/MainImage/ViewFinder/filter_control/filter_base" index="0"]
+offset_left = -155.0
+offset_top = -151.0
+offset_right = 141.0
+offset_bottom = 150.0
+
 [node name="left_button" parent="PolaroidCamera/body/MainImage/ViewFinder/filter_control/rotate_left _button" index="0"]
-anchors_preset = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 340.0
 offset_bottom = 340.0
 
-[node name="shoot" parent="PolaroidCamera" index="1" node_paths=PackedStringArray("question_mark", "Polaroid_image")]
-theme_override_styles/focus = SubResource("StyleBoxEmpty_h8e4i")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4lmeg")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0cp0l")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_d2t1y")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gngh3")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_0n3wm")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_qnost")
-question_mark = NodePath("../../QuestionMark")
+[node name="shoot" parent="PolaroidCamera" index="1" node_paths=PackedStringArray("Polaroid_image")]
+offset_left = -22.0
+offset_top = 3.0
+offset_right = 1297.0
+offset_bottom = 730.0
 Polaroid_image = NodePath("../../Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image")
-
-[node name="QuestionMark" parent="." instance=ExtResource("57_rnkwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7662, 0.929534, 5.39698)
 
 [node name="Polaroid" parent="." instance=ExtResource("57_vke2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.2135, 0)
 visible = false
 
-[node name="Polaroid_image" parent="Polaroid/bookmark_tab/Polaroid_frame" index="0" node_paths=PackedStringArray("Camera_2D", "polaroid_camera", "ViewFinder", "object_viewer", "filter_control")]
+[node name="Polaroid_image" parent="Polaroid/bookmark_tab/Polaroid_frame" index="0" node_paths=PackedStringArray("Camera_2D", "polaroid_camera", "ViewFinder", "filter_control")]
 Camera_2D = NodePath("../../../../PolaroidCamera/body/MainImage/Camera2D")
 polaroid_camera = NodePath("../../../../PolaroidCamera")
 ViewFinder = NodePath("../../../../PolaroidCamera/body/MainImage/ViewFinder/ViewFinder_aim")
-object_viewer = NodePath("../../../../ObjectViewer")
 filter_control = NodePath("../../../../PolaroidCamera/body/MainImage/ViewFinder/filter_control")
 
 [node name="ObjectViewerCanvasLayer" parent="." instance=ExtResource("2_a6jrf")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://d0sd1bp5esd04"]
+[gd_scene load_steps=38 format=3 uid="uid://d0sd1bp5esd04"]
 
 [ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
 [ext_resource type="Texture2D" uid="uid://g8gi1go6brft" path="res://Assets/PNGAssets/viewfinder_final.png" id="3_42nwo"]
@@ -16,6 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://cdvberuogb0k" path="res://Assets/PNGAssets/base_final.png" id="13_qpijf"]
 [ext_resource type="Texture2D" uid="uid://8cmqnmgxkmiu" path="res://Assets/PNGAssets/filter_color_dots.png" id="14_pxotk"]
 [ext_resource type="Texture2D" uid="uid://bvyh22qg3pxas" path="res://Assets/PNGAssets/N.png" id="15_7wtwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4tks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_or4cw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ifkd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_42nwo"]
 shader = ExtResource("7_42nwo")
@@ -48,10 +54,6 @@ shader_parameter/mix_percentage = 0.3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4hu4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gnj1l"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ifkd"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_4q0hv"]
 radius = 24.6864
 
@@ -70,10 +72,6 @@ radius = 30.4386
 [sub_resource type="CircleShape2D" id="CircleShape2D_omcg7"]
 radius = 17.0294
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4tks"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_or4cw"]
-
 [node name="PolaroidCamera" type="CanvasLayer"]
 follow_viewport_enabled = true
 
@@ -87,6 +85,24 @@ offset_bottom = 735.0
 scale = Vector2(1, 1.0079)
 texture = ExtResource("1_t72bm")
 expand_mode = 1
+
+[node name="shoot" type="Button" parent="body/MainImage"]
+offset_left = 15.0
+offset_top = 22.8197
+offset_right = 1302.0
+offset_bottom = 756.82
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_c4tks")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_or4cw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8ifkd")
+script = ExtResource("6_or4cw")
+
+[node name="flash" type="ColorRect" parent="body/MainImage/shoot"]
+visible = false
+layout_mode = 0
+offset_left = -12.0
+offset_top = -8.0
+offset_right = 1307.0
+offset_bottom = 746.0
 
 [node name="ViewFinder" type="TextureRect" parent="body/MainImage" node_paths=PackedStringArray("viewfinder_camera")]
 unique_name_in_owner = true
@@ -135,6 +151,7 @@ expand_mode = 1
 visible = false
 show_behind_parent = true
 material = SubResource("ShaderMaterial_4q0hv")
+layout_mode = 0
 offset_left = -540.0
 offset_top = -15.0
 offset_right = 5985.0
@@ -188,10 +205,10 @@ texture = ExtResource("13_qpijf")
 offset = Vector2(-525, 209.92)
 
 [node name="filter_base_button" type="Button" parent="body/MainImage/ViewFinder/filter_control/filter_base"]
-offset_left = -154.0
-offset_top = -164.0
-offset_right = 162.0
-offset_bottom = 140.0
+offset_left = -158.183
+offset_top = -158.181
+offset_right = 154.817
+offset_bottom = 172.819
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4q0hv")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_42nwo")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ph0pu")
@@ -201,8 +218,7 @@ theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_pxotk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bid8k")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_47y0a")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_q4hu4")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gnj1l")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_8ifkd")
+button_mask = 7
 
 [node name="Area2D" type="Area2D" parent="body/MainImage/ViewFinder/filter_control/filter_base"]
 visible = false
@@ -262,11 +278,11 @@ scale = Vector2(0.0997929, 0.0997929)
 texture = ExtResource("11_42nwo")
 
 [node name="left_button" type="Button" parent="body/MainImage/ViewFinder/filter_control/rotate_left _button"]
-anchors_preset = -1
 offset_left = -170.0
 offset_top = -170.0
 offset_right = 170.0
 offset_bottom = 170.0
+disabled = true
 metadata/_edit_use_anchors_ = true
 
 [node name="rotate_right_button" type="Sprite2D" parent="body/MainImage/ViewFinder/filter_control"]
@@ -283,6 +299,7 @@ offset_left = -169.0
 offset_top = -168.0
 offset_right = 169.0
 offset_bottom = 171.0
+disabled = true
 metadata/_edit_use_anchors_ = true
 
 [node name="selector" type="Area2D" parent="body/MainImage/ViewFinder/filter_control"]
@@ -316,27 +333,10 @@ drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 
-[node name="shoot" type="Button" parent="."]
-offset_left = 4.0
-offset_top = -8.0
-offset_right = 1291.0
-offset_bottom = 726.0
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_c4tks")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_or4cw")
-script = ExtResource("6_or4cw")
-
-[node name="flash" type="ColorRect" parent="shoot"]
-visible = false
-layout_mode = 0
-offset_left = -12.0
-offset_top = -8.0
-offset_right = 1307.0
-offset_bottom = 746.0
-
+[connection signal="button_up" from="body/MainImage/shoot" to="." method="_on_shoot_button_up"]
+[connection signal="pressed" from="body/MainImage/shoot" to="body/MainImage/shoot" method="_on_pressed"]
 [connection signal="pressed" from="body/MainImage/ViewFinder/filter_control/filter_base/filter_base_button" to="body/MainImage/ViewFinder/filter_control" method="_on_filter_base_button_pressed"]
 [connection signal="input_event" from="body/MainImage/ViewFinder/filter_control/filter_base/Area2D" to="body/MainImage/ViewFinder/filter_control" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="body/MainImage/ViewFinder/filter_control/rotate_left _button/left_button" to="body/MainImage/ViewFinder/filter_control" method="_on_left_button_pressed"]
 [connection signal="pressed" from="body/MainImage/ViewFinder/filter_control/rotate_right_button/right_button" to="body/MainImage/ViewFinder/filter_control" method="_on_right_button_pressed"]
 [connection signal="area_shape_entered" from="body/MainImage/ViewFinder/filter_control/selector" to="body/MainImage/ViewFinder/filter_control" method="_on_selector_area_shape_entered"]
-[connection signal="button_up" from="shoot" to="." method="_on_shoot_button_up"]
-[connection signal="pressed" from="shoot" to="shoot" method="_on_pressed"]

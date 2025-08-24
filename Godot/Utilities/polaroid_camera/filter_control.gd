@@ -98,6 +98,7 @@ func lens_change(lens_color: String):
 
 func _on_filter_base_button_pressed() -> void:
 	filter_base_button.disabled=true
+	print ("button clicked")
 	#turns wheel 90 degrees to the left from its current orientation	
 	var CurrentRotation=$filter_base.rotation_degrees
 	CurrentRotation-= 90
