@@ -12,6 +12,7 @@ func _on_pressed():
 	tween.tween_property($flash, "modulate:a", 0, 1)
 	await tween.finished
 	#await get_tree().create_timer(1.2).timeout
+	await get_tree().create_timer(0.3).timeout
 	Polaroid_image.turn_off()
 	
 
