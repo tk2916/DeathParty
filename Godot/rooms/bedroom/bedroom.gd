@@ -11,7 +11,7 @@ extends Room3D
 
 func _ready() -> void:
 	super()
-	#GlobalPlayerScript.player_moved.connect(_calculate_progress_ratio)
+	GlobalCameraScript.move_camera_jump.emit()
 	body_entered.connect(handle_player_entrance)
 	play_button.pressed.connect(_on_play)
 
@@ -21,12 +21,16 @@ func _physics_process(delta: float) -> void:
 
 
 func handle_player_entrance(body: Node3D) -> void:
+	GlobalCameraScript.move_camera_jump.emit()
 	remove_all_bounds(body)
 	rotate_player(body)
 	
 	bind_camera_path(body)
 	bind_camera_LR(body)
-	bind_camera_y(body, 1.6, 1.6)
+	bind_camera_y(body, 1.2, 1.6)
+	#await get_tree().create_timer(1).timeout
+	await GlobalCameraScript.finished_moving
+	GlobalCameraScript.move_camera_smooth.emit()
 	
 	path_follow_node.look_at(look_straight) # Look straight ahead
 	# ^ currently unneeded due to rotation mode None in path follow node
@@ -42,9 +46,14 @@ func _on_scene_loader_body_entered(body: Node3D) -> void:
 
 func _on_play() -> void:
 	var tween: Tween = get_tree().create_tween()
-	tween.tween_property(fade_title, "modulate:a", 0, 2)
+	tween.tween_property(fade_title, "modulate:a", 0, 1.3)
 	await tween.finished
 	title_screen.visible = false
+	await get_tree().create_timer(1).timeout
+	
 	closet.visible = true
-	tween.tween_property(path_follow_node, "progress_ratio", 1, 1)
+	var tween2: Tween = get_tree().create_tween()
+	tween2.tween_property(path_follow_node, "progress_ratio", 1, 1.2)
+	await tween2.finished
+	
 	GlobalCameraScript.camera_on_player.emit(true)
