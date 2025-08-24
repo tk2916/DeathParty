@@ -193,6 +193,7 @@ func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 			offload_old_scenes()
 			await tree.create_timer(1).timeout
 			fade_loading_screen_out()
+			await GlobalCameraScript.finished_moving
 			GlobalCameraScript.move_camera_smooth.emit()
 		)
 	)
