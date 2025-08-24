@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=174 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -66,7 +66,6 @@
 [ext_resource type="PackedScene" uid="uid://btmj6vlpb2pyw" path="res://rooms/bedroom/desk stuff.glb" id="56_0hleh"]
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="57_6hcck"]
 [ext_resource type="PackedScene" uid="uid://dasq5wgeyo38c" path="res://Assets/props/polaroid_camera_collectable.tscn" id="66_dyybh"]
-[ext_resource type="Resource" uid="uid://bisc78i8lblcq" path="res://Assets/Resources/InventoryItemResources/polaroid_camera_properties.tres" id="67_0t478"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(8.04827, 3.47472, 11.0452)
@@ -1784,19 +1783,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76999, 0.129708, 2.03498)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91154, 1.17567, 3.43898)
 
 [node name="standing lamp" type="Node3D" parent="."]
-transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.59066, 1.08408, 5.33644)
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.7287, 1.08326, 5.10819)
 
 [node name="Cylinder_006" type="MeshInstance3D" parent="standing lamp"]
-transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, -0.0314875, -0.169067, -0.0211334)
+transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, -0.0312566, -0.168954, -0.0209002)
 mesh = SubResource("ArrayMesh_dcbqy")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="standing lamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.221358, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0536875, 0.221358, 0)
 light_color = Color(1, 0.685, 0.3, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 1.111
+light_specular = 4.611
+omni_range = 1.768
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.49448, 0.916492, 3.14307)
+light_color = Color(1, 0.685, 0.3, 1)
+omni_range = 1.052
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.252613, 1.60145, 5.56835)
+light_color = Color(0.138788, 6.65648e-05, 0.471449, 1)
+light_energy = 3.444
+omni_range = 5.612
 
 [node name="CorkBoard" parent="." instance=ExtResource("16_i33k8")]
 transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 1.4748, -1.18352)
@@ -1824,7 +1833,7 @@ skeleton = NodePath("")
 [node name="Props" type="Node3D" parent="."]
 
 [node name="Guitar" parent="Props" instance=ExtResource("27_e0ilc")]
-transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.77992, 0.43937, 3.15722)
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.78076, 0.43937, 3.21967)
 
 [node name="WallDecorations" type="Node3D" parent="Props"]
 transform = Transform3D(1.01561, 0, 0, 0, 1.01561, 0, 0, 0, 1.01561, 1.4671, 1.56823, -0.635197)
@@ -1861,10 +1870,10 @@ transform = Transform3D(-0.0239555, 0.602108, -0.798055, 0.0153786, -0.797968, -
 transform = Transform3D(-1.41286e-07, 0.688298, 0.897938, 3.34545e-07, 0.897938, -0.688298, -1.13139, 1.34872e-07, -4.04617e-07, 2.83877, 1.03556, 1.52313)
 
 [node name="Plane_042" parent="Props/WallDecorations/PunkPosters" index="10"]
-transform = Transform3D(-0.0010804, 1.58962, 0.00662414, -0.00143942, 0.00622806, -1.69039, 1.45931, 0.00118302, -0.00166245, -1.24953, -0.414793, 1.87522)
+transform = Transform3D(-0.0010804, 1.58962, 0.00662414, -0.00143942, 0.00622806, -1.69039, 1.45931, 0.00118302, -0.00166245, -1.27544, -0.414793, 1.87522)
 
 [node name="Plane_047" parent="Props/WallDecorations/PunkPosters" index="11"]
-transform = Transform3D(-0.00192634, -2.64769, 0.105407, 0.00263753, -0.0600223, -4.64986, 2.64837, -0.00186607, 0.00470749, -1.19175, -0.752825, 2.69148)
+transform = Transform3D(-0.00189439, -2.64822, 0.0493223, 0.00266057, -0.028087, -4.65079, 2.64837, -0.00186607, 0.00470749, -1.24857, -0.752825, 2.69148)
 
 [node name="Plane_040" parent="Props/WallDecorations/PunkPosters" index="12"]
 transform = Transform3D(-0.0608814, 2.54011, 0.0540959, 0.039084, 0.0550414, -2.54052, -2.54039, -0.060028, -0.0403825, 3.44724, -0.212886, -1.64362)
@@ -2058,7 +2067,6 @@ light_color = Color(0.6485, 0.43, 1, 1)
 
 [node name="Polaroid Camera" parent="." instance=ExtResource("66_dyybh")]
 transform = Transform3D(0.608386, 0, 0.648273, 0, 0.889039, 0, -0.648273, 0, 0.608386, 1.22371, 0.489549, 0.743623)
-item_resource = ExtResource("67_0t478")
 outline_thickness = 0.3
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
