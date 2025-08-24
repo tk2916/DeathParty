@@ -16,7 +16,7 @@
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>8</value>
+			<value>9</value>
 		</property>
 		<property name="enumerationLabels">
 			<value>Entrance</value>
@@ -27,6 +27,7 @@
 			<value>PartyRoom</value>
 			<value>Library</value>
 			<value>Storageroom</value>
+			<value>Exterior</value>
 		</property>
 		<property name="isGlobal">
 			<value>true</value>

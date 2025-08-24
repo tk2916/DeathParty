@@ -177,15 +177,15 @@ transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579
 [node name="Exterior" parent="." groups=["loadable_scene"] instance=ExtResource("27_qsp4k")]
 transform = Transform3D(0.791022, 0, 0, 0, 0.791022, 0, 0, 0, 0.791022, -17.1306, 5.92461, 55.0464)
 
+[node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
+transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 5.7468)
+
 [node name="PartyRoomMusic" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/900_MX/Party Room music"
 event_guid = "{757f62e0-b188-491e-9503-6ad99b13690a}"
 autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
-
-[node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
-transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 5.7468)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
