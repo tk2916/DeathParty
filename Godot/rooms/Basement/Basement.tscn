@@ -2248,7 +2248,7 @@ skeleton = NodePath("")
 event_name = "event:/000_SFX/000_Demo_Test/014_SFX_Pipe"
 event_guid = "{1cd8e74a-80a5-4514-bf89-daa69b02ae2f}"
 autoplay = true
-volume = 2.0
+volume = 2.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 1, 0)
 
 [node name="WashingMachines" type="Node3D" parent="."]
