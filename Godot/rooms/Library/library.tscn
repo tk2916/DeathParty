@@ -1268,6 +1268,7 @@ spot_angle = 19.94
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SceneLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3859, -0.711992, 11.5815)
+light_color = Color(0.18, 0.849667, 1, 1)
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36763, 1.7031, 2.47758)
