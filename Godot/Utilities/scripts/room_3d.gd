@@ -53,8 +53,8 @@ func calculate_bounds() -> void:
 	var left_point: Vector3 = (room_area_center) + (camera_LR_offset * -basis.x)
 	var right_point: Vector3 = (room_area_center) + (camera_LR_offset * basis.x)
 	
-	# If left bound and right bound go past each other (in the case of small rooms),
-	# center the camera on the room instead
+	 #If left bound and right bound go past each other (in the case of small rooms),
+	 #center the camera on the room instead
 	#if(left_point*basis.x > right_point*basis.x):
 		#left_point = (left_point + right_point)/2
 		#right_point = left_point

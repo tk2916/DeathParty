@@ -1,8 +1,10 @@
 extends Room3D
 
+@export var closet: Node3D
+
 @onready var music: FmodEventEmitter3D = %Music
 @onready var look_straight: Vector3 = Vector3(path_follow_node.global_position.x, path_follow_node.global_position.y, -basis.z.z)
-@export var tempcam: Camera3D
+
 
 func _ready() -> void:
 	super()
@@ -12,8 +14,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
+		closet.visible = true
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property(path_follow_node, "progress_ratio", 1, 0.7)
+		GlobalCameraScript.camera_on_player.emit(true)
 
 
 func handle_player_entrance(body: Node3D) -> void:
@@ -21,8 +25,10 @@ func handle_player_entrance(body: Node3D) -> void:
 	rotate_player(body)
 	
 	bind_camera_path(body)
+	bind_camera_LR(body)
 	
 	path_follow_node.look_at(look_straight) # Look straight ahead
+	# ^ currently unneeded due to rotation mode None in path follow node
 
 	#keep_camera_on_player(body)
 	#bind_camera_y(body, 1.5, 1.5)

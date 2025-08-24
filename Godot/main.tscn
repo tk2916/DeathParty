@@ -142,14 +142,13 @@ script = ExtResource("3_cyx1q")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3293, 0.0322108, 25.2049)
-collision_layer = 2
-collision_mask = 1
 floor_constant_speed = true
 
-[node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera") instance=ExtResource("3_dg77c")]
+[node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "player") instance=ExtResource("3_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.444, 2, 9.6)
 fov = 30.0
 main_camera = NodePath(".")
+player = NodePath("../Player")
 
 [node name="FmodListener3D" type="FmodListener3D" parent="MainCamera"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=174 format=4 uid="uid://hl56t3rfk1uo"]
+[gd_scene load_steps=175 format=4 uid="uid://hl56t3rfk1uo"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -111,9 +111,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvlly"]
-albedo_texture = ExtResource("4_tluma")
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
 density = 0.07
@@ -1448,10 +1445,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o7qs3")
 
-[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("room_area", "path_follow_node") groups=["loadable_scene"]]
+[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("closet", "room_area", "path_follow_node") groups=["loadable_scene"]]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_lxtj2")
+closet = NodePath("Closet")
 room_area = NodePath("RoomArea")
 path_follow_node = NodePath("Path3D/PathFollow3D")
 
@@ -1534,49 +1532,6 @@ rotation_mode = 0
 
 [node name="punk posters" parent="." instance=ExtResource("3_w0jyq")]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.866294, 1.75662, 1.98393)
-
-[node name="Plane_153" parent="punk posters" index="0"]
-transform = Transform3D(0.00156709, 8.4257e-19, 0.971416, -0.100647, 0.966189, 0.000162364, -0.966188, -0.100647, 0.00155866, 1.13167, 1.09679, -0.195282)
-
-[node name="Plane_043" parent="punk posters" index="2"]
-transform = Transform3D(-0.000740272, -0.745177, -1.05716, 0.000986572, 0.992942, -0.793367, 1.0003, -0.00153088, 7.87821e-08, -0.589757, 0.985761, -1.55184)
-material_override = SubResource("StandardMaterial3D_kvlly")
-
-[node name="Plane_041" parent="punk posters" index="3"]
-transform = Transform3D(-0.00074029, -0.600242, -1.22961, 0.000986308, 0.799818, -0.922789, 0.999999, -0.00123322, -1.1246e-07, -0.832817, 0.943534, -0.320668)
-
-[node name="Plane_039" parent="punk posters" index="4"]
-transform = Transform3D(1.25895, 0, -0.39986, -0.39986, -1.57467e-07, -1.25895, -5.90501e-08, 1.32093, -1.57467e-07, -0.740211, -0.617599, 0.84733)
-
-[node name="Plane_049" parent="punk posters" index="5"]
-transform = Transform3D(0.390451, 5.59805e-08, 0.156533, 0.156533, -1.39636e-07, -0.390451, 0, 0.420659, -1.5044e-07, -1.31529, -0.758156, 0.848489)
-
-[node name="Plane_050" parent="punk posters" index="6"]
-transform = Transform3D(1.32093, 0, 0, 0, -4.72401e-07, -1.32093, 0, 1.32093, -4.72401e-07, -0.783874, -0.4996, 0.84733)
-
-[node name="Plane_054" parent="punk posters" index="7"]
-transform = Transform3D(1, 0, 0, 0, -3.57628e-07, -1, 0, 1, -3.57628e-07, 0.681946, 0.922954, -3.58652)
-
-[node name="Plane_036" parent="punk posters" index="8"]
-transform = Transform3D(-0.0239555, 0.602108, -0.798055, 0.0153786, -0.797968, -0.602504, -0.999595, -0.0267063, 0.00985616, -0.753893, 0.942708, 1.39852)
-
-[node name="Plane_037" parent="punk posters" index="9"]
-transform = Transform3D(-1.41286e-07, 0.688298, 0.897938, 3.34545e-07, 0.897938, -0.688298, -1.13139, 1.34872e-07, -4.04617e-07, 2.83877, 1.03556, 1.52313)
-
-[node name="Plane_042" parent="punk posters" index="10"]
-transform = Transform3D(-0.0010804, 1.58962, 0.00662414, -0.00143942, 0.00622806, -1.69039, 1.45931, 0.00118302, -0.00166245, -1.24953, -0.414793, 1.77515)
-
-[node name="Plane_047" parent="punk posters" index="11"]
-transform = Transform3D(-0.00192634, -2.64769, 0.105407, 0.00263753, -0.0600223, -4.64986, 2.64837, -0.00186607, 0.00470749, -1.25465, -0.752825, 2.87796)
-
-[node name="Plane_040" parent="punk posters" index="12"]
-transform = Transform3D(-0.0608814, 2.54011, 0.0540959, 0.039084, 0.0550414, -2.54052, -2.54039, -0.060028, -0.0403825, 3.44724, -0.212886, -1.64362)
-
-[node name="Object_11_001" parent="punk posters" index="13"]
-transform = Transform3D(0.159198, 0.768296, 0.00735263, -0.768332, 0.15919, 0.00152344, -2.33844e-08, -0.00750879, 0.784615, -0.41085, 0.655015, -3.54823)
-
-[node name="Object_5_004" parent="punk posters" index="14"]
-transform = Transform3D(-0.00161334, 0.806693, 0.591739, -3.063e-05, -0.591739, 0.806694, 1.00045, 0.00128277, 0.000978943, 2.85973, 1.01891, -1.91203)
 
 [node name="SceneLights" type="Node3D" parent="."]
 
@@ -1799,6 +1754,7 @@ transform = Transform3D(-3.8861e-08, 0, 0.889036, 0, 0.889036, 0, -0.889036, 0, 
 
 [node name="Closet" parent="." instance=ExtResource("20_yfvte")]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -2.21162, 1.15983, 1.82145)
+visible = false
 
 [node name="polySurface14" parent="Closet" index="5"]
 transform = Transform3D(1.60367e-05, 0.000101135, 5.43222e-06, 4.62205e-05, -2.41422e-06, -9.15027e-05, -9.01188e-05, 1.67588e-05, -4.59636e-05, 0.676189, -0.195626, 1.1798)
