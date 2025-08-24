@@ -99,6 +99,7 @@ func _physics_process(delta: float) -> void:
 		main_camera.global_transform = camera_location_node.global_transform
 	
 	main_camera.global_position += camera_offset
+	GlobalCameraScript.finished_moving.emit()
 
 func _move_camera_smooth() -> void:
 	camera_smooth = true

@@ -2,6 +2,9 @@
 extends Node
 
 @warning_ignore_start("unused_signal")
+# Signal emitted after main_camera finishes it's physics_process function
+signal finished_moving()
+
 # Signals for moving the camera to a new position
 # new_camera_position: Vector3 of the desired position
 #    two signals are provided in case both smooth and instant camera movement is desired
