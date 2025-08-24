@@ -43,7 +43,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hvrrh")
 
-[node name="Polaroid Camera" type="Node3D"]
+[node name="PolaroidCamera" type="Node3D"]
 script = ExtResource("2_fa4ed")
 item_resource = ExtResource("3_hq3ii")
 outline_thickness = 0.02
