@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://2t8atxx1eno6" path="res://rooms/Basement/DDR_StingrayPBS3_emissive.png" id="31_kk7s6"]
 [ext_resource type="Texture2D" uid="uid://b7s06uof0swcc" path="res://rooms/Basement/DDR_StingrayPBS3_normal.png" id="32_g8hj1"]
 [ext_resource type="Texture2D" uid="uid://bqfsggxrom6e3" path="res://rooms/Basement/DDR_StingrayPBS2_baseColor.png" id="33_1mcaq"]
-[ext_resource type="PackedScene" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
+[ext_resource type="PackedScene" uid="uid://bdcfyi83q8umf" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
 [ext_resource type="Texture2D" uid="uid://bpfxxcii5umf2" path="res://rooms/Basement/long lamp_stainless steel.png" id="34_5ryib"]
 [ext_resource type="Texture2D" uid="uid://ctk2px7ruxhou" path="res://rooms/Basement/DDR_StingrayPBS2_metallicRoughness.png" id="34_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="34_u8b43"]
@@ -2010,7 +2010,7 @@ draw_pass_1 = SubResource("SphereMesh_j7vhh")
 [node name="Dust6" type="GPUParticles3D" parent="Particles"]
 transform = Transform3D(0.234447, 0, 0, 0, 0.212458, 0, 0, 0, 0.185388, 8.43806, -0.385912, 0.631645)
 gi_mode = 2
-amount = 100
+amount = 50
 lifetime = 4.0
 preprocess = 2.0
 speed_scale = 0.3
@@ -2206,10 +2206,10 @@ transform = Transform3D(-0.0144858, 0, -0.999895, 0, 1, 0, 0.999895, 0, -0.01448
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.96008, -0.195834, 2.205)
 
 [node name="TV" parent="TVStand" instance=ExtResource("16_4bbn0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3215, 0.127527, 0.185869)
+transform = Transform3D(1.33507, 0, 0, 0, 1.33507, 0, 0, 0, 1.33507, -1.32823, -0.179388, 0.973876)
 
 [node name="Sprite3D" type="Sprite3D" parent="TVStand"]
-transform = Transform3D(0.158358, 0, 0, 0, 0.146936, 0, 0, 0, 0.144321, -1.59724, 1.61217, -2.10524)
+transform = Transform3D(0.211418, 0, 0, 0, 0.196169, 0, 0, 0, 0.192678, -1.69636, 1.80271, -2.0849)
 texture = SubResource("ViewportTexture_kk7s6")
 
 [node name="SubViewport" type="SubViewport" parent="TVStand"]
@@ -2552,7 +2552,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80221, 1.21951, 0.941289)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92567, 0.31762, -0.446203)
 
 [node name="USAFlag" parent="Props/Posters" instance=ExtResource("51_hfud8")]
-transform = Transform3D(-0.126234, 0, -0.992001, 0, 1, 0, 0.992001, 0, -0.126234, 0.653997, 1.28179, 0.103276)
+transform = Transform3D(0.830334, 0, -0.624658, -0.0477057, 1.03603, -0.0634135, 0.622833, 0.0793542, 0.827909, -0.168011, 1.02641, -4.73969)
 
 [node name="DIEPoster" parent="Props/Posters" instance=ExtResource("34_u8b43")]
 transform = Transform3D(0.319259, 0.0168099, -2.30926e-14, -0.0168099, 0.319259, 8.32667e-17, 4.26326e-14, -1.22125e-15, 0.319701, -8.73142, 0.26815, -5.26067)
@@ -2564,7 +2564,7 @@ transform = Transform3D(0.23937, -0.0223195, 1.33227e-14, 0.0223195, 0.239371, 0
 transform = Transform3D(0.579345, 0, -2.13163e-14, 0, 0.579345, 0, 2.13163e-14, 0, 0.579345, -4.13265, 0.04619, -5.22684)
 
 [node name="StudentAthletePoster" parent="Props/Posters" instance=ExtResource("35_15vnp")]
-transform = Transform3D(-1.59155e-08, 0, -0.364106, 0, 0.364106, 0, 0.364106, 0, -1.59155e-08, 0.767116, 0.54732, -4.59259)
+transform = Transform3D(-1.40756e-08, 0, -0.283958, 0, 0.256515, 0, 0.322015, 0, -1.24121e-08, 0.767116, 0.545836, 2.13741)
 
 [node name="DrinkSign" parent="Props/Posters" instance=ExtResource("36_qpo1s")]
 transform = Transform3D(0.546483, 0, 3.55271e-14, 0, 0.546483, 0, -3.55271e-14, 0, 0.546483, -12.033, 0.17379, -5.27749)
@@ -2606,7 +2606,7 @@ transform = Transform3D(-0.0655382, 0, -0.156537, 0, 0.19157, 0, 0.156537, 0, -0
 transform = Transform3D(0.120934, 0, -0.992661, 0, 1, 0, 0.992661, 0, 0.120934, -13.3199, 0.692498, -3.45925)
 
 [node name="DIEFlag2" parent="Props" instance=ExtResource("45_x2dx7")]
-transform = Transform3D(-0.999562, 0, -0.0295964, 0, 1, 0, 0.0295964, 0, -0.999562, 2.46976, 0.692498, 1.26862)
+transform = Transform3D(-0.999562, 0, -0.0295964, 0, 1, 0, 0.0295964, 0, -0.999562, 2.46976, 0.914035, 0.833679)
 
 [node name="LaundryBaskets" type="Node3D" parent="Props"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.8819, 1.20817, 2.23375)
@@ -2656,8 +2656,8 @@ light_energy = 2.0
 omni_range = 2.5
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75662, 1.44731, -3.67345)
-light_color = Color(1, 0.377, 0.11, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39058, 2.26113, -3.47366)
+light_color = Color(1, 0.475, 0.25, 1)
 light_energy = 3.0
 omni_range = 2.5
 

@@ -23,6 +23,7 @@ scale = Vector2(0.67, 0.67)
 texture = ExtResource("1_v6p8y")
 
 [node name="Button" type="Button" parent="FadeThisOut"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 278.0
 offset_right = 727.0
