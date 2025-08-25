@@ -1,4 +1,4 @@
-[gd_scene load_steps=212 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=213 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://2t8atxx1eno6" path="res://rooms/Basement/DDR_StingrayPBS3_emissive.png" id="31_kk7s6"]
 [ext_resource type="Texture2D" uid="uid://b7s06uof0swcc" path="res://rooms/Basement/DDR_StingrayPBS3_normal.png" id="32_g8hj1"]
 [ext_resource type="Texture2D" uid="uid://bqfsggxrom6e3" path="res://rooms/Basement/DDR_StingrayPBS2_baseColor.png" id="33_1mcaq"]
-[ext_resource type="PackedScene" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
+[ext_resource type="PackedScene" uid="uid://bdcfyi83q8umf" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
 [ext_resource type="Texture2D" uid="uid://bpfxxcii5umf2" path="res://rooms/Basement/long lamp_stainless steel.png" id="34_5ryib"]
 [ext_resource type="Texture2D" uid="uid://ctk2px7ruxhou" path="res://rooms/Basement/DDR_StingrayPBS2_metallicRoughness.png" id="34_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="34_u8b43"]
@@ -80,6 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://cescg2luxp8a1" path="res://rooms/Basement/bean bag_Screenshot_2025-07-07_193553.png" id="77_jle5p"]
 [ext_resource type="VideoStream" uid="uid://durjhoccw8ld2" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
 [ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/dino gamer/dino.tscn" id="79_g8hj1"]
+[ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="81_i5ndi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -2666,6 +2667,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17892, 1.21886, 0.613103)
 light_color = Color(1, 0.3, 0, 1)
 light_energy = 3.0
 omni_range = 1.01
+
+[node name="witch" parent="." instance=ExtResource("81_i5ndi")]
+transform = Transform3D(0.55657, 0, 0.964746, 0, 1.11378, 0, -0.964746, 0, 0.55657, -9.13507, -0.0906362, 3.59975)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="SceneLoader_Storageroom"]

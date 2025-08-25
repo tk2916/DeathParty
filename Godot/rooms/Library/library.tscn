@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=130 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -55,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="53_iso52"]
 [ext_resource type="Texture2D" uid="uid://qatlo1rl0gdd" path="res://rooms/Storage Room/spiderwebs_Untitled_Artwork.png" id="54_yma0n"]
 [ext_resource type="Texture2D" uid="uid://bs6b6l2er7cvd" path="res://rooms/Storage Room/spiderwebs_dsf.png" id="55_hu7nt"]
+[ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="56_hu7nt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15.626, 10, 12)
@@ -1882,6 +1883,9 @@ skeleton = NodePath("")
 transform = Transform3D(4.51608, 0.0815808, -0.0625512, -0.0872657, 0.140007, -3.35891, -0.0892539, 3.99095, 0.119113, 5.7503, 0.0206535, -2.45016)
 mesh = SubResource("ArrayMesh_0h5f4")
 skeleton = NodePath("")
+
+[node name="witch" parent="." instance=ExtResource("56_hu7nt")]
+transform = Transform3D(-0.616097, 0, 0.927863, 0, 1.11378, 0, -0.927863, 0, -0.616097, 0.861494, -0.890115, -2.05359)
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 
