@@ -1,4 +1,4 @@
-[gd_scene load_steps=213 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=214 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -81,6 +81,7 @@
 [ext_resource type="VideoStream" uid="uid://durjhoccw8ld2" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
 [ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/dino gamer/dino.tscn" id="79_g8hj1"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="81_i5ndi"]
+[ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="82_48c5o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -2670,6 +2671,9 @@ omni_range = 1.01
 
 [node name="witch" parent="." instance=ExtResource("81_i5ndi")]
 transform = Transform3D(0.55657, 0, 0.964746, 0, 1.11378, 0, -0.964746, 0, 0.55657, -9.13507, -0.0906362, 3.59975)
+
+[node name="chi omega" parent="." instance=ExtResource("82_48c5o")]
+transform = Transform3D(1.02535, 0, -0.430091, 0, 1.1119, 0, 0.430091, 0, 1.02535, -7.82093, -0.081018, 2.89866)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="SceneLoader_Storageroom"]

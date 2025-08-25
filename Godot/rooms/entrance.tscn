@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=83 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/Buff Frat boy/buff.tscn" id="42_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://bgeabboi8mw6q" path="res://rooms/Exterior Frat Lawn/beer spider.glb" id="43_klyfx"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="44_kdf33"]
+[ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="45_la1vu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -1081,7 +1082,7 @@ transform = Transform3D(0.125, 0, 0.216506, 0, 0.295, 0, -0.216506, 0, 0.125, 2.
 transform = Transform3D(-0.682014, 0, 0.880547, 0, 1.11378, 0, -0.880547, 0, -0.682014, -3.75813, -0.00254369, 4.89165)
 
 [node name="witch2" parent="NPCs" instance=ExtResource("44_kdf33")]
-transform = Transform3D(-1.01974, 0, -0.447931, 0, 1.11378, 0, 0.447931, 0, -1.01974, 8.97581, 4.60128, -3.29104)
+transform = Transform3D(-1.01974, 0, -0.447931, 0, 1.11378, 0, 0.447931, 0, -1.01974, 7.15797, 4.60128, -3.74617)
 
 [node name="Caleb" parent="NPCs" instance=ExtResource("35_gfuhi")]
 transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
@@ -1091,6 +1092,12 @@ transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.
 
 [node name="Buff" parent="NPCs" instance=ExtResource("42_wxsgv")]
 transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.58272, -3.50614)
+
+[node name="chi omega" parent="NPCs" instance=ExtResource("45_la1vu")]
+transform = Transform3D(0.77808, 0, -0.7943, 0, 1.1119, 0, 0.7943, 0, 0.77808, 4.68345, -0.00364683, 6.13054)
+
+[node name="chi omega2" parent="NPCs" instance=ExtResource("45_la1vu")]
+transform = Transform3D(-0.28052, 0, 1.07593, 0, 1.1119, 0, -1.07593, 0, -0.28052, -2.59934, 4.58581, -3.70973)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]
