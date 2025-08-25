@@ -1,5 +1,10 @@
 class_name FootstepSounds extends FmodEventEmitter3D
-
+## an FmodEventEmitter3D that can be attached to CharacterBody3Ds to make them play footstep sounds
+##
+## handles tracking the speed to only play footsteps while moving, raycasting to get the surface
+## the character is stepping on, and playing the corresponding sounds.
+## use by calling this class's play_footstep_sound() function from an AnimationPlayer on the frame
+## where the character's foot touches the ground
 
 @onready var ray_cast: RayCast3D = %RayCast3D
 
