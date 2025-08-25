@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=84 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://bgeabboi8mw6q" path="res://rooms/Exterior Frat Lawn/beer spider.glb" id="43_klyfx"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="44_kdf33"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="45_la1vu"]
+[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="46_ihq26"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -660,7 +661,7 @@ mesh = SubResource("ArrayMesh_bl2fo")
 skeleton = NodePath("")
 
 [node name="MAT_wallpaper_DIFFUSE4" type="MeshInstance3D" parent="Room/Walls/LeftWall/Wallpaper"]
-transform = Transform3D(6.48689, 1.21973e-19, -1.53481e-26, 0, -1.56367e-07, -8.71356, -1.21973e-19, 3.57725, -3.80882e-07, 7.59696, 0.737454, -8.8515)
+transform = Transform3D(6.48689, 1.28749e-19, -1.53481e-26, 0, -1.56367e-07, -8.71356, -9.48677e-20, 3.57725, -3.80882e-07, 7.59696, 1.46004, -8.8515)
 mesh = SubResource("ArrayMesh_bl2fo")
 skeleton = NodePath("")
 
@@ -1098,6 +1099,9 @@ transform = Transform3D(0.77808, 0, -0.7943, 0, 1.1119, 0, 0.7943, 0, 0.77808, 4
 
 [node name="chi omega2" parent="NPCs" instance=ExtResource("45_la1vu")]
 transform = Transform3D(-0.28052, 0, 1.07593, 0, 1.1119, 0, -1.07593, 0, -0.28052, -2.59934, 4.58581, -3.70973)
+
+[node name="cone ghost" parent="NPCs" instance=ExtResource("46_ihq26")]
+transform = Transform3D(0.269572, 0, -1.12744, 0, 1.15922, 0, 1.12744, 0, 0.269572, 5.01882, -0.00239445, 1.40468)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]

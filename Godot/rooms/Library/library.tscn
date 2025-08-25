@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=132 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -57,6 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://bs6b6l2er7cvd" path="res://rooms/Storage Room/spiderwebs_dsf.png" id="55_hu7nt"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="56_hu7nt"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="57_twmdx"]
+[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="58_dsi3o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15.626, 10, 12)
@@ -1890,6 +1891,9 @@ transform = Transform3D(-0.616097, 0, 0.927863, 0, 1.11378, 0, -0.927863, 0, -0.
 
 [node name="chi omega" parent="." instance=ExtResource("57_twmdx")]
 transform = Transform3D(0.981093, 0, -0.523239, 0, 1.1119, 0, 0.523239, 0, 0.981093, 1.78155, -0.893047, -2.46025)
+
+[node name="cone ghost" parent="." instance=ExtResource("58_dsi3o")]
+transform = Transform3D(-1.0274, 0, -0.536883, 0, 1.15922, 0, 0.536883, 0, -1.0274, 2.17575, -4.39886, 2.64484)
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 

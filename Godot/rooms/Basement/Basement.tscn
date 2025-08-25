@@ -1,4 +1,4 @@
-[gd_scene load_steps=214 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=215 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -82,6 +82,7 @@
 [ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/dino gamer/dino.tscn" id="79_g8hj1"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="81_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="82_48c5o"]
+[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="83_ij3m0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -2674,6 +2675,9 @@ transform = Transform3D(0.55657, 0, 0.964746, 0, 1.11378, 0, -0.964746, 0, 0.556
 
 [node name="chi omega" parent="." instance=ExtResource("82_48c5o")]
 transform = Transform3D(1.02535, 0, -0.430091, 0, 1.1119, 0, 0.430091, 0, 1.02535, -7.82093, -0.081018, 2.89866)
+
+[node name="cone ghost" parent="." instance=ExtResource("83_ij3m0")]
+transform = Transform3D(0.485245, 0, 1.05277, 0, 1.15922, 0, -1.05277, 0, 0.485245, -6.46547, -0.0756876, 0.710441)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="SceneLoader_Storageroom"]

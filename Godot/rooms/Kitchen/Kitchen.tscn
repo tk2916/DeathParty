@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=90 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="45_l32yv"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="46_cngrb"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="47_3yiem"]
+[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="48_2jg4v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
 size = Vector3(15, 5, 13)
@@ -1751,6 +1752,9 @@ transform = Transform3D(0.303973, 0, -1.17868, 0, 1.21725, 0, 1.17868, 0, 0.3039
 
 [node name="chi omega" parent="." instance=ExtResource("47_3yiem")]
 transform = Transform3D(-0.25506, 0, 1.18812, 0, 1.21519, 0, -1.18812, 0, -0.25506, 5.2901, -3.12422, -4.11111)
+
+[node name="cone ghost" parent="." instance=ExtResource("48_2jg4v")]
+transform = Transform3D(1.17388, 0, 0.476519, 0, 1.26691, 0, -0.476519, 0, 1.17388, -5.09145, -3.11913, -5.21472)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="Room"]
