@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
 [ext_resource type="PackedScene" uid="uid://bschhxvd0bvn7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
-[ext_resource type="PackedScene" uid="uid://hl56t3rfk1uo" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
+[ext_resource type="PackedScene" uid="uid://c44l5t4o5i1qg" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
@@ -104,6 +104,12 @@ process_mode = 3
 script = ExtResource("65_uatky")
 viewfinder_camera = NodePath("body/MainImage/Camera2D")
 
+[node name="shoot" parent="PolaroidCamera/body/MainImage" index="0"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1287.0
+offset_bottom = 734.0
+
 [node name="Blur" parent="PolaroidCamera/body/MainImage/ViewFinder" index="2"]
 offset_left = 0.0
 offset_top = 0.0
@@ -121,13 +127,6 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 340.0
 offset_bottom = 340.0
-
-[node name="shoot" parent="PolaroidCamera" index="1" node_paths=PackedStringArray("Polaroid_image")]
-offset_left = -22.0
-offset_top = 3.0
-offset_right = 1297.0
-offset_bottom = 730.0
-Polaroid_image = NodePath("../../Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image")
 
 [node name="Polaroid" parent="." instance=ExtResource("57_vke2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.2135, 0)
@@ -203,8 +202,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 5.7468)
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
-[connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
-[connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
 [connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
 
 [editable path="CanvasLayer/BasicGUI"]

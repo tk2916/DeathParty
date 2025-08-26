@@ -1,15 +1,15 @@
-[gd_scene load_steps=38 format=3 uid="uid://d0sd1bp5esd04"]
+[gd_scene load_steps=40 format=3 uid="uid://d0sd1bp5esd04"]
 
 [ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
 [ext_resource type="Texture2D" uid="uid://g8gi1go6brft" path="res://Assets/PNGAssets/viewfinder_final.png" id="3_42nwo"]
 [ext_resource type="Texture2D" uid="uid://c7sn438n6fn2n" path="res://Assets/PNGAssets/green_lens.png" id="4_a6jrl"]
 [ext_resource type="Script" uid="uid://cg5lhigmboc73" path="res://Utilities/polaroid_camera/view_finder.gd" id="5_hbg1w"]
-[ext_resource type="Script" uid="uid://bd5wy6rj1xank" path="res://Utilities/polaroid_camera/filter_control.gd" id="5_omcg7"]
+[ext_resource type="Script" path="res://Utilities/polaroid_camera/filter_control.gd" id="5_omcg7"]
 [ext_resource type="Shader" uid="uid://dflfu0c1r3cql" path="res://Utilities/pause_menu/background_blur.gdshader" id="5_ph0pu"]
-[ext_resource type="Shader" uid="uid://cx7fj2cmeblbc" path="res://Utilities/polaroid_camera/polaroid_layer_unblur.gdshader" id="6_7wtwj"]
+[ext_resource type="Shader" path="res://Utilities/polaroid_camera/polaroid_layer_unblur.gdshader" id="6_7wtwj"]
 [ext_resource type="Texture2D" uid="uid://cy5s70jehrwrr" path="res://Assets/PNGAssets/viewfinder.png" id="6_8fs6k"]
 [ext_resource type="Script" uid="uid://qfuy0m0xcjwf" path="res://Utilities/polaroid_camera/picturetake.gd" id="6_or4cw"]
-[ext_resource type="Shader" uid="uid://ccc6w6g5spnr7" path="res://Utilities/polaroid_camera/polaroid_layer.gdshader" id="7_42nwo"]
+[ext_resource type="Shader" path="res://Utilities/polaroid_camera/polaroid_layer.gdshader" id="7_42nwo"]
 [ext_resource type="Texture2D" uid="uid://bv6px42lbjq5f" path="res://Assets/PNGAssets/temp_rotate_arrow.png" id="11_42nwo"]
 [ext_resource type="Texture2D" uid="uid://l4w4262k124a" path="res://Assets/PNGAssets/outer_ring_final.png" id="11_ph0pu"]
 [ext_resource type="Texture2D" uid="uid://djidfl63ug16b" path="res://Assets/PNGAssets/inner_ring.png" id="12_7wtwj"]
@@ -54,6 +54,10 @@ shader_parameter/mix_percentage = 0.3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4hu4"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gnj1l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tiy8x"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4q0hv"]
 radius = 24.6864
 
@@ -87,6 +91,7 @@ texture = ExtResource("1_t72bm")
 expand_mode = 1
 
 [node name="shoot" type="Button" parent="body/MainImage"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 22.8197
 offset_right = 1302.0
@@ -218,6 +223,8 @@ theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_pxotk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bid8k")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_47y0a")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_q4hu4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gnj1l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tiy8x")
 button_mask = 7
 
 [node name="Area2D" type="Area2D" parent="body/MainImage/ViewFinder/filter_control/filter_base"]
