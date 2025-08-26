@@ -1,14 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0xusmrkexal4"]
+[gd_scene load_steps=3 format=3 uid="uid://b0xusmrkexal4"]
 
 [ext_resource type="PackedScene" uid="uid://dpl1hduk03xsv" path="res://Assets/CharacterAssets/Buff Frat boy/Buff2.glb" id="1_lqxgn"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_rrxy3"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/sample_dialogue_template.json" id="3_bywvx"]
 
 [node name="Buff2" instance=ExtResource("1_lqxgn")]
 transform = Transform3D(1.21615, 0, 0, 0, 1.21615, 0, 0, 0, 1.21615, 0, 0, 0)
 script = ExtResource("2_rrxy3")
-json_file = ExtResource("3_bywvx")
-use_first_mesh = true
 
 [node name="Skeleton3D" parent="model_002" index="0"]
 bones/0/position = Vector3(-0.0406266, 0.914741, -96.5755)
