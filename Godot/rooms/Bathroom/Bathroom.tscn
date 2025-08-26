@@ -886,6 +886,21 @@ spot_angle_attenuation = 0.18
 [node name="Graffiti" parent="." instance=ExtResource("12_qgpod")]
 transform = Transform3D(0.9525, -8.933e-05, -0.0298424, 0.000101212, 0.952968, 0.00037871, 0.0298424, -0.000381688, 0.9525, -6.70712, -1.22399, -0.862577)
 
+[node name="graf_005" parent="Graffiti" index="2"]
+transform = Transform3D(1.88731, -0.000606835, 0.186284, 0.18628, -0.00774927, -1.8873, -0.00136506, -1.89647, 0.00765219, 3.74531, 4.16608, -2.19784)
+
+[node name="graf_006" parent="Graffiti" index="9"]
+transform = Transform3D(-0.869346, -3.65078e-07, 0.494205, -0.494205, -4.76924e-07, -0.869346, 5.19678e-07, -1, 5.96046e-08, 3.98257, 0.422983, -0.599465)
+
+[node name="Untitled_Artwork_004" parent="Graffiti" index="10"]
+transform = Transform3D(-0.912391, -4.73112e-07, 0.409321, -0.409321, -2.38826e-07, -0.912392, 4.69387e-07, -1, -2.2538e-07, 7.51309, -1.1989, -0.322893)
+
+[node name="Untitled_Artwork_005" parent="Graffiti" index="11"]
+transform = Transform3D(0.255065, -4.09782e-07, -0.966924, 0.966924, 5.95464e-08, 0.255065, -2.93367e-08, -1, 4.09782e-07, 4.01345, -0.217149, 0.141441)
+
+[node name="graf2_003" parent="Graffiti" index="12"]
+transform = Transform3D(-0.289472, -1.72295e-07, 0.391071, -0.391071, -2.32336e-07, -0.289472, 2.87779e-07, -0.486549, -1.86265e-09, 7.58354, -1.03668, -1.11105)
+
 [node name="Trashcan" parent="." instance=ExtResource("19_r2w82")]
 transform = Transform3D(0.805545, 0, -0.0977813, 0, 0.894754, 0, 0.0977813, 0, 0.805545, 4.9036, -1.80825, -2.8243)
 
@@ -895,6 +910,12 @@ transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107
 [node name="Trash" parent="." instance=ExtResource("29_k4jsb")]
 transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, -6.76523, -2.27469, 3.08761)
 
+[node name="Trash4" parent="." instance=ExtResource("29_k4jsb")]
+transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 4.78379, -2.3267, 2.83544)
+
+[node name="Trash5" parent="." instance=ExtResource("29_k4jsb")]
+transform = Transform3D(2.25094, -0.097877, 0.192091, 0.20707, 1.06397, 0.017671, -0.281313, 3.23339e-17, 1.55003, 4.31585, -2.27261, 4.31167)
+
 [node name="Trash2" parent="." instance=ExtResource("29_k4jsb")]
 transform = Transform3D(0.943827, 0, 0.545864, 0, 1.09031, 0, -0.545864, 0, 0.943827, -2.45483, -2.27874, -2.47596)
 
@@ -903,6 +924,9 @@ transform = Transform3D(1.07575, 0, 0.177607, 0, 1.09031, 0, -0.177607, 0, 1.075
 
 [node name="Props" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30499, -0.0395622, 1.87925)
+
+[node name="keg" parent="Props" instance=ExtResource("26_c8t5l")]
+transform = Transform3D(0.0164411, 0.89685, 0.619812, 1.09019, -0.0126019, -0.0106836, -0.00162404, 0.619902, -0.896937, -0.567384, -2.06099, 3.05607)
 
 [node name="JackOLanterns" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.388785, -0.00357288, 0.169716)
@@ -916,20 +940,11 @@ transform = Transform3D(1.02571, 0, 0.369723, 0, 1.09031, 0, -0.369723, 0, 1.025
 [node name="JackOLanternHanging2" parent="Props/JackOLanterns" instance=ExtResource("28_56rrv")]
 transform = Transform3D(1.87055, 0, 0, 0, 1.87055, 0, 0, 0, 1.87055, -0.6827, 1.03076, -1.213)
 
-[node name="keg" parent="Props/JackOLanterns" instance=ExtResource("26_c8t5l")]
-transform = Transform3D(0.0164411, 0.89685, 0.619812, 1.09019, -0.0126019, -0.0106836, -0.00162404, 0.619902, -0.896937, -0.178599, -2.05742, 2.88635)
-
 [node name="JackOLantern2" parent="Props/JackOLanterns" instance=ExtResource("27_mq4j6")]
 transform = Transform3D(1.8841e-08, 0, -0.143678, 0, 0.169669, 0, 0.143678, 0, 1.8841e-08, -0.273101, -1.67699, 2.8191)
 
 [node name="JackOLantern3" parent="Props/JackOLanterns" instance=ExtResource("27_mq4j6")]
 transform = Transform3D(1.8841e-08, 0, -0.143678, 0, 0.169669, 0, 0.143678, 0, 1.8841e-08, -0.578725, -1.18563, -1.5561)
-
-[node name="cone ghost" parent="Props/JackOLanterns" instance=ExtResource("27_kqfen")]
-transform = Transform3D(1.26391, 0, 0, 0, 1.26391, 0, 0, 0, 1.26391, 1.85905, -1.4938, -5.33326)
-
-[node name="batman" parent="Props/JackOLanterns" instance=ExtResource("28_0gtm2")]
-transform = Transform3D(1.69276, 0, 0, 0, 1.69276, 0, 0, 0, 1.69276, 5.22347, -2.75461, -4.81625)
 
 [node name="Drinks" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09237, -1.21258, 0.742732)
@@ -1027,6 +1042,12 @@ transform = Transform3D(-0.011095, 0.22973, 0.05187, 0.2355, 0.0113736, -8.48408
 [node name="NPCs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38037, -2.15731, 1.0661)
 
+[node name="cone ghost" parent="NPCs" instance=ExtResource("27_kqfen")]
+transform = Transform3D(1.26391, 0, 0, 0, 1.26391, 0, 0, 0, 1.26391, 1.54565, 0.620375, -4.35039)
+
+[node name="batman" parent="NPCs" instance=ExtResource("28_0gtm2")]
+transform = Transform3D(1.69276, 0, 0, 0, 1.69276, 0, 0, 0, 1.69276, 4.91007, -0.640438, -3.83338)
+
 [node name="Jesus" parent="NPCs" instance=ExtResource("5_uyvi5")]
 transform = Transform3D(1.17787, 0, -0.0929695, 0, 1.18154, 0, 0.0929695, 0, 1.17787, 2.08641, -0.238866, -1.49376)
 
@@ -1053,3 +1074,4 @@ transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 0, -0.64529
 [editable path="WallLamp"]
 [editable path="WallLamp2"]
 [editable path="DiscoLights"]
+[editable path="Graffiti"]
