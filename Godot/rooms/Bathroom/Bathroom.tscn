@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=77 format=4 uid="uid://bschhxvd0bvn7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -26,8 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://bgjtl8sm74fd2" path="res://Assets/props/hot_dog_stand/hot_dog_stand.tscn" id="22_htvqj"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="24_cixmb"]
 [ext_resource type="PackedScene" uid="uid://dxahcd25ocjsx" path="res://Assets/props/balloons/balloons_four_tall.tscn" id="25_dn2c2"]
+[ext_resource type="PackedScene" uid="uid://ml4kn25ykoyy" path="res://Assets/props/keg/keg.tscn" id="26_c8t5l"]
 [ext_resource type="PackedScene" uid="uid://48e2dw6eco7w" path="res://Assets/props/balloons/balloons_three_short.tscn" id="26_ha557"]
+[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="27_kqfen"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="27_mq4j6"]
+[ext_resource type="PackedScene" uid="uid://7elv05m10pkt" path="res://rooms/Bathroom/batman.glb" id="28_0gtm2"]
 [ext_resource type="PackedScene" uid="uid://te45o0a3h24h" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_hanging.tscn" id="28_56rrv"]
 [ext_resource type="PackedScene" uid="uid://db6cyshdnsaxs" path="res://Assets/environment/trash/trash.glb" id="29_k4jsb"]
 [ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://Assets/props/red_cup/red_cup.glb" id="30_3wfjx"]
@@ -908,10 +911,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.388785, -0.00357288, 0.169
 transform = Transform3D(0.178584, 0, -0.364745, 0, 0.479582, 0, 0.364745, 0, 0.178584, -1.59611, -2.07321, 0.672464)
 
 [node name="JackOLanternHanging" parent="Props/JackOLanterns" instance=ExtResource("28_56rrv")]
-transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 1.00712, 1.03076, 1.09566)
+transform = Transform3D(1.02571, 0, 0.369723, 0, 1.09031, 0, -0.369723, 0, 1.02571, 1.00712, 0.825971, 1.20741)
 
 [node name="JackOLanternHanging2" parent="Props/JackOLanterns" instance=ExtResource("28_56rrv")]
 transform = Transform3D(1.87055, 0, 0, 0, 1.87055, 0, 0, 0, 1.87055, -0.6827, 1.03076, -1.213)
+
+[node name="keg" parent="Props/JackOLanterns" instance=ExtResource("26_c8t5l")]
+transform = Transform3D(0.0164411, 0.89685, 0.619812, 1.09019, -0.0126019, -0.0106836, -0.00162404, 0.619902, -0.896937, -0.178599, -2.05742, 2.88635)
+
+[node name="JackOLantern2" parent="Props/JackOLanterns" instance=ExtResource("27_mq4j6")]
+transform = Transform3D(1.8841e-08, 0, -0.143678, 0, 0.169669, 0, 0.143678, 0, 1.8841e-08, -0.273101, -1.67699, 2.8191)
+
+[node name="JackOLantern3" parent="Props/JackOLanterns" instance=ExtResource("27_mq4j6")]
+transform = Transform3D(1.8841e-08, 0, -0.143678, 0, 0.169669, 0, 0.143678, 0, 1.8841e-08, -0.578725, -1.18563, -1.5561)
+
+[node name="cone ghost" parent="Props/JackOLanterns" instance=ExtResource("27_kqfen")]
+transform = Transform3D(1.26391, 0, 0, 0, 1.26391, 0, 0, 0, 1.26391, 1.85905, -1.4938, -5.33326)
+
+[node name="batman" parent="Props/JackOLanterns" instance=ExtResource("28_0gtm2")]
+transform = Transform3D(1.69276, 0, 0, 0, 1.69276, 0, 0, 0, 1.69276, 5.22347, -2.75461, -4.81625)
 
 [node name="Drinks" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09237, -1.21258, 0.742732)
@@ -971,6 +989,39 @@ transform = Transform3D(-0.229998, -0.0504774, 0.0119415, 3.39363e-09, 0.0542798
 transform = Transform3D(0.127769, 0.192831, -0.0456187, 3.29384e-10, 0.0542798, 0.229441, 0.198153, -0.124338, 0.029415, -1.9376, 0.899615, 2.92876)
 
 [node name="Cup10" parent="Props/CupsOnFloor" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(-0.011095, 0.22973, 0.05187, 0.2355, 0.0113736, -8.48408e-10, -0.0025022, 0.0518095, -0.229998, -1.83378, 0.936977, 1.82708)
+
+[node name="CupsOnFloor2" type="Node3D" parent="Props"]
+transform = Transform3D(-1.22319, 0, 0.221894, 0, 1.24315, 0, -0.221894, 0, -1.22319, -3.02395, -3.39921, 3.15868)
+
+[node name="Cup" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(0.00999702, -0.206997, 0.112437, 0.2355, 0.0113736, 0, -0.00542387, 0.112306, 0.207238, -3.96135, 0.925189, 3.40297)
+
+[node name="Cup2" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(0.207238, -0.109416, 0.0258851, 0, 0.0542798, 0.229441, -0.112437, -0.201671, 0.0477102, -4.3817, 0.870777, 2.19747)
+
+[node name="Cup3" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(-0.226646, -0.0632233, 0.014957, 3.97695e-11, 0.0542798, 0.229441, -0.0649687, 0.220559, -0.0521785, -4.82557, 0.887827, 2.50624)
+
+[node name="Cup11" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(-0.00915431, 0.189548, -0.139919, 0.2355, 0.0113736, -3.38552e-10, 0.00674963, -0.139757, -0.189768, -7.50649, 0.925189, 1.85172)
+
+[node name="Cup12" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(-0.189768, 0.136161, -0.0322122, 1.35421e-09, 0.0542798, 0.229441, 0.139919, 0.184671, -0.0436884, -6.92405, 0.870777, 2.9878)
+
+[node name="Cup13" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(0.233436, 0.0322294, -0.00762464, -1.44126e-09, 0.0542798, 0.229441, 0.0331194, -0.227167, 0.0537417, -6.52696, 0.887827, 2.62081)
+
+[node name="Cup6" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(-0.230673, -0.0474685, 0.0112298, 0, 0.0542798, 0.229441, -0.0487787, 0.224477, -0.0531055, -8.61073, 0.881574, 6.22204)
+
+[node name="Cup8" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(-0.229998, -0.0504774, 0.0119415, 3.39363e-09, 0.0542798, 0.229441, -0.05187, 0.22382, -0.05295, -2.56923, 0.882565, 2.78631)
+
+[node name="Cup9" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
+transform = Transform3D(0.127769, 0.192831, -0.0456187, 3.29384e-10, 0.0542798, 0.229441, 0.198153, -0.124338, 0.029415, -1.9376, 0.899615, 2.92876)
+
+[node name="Cup10" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
 transform = Transform3D(-0.011095, 0.22973, 0.05187, 0.2355, 0.0113736, -8.48408e-10, -0.0025022, 0.0518095, -0.229998, -1.83378, 0.936977, 1.82708)
 
 [node name="NPCs" type="Node3D" parent="."]
