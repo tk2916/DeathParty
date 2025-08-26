@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=135 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -57,6 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://bs6b6l2er7cvd" path="res://rooms/Storage Room/spiderwebs_dsf.png" id="55_hu7nt"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="56_hu7nt"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="57_twmdx"]
+[ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free hug/free_hug_2.tscn" id="58_ddclk"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="58_dsi3o"]
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/ghost/chirstmas_tree.tscn" id="59_oa8vk"]
 [ext_resource type="PackedScene" uid="uid://cfen8ypgv1gjf" path="res://Assets/CharacterAssets/Gamers/shark.tscn" id="60_ullqy"]
@@ -1834,76 +1835,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.15962, -3.71333, 7.38065)
 [node name="NPCs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00599, -4.38653, 1.434)
 
-[node name="Nora" parent="NPCs" instance=ExtResource("44_j03r7")]
-transform = Transform3D(0.863531, 0, 0.20899, 0, 0.888461, 0, -0.20899, 0, 0.863531, -2.09278, -0.0234952, 1.42795)
+[node name="witch" parent="NPCs" instance=ExtResource("56_hu7nt")]
+transform = Transform3D(-0.616097, 0, 0.927863, 0, 1.11378, 0, -0.927863, 0, -0.616097, 5.86748, 3.49641, -3.48759)
 
-[node name="angel" parent="NPCs" instance=ExtResource("50_m1j1w")]
-transform = Transform3D(1.04394, 0, 0.287276, 0, 1.08275, 0, -0.287276, 0, 1.04394, 0.640378, 0.0198874, -0.0244191)
-script = null
+[node name="chi omega" parent="NPCs" instance=ExtResource("57_twmdx")]
+transform = Transform3D(0.981093, 0, -0.523239, 0, 1.1119, 0, 0.523239, 0, 0.981093, 6.78754, 3.49348, -3.89425)
 
-[node name="Bunny" parent="NPCs" instance=ExtResource("45_owm1a")]
-transform = Transform3D(0.736692, 0, -0.887413, 0, 1.15335, 0, 0.887413, 0, 0.736692, 1.8323, 0.0134149, 0.409096)
+[node name="cone ghost" parent="NPCs" instance=ExtResource("58_dsi3o")]
+transform = Transform3D(-0.782681, 0, -0.855105, 0, 1.15922, 0, 0.855105, 0, -0.782681, 8.76003, -0.0123301, 6.03533)
 
-[node name="Bunny2" parent="NPCs" instance=ExtResource("51_ndciv")]
-transform = Transform3D(0.91048, 0, -0.715011, 0, 1.15768, 0, 0.715011, 0, 0.91048, 1.40078, 0.0174899, -0.534625)
+[node name="chirstmas tree" parent="NPCs" instance=ExtResource("59_oa8vk")]
+transform = Transform3D(0.712445, 0, 0.947027, 0, 1.18509, 0, -0.947027, 0, 0.712445, 7.95673, -0.0141101, 5.14935)
 
-[node name="Sam" parent="NPCs" instance=ExtResource("43_obdan")]
-transform = Transform3D(1.06079, 0, 0.419076, 0, 1.14057, 0, -0.419076, 0, 1.06079, -0.73885, 0.0335598, 0.74226)
+[node name="shark" parent="NPCs" instance=ExtResource("60_ullqy")]
+transform = Transform3D(0.90251, 0, -0.614981, 0, 1.09212, 0, 0.614981, 0, 0.90251, 6.68379, 0.54604, -0.563092)
 
-[node name="WoodCreakSound" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/000_SFX/000_Demo_Test/009_SFX_WoodCreak"
-event_guid = "{f38bbadd-9a04-4803-8491-24000f134dfa}"
-volume = 0.25
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -2)
-script = SubResource("GDScript_508o3")
-
-[node name="Timer" type="Timer" parent="WoodCreakSound"]
-wait_time = 20.0
-autostart = true
-
-[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/outdoor ambience"
-event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
-autoplay = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
-
-[node name="beerpong trophie" parent="." instance=ExtResource("53_iso52")]
-transform = Transform3D(0.313237, 0, 0.303293, 0, 0.43601, 0, -0.303293, 0, 0.313237, 0.969747, -2.87133, 0.861133)
-
-[node name="spiderwebs" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89104, -2.13548, 1.2603)
-
-[node name="Untitled_Artwork_001" type="MeshInstance3D" parent="spiderwebs"]
-transform = Transform3D(-3.31784, -0.0200741, 0.596423, -0.506318, -0.00440443, -3.90822, 0.0218053, -3.15671, 0.00166048, -3.46318, -0.248907, -1.73505)
-mesh = SubResource("ArrayMesh_3pk5y")
-skeleton = NodePath("")
-
-[node name="Untitled_Artwork_002" type="MeshInstance3D" parent="spiderwebs"]
-transform = Transform3D(-0.280918, 1.42493, -4.68321, 3.37343, -1.18189, -1.39053, -1.71584, -2.55694, -1.96711, 7.87508, -1.29629, 4.65688)
-mesh = SubResource("ArrayMesh_3pk5y")
-skeleton = NodePath("")
-
-[node name="dsf_006" type="MeshInstance3D" parent="spiderwebs"]
-transform = Transform3D(4.51608, 0.0815808, -0.0625512, -0.0872657, 0.140007, -3.35891, -0.0892539, 3.99095, 0.119113, 5.7503, 0.0206535, -2.45016)
-mesh = SubResource("ArrayMesh_0h5f4")
-skeleton = NodePath("")
-
-[node name="witch" parent="." instance=ExtResource("56_hu7nt")]
-transform = Transform3D(-0.616097, 0, 0.927863, 0, 1.11378, 0, -0.927863, 0, -0.616097, 0.861494, -0.890115, -2.05359)
-
-[node name="chi omega" parent="." instance=ExtResource("57_twmdx")]
-transform = Transform3D(0.981093, 0, -0.523239, 0, 1.1119, 0, 0.523239, 0, 0.981093, 1.78155, -0.893047, -2.46025)
-
-[node name="cone ghost" parent="." instance=ExtResource("58_dsi3o")]
-transform = Transform3D(-0.782681, 0, -0.855105, 0, 1.15922, 0, 0.855105, 0, -0.782681, 3.75404, -4.39886, 7.46933)
-
-[node name="chirstmas tree" parent="." instance=ExtResource("59_oa8vk")]
-transform = Transform3D(0.712445, 0, 0.947027, 0, 1.18509, 0, -0.947027, 0, 0.712445, 2.95074, -4.40064, 6.58335)
-
-[node name="shark" parent="." instance=ExtResource("60_ullqy")]
-transform = Transform3D(0.90251, 0, -0.614981, 0, 1.09212, 0, 0.614981, 0, 0.90251, 1.6778, -3.84049, 0.870908)
-
-[node name="Skeleton3D" parent="shark/shark model" index="0"]
+[node name="Skeleton3D" parent="NPCs/shark/shark model" index="0"]
 bones/0/position = Vector3(-0.818028, 2.00367, -11.6563)
 bones/0/rotation = Quaternion(-0.860153, 0.143924, -0.00865256, 0.489232)
 bones/1/rotation = Quaternion(0.230849, 0.0190965, -0.0539439, 0.971306)
@@ -1996,8 +1943,172 @@ bones/61/rotation = Quaternion(-0.734081, -0.090162, -0.0212947, 0.672713)
 bones/62/rotation = Quaternion(0.170721, 0.00290719, -0.0657205, 0.983121)
 bones/63/rotation = Quaternion(0.245826, 0.0383539, -0.0108754, 0.968494)
 
-[node name="AnimationPlayer" parent="shark" index="1"]
+[node name="AnimationPlayer" parent="NPCs/shark" index="1"]
 autoplay = "sit chill"
+
+[node name="Nora" parent="NPCs" instance=ExtResource("44_j03r7")]
+transform = Transform3D(0.863531, 0, 0.20899, 0, 0.888461, 0, -0.20899, 0, 0.863531, -2.09278, -0.0234952, 1.42795)
+
+[node name="angel" parent="NPCs" instance=ExtResource("50_m1j1w")]
+transform = Transform3D(1.04394, 0, 0.287276, 0, 1.08275, 0, -0.287276, 0, 1.04394, 0.640378, 0.0198874, -0.0244191)
+script = null
+
+[node name="Bunny" parent="NPCs" instance=ExtResource("45_owm1a")]
+transform = Transform3D(0.736692, 0, -0.887413, 0, 1.15335, 0, 0.887413, 0, 0.736692, 1.8323, 0.0134149, 0.409096)
+
+[node name="Bunny2" parent="NPCs" instance=ExtResource("51_ndciv")]
+transform = Transform3D(0.91048, 0, -0.715011, 0, 1.15768, 0, 0.715011, 0, 0.91048, 1.40078, 0.0174899, -0.534625)
+
+[node name="Sam" parent="NPCs" instance=ExtResource("43_obdan")]
+transform = Transform3D(1.06079, 0, 0.419076, 0, 1.14057, 0, -0.419076, 0, 1.06079, -0.73885, 0.0335598, 0.74226)
+
+[node name="free hug2" parent="NPCs" instance=ExtResource("58_ddclk")]
+transform = Transform3D(0.72674, 0, -0.9425, 0, 1.19015, 0, 0.9425, 0, 0.72674, 6.30366, 0.0545883, 1.1788)
+
+[node name="Skeleton3D" parent="NPCs/free hug2/free hug" index="0"]
+bones/0/position = Vector3(-4.90804, -14.9172, -18.3208)
+bones/0/rotation = Quaternion(-0.633281, 0.741051, 0.212189, 0.0690916)
+bones/1/rotation = Quaternion(0.000621319, 0.127855, 0.0618517, 0.989862)
+bones/2/rotation = Quaternion(0.0172814, 0.0258535, 0.034295, 0.998928)
+bones/3/position = Vector3(4.14999e-11, 9.47866, -9.53676e-07)
+bones/3/rotation = Quaternion(0.0179963, 0.0273272, 0.0334009, 0.998906)
+bones/4/position = Vector3(-4.77804e-07, 10.6635, 4.90186e-07)
+bones/4/rotation = Quaternion(0.140305, -0.0346513, -0.0936591, 0.985059)
+bones/5/position = Vector3(-4.76837e-07, 2.25075, 0.77434)
+bones/5/rotation = Quaternion(-0.104901, -0.24836, -0.0367863, 0.962268)
+bones/7/position = Vector3(6.0628, 8.47131, -0.42409)
+bones/7/rotation = Quaternion(-0.621518, -0.119434, 0.570363, -0.523581)
+bones/8/position = Vector3(6.19364e-07, 12.7559, 9.7514e-07)
+bones/8/rotation = Quaternion(0.23428, 0.123462, 0.561044, 0.784283)
+bones/9/position = Vector3(-1.58583e-06, 26.4041, -5.91695e-07)
+bones/9/rotation = Quaternion(0.138388, 0.000659245, 0.657183, 0.740918)
+bones/10/position = Vector3(-2.25288e-06, 23.3309, -7.74054e-06)
+bones/10/rotation = Quaternion(-0.129236, 0.24423, -0.054023, 0.959547)
+bones/11/position = Vector3(-3.75048, 4.1747, 1.63995)
+bones/11/rotation = Quaternion(0.085435, 0.323192, 0.372328, 0.865806)
+bones/12/rotation = Quaternion(0.255745, -0.150109, -0.0470284, 0.953861)
+bones/13/rotation = Quaternion(0.00121389, -0.129525, -0.182025, 0.974725)
+bones/14/position = Vector3(-0.472674, 3.11869, 7.39099e-06)
+bones/15/position = Vector3(-4.4653, 11.9344, -0.0750178)
+bones/15/rotation = Quaternion(0.171155, -0.00376439, 0.106115, 0.979506)
+bones/16/position = Vector3(0.000194073, 4.67447, 6.67541e-07)
+bones/16/rotation = Quaternion(0.209114, -1.90008e-05, -0.0243663, 0.977588)
+bones/17/position = Vector3(0.000657499, 4.39595, -3.20002e-06)
+bones/17/rotation = Quaternion(0.0640808, 9.51823e-06, -0.00768947, 0.997915)
+bones/18/position = Vector3(-0.000846326, 3.55574, -5.92321e-06)
+bones/19/position = Vector3(-1.52517, 11.8577, 0.611008)
+bones/19/rotation = Quaternion(0.264349, 0.017032, 0.0144273, 0.964169)
+bones/20/position = Vector3(-0.00038901, 4.52506, -2.71823e-06)
+bones/20/rotation = Quaternion(0.352358, 5.77164e-06, -0.0383735, 0.935078)
+bones/21/position = Vector3(0.000181526, 4.57822, 3.33323e-06)
+bones/21/rotation = Quaternion(0.198482, -8.80766e-06, -0.0216483, 0.979865)
+bones/22/position = Vector3(0.00020282, 4.09255, 3.04729e-06)
+bones/23/position = Vector3(1.64237, 12.5011, -0.269206)
+bones/23/rotation = Quaternion(0.344671, 0.0153449, 0.00140035, 0.938597)
+bones/24/position = Vector3(3.27826e-06, 4.3181, 6.5137e-06)
+bones/24/rotation = Quaternion(0.442741, 7.09842e-08, -0.0535387, 0.89505)
+bones/25/position = Vector3(9.80496e-06, 3.939, 1.76643e-06)
+bones/25/rotation = Quaternion(0.151396, 1.19209e-07, -0.0183076, 0.988304)
+bones/26/position = Vector3(-1.2368e-05, 3.3741, 3.79607e-06)
+bones/27/position = Vector3(4.3481, 12.215, 0.0961081)
+bones/27/rotation = Quaternion(0.305176, -0.0117591, -0.0515192, 0.950829)
+bones/28/position = Vector3(0.000122458, 3.47809, -1.5861e-06)
+bones/28/rotation = Quaternion(0.457881, -7.06175e-06, -0.0548907, 0.887317)
+bones/29/position = Vector3(-3.45708e-06, 2.82697, 3.23075e-07)
+bones/29/rotation = Quaternion(0.258721, 2.24976e-06, -0.0310293, 0.965454)
+bones/30/position = Vector3(-0.000131279, 2.35529, 2.72694e-06)
+bones/31/position = Vector3(-6.0628, 8.45993, -0.360347)
+bones/31/rotation = Quaternion(0.446737, -0.584346, 0.28929, 0.612598)
+bones/32/position = Vector3(6.892e-07, 12.7559, 1.1031e-06)
+bones/32/rotation = Quaternion(-0.441473, 0.578259, -0.424187, 0.539243)
+bones/33/position = Vector3(-7.03844e-07, 26.407, 9.37754e-07)
+bones/33/rotation = Quaternion(0.0909654, -0.00163743, -0.433099, 0.896743)
+bones/34/position = Vector3(3.28746e-07, 23.3611, -1.70302e-06)
+bones/34/rotation = Quaternion(0.0142575, -0.451682, -0.103287, 0.886066)
+bones/35/rotation = Quaternion(0.234403, -0.151043, -0.489001, 0.82651)
+bones/36/position = Vector3(0.130609, 4.54174, -4.59306e-07)
+bones/36/rotation = Quaternion(0.0542611, -0.0405461, 0.230228, 0.970776)
+bones/37/position = Vector3(-0.316332, 4.06308, 4.00544e-07)
+bones/37/rotation = Quaternion(-0.0196168, 0.00736143, 0.182927, 0.982903)
+bones/38/position = Vector3(0.185726, 3.27877, -9.83477e-06)
+bones/39/rotation = Quaternion(0.171934, -0.0170103, -0.162202, 0.971514)
+bones/40/position = Vector3(-0.00212544, 4.73149, -1.01504e-06)
+bones/40/rotation = Quaternion(0.18901, 0.000119058, 0.0137527, 0.981879)
+bones/41/rotation = Quaternion(-0.101538, 7.36618e-06, -0.00622151, 0.994812)
+bones/42/position = Vector3(0.00607228, 3.65572, -1.01775e-05)
+bones/43/position = Vector3(1.53686, 11.832, 0.18947)
+bones/43/rotation = Quaternion(0.287907, -0.00835649, -0.0443993, 0.956592)
+bones/44/position = Vector3(0.00274095, 4.58731, -3.86313e-06)
+bones/44/rotation = Quaternion(0.270613, -2.3552e-05, 0.0188097, 0.962505)
+bones/45/position = Vector3(-0.0019203, 4.62516, -1.0301e-06)
+bones/45/rotation = Quaternion(0.0450837, 1.5967e-05, 0.0033229, 0.998978)
+bones/46/position = Vector3(-0.000835046, 4.0732, 8.04663e-06)
+bones/47/position = Vector3(-1.6787, 12.3736, -0.223042)
+bones/47/rotation = Quaternion(0.320861, -0.015752, -0.0135372, 0.946898)
+bones/48/position = Vector3(-0.00102222, 4.30459, -6.88733e-06)
+bones/48/rotation = Quaternion(0.271319, 1.12818e-05, 0.0209164, 0.962262)
+bones/49/position = Vector3(0.000584669, 3.95852, -3.99948e-06)
+bones/49/rotation = Quaternion(0.112591, -1.46055e-05, 0.00858478, 0.993604)
+bones/50/position = Vector3(0.000438064, 3.49937, 5.82729e-06)
+bones/51/position = Vector3(-4.27287, 12.2087, 0.257673)
+bones/51/rotation = Quaternion(0.39475, -0.0049348, 0.0328847, 0.918187)
+bones/52/position = Vector3(0.000668317, 3.35996, -5.69779e-06)
+bones/52/rotation = Quaternion(0.237372, 3.64138e-05, 0.0159414, 0.971288)
+bones/53/position = Vector3(-0.00159062, 2.81476, 1.10111e-06)
+bones/53/rotation = Quaternion(0.0847234, 1.17583e-05, 0.00628579, 0.996385)
+bones/54/position = Vector3(0.00090136, 2.51249, 2.28537e-05)
+bones/55/rotation = Quaternion(0.0679363, 0.191152, 0.977695, 0.0543791)
+bones/56/position = Vector3(-1.1205e-07, 41.5015, -7.292e-07)
+bones/56/rotation = Quaternion(-0.64577, -0.0450565, 0.0352766, 0.761385)
+bones/57/rotation = Quaternion(0.212925, -0.100761, 0.0148956, 0.971745)
+bones/58/position = Vector3(9.28673e-07, 17.612, -4.60005e-06)
+bones/58/rotation = Quaternion(0.307579, -0.144881, 0.0559051, 0.938765)
+bones/60/position = Vector3(-9.65631, -3.87431, -1.32732)
+bones/60/rotation = Quaternion(-0.138909, 0.318385, 0.91582, 0.201516)
+bones/61/rotation = Quaternion(-0.692744, 0.0810484, -0.0593049, 0.714157)
+bones/62/rotation = Quaternion(0.321785, -0.0134779, -0.0522615, 0.945273)
+bones/63/rotation = Quaternion(0.305781, 0.159722, -0.0598599, 0.936698)
+
+[node name="AnimationPlayer" parent="NPCs/free hug2" index="1"]
+autoplay = "sleep"
+
+[node name="WoodCreakSound" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/009_SFX_WoodCreak"
+event_guid = "{f38bbadd-9a04-4803-8491-24000f134dfa}"
+volume = 0.25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -2)
+script = SubResource("GDScript_508o3")
+
+[node name="Timer" type="Timer" parent="WoodCreakSound"]
+wait_time = 20.0
+autostart = true
+
+[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/outdoor ambience"
+event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
+autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
+
+[node name="beerpong trophie" parent="." instance=ExtResource("53_iso52")]
+transform = Transform3D(0.313237, 0, 0.303293, 0, 0.43601, 0, -0.303293, 0, 0.313237, 0.969747, -2.87133, 0.861133)
+
+[node name="spiderwebs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89104, -2.13548, 1.2603)
+
+[node name="Untitled_Artwork_001" type="MeshInstance3D" parent="spiderwebs"]
+transform = Transform3D(-3.31784, -0.0200741, 0.596423, -0.506318, -0.00440443, -3.90822, 0.0218053, -3.15671, 0.00166048, -3.46318, -0.248907, -1.73505)
+mesh = SubResource("ArrayMesh_3pk5y")
+skeleton = NodePath("")
+
+[node name="Untitled_Artwork_002" type="MeshInstance3D" parent="spiderwebs"]
+transform = Transform3D(-0.280918, 1.42493, -4.68321, 3.37343, -1.18189, -1.39053, -1.71584, -2.55694, -1.96711, 7.87508, -1.29629, 4.65688)
+mesh = SubResource("ArrayMesh_3pk5y")
+skeleton = NodePath("")
+
+[node name="dsf_006" type="MeshInstance3D" parent="spiderwebs"]
+transform = Transform3D(4.51608, 0.0815808, -0.0625512, -0.0872657, 0.140007, -3.35891, -0.0892539, 3.99095, 0.119113, 5.7503, 0.0206535, -2.45016)
+mesh = SubResource("ArrayMesh_0h5f4")
+skeleton = NodePath("")
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 
@@ -2012,4 +2123,5 @@ autoplay = "sit chill"
 [editable path="WallLamps/WallLamp5"]
 [editable path="Props/Desk/desk_lamp"]
 [editable path="Props/Desk2/desk_lamp"]
-[editable path="shark"]
+[editable path="NPCs/shark"]
+[editable path="NPCs/free hug2"]
