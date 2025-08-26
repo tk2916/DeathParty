@@ -1,4 +1,4 @@
-[gd_scene load_steps=216 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=217 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
@@ -79,11 +79,12 @@
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="60_1mcaq"]
 [ext_resource type="Texture2D" uid="uid://cescg2luxp8a1" path="res://rooms/Basement/bean bag_Screenshot_2025-07-07_193553.png" id="77_jle5p"]
 [ext_resource type="VideoStream" uid="uid://durjhoccw8ld2" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
-[ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/dino gamer/dino.tscn" id="79_g8hj1"]
+[ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/Gamers/dino.tscn" id="79_g8hj1"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="81_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="82_48c5o"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="83_ij3m0"]
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/ghost/chirstmas_tree.tscn" id="84_reyxf"]
+[ext_resource type="PackedScene" uid="uid://cfen8ypgv1gjf" path="res://Assets/CharacterAssets/Gamers/shark.tscn" id="85_vdfwq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -2207,7 +2208,7 @@ skeleton = NodePath("")
 transform = Transform3D(-0.0144858, 0, -0.999895, 0, 1, 0, 0.999895, 0, -0.0144858, 3.27714, 0.479389, 0.607965)
 
 [node name="TVStand" parent="." instance=ExtResource("15_xaevv")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.96008, -0.195834, 2.205)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.9604, -0.194101, 3.12855)
 
 [node name="TV" parent="TVStand" instance=ExtResource("16_4bbn0")]
 transform = Transform3D(1.33507, 0, 0, 0, 1.33507, 0, 0, 0, 1.33507, -1.32823, -0.179388, 0.973876)
@@ -2236,7 +2237,7 @@ mesh = SubResource("ArrayMesh_xtkkb")
 skeleton = NodePath("")
 
 [node name="Controller2" type="MeshInstance3D" parent="TVStand"]
-transform = Transform3D(0.0503689, 0.00382136, -0.0450004, -0.00153831, 0.0675148, 0.00401139, 0.0451362, -0.00196337, 0.0503542, -2.18737, 1.14176, 2.65486)
+transform = Transform3D(0.0503689, 0.00382136, -0.0450004, -0.00153831, 0.0675148, 0.00401139, 0.0451362, -0.00196337, 0.0503542, -1.8121, 1.22582, 2.69671)
 mesh = SubResource("ArrayMesh_jle5p")
 skeleton = NodePath("")
 
@@ -2481,10 +2482,10 @@ omni_attenuation = 1.5
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.62209, 0.298317, 0.692532)
 
 [node name="Speaker" parent="Speakers" instance=ExtResource("20_nngqx")]
-transform = Transform3D(-0.656299, 0, -0.251811, 0, 0.808011, 0, 0.251811, 0, -0.656299, -2.00505, 0.00652003, -0.0038271)
+transform = Transform3D(-0.656299, 0, -0.251811, 0, 0.808011, 0, 0.251811, 0, -0.656299, -1.57003, 0.00652003, 0.162896)
 
 [node name="Speaker2" parent="Speakers" instance=ExtResource("20_nngqx")]
-transform = Transform3D(-0.446003, 0, -0.54334, 0, 0.808011, 0, 0.54334, 0, -0.446003, 1.81557, 0, 0.257261)
+transform = Transform3D(-0.446003, 0, -0.54334, 0, 0.808011, 0, 0.54334, 0, -0.446003, 3.06504, 0, 0.257261)
 
 [node name="LavaLamp" type="MeshInstance3D" parent="Speakers/Speaker2"]
 transform = Transform3D(0.0467203, 0, -0.0568272, 0, 0.0351876, 0, 0.056827, 0, 0.0467204, -0.112145, 1.31938, 0.181337)
@@ -2503,7 +2504,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.67215, 0.775458, -1.54871)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17596, 0.378292, -2.44512)
 
 [node name="Plant2" parent="Plants" instance=ExtResource("25_488em")]
-transform = Transform3D(0.545341, 0, -0.838214, 0, 1, 0, 0.838214, 0, 0.545341, 5.20748, 0.378292, 5.35479)
+transform = Transform3D(0.545341, 0, -0.838214, 0, 1, 0, 0.838214, 0, 0.545341, 4.83885, 0.378292, 7.15592)
 
 [node name="Plant3" parent="Plants" instance=ExtResource("25_488em")]
 transform = Transform3D(-0.37383, 0, -0.927497, 0, 1, 0, 0.927497, 0, -0.37383, 5.04271, 0.378292, -2.71826)
@@ -2512,22 +2513,22 @@ transform = Transform3D(-0.37383, 0, -0.927497, 0, 1, 0, 0.927497, 0, -0.37383, 
 transform = Transform3D(0.753456, 0, 0, 0, 0.753456, 0, 0, 0, 0.753456, -5.82945, -0.567439, -2.53148)
 
 [node name="Plant5" parent="Plants" instance=ExtResource("26_l1moi")]
-transform = Transform3D(-0.572975, 0, -0.48928, 0, 0.753456, 0, 0.48928, 0, -0.572975, 4.7677, -0.567439, 4.83787)
+transform = Transform3D(-0.572975, 0, -0.48928, 0, 0.753456, 0, 0.48928, 0, -0.572975, 4.39907, -0.567439, 6.639)
 
 [node name="GameTables" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.79789, 0.67735, 3.73823)
 
 [node name="PoolTable" parent="GameTables" instance=ExtResource("39_5ryib")]
-transform = Transform3D(1.10296, 0, 0, 0, 1.10296, 0, 0, 0, 1.10296, 0, 0, 0)
+transform = Transform3D(1.10296, 0, 0, 0, 1.10296, 0, 0, 0, 1.10296, 0.0786896, 0, 3.20972)
 
 [node name="FoosballTable" parent="GameTables" instance=ExtResource("40_5ryib")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6544, 0.077455, -3.17905)
 
 [node name="BeerpongTable" parent="GameTables" instance=ExtResource("41_5ryib")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.34566, -0.746449, -2.87085)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.79213, -0.746449, 2.92514)
 
 [node name="beerpong trophie" parent="GameTables" instance=ExtResource("60_1mcaq")]
-transform = Transform3D(0.457344, 0, 0, 0, 0.457344, 0, 0, 0, 0.457344, 8.2239, 1.19955, -2.63263)
+transform = Transform3D(0.457344, 0, 0, 0, 0.457344, 0, 0, 0, 0.457344, 8.91549, 1.20556, 2.0749)
 
 [node name="GameRoomSign" parent="." instance=ExtResource("33_ln2a6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.82501, 2.21104, -4.66621)
@@ -2568,7 +2569,7 @@ transform = Transform3D(0.23937, -0.0223195, 1.33227e-14, 0.0223195, 0.239371, 0
 transform = Transform3D(0.579345, 0, -2.13163e-14, 0, 0.579345, 0, 2.13163e-14, 0, 0.579345, -4.13265, 0.04619, -5.22684)
 
 [node name="StudentAthletePoster" parent="Props/Posters" instance=ExtResource("35_15vnp")]
-transform = Transform3D(-1.40756e-08, 0, -0.283958, 0, 0.256515, 0, 0.322015, 0, -1.24121e-08, 0.767116, 0.545836, 2.13741)
+transform = Transform3D(-1.40756e-08, 0, -0.283958, 0, 0.256515, 0, 0.322015, 0, -1.24121e-08, 0.767116, 0.545836, 3.1035)
 
 [node name="DrinkSign" parent="Props/Posters" instance=ExtResource("36_qpo1s")]
 transform = Transform3D(0.546483, 0, 3.55271e-14, 0, 0.546483, 0, -3.55271e-14, 0, 0.546483, -12.033, 0.17379, -5.27749)
@@ -2595,7 +2596,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09753, -0.459809, 0.462498)
 
 [node name="JackOLantern" parent="Props/JackOLanterns" instance=ExtResource("40_p14ay")]
-transform = Transform3D(-0.200179, 0, -0.12689, 0, 0.279882, 0, 0.12689, 0, -0.200179, 6.07855, 0.396787, -2.74528)
+transform = Transform3D(-0.200179, 0, -0.12689, 0, 0.279882, 0, 0.12689, 0, -0.200179, 5.80886, 0.378797, -2.21679)
 
 [node name="JackOLanternSquashed" parent="Props/JackOLanterns" instance=ExtResource("41_pts78")]
 transform = Transform3D(-1.62142e-08, 0, -0.370938, 0, 0.235724, 0, 0.370938, 0, -1.62142e-08, -8.09686, -0.689382, 0.326792)
@@ -2610,7 +2611,7 @@ transform = Transform3D(-0.0655382, 0, -0.156537, 0, 0.19157, 0, 0.156537, 0, -0
 transform = Transform3D(0.120934, 0, -0.992661, 0, 1, 0, 0.992661, 0, 0.120934, -13.3199, 0.692498, -3.45925)
 
 [node name="DIEFlag2" parent="Props" instance=ExtResource("45_x2dx7")]
-transform = Transform3D(-0.999562, 0, -0.0295964, 0, 1, 0, 0.0295964, 0, -0.999562, 2.46976, 0.914035, 0.833679)
+transform = Transform3D(-0.999562, 0, -0.0295964, 0, 1, 0, 0.0295964, 0, -0.999562, 2.46976, 0.914035, 1.79977)
 
 [node name="LaundryBaskets" type="Node3D" parent="Props"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.8819, 1.20817, 2.23375)
@@ -2634,7 +2635,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.3240
 transform = Transform3D(0.999999, 0, 1.11759e-08, 0, 1, 0, -2.23517e-08, 0, 0.999999, -15.2987, 0.666198, -1.61046)
 
 [node name="BeanBag" type="StaticBody3D" parent="Props"]
-transform = Transform3D(0.610449, 0, -0.792055, 0, 1, 0, 0.792055, 0, 0.610449, -9.44954, -0.893553, 2.36803)
+transform = Transform3D(0.610449, 0, -0.792055, 0, 1, 0, 0.792055, 0, 0.610449, -9.44954, -0.893553, 4.91305)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Props/BeanBag"]
 transform = Transform3D(-0.129214, -0.0204283, -0.130237, -0.0274893, 0.182532, -0.00135754, 0.128932, 0.0184442, -0.130812, 0, 0, 0)
@@ -2672,18 +2673,61 @@ light_energy = 3.0
 omni_range = 1.01
 
 [node name="witch" parent="." instance=ExtResource("81_i5ndi")]
-transform = Transform3D(0.55657, 0, 0.964746, 0, 1.11378, 0, -0.964746, 0, 0.55657, -9.13507, -0.0906362, 3.59975)
+transform = Transform3D(0.534983, 0, 0.976882, 0, 1.11378, 0, -0.976882, 0, 0.534983, -8.65305, -0.0906362, 5.91422)
 
 [node name="chi omega" parent="." instance=ExtResource("82_48c5o")]
-transform = Transform3D(1.02535, 0, -0.430091, 0, 1.1119, 0, 0.430091, 0, 1.02535, -7.82093, -0.081018, 2.89866)
+transform = Transform3D(1.02535, 0, -0.430091, 0, 1.1119, 0, 0.430091, 0, 1.02535, -7.82093, -0.081018, 5.59844)
 
 [node name="cone ghost" parent="." instance=ExtResource("83_ij3m0")]
-transform = Transform3D(0.485245, 0, 1.05277, 0, 1.15922, 0, -1.05277, 0, 0.485245, -6.46547, -0.0756876, 0.710441)
+transform = Transform3D(0.375108, 0, -1.09685, 0, 1.15922, 0, 1.09685, 0, 0.375108, -4.05285, -0.0756876, 0.710441)
 
 [node name="chirstmas tree" parent="." instance=ExtResource("84_reyxf")]
-transform = Transform3D(0.491825, 0, -1.07821, 0, 1.18509, 0, 1.07821, 0, 0.491825, -3.93764, -0.0678052, 0.7861)
+transform = Transform3D(0.0894528, 0, 1.1817, 0, 1.18509, 0, -1.1817, 0, 0.0894528, -6.51778, -0.0678052, 0.640151)
+
+[node name="shark" parent="." instance=ExtResource("85_vdfwq")]
+transform = Transform3D(0.417584, 0, 1.00913, 0, 1.09212, 0, -1.00913, 0, 0.417584, 3.70487, -0.046867, 1.4025)
+
+[node name="Skeleton3D" parent="shark/shark model" index="0"]
+bones/0/position = Vector3(-0.239915, 4.44604, -56.9671)
+bones/0/rotation = Quaternion(-0.812232, -0.0107501, -0.0317408, 0.582372)
+bones/1/rotation = Quaternion(0.026785, -0.0301889, 0.0479669, 0.998033)
+bones/2/rotation = Quaternion(0.0524233, -0.0019369, -0.0128164, 0.998541)
+bones/3/rotation = Quaternion(0.0523242, -0.00261516, -0.0130926, 0.998541)
+bones/4/rotation = Quaternion(0.0316961, 0.000282036, 0.00825929, 0.999463)
+bones/5/rotation = Quaternion(-0.00474423, 0.0296724, -0.0259625, 0.999211)
+bones/7/rotation = Quaternion(-0.549925, -0.453222, 0.51806, -0.473061)
+bones/8/rotation = Quaternion(0.481231, 0.061364, 0.334175, 0.808071)
+bones/9/rotation = Quaternion(-0.0178655, -0.00755571, 0.523241, 0.851964)
+bones/10/rotation = Quaternion(-0.0752712, -0.289126, -0.236374, 0.924591)
+bones/11/rotation = Quaternion(0.282288, 0.0101412, 0.376843, 0.882156)
+bones/12/rotation = Quaternion(0.0385827, 0.0237033, -0.182424, 0.982177)
+bones/15/rotation = Quaternion(-0.0167067, 0.00175162, 0.181965, 0.983162)
+bones/16/rotation = Quaternion(0.391904, -1.01386e-05, -0.0493226, 0.918683)
+bones/17/rotation = Quaternion(0.391904, 2.00525e-06, -0.0494014, 0.918679)
+bones/19/rotation = Quaternion(0.529321, 0.0329677, -0.0134974, 0.847674)
+bones/21/rotation = Quaternion(0.528696, -7.573e-05, -0.0660048, 0.846241)
+bones/23/rotation = Quaternion(0.535031, 0.0303951, -0.0158575, 0.844137)
+bones/25/rotation = Quaternion(0.533907, 0.000172867, -0.0700745, 0.842635)
+bones/27/rotation = Quaternion(0.561686, 0.0530825, -0.0495137, 0.82416)
+bones/31/rotation = Quaternion(0.560179, -0.438146, 0.548421, 0.439843)
+bones/32/rotation = Quaternion(0.433824, -0.0793448, -0.348654, 0.827008)
+bones/33/rotation = Quaternion(0.00326808, 0.00651451, -0.518839, 0.854841)
+bones/34/rotation = Quaternion(-0.065648, 0.304253, 0.190355, 0.931067)
+bones/36/rotation = Quaternion(0.00799837, 0.0521664, 0.229277, 0.971929)
+bones/39/rotation = Quaternion(0.0234668, 0.000821878, -0.177955, 0.983759)
+bones/40/rotation = Quaternion(0.354518, -4.48618e-05, 0.0454616, 0.933943)
+bones/41/rotation = Quaternion(0.353372, 2.27689e-05, 0.0450782, 0.934396)
+bones/55/rotation = Quaternion(0.089836, 0.615937, 0.776912, -0.0946478)
+bones/56/rotation = Quaternion(-0.709252, -0.0483146, -0.00173582, 0.703295)
+bones/57/rotation = Quaternion(0.475684, 0.0367662, 0.130877, 0.869048)
+bones/58/rotation = Quaternion(0.321343, -0.0524537, 0.0133865, 0.945414)
+bones/60/rotation = Quaternion(-0.127269, 0.585351, 0.788123, 0.141524)
+bones/61/rotation = Quaternion(-0.746523, 0.0782098, 0.0239051, 0.660314)
+bones/62/rotation = Quaternion(0.519478, 0.062449, -0.147312, 0.83937)
+bones/63/rotation = Quaternion(0.317306, 0.0446484, -0.0122446, 0.947192)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="SceneLoader_Storageroom"]
 [editable path="ArcadeMachines/DDRMachine"]
 [editable path="Lamps/WallLamp"]
+[editable path="shark"]
