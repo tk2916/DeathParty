@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddiqilmdbakfb"]
+[gd_scene load_steps=4 format=3 uid="uid://ddiqilmdbakfb"]
 
 [ext_resource type="PackedScene" uid="uid://dy3mkor638arc" path="res://Assets/CharacterAssets/angel/angel.glb" id="1_hn8kl"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_hdmtj"]
 
-[node name="angel" instance=ExtResource("1_hn8kl")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hdmtj"]
+
+[node name="Angel" instance=ExtResource("1_hn8kl")]
 transform = Transform3D(1.08275, 0, 0, 0, 1.08275, 0, 0, 0, 1.08275, 0, 0, 0)
 script = ExtResource("2_hdmtj")
 outline_thickness = 0.3
@@ -65,3 +67,9 @@ bones/63/rotation = Quaternion(0.387803, 0.0704534, -0.0255854, 0.91869)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "idle angel"
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.923574, 0)
+shape = SubResource("CapsuleShape3D_hdmtj")
