@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c53usghwv4r2l"
-path="res://.godot/imported/Nora.glb-d43ddf1576f822d25e5dfd15f7e257e0.scn"
+path="res://.godot/imported/nora.glb-85f6b11a0c2f471848ed513d7e80d8d9.scn"
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/nora/Nora.glb"
-dest_files=["res://.godot/imported/Nora.glb-d43ddf1576f822d25e5dfd15f7e257e0.scn"]
+source_file="res://Assets/CharacterAssets/nora/nora.glb"
+dest_files=["res://.godot/imported/nora.glb-85f6b11a0c2f471848ed513d7e80d8d9.scn"]
 
 [params]
 

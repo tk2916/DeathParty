@@ -10,7 +10,7 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="8_316fs"]
 [ext_resource type="Material" uid="uid://dohto33r7xal3" path="res://Assets/Materials/color1.tres" id="9_kq7rp"]
 [ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="10_cf8rj"]
-[ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="11_rt6bl"]
+[ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/frat_boys/jack/jack.tscn" id="11_rt6bl"]
 [ext_resource type="PackedScene" uid="uid://ce647ee5srh8k" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma.tscn" id="12_5qj60"]
 [ext_resource type="PackedScene" uid="uid://oji083qkjua5" path="res://World/wall.tscn" id="13_iyyhm"]
 [ext_resource type="Texture2D" uid="uid://dlun7quy351tf" path="res://Assets/textures/floor2.png" id="14_4yh5v"]

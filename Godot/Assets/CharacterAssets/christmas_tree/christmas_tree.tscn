@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://bagpax3yb0uf7"]
+
+[ext_resource type="PackedScene" uid="uid://cw0r6kqiik646" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.glb" id="1_vsr2i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ss8p"]
+
+[node name="ChristmasTree" instance=ExtResource("1_vsr2i")]
+transform = Transform3D(1.18509, 0, 0, 0, 1.18509, 0, 0, 0, 1.18509, 0, 0, 0)
+
+[node name="Skeleton3D" parent="christmas tree" index="0"]
+bones/0/position = Vector3(-21.7129, 44.9271, -87.6366)
+bones/0/rotation = Quaternion(-0.0924409, -0.743485, 0.660816, -0.0447974)
+bones/1/rotation = Quaternion(0.0799495, -0.00640165, -0.0771575, 0.993788)
+bones/2/rotation = Quaternion(-0.00144183, -0.00274267, -0.00381958, 0.999988)
+bones/3/rotation = Quaternion(-0.00164182, -0.00261515, -0.00385248, 0.999988)
+bones/4/rotation = Quaternion(-0.00738982, 0.0241931, 0.000605979, 0.99968)
+bones/5/rotation = Quaternion(0.0133559, 0.285138, -0.13107, 0.949388)
+bones/7/rotation = Quaternion(-0.55179, -0.445461, 0.558554, -0.430246)
+bones/8/position = Vector3(-4.35455e-06, 12.9339, 1.06253e-05)
+bones/8/rotation = Quaternion(0.357028, -0.0164915, 0.12545, 0.925485)
+bones/9/rotation = Quaternion(0.0624102, -0.000334358, 0.816536, 0.573911)
+bones/10/position = Vector3(-2.54439e-06, 28.025, -3.21765e-07)
+bones/10/rotation = Quaternion(-0.149799, 0.0577119, 0.228464, 0.960226)
+bones/11/position = Vector3(6.94678e-06, 5.87119, -4.73931e-06)
+bones/11/rotation = Quaternion(0.0351504, 0.00563539, -0.0269395, 0.999003)
+bones/12/position = Vector3(-1.66895e-06, 3.98324, 9.92418e-06)
+bones/12/rotation = Quaternion(-0.252172, 0.00989535, -0.180425, 0.950662)
+bones/13/position = Vector3(-1.49967, 3.52541, 2.54156)
+bones/13/rotation = Quaternion(0.0881437, -0.0195297, 0.0714983, 0.993347)
+bones/14/position = Vector3(-0.585083, 3.0012, 1.7482)
+bones/15/rotation = Quaternion(0.575898, -0.424515, 0.53755, 0.446282)
+bones/16/position = Vector3(3.47451e-06, 12.9339, 4.64883e-06)
+bones/16/rotation = Quaternion(0.402133, -0.174759, -0.0886045, 0.89437)
+bones/17/position = Vector3(-1.91605e-06, 17.8232, 7.33551e-06)
+bones/17/rotation = Quaternion(-0.0232318, 0.000562087, -0.795501, 0.605507)
+bones/18/position = Vector3(-1.36146e-06, 28.0314, 2.36449e-06)
+bones/18/rotation = Quaternion(-0.106806, 0.0965701, -0.0665912, 0.987336)
+bones/19/position = Vector3(-1.46011e-07, 6.19154, -4.15718e-06)
+bones/19/rotation = Quaternion(0.0430729, 0.00450131, -0.0224548, 0.998809)
+bones/20/rotation = Quaternion(-0.0431865, -2.51321e-06, 0.0926452, 0.994762)
+bones/21/position = Vector3(0.415947, 2.20929, 0.193968)
+bones/21/rotation = Quaternion(-0.270555, 0.0494248, -0.0871281, 0.957479)
+bones/23/rotation = Quaternion(0.0512316, -0.0202632, 0.976088, -0.210277)
+bones/24/rotation = Quaternion(0.0320243, 0.432546, -0.460593, 0.774424)
+bones/25/rotation = Quaternion(0.417219, -0.589723, 0.281291, 0.631689)
+bones/26/rotation = Quaternion(0.350239, 0.252974, -0.10166, 0.896104)
+bones/28/rotation = Quaternion(-0.0588798, 0.110633, 0.963854, 0.235113)
+bones/29/rotation = Quaternion(-0.449503, 0.477252, 0.0788476, 0.750973)
+bones/30/rotation = Quaternion(0.543042, -0.345756, 0.334772, 0.688103)
+bones/31/rotation = Quaternion(0.290865, -0.22339, 0.0665022, 0.92794)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "fight"
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.843818, 0.0843818)
+shape = SubResource("CapsuleShape3D_8ss8p")

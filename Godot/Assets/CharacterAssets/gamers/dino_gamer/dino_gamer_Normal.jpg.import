@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d0hp6545m5foo"
+path.s3tc="res://.godot/imported/dino_gamer_Normal.jpg-612a67f846351b2b50d340651fad69cd.s3tc.ctex"
+path.etc2="res://.godot/imported/dino_gamer_Normal.jpg-612a67f846351b2b50d340651fad69cd.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "d219b49216aea2b9c758832fa4f830cc"
+}
+
+[deps]
+
+source_file="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer_Normal.jpg"
+dest_files=["res://.godot/imported/dino_gamer_Normal.jpg-612a67f846351b2b50d340651fad69cd.s3tc.ctex", "res://.godot/imported/dino_gamer_Normal.jpg-612a67f846351b2b50d340651fad69cd.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Assets/CharacterAssets/Gamers/dino_gamer_Normal.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://bschhxvd0bvn7"]
+[gd_scene load_steps=78 format=4 uid="uid://o1miuonfuk7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bekk2pej44hkd" path="res://rooms/Bathroom/Bathroom layout_wooddark.png" id="3_moj8i"]
 [ext_resource type="Texture2D" uid="uid://bqar6l142xdsc" path="res://rooms/Bathroom/Bathroom layout_IMG_4162.png" id="4_qgpod"]
 [ext_resource type="Texture2D" uid="uid://cfw17stkpko7w" path="res://rooms/Bathroom/Bathroom layout_IMG_0536.png" id="5_uea66"]
-[ext_resource type="PackedScene" uid="uid://d1dmvsqupb3xm" path="res://Assets/CharacterAssets/Jesus/jesus.tscn" id="5_uyvi5"]
+[ext_resource type="PackedScene" uid="uid://d1dmvsqupb3xm" path="res://Assets/CharacterAssets/jesus/jesus.tscn" id="5_uyvi5"]
 [ext_resource type="Texture2D" uid="uid://bmub61elciuu6" path="res://rooms/Bathroom/Bathroom layout_woodlight1.png" id="6_duuvr"]
 [ext_resource type="Texture2D" uid="uid://do5ja47jg3qy" path="res://rooms/Bathroom/Bathroom layout_IMG_4617.png" id="7_6xvpw"]
 [ext_resource type="Texture2D" uid="uid://dddkplho0vktg" path="res://rooms/Bathroom/Bathroom layout_standardwood.png" id="8_5awov"]
@@ -22,13 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://dnjuthbkigfl0" path="res://rooms/Bathroom/tissuebox.glb" id="18_alw3p"]
 [ext_resource type="PackedScene" uid="uid://cmwb5ftfodwie" path="res://Assets/props/trashcan/Trashcan.glb" id="19_r2w82"]
 [ext_resource type="PackedScene" uid="uid://srm6yxmh01rl" path="res://rooms/Bathroom/toilet.glb" id="20_6wfjx"]
-[ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="21_hbt0t"]
+[ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunnies/white_bunny/white_bunny.tscn" id="21_hbt0t"]
 [ext_resource type="PackedScene" uid="uid://bgjtl8sm74fd2" path="res://Assets/props/hot_dog_stand/hot_dog_stand.tscn" id="22_htvqj"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="24_cixmb"]
 [ext_resource type="PackedScene" uid="uid://dxahcd25ocjsx" path="res://Assets/props/balloons/balloons_four_tall.tscn" id="25_dn2c2"]
 [ext_resource type="PackedScene" uid="uid://ml4kn25ykoyy" path="res://Assets/props/keg/keg.tscn" id="26_c8t5l"]
 [ext_resource type="PackedScene" uid="uid://48e2dw6eco7w" path="res://Assets/props/balloons/balloons_three_short.tscn" id="26_ha557"]
-[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="27_kqfen"]
+[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="27_kqfen"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="27_mq4j6"]
 [ext_resource type="PackedScene" uid="uid://7elv05m10pkt" path="res://rooms/Bathroom/batman.glb" id="28_0gtm2"]
 [ext_resource type="PackedScene" uid="uid://te45o0a3h24h" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_hanging.tscn" id="28_56rrv"]
@@ -36,10 +36,10 @@
 [ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://Assets/props/red_cup/red_cup.glb" id="30_3wfjx"]
 [ext_resource type="PackedScene" uid="uid://cqjkel25oh1up" path="res://Assets/props/alcohol/blue_goose/blue goose.glb" id="31_hu3hd"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/props/alcohol/sunday_light/sunday light.glb" id="32_o8af5"]
-[ext_resource type="PackedScene" uid="uid://522s4uc8y6ni" path="res://Assets/CharacterAssets/Cop/cop.tscn" id="34_jy5jw"]
-[ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="35_rjeq7"]
-[ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/Gamers/dino.tscn" id="36_17afp"]
-[ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free hug/free_hug_2.tscn" id="40_46x1s"]
+[ext_resource type="PackedScene" uid="uid://522s4uc8y6ni" path="res://Assets/CharacterAssets/cop/cop.tscn" id="34_jy5jw"]
+[ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunnies/red_bunny/red_bunny.tscn" id="35_rjeq7"]
+[ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer.tscn" id="36_17afp"]
+[ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="40_46x1s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -1085,7 +1085,6 @@ bones/4/position = Vector3(-6.05716e-08, 10.6635, 8.51752e-07)
 bones/4/rotation = Quaternion(0.107395, -0.0066533, 0.00521761, 0.994181)
 bones/5/position = Vector3(1.04308e-07, 2.25073, 0.774338)
 bones/5/rotation = Quaternion(0.0727748, -0.0384016, 0.0122289, 0.996534)
-bones/7/position = Vector3(6.0628, 8.4713, -0.424091)
 bones/7/rotation = Quaternion(-0.653387, -0.325753, 0.581608, -0.358752)
 bones/8/position = Vector3(5.96782e-07, 12.7559, -3.16358e-06)
 bones/8/rotation = Quaternion(0.337337, 0.0992978, 0.246892, 0.902988)
