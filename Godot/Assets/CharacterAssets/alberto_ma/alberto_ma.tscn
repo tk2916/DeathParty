@@ -9,6 +9,7 @@
 script = ExtResource("1_32tcq")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+collision_layer = 4
 
 [node name="AlbertoMaModel" parent="CharacterBody3D" instance=ExtResource("1_x14h6")]
 transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)

@@ -128,6 +128,7 @@ lod_bias = 0.25
 autoplay = "idle"
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." index="3"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.911469, 0.0911469)

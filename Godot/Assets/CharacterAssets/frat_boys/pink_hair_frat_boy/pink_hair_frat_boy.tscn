@@ -87,6 +87,7 @@ bones/63/rotation = Quaternion(0.323032, 0.0905046, -0.0291062, 0.941601)
 autoplay = "drunk"
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.822267, 0)

@@ -160,6 +160,7 @@ bones/167/rotation = Quaternion(-0.707107, 3.40922e-09, -8.67581e-09, 0.707107)
 autoplay = "idle"
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.956206, 0)

@@ -98,12 +98,13 @@ bones/63/rotation = Quaternion(0.578849, 0.125493, -0.0942852, 0.800185)
 bones/64/rotation = Quaternion(0.307452, 0.0407977, -0.0132067, 0.950597)
 
 [node name="phone" parent="model/Skeleton3D" index="0"]
-transform = Transform3D(-0.107732, 0.480066, 0.0456474, -0.315068, -0.105481, 0.365731, 0.365075, 0.0506337, 0.329105, -13.0029, 5.2184, -143.069)
+transform = Transform3D(-0.10773, 0.480067, 0.0456471, -0.315069, -0.105479, 0.365732, 0.365075, 0.0506325, 0.329105, -13.0029, 5.21839, -143.069)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "idle"
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.867039, 0)

@@ -113,6 +113,7 @@ bones/62/rotation = Quaternion(0.167619, 0.3236, -0.0229338, 0.930946)
 bones/63/rotation = Quaternion(0.404719, 0.172441, -0.0542025, 0.896398)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84023, 0)

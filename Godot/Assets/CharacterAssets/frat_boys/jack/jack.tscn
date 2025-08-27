@@ -17,6 +17,7 @@ primary_mesh = NodePath("jack")
 transform = Transform3D(-9.16472e-08, 0, -2.09664, 0, 2.09664, 0, 2.09664, 0, -9.16472e-08, 0, 1, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." index="1"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
