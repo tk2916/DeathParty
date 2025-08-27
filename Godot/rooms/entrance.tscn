@@ -1203,7 +1203,7 @@ transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.90
 [node name="Jack" parent="NPCs" instance=ExtResource("41_6fv14")]
 transform = Transform3D(0.82382, 0, -0.566852, 0, 1, 0, 0.566852, 0, 0.82382, 3.59408, 3.63081, -3.38941)
 
-[node name="Buff" parent="NPCs" instance=ExtResource("42_wxsgv")]
+[node name="BlondeFratBoy" parent="NPCs" instance=ExtResource("42_wxsgv")]
 transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.58272, -3.50614)
 
 [node name="chi omega" parent="NPCs" instance=ExtResource("45_la1vu")]

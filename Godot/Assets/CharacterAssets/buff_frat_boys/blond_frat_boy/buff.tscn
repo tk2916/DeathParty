@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2erb7"]
 
-[node name="Buff" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_4a2pe")]
+[node name="BlondeFratBoy" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_4a2pe")]
 transform = Transform3D(1.23102, 0, 0, 0, 1.23102, 0, 0, 0, 1.23102, 0, 0, 0)
 script = ExtResource("2_md04w")
 character_resource = ExtResource("3_4i5i1")
