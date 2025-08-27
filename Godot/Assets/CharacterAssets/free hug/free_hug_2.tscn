@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://5ssjaesop020"]
-
-[ext_resource type="PackedScene" uid="uid://dgik0x25m872m" path="res://Assets/CharacterAssets/free hug/free hug.glb" id="1_44n6m"]
-
-[node name="free hug2" instance=ExtResource("1_44n6m")]
-transform = Transform3D(1.19015, 0, 0, 0, 1.19015, 0, 0, 0, 1.19015, 0, 0, 0)
