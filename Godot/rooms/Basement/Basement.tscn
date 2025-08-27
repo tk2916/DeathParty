@@ -83,8 +83,8 @@
 [ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer.tscn" id="79_g8hj1"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="81_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="82_48c5o"]
-[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="83_ij3m0"]
-[ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/ghost/chirstmas_tree.tscn" id="84_reyxf"]
+[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="83_ij3m0"]
+[ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.tscn" id="84_reyxf"]
 [ext_resource type="PackedScene" uid="uid://cfen8ypgv1gjf" path="res://Assets/CharacterAssets/gamers/shark_gamer/shark_gamer.tscn" id="85_vdfwq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
