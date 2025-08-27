@@ -647,6 +647,9 @@ visible = false
 light_energy = 10.0
 omni_range = 5.236
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SceneLights"]
+transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 2.14101, -4.31897, 12.237)
+
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07193, 0.13258, 0.90654)
 size = Vector3(13.8771, 5.07922, 11.6302)
@@ -1177,9 +1180,6 @@ bones/63/rotation = Quaternion(0.288924, 0.0842996, -0.0890938, 0.949462)
 
 [node name="AnimationPlayer" parent="NPCs/free hug2" index="1"]
 autoplay = "puke"
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 0, -0.645291, 9.33631)
 
 [editable path="SceneLoader_PartyRoom"]
 [editable path="WallLamp"]
