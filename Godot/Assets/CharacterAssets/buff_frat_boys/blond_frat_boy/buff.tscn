@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://k3sqairh3uh4"]
+
+[ext_resource type="PackedScene" uid="uid://dpfcftvjayo2k" path="res://Assets/CharacterAssets/buff_frat_boys/blond_frat_boy/Buff.glb" id="1_4a2pe"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_md04w"]
+[ext_resource type="Resource" uid="uid://bpephsvb7c542" path="res://Assets/Resources/CharacterResources/character_properties_otherguy.tres" id="3_4i5i1"]
+
+[node name="Buff" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_4a2pe")]
+transform = Transform3D(1.23102, 0, 0, 0, 1.23102, 0, 0, 0, 1.23102, 0, 0, 0)
+script = ExtResource("2_md04w")
+character_resource = ExtResource("3_4i5i1")
+primary_mesh = NodePath("model/Skeleton3D/Chest_Bow_002")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "idle"

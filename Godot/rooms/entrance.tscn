@@ -42,7 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://c43bqwa4bftlx" path="res://Assets/props/sofas/sofa_brown_round/sofa_brown_round.tscn" id="39_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://mwxc16mbjkl0" path="res://Assets/CharacterAssets/jack/jack_model.tscn" id="41_6fv14"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free hug/free_hug_2.tscn" id="42_a5wms"]
-[ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/Buff Frat boy/buff.tscn" id="42_wxsgv"]
+[ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/buff_frat_boys/blond_frat_boy/buff.tscn" id="42_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://bgeabboi8mw6q" path="res://rooms/Exterior Frat Lawn/beer spider.glb" id="43_klyfx"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="44_kdf33"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="45_la1vu"]
