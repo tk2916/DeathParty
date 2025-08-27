@@ -45,7 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/frat_boys/blond_frat_boy/blond_frat_boy.tscn" id="42_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://bgeabboi8mw6q" path="res://rooms/Exterior Frat Lawn/beer spider.glb" id="43_klyfx"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="44_kdf33"]
-[ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="45_la1vu"]
+[ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="45_la1vu"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="46_ihq26"]
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/ghost/chirstmas_tree.tscn" id="47_yqsuh"]
 
