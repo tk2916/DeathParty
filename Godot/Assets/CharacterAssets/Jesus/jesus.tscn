@@ -1,58 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1dmvsqupb3xm"]
+[gd_scene load_steps=4 format=3 uid="uid://d1dmvsqupb3xm"]
 
 [ext_resource type="PackedScene" uid="uid://oj2ww3axt5fu" path="res://Assets/CharacterAssets/jesus/jesus.glb" id="1_e4tec"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_2vca4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dl0gp"]
 
 [node name="Jesus" instance=ExtResource("1_e4tec")]
 transform = Transform3D(1.08367, 0, 0, 0, 1.08367, 0, 0, 0, 1.08367, 0, 0, 0)
 script = ExtResource("2_2vca4")
 
-[node name="Skeleton3D" parent="model" index="0"]
-bones/0/position = Vector3(-0.0460864, -0.183693, -61.9479)
-bones/0/rotation = Quaternion(-0.732021, 0.00733157, -0.0129984, 0.681119)
-bones/1/rotation = Quaternion(-0.0176393, -0.0162894, 0.0184721, 0.999541)
-bones/2/rotation = Quaternion(0.00619297, -0.00480593, 0.00181922, 0.999968)
-bones/3/rotation = Quaternion(0.00618674, -0.00477698, 0.00185746, 0.999968)
-bones/4/rotation = Quaternion(0.0702138, 0.0066668, -0.000902544, 0.997509)
-bones/5/rotation = Quaternion(0.163943, 0.0637146, 0.00512312, 0.984397)
-bones/7/rotation = Quaternion(-0.580923, -0.423949, 0.565479, -0.403769)
-bones/8/position = Vector3(2.33867e-07, 8.10966, 2.76988e-06)
-bones/8/rotation = Quaternion(0.434484, 0.0325775, 0.0313405, 0.899544)
-bones/9/rotation = Quaternion(0.00615345, -0.0143327, 0.104072, 0.994447)
-bones/10/position = Vector3(-2.52382e-06, 12.3972, -5.83615e-06)
-bones/10/rotation = Quaternion(0.0661398, 0.347435, 0.133778, 0.925753)
-bones/11/position = Vector3(-1.70609, 3.18599, -1.19208e-07)
-bones/11/rotation = Quaternion(0.016484, 0.0261307, 0.35536, 0.934219)
-bones/12/position = Vector3(-0.171053, 2.88616, -3.40919e-06)
-bones/12/rotation = Quaternion(0.138035, 0.0763373, -0.198246, 0.967377)
-bones/13/rotation = Quaternion(-0.118243, -0.0701707, -0.116582, 0.983617)
-bones/15/position = Vector3(8.58485e-07, 6.1949, -0.124637)
-bones/15/rotation = Quaternion(0.141136, -0.0243646, 0.15169, 0.977997)
-bones/16/rotation = Quaternion(0.170798, 0.00112085, -0.00567584, 0.985289)
-bones/17/rotation = Quaternion(0.0711773, 0.00667867, 0.102076, 0.992204)
-bones/19/rotation = Quaternion(0.587537, -0.42889, 0.541858, 0.421003)
-bones/20/rotation = Quaternion(0.412753, -0.00501393, -0.0734704, 0.907861)
-bones/21/position = Vector3(-2.56537e-06, 11.3413, -4.64129e-06)
-bones/21/rotation = Quaternion(0.0100195, 0.0204568, -0.143842, 0.989339)
-bones/22/position = Vector3(-3.98681e-06, 12.3543, 4.94193e-06)
-bones/22/rotation = Quaternion(0.106611, -0.449364, -0.124442, 0.878191)
-bones/23/rotation = Quaternion(0.0351718, -0.0659278, -0.344208, 0.935915)
-bones/24/rotation = Quaternion(0.0783704, -0.0980776, 0.204655, 0.97075)
-bones/25/position = Vector3(0.0775102, 2.38683, 1.9951e-06)
-bones/25/rotation = Quaternion(-0.105911, 0.039784, 0.0646397, 0.991475)
-bones/27/rotation = Quaternion(0.200557, 0.0403199, -0.208939, 0.956293)
-bones/28/position = Vector3(-0.593229, 3.14572, 2.06385e-06)
-bones/28/rotation = Quaternion(0.146295, -0.0017738, 0.100443, 0.984127)
-bones/29/position = Vector3(0.409012, 2.89665, 1.42102e-06)
-bones/29/rotation = Quaternion(0.0525369, -0.00926163, -0.0386367, 0.997828)
-bones/31/rotation = Quaternion(0.0816723, 0.0374509, 0.994811, -0.0477327)
-bones/32/rotation = Quaternion(-0.188806, -0.0846971, 0.0182824, 0.978184)
-bones/33/rotation = Quaternion(0.535696, -0.086894, 0.00326005, 0.839922)
-bones/34/rotation = Quaternion(0.319992, -0.0474938, 0.0146336, 0.946116)
-bones/36/rotation = Quaternion(-0.0718799, 0.0519329, 0.995522, 0.0327316)
-bones/37/rotation = Quaternion(-0.178255, 0.0842756, -0.039546, 0.979571)
-bones/38/rotation = Quaternion(0.517471, 0.0917719, 0.00672095, 0.850739)
-bones/39/rotation = Quaternion(0.298527, 0.0453106, -0.0150788, 0.953206)
-
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "idle"
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92279, 0)
+shape = SubResource("CapsuleShape3D_dl0gp")
