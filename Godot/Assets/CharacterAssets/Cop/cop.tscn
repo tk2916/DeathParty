@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://522s4uc8y6ni"]
 
-[ext_resource type="PackedScene" uid="uid://gpap6eu8mm6r" path="res://Assets/CharacterAssets/Cop/cop.glb" id="1_cxtj2"]
+[ext_resource type="PackedScene" uid="uid://gpap6eu8mm6r" path="res://Assets/CharacterAssets/cop/cop.glb" id="1_cxtj2"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_rsrj8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rsrj8"]

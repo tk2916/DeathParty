@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://x8iqwxqrxuip" path="res://Assets/props/flags/party_flags_pink/party_flags_pink.tscn" id="32_6emc0"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="33_hdy2l"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="34_iipv5"]
-[ext_resource type="PackedScene" uid="uid://dp8mxgak36ovb" path="res://Assets/CharacterAssets/Caleb/caleb.tscn" id="35_gfuhi"]
+[ext_resource type="PackedScene" uid="uid://dp8mxgak36ovb" path="res://Assets/CharacterAssets/caleb/caleb.tscn" id="35_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="35_nneh3"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="36_gfuhi"]

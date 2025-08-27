@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1dmvsqupb3xm"]
 
-[ext_resource type="PackedScene" uid="uid://oj2ww3axt5fu" path="res://Assets/CharacterAssets/Jesus/jesus.glb" id="1_e4tec"]
+[ext_resource type="PackedScene" uid="uid://oj2ww3axt5fu" path="res://Assets/CharacterAssets/jesus/jesus.glb" id="1_e4tec"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_2vca4"]
 
 [node name="Jesus" instance=ExtResource("1_e4tec")]
