@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=93 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="47_3yiem"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="48_2jg4v"]
 [ext_resource type="PackedScene" uid="uid://ppwcab8jx3ax" path="res://rooms/Exterior Frat Lawn/beer pong sign.glb" id="50_xispf"]
+[ext_resource type="PackedScene" uid="uid://b0xusmrkexal4" path="res://Assets/CharacterAssets/frat_boys/pink_hair_frat_boy/pink_hair_frat_boy.tscn" id="51_j0uoq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
 size = Vector3(15, 5, 13)
@@ -1721,6 +1722,9 @@ transform = Transform3D(0.370044, 0, -0.753689, 0, 0.83963, 0, 0.753689, 0, 0.37
 transform = Transform3D(0.274326, 0, -0.793551, 0, 0.83963, 0, 0.793551, 0, 0.274326, 14.9635, 1.13945, 1.29716)
 
 [node name="NPCs" type="Node3D" parent="."]
+
+[node name="PinkHairFratBoy" parent="NPCs" instance=ExtResource("51_j0uoq")]
+transform = Transform3D(1.00628, 0, 0.86832, 0, 1.32913, 0, -0.86832, 0, 1.00628, 1.06213, -3.11953, -1.03238)
 
 [node name="witch" parent="NPCs" instance=ExtResource("46_cngrb")]
 transform = Transform3D(0.303973, 0, -1.17868, 0, 1.21725, 0, 1.17868, 0, 0.303973, 6.10182, -3.12238, -4.27165)
