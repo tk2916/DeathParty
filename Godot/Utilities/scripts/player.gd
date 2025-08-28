@@ -110,10 +110,10 @@ func handle_animations(delta: float) -> void:
 
 	# adjust speed of walk animation based on player_speed
 
-	# NOTE: 1.75 is the player_speed that roughly matches the animation,
+	# NOTE: 2.0 is the player_speed that roughly matches the animation,
 	# so we scale based on that
 	if player_velocity != Vector3.ZERO:
-		animation_tree.set("parameters/TimeScale/scale", player_speed / 1.75)
+		animation_tree.set("parameters/TimeScale/scale", player_speed / 2.0)
 	elif player_velocity == Vector3.ZERO:
 		animation_tree.set("parameters/TimeScale/scale", 1.0)
 
