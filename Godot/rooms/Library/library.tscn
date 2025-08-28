@@ -48,19 +48,19 @@
 [ext_resource type="PackedScene" uid="uid://dvox0p4f1j5l1" path="res://rooms/bedroom/teddy bear.glb" id="44_dffff"]
 [ext_resource type="PackedScene" uid="uid://cfxvpoegl0xb5" path="res://Assets/CharacterAssets/nora/nora.tscn" id="44_j03r7"]
 [ext_resource type="PackedScene" uid="uid://beusior7ym8c4" path="res://Assets/props/chairs/chair/chair.tscn" id="45_jpbuu"]
-[ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunny/bunny.tscn" id="45_owm1a"]
+[ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunnies/white_bunny/white_bunny.tscn" id="45_owm1a"]
 [ext_resource type="PackedScene" uid="uid://ddiqilmdbakfb" path="res://Assets/CharacterAssets/angel/angel.tscn" id="50_m1j1w"]
-[ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunny/blk_bunny.tscn" id="51_ndciv"]
+[ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunnies/red_bunny/red_bunny.tscn" id="51_ndciv"]
 [ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="52_rwfot"]
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="53_iso52"]
 [ext_resource type="Texture2D" uid="uid://qatlo1rl0gdd" path="res://rooms/Storage Room/spiderwebs_Untitled_Artwork.png" id="54_yma0n"]
 [ext_resource type="Texture2D" uid="uid://bs6b6l2er7cvd" path="res://rooms/Storage Room/spiderwebs_dsf.png" id="55_hu7nt"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="56_hu7nt"]
-[ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/Chi Omega/chi_omega.tscn" id="57_twmdx"]
-[ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free hug/free_hug_2.tscn" id="58_ddclk"]
-[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/ghost/cone_ghost.tscn" id="58_dsi3o"]
-[ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/ghost/chirstmas_tree.tscn" id="59_oa8vk"]
-[ext_resource type="PackedScene" uid="uid://cfen8ypgv1gjf" path="res://Assets/CharacterAssets/Gamers/shark.tscn" id="60_ullqy"]
+[ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="57_twmdx"]
+[ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="58_ddclk"]
+[ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="58_dsi3o"]
+[ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.tscn" id="59_oa8vk"]
+[ext_resource type="PackedScene" uid="uid://cfen8ypgv1gjf" path="res://Assets/CharacterAssets/gamers/shark_gamer/shark_gamer.tscn" id="60_ullqy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
 size = Vector3(15.626, 10, 12)
@@ -1488,7 +1488,7 @@ skeleton = NodePath("")
 transform = Transform3D(-4.99212, 0, 1.74137e-06, 0, 5.34422, 0, -1.62664e-06, 0, -5.34422, -2.78296, 5.34237, 16.5994)
 
 [node name="Chandelier" parent="." instance=ExtResource("4_30q20")]
-transform = Transform3D(0.27786, 0, 0, 0, 0.27786, 0, 0, 0, 0.27786, -2.7911, 0.952797, 1.48577)
+transform = Transform3D(0.27786, 0, 0, 0, 0.27786, 0, 0, 0, 0.27786, -2.7911, 0.501003, 1.48577)
 
 [node name="OmniLight3D" parent="Chandelier/Lights" index="0"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
