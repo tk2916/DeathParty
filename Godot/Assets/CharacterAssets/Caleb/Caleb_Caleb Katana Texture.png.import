@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3mxfaojc1yok"
-path.s3tc="res://.godot/imported/Caleb_Caleb Katana Texture.png-b8076e67645036e21a4e8ff1e19ab36c.s3tc.ctex"
-path.etc2="res://.godot/imported/Caleb_Caleb Katana Texture.png-b8076e67645036e21a4e8ff1e19ab36c.etc2.ctex"
+path.s3tc="res://.godot/imported/Caleb_Caleb Katana Texture.png-134d8fb0e54a58df7fab019dafd00909.s3tc.ctex"
+path.etc2="res://.godot/imported/Caleb_Caleb Katana Texture.png-134d8fb0e54a58df7fab019dafd00909.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Caleb/Caleb_Caleb Katana Texture.png"
-dest_files=["res://.godot/imported/Caleb_Caleb Katana Texture.png-b8076e67645036e21a4e8ff1e19ab36c.s3tc.ctex", "res://.godot/imported/Caleb_Caleb Katana Texture.png-b8076e67645036e21a4e8ff1e19ab36c.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/caleb/Caleb_Caleb Katana Texture.png"
+dest_files=["res://.godot/imported/Caleb_Caleb Katana Texture.png-134d8fb0e54a58df7fab019dafd00909.s3tc.ctex", "res://.godot/imported/Caleb_Caleb Katana Texture.png-134d8fb0e54a58df7fab019dafd00909.etc2.ctex"]
 
 [params]
 

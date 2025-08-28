@@ -3,20 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmrl2yaiks282"
-path.s3tc="res://.godot/imported/jesus_Color.jpg-827dc6e0d852a32eb85d1651382b6226.s3tc.ctex"
-path.etc2="res://.godot/imported/jesus_Color.jpg-827dc6e0d852a32eb85d1651382b6226.etc2.ctex"
+path.s3tc="res://.godot/imported/jesus_Color.jpg-5efaa0cee45eebfe6fff30b6489416b2.s3tc.ctex"
+path.etc2="res://.godot/imported/jesus_Color.jpg-5efaa0cee45eebfe6fff30b6489416b2.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "e7d59af037983dd27c1605b2438397a6"
+"md5": "96944b7ca5c0fcf45ebb3bfe26aaa0e6"
 }
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Jesus/jesus_Color.jpg"
-dest_files=["res://.godot/imported/jesus_Color.jpg-827dc6e0d852a32eb85d1651382b6226.s3tc.ctex", "res://.godot/imported/jesus_Color.jpg-827dc6e0d852a32eb85d1651382b6226.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/jesus/jesus_Color.jpg"
+dest_files=["res://.godot/imported/jesus_Color.jpg-5efaa0cee45eebfe6fff30b6489416b2.s3tc.ctex", "res://.godot/imported/jesus_Color.jpg-5efaa0cee45eebfe6fff30b6489416b2.etc2.ctex"]
 
 [params]
 
