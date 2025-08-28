@@ -7,11 +7,14 @@ var player_file : PackedScene = preload("res://Entities/player.tscn")
 var player_aabb : AABB
 var player_spawn_pos : Vector3
 
+var scene_teleport_pos : Vector3
+
 var scene_data_dict : Dictionary[String, LoadableScene] = {}
 var cell_grids : Dictionary[String, Vector3] = {
-	"PartyRoom" = Vector3(5,1,5),
+	"PartyRoom" = Vector3(5,1,1),
 	"Entrance" = Vector3(1,1,1),
 	"Bathroom" = Vector3(1,1,1),
+	"Bedroom" = Vector3(1,1,1),
 	"Library" = Vector3(1,1,1),
 	"Basement" = Vector3(1,1,1),
 	"Kitchen" = Vector3(1,1,1),
@@ -25,6 +28,7 @@ var main_node_data : GameObject
 var loaded_scenes : Array[LoadableScene]
 @onready var loadable_scenes_size : int = tree.get_nodes_in_group("loadable_scene").size()
 var og_scene : String = ""
+var active_scene : String = ""
 var loading_screen : ColorRect
 
 var loaded : bool = false
@@ -138,9 +142,9 @@ func load_scene(scene_name:String) -> Node3D:
 		assert(false, "Scene " + scene_name + " doesn't exist/isn't tagged with loadable_scene!")
 		return
 	#trying to load the currently loaded scene
-	if loaded_scenes.size() > 0 && loaded_scenes.front().name == scene_name: 
+	if active_scene == scene_name: 
 		return loaded_scenes.front().instance
-	
+	active_scene = scene_name
 	var scene_data : LoadableScene = scene_data_dict[scene_name]
 	var scene_instance : Node3D = scene_data.load_in()
 	loaded_scenes.push_front(scene_data)
@@ -163,11 +167,12 @@ func offload_old_scene() -> void:
 func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 	var screen_tween : Tween = fade_loading_screen_in()
 	screen_tween.finished.connect(func():
-		player.global_position = new_position
+		scene_teleport_pos = new_position
 		var scene : Node3D = load_scene(scene_name)
 		scene.ready.connect(func():
 			#await tree.physics_frame
 			print("Teleporting player to ", scene_name)
+			player.global_position = new_position
 			GlobalCameraScript.move_camera_jump.emit()
 			
 			offload_old_scenes()
@@ -178,6 +183,7 @@ func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 	)
 
 func direct_teleport_player(scene_name : String) -> void:
+	if scene_name == active_scene: return
 	var target_pos : Vector3 = scene_data_dict[scene_name].main_teleport_point
 	assert(target_pos != Vector3(-1,-1,-1), "" + scene_name + " doesn't have a teleport point assigned. Check that all your SceneLoaders are following the naming convention 'SceneLoader_<scene name (case-sensitive)>'!")
 	scene_loader_load(scene_name, target_pos)

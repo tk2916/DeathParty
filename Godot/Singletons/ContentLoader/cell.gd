@@ -21,6 +21,7 @@ func load_in():
 	
 func set_active(_active : bool, initial_load : bool) -> void:
 	var start = Time.get_ticks_msec()
+	if (_active == active) and (not initial_load): return
 	#if !initial_load and active == _active: return #causes errors
 	active = _active
 	#print("Setting Cell ", id, " to active=", active)

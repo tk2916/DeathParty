@@ -39,14 +39,15 @@ func load_files(on : bool = true):
 func load_in() -> Node3D:
 	##UI
 	max_objects_per_frame = cell_manager.max_objects_per_frame
-	print("Max objects per frame: ", max_objects_per_frame)
+	#print("Max objects per frame: ", max_objects_per_frame)
 	instance = file.instantiate()
 	instance.ready.connect(func() -> void:
 		print(name, " finished loading")
 		)
-	print("Instance for ", name, " is ", instance)
+	#print("Instance for ", name, " is ", instance)
+	instance.transform = transform
 	parent_node.add_child.call_deferred(instance)
-	instance.call_deferred("set_global_transform", transform)
+	#instance.call_deferred("set_global_transform", transform)
 	load_files()
 	super() #loads children
 	cell_debugger.load_in()

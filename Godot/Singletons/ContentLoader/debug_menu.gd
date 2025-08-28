@@ -7,6 +7,8 @@ var cell_name_label : RichTextLabel
 var scene_name_label : RichTextLabel
 var item_name_label : RichTextLabel
 var item_info_label : RichTextLabel
+var grid_dimensions_label : RichTextLabel
+var active_cell_label : RichTextLabel
 
 var cell_vbox : VBoxContainer
 var active_vbox : VBoxContainer
@@ -28,6 +30,8 @@ func _init(_scene : LoadableScene) -> void:
 	scene_name_label = control.get_node("SceneName")
 	item_name_label = control.get_node("ItemName")
 	item_info_label = control.get_node("ItemInfoContainer/ItemInfo")
+	grid_dimensions_label = control.get_node("GridDimensions")
+	active_cell_label = control.get_node("ActiveCell")
 	
 	cell_vbox = control.get_node("Cells/VBox")
 	active_vbox = control.get_node("Active/VBox")
@@ -42,6 +46,16 @@ func load_in() -> void:
 	clear_cell_objects()
 	clear_obj_info()
 	scene_name_label.text = "Scene: " + scene.name
+	if !ContentLoader.cell_grids.has(scene.name):
+		grid_dimensions_label.text = "Grid: 1 x 1 x 1"
+	else:
+		var grid_dimensions : Vector3 = ContentLoader.cell_grids[scene.name]
+		grid_dimensions_label.text = (
+			"Grid: " 
+			+ str(int(grid_dimensions.x))
+			+ " x " + str(int(grid_dimensions.y))
+			+ " x " + str(int(grid_dimensions.z))
+		)
 
 func offload() -> void:
 	#reset variables
@@ -87,15 +101,16 @@ func create_debug_mesh(cell : Cell):
 func hide_all_meshes():
 	for index : int in mesh_dict:
 		var mesh : MeshInstance3D = mesh_dict[index]
-		scene.parent_node.remove_child.call_deferred(mesh)
+		show_debug_mesh(index, false)
 
-func show_debug_mesh(cell : Cell, toggle : bool):
-	var mesh_instance : MeshInstance3D = mesh_dict[cell.id]
-	if mesh_instance.is_inside_tree(): return
+func show_debug_mesh(index : int, toggle : bool):
+	var mesh_instance : MeshInstance3D = mesh_dict[index]
 	if toggle:
-		scene.parent_node.add_child.call_deferred(mesh_instance)
+		if !mesh_instance.is_inside_tree():
+			scene.parent_node.add_child.call_deferred(mesh_instance)
 	else:
-		scene.parent_node.remove_child.call_deferred(mesh_instance)
+		if mesh_instance.is_inside_tree():
+			scene.parent_node.remove_child.call_deferred(mesh_instance)
 
 func add_cell(cell : Cell) -> void:
 	#debug mesh
@@ -114,7 +129,7 @@ func add_cell(cell : Cell) -> void:
 		clear_obj_info()
 		hide_all_meshes()
 		if cell.id != currently_shown_cell:
-			show_debug_mesh(cell, true)
+			show_debug_mesh(cell.id, true)
 			show_cell_objects(cell)
 		else:
 			currently_shown_cell = -1
@@ -139,6 +154,7 @@ func update_active_cells() -> void:
 		active_cells_str = active_cells_str + " Cell" + str(cell.id) + ","
 	
 	active_cells_label.text = active_cells_str
+	active_cell_label.text = "Player cell: Cell " + str(scene.cell_manager.player_cell.id)
 
 ##OBJ INFO ---------------------------------------
 func clear_obj_info() -> void:

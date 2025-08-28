@@ -50,8 +50,8 @@ func load_in() -> Node3D:
 		
 		#await parent_node.get_tree().process_frame #lets other things happen
 		assert(instance != null, name + " doesn't have the NPC/object script attached to it in its base scene!")
-		instance.global_transform = transform
-		parent_node.add_child(instance)
+		instance.transform = transform
+		parent_node.add_child.call_deferred(instance)
 		#await parent_node.get_tree().process_frame #lets other things happen
 		#instance.call_deferred("set_global_transform", transform)
 	await super()

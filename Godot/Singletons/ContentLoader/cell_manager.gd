@@ -5,6 +5,8 @@ var scene : LoadableScene
 #each CellRow will hold X Cells, and there are X CellRows
 var scene_cells : Array[CellPlane] = []
 var active_cells : Array[Cell] = []
+var player_cell : Cell
+
 var scene_aabb : AABB
 var WIDTH_DIVIDE : int = 4
 var HEIGHT_DIVIDE : int = 4
@@ -123,52 +125,51 @@ func show_cells() -> void:
 		
 		scene.parent_node.add_child.call_deferred(mesh_instance)
 
-func find_player_cell() -> Vector3:
-	ContentLoader.update_player_aabb()
-	#var player_aabb : AABB = ContentLoader.player_aabb
-	var player_center : Vector3 = ContentLoader.player_aabb.get_center()
-	var cell_coords : Vector3 = Vector3(-1,-1,-1)
-	var distance_from_center : float = 10000
+func find_player_cell(player_center : Vector3):
+	#checking the adjacent cells first. 
+	player_cell = null
 	for cell : Cell in active_cells:
-		#checking the adjacent cells
-		#if cell.intersects(player_aabb):
 		if cell.aabb.has_point(player_center):
-			var dist : float = cell.aabb.get_center().distance_squared_to(player_center)
-			if dist < distance_from_center: #put player in closest one
-				distance_from_center = dist
-				cell_coords = cell.coords
-	if cell_coords == Vector3(-1,-1,-1):
+			player_cell = cell
+			break
+	#if player not there (such as initial load), check all cells.
+	if player_cell == null:
 		for cell_plane : CellPlane in scene_cells:
 			for cell_row : CellRow in cell_plane.plane:
 				for cell : Cell in cell_row.row:
 					if cell.aabb.has_point(player_center):
-					#if cell.intersects(player_aabb):
-						var dist : float = cell.aabb.get_center().distance_squared_to(player_center)
-						if dist < distance_from_center: #put player in closest one
-							distance_from_center = dist
-							cell_coords = cell.coords
-	return cell_coords
+						#cell_coords = cell.coords
+						player_cell = cell
+						break
 
 func update_active_cells(initial_load : bool = false) -> void:
-	if initial_load:
-		print("INITIAL LOAD ACTIVE CELLS: ", scene.name, " | ", active_cells)
 	var start = Time.get_ticks_msec()
-	#print("Updating active cells: ", scene.name, " | scene active? ", scene.active)
 	if not scene.active: return
-	var cell_coords : Vector3 = find_player_cell()
+	var player_center : Vector3
+	if initial_load:
+		#player hasn't teleported into the scene yet,
+		#but we still need to load the right cells
+		player_center = ContentLoader.scene_teleport_pos
+	else:
+		ContentLoader.update_player_aabb()
+		player_center = ContentLoader.player_aabb.get_center()
+	find_player_cell(player_center)
+	if player_cell == null:
+		return
+	#assert(player_cell != null, "Player is not located in a content cell! Did they go outside the RoomArea?")
+	var cell_coords : Vector3 = player_cell.coords
 	var adjacent_cells : Array[Cell] = []
 	find_adjacent_cells(adjacent_cells, cell_coords.x as int, cell_coords.y as int, cell_coords.z as int)
-	#print("Size of adjacent cells: ", adjacent_cells.size())
+	
+	#disable inactive cells
 	for cell : Cell in active_cells:
-		#print("Cell in active_cells: ", cell.id)
 		if !(cell in adjacent_cells):
-			#print("Un-activating cell ", cell.id)
 			cell.set_active(false, initial_load) #offload
-			
+	
+	#enable active cells
 	for cell: Cell in adjacent_cells:
 		cell.set_active(true, initial_load)
 	
-	#print(scene.name, " | SETTING ACTIVE CELLS: ", active_cells, " to ", adjacent_cells)
 	active_cells = adjacent_cells
 	scene.cell_debugger.update_active_cells()
 	var duration = (Time.get_ticks_msec() - start)

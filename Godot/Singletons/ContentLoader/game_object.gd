@@ -24,7 +24,7 @@ func _init(_instance : Node3D, _parent_obj : GameObject = null) -> void:
 		parent_node = instance.get_parent()
 		local_path = parent_obj.instance.get_path_to(parent_node)
 		
-	transform = instance.global_transform
+	transform = instance.transform
 	#print("Initiated object data for : ", name, " | file: ", file)
 
 func load_in() -> Node3D:
