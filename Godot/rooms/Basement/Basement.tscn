@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://2t8atxx1eno6" path="res://rooms/Basement/DDR_StingrayPBS3_emissive.png" id="31_kk7s6"]
 [ext_resource type="Texture2D" uid="uid://b7s06uof0swcc" path="res://rooms/Basement/DDR_StingrayPBS3_normal.png" id="32_g8hj1"]
 [ext_resource type="Texture2D" uid="uid://bqfsggxrom6e3" path="res://rooms/Basement/DDR_StingrayPBS2_baseColor.png" id="33_1mcaq"]
-[ext_resource type="PackedScene" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
+[ext_resource type="PackedScene" uid="uid://bdcfyi83q8umf" path="res://rooms/Basement/game_room.tscn" id="33_ln2a6"]
 [ext_resource type="Texture2D" uid="uid://bpfxxcii5umf2" path="res://rooms/Basement/long lamp_stainless steel.png" id="34_5ryib"]
 [ext_resource type="Texture2D" uid="uid://ctk2px7ruxhou" path="res://rooms/Basement/DDR_StingrayPBS2_metallicRoughness.png" id="34_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://der73jk8d4155" path="res://Assets/props/posters/die_frat_logo_poster/die_frat_logo_poster.glb" id="34_u8b43"]
@@ -2797,45 +2797,6 @@ autoplay = "sitttttt"
 
 [node name="shark" parent="." instance=ExtResource("85_vdfwq")]
 transform = Transform3D(0.417584, 0, 1.00913, 0, 1.09212, 0, -1.00913, 0, 0.417584, 3.70487, -0.046867, 1.4025)
-
-[node name="Skeleton3D" parent="shark/shark model" index="0"]
-bones/0/position = Vector3(-0.239915, 4.44604, -56.9671)
-bones/0/rotation = Quaternion(-0.812232, -0.0107501, -0.0317408, 0.582372)
-bones/1/rotation = Quaternion(0.026785, -0.0301889, 0.0479669, 0.998033)
-bones/2/rotation = Quaternion(0.0524233, -0.0019369, -0.0128164, 0.998541)
-bones/3/rotation = Quaternion(0.0523242, -0.00261516, -0.0130926, 0.998541)
-bones/4/rotation = Quaternion(0.0316961, 0.000282036, 0.00825929, 0.999463)
-bones/5/rotation = Quaternion(-0.00474423, 0.0296724, -0.0259625, 0.999211)
-bones/7/rotation = Quaternion(-0.549925, -0.453222, 0.51806, -0.473061)
-bones/8/rotation = Quaternion(0.481231, 0.061364, 0.334175, 0.808071)
-bones/9/rotation = Quaternion(-0.0178655, -0.00755571, 0.523241, 0.851964)
-bones/10/rotation = Quaternion(-0.0752712, -0.289126, -0.236374, 0.924591)
-bones/11/rotation = Quaternion(0.282288, 0.0101412, 0.376843, 0.882156)
-bones/12/rotation = Quaternion(0.0385827, 0.0237033, -0.182424, 0.982177)
-bones/15/rotation = Quaternion(-0.0167067, 0.00175162, 0.181965, 0.983162)
-bones/16/rotation = Quaternion(0.391904, -1.01386e-05, -0.0493226, 0.918683)
-bones/17/rotation = Quaternion(0.391904, 2.00525e-06, -0.0494014, 0.918679)
-bones/19/rotation = Quaternion(0.529321, 0.0329677, -0.0134974, 0.847674)
-bones/21/rotation = Quaternion(0.528696, -7.573e-05, -0.0660048, 0.846241)
-bones/23/rotation = Quaternion(0.535031, 0.0303951, -0.0158575, 0.844137)
-bones/25/rotation = Quaternion(0.533907, 0.000172867, -0.0700745, 0.842635)
-bones/27/rotation = Quaternion(0.561686, 0.0530825, -0.0495137, 0.82416)
-bones/31/rotation = Quaternion(0.560179, -0.438146, 0.548421, 0.439843)
-bones/32/rotation = Quaternion(0.433824, -0.0793448, -0.348654, 0.827008)
-bones/33/rotation = Quaternion(0.00326808, 0.00651451, -0.518839, 0.854841)
-bones/34/rotation = Quaternion(-0.065648, 0.304253, 0.190355, 0.931067)
-bones/36/rotation = Quaternion(0.00799837, 0.0521664, 0.229277, 0.971929)
-bones/39/rotation = Quaternion(0.0234668, 0.000821878, -0.177955, 0.983759)
-bones/40/rotation = Quaternion(0.354518, -4.48618e-05, 0.0454616, 0.933943)
-bones/41/rotation = Quaternion(0.353372, 2.27689e-05, 0.0450782, 0.934396)
-bones/55/rotation = Quaternion(0.089836, 0.615937, 0.776912, -0.0946478)
-bones/56/rotation = Quaternion(-0.709252, -0.0483146, -0.00173582, 0.703295)
-bones/57/rotation = Quaternion(0.475684, 0.0367662, 0.130877, 0.869048)
-bones/58/rotation = Quaternion(0.321343, -0.0524537, 0.0133865, 0.945414)
-bones/60/rotation = Quaternion(-0.127269, 0.585351, 0.788123, 0.141524)
-bones/61/rotation = Quaternion(-0.746523, 0.0782098, 0.0239051, 0.660314)
-bones/62/rotation = Quaternion(0.519478, 0.062449, -0.147312, 0.83937)
-bones/63/rotation = Quaternion(0.317306, 0.0446484, -0.0122446, 0.947192)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="SceneLoader_Storageroom"]
