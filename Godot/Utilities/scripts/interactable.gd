@@ -14,7 +14,15 @@ var surface_material : StandardMaterial3D = null
 func _ready() -> void:
 	#print("New interctable")
 	interaction_detector = interaction_detector_file.instantiate()
-	add_child(interaction_detector)
+	
+	var foundCharacterBody: bool = false
+	for child in get_children():
+		if child is CharacterBody3D:
+			child.add_child(interaction_detector)
+			foundCharacterBody = true
+	if not foundCharacterBody:
+		add_child(interaction_detector)
+	
 	interaction_detector.player_interacted.connect(on_interact)
 	interaction_detector.player_in_range.connect(on_in_range)
 	
