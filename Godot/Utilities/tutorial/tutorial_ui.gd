@@ -7,6 +7,7 @@ enum States {INTRO, WALK, UNLOCK_PHONE}
 
 var state: States:
 	set(new_state):
+		var previous_state: States = state
 
 		match new_state:
 			States.INTRO:
@@ -15,10 +16,14 @@ var state: States:
 
 			States.WALK:
 				print("TUTORIAL STEP: WALK")
-				player.movement_disabled = false
 
 			States.UNLOCK_PHONE:
 				print("TUTORIAL STEP: UNLOCK PHONE")
+
+		match previous_state:
+			States.INTRO:
+				player.movement_disabled = false
+
 
 var player_prev_pos: Vector3
 
