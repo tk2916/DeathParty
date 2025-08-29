@@ -63,7 +63,6 @@ func assign_nodes():
 		text_label = npc_text_label
 		speaker_image_label = npc_speaker_image_label
 		previous_speaker_image_label = npc_previous_speaker_image_label
-	print("Assigned text_label: ", text_label)
 
 func set_ui_state(ui_state : String):
 	current_ui_state = ui_state

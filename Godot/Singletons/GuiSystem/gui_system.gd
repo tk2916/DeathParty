@@ -13,6 +13,7 @@ var journal_backpack_bg : PackedScene = preload("res://Assets/JournalTextures/ba
 var in_journal : bool = false
 var inventory_showing : bool = false #used within journal scripts
 var in_gui : bool = false
+var in_phone : bool = false
 
 func _ready() -> void:
 	var main = get_tree().root.get_node_or_null("Main")
@@ -28,7 +29,19 @@ func _ready() -> void:
 	var gui_objects : Array[Node] = get_tree().get_nodes_in_group("gui_object")
 	for obj in gui_objects:
 		gui_dict[obj.name] = obj
-	
+
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("toggle_journal"):
+		if in_journal:
+			hide_journal()
+		else:
+			show_journal()
+	elif Input.is_action_just_pressed("toggle_phone"):
+		if in_phone:
+			hide_gui("Phone")
+		else:
+			show_gui("Phone")
+		
 func close_all_guis():
 	in_gui = false
 	for key in gui_dict:
@@ -42,12 +55,10 @@ func check_for_open_guis():
 			break
 	return any_open_guis
 
-
 func show_journal(inventory_open : bool = false):
 	close_all_guis()
 	journal_instance.reset_properties()
 	inventory_showing = false
-	print("Setting journal: ", journal_instance.position)
 	object_viewer.set_preexisting_item(journal_instance)
 	Interact.set_active_subviewport(journal_instance.bookflip.page1_subviewport)
 	if inventory_open:
@@ -78,10 +89,14 @@ func show_gui(name:String):
 	hide_journal()
 	gui_dict[name].visible = true
 	in_gui = true
+	if name == "Phone":
+		in_phone = true
 	
 func hide_gui(name:String):
 	gui_dict[name].visible = false
 	in_gui = check_for_open_guis()
+	if name == "Phone":
+		in_phone = false
 
 func show_node(node:Control):
 	if node.is_in_group("gui_object"):
