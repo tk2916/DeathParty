@@ -26,6 +26,10 @@ DSP/dsp_buffer_count=4
 "3D Settings/rolloff_scale"=1.0
 General/banks_path="res://audio/fmod banks/Desktop"
 
+[animation]
+
+warnings/check_invalid_track_paths=false
+
 [application]
 
 config/name="Death Party"

@@ -130,7 +130,6 @@ func animate_npc(delta: float) -> void:
 			walk_blend = lerpf(walk_blend, 1, blend_speed * delta)
 	
 	animation_tree["parameters/Walk Blend/blend_amount"] = walk_blend
-	
 	# Rotate model
 	if current_animation == ANIMATION_STATE.WALK:
 		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
