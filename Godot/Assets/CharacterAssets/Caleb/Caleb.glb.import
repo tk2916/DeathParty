@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://csoh6pwblyomm"
-path="res://.godot/imported/Caleb.glb-11ec995b6e3d1fcc555bb70161524a2b.scn"
+path="res://.godot/imported/Caleb.glb-ed54e947809399489a65d360fe957888.scn"
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Caleb/Caleb.glb"
-dest_files=["res://.godot/imported/Caleb.glb-11ec995b6e3d1fcc555bb70161524a2b.scn"]
+source_file="res://Assets/CharacterAssets/caleb/Caleb.glb"
+dest_files=["res://.godot/imported/Caleb.glb-ed54e947809399489a65d360fe957888.scn"]
 
 [params]
 
