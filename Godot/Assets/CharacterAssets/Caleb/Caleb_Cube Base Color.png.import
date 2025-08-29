@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv0uxicmw6u0p"
-path.s3tc="res://.godot/imported/Caleb_Cube Base Color.png-dc1cfa8ea249f9776e87082bec5e1dfd.s3tc.ctex"
-path.etc2="res://.godot/imported/Caleb_Cube Base Color.png-dc1cfa8ea249f9776e87082bec5e1dfd.etc2.ctex"
+path.s3tc="res://.godot/imported/Caleb_Cube Base Color.png-ae804823ee9c8c4a04cd1531ad94681f.s3tc.ctex"
+path.etc2="res://.godot/imported/Caleb_Cube Base Color.png-ae804823ee9c8c4a04cd1531ad94681f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/caleb/Caleb_Cube Base Color.png"
-dest_files=["res://.godot/imported/Caleb_Cube Base Color.png-dc1cfa8ea249f9776e87082bec5e1dfd.s3tc.ctex", "res://.godot/imported/Caleb_Cube Base Color.png-dc1cfa8ea249f9776e87082bec5e1dfd.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/Caleb/Caleb_Cube Base Color.png"
+dest_files=["res://.godot/imported/Caleb_Cube Base Color.png-ae804823ee9c8c4a04cd1531ad94681f.s3tc.ctex", "res://.godot/imported/Caleb_Cube Base Color.png-ae804823ee9c8c4a04cd1531ad94681f.etc2.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfwvqrg2bh1s3"
-path.s3tc="res://.godot/imported/cop_cop.png-8300e9880e9ad9011996447da20ece93.s3tc.ctex"
-path.etc2="res://.godot/imported/cop_cop.png-8300e9880e9ad9011996447da20ece93.etc2.ctex"
+path.s3tc="res://.godot/imported/cop_cop.png-8c24beffa375acfda21fb0bf3cd5c1b4.s3tc.ctex"
+path.etc2="res://.godot/imported/cop_cop.png-8c24beffa375acfda21fb0bf3cd5c1b4.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/cop/cop_cop.png"
-dest_files=["res://.godot/imported/cop_cop.png-8300e9880e9ad9011996447da20ece93.s3tc.ctex", "res://.godot/imported/cop_cop.png-8300e9880e9ad9011996447da20ece93.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/Cop/cop_cop.png"
+dest_files=["res://.godot/imported/cop_cop.png-8c24beffa375acfda21fb0bf3cd5c1b4.s3tc.ctex", "res://.godot/imported/cop_cop.png-8c24beffa375acfda21fb0bf3cd5c1b4.etc2.ctex"]
 
 [params]
 
