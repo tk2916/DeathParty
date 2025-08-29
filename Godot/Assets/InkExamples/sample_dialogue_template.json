@@ -2,7 +2,7 @@
 	"inkVersion": 21.0,
 	"root": [
 		[
-			"^[] This is test dialogue",
+			"^[Unknown] This is test dialogue",
 			"\n",
 			[
 				"ev",
@@ -93,7 +93,7 @@
 					"\n",
 					"^[Olivia] That's great",
 					"\n",
-					"^[] Yay",
+					"^[Unknown] Yay",
 					"\n",
 					"end",
 					{
@@ -123,7 +123,7 @@
 					"\n",
 					"^[Olivia] Eh",
 					"\n",
-					"^[] Shut up",
+					"^[Unknown] Shut up",
 					"\n",
 					"end",
 					{

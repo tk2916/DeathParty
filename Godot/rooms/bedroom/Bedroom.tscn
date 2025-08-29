@@ -100,7 +100,7 @@ size = Vector3(1.25, 2, 0.1)
 
 [sub_resource type="Curve3D" id="Curve3D_tluma"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.909, 1.3, 1.702, 0, 0, 0, 0, 0, 0, 0, 1.6, 10.3596),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.908997, 1.3, 1.91689, 0, 0, 0, 0, 0, 0, 0, 1.6, 10.3596),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -1510,7 +1510,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8264, 1.67447, 55.9525)
 curve = SubResource("Curve3D_tluma")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.999992, 0, 0, 0, 0.999974, 0, 0, 0, 0.999987, -0.909, 1.3, 1.702)
+transform = Transform3D(0.999992, 0, 0, 0, 0.999974, 0, 0, 0, 0.999987, -0.908997, 1.3, 1.91689)
 rotation_mode = 0
 
 [node name="SceneLights" type="Node3D" parent="."]
@@ -1753,6 +1753,7 @@ transform = Transform3D(-3.8861e-08, 0, 0.889036, 0, 0.889036, 0, -0.889036, 0, 
 
 [node name="Closet" parent="." instance=ExtResource("20_yfvte")]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -2.21162, 1.15983, 1.82145)
+visible = false
 
 [node name="polySurface14" parent="Closet" index="5"]
 transform = Transform3D(1.60367e-05, 0.000101135, 5.43222e-06, 4.62205e-05, -2.41422e-06, -9.15027e-05, -9.01188e-05, 1.67588e-05, -4.59636e-05, 0.676189, -0.195626, 1.1798)
@@ -1793,9 +1794,6 @@ shadow_enabled = true
 
 [node name="Chair" parent="." instance=ExtResource("8_8bc0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96153, 0.348179, 0.0296352)
-
-[node name="ShoeRack" parent="." instance=ExtResource("9_l0p45")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76999, 0.129708, 2.03498)
 
 [node name="Bookshelf" parent="." instance=ExtResource("10_0aena")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91154, 1.17567, 3.43898)
@@ -2074,6 +2072,9 @@ skeleton = NodePath("")
 [node name="Posters" parent="Unused" instance=ExtResource("3_w0jyq")]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.866294, 1.75662, 1.98393)
 visible = false
+
+[node name="shoe rack" parent="." instance=ExtResource("9_l0p45")]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.73746, 0.162011, 2.11876)
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 

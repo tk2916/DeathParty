@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8rq8p1i25wix"]
+[gd_scene load_steps=4 format=3 uid="uid://c8rq8p1i25wix"]
 
 [ext_resource type="PackedScene" uid="uid://ccnq3piokb8b1" path="res://Assets/CharacterAssets/bartender/Bartender.glb" id="1_1fimp"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_8jnbp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8jnbp"]
 
 [node name="Bartender" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_1fimp")]
 transform = Transform3D(1.00957, 0, 0, 0, 1.0458, 0, 0, 0, 1.00957, 0, 0, 0)
@@ -156,3 +158,10 @@ bones/167/rotation = Quaternion(-0.707107, 3.40922e-09, -8.67581e-09, 0.707107)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "idle"
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.956206, 0)
+shape = SubResource("CapsuleShape3D_8jnbp")

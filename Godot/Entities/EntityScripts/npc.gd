@@ -3,7 +3,7 @@ class_name NPC extends Interactable
 var outline : Node3D
 
 @export var character_resource : CharacterResource
-@export var dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres")
+@export var dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
 @export var json_file : JSON = preload("res://Assets/InkExamples/sample_dialogue_template.json")
 
 func _ready() -> void:

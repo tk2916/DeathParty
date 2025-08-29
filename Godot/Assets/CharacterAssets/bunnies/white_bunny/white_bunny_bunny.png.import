@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://blam6vm0sxe2c"
+path.s3tc="res://.godot/imported/white_bunny_bunny.png-9281868dd4e95d06373d867cef5f09e3.s3tc.ctex"
+path.etc2="res://.godot/imported/white_bunny_bunny.png-9281868dd4e95d06373d867cef5f09e3.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "dc33f4083f75682b53eeeb291759cd21"
+}
+
+[deps]
+
+source_file="res://Assets/CharacterAssets/bunnies/white_bunny/white_bunny_bunny.png"
+dest_files=["res://.godot/imported/white_bunny_bunny.png-9281868dd4e95d06373d867cef5f09e3.s3tc.ctex", "res://.godot/imported/white_bunny_bunny.png-9281868dd4e95d06373d867cef5f09e3.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
