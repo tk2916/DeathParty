@@ -31,7 +31,7 @@ var state: States:
 				journal_controls_popup.show()
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
-				journal_controls_popup.hide()
+				queue_free()
 
 var player_prev_pos: Vector3
 
