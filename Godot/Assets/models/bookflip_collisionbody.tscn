@@ -89,7 +89,7 @@ albedo_texture = ExtResource("4_e2q15")
 [sub_resource type="BoxShape3D" id="BoxShape3D_47kpb"]
 size = Vector3(7.30997, 0.285156, 2.29163)
 
-[node name="BookflipBody" type="Node3D" node_paths=PackedStringArray("bookflip")]
+[node name="BookflipBody" type="Node3D" node_paths=PackedStringArray("bookflip") groups=["journal"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_47kpb")
 bookflip = NodePath("bookflip")

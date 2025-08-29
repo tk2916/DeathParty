@@ -34,6 +34,8 @@ var state: States:
 			States.OPEN_JOURNAL:
 				print("TUTORIAL STEP: OPEN JOURNAL")
 				journal_controls_popup.show()
+			States.USING_JOURNAL:
+				print("TUTORIAL STEP: USING JOURNAL")
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
 				exterior_scene_loader.monitoring = true
@@ -54,16 +56,16 @@ func _physics_process(delta: float) -> void:
 				$MoveControlsPopupFadeTimer.start()
 				move_controls_popup_fade_timer_started = true
 		States.UNLOCK_PHONE:
-			if Input.is_action_just_pressed("toggle_phone"):
+			if get_tree().get_first_node_in_group("phone").visible == true:
 				state += 1
 		States.USING_PHONE:
 			if get_tree().get_first_node_in_group("phone").visible == false:
 				state += 1
 		States.OPEN_JOURNAL:
-			if Input.is_action_just_pressed("toggle_journal"):
+			if get_tree().get_first_node_in_group("journal") != null:
 				state += 1
 		States.USING_JOURNAL:
-			if Input.is_action_just_pressed("toggle_journal"):
+			if get_tree().get_first_node_in_group("journal") == null:
 				state += 1
 
 
