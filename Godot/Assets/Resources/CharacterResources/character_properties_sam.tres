@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_0hub4")
 name = "Sam"
-image_torso = ExtResource("1_72q1x")
+image_polaroid = ExtResource("1_72q1x")
 name_color = ""
 text_color = ""
 character_notes = Array[String](["Sam character note", "Blah blah blah"])

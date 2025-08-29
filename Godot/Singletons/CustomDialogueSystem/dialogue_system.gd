@@ -99,6 +99,10 @@ func clear_children(container):
 		n.queue_free() 
 
 func add_new_line(current_dialogue_info : InkLineInfo, no_animation : bool = false):
+	if current_dialogue_box is MainDialogueBox:
+		current_dialogue_box.add_line(current_dialogue_info)
+		return
+		
 	var speaker = current_dialogue_info.speaker
 	
 	var newline : DialogueLine
@@ -126,11 +130,6 @@ func display_current_dialogue():
 	#clear any old dialogue
 	if dialogue_box_properties["clear_box_after_each_dialogue"]:
 		clear_children(dialogue_container)
-	#var speaker : String = ""
-	#if all_dialogues[current_dialogue_index].has("speaker"):
-	#	speaker = all_dialogues[current_dialogue_index]["speaker"]
-	#var line_text = all_dialogues[current_dialogue_index]["text"]
-	#current_conversation.push_back({"speaker": speaker, "text": line_text})
 	var current_dialogue_info : InkLineInfo = all_dialogues[0]
 	current_conversation.push_back(current_dialogue_info)
 	add_new_line(current_dialogue_info)
@@ -235,7 +234,7 @@ func match_command(text_ : String):
 				SaveSystem.set_key("die_roll_flag", false)
 	
 func advance_dialogue():
-	if current_line_label.done_state == true:
+	if current_dialogue_box is MainDialogueBox or current_line_label.done_state == true:
 			display_current_container()
 	else:
 		skip_dialogue_animation()
@@ -251,25 +250,33 @@ func _process(delta: float) -> void:
 		pressed = false
 
 func change_container(redirect:Array, choice_text:String):
+	print("Changing container")
 	are_choices = false
-	if dialogue_box_properties["clear_box_after_each_dialogue"] == false:
-		for choice in current_choice_labels:
-			choice_container.remove_child(choice)
-			choice.queue_free()
-		current_choice_labels = []
+	if !current_dialogue_box is MainDialogueBox:
+		if dialogue_box_properties["clear_box_after_each_dialogue"] == false:
+			for choice in current_choice_labels:
+				choice_container.remove_child(choice)
+				choice.queue_free()
+			current_choice_labels = []
 	Ink.make_choice(redirect)
 	display_current_container()
 
 func set_choices(choices:Array[InkChoiceInfo]):
 	are_choices = true
-	for choice : InkChoiceInfo in choices:
-		var newchoice : ChoiceButton = dialogue_box_properties.choice_button.instantiate()
-		newchoice.choice_info = choice
-		newchoice.text_properties = dialogue_box_properties
-		
-		newchoice.selected.connect(change_container)
-		choice_container.add_child(newchoice)
-		current_choice_labels.push_back(newchoice)
+	if current_dialogue_box is MainDialogueBox:
+		current_dialogue_box.set_choices(choices)
+	else:
+		for choice : InkChoiceInfo in choices:
+			if choice.jump.size() == 0:
+				#choice info text
+				continue
+			var newchoice : ChoiceButton = dialogue_box_properties.choice_button.instantiate()
+			newchoice.choice_info = choice
+			newchoice.text_properties = dialogue_box_properties
+			
+			newchoice.selected.connect(change_container)
+			choice_container.add_child(newchoice)
+			current_choice_labels.push_back(newchoice)
 
 ################################################################################################
 #JSON RELATED

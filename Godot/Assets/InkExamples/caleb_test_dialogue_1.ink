@@ -5,6 +5,7 @@ VAR knows_caleb_is_sad = false
 [Caleb] Hi!
 How's it going?
 /has_item Key has_key //will store true or false in has_key (normally stores it in has_item_flag)
+[ChoiceInfo] How are you?
 + Good -> good
 + Bad -> bad
 + {has_key} I have this weird key... //will only show up if player has key
@@ -14,7 +15,7 @@ How's it going?
 [Caleb] That's great!
 /die_roll empathy medium
 {die_roll_flag: 
-[EMPATHY: SUCCEEDED] He doesn't look so good.
+<EMPATHY: SUCCEEDED> He doesn't look so good.
 ~knows_caleb_is_sad = true
 -else:
 He smiles.

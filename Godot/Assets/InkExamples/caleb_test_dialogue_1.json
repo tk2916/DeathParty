@@ -1,1 +1,432 @@
-{"inkVersion":21,"root":[["^[Caleb] Hi!","\n","^How's it going?","\n","^/has_item Key has_key","\n",["ev",{"^->":"0.6.$r1"},{"temp=":"$r"},"str",{"->":".^.s"},[{"#n":"$r1"}],"/str","/ev",{"*":"0.c-0","flg":2},{"s":["^Good ",{"->":"$r","var":true},null]}],["ev",{"^->":"0.7.$r1"},{"temp=":"$r"},"str",{"->":".^.s"},[{"#n":"$r1"}],"/str","/ev",{"*":"0.c-1","flg":2},{"s":["^Bad ",{"->":"$r","var":true},null]}],["ev",{"^->":"0.8.$r1"},{"temp=":"$r"},"str",{"->":".^.s"},[{"#n":"$r1"}],"/str",{"VAR?":"has_key"},"/ev",{"*":"0.c-2","flg":3},{"s":["^I have this weird key... ",{"->":"$r","var":true},null]}],{"c-0":["ev",{"^->":"0.c-0.$r2"},"/ev",{"temp=":"$r"},{"->":"0.6.s"},[{"#n":"$r2"}],{"->":"good"},"\n",{"->":"0.g-0"},{"#f":5}],"c-1":["ev",{"^->":"0.c-1.$r2"},"/ev",{"temp=":"$r"},{"->":"0.7.s"},[{"#n":"$r2"}],{"->":"bad"},"\n",{"->":"0.g-0"},{"#f":5}],"c-2":["ev",{"^->":"0.c-2.$r2"},"/ev",{"temp=":"$r"},{"->":"0.8.s"},[{"#n":"$r2"}],"\n",{"->":"0.g-0"},{"#f":5}],"g-0":["done",{"#f":5}]}],"done",{"good":[["^[Olivia] I'm feeling good.","\n","^[Caleb] That's great!","\n","^/die_roll empathy medium","\n","ev",{"VAR?":"die_roll_flag"},"/ev",[{"->":".^.b","c":true},{"b":["\n","^[EMPATHY: SUCCEEDED] He doesn't look so good.","\n","ev",true,"/ev",{"VAR=":"knows_caleb_is_sad","re":true},{"->":"good.0.11"},null]}],[{"->":".^.b"},{"b":["\n","^He smiles.","\n",{"->":"good.0.11"},null]}],"nop","\n","end",["ev",{"^->":"good.0.14.$r1"},{"temp=":"$r"},"str",{"->":".^.s"},[{"#n":"$r1"}],"/str",{"VAR?":"knows_caleb_is_sad"},"/ev",{"*":".^.^.c-0","flg":3},{"s":["^Why the long face?",{"->":"$r","var":true},null]}],["ev",{"^->":"good.0.15.$r1"},{"temp=":"$r"},"str",{"->":".^.s"},[{"#n":"$r1"}],"/str","/ev",{"*":".^.^.c-1","flg":2},{"s":["^Ok, bye!",{"->":"$r","var":true},null]}],{"c-0":["ev",{"^->":"good.0.c-0.$r2"},"/ev",{"temp=":"$r"},{"->":".^.^.14.s"},[{"#n":"$r2"}],"\n","^[Caleb] Ugh life sucks. Here, have a pill.","\n","^/give_item \"Pill Bottle\"","\n","end",{"#f":5}],"c-1":["ev",{"^->":"good.0.c-1.$r2"},"/ev",{"temp=":"$r"},{"->":".^.^.15.s"},[{"#n":"$r2"}],"\n","end",{"#f":5}]}],{"#f":1}],"bad":["^[Olivia] I'm doing bad.","\n","^[Caleb] Oh no! You gotta take care of yourself. Go talk to Nora, she knows self-help things better than I do.","\n","^/give_task \"Self Help\"","\n","^/load_chat Nora self_help_nora.json","\n","end",{"#f":1}],"global decl":["ev",false,{"VAR=":"has_key"},false,{"VAR=":"die_roll_flag"},false,{"VAR=":"knows_caleb_is_sad"},"/ev","end",null],"#f":1}],"listDefs":{}}
+{
+	"inkVersion": 21.0,
+	"root": [
+		[
+			"^[Caleb] Hi!",
+			"\n",
+			"^How's it going?",
+			"\n",
+			"^/has_item Key has_key",
+			"\n",
+			"^[ChoiceInfo] How are you?",
+			"\n",
+			[
+				"ev",
+				{
+					"^->": "0.8.$r1"
+				},
+				{
+					"temp=": "$r"
+				},
+				"str",
+				{
+					"->": ".^.s"
+				},
+				[
+					{
+						"#n": "$r1"
+					}
+				],
+				"/str",
+				"/ev",
+				{
+					"*": "0.c-0",
+					"flg": 2.0
+				},
+				{
+					"s": [
+						"^Good ",
+						{
+							"->": "$r",
+							"var": true
+						},
+						null
+					]
+				}
+			],
+			[
+				"ev",
+				{
+					"^->": "0.9.$r1"
+				},
+				{
+					"temp=": "$r"
+				},
+				"str",
+				{
+					"->": ".^.s"
+				},
+				[
+					{
+						"#n": "$r1"
+					}
+				],
+				"/str",
+				"/ev",
+				{
+					"*": "0.c-1",
+					"flg": 2.0
+				},
+				{
+					"s": [
+						"^Bad ",
+						{
+							"->": "$r",
+							"var": true
+						},
+						null
+					]
+				}
+			],
+			[
+				"ev",
+				{
+					"^->": "0.10.$r1"
+				},
+				{
+					"temp=": "$r"
+				},
+				"str",
+				{
+					"->": ".^.s"
+				},
+				[
+					{
+						"#n": "$r1"
+					}
+				],
+				"/str",
+				{
+					"VAR?": "has_key"
+				},
+				"/ev",
+				{
+					"*": "0.c-2",
+					"flg": 3.0
+				},
+				{
+					"s": [
+						"^I have this weird key... ",
+						{
+							"->": "$r",
+							"var": true
+						},
+						null
+					]
+				}
+			],
+			{
+				"c-0": [
+					"ev",
+					{
+						"^->": "0.c-0.$r2"
+					},
+					"/ev",
+					{
+						"temp=": "$r"
+					},
+					{
+						"->": "0.8.s"
+					},
+					[
+						{
+							"#n": "$r2"
+						}
+					],
+					{
+						"->": "good"
+					},
+					"\n",
+					{
+						"->": "0.g-0"
+					},
+					{
+						"#f": 5.0
+					}
+				],
+				"c-1": [
+					"ev",
+					{
+						"^->": "0.c-1.$r2"
+					},
+					"/ev",
+					{
+						"temp=": "$r"
+					},
+					{
+						"->": "0.9.s"
+					},
+					[
+						{
+							"#n": "$r2"
+						}
+					],
+					{
+						"->": "bad"
+					},
+					"\n",
+					{
+						"->": "0.g-0"
+					},
+					{
+						"#f": 5.0
+					}
+				],
+				"c-2": [
+					"ev",
+					{
+						"^->": "0.c-2.$r2"
+					},
+					"/ev",
+					{
+						"temp=": "$r"
+					},
+					{
+						"->": "0.10.s"
+					},
+					[
+						{
+							"#n": "$r2"
+						}
+					],
+					"\n",
+					{
+						"->": "0.g-0"
+					},
+					{
+						"#f": 5.0
+					}
+				],
+				"g-0": [
+					"done",
+					{
+						"#f": 5.0
+					}
+				]
+			}
+		],
+		"done",
+		{
+			"good": [
+				[
+					"^[Olivia] I'm feeling good.",
+					"\n",
+					"^[Caleb] That's great!",
+					"\n",
+					"^/die_roll empathy medium",
+					"\n",
+					"ev",
+					{
+						"VAR?": "die_roll_flag"
+					},
+					"/ev",
+					[
+						{
+							"->": ".^.b",
+							"c": true
+						},
+						{
+							"b": [
+								"\n",
+								"^<EMPATHY: SUCCEEDED> He doesn't look so good.",
+								"\n",
+								"ev",
+								true,
+								"/ev",
+								{
+									"VAR=": "knows_caleb_is_sad",
+									"re": true
+								},
+								{
+									"->": "good.0.11"
+								},
+								null
+							]
+						}
+					],
+					[
+						{
+							"->": ".^.b"
+						},
+						{
+							"b": [
+								"\n",
+								"^He smiles.",
+								"\n",
+								{
+									"->": "good.0.11"
+								},
+								null
+							]
+						}
+					],
+					"nop",
+					"\n",
+					"end",
+					[
+						"ev",
+						{
+							"^->": "good.0.14.$r1"
+						},
+						{
+							"temp=": "$r"
+						},
+						"str",
+						{
+							"->": ".^.s"
+						},
+						[
+							{
+								"#n": "$r1"
+							}
+						],
+						"/str",
+						{
+							"VAR?": "knows_caleb_is_sad"
+						},
+						"/ev",
+						{
+							"*": ".^.^.c-0",
+							"flg": 3.0
+						},
+						{
+							"s": [
+								"^Why the long face?",
+								{
+									"->": "$r",
+									"var": true
+								},
+								null
+							]
+						}
+					],
+					[
+						"ev",
+						{
+							"^->": "good.0.15.$r1"
+						},
+						{
+							"temp=": "$r"
+						},
+						"str",
+						{
+							"->": ".^.s"
+						},
+						[
+							{
+								"#n": "$r1"
+							}
+						],
+						"/str",
+						"/ev",
+						{
+							"*": ".^.^.c-1",
+							"flg": 2.0
+						},
+						{
+							"s": [
+								"^Ok, bye!",
+								{
+									"->": "$r",
+									"var": true
+								},
+								null
+							]
+						}
+					],
+					{
+						"c-0": [
+							"ev",
+							{
+								"^->": "good.0.c-0.$r2"
+							},
+							"/ev",
+							{
+								"temp=": "$r"
+							},
+							{
+								"->": ".^.^.14.s"
+							},
+							[
+								{
+									"#n": "$r2"
+								}
+							],
+							"\n",
+							"^[Caleb] Ugh life sucks. Here, have a pill.",
+							"\n",
+							"^/give_item \"Pill Bottle\"",
+							"\n",
+							"end",
+							{
+								"#f": 5.0
+							}
+						],
+						"c-1": [
+							"ev",
+							{
+								"^->": "good.0.c-1.$r2"
+							},
+							"/ev",
+							{
+								"temp=": "$r"
+							},
+							{
+								"->": ".^.^.15.s"
+							},
+							[
+								{
+									"#n": "$r2"
+								}
+							],
+							"\n",
+							"end",
+							{
+								"#f": 5.0
+							}
+						]
+					}
+				],
+				{
+					"#f": 1.0
+				}
+			],
+			"bad": [
+				"^[Olivia] I'm doing bad.",
+				"\n",
+				"^[Caleb] Oh no! You gotta take care of yourself. Go talk to Nora, she knows self-help things better than I do.",
+				"\n",
+				"^/give_task \"Self Help\"",
+				"\n",
+				"^/load_chat Nora self_help_nora.json",
+				"\n",
+				"end",
+				{
+					"#f": 1.0
+				}
+			],
+			"global decl": [
+				"ev",
+				false,
+				{
+					"VAR=": "has_key"
+				},
+				false,
+				{
+					"VAR=": "die_roll_flag"
+				},
+				false,
+				{
+					"VAR=": "knows_caleb_is_sad"
+				},
+				"/ev",
+				"end",
+				null
+			],
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
+}
