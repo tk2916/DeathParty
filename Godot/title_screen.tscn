@@ -1124,7 +1124,7 @@ scale = Vector2(0.37, 0.37)
 texture = ExtResource("1_v6p8y")
 stretch_mode = 4
 
-[node name="Button" type="Button" parent="FadeThisOut"]
+[node name="StartGameButton" type="Button" parent="FadeThisOut"]
 layout_mode = 0
 offset_left = 528.0
 offset_top = 327.0

@@ -47,6 +47,7 @@ func _on_scene_loader_body_entered(body: Node3D) -> void:
 
 
 func _on_play() -> void:
+	title_screen.find_child("StartGameButton").visible = false
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(fade_title, "modulate:a", 0, 1.3)
 	await tween.finished
