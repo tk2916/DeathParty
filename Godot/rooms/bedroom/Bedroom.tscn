@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=178 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -98,6 +98,9 @@ size = Vector3(1.25, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbwcx"]
 size = Vector3(1.25, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_84fnt"]
+size = Vector3(5, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
 size = Vector3(17.9089, 3.18161, 0.503846)
@@ -1460,7 +1463,8 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
-[node name="TutorialUI" parent="." instance=ExtResource("3_84fnt")]
+[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader") instance=ExtResource("3_84fnt")]
+exterior_scene_loader = NodePath("../SceneLoader_Exterior")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109923, 1.47272, 3.11237)
@@ -1505,10 +1509,15 @@ shape = SubResource("BoxShape3D_7octt")
 transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -2.002, 0.889039, 4.33741)
 shape = SubResource("BoxShape3D_qbwcx")
 
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 1.23198e-07, 0, 1, 0, -1.23198e-07, 0, 1, -0.223922, 0.889039, 4.24851)
+shape = SubResource("BoxShape3D_84fnt")
+
 [node name="SceneLoader_Exterior" type="Area3D" parent="."]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.816608, -0.0933874, 5.45903)
 collision_layer = 2
 collision_mask = 2
+monitoring = false
 script = ExtResource("26_mav1h")
 scene_going_right = "Exterior"
 scene_going_left = "Exterior"

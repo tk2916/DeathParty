@@ -1,13 +1,18 @@
 extends CanvasLayer
 
 
+@export var exterior_scene_loader: SceneLoader
+
 @onready var move_controls_popup: PanelContainer = %MoveControlsPopup
 @onready var phone_controls_popup: PanelContainer = %PhoneControlsPopup
 @onready var journal_controls_popup: PanelContainer = %JournalControlsPopup
 
 var player: Player
 
-enum States {INTRO, WALK, UNLOCK_PHONE, USING_PHONE, OPEN_JOURNAL, TUTORIAL_FINISHED}
+enum States {
+	INTRO, WALK, UNLOCK_PHONE, USING_PHONE,
+	OPEN_JOURNAL, USING_JOURNAL, TUTORIAL_FINISHED
+	}
 
 var state: States:
 	set(new_state):
@@ -31,6 +36,7 @@ var state: States:
 				journal_controls_popup.show()
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
+				exterior_scene_loader.monitoring = true
 				queue_free()
 
 var move_controls_popup_fade_timer_started := false
@@ -54,6 +60,9 @@ func _physics_process(delta: float) -> void:
 			if get_tree().get_first_node_in_group("phone").visible == false:
 				state += 1
 		States.OPEN_JOURNAL:
+			if Input.is_action_just_pressed("toggle_journal"):
+				state += 1
+		States.USING_JOURNAL:
 			if Input.is_action_just_pressed("toggle_journal"):
 				state += 1
 
