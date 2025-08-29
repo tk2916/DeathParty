@@ -7,9 +7,8 @@ enum States {INTRO, WALK, UNLOCK_PHONE}
 
 var state: States:
 	set(new_state):
-		state = new_state
 
-		match state:
+		match new_state:
 			States.INTRO:
 				print("TUTORIAL STEP: INTRO")
 				player.movement_disabled = true
