@@ -19,7 +19,6 @@ var cell_grids : Dictionary[String, Vector3] = {
 	"Basement" = Vector3(1,1,1),
 	"Kitchen" = Vector3(1,1,1),
 	"Exterior" = Vector3(10,1,10),
-	#"Exterior" = Vector3(1,1,1),
 }
 
 @onready var tree : SceneTree = get_tree()

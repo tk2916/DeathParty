@@ -61,13 +61,14 @@ func load_in() -> Node3D:
 
 func offload() -> void:
 	#might not be offloaded bc another cell is still active
-	var deactivate : bool = true
-	for cell : Cell in owner_cells:
-		if cell.active == true:
-			deactivate = false
-			break
-	if !deactivate: return
-	#print("Offloading existing node: ", name, " ", parent_obj.name, " ", instance)
+	if toggled:
+		#if toggled, we check if it's active in another cell
+		var deactivate : bool = true
+		for cell : Cell in owner_cells:
+			if cell.active == true:
+				deactivate = false
+				break
+		if !deactivate: return
 	super()
 
 func load_async(loading_in : bool = true) -> void:

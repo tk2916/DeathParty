@@ -25,7 +25,7 @@ func _init(
 	save_properties()
 	target_scene_name = name.substr(12)
 
-func load_in(max_objects_per_frame : int = 10000) -> Node3D:
+func load_in() -> Node3D:
 	await super()
 	loader = instance as SceneLoader
 	load_properties()

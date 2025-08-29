@@ -12,6 +12,7 @@ var parent_obj : GameObject
 var local_path : NodePath
 
 var active : bool = false
+var toggled : bool = true
 var child_objects : Array[GameObject]
 var max_objects_per_frame : int = 10000
 
@@ -104,6 +105,12 @@ func find_child_scenes(
 					parent_obj,
 				)
 				scene.scene_loader_dict[obj.name] = new_obj
+			elif obj is NPC:
+				new_obj = NPCData.new(
+					scene,
+					obj,
+					parent_obj,
+				)
 			else:
 				var visual_node : VisualInstance3D = Utils.find_first_child_of_class(obj, VisualInstance3D)
 				if visual_node == null: continue
