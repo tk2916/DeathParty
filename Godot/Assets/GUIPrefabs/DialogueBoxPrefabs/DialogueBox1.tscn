@@ -21,7 +21,7 @@
 shader = ExtResource("1_fwn3t")
 shader_parameter/multiplier = 0.5
 
-[node name="DialogueBox1" type="Control" node_paths=PackedStringArray("protag_talking_setup", "npc_talking_setup", "choices_setup")]
+[node name="DialogueBox1" type="Control" node_paths=PackedStringArray("protag_talking_setup", "protag_dialogue_backer", "npc_talking_setup", "npc_dialogue_backer", "choices_setup", "choice_left", "choice_right", "choice_up", "choice_down", "choice_info", "protag_text_label", "npc_text_label", "protag_speaker_image_label", "npc_speaker_image_label", "protag_previous_speaker_image_label", "npc_previous_speaker_image_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,10 +30,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lu3tv")
 protag_talking_setup = NodePath("ProtagonistSpeaking")
+protag_dialogue_backer = NodePath("ProtagonistSpeaking/DialogueBacker")
 npc_talking_setup = NodePath("NPCSpeaking")
+npc_dialogue_backer = NodePath("NPCSpeaking/DialogueBacker")
 choices_setup = NodePath("Choices")
+choice_left = NodePath("Choices/AspectRatioContainer/Control/ChoiceLeft")
+choice_right = NodePath("Choices/AspectRatioContainer/Control/ChoiceRight")
+choice_up = NodePath("Choices/AspectRatioContainer/Control/ChoiceUp")
+choice_down = NodePath("Choices/AspectRatioContainer/Control/ChoiceDown")
+choice_info = NodePath("Choices/AspectRatioContainer/Control/ChoiceInfo")
+protag_text_label = NodePath("ProtagonistSpeaking/DialogueBacker/ScrollContainer/RichTextLabel")
+npc_text_label = NodePath("NPCSpeaking/DialogueBacker/ScrollContainer/RichTextLabel")
+protag_speaker_image_label = NodePath("ProtagonistSpeaking/CharacterImage")
+npc_speaker_image_label = NodePath("NPCSpeaking/CharacterImage")
+protag_previous_speaker_image_label = NodePath("ProtagonistSpeaking/LastCharacterImage")
+npc_previous_speaker_image_label = NodePath("NPCSpeaking/LastCharacterImage")
 
 [node name="Choices" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_left = 0.192
 anchor_top = 0.321
@@ -269,7 +283,6 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="DialogueBacker" type="TextureRect" parent="ProtagonistSpeaking"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.212
@@ -286,10 +299,10 @@ stretch_mode = 5
 [node name="ScrollContainer" type="ScrollContainer" parent="ProtagonistSpeaking/DialogueBacker"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.189
-anchor_top = 0.254
+anchor_left = 0.207
+anchor_top = 0.289
 anchor_right = 0.86
-anchor_bottom = 0.772
+anchor_bottom = 0.754
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -308,16 +321,15 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.38
 anchor_right = 0.278
-anchor_bottom = 1.0
+anchor_bottom = 0.918
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_u1ixr")
-expand_mode = 3
+expand_mode = 1
 stretch_mode = 5
 
 [node name="NPCSpeaking" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -359,8 +371,8 @@ stretch_mode = 5
 [node name="ScrollContainer" type="ScrollContainer" parent="NPCSpeaking/DialogueBacker"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.084
-anchor_top = 0.254
+anchor_left = 0.106
+anchor_top = 0.293
 anchor_right = 0.746
 anchor_bottom = 0.772
 grow_horizontal = 2
@@ -382,12 +394,12 @@ anchors_preset = -1
 anchor_left = 0.694
 anchor_top = 0.38
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.918
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_u1ixr")
-expand_mode = 3
+expand_mode = 1
 stretch_mode = 5
 
 [connection signal="mouse_entered" from="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" method="_on_mouse_entered"]

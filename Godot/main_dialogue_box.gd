@@ -1,12 +1,27 @@
 class_name MainDialogueBox extends DialogueBoxProperties
 
 @export var protag_talking_setup : Control
-@onready var protag_dialogue_backer : Control = protag_talking_setup.get_node("DialogueBacker")
+@export var protag_dialogue_backer : Control
 
 @export var npc_talking_setup : Control
-@onready var npc_dialogue_backer : Control = npc_talking_setup.get_node("DialogueBacker")
+@export var npc_dialogue_backer : Control
 
 @export var choices_setup : Control
+
+@export var choice_left : TextureRect 
+@export var choice_right : TextureRect 
+@export var choice_up : TextureRect 
+@export var choice_down : TextureRect 
+@export var choice_info : RichTextLabel
+
+@export var protag_text_label : RichTextLabel
+@export var npc_text_label : RichTextLabel
+
+@export var protag_speaker_image_label : TextureRect
+@export var npc_speaker_image_label : TextureRect
+
+@export var protag_previous_speaker_image_label : TextureRect
+@export var npc_previous_speaker_image_label : TextureRect
 
 var current_speaker : CharacterResource
 var previous_speaker : CharacterResource
@@ -14,12 +29,6 @@ var previous_speaker : CharacterResource
 var text_label : RichTextLabel
 var speaker_image_label : TextureRect
 var previous_speaker_image_label : TextureRect
-
-@onready var choice_left : TextureRect = $Choices/AspectRatioContainer/Control/ChoiceLeft
-@onready var choice_right : TextureRect = $Choices/AspectRatioContainer/Control/ChoiceRight
-@onready var choice_up : TextureRect = $Choices/AspectRatioContainer/Control/ChoiceUp
-@onready var choice_down : TextureRect = $Choices/AspectRatioContainer/Control/ChoiceDown
-@onready var choice_info : RichTextLabel = $Choices/AspectRatioContainer/Control/ChoiceInfo
 
 class LocalChoiceButton:
 	var info : InkChoiceInfo
@@ -43,12 +52,18 @@ var UI_STATES : Dictionary[String, String] = {
 	CHOICES = "Choices",
 }
 
-var current_ui_state : String = UI_STATES.PROTAG_SPEAKER
+var current_ui_state : String
 
-func assign_nodes(parent : Control):
-	text_label = parent.get_node("DialogueBacker/ScrollContainer/RichTextLabel")
-	speaker_image_label = parent.get_node("CharacterImage")
-	previous_speaker_image_label = parent.get_node("LastCharacterImage")
+func assign_nodes():
+	if current_ui_state != UI_STATES.NPC_SPEAKER:
+		text_label = protag_text_label
+		speaker_image_label = protag_speaker_image_label
+		previous_speaker_image_label = protag_previous_speaker_image_label
+	else:
+		text_label = npc_text_label
+		speaker_image_label = npc_speaker_image_label
+		previous_speaker_image_label = npc_previous_speaker_image_label
+	print("Assigned text_label: ", text_label)
 
 func set_ui_state(ui_state : String):
 	current_ui_state = ui_state
@@ -60,8 +75,6 @@ func set_ui_state(ui_state : String):
 		npc_talking_setup.visible = false
 		
 		choices_setup.visible = false
-		
-		assign_nodes(protag_talking_setup)
 	elif ui_state == UI_STATES.NPC_SPEAKER:
 		protag_talking_setup.visible = false
 		npc_talking_setup.visible = true
@@ -69,8 +82,6 @@ func set_ui_state(ui_state : String):
 		npc_dialogue_backer.visible = true
 		
 		choices_setup.visible = false
-		
-		assign_nodes(npc_talking_setup)
 	elif ui_state == UI_STATES.CHOICES:
 		protag_talking_setup.visible = true
 		npc_talking_setup.visible = false
@@ -80,35 +91,33 @@ func set_ui_state(ui_state : String):
 		
 		choices_setup.visible = true
 		
-func _ready() -> void:
-	set_ui_state(UI_STATES.PROTAG_SPEAKER)
-		
-func add_line(line : InkLineInfo) -> void:
-	current_speaker = SaveSystem.character_to_resource[line.speaker]
-	if (
-		current_speaker != previous_speaker
-		 or current_ui_state == UI_STATES.CHOICES
-	):
-		if current_speaker.name == "Olivia":
-			set_ui_state(UI_STATES.PROTAG_SPEAKER)
-		else:
-			set_ui_state(UI_STATES.NPC_SPEAKER)
-		
-		if current_speaker.image_polaroid_popout:
-			speaker_image_label.texture = current_speaker.image_polaroid_popout
-		else:
-			speaker_image_label.texture = current_speaker.image_polaroid
-		
-		if previous_speaker:
-			print("Set previous speaker image label")
-			previous_speaker_image_label.texture = previous_speaker.image_polaroid
+	assign_nodes()
+	print("Current speaker: ", current_speaker.name)
+	#if current_ui_state != UI_STATES.CHOICES:
+	if current_speaker.image_polaroid_popout:
+		speaker_image_label.texture = current_speaker.image_polaroid_popout
+	else:
+		speaker_image_label.texture = current_speaker.image_polaroid
+	
+	if previous_speaker and current_ui_state != UI_STATES.NPC_SPEAKER:
+		print("Set previous speaker image label: ", previous_speaker)
+		previous_speaker_image_label.texture = previous_speaker.image_polaroid
 		
 	previous_speaker = current_speaker
 		
+func add_line(line : InkLineInfo) -> void:
+	current_speaker = SaveSystem.character_to_resource[line.speaker]
+	if current_speaker.name == "Olivia":
+		set_ui_state(UI_STATES.PROTAG_SPEAKER)
+	else:
+		set_ui_state(UI_STATES.NPC_SPEAKER)
+	
+	print("Line: ", line, line.text, "  ", text_label)
 	text_label.text = "[color=black]"+line.text+"[/color]"
 
 func set_choices(choices : Array[InkChoiceInfo]) -> void:
-	print("Got choices: ", choices[0].text)
+	current_speaker = SaveSystem.character_to_resource["Olivia"]
+	print("Got choices: ", choices)
 	set_ui_state(UI_STATES.CHOICES)
 	var choice_rects : Array[TextureRect] = [choice_down, choice_up, choice_right, choice_left]
 	for choice : InkChoiceInfo in choices:

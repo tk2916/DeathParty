@@ -90,6 +90,7 @@ func setDialogueBox(new_resource : DialogueBoxResource):
 	current_dialogue_box.visible = false
 	dialogue_box_properties = new_resource
 	canvas_layer.add_child(current_dialogue_box)
+	await current_dialogue_box.ready
 	#Transfer all properties over
 	transferBoxProperties()
 
@@ -157,7 +158,7 @@ func load_convo(target_name : String, json_name : String, phone_conversation : b
 		target_resource = SaveSystem.phone_chat_to_resource[target_name]
 	else:
 		target_resource = SaveSystem.character_to_resource[target_name]
-	print("Target resource: ", target_resource)
+	#print("Target resource: ", target_resource)
 	target_resource.load_chat(json_file)
 
 func match_command(text_ : String):

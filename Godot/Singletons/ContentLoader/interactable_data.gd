@@ -21,7 +21,6 @@ func _init(_name : String, _file : PackedScene, _interactable : Interactable) ->
 
 func load_in(_parent_scene : Node3D):
 	active = true
-	print("Loading in ", name)
 	parent_scene = _parent_scene
 	interactable = file.instantiate() as Interactable
 	assert(interactable != null, name + " doesn't have the NPC/Interactable script attached to it in its base scene!")
@@ -67,7 +66,6 @@ func offload():
 			break
 	if !deactivate: return
 	active = false
-	print("Offloading interactable ", name)
 	if parent_scene and interactable:
 		parent_scene.remove_child.call_deferred(interactable)
 		interactable.queue_free()

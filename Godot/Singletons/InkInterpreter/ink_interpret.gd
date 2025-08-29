@@ -546,6 +546,7 @@ func reset_defaults(saved_ink_resource : InkResource) -> void:#resume_from_hiera
 		rsc[key] = saved_ink_resource[key]
 		##print("Setting key ", key, " to value ", rsc[key])
 	
+	last_speaker = ""
 	rsc.player_choices = []
 	rsc.output_stream = []
 	#print("resetting defaults: ", rsc.output_stream)
