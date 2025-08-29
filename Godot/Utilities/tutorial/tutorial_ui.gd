@@ -3,10 +3,11 @@ extends CanvasLayer
 
 @onready var move_controls_popup: PanelContainer = %MoveControlsPopup
 @onready var phone_controls_popup: PanelContainer = %PhoneControlsPopup
+@onready var journal_controls_popup: PanelContainer = %JournalControlsPopup
 
 var player: Player
 
-enum States {INTRO, WALK, UNLOCK_PHONE, OPEN_TEXTS}
+enum States {INTRO, WALK, UNLOCK_PHONE, USING_PHONE, OPEN_JOURNAL, TUTORIAL_FINISHED}
 
 var state: States:
 	set(new_state):
@@ -22,8 +23,15 @@ var state: States:
 				print("TUTORIAL STEP: UNLOCK PHONE")
 				move_controls_popup.hide()
 				phone_controls_popup.show()
-			States.OPEN_TEXTS:
+			States.USING_PHONE:
+				print("TUTORIAL STEP: USING PHONE")
 				phone_controls_popup.hide()
+			States.OPEN_JOURNAL:
+				print("TUTORIAL STEP: OPEN JOURNAL")
+				journal_controls_popup.show()
+			States.TUTORIAL_FINISHED:
+				print("TUTORIAL STEP: FINISHED")
+				journal_controls_popup.hide()
 
 var player_prev_pos: Vector3
 
@@ -59,5 +67,4 @@ func _on_bedroom_intro_finished() -> void:
 
 
 func _on_move_control_popup_fade_timer_timeout() -> void:
-	print("MOVE CONTROLS POPUP FADE TIMER ENDED")
 	state += 1
