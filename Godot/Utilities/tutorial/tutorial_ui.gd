@@ -6,7 +6,7 @@ extends CanvasLayer
 
 var player: Player
 
-enum States {INTRO, WALK, UNLOCK_PHONE}
+enum States {INTRO, WALK, UNLOCK_PHONE, OPEN_TEXTS}
 
 var state: States:
 	set(new_state):
@@ -22,6 +22,8 @@ var state: States:
 				print("TUTORIAL STEP: UNLOCK PHONE")
 				move_controls_popup.hide()
 				phone_controls_popup.show()
+			States.OPEN_TEXTS:
+				phone_controls_popup.hide()
 
 var player_prev_pos: Vector3
 
@@ -39,6 +41,9 @@ func _physics_process(delta: float) -> void:
 			if player.player_velocity != Vector3.ZERO and not move_controls_popup_fade_timer_started:
 				$MoveControlsPopupFadeTimer.start()
 				move_controls_popup_fade_timer_started = true
+		States.UNLOCK_PHONE:
+			if Input.is_action_just_pressed("toggle_phone"):
+				state += 1
 
 
 func on_finished_loading() -> void:
