@@ -35,8 +35,8 @@ func _physics_process(delta: float) -> void:
 
 
 func on_finished_loading() -> void:
-	$Timer.start()
-	await $Timer.timeout
+	$LoadingTimer.start()
+	await $LoadingTimer.timeout
 	player = get_tree().get_first_node_in_group("player")
 	player.movement_disabled = true
 	state = States.INTRO
