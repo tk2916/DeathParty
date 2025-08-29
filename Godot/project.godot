@@ -85,6 +85,8 @@ material_tile=""
 material_grass=""
 material_concrete=""
 material_carpet=""
+phone=""
+journal=""
 
 [gui]
 

@@ -8,6 +8,8 @@ extends Room3D
 @onready var music: FmodEventEmitter3D = %Music
 @onready var look_straight: Vector3 = Vector3(path_follow_node.global_position.x, path_follow_node.global_position.y, -basis.z.z)
 
+signal intro_finished
+
 
 func _ready() -> void:
 	super()
@@ -45,6 +47,7 @@ func _on_scene_loader_body_entered(body: Node3D) -> void:
 
 
 func _on_play() -> void:
+	title_screen.find_child("StartGameButton").visible = false
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(fade_title, "modulate:a", 0, 1.3)
 	await tween.finished
@@ -57,3 +60,4 @@ func _on_play() -> void:
 	await tween2.finished
 	
 	GlobalCameraScript.camera_on_player.emit(true)
+	intro_finished.emit()
