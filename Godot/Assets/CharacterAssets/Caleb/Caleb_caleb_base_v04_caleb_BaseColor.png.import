@@ -3,20 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3jptgx5to1yj"
-path.s3tc="res://.godot/imported/Caleb_caleb_base_v04_caleb_BaseColor.png-1a24f1f513c11889fb91b669bd8cc989.s3tc.ctex"
-path.etc2="res://.godot/imported/Caleb_caleb_base_v04_caleb_BaseColor.png-1a24f1f513c11889fb91b669bd8cc989.etc2.ctex"
+path.s3tc="res://.godot/imported/Caleb_caleb_base_v04_caleb_BaseColor.png-2f1da47fce5410315de7e38eb3d05075.s3tc.ctex"
+path.etc2="res://.godot/imported/Caleb_caleb_base_v04_caleb_BaseColor.png-2f1da47fce5410315de7e38eb3d05075.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "1b978421022cdace6e9ce63743b52885"
+"md5": "0f6809ba2aaccc74d5770c97526b9b95"
 }
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Caleb/Caleb_caleb_base_v04_caleb_BaseColor.png"
-dest_files=["res://.godot/imported/Caleb_caleb_base_v04_caleb_BaseColor.png-1a24f1f513c11889fb91b669bd8cc989.s3tc.ctex", "res://.godot/imported/Caleb_caleb_base_v04_caleb_BaseColor.png-1a24f1f513c11889fb91b669bd8cc989.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/caleb/Caleb_caleb_base_v04_caleb_BaseColor.png"
+dest_files=["res://.godot/imported/Caleb_caleb_base_v04_caleb_BaseColor.png-2f1da47fce5410315de7e38eb3d05075.s3tc.ctex", "res://.godot/imported/Caleb_caleb_base_v04_caleb_BaseColor.png-2f1da47fce5410315de7e38eb3d05075.etc2.ctex"]
 
 [params]
 

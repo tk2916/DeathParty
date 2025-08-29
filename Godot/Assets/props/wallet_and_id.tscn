@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://rjlwmibbgl3v"]
+
+[ext_resource type="PackedScene" uid="uid://dyu7jnww1pkd6" path="res://rooms/Exterior Frat Lawn/wallet and ID.glb" id="1_704gp"]
+
+[node name="wallet and ID" instance=ExtResource("1_704gp")]

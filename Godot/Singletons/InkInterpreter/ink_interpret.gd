@@ -4,7 +4,7 @@ extends Node
 var rsc : Resource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
 
 func match_hierarchies(h1:Array, h2:Array) -> bool:
-	var matching = true
+	var matching : bool = true
 	if (h1.size() != h2.size()):
 		matching = false
 	else:
@@ -14,7 +14,7 @@ func match_hierarchies(h1:Array, h2:Array) -> bool:
 				break
 	return matching
 func already_chosen(h1:Array) -> bool:
-	for h in rsc.disappearing_choices:
+	for h : Array in rsc.disappearing_choices:
 		if match_hierarchies(h, h1):
 			return true
 	return false
@@ -303,9 +303,12 @@ func break_up_dialogue(dialogue:String) -> InkLineInfo:
 			break
 		if recording_name:
 			char_name = char_name + c
-			
+	
+	#[Choice] means you are prefixing choice summary
 	if char_name.length() == 0:
 		char_name = last_speaker
+	elif char_name == "ChoiceInfo":
+		char_name = "ChoiceInfo"
 	else:
 		last_speaker = char_name
 		
@@ -408,9 +411,14 @@ func next_line() -> int:
 			if rsc.string_evaluation_mode: #string eval mode takes precedence
 				rsc.string_eval_stream = rsc.string_eval_stream + next
 			else:
-				var diag_dict = break_up_dialogue(next) #returns {"speaker":char_name, "text":dialogue_text}
-				rsc.output_stream.push_back(diag_dict)
-				return 200
+				var diag_dict : InkLineInfo = break_up_dialogue(next) #returns {"speaker":char_name, "text":dialogue_text}
+				if diag_dict.speaker == "ChoiceInfo":
+					var choice_info : InkChoiceInfo = InkChoiceInfo.new(diag_dict.text, [])
+					rsc.player_choices.push_back(choice_info)
+					return 0
+				else:
+					rsc.output_stream.push_back(diag_dict)
+					return 200
 				
 	if rsc.evaluation_mode:
 		if ALL_OPERATORS.has(next):
@@ -538,6 +546,7 @@ func reset_defaults(saved_ink_resource : InkResource) -> void:#resume_from_hiera
 		rsc[key] = saved_ink_resource[key]
 		##print("Setting key ", key, " to value ", rsc[key])
 	
+	last_speaker = ""
 	rsc.player_choices = []
 	rsc.output_stream = []
 	#print("resetting defaults: ", rsc.output_stream)

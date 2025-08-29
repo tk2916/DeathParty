@@ -1,11 +1,18 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://clfvsvp2igosb"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=3 format=3 uid="uid://clfvsvp2igosb"]
 
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="1_5gmr0"]
+[ext_resource type="Texture2D" uid="uid://bkno37ppvgphk" path="res://Assets/CharacterAssets/sam/polaroid_sam.png" id="1_6xwvt"]
 
 [resource]
 script = ExtResource("1_5gmr0")
 name = "Caleb"
+image_polaroid = ExtResource("1_6xwvt")
+image_polaroid_popout = ExtResource("1_6xwvt")
 name_color = ""
 text_color = ""
 character_notes = Array[String]([])
 character_description = ""
+profile_tag = "@profiletag123"
+profile_quote = "inspirational quote goes here."
+profile_join_date = "Month 8, 20XX"
+profile_friends = 359

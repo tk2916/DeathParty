@@ -101,7 +101,6 @@ func interactable_on_load(interactable : Interactable) -> void:
 ##LOADING -------------------------------
 
 func load_in() -> Node3D:
-	print("Loading in ", name)
 	active = true
 	instance = file.instantiate()
 	instance.ready.connect(func() -> void:

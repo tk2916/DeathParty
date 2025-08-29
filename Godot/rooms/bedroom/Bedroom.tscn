@@ -1818,9 +1818,6 @@ shadow_enabled = true
 [node name="Chair" parent="." instance=ExtResource("8_8bc0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96153, 0.348179, 0.0296352)
 
-[node name="ShoeRack" parent="." instance=ExtResource("9_l0p45")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76999, 0.129708, 2.03498)
-
 [node name="Bookshelf" parent="." instance=ExtResource("10_0aena")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91154, 1.17567, 3.43898)
 
@@ -2098,6 +2095,9 @@ skeleton = NodePath("")
 [node name="Posters" parent="Unused" instance=ExtResource("3_w0jyq")]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.866294, 1.75662, 1.98393)
 visible = false
+
+[node name="shoe rack" parent="." instance=ExtResource("9_l0p45")]
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.73746, 0.162011, 2.11876)
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="SceneLoader_Exterior" to="." method="_on_scene_loader_body_entered"]

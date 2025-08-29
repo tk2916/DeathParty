@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://k3sqairh3uh4"]
+
+[ext_resource type="PackedScene" uid="uid://dpfcftvjayo2k" path="res://Assets/CharacterAssets/frat_boys/blond_frat_boy/blond_frat_boy.glb" id="1_oqk65"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_kafxj"]
+[ext_resource type="Resource" uid="uid://bpephsvb7c542" path="res://Assets/Resources/CharacterResources/character_properties_otherguy.tres" id="3_5ya0h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2erb7"]
+
+[node name="BlondFratBoy" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_oqk65")]
+transform = Transform3D(1.23102, 0, 0, 0, 1.23102, 0, 0, 0, 1.23102, 0, 0, 0)
+script = ExtResource("2_kafxj")
+character_resource = ExtResource("3_5ya0h")
+primary_mesh = NodePath("model/Skeleton3D/Chest_Bow_002")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.812334, 0)
+shape = SubResource("CapsuleShape3D_2erb7")

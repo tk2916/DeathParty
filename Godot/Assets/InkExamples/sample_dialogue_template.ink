@@ -1,10 +1,10 @@
-[] This is test dialogue
+[Unknown] This is test dialogue
 
 * Nice
 [Olivia] That's great
-[] Yay
+[Unknown] Yay
 -> END
 * So boring
 [Olivia] Eh
-[] Shut up
+[Unknown] Shut up
 -> END

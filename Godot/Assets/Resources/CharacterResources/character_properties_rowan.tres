@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_toiu1")
 name = "Rowan"
-image_torso = ExtResource("1_d86ht")
+image_polaroid = ExtResource("1_d86ht")
 name_color = ""
 text_color = ""
 character_notes = Array[String]([])
