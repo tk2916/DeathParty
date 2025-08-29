@@ -8,6 +8,8 @@ extends Room3D
 @onready var music: FmodEventEmitter3D = %Music
 @onready var look_straight: Vector3 = Vector3(path_follow_node.global_position.x, path_follow_node.global_position.y, -basis.z.z)
 
+signal intro_finished
+
 
 func _ready() -> void:
 	super()
@@ -57,3 +59,4 @@ func _on_play() -> void:
 	await tween2.finished
 	
 	GlobalCameraScript.camera_on_player.emit(true)
+	intro_finished.emit()

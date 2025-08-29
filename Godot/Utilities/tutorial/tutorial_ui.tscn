@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctn3kb2kouu4x"]
+
+[ext_resource type="Script" uid="uid://db2he2dcccelj" path="res://Utilities/tutorial/tutorial_ui.gd" id="1_lunjo"]
+
+[node name="TutorialUI" type="CanvasLayer"]
+script = ExtResource("1_lunjo")
