@@ -21,6 +21,10 @@ func create_clickable_item(
 	else:
 		static_body = ClickableInventoryItem.new(item_resource)
 	
+	var mesh_children : Array[Node] = Utils.get_descendants(item, [MeshInstance3D], false)
+	for mesh : MeshInstance3D in mesh_children:
+		fix_materials(mesh)
+	
 	print("STATIC BODY SCALE: ", static_body.scale)
 	static_body.name = item_resource.name
 	var collision_shape : CollisionShape3D = CollisionShape3D.new()
@@ -37,6 +41,14 @@ func create_clickable_item(
 	item.rotate(Vector3(0,1,0), deg_to_rad(180))
 	
 	return static_body
+
+#When duplicating, materials get messed up
+func fix_materials(mesh : MeshInstance3D):
+	if not mesh.mesh: return
+	# Copy materials from the original mesh's surfaces
+	for i in range(mesh.mesh.get_surface_count()):
+		var material = mesh.get_active_material(i)
+		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
 func show_item_details(
 	item_resource : InventoryItemResource, 
