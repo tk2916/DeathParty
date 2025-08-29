@@ -45,27 +45,12 @@ json_file2 = SubResource("Resource_a6jrf")
 visible = false
 player = NodePath("../Player")
 party_room_music = NodePath("../PartyRoomMusic")
-game_ui = NodePath("../CanvasLayer/BasicGUI")
+game_ui = NodePath("")
 teleport_button_scene = ExtResource("5_xuqvo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-
-[node name="BasicGUI" parent="CanvasLayer" instance=ExtResource("18_getpj")]
-
-[node name="Button" parent="CanvasLayer/BasicGUI/Panel2/Panel2" index="1" node_paths=PackedStringArray("show_element")]
-script = ExtResource("22_lswn8")
-show_element = NodePath("../../../../TestInventory")
-
-[node name="Button4" parent="CanvasLayer/BasicGUI/Panel2/Panel4" index="1" node_paths=PackedStringArray("show_element")]
-show_element = NodePath("../../../../Phone")
-
-[node name="ColorRect" parent="CanvasLayer/BasicGUI" index="1"]
-visible = false
-
-[node name="TextureRect" parent="CanvasLayer/BasicGUI/ColorRect" index="0"]
-texture = null
 
 [node name="Phone" parent="CanvasLayer" groups=["gui_object"] instance=ExtResource("20_d13ii")]
 visible = false
@@ -187,12 +172,10 @@ autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 
-[connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
 [connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
 [connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
 
-[editable path="CanvasLayer/BasicGUI"]
 [editable path="PolaroidCamera"]
 [editable path="Polaroid"]
 [editable path="ObjectViewerCanvasLayer"]
