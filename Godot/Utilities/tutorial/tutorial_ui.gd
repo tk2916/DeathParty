@@ -1,36 +1,27 @@
 extends CanvasLayer
 
 
-@onready var player: Player = get_tree().get_first_node_in_group("player")
+var player: Player
 
 enum States {INTRO, WALK, UNLOCK_PHONE}
 
 var state: States:
 	set(new_state):
-		var previous_state: States = state
-
 		match new_state:
 			States.INTRO:
 				print("TUTORIAL STEP: INTRO")
-				player.movement_disabled = true
-
 			States.WALK:
 				print("TUTORIAL STEP: WALK")
-
+				player.movement_disabled = false
 			States.UNLOCK_PHONE:
 				print("TUTORIAL STEP: UNLOCK PHONE")
-
-		match previous_state:
-			States.INTRO:
-				player.movement_disabled = false
-
 
 var player_prev_pos: Vector3
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	state = States.INTRO
+	ContentLoader.finished_loading.connect(on_finished_loading)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,6 +34,13 @@ func _physics_process(delta: float) -> void:
 			player_prev_pos = player_current_pos
 
 
+func on_finished_loading() -> void:
+	$Timer.start()
+	await $Timer.timeout
+	player = get_tree().get_first_node_in_group("player")
+	player.movement_disabled = true
+	state = States.INTRO
+
+
 func _on_bedroom_intro_finished() -> void:
-	print("INTRO FINISHED SIGNAL RECEIVED")
 	state += 1
