@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=28 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://vkp1p25gspml" path="res://Utilities/dev_menu/dev_menu_teleport_button.tscn" id="5_xuqvo"]
 [ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
-[ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
-[ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
@@ -41,11 +39,10 @@ script = ExtResource("26_lswn8")
 json_file = ExtResource("27_a6jrf")
 json_file2 = SubResource("Resource_a6jrf")
 
-[node name="DevMenu" parent="." node_paths=PackedStringArray("player", "party_room_music", "game_ui") instance=ExtResource("4_h8e4i")]
+[node name="DevMenu" parent="." node_paths=PackedStringArray("player", "party_room_music") instance=ExtResource("4_h8e4i")]
 visible = false
 player = NodePath("../Player")
 party_room_music = NodePath("../PartyRoomMusic")
-game_ui = NodePath("")
 teleport_button_scene = ExtResource("5_xuqvo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -130,8 +127,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.786, 0.0322108, 25.2049)
 floor_constant_speed = true
 
 [node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "player") instance=ExtResource("3_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8502, 1.51749, 24.6872)
-fov = 29.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8502, 1.51749, 24.9362)
+fov = 30.0
 main_camera = NodePath(".")
 player = NodePath("../Player")
 
