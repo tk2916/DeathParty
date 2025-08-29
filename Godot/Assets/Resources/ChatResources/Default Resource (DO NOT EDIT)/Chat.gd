@@ -14,17 +14,17 @@ var ink_resource : InkResource = load("res://Singletons/InkInterpreter/ink_inter
 
 signal unread
 
-func update_chat_info():
+func update_chat_info() -> void:
 	if(upcoming_chats.front()):
 		display_timestamp = SaveSystem.get_key("time")
 		display_message = DialogueSystem.get_first_message(upcoming_chats.front()).text
 
-func load_chat(json : JSON):
+func load_chat(json : JSON) -> void:
 	upcoming_chats.push_back(json)
 	update_chat_info()
 	unread.emit(true)
 	
-func start_chat():
+func start_chat() -> void:
 	if (saved_ink_state):
 		print("Starting chat: ", name, " | ", saved_ink_state.hierarchy)
 	else:
@@ -41,7 +41,7 @@ func start_chat():
 		DialogueSystem.from_JSON(new_json)
 	chat_in_progress = true
 	
-func pause_chat(current_conversation : Array[InkLineInfo]):
+func pause_chat(current_conversation : Array[InkLineInfo]) -> void:
 	if chat_in_progress: #ONLY if in progress or it will save the wrong messages
 		#save added lines
 		past_chats = current_conversation
@@ -51,7 +51,7 @@ func pause_chat(current_conversation : Array[InkLineInfo]):
 		saved_ink_state = ink_resource.duplicate(true) #saves current variables
 		update_chat_info()
 
-func end_chat(current_conversation):
+func end_chat(current_conversation) -> void:
 	past_chats = current_conversation
 	upcoming_chats.pop_front() #get it off the list
 	chat_in_progress = false

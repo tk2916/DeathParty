@@ -19,6 +19,7 @@ var cell_grids : Dictionary[String, Vector3] = {
 	"Basement" = Vector3(1,1,1),
 	"Kitchen" = Vector3(1,1,1),
 	"Exterior" = Vector3(10,1,10),
+	#"Exterior" = Vector3(1,1,1),
 }
 
 @onready var tree : SceneTree = get_tree()
@@ -52,7 +53,7 @@ func _ready() -> void:
 
 func fade_loading_screen_in(fadeout_delay : float = 0) -> Tween:
 	var tween : Tween = tree.create_tween()
-	tween.tween_property(loading_screen, "modulate:a", 0, .2)
+	tween.tween_property(loading_screen, "modulate:a", 1, .2)
 	if fadeout_delay > 0:
 		tween.tween_callback(fade_loading_screen_out.bind(fadeout_delay))
 	return tween

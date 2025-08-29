@@ -11,7 +11,7 @@ func _ready() -> void:
 	texture_rect.texture = default_texture
 	option_text = rtl.text
 	
-func change_text(text : String):
+func change_text(text : String) -> void:
 	option_text = text
 	rtl.text = "[color=white]"+option_text+"[/color]"
 
