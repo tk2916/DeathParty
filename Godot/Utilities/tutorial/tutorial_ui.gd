@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 
-@onready var move_controls_popup_panel: PanelContainer = %MoveControlsPopupPanel
+@onready var move_controls_popup: PanelContainer = %MoveControlsPopup
+@onready var phone_controls_popup: PanelContainer = %PhoneControlsPopup
 
 var player: Player
 
@@ -16,10 +17,11 @@ var state: States:
 			States.WALK:
 				print("TUTORIAL STEP: WALK")
 				player.movement_disabled = false
-				move_controls_popup_panel.show()
+				move_controls_popup.show()
 			States.UNLOCK_PHONE:
 				print("TUTORIAL STEP: UNLOCK PHONE")
-				move_controls_popup_panel.hide()
+				move_controls_popup.hide()
+				phone_controls_popup.show()
 
 var player_prev_pos: Vector3
 
