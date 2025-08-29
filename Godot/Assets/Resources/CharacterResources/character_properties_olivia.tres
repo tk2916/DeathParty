@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://b4pymx4oaet4r"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://b4pymx4oaet4r"]
 
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="1_2sjhx"]
-[ext_resource type="Texture2D" uid="uid://ciagkcjbti5dm" path="res://Assets/CharacterAssets/olivia/polaroid_olivia.png" id="1_d6crs"]
+[ext_resource type="Texture2D" uid="uid://vqg352iyw6th" path="res://Assets/CharacterAssets/Polaroids/olivia_a.png" id="1_bmmcf"]
+[ext_resource type="Texture2D" uid="uid://n3g1bu1yffph" path="res://Assets/CharacterAssets/Polaroids/Olivia_b.png" id="2_2yw4p"]
 [ext_resource type="Texture2D" uid="uid://d2dn2bv18hmga" path="res://Assets/CharacterAssets/olivia/olivia_circle.png" id="2_df738"]
 
 [resource]
 script = ExtResource("1_2sjhx")
 name = "Olivia"
-image_polaroid = ExtResource("1_d6crs")
+character_location = ""
+image_polaroid = ExtResource("1_bmmcf")
+image_polaroid_popout = ExtResource("2_2yw4p")
 name_color = ""
 text_color = ""
 character_notes = Array[String]([])
