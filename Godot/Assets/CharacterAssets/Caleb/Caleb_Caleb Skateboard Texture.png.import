@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlylnrxdrpktr"
-path.s3tc="res://.godot/imported/Caleb_Caleb Skateboard Texture.png-5e374a0f0e3f2adf70057250e0f4f0d6.s3tc.ctex"
-path.etc2="res://.godot/imported/Caleb_Caleb Skateboard Texture.png-5e374a0f0e3f2adf70057250e0f4f0d6.etc2.ctex"
+path.s3tc="res://.godot/imported/Caleb_Caleb Skateboard Texture.png-3c6a3e8dbf603351f022f32436d6ff26.s3tc.ctex"
+path.etc2="res://.godot/imported/Caleb_Caleb Skateboard Texture.png-3c6a3e8dbf603351f022f32436d6ff26.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/caleb/Caleb_Caleb Skateboard Texture.png"
-dest_files=["res://.godot/imported/Caleb_Caleb Skateboard Texture.png-5e374a0f0e3f2adf70057250e0f4f0d6.s3tc.ctex", "res://.godot/imported/Caleb_Caleb Skateboard Texture.png-5e374a0f0e3f2adf70057250e0f4f0d6.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/Caleb/Caleb_Caleb Skateboard Texture.png"
+dest_files=["res://.godot/imported/Caleb_Caleb Skateboard Texture.png-3c6a3e8dbf603351f022f32436d6ff26.s3tc.ctex", "res://.godot/imported/Caleb_Caleb Skateboard Texture.png-3c6a3e8dbf603351f022f32436d6ff26.etc2.ctex"]
 
 [params]
 
