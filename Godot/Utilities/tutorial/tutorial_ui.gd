@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 @export var exterior_scene_loader: SceneLoader
+@export var door: Node3D
 
 @onready var move_controls_popup: PanelContainer = %MoveControlsPopup
 @onready var phone_controls_popup: PanelContainer = %PhoneControlsPopup
@@ -39,13 +40,19 @@ var state: States:
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
 				exterior_scene_loader.monitoring = true
+				door.show()
 				queue_free()
 
 var move_controls_popup_fade_timer_started := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ContentLoader.finished_loading.connect(on_finished_loading)
+	await ContentLoader.finished_loading
+	$LoadingTimer.start()
+	await $LoadingTimer.timeout
+	player = get_tree().get_first_node_in_group("player")
+	player.movement_disabled = true
+	state = States.INTRO
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,14 +74,6 @@ func _physics_process(delta: float) -> void:
 		States.USING_JOURNAL:
 			if get_tree().get_first_node_in_group("journal") == null:
 				state += 1
-
-
-func on_finished_loading() -> void:
-	$LoadingTimer.start()
-	await $LoadingTimer.timeout
-	player = get_tree().get_first_node_in_group("player")
-	player.movement_disabled = true
-	state = States.INTRO
 
 
 func _on_bedroom_intro_finished() -> void:

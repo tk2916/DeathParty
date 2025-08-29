@@ -1,4 +1,4 @@
-[gd_scene load_steps=178 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=179 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -68,6 +68,7 @@
 [ext_resource type="PackedScene" uid="uid://btmj6vlpb2pyw" path="res://rooms/bedroom/desk stuff.glb" id="56_0hleh"]
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="57_6hcck"]
 [ext_resource type="PackedScene" uid="uid://dasq5wgeyo38c" path="res://Assets/props/polaroid_camera_collectable.tscn" id="66_dyybh"]
+[ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="69_tt7nc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.23928, 3.15956, 8.65055)
@@ -102,8 +103,8 @@ size = Vector3(1.25, 2, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_84fnt"]
 size = Vector3(5, 2, 0.1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
-size = Vector3(17.9089, 3.18161, 0.503846)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tt7nc"]
+size = Vector3(1, 2, 0.504)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
 albedo_color = Color(0.281989, 0.500556, 1, 1)
@@ -1463,8 +1464,9 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
-[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader") instance=ExtResource("3_84fnt")]
+[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader", "door") instance=ExtResource("3_84fnt")]
 exterior_scene_loader = NodePath("../SceneLoader_Exterior")
+door = NodePath("../Door")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109923, 1.47272, 3.11237)
@@ -1523,8 +1525,8 @@ scene_going_right = "Exterior"
 scene_going_left = "Exterior"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926189, 1.403, -1.34445)
-shape = SubResource("BoxShape3D_3cled")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573811, 1.403, -1.34445)
+shape = SubResource("BoxShape3D_tt7nc")
 
 [node name="TeleportPoint" type="Node3D" parent="SceneLoader_Exterior"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5743, 0.839686, 65.876)
@@ -1678,6 +1680,14 @@ transform = Transform3D(0.991342, 0, 0, 0, 0.979302, 0, 0, 0, 0.945473, 0.128323
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0, 1.25121, 1.05365)
 light_color = Color(0.6485, 0.43, 1, 1)
 omni_range = 4.261
+
+[node name="Door" parent="." instance=ExtResource("69_tt7nc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266712, 0.977943, 5.51204)
+visible = false
+
+[node name="Cube_122" parent="Door" index="0"]
+transform = Transform3D(-0.185362, 0, -1.81196e-08, 0, 0.205958, 0, 6.03988e-08, 0, -0.0556087, 0, 0, 0)
+transparency = 0.75
 
 [node name="Bed" parent="." instance=ExtResource("5_rbtdn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67075, 0.59249, -0.321667)
@@ -2117,6 +2127,7 @@ transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.73746,
 [connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]
 [connection signal="body_exited" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_exited"]
 
+[editable path="Door"]
 [editable path="Bed"]
 [editable path="Closet"]
 [editable path="Desk/DeskObjects"]
