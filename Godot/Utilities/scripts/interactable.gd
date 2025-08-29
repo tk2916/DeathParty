@@ -4,7 +4,7 @@ class_name Interactable extends Node3D
 @export var use_first_mesh : bool = true
 @export var outline_thickness : float = .7
 
-var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader.tres")
+@export var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader.tres")
 var interaction_detector_file = preload("res://Entities/interaction_detector.tscn")
 var interaction_detector : InteractionDetector
 
