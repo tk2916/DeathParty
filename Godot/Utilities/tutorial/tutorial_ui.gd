@@ -33,8 +33,6 @@ var state: States:
 				print("TUTORIAL STEP: FINISHED")
 				queue_free()
 
-var player_prev_pos: Vector3
-
 var move_controls_popup_fade_timer_started := false
 
 # Called when the node enters the scene tree for the first time.
@@ -51,6 +49,12 @@ func _physics_process(delta: float) -> void:
 				move_controls_popup_fade_timer_started = true
 		States.UNLOCK_PHONE:
 			if Input.is_action_just_pressed("toggle_phone"):
+				state += 1
+		States.USING_PHONE:
+			if get_tree().get_first_node_in_group("phone").visible == false:
+				state += 1
+		States.OPEN_JOURNAL:
+			if Input.is_action_just_pressed("toggle_journal"):
 				state += 1
 
 

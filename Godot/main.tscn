@@ -49,7 +49,7 @@ teleport_button_scene = ExtResource("5_xuqvo")
 unique_name_in_owner = true
 process_mode = 3
 
-[node name="Phone" parent="CanvasLayer" groups=["gui_object"] instance=ExtResource("20_d13ii")]
+[node name="Phone" parent="CanvasLayer" groups=["gui_object", "phone"] instance=ExtResource("20_d13ii")]
 visible = false
 
 [node name="TestInventory" type="ColorRect" parent="CanvasLayer" node_paths=PackedStringArray("vbox") groups=["gui_object"]]
