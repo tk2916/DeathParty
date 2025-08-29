@@ -48,8 +48,8 @@ grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 
-[node name="PressQToOpenPhoneLabel" type="Label" parent="PhoneControlsPopup"]
+[node name="PressQToUnlockPhoneLabel" type="Label" parent="PhoneControlsPopup"]
 layout_mode = 2
-text = "Press Q to open phone"
+text = "Press Q to unlock phone"
 
 [connection signal="timeout" from="MoveControlsPopupFadeTimer" to="." method="_on_move_control_popup_fade_timer_timeout"]
