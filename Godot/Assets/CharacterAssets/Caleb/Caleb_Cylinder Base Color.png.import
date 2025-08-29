@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd4jgw7mc66be"
-path.s3tc="res://.godot/imported/Caleb_Cylinder Base Color.png-f28486863307edc9553021d4c777dfc5.s3tc.ctex"
-path.etc2="res://.godot/imported/Caleb_Cylinder Base Color.png-f28486863307edc9553021d4c777dfc5.etc2.ctex"
+path.s3tc="res://.godot/imported/Caleb_Cylinder Base Color.png-ccfd67261312d824a7f613513df90173.s3tc.ctex"
+path.etc2="res://.godot/imported/Caleb_Cylinder Base Color.png-ccfd67261312d824a7f613513df90173.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Caleb/Caleb_Cylinder Base Color.png"
-dest_files=["res://.godot/imported/Caleb_Cylinder Base Color.png-f28486863307edc9553021d4c777dfc5.s3tc.ctex", "res://.godot/imported/Caleb_Cylinder Base Color.png-f28486863307edc9553021d4c777dfc5.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/caleb/Caleb_Cylinder Base Color.png"
+dest_files=["res://.godot/imported/Caleb_Cylinder Base Color.png-ccfd67261312d824a7f613513df90173.s3tc.ctex", "res://.godot/imported/Caleb_Cylinder Base Color.png-ccfd67261312d824a7f613513df90173.etc2.ctex"]
 
 [params]
 

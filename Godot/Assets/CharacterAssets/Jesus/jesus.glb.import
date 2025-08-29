@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://oj2ww3axt5fu"
-path="res://.godot/imported/jesus.glb-b94230eecbb6183742a3b856bc3106c6.scn"
+path="res://.godot/imported/jesus.glb-a9dff456a2976694479ade19f4325e53.scn"
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Jesus/jesus.glb"
-dest_files=["res://.godot/imported/jesus.glb-b94230eecbb6183742a3b856bc3106c6.scn"]
+source_file="res://Assets/CharacterAssets/jesus/jesus.glb"
+dest_files=["res://.godot/imported/jesus.glb-a9dff456a2976694479ade19f4325e53.scn"]
 
 [params]
 
