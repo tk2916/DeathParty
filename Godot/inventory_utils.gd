@@ -45,10 +45,12 @@ func create_clickable_item(
 #When duplicating, materials get messed up
 func fix_materials(mesh : MeshInstance3D):
 	if not mesh.mesh: return
-	# Copy materials from the original mesh's surfaces
+	if mesh.material_overlay: return
+	# Fix materials from the original mesh's surfaces
 	for i in range(mesh.mesh.get_surface_count()):
 		var material = mesh.get_active_material(i)
-		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		if material is BaseMaterial3D:
+			material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
 func show_item_details(
 	item_resource : InventoryItemResource, 
