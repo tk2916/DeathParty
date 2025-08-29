@@ -1463,6 +1463,7 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 [node name="TutorialUI" parent="." instance=ExtResource("3_84fnt")]
 
 [node name="Timer" type="Timer" parent="TutorialUI"]
+wait_time = 0.5
 one_shot = true
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
