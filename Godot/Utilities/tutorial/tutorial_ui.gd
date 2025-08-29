@@ -1,23 +1,29 @@
 extends CanvasLayer
 
 
+@onready var move_controls_popup_panel: PanelContainer = %MoveControlsPopupPanel
+
 var player: Player
 
 enum States {INTRO, WALK, UNLOCK_PHONE}
 
 var state: States:
 	set(new_state):
+		state = new_state
 		match new_state:
 			States.INTRO:
 				print("TUTORIAL STEP: INTRO")
 			States.WALK:
 				print("TUTORIAL STEP: WALK")
 				player.movement_disabled = false
+				move_controls_popup_panel.show()
 			States.UNLOCK_PHONE:
 				print("TUTORIAL STEP: UNLOCK PHONE")
+				move_controls_popup_panel.hide()
 
 var player_prev_pos: Vector3
 
+var move_controls_popup_fade_timer_started := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,10 +34,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	match state:
 		States.WALK:
-			var player_current_pos: Vector3 = player.global_position
-			if player_current_pos != player_prev_pos:
-				state += 1
-			player_prev_pos = player_current_pos
+			if player.player_velocity != Vector3.ZERO and not move_controls_popup_fade_timer_started:
+				$MoveControlsPopupFadeTimer.start()
+				move_controls_popup_fade_timer_started = true
 
 
 func on_finished_loading() -> void:
@@ -43,4 +48,9 @@ func on_finished_loading() -> void:
 
 
 func _on_bedroom_intro_finished() -> void:
+	state += 1
+
+
+func _on_move_control_popup_fade_timer_timeout() -> void:
+	print("MOVE CONTROLS POPUP FADE TIMER ENDED")
 	state += 1

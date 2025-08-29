@@ -1462,10 +1462,6 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 
 [node name="TutorialUI" parent="." instance=ExtResource("3_84fnt")]
 
-[node name="LoadingTimer" type="Timer" parent="TutorialUI"]
-wait_time = 0.5
-one_shot = true
-
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109923, 1.47272, 3.11237)
 shape = SubResource("BoxShape3D_aasoq")
@@ -2108,7 +2104,6 @@ transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.73746,
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
-[connection signal="timeout" from="TutorialUI/LoadingTimer" to="TutorialUI" method="_on_timer_timeout"]
 [connection signal="body_entered" from="SceneLoader_Exterior" to="." method="_on_scene_loader_body_entered"]
 [connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]
 [connection signal="body_exited" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_exited"]
