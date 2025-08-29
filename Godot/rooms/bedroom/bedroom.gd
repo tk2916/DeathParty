@@ -60,3 +60,4 @@ func _on_play() -> void:
 	
 	GlobalCameraScript.camera_on_player.emit(true)
 	intro_finished.emit()
+	print("INTRO FINISHED")

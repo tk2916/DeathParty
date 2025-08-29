@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=29 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://vkp1p25gspml" path="res://Utilities/dev_menu/dev_menu_teleport_button.tscn" id="5_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://ctn3kb2kouu4x" path="res://Utilities/tutorial/tutorial_ui.tscn" id="11_lswn8"]
 [ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
@@ -97,6 +98,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="TutorialUI" parent="." instance=ExtResource("11_lswn8")]
+
 [node name="Polaroid" parent="." instance=ExtResource("57_vke2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.2135, 0)
 
@@ -172,6 +175,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
 [connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
 [connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
+[connection signal="intro_finished" from="Bedroom" to="TutorialUI" method="_on_bedroom_intro_finished"]
 
 [editable path="PolaroidCamera"]
 [editable path="Polaroid"]
