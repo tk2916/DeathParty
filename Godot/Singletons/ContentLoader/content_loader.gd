@@ -11,15 +11,16 @@ var scene_teleport_pos : Vector3
 
 var scene_data_dict : Dictionary[String, LoadableScene] = {}
 var cell_grids : Dictionary[String, Vector3] = {
-	"PartyRoom" = Vector3(5,1,1),
+	#"PartyRoom" = Vector3(5,1,1),
+	"PartyRoom" = Vector3(1,1,1),
 	"Entrance" = Vector3(1,1,1),
 	"Bathroom" = Vector3(1,1,1),
 	"Bedroom" = Vector3(1,1,1),
 	"Library" = Vector3(1,1,1),
 	"Basement" = Vector3(1,1,1),
 	"Kitchen" = Vector3(1,1,1),
-	"Exterior" = Vector3(10,1,10),
-	#"Exterior" = Vector3(1,1,1),
+	#"Exterior" = Vector3(10,1,10),
+	"Exterior" = Vector3(1,1,1),
 }
 
 @onready var tree : SceneTree = get_tree()
