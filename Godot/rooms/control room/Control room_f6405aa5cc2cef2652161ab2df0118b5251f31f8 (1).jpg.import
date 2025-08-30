@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bw8wa6h7ol5bf"
+path.s3tc="res://.godot/imported/Control room_f6405aa5cc2cef2652161ab2df0118b5251f31f8 (1).jpg-c984d18e9d8c0ea248efceee67779c59.s3tc.ctex"
+path.etc2="res://.godot/imported/Control room_f6405aa5cc2cef2652161ab2df0118b5251f31f8 (1).jpg-c984d18e9d8c0ea248efceee67779c59.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "e0a3b68963cbfd05614d3950614be066"
+}
+
+[deps]
+
+source_file="res://rooms/control room/Control room_f6405aa5cc2cef2652161ab2df0118b5251f31f8 (1).jpg"
+dest_files=["res://.godot/imported/Control room_f6405aa5cc2cef2652161ab2df0118b5251f31f8 (1).jpg-c984d18e9d8c0ea248efceee67779c59.s3tc.ctex", "res://.godot/imported/Control room_f6405aa5cc2cef2652161ab2df0118b5251f31f8 (1).jpg-c984d18e9d8c0ea248efceee67779c59.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
