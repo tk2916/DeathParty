@@ -68,6 +68,8 @@ func get_descendants(
 	
 func calculate_node_aabb(node3d : Node3D) -> AABB:
 	var visual_nodes : Array[Node] = node3d.find_children("*", "VisualInstance3D", true, false)
+	if node3d is VisualInstance3D:
+		visual_nodes.push_back(node3d)
 	assert(!visual_nodes.is_empty(), "There are no visual nodes in scene: " + node3d.name + "!")
 	var aabb : AABB = visual_nodes[0].global_transform * visual_nodes[0].get_aabb()
 	for node : Node in visual_nodes:

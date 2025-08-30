@@ -4,6 +4,7 @@ var scene : LoadableScene
 
 #each CellRow will hold X Cells, and there are X CellRows
 var scene_cells : Array[CellPlane] = []
+var number_of_cells : int = 0
 var active_cells : Array[Cell] = []
 var player_cell : Cell
 
@@ -52,6 +53,7 @@ func offload() -> void:
 	
 func create_cells() -> void:
 	#print("Creating cells for ", name)
+	number_of_cells = 0
 	var scene_width : float = scene_aabb.size.x
 	var scene_height : float = scene_aabb.size.y
 	var scene_depth : float = scene_aabb.size.z
@@ -90,6 +92,7 @@ func create_cells() -> void:
 				var cell_aabb := Cell.new(self.scene, cell_id, cell_coords, cell_origin, cell_size)
 				cell_id += 1
 				current_row.push_back(cell_aabb)
+				number_of_cells += 1
 
 func get_assigned_cells(obj : SceneObject) -> void:
 	for cell_plane : CellPlane in scene_cells:
@@ -143,6 +146,9 @@ func find_player_cell(player_center : Vector3):
 						break
 
 func update_active_cells(initial_load : bool = false) -> void:
+	if number_of_cells == 1: 
+		#only 1 cell so no need to load/offload
+		return 
 	var start = Time.get_ticks_msec()
 	if not scene.active: return
 	var player_center : Vector3

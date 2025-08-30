@@ -19,7 +19,8 @@ func _init(
 	save_properties()
 
 func load_in() -> Node3D:
-	print("Loading in NPC: ", name, " at ", character_resource.character_location, " vs ", scene.name)
+	if character_resource:
+		print("Loading in NPC: ", name, " at ", character_resource.character_location, " vs ", scene.name)
 	#if character_resource and character_resource.character_location != scene.name:
 		#return
 	await super()

@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func instantiateContact(contact : Resource) -> void:
 	print("Instantiating with contact: ", contact.name)
-	var new_contact = contact_panel_scene.instantiate()
+	var new_contact : ContactPanel = contact_panel_scene.instantiate()
 	new_contact.message_app = self
 	new_contact.contact = contact
 	all_contacts.add_child(new_contact)

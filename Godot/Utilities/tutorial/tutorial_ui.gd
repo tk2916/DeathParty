@@ -18,6 +18,8 @@ enum States {
 var state: States:
 	set(new_state):
 		state = new_state
+		if player == null:
+			player = get_tree().get_first_node_in_group("player")
 		match new_state:
 			States.INTRO:
 				print("TUTORIAL STEP: INTRO")

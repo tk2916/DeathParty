@@ -51,7 +51,7 @@ func pause_chat(current_conversation : Array[InkLineInfo]) -> void:
 		saved_ink_state = ink_resource.duplicate(true) #saves current variables
 		update_chat_info()
 
-func end_chat(current_conversation) -> void:
+func end_chat(current_conversation : Array[InkLineInfo]) -> void:
 	past_chats = current_conversation
 	upcoming_chats.pop_front() #get it off the list
 	chat_in_progress = false

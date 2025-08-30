@@ -38,7 +38,7 @@ func set_active(_active : bool, initial_load : bool) -> void:
 		if active and obj.toggled:
 			obj.load_in()
 		else:
-			print("Offloading existing node: ", obj.name, " ", obj.parent_obj.name, " ", obj.instance)
+			#print("Offloading existing node: ", obj.name, " ", obj.parent_obj.name, " ", obj.instance)
 			obj.offload()
 	scene.cell_debugger.update_cell(self)
 	var duration = (Time.get_ticks_msec() - start)

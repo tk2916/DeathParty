@@ -112,8 +112,9 @@ func find_child_scenes(
 					parent_obj,
 				)
 			else:
-				var visual_node : VisualInstance3D = Utils.find_first_child_of_class(obj, VisualInstance3D)
-				if visual_node == null: continue
+				if !(obj is VisualInstance3D):
+					var visual_node : VisualInstance3D = Utils.find_first_child_of_class(obj, VisualInstance3D)
+					if visual_node == null: continue
 				new_obj = SceneObject.new(
 					scene,
 					obj,
