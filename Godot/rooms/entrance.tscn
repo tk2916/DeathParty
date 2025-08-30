@@ -1028,7 +1028,7 @@ transform = Transform3D(-0.766044, 0, -0.642788, 0, 1.184, 0, 0.642788, 0, -0.76
 transform = Transform3D(-1.31557, 0, 0.478829, 0, 1.66, 0, -0.478829, 0, -1.31557, 1.5805, -4.42275, 11.6415)
 
 [node name="JackOLanternTall" parent="Props/JackOLanterns/Floor" instance=ExtResource("34_iipv5")]
-transform = Transform3D(0.0890386, 0, 0.300638, 0, 0.492083, 0, -0.300638, 0, 0.0890386, 9.69852, -4.23931, 10.9827)
+transform = Transform3D(-0.999659, 0, 0.0261329, 0, 1, 0, -0.0261329, 0, -0.999659, 9.69852, -4.23931, 10.9827)
 
 [node name="JackOLanternSquashed" parent="Props/JackOLanterns/Floor" instance=ExtResource("35_p1ak8")]
 transform = Transform3D(-0.0718493, 0, 0.363913, 0, 0.235724, 0, -0.363913, 0, -0.0718493, 5.6009, -4.41543, 13.075)
