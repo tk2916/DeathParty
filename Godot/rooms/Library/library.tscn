@@ -1813,10 +1813,10 @@ transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 
 transform = Transform3D(1.20741, 0, -0.323524, 0, 1.25, 0, 0.323524, 0, 1.20741, -1.13544, -0.0511427, -1.62402)
 
 [node name="JackOLanternSquashed" parent="Props/JackOLanterns" instance=ExtResource("36_2xxje")]
-transform = Transform3D(-0.332639, 0, -0.368177, 0, 0.315318, 0, 0.368177, 0, -0.332639, 0.332436, -0.0458426, -1.63043)
+transform = Transform3D(0.74201, 0, -0.670388, 0, 1, 0, 0.670388, 0, 0.74201, 0.332436, -0.0458426, -1.63043)
 
 [node name="JackOLanternSquashed2" parent="Props/JackOLanterns" instance=ExtResource("36_2xxje")]
-transform = Transform3D(-0.491038, 0, -0.0713108, 0, 0.315318, 0, 0.0713108, 0, -0.491038, 2.4006, -0.0458426, 4.92783)
+transform = Transform3D(-0.117312, 0, -0.993095, 0, 1, 0, 0.993095, 0, -0.117312, 2.4006, -0.0458426, 4.92783)
 
 [node name="TeddyBear" parent="Props" instance=ExtResource("44_dffff")]
 transform = Transform3D(1.12195, 0, 0.670834, 0, 1.3072, 0, -0.670834, 0, 1.12195, -6.78328, -4.08373, 2.44692)

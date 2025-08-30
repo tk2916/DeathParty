@@ -1031,16 +1031,16 @@ transform = Transform3D(-1.31557, 0, 0.478829, 0, 1.66, 0, -0.478829, 0, -1.3155
 transform = Transform3D(-0.999659, 0, 0.0261329, 0, 1, 0, -0.0261329, 0, -0.999659, 9.69852, -4.23931, 10.9827)
 
 [node name="JackOLanternSquashed" parent="Props/JackOLanterns/Floor" instance=ExtResource("35_p1ak8")]
-transform = Transform3D(-0.0718493, 0, 0.363913, 0, 0.235724, 0, -0.363913, 0, -0.0718493, 5.6009, -4.41543, 13.075)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.6009, -4.41543, 13.075)
 
 [node name="JackOLanternSquashed2" parent="Props/JackOLanterns/Floor" instance=ExtResource("35_p1ak8")]
-transform = Transform3D(0.312498, 0, 0.199851, 0, 0.235724, 0, -0.199851, 0, 0.312498, 1.025, -4.40335, 11.5019)
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 1.025, -4.40335, 11.5019)
 
 [node name="JackOLanternSquashed3" parent="Props/JackOLanterns/Floor" instance=ExtResource("35_p1ak8")]
-transform = Transform3D(0.0796535, 0, 0.362285, 0, 0.235724, 0, -0.362285, 0, 0.0796535, -1.92382, -4.33427, 11.4919)
+transform = Transform3D(-0.738456, 0, 0.674302, 0, 1.25, 0, -0.674302, 0, -0.738456, -1.92382, -4.33427, 11.4919)
 
 [node name="JackOLanternSquashed4" parent="Props/JackOLanterns/Floor" instance=ExtResource("35_p1ak8")]
-transform = Transform3D(-0.112161, 0, 0.353575, 0, 0.235724, 0, -0.353575, 0, -0.112161, -1.34863, -4.32672, 11.0358)
+transform = Transform3D(-0.887816, 0, 0.460199, 0, 1, 0, -0.460199, 0, -0.887816, -1.34863, -4.41835, 11.0358)
 
 [node name="Balcony" type="Node3D" parent="Props/JackOLanterns"]
 
