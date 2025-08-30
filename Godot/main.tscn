@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=29 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
+[ext_resource type="PackedScene" uid="uid://ch4fuk8qiva6x" path="res://rooms/Ghost hallway/Ghost hallway.tscn" id="26_a6jrf"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://dph5ihe40llhe" path="res://rooms/Exterior Frat Lawn/Exterior.tscn" id="27_qsp4k"]
@@ -142,7 +143,7 @@ script = null
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -24.161, 0, -17.392)
 
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698557, 4.7584, -20.5061)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8299, 4.7584, -20.5061)
 
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
@@ -161,6 +162,9 @@ transform = Transform3D(0.791022, 0, 0, 0, 0.791022, 0, 0, 0, 0.791022, -17.1306
 
 [node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
 transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 5.7468)
+
+[node name="Ghost hallway" parent="." instance=ExtResource("26_a6jrf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41542, 1.681, -17.9671)
 
 [node name="PartyRoomMusic" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/900_MX/Party Room music"

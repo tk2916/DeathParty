@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlueijwhjqvw0"
-path.s3tc="res://.godot/imported/Caleb_glasses.png-6a75e9fb01e7f0b378eeee31d5b0d58b.s3tc.ctex"
-path.etc2="res://.godot/imported/Caleb_glasses.png-6a75e9fb01e7f0b378eeee31d5b0d58b.etc2.ctex"
+path.s3tc="res://.godot/imported/Caleb_glasses.png-6dd805082d92c6cd38e522cf2e8343b3.s3tc.ctex"
+path.etc2="res://.godot/imported/Caleb_glasses.png-6dd805082d92c6cd38e522cf2e8343b3.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/caleb/Caleb_glasses.png"
-dest_files=["res://.godot/imported/Caleb_glasses.png-6a75e9fb01e7f0b378eeee31d5b0d58b.s3tc.ctex", "res://.godot/imported/Caleb_glasses.png-6a75e9fb01e7f0b378eeee31d5b0d58b.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/Caleb/Caleb_glasses.png"
+dest_files=["res://.godot/imported/Caleb_glasses.png-6dd805082d92c6cd38e522cf2e8343b3.s3tc.ctex", "res://.godot/imported/Caleb_glasses.png-6dd805082d92c6cd38e522cf2e8343b3.etc2.ctex"]
 
 [params]
 
