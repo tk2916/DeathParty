@@ -51,7 +51,9 @@ func fix_materials(mesh : MeshInstance3D):
 	for i in range(mesh.mesh.get_surface_count()):
 		var material = mesh.get_active_material(i)
 		if material is BaseMaterial3D:
-			material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			var clone = material.duplicate()
+			mesh.material_overlay = clone
+			#clone.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
 func show_item_details(
 	item_resource : InventoryItemResource, 
