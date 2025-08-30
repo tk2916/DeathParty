@@ -11,8 +11,8 @@ func _ready() -> void:
 	texture_rect.texture = default_texture
 	option_text = rtl.text
 	
-func change_text(text : String):
-	option_text = text
+func change_text(new_text : String) -> void:
+	option_text = new_text
 	rtl.text = "[color=white]"+option_text+"[/color]"
 
 func _on_mouse_entered() -> void:

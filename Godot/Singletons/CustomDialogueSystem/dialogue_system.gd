@@ -233,7 +233,11 @@ func match_command(text_ : String):
 				SaveSystem.set_key("die_roll_flag", true)
 			else:
 				SaveSystem.set_key("die_roll_flag", false)
-	
+		"/change_location":
+			var target_resource : CharacterResource = SaveSystem.character_to_resource[parameters_array[1]]
+			var target_location : String = parameters_array[2]
+			target_resource.change_location(target_location)
+		
 func advance_dialogue():
 	if current_dialogue_box is MainDialogueBox or current_line_label.done_state == true:
 			display_current_container()

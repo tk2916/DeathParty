@@ -1,6 +1,6 @@
 class_name DialogueBoxNode extends DialogueBoxProperties
 
-@onready var tree = get_tree()
+@onready var tree := get_tree()
 var tween : Tween
 
 var left_anchor_before : float
@@ -16,7 +16,7 @@ const duration : float = .5
 
 var contact_panel_scene : PackedScene = load("res://Assets/GUIPrefabs/PhonePrefabs/MessageAppAssets/contact_panel.tscn")
 
-var contact_pressed = false
+var contact_pressed := false
 
 func _ready() -> void:
 	left_anchor_before = anchor_left
@@ -28,26 +28,26 @@ func _ready() -> void:
 	DialogueSystem.loaded_new_contact.connect(instantiateContact) #this signal is being emitted before the node is loaded
 	DialogueSystem.emit_contacts()
 
-func instantiateContact(contact : Resource):
+func instantiateContact(contact : Resource) -> void:
 	print("Instantiating with contact: ", contact.name)
-	var new_contact = contact_panel_scene.instantiate()
+	var new_contact : ContactPanel = contact_panel_scene.instantiate()
 	new_contact.message_app = self
 	new_contact.contact = contact
 	all_contacts.add_child(new_contact)
 
-func tweenForward():
-	var tween : Tween = tree.create_tween()
-	tween.tween_property(self, "anchor_left", left_anchor_after, duration)
-	tween.parallel().tween_property(self, "anchor_right", right_anchor_after, duration)
-	return tween
+func tweenForward() -> Tween:
+	var new_tween : Tween = tree.create_tween()
+	new_tween.tween_property(self, "anchor_left", left_anchor_after, duration)
+	new_tween.parallel().tween_property(self, "anchor_right", right_anchor_after, duration)
+	return new_tween
 
-func tweenBackward():
-	var tween : Tween = tree.create_tween()
-	tween.tween_property(self, "anchor_left", left_anchor_before, duration)
-	tween.parallel().tween_property(self, "anchor_right", right_anchor_before, duration)
-	return tween
+func tweenBackward() -> Tween:
+	var new_tween : Tween = tree.create_tween()
+	new_tween.tween_property(self, "anchor_left", left_anchor_before, duration)
+	new_tween.parallel().tween_property(self, "anchor_right", right_anchor_before, duration)
+	return new_tween
 
-func on_contact_press(contact : Resource):
+func on_contact_press(contact : Resource) -> void:
 	print("Contact pressed! :", contact.name)
 	if contact_pressed: return # prevent multiple presses
 	contact_pressed = true
@@ -56,7 +56,7 @@ func on_contact_press(contact : Resource):
 	tweenForward()
 	contact_pressed = false
 	
-func onBackPressed():
+func onBackPressed() -> void:
 	if !DialogueSystem.are_choices: #only allows you to leave if you aren't at a choice point
 		DialogueSystem.pause_text_convo()
 		tweenBackward()

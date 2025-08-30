@@ -43,6 +43,8 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("toggle_dev_menu"):
 		toggle_menu()
+	elif Input.is_action_just_pressed("toggle_content_loader_menu"):
+		visible = false
 
 
 func toggle_menu() -> void:

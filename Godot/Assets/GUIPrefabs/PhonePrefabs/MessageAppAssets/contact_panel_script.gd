@@ -1,4 +1,4 @@
-extends Control
+class_name ContactPanel extends Control
 
 @export var contact_button : Button
 @export var name_label : RichTextLabel
