@@ -936,7 +936,7 @@ transform = Transform3D(0.0164411, 0.89685, 0.619812, 1.09019, -0.0126019, -0.01
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.388785, -0.00357288, 0.169716)
 
 [node name="JackOLantern" parent="Props/JackOLanterns" instance=ExtResource("27_mq4j6")]
-transform = Transform3D(0.178584, 0, -0.364745, 0, 0.479582, 0, 0.364745, 0, 0.178584, -1.59611, -2.07321, 0.672464)
+transform = Transform3D(0.549669, 0, -1.12266, 0, 1.25, 0, 1.12266, 0, 0.549669, -1.59611, -2.07321, 0.672464)
 
 [node name="JackOLanternHanging" parent="Props/JackOLanterns" instance=ExtResource("28_56rrv")]
 transform = Transform3D(1.02571, 0, 0.369723, 0, 1.09031, 0, -0.369723, 0, 1.02571, 1.00712, 0.825971, 1.20741)
@@ -945,10 +945,10 @@ transform = Transform3D(1.02571, 0, 0.369723, 0, 1.09031, 0, -0.369723, 0, 1.025
 transform = Transform3D(1.87055, 0, 0, 0, 1.87055, 0, 0, 0, 1.87055, -0.6827, 1.03076, -1.213)
 
 [node name="JackOLantern2" parent="Props/JackOLanterns" instance=ExtResource("27_mq4j6")]
-transform = Transform3D(1.8841e-08, 0, -0.143678, 0, 0.169669, 0, 0.143678, 0, 1.8841e-08, -0.273101, -1.67699, 2.8191)
+transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -0.273101, -1.67699, 2.8191)
 
 [node name="JackOLantern3" parent="Props/JackOLanterns" instance=ExtResource("27_mq4j6")]
-transform = Transform3D(1.8841e-08, 0, -0.143678, 0, 0.169669, 0, 0.143678, 0, 1.8841e-08, -0.578725, -1.18563, -1.5561)
+transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -0.578725, -1.18563, -1.5561)
 
 [node name="Drinks" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09237, -1.21258, 0.742732)
@@ -994,6 +994,7 @@ transform = Transform3D(-0.148052, -0.141469, 0.0334679, 0, 0.0477687, 0.201919,
 
 [node name="Cup5" parent="Props/CupsOnFloor" instance=ExtResource("30_3wfjx")]
 transform = Transform3D(-0.00854293, 0.18995, -0.0449374, 1.11176e-09, 0.0449804, 0.190132, 0.195193, 0.00831335, -0.00196669, -8.44891, 1.40001, 6.42539)
+visible = false
 
 [node name="Cup6" parent="Props/CupsOnFloor" instance=ExtResource("30_3wfjx")]
 transform = Transform3D(-0.230673, -0.0474685, 0.0112298, 0, 0.0542798, 0.229441, -0.0487787, 0.224477, -0.0531055, -8.61073, 0.881574, 6.22204)

@@ -2386,21 +2386,6 @@ omni_range = 1.816
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70251, -0.659889, -1.61554)
 visible = false
 
-[node name="Balloons" type="Node3D" parent="ArcadeMachines"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.86115, 0.76561, -3.92163)
-
-[node name="BalloonsFourShort" parent="ArcadeMachines/Balloons" instance=ExtResource("38_4fe3s")]
-transform = Transform3D(-0.126874, -0.188826, -3.19962e-08, 6.39496e-09, 4.18671e-08, -0.197715, 0.173053, -0.138438, -1.61518e-08, -0.580989, -0.379554, 0.800135)
-
-[node name="BalloonsThreeShort" parent="ArcadeMachines/Balloons" instance=ExtResource("39_wvlev")]
-transform = Transform3D(-0.0403287, 0.198337, 5.39178e-08, 3.85857e-17, 7.28369e-08, -0.154817, -0.172796, -0.0462894, -1.25838e-08, -0.00440693, 0.159858, -0.856875)
-
-[node name="BalloonsThreeShort2" parent="ArcadeMachines/Balloons" instance=ExtResource("39_wvlev")]
-transform = Transform3D(0.130316, 0.0593822, 1.5913e-08, 3.049e-17, 5.75545e-08, -0.12059, -0.0517354, 0.149578, 4.00832e-08, 0.281723, 0.217798, 0.0874224)
-
-[node name="BalloonsFourShort2" parent="ArcadeMachines/Balloons" instance=ExtResource("38_4fe3s")]
-transform = Transform3D(0.165359, -0.173026, -2.11518e-08, 6.79352e-09, 4.49495e-08, -0.20847, 0.156904, 0.18235, 3.13178e-08, -0.343097, -0.479562, -1.86544)
-
 [node name="ArcadeMachine" parent="ArcadeMachines" instance=ExtResource("18_7eb3f")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8527, 0.329944, -3.58395)
 
@@ -2602,16 +2587,16 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09753, -0.459809, 0.462498)
 
 [node name="JackOLantern" parent="Props/JackOLanterns" instance=ExtResource("40_p14ay")]
-transform = Transform3D(-0.200179, 0, -0.12689, 0, 0.279882, 0, 0.12689, 0, -0.200179, 5.80886, 0.378797, -2.21679)
+transform = Transform3D(0.323524, 0, -1.20741, 0, 1.476, 0, 1.20741, 0, 0.323524, 5.80886, 0.378797, -2.21679)
 
 [node name="JackOLanternSquashed" parent="Props/JackOLanterns" instance=ExtResource("41_pts78")]
-transform = Transform3D(-1.62142e-08, 0, -0.370938, 0, 0.235724, 0, 0.370938, 0, -1.62142e-08, -8.09686, -0.689382, 0.326792)
+transform = Transform3D(1, 0, 3.55271e-15, 0, 0.636, 0, -3.55271e-15, 0, 1, -8.09686, -0.689382, 0.326792)
 
 [node name="JackOLantern2" parent="Props/JackOLanterns" instance=ExtResource("40_p14ay")]
-transform = Transform3D(2.66617e-08, 0, -0.203317, 0, 0.240096, 0, 0.203317, 0, 2.66617e-08, -7.61181, -0.711705, 0.0988324)
+transform = Transform3D(0.866026, 0, -0.5, 0, 1.182, 0, 0.5, 0, 0.866026, -7.61181, -0.711705, 0.0988324)
 
 [node name="JackOLanternTall" parent="Props/JackOLanterns" instance=ExtResource("44_5vrx5")]
-transform = Transform3D(-0.0655382, 0, -0.156537, 0, 0.19157, 0, 0.156537, 0, -0.0655382, -0.592807, 1.43109, -5.5134)
+transform = Transform3D(0.351145, 0, 0.0448714, 0, 0.4, 0, -0.0448714, 0, 0.351145, -0.592807, 1.43109, -5.5134)
 
 [node name="DIEFlag" parent="Props" instance=ExtResource("45_x2dx7")]
 transform = Transform3D(0.120934, 0, -0.992661, 0, 1, 0, 0.992661, 0, 0.120934, -13.3199, 0.692498, -3.45925)
@@ -2650,6 +2635,21 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Props/BeanBag"]
 shape = SubResource("BoxShape3D_rucjk")
+
+[node name="Balloons" type="Node3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.45221, 0.13689, -5.21031)
+
+[node name="BalloonsFourShort" parent="Props/Balloons" instance=ExtResource("38_4fe3s")]
+transform = Transform3D(-3.6499e-08, 0, 0.769, 0, 0.908, 0, -0.835, 0, -3.36141e-08, -0.580989, -0.379554, 0.800135)
+
+[node name="BalloonsThreeShort" parent="Props/Balloons" instance=ExtResource("39_wvlev")]
+transform = Transform3D(-0.14468, 0, -0.473304, 0, 0.645, 0, 0.539953, 0, -0.126821, -0.00440693, 0.159858, -0.856875)
+
+[node name="BalloonsThreeShort2" parent="Props/Balloons" instance=ExtResource("39_wvlev")]
+transform = Transform3D(0.579555, 0, 0.134068, 0, 0.69, 0, -0.155291, 0, 0.50035, 0.281723, 0.217798, 0.0874224)
+
+[node name="BalloonsFourShort2" parent="Props/Balloons" instance=ExtResource("38_4fe3s")]
+transform = Transform3D(0.640859, 0, -0.3375, 0, 0.815, 0, 0.37, 0, 0.584567, -0.343097, -0.479562, -1.86544)
 
 [node name="dino" parent="." instance=ExtResource("79_g8hj1")]
 transform = Transform3D(0.751407, 0, 0.812697, 0, 1.10684, 0, -0.812697, 0, 0.751407, 3.88038, -0.0322655, 0.0567777)
