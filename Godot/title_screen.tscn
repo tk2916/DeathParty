@@ -1073,6 +1073,7 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0, 0, 0, 0.6)
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -1135,6 +1136,7 @@ offset_top = 327.0
 offset_right = 719.0
 offset_bottom = 380.0
 rotation = 0.0959931
+focus_mode = 0
 theme = ExtResource("2_ak2if")
 
 [node name="QuitButton" type="Button" parent="FadeThisOut"]
@@ -1144,4 +1146,5 @@ offset_top = 449.0
 offset_right = 736.0
 offset_bottom = 484.0
 rotation = 0.0636526
+focus_mode = 0
 theme = SubResource("Theme_ak2if")
