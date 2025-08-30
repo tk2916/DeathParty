@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u832ipxlajla"
-path.s3tc="res://.godot/imported/jack_model_Base color.webp-6d15daa3822c64e6b0cb57a27cdc9cc8.s3tc.ctex"
-path.etc2="res://.godot/imported/jack_model_Base color.webp-6d15daa3822c64e6b0cb57a27cdc9cc8.etc2.ctex"
+uid="uid://dvbn8067qxmoo"
+path.s3tc="res://.godot/imported/Jack_Base color.webp-8b263ba3f21a4052e08b0e9efc82e776.s3tc.ctex"
+path.etc2="res://.godot/imported/Jack_Base color.webp-8b263ba3f21a4052e08b0e9efc82e776.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/frat_boys/jack/jack_model_Base color.webp"
-dest_files=["res://.godot/imported/jack_model_Base color.webp-6d15daa3822c64e6b0cb57a27cdc9cc8.s3tc.ctex", "res://.godot/imported/jack_model_Base color.webp-6d15daa3822c64e6b0cb57a27cdc9cc8.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/frat_boys/jack/Jack_Base color.webp"
+dest_files=["res://.godot/imported/Jack_Base color.webp-8b263ba3f21a4052e08b0e9efc82e776.s3tc.ctex", "res://.godot/imported/Jack_Base color.webp-8b263ba3f21a4052e08b0e9efc82e776.etc2.ctex"]
 
 [params]
 
