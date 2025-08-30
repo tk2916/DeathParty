@@ -1,0 +1,25 @@
+{
+	"inkVersion": 21.0,
+	"root": [
+		[
+			"^[Olivia] This is an ID card",
+			"\n",
+			"end",
+			[
+				"done",
+				{
+					"#f": 5.0,
+					"#n": "g-0"
+				}
+			],
+			null
+		],
+		"done",
+		{
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
+}

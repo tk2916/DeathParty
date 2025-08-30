@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
-[ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
+[ext_resource type="Script" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu/dev_menu.tscn" id="4_h8e4i"]
+[ext_resource type="PackedScene" uid="uid://bo5ytix8ncif0" path="res://cell_visualizer.tscn" id="5_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://vkp1p25gspml" path="res://Utilities/dev_menu/dev_menu_teleport_button.tscn" id="5_xuqvo"]
 [ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
@@ -13,7 +14,6 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://dph5ihe40llhe" path="res://rooms/Exterior Frat Lawn/Exterior.tscn" id="27_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://bqae87n6emy8q" path="res://rooms/Hourhand hallway/Hourhand hallway.tscn" id="27_xuqvo"]
-[ext_resource type="Script" uid="uid://kp3w3bjsanur" path="res://cell_visualizer.gd" id="28_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://c7033b4susyvc" path="res://rooms/Storage Room/Storageroom.tscn" id="28_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://d0sd1bp5esd04" path="res://Utilities/polaroid_camera/polaroid_layer.tscn" id="55_e71vb"]
-[ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
+[ext_resource type="PackedScene" path="res://Utilities/stats.tscn" id="56_e71vb"]
 [ext_resource type="PackedScene" uid="uid://byfsccg4kb4bw" path="res://polaroid_pop_up.tscn" id="57_vke2r"]
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
 [ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
@@ -46,6 +46,14 @@ visible = false
 player = NodePath("../Player")
 party_room_music = NodePath("../PartyRoomMusic")
 teleport_button_scene = ExtResource("5_xuqvo")
+
+[node name="CellVisualizer" parent="." instance=ExtResource("5_a6jrf")]
+
+[node name="ObjectViewerCanvasLayer" parent="." instance=ExtResource("2_a6jrf")]
+visible = false
+
+[node name="SubViewport" parent="ObjectViewerCanvasLayer/ObjectViewer/SubViewportContainer" index="0"]
+render_target_update_mode = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -108,12 +116,6 @@ polaroid_camera = NodePath("../../../../PolaroidCamera")
 View_Finder = NodePath("../../../../PolaroidCamera/PictureExample/ViewFinder")
 object_viewer = NodePath("../../../../ObjectViewerCanvasLayer")
 
-[node name="ObjectViewerCanvasLayer" parent="." instance=ExtResource("2_a6jrf")]
-visible = false
-
-[node name="SubViewport" parent="ObjectViewerCanvasLayer/ObjectViewer/SubViewportContainer" index="0"]
-render_target_update_mode = 0
-
 [node name="WorldBoundary" type="Area3D" parent="."]
 collision_mask = 2
 
@@ -171,198 +173,6 @@ autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 
-[node name="CellVisualizer" type="CanvasLayer" parent="."]
-script = ExtResource("28_qsp4k")
-
-[node name="Control" type="Control" parent="CellVisualizer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CellName" type="RichTextLabel" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.11
-anchor_top = 0.1
-anchor_right = 0.5
-anchor_bottom = 0.15
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "Now viewing:"
-fit_content = true
-scroll_active = false
-
-[node name="SceneName" type="RichTextLabel" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.11
-anchor_right = 0.3
-anchor_bottom = 0.05
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "Scene:"
-fit_content = true
-scroll_active = false
-
-[node name="GridDimensions" type="RichTextLabel" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.31
-anchor_right = 0.5
-anchor_bottom = 0.05
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "Grid: "
-fit_content = true
-scroll_active = false
-
-[node name="ActiveCell" type="RichTextLabel" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.51
-anchor_right = 0.7
-anchor_bottom = 0.05
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-fit_content = true
-scroll_active = false
-
-[node name="ItemName" type="RichTextLabel" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.51
-anchor_top = 0.1
-anchor_right = 0.8
-anchor_bottom = 0.15
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "bunny girl:"
-fit_content = true
-scroll_active = false
-
-[node name="ItemInfoContainer" type="ScrollContainer" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.51
-anchor_top = 0.15
-anchor_right = 0.8
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="ItemInfo" type="RichTextLabel" parent="CellVisualizer/Control/ItemInfoContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "name: witch2
-file: ----"
-scroll_active = false
-
-[node name="LabelActive" type="RichTextLabel" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.11
-anchor_top = 0.15
-anchor_right = 0.3
-anchor_bottom = 0.2
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "Active Objects:"
-fit_content = true
-scroll_active = false
-
-[node name="LabelInactive" type="RichTextLabel" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.31
-anchor_top = 0.15
-anchor_right = 0.5
-anchor_bottom = 0.2
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "Inactive Objects:"
-fit_content = true
-scroll_active = false
-
-[node name="Button" type="Button" parent="CellVisualizer/Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Cell0"
-
-[node name="Active" type="ScrollContainer" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.11
-anchor_top = 0.2
-anchor_right = 0.3
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBox" type="VBoxContainer" parent="CellVisualizer/Control/Active"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-
-[node name="Inactive" type="ScrollContainer" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.31
-anchor_top = 0.2
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBox" type="VBoxContainer" parent="CellVisualizer/Control/Inactive"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-
-[node name="Cells" type="ScrollContainer" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.05
-anchor_right = 0.1
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBox" type="VBoxContainer" parent="CellVisualizer/Control/Cells"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-
-[node name="ActiveCells" type="RichTextLabel" parent="CellVisualizer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.11
-anchor_top = 0.05
-anchor_right = 1.0
-anchor_bottom = 0.1
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Hourhand hallway" parent="." groups=["loadable_scene"] instance=ExtResource("27_xuqvo")]
 transform = Transform3D(1.41429, 0, 0, 0, 1.41429, 0, 0, 0, 1.41429, 17.3809, -1.02636, -2.08933)
 
@@ -370,6 +180,6 @@ transform = Transform3D(1.41429, 0, 0, 0, 1.41429, 0, 0, 0, 1.41429, 17.3809, -1
 [connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
 [connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
 
+[editable path="ObjectViewerCanvasLayer"]
 [editable path="PolaroidCamera"]
 [editable path="Polaroid"]
-[editable path="ObjectViewerCanvasLayer"]
