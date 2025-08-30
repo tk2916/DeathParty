@@ -977,10 +977,10 @@ transform = Transform3D(-1.07816, 0.00995462, 4.3513e-10, 0, -4.71301e-08, 1.078
 transform = Transform3D(-1.09141, 0, -0.00369554, 0, 1.09141, 0, 0.00369554, 0, -1.09141, 4.32052, 4.98032, 14.9358)
 
 [node name="BalloonsThreeShort" parent="Props/Balloons" instance=ExtResource("26_80mb7")]
-transform = Transform3D(0.218598, -5.82077e-11, 3.46945e-18, 0, -1.09675e-08, -0.24051, 1.74623e-10, 0.250908, -1.0513e-08, 6.02786, -4.34293, 13.3824)
+transform = Transform3D(1, 0, 0, 0, 1.146, 0, 0, 0, 1.1, 6.02786, -4.34293, 13.3824)
 
 [node name="BalloonsFourShort" parent="Props/Balloons" instance=ExtResource("27_yoltj")]
-transform = Transform3D(0.229867, -0.0615858, 3.4168e-09, 0, -8.87951e-09, -0.257833, 0.0731305, 0.193579, -1.07398e-08, 2.24753, -3.34295, 13.1798)
+transform = Transform3D(0.953191, 0, -0.323838, 0, 0.842, 0, 0.30237, 0, 1.02087, 2.24753, -3.34295, 13.1798)
 
 [node name="BalloonsFourTall2" parent="Props/Balloons" instance=ExtResource("28_vqd5x")]
 transform = Transform3D(-1, 0, -8.6613e-08, 0, 1, 0, 8.6613e-08, 0, -1, 8.19235, -4.55, 15.9578)
