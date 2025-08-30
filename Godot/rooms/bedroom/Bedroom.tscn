@@ -1,4 +1,4 @@
-[gd_scene load_steps=179 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=180 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -69,6 +69,7 @@
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="57_6hcck"]
 [ext_resource type="PackedScene" uid="uid://dasq5wgeyo38c" path="res://Assets/props/polaroid_camera_collectable.tscn" id="66_dyybh"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="69_tt7nc"]
+[ext_resource type="PackedScene" uid="uid://5dyu4rpk5qa6" path="res://rooms/bedroom/LEO.glb" id="70_b33ja"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.23928, 3.15956, 8.65055)
@@ -1480,7 +1481,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.213904, 0.889039, -0.355616
 shape = SubResource("BoxShape3D_gua8r")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.759624, 0.889039, 0.0566419)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.759624, 0.889039, 0.855421)
 shape = SubResource("BoxShape3D_w0jyq")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundaries"]
@@ -1500,11 +1501,11 @@ transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, 1.8893, 
 shape = SubResource("BoxShape3D_kvlly")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -1.31124, 0.889039, 1.63872)
+transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -1.31124, 0.889039, 2.4216)
 shape = SubResource("BoxShape3D_p2qrk")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -1.55748, 0.889039, 3.18166)
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -1.55748, 0.889039, 3.98433)
 shape = SubResource("BoxShape3D_7octt")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="Boundaries"]
@@ -1512,7 +1513,7 @@ transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -2.002, 
 shape = SubResource("BoxShape3D_qbwcx")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 1.23198e-07, 0, 1, 0, -1.23198e-07, 0, 1, -0.223922, 0.889039, 4.24851)
+transform = Transform3D(1, 0, 1.23198e-07, 0, 1, 0, -1.23198e-07, 0, 1, -0.223922, 0.889039, 3.83854)
 shape = SubResource("BoxShape3D_84fnt")
 
 [node name="SceneLoader_Exterior" type="Area3D" parent="."]
@@ -1526,7 +1527,7 @@ scene_going_left = "Exterior"
 play_door_sound = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573811, 1.403, -1.34445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573811, 1.403, -1.6778)
 shape = SubResource("BoxShape3D_tt7nc")
 
 [node name="TeleportPoint" type="Node3D" parent="SceneLoader_Exterior"]
@@ -1769,6 +1770,11 @@ transform = Transform3D(0.352053, -0.0060043, 2.57207e-09, 0, -8.39481e-08, -0.6
 mesh = SubResource("ArrayMesh_h0bd3")
 skeleton = NodePath("")
 
+[node name="Plane_020" type="MeshInstance3D" parent="BedsideTable2"]
+transform = Transform3D(0.676135, -0.00591003, 2.57207e-09, 0, -8.26301e-08, -0.632633, 0.0115315, 0.346526, -1.5081e-07, 1.1925, -0.155397, 0.0110792)
+mesh = SubResource("ArrayMesh_h0bd3")
+skeleton = NodePath("")
+
 [node name="Basil_A_002_plant_0" type="MeshInstance3D" parent="BedsideTable2"]
 transform = Transform3D(0.00164276, -1.14769, -6.0416e-07, -3.03517e-08, -4.10448e-07, 1.68958, -1.01843, -0.00185126, -5.13281e-08, -0.181338, 0.275663, 0.0137334)
 mesh = SubResource("ArrayMesh_c4pjx")
@@ -1798,8 +1804,7 @@ skeleton = NodePath("")
 transform = Transform3D(-3.8861e-08, 0, 0.889036, 0, 0.889036, 0, -0.889036, 0, -3.8861e-08, 0.0672297, 0.197379, -0.10429)
 
 [node name="Closet" parent="." instance=ExtResource("20_yfvte")]
-transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -2.21162, 1.15983, 1.82145)
-visible = false
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -2.21162, 1.15983, 2.86956)
 
 [node name="polySurface14" parent="Closet" index="5"]
 transform = Transform3D(1.60367e-05, 0.000101135, 5.43222e-06, 4.62205e-05, -2.41422e-06, -9.15027e-05, -9.01188e-05, 1.67588e-05, -4.59636e-05, 0.676189, -0.195626, 1.1798)
@@ -1839,10 +1844,10 @@ light_energy = 5.0
 shadow_enabled = true
 
 [node name="Chair" parent="." instance=ExtResource("8_8bc0i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96153, 0.348179, 0.0296352)
+transform = Transform3D(0.994789, 0, -0.101959, 0, 1, 0, 0.101959, 0, 0.994789, -0.776669, 0.348179, 0.718062)
 
 [node name="Bookshelf" parent="." instance=ExtResource("10_0aena")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91154, 1.17567, 3.43898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91154, 1.17567, 4.28585)
 
 [node name="CorkBoard" parent="." instance=ExtResource("16_i33k8")]
 transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 1.4748, -1.18352)
@@ -1854,7 +1859,7 @@ visible = false
 transform = Transform3D(0.900741, 0, 0, 0, 0.900741, 0, 0, 0, 0.900741, -0.0326812, 0.0543425, 0.0114737)
 
 [node name="SuitcaseAndBox" parent="." instance=ExtResource("18_do83d")]
-transform = Transform3D(0.957283, 0, 0.418028, 0, 1.04458, 0, -0.418028, 0, 0.957283, 1.87073, 1.88894, 4.12525)
+transform = Transform3D(0.957283, 0, 0.418028, 0, 1.04458, 0, -0.418028, 0, 0.957283, 1.87073, 1.88894, 5.52289)
 
 [node name="StarRug" parent="." groups=["material_carpet"] instance=ExtResource("20_y7msa")]
 transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.106077, 1.50737)
@@ -1870,7 +1875,7 @@ skeleton = NodePath("")
 [node name="Props" type="Node3D" parent="."]
 
 [node name="Guitar" parent="Props" instance=ExtResource("27_e0ilc")]
-transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.78076, 0.43937, 3.21967)
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.78076, 0.43937, 4.26778)
 
 [node name="WallDecorations" type="Node3D" parent="Props"]
 transform = Transform3D(1.01561, 0, 0, 0, 1.01561, 0, 0, 0, 1.01561, 1.4671, 1.56823, -0.635197)
@@ -1881,6 +1886,9 @@ transform = Transform3D(0.875374, 0, 0, 0, 0.875374, 0, 0, 0, 0.875374, -2.29753
 [node name="Plane_153" parent="Props/WallDecorations/PunkPosters" index="0"]
 transform = Transform3D(0.00156709, 8.4257e-19, 0.971416, -0.100647, 0.966189, 0.000162364, -0.966188, -0.100647, 0.00155866, 1.13167, 1.09679, -0.195282)
 
+[node name="Cube_068" parent="Props/WallDecorations/PunkPosters" index="1"]
+transform = Transform3D(0.00161314, 0.999999, 2.98023e-08, -8.9407e-08, 1.19209e-07, -1, -0.999999, 0.00161308, 1.19209e-07, -0.937617, -1.0852, 2.01142)
+
 [node name="Plane_043" parent="Props/WallDecorations/PunkPosters" index="2"]
 transform = Transform3D(-0.000740272, -0.745177, -1.05716, 0.000986572, 0.992942, -0.793367, 1.0003, -0.00153088, 7.87821e-08, -0.589757, 0.985761, -1.55184)
 material_override = SubResource("StandardMaterial3D_kvlly")
@@ -1889,13 +1897,13 @@ material_override = SubResource("StandardMaterial3D_kvlly")
 transform = Transform3D(-0.00074029, -0.600242, -1.22961, 0.000986308, 0.799818, -0.922789, 0.999999, -0.00123322, -1.1246e-07, -0.832817, 0.943534, -0.320668)
 
 [node name="Plane_039" parent="Props/WallDecorations/PunkPosters" index="4"]
-transform = Transform3D(1.25895, 0, -0.39986, -0.39986, -1.57467e-07, -1.25895, -5.90501e-08, 1.32093, -1.57467e-07, -0.740211, -0.617599, 0.84733)
+transform = Transform3D(1.25895, 0, -0.39986, -0.39986, -1.57467e-07, -1.25895, -5.90501e-08, 1.32093, -1.57467e-07, -0.740211, -0.617599, 2.02626)
 
 [node name="Plane_049" parent="Props/WallDecorations/PunkPosters" index="5"]
-transform = Transform3D(0.390451, 5.59805e-08, 0.156533, 0.156533, -1.39636e-07, -0.390451, 0, 0.420659, -1.5044e-07, -1.31529, -0.758156, 0.848489)
+transform = Transform3D(0.390451, 5.59805e-08, 0.156533, 0.156533, -1.39636e-07, -0.390451, 0, 0.420659, -1.5044e-07, -1.31529, -0.758156, 2.02742)
 
 [node name="Plane_050" parent="Props/WallDecorations/PunkPosters" index="6"]
-transform = Transform3D(1.32093, 0, 0, 0, -4.72401e-07, -1.32093, 0, 1.32093, -4.72401e-07, -0.783874, -0.4996, 0.84733)
+transform = Transform3D(1.32093, 0, 0, 0, -4.72401e-07, -1.32093, 0, 1.32093, -4.72401e-07, -0.783874, -0.4996, 2.02626)
 
 [node name="Plane_054" parent="Props/WallDecorations/PunkPosters" index="7"]
 transform = Transform3D(1, 0, 0, 0, -3.57628e-07, -1, 0, 1, -3.57628e-07, 0.681946, 0.922954, -3.58652)
@@ -1907,10 +1915,10 @@ transform = Transform3D(-0.0239555, 0.602108, -0.798055, 0.0153786, -0.797968, -
 transform = Transform3D(-1.41286e-07, 0.688298, 0.897938, 3.34545e-07, 0.897938, -0.688298, -1.13139, 1.34872e-07, -4.04617e-07, 2.83877, 1.03556, 1.52313)
 
 [node name="Plane_042" parent="Props/WallDecorations/PunkPosters" index="10"]
-transform = Transform3D(-0.0010804, 1.58962, 0.00662414, -0.00143942, 0.00622806, -1.69039, 1.45931, 0.00118302, -0.00166245, -1.27544, -0.414793, 1.87522)
+transform = Transform3D(-0.0010804, 1.58962, 0.00662414, -0.00143942, 0.00622806, -1.69039, 1.45931, 0.00118302, -0.00166245, -1.27544, -0.414793, 3.05415)
 
 [node name="Plane_047" parent="Props/WallDecorations/PunkPosters" index="11"]
-transform = Transform3D(-0.00189439, -2.64822, 0.0493223, 0.00266057, -0.028087, -4.65079, 2.64837, -0.00186607, 0.00470749, -1.24857, -0.752825, 2.69148)
+transform = Transform3D(-0.00189439, -2.64822, 0.0493223, 0.00266057, -0.028087, -4.65079, 2.64837, -0.00186607, 0.00470749, -1.24857, -0.752825, 3.87041)
 
 [node name="Plane_040" parent="Props/WallDecorations/PunkPosters" index="12"]
 transform = Transform3D(-0.0608814, 2.54011, 0.0540959, 0.039084, 0.0550414, -2.54052, -2.54039, -0.060028, -0.0403825, 3.44724, -0.212886, -1.64362)
@@ -1963,22 +1971,22 @@ mesh = SubResource("ArrayMesh_68lsw")
 skeleton = NodePath("")
 
 [node name="Poster5" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(1.21092, -3.29877e-08, -0.09224, -0.09224, -4.33061e-07, -1.21092, 0, 1.21443, -4.34315e-07, -2.90897, -1.13376, 3.32498)
+transform = Transform3D(1.21092, -3.29877e-08, -0.09224, -0.09224, -4.33061e-07, -1.21092, 0, 1.21443, -4.34315e-07, -2.90897, -1.13376, 4.35698)
 mesh = SubResource("ArrayMesh_avely")
 skeleton = NodePath("")
 
 [node name="Poster6" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(1.19401, 7.93191e-08, 0.221792, 0.221792, -4.2701e-07, -1.19401, 0, 1.21443, -4.34315e-07, -2.76665, -0.971136, 3.32498)
+transform = Transform3D(1.19401, 7.93191e-08, 0.221792, 0.221792, -4.2701e-07, -1.19401, 0, 1.21443, -4.34315e-07, -2.76665, -0.971136, 4.35698)
 mesh = SubResource("ArrayMesh_msydh")
 skeleton = NodePath("")
 
 [node name="Poster7" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(1.21443, 0, 0, 0, -4.34315e-07, -1.21443, 0, 1.21443, -4.34315e-07, -3.12737, -0.188666, 3.32345)
+transform = Transform3D(1.21443, 0, 0, 0, -4.34315e-07, -1.21443, 0, 1.21443, -4.34315e-07, -3.12737, -0.188666, 4.35545)
 mesh = SubResource("ArrayMesh_23liv")
 skeleton = NodePath("")
 
 [node name="Poster8" type="MeshInstance3D" parent="Props/WallDecorations"]
-transform = Transform3D(1.20298, -5.9499e-08, -0.166371, -0.166371, -4.3022e-07, -1.20298, 0, 1.21443, -4.34315e-07, -2.9192, -0.880332, 3.32498)
+transform = Transform3D(1.20298, -5.9499e-08, -0.166371, -0.166371, -4.3022e-07, -1.20298, 0, 1.21443, -4.34315e-07, -2.9192, -0.880332, 4.35698)
 mesh = SubResource("ArrayMesh_v5tcb")
 skeleton = NodePath("")
 
@@ -2069,18 +2077,18 @@ light_specular = 1.833
 omni_range = 0.957
 
 [node name="LaundryBasket" parent="Props" instance=ExtResource("57_6hcck")]
-transform = Transform3D(-0.446636, 0.000419213, -0.62511, 0.000833922, 0.768274, -8.06254e-05, 0.625109, -0.000725388, -0.446636, 1.6601, 0.192241, 1.29007)
+transform = Transform3D(-0.446636, 0.000419213, -0.62511, 0.000833922, 0.768274, -8.06254e-05, 0.625109, -0.000725388, -0.446636, 1.49957, 0.192241, 2.48678)
 
 [node name="Lamp" type="Node3D" parent="Props"]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.7287, 1.08326, 5.10819)
 
 [node name="Cylinder_006" type="MeshInstance3D" parent="Props/Lamp"]
-transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, -0.0312566, -0.168954, -0.0209002)
+transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, -0.0312566, -0.168954, 1.15803)
 mesh = SubResource("ArrayMesh_dcbqy")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/Lamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0536875, 0.221358, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0536875, 0.221358, 1.17893)
 light_color = Color(1, 0.685, 0.3, 1)
 light_specular = 4.611
 omni_range = 1.768
@@ -2120,7 +2128,89 @@ transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.86629
 visible = false
 
 [node name="shoe rack" parent="." instance=ExtResource("9_l0p45")]
-transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.73746, 0.162011, 2.11876)
+transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.53885, 0.162011, 3.82304)
+
+[node name="LEO" parent="." instance=ExtResource("70_b33ja")]
+transform = Transform3D(0.482226, 0.721213, -0.194167, 0.118592, 0.154253, 0.867487, 0.737418, -0.496436, -0.0125363, -0.680539, 0.412796, 0.940097)
+
+[node name="Skeleton3D" parent="LEO/LEO MODEL" index="3"]
+bones/3/position = Vector3(-1.58293, 0.0203481, 1.58746)
+bones/3/rotation = Quaternion(-0.0112106, -0.373649, -0.0278307, 0.927085)
+bones/4/rotation = Quaternion(0.00177021, 0.557329, -0.00192287, 0.830288)
+bones/5/rotation = Quaternion(-0.00408287, 0.175179, 0.0476031, 0.983377)
+bones/6/rotation = Quaternion(-0.0693819, 0.265087, 0.0467748, 0.960587)
+bones/7/rotation = Quaternion(-0.0358604, -0.00486449, 0.03961, 0.99856)
+bones/8/position = Vector3(-0.000312946, 1.74505e-05, 0.698963)
+bones/8/rotation = Quaternion(-0.0827131, -0.080573, 0.0668482, 0.991059)
+bones/9/position = Vector3(0.000290524, 3.6115e-05, 0.546869)
+bones/9/rotation = Quaternion(-1.07412e-10, 0.0978928, -1.04995e-10, 0.995197)
+bones/10/position = Vector3(-0.00031097, 7.25882e-05, 0.601246)
+bones/10/rotation = Quaternion(-0.0352324, -0.187393, -0.127245, 0.973371)
+bones/11/rotation = Quaternion(-4.07044e-08, 0.000210011, -3.0374e-09, 1)
+bones/13/rotation = Quaternion(3.47417e-09, 0.0919153, -1.55035e-09, 0.995767)
+bones/14/rotation = Quaternion(-1.01494e-09, 0.651016, -4.00766e-09, 0.759064)
+bones/16/rotation = Quaternion(0.0210103, 0.205826, -0.0985907, 0.973383)
+bones/17/rotation = Quaternion(-0.00930627, 0.381932, -0.003852, 0.924135)
+bones/18/rotation = Quaternion(0.0100406, -0.0753934, -0.000737157, 0.997103)
+bones/19/rotation = Quaternion(0.100711, -0.0460828, 0.166235, 0.979847)
+bones/20/rotation = Quaternion(0.0278023, -0.133244, 0.238167, 0.961639)
+bones/21/rotation = Quaternion(-0.137425, -0.223151, 0.351787, 0.898646)
+bones/22/rotation = Quaternion(-0.0348204, 0.0211187, 0.85418, 0.51838)
+bones/23/rotation = Quaternion(0.0985621, 0.973363, 0.021126, -0.205924)
+bones/24/rotation = Quaternion(-0.003852, 0.924128, 0.00930616, -0.381951)
+bones/25/rotation = Quaternion(-0.000737197, 0.997098, -0.0100406, 0.0754652)
+bones/26/rotation = Quaternion(0.979827, -0.166235, 0.0460828, 0.100901)
+bones/27/rotation = Quaternion(0.961608, -0.238167, 0.133244, 0.0288697)
+bones/28/rotation = Quaternion(0.898618, -0.351787, 0.223151, -0.137608)
+bones/29/rotation = Quaternion(-0.477257, 0.873593, 0.0128307, 0.0943212)
+bones/30/position = Vector3(1.22002, -0.0863274, 0.0761346)
+bones/30/rotation = Quaternion(-0.0149288, -0.542026, -0.0459846, 0.83897)
+bones/31/position = Vector3(-0.220462, 0.583211, 0.523361)
+bones/31/rotation = Quaternion(0.725641, -0.3526, 0.368715, 0.461701)
+bones/32/position = Vector3(-0.665698, -0.278083, 0.0751034)
+bones/32/rotation = Quaternion(-0.00156179, 0.467182, 0.554238, 0.688882)
+bones/33/position = Vector3(0.686851, 0.646127, 0.624028)
+bones/33/rotation = Quaternion(0.951583, -0.182068, 0.244692, -0.038304)
+bones/34/rotation = Quaternion(9.84268e-09, 0.487808, -1.35949e-08, 0.872951)
+bones/35/rotation = Quaternion(-1.09899e-07, -0.0840641, -1.19064e-08, 0.99646)
+bones/36/rotation = Quaternion(0.0716677, 0.59655, -0.0394113, 0.798397)
+bones/37/rotation = Quaternion(0.111791, 0.00582905, 0.99234, -0.0522562)
+bones/38/position = Vector3(-1.19209e-07, -1.3113e-06, 0.727558)
+bones/38/rotation = Quaternion(-9.87202e-08, 0, -1, 1.49012e-07)
+bones/39/position = Vector3(0.00286794, -0.903538, 0.075736)
+bones/39/rotation = Quaternion(0.154409, 0.855733, -0.0569043, 0.490551)
+bones/40/rotation = Quaternion(-5.39614e-09, -0.858751, -4.02617e-09, 0.512393)
+bones/41/rotation = Quaternion(8.81566e-09, 0.426889, -1.05514e-08, 0.904304)
+bones/42/rotation = Quaternion(0.051187, 0.0240711, 0.991141, -0.120163)
+bones/43/rotation = Quaternion(0.992251, 0.0538888, 0.111792, -0.00606995)
+bones/44/position = Vector3(0, 1.78814e-07, 0.72756)
+bones/44/rotation = Quaternion(-9.31323e-09, 1, 1.49012e-07, -1.43424e-07)
+bones/45/position = Vector3(-0.024593, -0.00364547, -0.707788)
+bones/45/rotation = Quaternion(0.119358, 0.957396, 0.148473, -0.21703)
+bones/46/position = Vector3(-0.0051816, 0.0160425, 0.720196)
+bones/46/rotation = Quaternion(-0.224342, 0.207449, 0.0164996, 0.952031)
+bones/47/position = Vector3(-0.0665441, -0.134197, 1.10599)
+bones/47/rotation = Quaternion(-0.394176, 0.0795897, 0.118024, 0.907943)
+bones/48/position = Vector3(-0.0260904, -0.059916, 1.33924)
+bones/48/rotation = Quaternion(-0.407106, 0.0680641, 0.00146673, 0.91084)
+bones/49/position = Vector3(0.00387066, 0.189449, 1.30154)
+bones/49/rotation = Quaternion(-0.281429, 0.546038, -0.276699, 0.738971)
+bones/50/position = Vector3(-1.42453e-07, 0.363691, 0.937219)
+bones/50/rotation = Quaternion(-0.33657, 0.000337892, 0.00521211, 0.941644)
+bones/51/rotation = Quaternion(8.9407e-08, -0.250984, 4.79234e-08, 0.967991)
+bones/52/rotation = Quaternion(0.0190472, 0.988017, 0.15244, 0.0148586)
+bones/53/rotation = Quaternion(2.51847e-09, 0.969701, 2.33925e-09, 0.244296)
+bones/54/rotation = Quaternion(0.0578324, -0.796108, 0.0457992, 0.600642)
+bones/55/rotation = Quaternion(0.492094, 0.0116781, -0.870198, 0.0214927)
+bones/56/rotation = Quaternion(1.10595e-08, 5.40467e-08, 1, -1.33266e-07)
+bones/57/rotation = Quaternion(0.994409, -0.0281752, 0.0892269, 0.0489523)
+bones/58/rotation = Quaternion(4.56076e-08, -0.971109, 2.61922e-08, 0.238637)
+bones/59/rotation = Quaternion(0.0208957, 0.783512, -0.0138124, 0.620872)
+bones/60/rotation = Quaternion(0.423242, 0.0333857, 0.90493, 0.0292225)
+bones/61/rotation = Quaternion(2.27315e-07, 1, 5.05588e-08, -3.06754e-08)
+
+[node name="AnimationPlayer" parent="LEO" index="1"]
+autoplay = "IDLE"
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
@@ -2134,3 +2224,4 @@ transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.73746,
 [editable path="Desk/DeskObjects"]
 [editable path="CorkBoard"]
 [editable path="Props/WallDecorations/PunkPosters"]
+[editable path="LEO"]
