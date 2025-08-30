@@ -1,29 +1,28 @@
-[gd_scene load_steps=30 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=29 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
-[ext_resource type="Script" uid="uid://w65sih48u3on" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
+[ext_resource type="Script" path="res://Utilities/world_environment.gd" id="3_cyx1q"]
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://vkp1p25gspml" path="res://Utilities/dev_menu/dev_menu_teleport_button.tscn" id="5_xuqvo"]
 [ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
-[ext_resource type="PackedScene" uid="uid://ch4fuk8qiva6x" path="res://rooms/Ghost hallway/Ghost hallway.tscn" id="26_a6jrf"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://dph5ihe40llhe" path="res://rooms/Exterior Frat Lawn/Exterior.tscn" id="27_qsp4k"]
-[ext_resource type="PackedScene" uid="uid://bqae87n6emy8q" path="res://rooms/Hourhand hallway/Hourhand hallway.tscn" id="27_xuqvo"]
+[ext_resource type="Script" path="res://cell_visualizer.gd" id="28_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://c7033b4susyvc" path="res://rooms/Storage Room/Storageroom.tscn" id="28_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
-[ext_resource type="PackedScene" uid="uid://o1miuonfuk7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
+[ext_resource type="PackedScene" uid="uid://bschhxvd0bvn7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
 [ext_resource type="PackedScene" uid="uid://c44l5t4o5i1qg" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
 [ext_resource type="PackedScene" uid="uid://d3uev5wxhcoe1" path="res://rooms/entrance.tscn" id="42_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://d0sd1bp5esd04" path="res://Utilities/polaroid_camera/polaroid_layer.tscn" id="55_e71vb"]
-[ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
+[ext_resource type="PackedScene" path="res://Utilities/stats.tscn" id="56_e71vb"]
 [ext_resource type="PackedScene" uid="uid://byfsccg4kb4bw" path="res://polaroid_pop_up.tscn" id="57_vke2r"]
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
 [ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
@@ -41,10 +40,11 @@ script = ExtResource("26_lswn8")
 json_file = ExtResource("27_a6jrf")
 json_file2 = SubResource("Resource_a6jrf")
 
-[node name="DevMenu" parent="." node_paths=PackedStringArray("player", "party_room_music") instance=ExtResource("4_h8e4i")]
+[node name="DevMenu" parent="." node_paths=PackedStringArray("player", "party_room_music", "game_ui") instance=ExtResource("4_h8e4i")]
 visible = false
 player = NodePath("../Player")
 party_room_music = NodePath("../PartyRoomMusic")
+game_ui = NodePath("")
 teleport_button_scene = ExtResource("5_xuqvo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -129,7 +129,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.786, 0.0322108, 25.2049)
 floor_constant_speed = true
 
 [node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "player") instance=ExtResource("3_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8502, 1.51749, 24.9362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8502, 1.51749, 24.6872)
 fov = 30.0
 main_camera = NodePath(".")
 player = NodePath("../Player")
@@ -144,7 +144,7 @@ script = null
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -24.161, 0, -17.392)
 
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8299, 4.7584, -20.5061)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698557, 4.7584, -20.5061)
 
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
@@ -164,9 +164,6 @@ transform = Transform3D(0.791022, 0, 0, 0, 0.791022, 0, 0, 0, 0.791022, -17.1306
 [node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
 transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 5.7468)
 
-[node name="Ghost hallway" parent="." groups=["loadable_scene"] instance=ExtResource("26_a6jrf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41542, 1.681, -17.9671)
-
 [node name="PartyRoomMusic" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/900_MX/Party Room music"
 event_guid = "{757f62e0-b188-491e-9503-6ad99b13690a}"
@@ -174,8 +171,197 @@ autoplay = true
 volume = 0.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 
-[node name="Hourhand hallway" parent="." groups=["loadable_scene"] instance=ExtResource("27_xuqvo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3456, -1.33441, -1.57153)
+[node name="CellVisualizer" type="CanvasLayer" parent="."]
+script = ExtResource("28_qsp4k")
+
+[node name="Control" type="Control" parent="CellVisualizer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CellName" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Now viewing:"
+fit_content = true
+scroll_active = false
+
+[node name="SceneName" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_right = 0.3
+anchor_bottom = 0.05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Scene:"
+fit_content = true
+scroll_active = false
+
+[node name="GridDimensions" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_right = 0.5
+anchor_bottom = 0.05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Grid: "
+fit_content = true
+scroll_active = false
+
+[node name="ActiveCell" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_right = 0.7
+anchor_bottom = 0.05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+fit_content = true
+scroll_active = false
+
+[node name="ItemName" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "bunny girl:"
+fit_content = true
+scroll_active = false
+
+[node name="ItemInfoContainer" type="ScrollContainer" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.15
+anchor_right = 0.8
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="ItemInfo" type="RichTextLabel" parent="CellVisualizer/Control/ItemInfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "name: witch2
+file: ----"
+scroll_active = false
+
+[node name="LabelActive" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.15
+anchor_right = 0.3
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Active Objects:"
+fit_content = true
+scroll_active = false
+
+[node name="LabelInactive" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Inactive Objects:"
+fit_content = true
+scroll_active = false
+
+[node name="Button" type="Button" parent="CellVisualizer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cell0"
+
+[node name="Active" type="ScrollContainer" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.2
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CellVisualizer/Control/Active"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Inactive" type="ScrollContainer" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CellVisualizer/Control/Inactive"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Cells" type="ScrollContainer" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 0.1
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CellVisualizer/Control/Cells"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ActiveCells" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
 [connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
@@ -184,3 +370,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3456, -1.33441, -1.57153)
 [editable path="PolaroidCamera"]
 [editable path="Polaroid"]
 [editable path="ObjectViewerCanvasLayer"]
+[editable path="Bedroom"]
+[editable path="Bedroom/SceneLoader_Exterior"]
+[editable path="Bedroom/Bed"]
+[editable path="Bedroom/Closet"]
+[editable path="Bedroom/Desk/DeskObjects"]
+[editable path="Bedroom/CorkBoard"]
+[editable path="Bedroom/Props/WallDecorations/PunkPosters"]

@@ -60,7 +60,7 @@ func _ready() -> void:
 	ContentLoader.finished_loading.connect(set_up_camera)
 
 func _physics_process(delta: float) -> void:
-	if default_player_camera_location_node == null: return
+	if !is_instance_valid(default_player_camera_location_node) or !is_instance_valid(camera_location_node): return
 	if !default_player_camera_location_node.is_inside_tree() or !camera_location_node.is_inside_tree(): return
 	# make camera follow player
 	if camera_on_player:

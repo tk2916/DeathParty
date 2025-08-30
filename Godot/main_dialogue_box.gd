@@ -54,7 +54,7 @@ var UI_STATES : Dictionary[String, String] = {
 
 var current_ui_state : String
 
-func assign_nodes():
+func assign_nodes() -> void:
 	if current_ui_state != UI_STATES.NPC_SPEAKER:
 		text_label = protag_text_label
 		speaker_image_label = protag_speaker_image_label
@@ -64,7 +64,7 @@ func assign_nodes():
 		speaker_image_label = npc_speaker_image_label
 		previous_speaker_image_label = npc_previous_speaker_image_label
 
-func set_ui_state(ui_state : String):
+func set_ui_state(ui_state : String) -> void:
 	current_ui_state = ui_state
 	local_choice_buttons = []
 	if ui_state == UI_STATES.PROTAG_SPEAKER:

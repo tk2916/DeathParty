@@ -24,7 +24,6 @@ func _on_touch_screen_mouse_exited() -> void:
 
 func scroll(delta : float):
 	var cur_scroll_value = get_v_scroll()
-	print("delta", delta, " ", cur_scroll_value)
 	var difference = -2*delta
 	var new_val = cur_scroll_value+difference
 	new_val = clamp(new_val, 0, scrollbar.max_value)

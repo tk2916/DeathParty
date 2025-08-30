@@ -19,9 +19,9 @@ func instantiate() -> TaskContainer:
 	#gui_node.description_label.text = "[color=2b2b2b]"+description+"[/color]"
 	return gui_node
 
-func update():
+func update() -> void:
 	time_updated = SaveSystem.get_key("time")
 
-func complete():
+func complete() -> void:
 	finished = true
 	print("Task complete: ", name)

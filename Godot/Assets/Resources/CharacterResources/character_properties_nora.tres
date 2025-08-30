@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://lfthc37kslft"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://lfthc37kslft"]
 
-[ext_resource type="Texture2D" uid="uid://base5d87dehd1" path="res://Assets/CharacterAssets/nora/polaroid_nora.png" id="1_ftjkl"]
+[ext_resource type="Texture2D" uid="uid://dt2q87mwcwbmb" path="res://Assets/CharacterAssets/Polaroids/nora_a.png" id="1_cbegv"]
 [ext_resource type="Texture2D" uid="uid://dka00jbmkrihq" path="res://Assets/CharacterAssets/nora/nora_circle.png" id="2_cbegv"]
+[ext_resource type="Texture2D" uid="uid://gxeghch3pqsi" path="res://Assets/CharacterAssets/Polaroids/nora_b.png" id="2_cdqmh"]
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="2_to8io"]
 
 [resource]
 script = ExtResource("2_to8io")
 name = "Nora"
-image_polaroid = ExtResource("1_ftjkl")
+character_location = "Library"
+image_polaroid = ExtResource("1_cbegv")
+image_polaroid_popout = ExtResource("2_cdqmh")
 name_color = ""
 text_color = ""
 character_notes = Array[String]([])

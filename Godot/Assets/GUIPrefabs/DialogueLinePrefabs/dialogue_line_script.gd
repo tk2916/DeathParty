@@ -27,14 +27,14 @@ var special_font : FontFile
 #ANIMATION
 var char_delay : float = .03
 var text_index : int = 0
-var done_state = false
+var done_state : bool = false
 var timer : Timer
 
 var no_animation : bool = false
 
 signal done
 
-func initialize():
+func initialize() -> void:
 	text_color = text_properties.default_text_color
 	name_color = text_properties.default_name_color
 	if text_properties.text_font:
@@ -99,7 +99,7 @@ func initialize():
 		skip()
 
 var typewriter_text : String = ""
-func typewriter():
+func typewriter() -> void:
 	if (text_index > line_info.text.length()-1): #end loop
 		timer.queue_free()
 		finish()
@@ -108,7 +108,7 @@ func typewriter():
 	Text.text = text_prefix + typewriter_text + text_suffix
 	text_index += 1
 
-func skip():
+func skip() -> void:
 	text_index = text_contents.length()
 	if timer:
 		timer.stop()
@@ -116,6 +116,6 @@ func skip():
 	Text.text = text_prefix+line_info.text+text_suffix
 	finish()
 
-func finish():
+func finish() -> void:
 	done.emit()
 	done_state = true

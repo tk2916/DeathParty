@@ -1,6 +1,9 @@
 class_name CharacterResource extends Resource
 
 @export var name : String
+@export var character_location : String
+var npc_data_class : NPCData #for contentloader
+
 @export var image_full : CompressedTexture2D
 @export var image_polaroid : CompressedTexture2D
 @export var image_polaroid_popout : CompressedTexture2D
@@ -60,3 +63,7 @@ func has_chats() -> bool:
 		return true
 	else:
 		return false
+		
+func change_location(location : String) -> void:
+	character_location = location
+	npc_data_class.on_location_change()
