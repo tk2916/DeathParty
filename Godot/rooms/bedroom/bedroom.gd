@@ -1,6 +1,7 @@
 extends Room3D
 
 @export var play_button: Button
+@export var quit_button: Button
 @export var fade_title: Control
 @export var title_screen: CanvasLayer
 @export var closet: Node3D
@@ -16,6 +17,7 @@ func _ready() -> void:
 	GlobalCameraScript.move_camera_jump.emit()
 	body_entered.connect(handle_player_entrance)
 	play_button.pressed.connect(_on_play)
+	quit_button.pressed.connect(on_quit_button_pressed)
 
 
 func _physics_process(delta: float) -> void:
@@ -47,7 +49,9 @@ func _on_scene_loader_body_entered(body: Node3D) -> void:
 
 
 func _on_play() -> void:
-	title_screen.find_child("StartGameButton").visible = false
+	play_button.visible = false
+	quit_button.visible = false
+
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(fade_title, "modulate:a", 0, 1.3)
 	await tween.finished
@@ -61,3 +65,7 @@ func _on_play() -> void:
 	
 	GlobalCameraScript.camera_on_player.emit(true)
 	intro_finished.emit()
+
+
+func on_quit_button_pressed() -> void:
+	get_tree().quit()

@@ -1452,11 +1452,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o7qs3")
 
-[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("play_button", "fade_title", "title_screen", "closet", "room_area", "path_follow_node") groups=["loadable_scene"]]
+[node name="Bedroom" type="Area3D" node_paths=PackedStringArray("play_button", "quit_button", "fade_title", "title_screen", "closet", "room_area", "path_follow_node") groups=["loadable_scene"]]
 transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_lxtj2")
 play_button = NodePath("TitleScreen/FadeThisOut/StartGameButton")
+quit_button = NodePath("TitleScreen/FadeThisOut/QuitButton")
 fade_title = NodePath("TitleScreen/FadeThisOut/TextureRect")
 title_screen = NodePath("TitleScreen")
 closet = NodePath("Closet")

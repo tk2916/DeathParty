@@ -1,7 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://4au417aywrdh"]
-
-[ext_resource type="Texture2D" uid="uid://b5evdr7vcsetd" path="res://Assets/PNGAssets/titlescreen.png" id="1_v6p8y"]
-[ext_resource type="Theme" uid="uid://dy4pwf3gcuc6g" path="res://Assets/themes/title_screen_button.tres" id="2_ak2if"]
+[gd_resource type="Theme" load_steps=10 format=4 uid="uid://dy4pwf3gcuc6g"]
 
 [sub_resource type="Image" id="Image_v6p8y"]
 data = {
@@ -1048,7 +1045,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.588235, 0.784314, 0.784314, 0.588235)
+bg_color = Color(0.784314, 0.588235, 0.784314, 0.588235)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -1079,7 +1076,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="Theme" id="Theme_ak2if"]
+[resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
@@ -1104,43 +1101,3 @@ Button/styles/focus = SubResource("StyleBoxFlat_tpml5")
 Button/styles/hover = SubResource("StyleBoxFlat_jqemp")
 Button/styles/normal = SubResource("StyleBoxFlat_013yr")
 Button/styles/pressed = SubResource("StyleBoxFlat_8vmu4")
-
-[node name="TitleScreen" type="CanvasLayer"]
-
-[node name="FadeThisOut" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="FadeThisOut"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -19.0
-offset_top = -4.0
-offset_right = 3527.0
-offset_bottom = 2072.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.37, 0.37)
-texture = ExtResource("1_v6p8y")
-stretch_mode = 4
-
-[node name="StartGameButton" type="Button" parent="FadeThisOut"]
-layout_mode = 0
-offset_left = 530.0
-offset_top = 329.0
-offset_right = 718.0
-offset_bottom = 379.0
-rotation = 0.0872665
-theme = ExtResource("2_ak2if")
-
-[node name="QuitButton" type="Button" parent="FadeThisOut"]
-offset_left = 654.0
-offset_top = 449.0
-offset_right = 736.0
-offset_bottom = 484.0
-rotation = 0.0636526
-theme = SubResource("Theme_ak2if")
