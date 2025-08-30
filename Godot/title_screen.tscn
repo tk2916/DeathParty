@@ -1129,9 +1129,9 @@ stretch_mode = 4
 
 [node name="StartGameButton" type="Button" parent="FadeThisOut"]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 327.0
-offset_right = 716.0
-offset_bottom = 377.0
+offset_left = 530.0
+offset_top = 329.0
+offset_right = 718.0
+offset_bottom = 379.0
 rotation = 0.0872665
 theme = SubResource("Theme_xfn3p")
