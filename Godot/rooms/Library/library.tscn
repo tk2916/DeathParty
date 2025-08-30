@@ -1780,10 +1780,10 @@ transform = Transform3D(-0.592787, 0, 0.80536, 0, 1, 0, -0.80536, 0, -0.592787, 
 transform = Transform3D(0.0892767, 0, -0.996007, 0, 1, 0, 0.996007, 0, 0.0892767, -4.6257, 0.359542, -2.15971)
 
 [node name="BalloonsThreeShort" parent="Props/Balloons" instance=ExtResource("39_fh3n2")]
-transform = Transform3D(0.218598, 0, 0, 0, 8.97317e-08, -0.24051, 0, 0.250908, 8.60131e-08, -9.34241, -4.31642, -0.128235)
+transform = Transform3D(1, 0, 0, 0, 1.146, 0, 0, 0, 1.1, -9.34241, -4.31642, -0.128235)
 
 [node name="BalloonsFourShort" parent="Props/Balloons" instance=ExtResource("40_obdan")]
-transform = Transform3D(0.163367, -0.14946, -0.000216071, -0.000203109, 7.39295e-05, -0.257833, 0.177477, 0.137577, -9.6177e-05, 2.95007, -3.27285, -1.83618)
+transform = Transform3D(1, 0, 0, 0, 0.842, 0, 0, 0, 1.071, 2.95007, -3.27285, -1.83618)
 
 [node name="BalloonsFourTall" parent="Props/Balloons" instance=ExtResource("37_ambm6")]
 transform = Transform3D(1, 0, 0, 0, 0.942486, 0, 0, 0, 1.60611, 2.01854, -5.57936, 4.32193)
