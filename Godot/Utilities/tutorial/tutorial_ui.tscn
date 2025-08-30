@@ -28,7 +28,8 @@ grow_vertical = 2
 layout_mode = 2
 text = "Use WASD to move"
 
-[node name="MoveControlsPopupFadeTimer" type="Timer" parent="."]
+[node name="WalkCompleteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
 
@@ -68,4 +69,4 @@ grow_vertical = 2
 layout_mode = 2
 text = "Press TAB to open your journal"
 
-[connection signal="timeout" from="MoveControlsPopupFadeTimer" to="." method="_on_move_control_popup_fade_timer_timeout"]
+[connection signal="timeout" from="WalkCompleteTimer" to="." method="_on_walk_complete_timer_timeout"]
