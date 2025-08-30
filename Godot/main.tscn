@@ -364,7 +364,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Hourhand hallway" parent="." groups=["loadable_scene"] instance=ExtResource("27_xuqvo")]
-transform = Transform3D(1.41429, 0, 0, 0, 1.41429, 0, 0, 0, 1.41429, 17.3809, -1.65639, -2.08933)
+transform = Transform3D(1.41429, 0, 0, 0, 1.41429, 0, 0, 0, 1.41429, 17.3809, -1.02636, -2.08933)
 
 [connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
 [connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
