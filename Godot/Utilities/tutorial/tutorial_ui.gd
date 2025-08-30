@@ -15,6 +15,7 @@ extends CanvasLayer
 @export var exterior_scene_loader: SceneLoader
 @export var door: Node3D
 
+@onready var loading_timer: Timer = %LoadingTimer
 @onready var move_controls_popup: PanelContainer = %MoveControlsPopup
 @onready var walk_complete_timer: Timer = %WalkCompleteTimer
 @onready var phone_controls_popup: PanelContainer = %PhoneControlsPopup
@@ -76,8 +77,8 @@ func _ready() -> void:
 	#		or make a new, safer signal to use instead
 	#		so we can remove this hardcoded timer :p
 	await ContentLoader.finished_loading
-	$LoadingTimer.start()
-	await $LoadingTimer.timeout
+	loading_timer.start()
+	await loading_timer.timeout
 	player = get_tree().get_first_node_in_group("player")
 	player.movement_disabled = true
 	state = States.INTRO
