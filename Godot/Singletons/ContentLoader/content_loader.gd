@@ -11,15 +11,7 @@ var scene_teleport_pos : Vector3
 
 var scene_data_dict : Dictionary[String, LoadableScene] = {}
 var cell_grids : Dictionary[String, Vector3] = {
-	#"PartyRoom" = Vector3(5,1,1),
 	"PartyRoom" = Vector3(1,1,1),
-	"Entrance" = Vector3(1,1,1),
-	"Bathroom" = Vector3(1,1,1),
-	"Bedroom" = Vector3(1,1,1),
-	"Library" = Vector3(1,1,1),
-	"Basement" = Vector3(1,1,1),
-	"Kitchen" = Vector3(1,1,1),
-	#"Exterior" = Vector3(10,1,10),
 	"Exterior" = Vector3(1,1,1),
 }
 
@@ -84,10 +76,9 @@ func store_scene_info(node : Node3D) -> void:
 	var node_name : String = node.name
 	var node_instance : Node3D = node
 	var cell_grid : Vector3
-	if cell_grids.has(node_name):
-		cell_grid = cell_grids[node_name]
-	else:
-		cell_grid = Vector3(1,1,1)
+	if !cell_grids.has(node_name):
+		cell_grids[node_name] = Vector3(1,1,1)
+	cell_grid = cell_grids[node_name]
 	var new_scene_data : LoadableScene = LoadableScene.new(
 		node_instance,
 		main_node_data,
