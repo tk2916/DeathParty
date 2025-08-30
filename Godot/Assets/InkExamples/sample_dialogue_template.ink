@@ -1,10 +1,10 @@
-[Unknown] This is test dialogue
+[BackgroundNPC] This is test dialogue
 
 * Nice
 [Olivia] That's great
-[Unknown] Yay
+[BackgroundNPC] Yay
 -> END
 * So boring
 [Olivia] Eh
-[Unknown] Shut up
+[BackgroundNPC] Shut up
 -> END

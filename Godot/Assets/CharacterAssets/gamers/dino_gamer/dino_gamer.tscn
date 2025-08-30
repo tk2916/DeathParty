@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ba200ffpgk2tg"]
+[gd_scene load_steps=5 format=3 uid="uid://ba200ffpgk2tg"]
 
 [ext_resource type="PackedScene" uid="uid://dfj68fd4u7ckh" path="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer.glb" id="1_gryoh"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_loyf8"]
+[ext_resource type="Resource" uid="uid://dh0pydw5861ea" path="res://Assets/Resources/CharacterResources/character_properties_gamer2.tres" id="3_ooqrp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lg7en"]
 radius = 0.65
 
 [node name="DinoGamer" instance=ExtResource("1_gryoh")]
 transform = Transform3D(1.10684, 0, 0, 0, 1.10684, 0, 0, 0, 1.10684, 0, 0, 0)
+script = ExtResource("2_loyf8")
+character_resource = ExtResource("3_ooqrp")
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(8.74154, 4.24291, -47.9307)

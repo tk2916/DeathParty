@@ -1,4 +1,4 @@
-[gd_scene load_steps=243 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=240 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://x8vl3v7s7cat" path="res://rooms/bedroom/side wall.glb" id="3_ra5m4"]
 [ext_resource type="Texture2D" uid="uid://bxej6ebm3jetb" path="res://rooms/bedroom/Bedroom_woodmedium.png" id="3_rbtdn"]
 [ext_resource type="PackedScene" uid="uid://8npa6vrpy0jb" path="res://rooms/bedroom/punk posters.glb" id="3_w0jyq"]
+[ext_resource type="PackedScene" uid="uid://b4c88kienbj8q" path="res://Singletons/ContentLoader/scene_loader_exterior.tscn" id="4_1qprw"]
 [ext_resource type="Texture2D" uid="uid://b8uue8x55guj4" path="res://rooms/bedroom/polaroids and poster_love birds.png" id="4_fa1og"]
 [ext_resource type="Texture2D" uid="uid://d0vlsucaate3q" path="res://rooms/bedroom/punk posters_singer poster.png" id="4_tluma"]
 [ext_resource type="Texture2D" uid="uid://dcblfnhmnjp1h" path="res://rooms/bedroom/polaroids and poster_Sam tatt.png" id="5_dyybh"]
@@ -56,7 +57,6 @@
 [ext_resource type="Texture2D" uid="uid://ceaqd5pgyfpt0" path="res://rooms/bedroom/bed shelf_Image_1_14.png" id="25_kvlly"]
 [ext_resource type="Texture2D" uid="uid://etihchx5xh4x" path="res://rooms/bedroom/bed shelf_Image_0_24.jpg" id="25_p2qrk"]
 [ext_resource type="Texture2D" uid="uid://dvhgtynx8x847" path="res://rooms/bedroom/bed shelf_Image_1_23.png" id="26_7octt"]
-[ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="26_mav1h"]
 [ext_resource type="Texture2D" uid="uid://wtwqqec7ygrp" path="res://rooms/bedroom/bed shelf_Image_2_12.png" id="26_p2qrk"]
 [ext_resource type="Texture2D" uid="uid://dm48entwjof6x" path="res://rooms/bedroom/bed shelf_Image_3.png" id="27_7octt"]
 [ext_resource type="PackedScene" uid="uid://6rnjviust3w2" path="res://rooms/bedroom/guitar.glb" id="27_e0ilc"]
@@ -118,14 +118,6 @@ size = Vector3(1.25, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_84fnt"]
 size = Vector3(5, 2, 0.1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tt7nc"]
-size = Vector3(1, 2, 0.504)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
-albedo_color = Color(0.281989, 0.500556, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
 
 [sub_resource type="Curve3D" id="Curve3D_tluma"]
 _data = {
@@ -2172,34 +2164,8 @@ shape = SubResource("BoxShape3D_qbwcx")
 transform = Transform3D(1, 0, 1.23198e-07, 0, 1, 0, -1.23198e-07, 0, 1, -0.223922, 0.889039, 3.83854)
 shape = SubResource("BoxShape3D_84fnt")
 
-[node name="SceneLoader_Exterior" type="Area3D" parent="."]
+[node name="SceneLoader_Exterior" parent="." instance=ExtResource("4_1qprw")]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.816608, -0.0933874, 5.45903)
-collision_layer = 2
-collision_mask = 2
-monitoring = false
-script = ExtResource("26_mav1h")
-scene_going_right = "Exterior"
-scene_going_left = "Exterior"
-play_door_sound = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573811, 1.403, -1.6778)
-shape = SubResource("BoxShape3D_tt7nc")
-
-[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Exterior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5743, 0.839686, 65.876)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Exterior/TeleportPoint"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_6wayg")
-mesh = SubResource("BoxMesh_qelyj")
-
-[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Exterior"]
-event_name = "event:/door"
-event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
-attached = false
-volume = 0.3
-unique_name_in_owner = true
 
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_tluma")
@@ -2941,9 +2907,6 @@ transform = Transform3D(0.0636847, 0, 0.577681, 0, 0.58118, 0, -0.577681, 0, 0.0
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
-[connection signal="body_entered" from="SceneLoader_Exterior" to="." method="_on_scene_loader_body_entered"]
-[connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]
-[connection signal="body_exited" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_exited"]
 
 [editable path="Door"]
 [editable path="Bed"]

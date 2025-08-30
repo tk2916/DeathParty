@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnb05rd1rv7e7"]
+[gd_scene load_steps=5 format=3 uid="uid://cnb05rd1rv7e7"]
 
 [ext_resource type="PackedScene" uid="uid://w3x7mmteni4v" path="res://Assets/CharacterAssets/rowan/rowan.glb" id="1_r6ajk"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_a5xla"]
+[ext_resource type="Resource" uid="uid://dugg5j3vcgmvm" path="res://Assets/Resources/CharacterResources/character_properties_rowan.tres" id="3_l2dxd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a5xla"]
 
 [node name="Rowan" instance=ExtResource("1_r6ajk")]
 transform = Transform3D(1.21133, 0, 0, 0, 1.21133, 0, 0, 0, 1.21133, 0, 0, 0)
 script = ExtResource("2_a5xla")
+character_resource = ExtResource("3_l2dxd")
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(-60.0005, 13.2982, -346.378)

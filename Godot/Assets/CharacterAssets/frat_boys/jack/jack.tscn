@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://7byda3k0fnfy"]
+[gd_scene load_steps=4 format=3 uid="uid://7byda3k0fnfy"]
 
 [ext_resource type="PackedScene" uid="uid://dm33ql3jl18xu" path="res://Assets/CharacterAssets/frat_boys/jack/Jack.glb" id="1_0vx1f"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_0244l"]
+[ext_resource type="Resource" uid="uid://f3wwrax8f4lf" path="res://Assets/Resources/CharacterResources/character_properties_jack.tres" id="3_scl1w"]
 
 [node name="Jack" instance=ExtResource("1_0vx1f")]
+script = ExtResource("2_0244l")
+character_resource = ExtResource("3_scl1w")
 
 [node name="Skeleton3D" parent="jack model" index="0"]
 bones/0/position = Vector3(-0.0684726, 1.14555, 0.0328644)

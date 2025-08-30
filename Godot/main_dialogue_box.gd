@@ -105,7 +105,10 @@ func set_ui_state(ui_state : String) -> void:
 	previous_speaker = current_speaker
 		
 func add_line(line : InkLineInfo) -> void:
-	current_speaker = SaveSystem.character_to_resource[line.speaker]
+	if line.speaker == "BackgroundNPC":
+		current_speaker = DialogueSystem.current_character_resource
+	else:
+		current_speaker = SaveSystem.character_to_resource[line.speaker]
 	if current_speaker.name == "Olivia":
 		set_ui_state(UI_STATES.PROTAG_SPEAKER)
 	else:
