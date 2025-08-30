@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjkogt4y2w5dp"]
+[gd_scene load_steps=5 format=3 uid="uid://cjkogt4y2w5dp"]
 
 [ext_resource type="PackedScene" uid="uid://vcggh24vgfnh" path="res://Assets/CharacterAssets/bunnies/red_bunny/red_bunny.glb" id="1_fxskl"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_fpg7b"]
+[ext_resource type="Resource" uid="uid://dq6c6xmfveuln" path="res://Assets/Resources/CharacterResources/character_properties_sororitygirl2.tres" id="3_d5mki"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8wmxq"]
 
 [node name="RedBunny" instance=ExtResource("1_fxskl")]
 transform = Transform3D(1.15768, 0, 0, 0, 1.15768, 0, 0, 0, 1.15768, 0, 0, 0)
 script = ExtResource("2_fpg7b")
+character_resource = ExtResource("3_d5mki")
 
 [node name="Skeleton3D" parent="model_001" index="0"]
 bones/0/position = Vector3(0.286312, -2.13309, -98.1653)
@@ -98,7 +100,7 @@ bones/63/rotation = Quaternion(0.565114, 0.0053835, -0.113135, 0.817201)
 bones/64/rotation = Quaternion(0.3121, 0.0414649, -0.0132764, 0.949051)
 
 [node name="phone_001" parent="model_001/Skeleton3D" index="0"]
-transform = Transform3D(-0.116731, 0.477373, 0.051409, 0.306419, 0.1148, -0.370246, -0.369642, -0.0555867, -0.323154, -19.3741, 6.54518, -69.0564)
+transform = Transform3D(-0.11673, 0.477373, 0.0514086, 0.306419, 0.1148, -0.370246, -0.369642, -0.0555866, -0.323154, -19.3741, 6.54517, -69.0564)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "talk"

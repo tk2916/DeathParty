@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://becw5ybscvsv7"]
+[gd_scene load_steps=5 format=3 uid="uid://becw5ybscvsv7"]
 
 [ext_resource type="PackedScene" uid="uid://ctpv1cs78urg8" path="res://Assets/CharacterAssets/dj/dj.glb" id="1_v0rpg"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_axy1y"]
+[ext_resource type="Resource" uid="uid://6dfxjbootk0p" path="res://Assets/Resources/CharacterResources/character_properties_dj.tres" id="3_lrta7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_axy1y"]
 radius = 0.75
@@ -9,6 +10,7 @@ radius = 0.75
 [node name="DJ" instance=ExtResource("1_v0rpg")]
 transform = Transform3D(1.10468, 0, 0, 0, 1.10468, 0, 0, 0, 1.10468, 0, 0, 0)
 script = ExtResource("2_axy1y")
+character_resource = ExtResource("3_lrta7")
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(-2.43955, -14.2031, -83.6938)

@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfen8ypgv1gjf"]
+[gd_scene load_steps=5 format=3 uid="uid://cfen8ypgv1gjf"]
 
 [ext_resource type="PackedScene" uid="uid://gul0comq5uko" path="res://Assets/CharacterAssets/gamers/shark_gamer/shark_gamer.glb" id="1_q6qv4"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_jt6bi"]
+[ext_resource type="Resource" uid="uid://dh0pydw5861ea" path="res://Assets/Resources/CharacterResources/character_properties_gamer2.tres" id="3_p8v6g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sk5c4"]
 radius = 0.65
 
 [node name="SharkGamer" instance=ExtResource("1_q6qv4")]
 transform = Transform3D(1.09212, 0, 0, 0, 1.09212, 0, 0, 0, 1.09212, 0, 0, 0)
+script = ExtResource("2_jt6bi")
+character_resource = ExtResource("3_p8v6g")
 
 [node name="Skeleton3D" parent="shark model" index="0"]
 bones/0/position = Vector3(-0.239915, 4.44604, -56.9671)

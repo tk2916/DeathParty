@@ -18,9 +18,10 @@ monitoring = false
 script = ExtResource("1_11ji0")
 scene_going_right = "Exterior"
 scene_going_left = "Exterior"
+play_door_sound = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573811, 1.403, -1.34445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573811, 1.403, -1.6778)
 shape = SubResource("BoxShape3D_tt7nc")
 
 [node name="TeleportPoint" type="Node3D" parent="."]

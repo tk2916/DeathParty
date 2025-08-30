@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1dmvsqupb3xm"]
+[gd_scene load_steps=5 format=3 uid="uid://d1dmvsqupb3xm"]
 
-[ext_resource type="PackedScene" uid="uid://oj2ww3axt5fu" path="res://Assets/CharacterAssets/jesus/jesus.glb" id="1_e4tec"]
+[ext_resource type="PackedScene" uid="uid://oj2ww3axt5fu" path="res://Assets/CharacterAssets/Jesus/jesus.glb" id="1_e4tec"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_2vca4"]
+[ext_resource type="Resource" uid="uid://dlmj4ht65v705" path="res://Assets/Resources/CharacterResources/character_properties_jesus.tres" id="3_uk1xo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dl0gp"]
 
 [node name="Jesus" instance=ExtResource("1_e4tec")]
 transform = Transform3D(1.08367, 0, 0, 0, 1.08367, 0, 0, 0, 1.08367, 0, 0, 0)
 script = ExtResource("2_2vca4")
+character_resource = ExtResource("3_uk1xo")
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "idle"
