@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="8_ds0tn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxaoo"]
-size = Vector3(12.7805, 4.1747, 5.79466)
+size = Vector3(13.7318, 4.49936, 7.14718)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w88ee"]
 resource_name = "dark wood"
@@ -718,23 +718,24 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rr045")
 
-[node name="Ghost hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
+[node name="Ghost hallway" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 script = ExtResource("2_rj2l7")
 room_area = NodePath("RoomArea")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996704, 0.296715, 1.76524)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02458, 0.225039, 1.8185)
 shape = SubResource("BoxShape3D_dxaoo")
 
-[node name="floor" type="StaticBody3D" parent="."]
-transform = Transform3D(0, 0, -5.70488, 0, 0.857832, 0, 1.05168, 0, 0, -1.73607, -1.17236, 0.240838)
-
-[node name="Plane" type="MeshInstance3D" parent="floor"]
+[node name="Plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.59704e-08, 0, -5.70488, 0, 0.857832, 0, 1.05168, 0, -2.49368e-07, -1.73607, -1.17236, 0.240838)
 mesh = SubResource("ArrayMesh_2coxh")
 skeleton = NodePath("")
 
+[node name="floor" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.59704e-08, 0, -5.70488, 0, 0.857832, 0, 1.05168, 0, -2.49368e-07, -1.73607, -1.17236, 0.240838)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43543, -0.0709922, -0.129364)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43543, -0.0709921, -0.129364)
 shape = SubResource("BoxShape3D_p1n0h")
 
 [node name="Plane_001" type="MeshInstance3D" parent="."]
