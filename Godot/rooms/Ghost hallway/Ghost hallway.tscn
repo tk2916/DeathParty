@@ -718,7 +718,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rr045")
 
-[node name="Ghost hallway" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
+[node name="Ghost hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
 script = ExtResource("2_rj2l7")
 room_area = NodePath("RoomArea")
 
