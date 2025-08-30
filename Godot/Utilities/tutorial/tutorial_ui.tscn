@@ -6,7 +6,7 @@
 script = ExtResource("1_lunjo")
 
 [node name="LoadingTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.75
 one_shot = true
 
 [node name="MoveControlsPopup" type="PanelContainer" parent="."]
