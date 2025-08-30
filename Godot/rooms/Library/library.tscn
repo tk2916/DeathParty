@@ -1807,7 +1807,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0982453, -4.18208, -0.93487
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59761, 0.142828, -1.67339)
 
 [node name="JackOLanternTall2" parent="Props/JackOLanterns" instance=ExtResource("35_tm5mn")]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -8.3702, -0.0294008, 5.85171)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 0.7, 0, -0.258819, 0, 0.965926, -8.3702, 0.00706291, 5.85171)
 
 [node name="JackOLantern2" parent="Props/JackOLanterns" instance=ExtResource("34_sy7sl")]
 transform = Transform3D(1.20741, 0, -0.323524, 0, 1.25, 0, 0.323524, 0, 1.20741, -1.13544, -0.0511427, -1.62402)
