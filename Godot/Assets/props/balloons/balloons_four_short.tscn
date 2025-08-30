@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://d3lt3kgvcji47"]
+[gd_scene load_steps=6 format=4 uid="uid://d3lt3kgvcji47"]
 
 [ext_resource type="Texture2D" uid="uid://1schjjg3cqht" path="res://Assets/textures/entrance_room_props/entrance room props_BLUE B.png" id="1_0nl7h"]
 
@@ -42,7 +42,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nj725")
 
-[node name="BalloonsFourShort" type="MeshInstance3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0nl7h"]
+
+[node name="BalloonsFourShort" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.229867, -0.0615858, -6.65502e-09, 7.1889e-09, 3.63242e-08, -0.257833, 0.0731305, 0.193579, 4.62639e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_hwa8i")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_0nl7h")
