@@ -873,6 +873,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_idoxc")
 
 [node name="Hourhand hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
+transform = Transform3D(1.41429, 0, 0, 0, 1.41429, 0, 0, 0, 1.41429, 0, 0, 0)
 script = ExtResource("2_xgvqn")
 room_area = NodePath("RoomArea")
 
@@ -889,7 +890,7 @@ scene_going_left = "Storageroom"
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" parent="SceneLoader_Storageroom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457653, 0.839686, -9.52816)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.457653, 0.839686, -8.01622)
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04834, 0.0250244, 1.70543)
