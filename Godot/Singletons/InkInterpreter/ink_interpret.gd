@@ -568,7 +568,6 @@ func get_first_message(temp_json : JSON) -> InkLineInfo:
 	return break_up_dialogue(json_as_dict["root"][0][0].substr(1))
 
 func from_JSON(file : JSON, saved_ink_resource : InkResource) -> void:#resume_from_hierarchy : Array = []):
-	assert(file != null, "JSON file is null!")
 	#reset variables
 	reset_defaults(saved_ink_resource)#resume_from_hierarchy)
 	#print("NEW JSON CALL ---------------------------------- ", rsc.hierarchy)

@@ -1,7 +1,6 @@
 extends Node
 
 var object_viewer : ObjectViewer
-var dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
 
 func _ready() -> void:
 	var main = get_tree().root.get_node_or_null("Main")
@@ -73,8 +72,3 @@ func show_item_details(
 	
 	object_viewer.set_preexisting_item(duplicate)
 	object_viewer.view_item_info(item_resource.name, item_resource.description)
-	if item_resource.viewed == false:
-		item_resource.viewed = true
-		if item_resource.dialogue_on_first_view != null:
-			DialogueSystem.setDialogueBox(dialogue_box)
-			DialogueSystem.from_JSON(item_resource.dialogue_on_first_view)
