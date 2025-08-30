@@ -2217,7 +2217,7 @@ light_color = Color(0.6485, 0.43, 1, 1)
 [node name="SpotLight3D" type="SpotLight3D" parent="SceneLights"]
 transform = Transform3D(-0.350812, 0.531941, 0.619968, 0.049527, -0.659627, 0.593995, 0.815395, 0.268926, 0.230653, 3.51498, 2.62447, 1.63089)
 light_color = Color(1, 0.55, 0, 1)
-light_energy = 80.0
+light_energy = 90.0
 light_volumetric_fog_energy = 100.0
 shadow_enabled = true
 spot_range = 10.0
