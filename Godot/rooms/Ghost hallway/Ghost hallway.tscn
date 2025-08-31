@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=4 uid="uid://ch4fuk8qiva6x"]
+[gd_scene load_steps=164 format=4 uid="uid://ch4fuk8qiva6x"]
 
 [ext_resource type="Texture2D" uid="uid://bcg3mnugm862f" path="res://rooms/Ghost hallway/ghost hallway_wooddark.png" id="2_p1n0h"]
 [ext_resource type="Script" uid="uid://bwumtfq5s3fh3" path="res://rooms/Ghost hallway/ghost_hallway.gd" id="2_rj2l7"]
@@ -48,6 +48,18 @@
 [ext_resource type="PackedScene" uid="uid://3uonffs6vrbl" path="res://Assets/environment/bookshelves/bookshelf_ornate/bookshelf_ornate.glb" id="45_dp4f2"]
 [ext_resource type="PackedScene" uid="uid://bfsk7udiphl1k" path="res://rooms/Basement/standing_lamp.tscn" id="46_erk23"]
 [ext_resource type="PackedScene" uid="uid://dccl4duycvh75" path="res://rooms/Storage Room/spiderwebs.glb" id="47_qn2ls"]
+[ext_resource type="Texture2D" uid="uid://dsm7p3vihl45w" path="res://rooms/Ghost hallway/fire/fire-1.png" id="49_y62e8"]
+[ext_resource type="Texture2D" uid="uid://sl3wsncwwce7" path="res://rooms/Ghost hallway/fire/fire-2.png" id="50_u8eoh"]
+[ext_resource type="Texture2D" uid="uid://c61sp6pxesn3j" path="res://rooms/Ghost hallway/fire/fire-3.png" id="51_ksoqh"]
+[ext_resource type="Texture2D" uid="uid://c16dco2fbqbqe" path="res://rooms/Ghost hallway/fire/fire-4.png" id="52_g60q4"]
+[ext_resource type="Texture2D" uid="uid://by6614d67d282" path="res://rooms/Ghost hallway/fire/fire-5.png" id="53_3258h"]
+[ext_resource type="Texture2D" uid="uid://hpwk6trdtl4u" path="res://rooms/Ghost hallway/fire/fire-6.png" id="54_q5rb6"]
+[ext_resource type="Texture2D" uid="uid://drcyoq68a1g7t" path="res://rooms/Ghost hallway/fire/fire-7.png" id="55_o3d6w"]
+[ext_resource type="Texture2D" uid="uid://bc5ievsba73fj" path="res://rooms/Ghost hallway/fire/fire-8.png" id="56_rmkbf"]
+[ext_resource type="Texture2D" uid="uid://bmiif8wj0okkg" path="res://rooms/Ghost hallway/fire/fire-9.png" id="57_6phai"]
+[ext_resource type="Texture2D" uid="uid://b6nkql64iwq61" path="res://rooms/Ghost hallway/fire/fire-10.png" id="58_urdp6"]
+[ext_resource type="Texture2D" uid="uid://dcyx6nxctxmpd" path="res://rooms/Ghost hallway/fire/fire-11.png" id="59_65wwx"]
+[ext_resource type="Texture2D" uid="uid://bp4plqqk6pcdx" path="res://rooms/Ghost hallway/fire/fire-12.png" id="60_5rqn6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxaoo"]
 size = Vector3(13.7318, 4.49936, 7.14718)
@@ -1538,6 +1550,50 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bl4jr")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_y62e8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("49_y62e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_u8eoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ksoqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_g60q4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_3258h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_q5rb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_o3d6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_rmkbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_6phai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_urdp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_65wwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_5rqn6")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 11.0
+}]
+
 [node name="Ghost hallway" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 collision_mask = 2
 script = ExtResource("2_rj2l7")
@@ -2041,6 +2097,14 @@ transform = Transform3D(-0.105406, -1.27442e-07, -1.06906, 1.06906, -1.25654e-08
 
 [node name="dsf_001" parent="spiderwebs" index="2"]
 transform = Transform3D(-1.26121, 0.00175762, -0.107747, 0.132768, -0.00801592, -1.02334, -0.00319094, -1.02825, 0.00779343, -1.91607, 0.533889, -1.24702)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.0390484, 0, 0, 0, 0.0267472, 0, 0, 0, 0.0267472, 1.99424, -0.730094, -0.99899)
+shaded = true
+sprite_frames = SubResource("SpriteFrames_y62e8")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.60501
 
 [editable path="SceneLoader_PartyRoom"]
 [editable path="SceneLoader_Library"]
