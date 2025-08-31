@@ -7,7 +7,6 @@ func _ready() -> void:
 func handle_player_entrance(body: Node3D) -> void:
 	remove_all_bounds(body)
 	rotate_player(body)
-	
 	keep_camera_on_player(body)
 	bind_camera_LR(body)
-	bind_camera_y(body)
+	bind_camera_y(body, 2.3, 2.3)

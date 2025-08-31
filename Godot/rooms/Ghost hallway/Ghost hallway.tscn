@@ -1,32 +1,25 @@
-[gd_scene load_steps=59 format=4 uid="uid://ch4fuk8qiva6x"]
+[gd_scene load_steps=61 format=4 uid="uid://ch4fuk8qiva6x"]
 
 [ext_resource type="Texture2D" uid="uid://bcg3mnugm862f" path="res://rooms/Ghost hallway/ghost hallway_wooddark.png" id="2_p1n0h"]
 [ext_resource type="Script" uid="uid://bwumtfq5s3fh3" path="res://rooms/Ghost hallway/ghost_hallway.gd" id="2_rj2l7"]
 [ext_resource type="Texture2D" uid="uid://cdi05i7plecy4" path="res://rooms/Ghost hallway/ghost hallway_woodmedium.png" id="3_ds0tn"]
-[ext_resource type="Texture2D" uid="uid://6mx4m2eis7hy" path="res://rooms/Ghost hallway/ghost hallway_wood panel big.png" id="4_giwxe"]
+[ext_resource type="Material" uid="uid://smspftufnjp2" path="res://rooms/Ghost hallway/floor wood.tres" id="4_ds0tn"]
 [ext_resource type="Texture2D" uid="uid://mjxtfmuodahk" path="res://rooms/Ghost hallway/ghost hallway_standardwood.png" id="5_6kxje"]
 [ext_resource type="Texture2D" uid="uid://h4ongtdtye0r" path="res://rooms/Ghost hallway/ghost hallway_IMG_4443.png" id="6_op2m7"]
 [ext_resource type="Texture2D" uid="uid://b2t57wmdyk8mh" path="res://rooms/Ghost hallway/ghost hallway_IMG_4442.png" id="7_d1x72"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="8_ds0tn"]
+[ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="9_giwxe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxaoo"]
 size = Vector3(13.7318, 4.49936, 7.14718)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w88ee"]
 resource_name = "dark wood"
-cull_mode = 2
 albedo_texture = ExtResource("2_p1n0h")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nbbh"]
 resource_name = "Material.002"
-cull_mode = 2
 albedo_texture = ExtResource("3_ds0tn")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3trw"]
-resource_name = "Material.022"
-cull_mode = 2
-albedo_texture = ExtResource("4_giwxe")
-metallic = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_13xn0"]
 _surfaces = [{
@@ -100,8 +93,8 @@ _surfaces = [{
 "index_count": 228,
 "index_data": PackedByteArray("MAAbABcAMAAcABsAHAAxABsAHAAyADEAMwAcADAAMwAdABwANAAwABcAHgAdADMAHgAfAB0AHwA1AB0AHwA2ADUAGgAeADMANAAXABUAGgAzADcANwAzADAANwAwADQAFgAaADcAFgA3ADgAOAA3ADQAGAAWADgAOQA0ABUAOAA0ADkAOQAVABMAGAA4ADoAOgA4ADkAGQAYADoAOwA5ABMAOgA5ADsAOwATABEAGQA6ABQAFAA6ADsAFAA8ABkAFAA9ADwAFAA7ABAAEAA7ABEAEAARABIAEgA+ABAAEgA/AD4AQAAEAEEAQQAEAAMAQAAOAAQADQAOAEAADQAPAA4ACwANAEAACwBAAEIAQgBAAEEADAALAEIADABCAAUABQBCAEMAQgBBAEMABQBDAAYAQQADAEQAQwBBAEQARAADAAEABgBDAEUAQwBEAEUABgBFAAcARAABAEYARQBEAEYARgABAAIARgACAAAARQBGAEcABwBFAEcARwBGAAAABwBHAAgARwAAAAkACABHAAkACAAJAAoAIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
 "lods": [0.00122353, PackedByteArray("AAABAAIAAAADAAEAAAAEAAMABQAEAAAABQAAAAYABgAAAAcABwAAAAgACAAAAAkACAAJAAoACwAEAAUADAALAAUACwANAAQADQAOAAQADQAPAA4AEAARABIAEAATABEAFAATABAAFAAVABMAFAAWABUAFgAXABUAGAAWABQAGQAYABQAFgAaABcAGgAbABcAGgAcABsAGgAdABwAHgAdABoAHgAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A")],
-"material": SubResource("StandardMaterial3D_s3trw"),
-"name": "Material.022",
+"material": ExtResource("4_ds0tn"),
+"name": "floor wood",
 "primitive": 3,
 "uv_scale": Vector4(4.22447, 4.40011, 0, 0),
 "vertex_count": 72,
@@ -111,11 +104,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_13xn0")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p1n0h"]
-size = Vector3(4.90356, 0.130005, 2.30548)
+size = Vector3(5.52692, 0.130005, 2.42374)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gym25"]
 resource_name = "wooood"
-cull_mode = 2
 albedo_texture = ExtResource("5_6kxje")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j458p"]
@@ -154,8 +146,7 @@ shadow_mesh = SubResource("ArrayMesh_j458p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcilr"]
 resource_name = "Material.018"
-cull_mode = 2
-roughness = 0.5
+metallic_specular = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ubggl"]
 _surfaces = [{
@@ -347,7 +338,6 @@ shadow_mesh = SubResource("ArrayMesh_ry2i0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amx4x"]
 resource_name = "Material.005"
-cull_mode = 2
 albedo_texture = ExtResource("6_op2m7")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1tva6"]
@@ -384,7 +374,6 @@ shadow_mesh = SubResource("ArrayMesh_1tva6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_da6bf"]
 resource_name = "Material.008"
-cull_mode = 2
 albedo_texture = ExtResource("7_d1x72")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6xfdv"]
@@ -569,7 +558,6 @@ shadow_mesh = SubResource("ArrayMesh_2c5yg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bd55"]
 resource_name = "Material.015"
-cull_mode = 2
 albedo_texture = ExtResource("7_d1x72")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7xwqx"]
@@ -647,8 +635,8 @@ shadow_mesh = SubResource("ArrayMesh_w32ww")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vs0an"]
 resource_name = "Material.017"
-cull_mode = 2
 albedo_texture = ExtResource("6_op2m7")
+metallic_specular = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xt1t5"]
 _surfaces = [{
@@ -718,6 +706,40 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rr045")
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_cwahg"]
+_surfaces = [{
+"aabb": AABB(-0.96576, 0, -1.25253, 4.84961, 1e-05, 2.25253),
+"format": 34896613377,
+"index_count": 90,
+"index_data": PackedByteArray("EAALAAcAEAAMAAsAEQAQAAcAEQAHAAUAEgAMABAAEgANAAwADgANABIADgAPAA0ACgAOABIAEwASABAACgASABMAEwAQABEABgAKABMABgATABQAFAATABEACAAGABQAFQARAAUAFAARABUAFQAFAAMACAAUABYAFgAUABUACQAIABYACQAWAAQAFgAVABcAFwAVAAMABAAWABcAFwADAAEABAAXAAAAAAAXAAEAAAABAAIA"),
+"lods": [1e-10, PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMABAAGAAUABgAHAAUACAAGAAQACQAIAAQABgAKAAcACgALAAcACgAMAAsACgANAAwADgANAAoADgAPAA0A")],
+"name": "Material.022",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("qqoAAP//AAD//wAAFdEAAP//AAD//wAA//8AAOOqAABVVQAA//8AAP//AABxVQAAAAAAAOOqAAD//wAA5DQAAAAAAAAV0QAAAAAAAP//AAAAAAAAcVUAAP//AAAAAAAAqaoAAAAAAABUVQAAAAAAAAAAAADkNAAAAAAAAAAAAACpqgAA5DQAAKmqAABxVQAAVFUAAOQ0AABUVQAAcVUAAFRVAADjqgAAqaoAAOOqAABUVQAAFdEAAKmqAAAV0QAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6kxje"]
+resource_name = "floor_Plane"
+_surfaces = [{
+"aabb": AABB(-0.96576, 0, -1.25253, 4.84961, 1e-05, 2.25253),
+"attribute_data": PackedByteArray("xNf/////1Nn////////Auomv/////zx1TofAuv//wVpOh9TZTof//06HPHX//7gvxNe4L4mvuC9Oh8FaToe4L8TXwVrE1zx1ia/BWomvPHWJr8C6xNfAuomv1NnE19TZ"),
+"format": 34896613399,
+"index_count": 90,
+"index_data": PackedByteArray("EAALAAcAEAAMAAsAEQAQAAcAEQAHAAUAEgAMABAAEgANAAwADgANABIADgAPAA0ACgAOABIAEwASABAACgASABMAEwAQABEABgAKABMABgATABQAFAATABEACAAGABQAFQARAAUAFAARABUAFQAFAAMACAAUABYAFgAUABUACQAIABYACQAWAAQAFgAVABcAFwAVAAMABAAWABcAFwADAAEABAAXAAAAAAAXAAEAAAABAAIA"),
+"lods": [1e-10, PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMABAAGAAUABgAHAAUACAAGAAQACQAIAAQABgAKAAcACgALAAcACgAMAAsACgANAAwADgANAAoADgAPAA0A")],
+"material": ExtResource("4_ds0tn"),
+"name": "Material.022",
+"primitive": 3,
+"uv_scale": Vector4(2.25922, 4.40011, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("qqoAAP///7///wAAFdH/v///AAD///+///8AAOOq/79VVQAA////v///AABxVf+/AAAAAOOq/7///wAA5DT/vwAAAAAV0f+/AAAAAP///78AAAAAcVX/v///AAAAAP+/qaoAAAAA/79UVQAAAAD/vwAAAADkNP+/AAAAAAAA/7+pqgAA5DT/v6mqAABxVf+/VFUAAOQ0/79UVQAAcVX/v1RVAADjqv+/qaoAAOOq/79UVQAAFdH/v6mqAAAV0f+/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cwahg")
+
 [node name="Ghost hallway" type="Area3D" node_paths=PackedStringArray("room_area") groups=["loadable_scene"]]
 script = ExtResource("2_rj2l7")
 room_area = NodePath("RoomArea")
@@ -727,15 +749,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02458, 0.225039, 1.8185)
 shape = SubResource("BoxShape3D_dxaoo")
 
 [node name="Plane" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.59704e-08, 0, -5.70488, 0, 0.857832, 0, 1.05168, 0, -2.49368e-07, -1.73607, -1.17236, 0.240838)
+transform = Transform3D(-4.59704e-08, 0, -5.70488, 0, 0.857832, 0, 1.05168, 0, -2.49368e-07, -1.73402, -1.17236, 0.240779)
 mesh = SubResource("ArrayMesh_2coxh")
 skeleton = NodePath("")
 
 [node name="floor" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.59704e-08, 0, -5.70488, 0, 0.857832, 0, 1.05168, 0, -2.49368e-07, -1.73607, -1.17236, 0.240838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43983, 0, 2.62053)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43543, -0.0709921, -0.129364)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.24676, -1.34622, -1.11348)
 shape = SubResource("BoxShape3D_p1n0h")
 
 [node name="Plane_001" type="MeshInstance3D" parent="."]
@@ -839,6 +861,17 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" parent="SceneLoader_Library" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443334, 0.839686, -5.76145)
+
+[node name="Plane2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, -5.70488, 0, 0.857832, 0, 1.05168, 0, 0, -1.70241, -1.18371, 5.32539)
+mesh = SubResource("ArrayMesh_6kxje")
+skeleton = NodePath("")
+
+[node name="door" parent="." instance=ExtResource("9_giwxe")]
+transform = Transform3D(-5.45438e-08, 0, 1, 0, 0.981167, 0, -1.24782, 0, -4.37114e-08, -7.45808, -0.0625039, 1.78624)
+
+[node name="door2" parent="." instance=ExtResource("9_giwxe")]
+transform = Transform3D(-5.45438e-08, 0, -1, 0, 0.981167, 0, 1.24782, 0, -4.37114e-08, 5.47515, -0.0625039, 1.78624)
 
 [editable path="SceneLoader_PartyRoom"]
 [editable path="SceneLoader_Library"]
