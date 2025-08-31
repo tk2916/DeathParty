@@ -39,6 +39,11 @@ func on_location_change() -> void:
 		if scene.active:
 			self.offload()
 
+func on_chat_ended() -> void:
+	if instance:
+		pass
+		#instance.
+
 func save_properties():
 	pass
 

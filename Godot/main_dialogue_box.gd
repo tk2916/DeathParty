@@ -20,6 +20,9 @@ var chatbox2 : CompressedTexture2D = preload("res://Assets/DialogueBoxTextures/c
 @export var protag_text_label : RichTextLabel
 @export var npc_text_label : RichTextLabel
 
+@export var protag_arrow : TextureRect
+@export var npc_arrow : TextureRect
+
 @export var protag_speaker_image_label : TextureRect
 @export var npc_speaker_image_label : TextureRect
 
@@ -32,6 +35,7 @@ var previous_speaker : CharacterResource
 var unknown_char_resource : CharacterResource = preload("res://Assets/Resources/CharacterResources/character_properties_unknown.tres")
 
 var text_label : RichTextLabel
+var arrow : TextureRect
 var speaker_image_label : TextureRect
 var previous_speaker_image_label : TextureRect
 
@@ -48,28 +52,43 @@ class LocalChoiceButton:
 	func on_pressed() -> void:
 		DialogueSystem.change_container(info.jump, info.text)
 
-var local_choice_buttons : Array[LocalChoiceButton] = []
-
-
 var UI_STATES : Dictionary[String, String] = {
 	PROTAG_SPEAKER = "ProtagSpeaker",
 	NPC_SPEAKER =  "NPCSpeaker",
 	CHOICES = "Choices",
 }
 
+var local_choice_buttons : Array[LocalChoiceButton] = []
 var current_ui_state : String
+var text_animator : TextAnimator
+
+func _ready() -> void:
+	assign_nodes()
+	text_animator = TextAnimator.new(
+		self,
+		DialogueSystem.dialogue_box_properties,
+	)
+	text_animator.done.connect(
+		func() -> void:
+			done_state = true
+			arrow.visible = true
+			done.emit()
+	)
 
 func assign_nodes() -> void:
 	if current_ui_state != UI_STATES.NPC_SPEAKER:
 		text_label = protag_text_label
+		arrow = protag_arrow
 		speaker_image_label = protag_speaker_image_label
 		previous_speaker_image_label = protag_previous_speaker_image_label
 	else:
 		text_label = npc_text_label
+		arrow = npc_arrow
 		speaker_image_label = npc_speaker_image_label
 		previous_speaker_image_label = npc_previous_speaker_image_label
 
 func set_ui_state(ui_state : String) -> void:
+	arrow.visible = false
 	current_ui_state = ui_state
 	local_choice_buttons = []
 	if ui_state == UI_STATES.PROTAG_SPEAKER:
@@ -111,6 +130,7 @@ func set_ui_state(ui_state : String) -> void:
 		previous_speaker = current_speaker
 		
 func add_line(line : InkLineInfo) -> void:
+	done_state = false
 	if line.speaker == "BackgroundNPC":
 		current_speaker = DialogueSystem.current_character_resource
 	else:
@@ -123,7 +143,11 @@ func add_line(line : InkLineInfo) -> void:
 		set_ui_state(UI_STATES.NPC_SPEAKER)
 	
 	print("Line: ", line, line.text, "  ", text_label)
-	text_label.text = "[color=black]"+line.text+"[/color]"
+	#text_label.text = "[color=black]"+line.text+"[/color]"
+	text_animator.set_text(line, current_speaker)
+
+func skip():
+	text_animator.skip()
 
 func set_choices(choices : Array[InkChoiceInfo]) -> void:
 	current_speaker = SaveSystem.character_to_resource["Olivia"]

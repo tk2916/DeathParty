@@ -55,6 +55,8 @@ func start_chat() -> void:
 		
 func end_chat() -> void:
 	upcoming_chats.pop_front()
+	if npc_data_class:
+		npc_data_class.on_chat_ended()
 	
 func has_chats() -> bool:
 	if default_chat:
@@ -66,4 +68,6 @@ func has_chats() -> bool:
 		
 func change_location(location : String) -> void:
 	character_location = location
-	npc_data_class.on_location_change()
+	if npc_data_class:
+		npc_data_class.on_location_change()
+	

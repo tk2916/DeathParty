@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://blkculyy7kbod"]
+[gd_scene load_steps=20 format=3 uid="uid://blkculyy7kbod"]
 
 [ext_resource type="Shader" uid="uid://dy0tt55my5rir" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/brightness2D.gdshader" id="1_fwn3t"]
 [ext_resource type="Script" uid="uid://b65j1ann1xpvc" path="res://main_dialogue_box.gd" id="1_lu3tv"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://c0b3sxlwrktrr" path="res://Assets/DialogueBoxTextures/choice_left_white.png" id="8_psnsn"]
 [ext_resource type="Texture2D" uid="uid://dfmkp4aw4pbg4" path="res://Assets/DialogueBoxTextures/choice_down.png" id="8_qar2h"]
 [ext_resource type="Texture2D" uid="uid://ciagkcjbti5dm" path="res://Assets/CharacterAssets/olivia/polaroid_olivia.png" id="11_qar2h"]
-[ext_resource type="Script" uid="uid://cdx2rtbvytdgd" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/show_arrow.gd" id="15_od1s0"]
 [ext_resource type="Texture2D" uid="uid://bbrjl4c3wnrwd" path="res://Assets/DialogueBoxTextures/arrow_down.png" id="15_quspg"]
 [ext_resource type="Script" uid="uid://bon5brl8s558i" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/arrow_tween.gd" id="17_joy0p"]
 [ext_resource type="Texture2D" uid="uid://74d688ditqk6" path="res://Assets/DialogueBoxTextures/chatbox_2.png" id="17_wtndk"]
@@ -24,7 +23,7 @@
 shader = ExtResource("1_fwn3t")
 shader_parameter/multiplier = 0.5
 
-[node name="DialogueBox1" type="Control" node_paths=PackedStringArray("protag_talking_setup", "protag_dialogue_backer", "npc_talking_setup", "npc_dialogue_backer", "choices_setup", "choice_left", "choice_right", "choice_up", "choice_down", "choice_info", "protag_text_label", "npc_text_label", "protag_speaker_image_label", "npc_speaker_image_label", "protag_previous_speaker_image_label", "npc_previous_speaker_image_label")]
+[node name="DialogueBox1" type="Control" node_paths=PackedStringArray("protag_talking_setup", "protag_dialogue_backer", "npc_talking_setup", "npc_dialogue_backer", "choices_setup", "choice_left", "choice_right", "choice_up", "choice_down", "choice_info", "protag_text_label", "npc_text_label", "protag_arrow", "npc_arrow", "protag_speaker_image_label", "npc_speaker_image_label", "protag_previous_speaker_image_label", "npc_previous_speaker_image_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +44,8 @@ choice_down = NodePath("Choices/AspectRatioContainer/Control/ChoiceDown")
 choice_info = NodePath("Choices/AspectRatioContainer/Control/ChoiceInfo")
 protag_text_label = NodePath("ProtagonistSpeaking/DialogueBacker/ScrollContainer/RichTextLabel")
 npc_text_label = NodePath("NPCSpeaking/DialogueBacker/ScrollContainer/RichTextLabel")
+protag_arrow = NodePath("ProtagonistSpeaking/DialogueBacker/ArrowDown")
+npc_arrow = NodePath("NPCSpeaking/DialogueBacker/ArrowDown")
 protag_speaker_image_label = NodePath("ProtagonistSpeaking/CharacterImage")
 npc_speaker_image_label = NodePath("NPCSpeaking/CharacterImage")
 protag_previous_speaker_image_label = NodePath("ProtagonistSpeaking/LastCharacterImage")
@@ -98,19 +99,17 @@ texture = ExtResource("1_u7ytc")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ProtagonistSpeaking/DialogueBacker" node_paths=PackedStringArray("text_label", "arrow")]
+[node name="ScrollContainer" type="ScrollContainer" parent="ProtagonistSpeaking/DialogueBacker"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.26
-anchor_top = 0.254
+anchor_top = 0.276
 anchor_right = 0.899
 anchor_bottom = 0.728
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
-script = ExtResource("15_od1s0")
-text_label = NodePath("RichTextLabel")
-arrow = NodePath("../ArrowDown")
+vertical_scroll_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ProtagonistSpeaking/DialogueBacker/ScrollContainer"]
 layout_mode = 2
@@ -136,6 +135,7 @@ stretch_mode = 5
 script = ExtResource("17_joy0p")
 
 [node name="NPCSpeaking" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -186,7 +186,7 @@ expand_mode = 3
 stretch_mode = 5
 flip_h = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="NPCSpeaking/DialogueBacker" node_paths=PackedStringArray("text_label", "arrow")]
+[node name="ScrollContainer" type="ScrollContainer" parent="NPCSpeaking/DialogueBacker"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.124
@@ -196,9 +196,7 @@ anchor_bottom = 0.737
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
-script = ExtResource("15_od1s0")
-text_label = NodePath("RichTextLabel")
-arrow = NodePath("../ArrowDown")
+vertical_scroll_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="NPCSpeaking/DialogueBacker/ScrollContainer"]
 layout_mode = 2

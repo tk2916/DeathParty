@@ -141,7 +141,10 @@ func check_for_choices():
 			set_choices(current_choices)
 	
 func skip_dialogue_animation():
-	current_line_label.skip()
+	if current_dialogue_box is MainDialogueBox:
+		current_dialogue_box.skip()
+	else:
+		current_line_label.skip()
 
 func say(dialogues : Array[InkLineInfo]):
 	in_dialogue = true
@@ -257,8 +260,13 @@ func match_command(text_ : String):
 			var character_resource : CharacterResource = SaveSystem.character_to_resource[character_name]
 			
 func advance_dialogue():
-	if current_dialogue_box is MainDialogueBox or current_line_label.done_state == true:
-			display_current_container()
+	if (
+		(current_line_label
+		and current_line_label.done_state == true)
+		or (current_dialogue_box is MainDialogueBox 
+		and current_dialogue_box.done_state == true)
+	):
+		display_current_container()
 	else:
 		skip_dialogue_animation()
 		
