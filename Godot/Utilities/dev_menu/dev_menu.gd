@@ -77,6 +77,9 @@ func _on_skip_music_button_pressed() -> void:
 
 
 func teleport_player(room: String) -> void:
-	#if room != current_room:
+	# make the camera follow the player
+	# (avoids issues when tping during sequences like the title screen/intro)
+	GlobalCameraScript.camera_on_player.emit(true)
+
+	# teleport the player
 	ContentLoader.direct_teleport_player(room)
-	#current_room = room

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cyq4ufcsp62p7" path="res://Utilities/dev_menu/dev_menu.gd" id="1_wbp6d"]
 
 [node name="DevMenu" type="CanvasLayer"]
+layer = 99
 script = ExtResource("1_wbp6d")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
