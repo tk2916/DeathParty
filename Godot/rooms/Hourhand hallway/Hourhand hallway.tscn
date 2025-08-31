@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://bqae87n6emy8q"]
+[gd_scene load_steps=82 format=4 uid="uid://bqae87n6emy8q"]
 
 [ext_resource type="Texture2D" uid="uid://c4o46fvqrk1xg" path="res://rooms/Hourhand hallway/hourhand floor_patterned floor.png" id="2_4pph5"]
 [ext_resource type="Texture2D" uid="uid://c1gtxbrgatf5m" path="res://rooms/Hourhand hallway/hourhand hallway_bronze wall.png" id="2_v1epj"]
@@ -21,6 +21,18 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgvqn"]
 size = Vector3(21.6137, 3.22495, 3.19273)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8uf1m"]
+size = Vector3(25, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xaafo"]
+size = Vector3(25, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dr676"]
+size = Vector3(2, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rs8om"]
+size = Vector3(4, 2, 0.5)
 
 [sub_resource type="FogMaterial" id="FogMaterial_4pph5"]
 density = 0.5
@@ -872,6 +884,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_idoxc")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_df5mx"]
+size = Vector3(4, 2, 0.5)
+
 [node name="Hourhand hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(1.41429, 0, 0, 0, 1.41429, 0, 0, 0, 1.41429, 0, 0, 0)
 script = ExtResource("2_xgvqn")
@@ -881,12 +896,31 @@ room_area = NodePath("RoomArea")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.83734, 0.016718, 0.523476)
 shape = SubResource("BoxShape3D_xgvqn")
 
+[node name="Boundaries" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65655, -0.707069, 1.97979)
+shape = SubResource("BoxShape3D_8uf1m")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65655, -0.707069, 0)
+shape = SubResource("BoxShape3D_xaafo")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.58584, -0.636362, 1.0606)
+shape = SubResource("BoxShape3D_dr676")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9191, -0.636362, 1.0606)
+shape = SubResource("BoxShape3D_dr676")
+
 [node name="SceneLoader_Storageroom" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.43027, -1.32767, 0.633325)
 scene_going_right = "Storageroom"
 scene_going_left = "Storageroom"
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom" index="0"]
+shape = SubResource("BoxShape3D_rs8om")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" parent="SceneLoader_Storageroom" index="1"]
@@ -1488,6 +1522,7 @@ scene_going_right = "Control room"
 scene_going_left = "Control room"
 
 [node name="CollisionShape3D" parent="SceneLoader_Control room" index="0"]
+shape = SubResource("BoxShape3D_df5mx")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" parent="SceneLoader_Control room" index="1"]
