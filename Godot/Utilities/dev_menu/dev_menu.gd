@@ -13,13 +13,6 @@ extends CanvasLayer
 
 var player_added_speed := 10.0
 
-# var for tracking the current scene (was made to avoid a crash when trying
-# to tp to the current room, but commented it out because it could only track
-# the scene changing thru tping in the menu (and not thru the player moving
-# between rooms normally) which would probably end up being more confusing
-# than crashing lol
-#var current_room: String
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
