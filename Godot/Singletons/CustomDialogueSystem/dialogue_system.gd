@@ -247,7 +247,10 @@ func advance_dialogue():
 #CLICK TO ADVANCE DIALOGUE
 var pressed : bool = false
 func _process(delta: float) -> void:
-	if current_dialogue_box && in_dialogue == true && are_choices == false && mouse_contained_within_gui && Input.is_action_pressed("dialogic_default_action"):
+	if (current_dialogue_box && in_dialogue == true 
+	&& are_choices == false && 
+	#mouse_contained_within_gui && 
+	Input.is_action_pressed("dialogic_default_action")):
 		if !pressed:
 			advance_dialogue()
 			pressed = true
