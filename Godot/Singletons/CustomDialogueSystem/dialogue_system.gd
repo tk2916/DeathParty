@@ -237,7 +237,25 @@ func match_command(text_ : String):
 			var target_resource : CharacterResource = SaveSystem.character_to_resource[parameters_array[1]]
 			var target_location : String = parameters_array[2]
 			target_resource.change_location(target_location)
-		
+		"/fade_screen":
+			if parameters_array[1] == "true":
+				ContentLoader.fade_loading_screen_in()
+			elif parameters_array[1] == "false":
+				ContentLoader.fade_loading_screen_out()
+		"/toggle_ui":
+			if parameters_array[1] == "true":
+				current_dialogue_box.visible = false
+			elif parameters_array[1] == "false":
+				current_dialogue_box.visible = true
+		"/wait":
+			var wait_time : float = float(parameters_array[1])
+			await get_tree().create_timer(wait_time).timeout
+		"/play_animation": ##WIP
+			var character_name : String = parameters_array[1]
+			var animation_name : String = parameters_array[2]
+			print("Playing animation ", character_name, " for ", animation_name)
+			var character_resource : CharacterResource = SaveSystem.character_to_resource[character_name]
+			
 func advance_dialogue():
 	if current_dialogue_box is MainDialogueBox or current_line_label.done_state == true:
 			display_current_container()
