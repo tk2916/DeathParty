@@ -135,7 +135,6 @@ stretch_mode = 5
 script = ExtResource("17_joy0p")
 
 [node name="NPCSpeaking" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
