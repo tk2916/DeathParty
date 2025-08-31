@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://blkculyy7kbod"]
+[gd_scene load_steps=21 format=3 uid="uid://blkculyy7kbod"]
 
 [ext_resource type="Shader" uid="uid://dy0tt55my5rir" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/brightness2D.gdshader" id="1_fwn3t"]
 [ext_resource type="Script" uid="uid://b65j1ann1xpvc" path="res://main_dialogue_box.gd" id="1_lu3tv"]
-[ext_resource type="Texture2D" uid="uid://6ickl66e4n42" path="res://Assets/DialogueBoxTextures/chatbox_left.png" id="1_u7ytc"]
+[ext_resource type="Texture2D" uid="uid://6ickl66e4n42" path="res://Assets/DialogueBoxTextures/chatbox.png" id="1_u7ytc"]
 [ext_resource type="Texture2D" uid="uid://dq8hpw5fmia6o" path="res://Assets/DialogueBoxTextures/Base.png" id="4_tv62r"]
 [ext_resource type="Texture2D" uid="uid://cfhckeemfd2w1" path="res://Assets/DialogueBoxTextures/oliviapol_transparent 1.png" id="4_u1ixr"]
 [ext_resource type="Texture2D" uid="uid://dohqgq4ibo3wp" path="res://Assets/DialogueBoxTextures/choice_up.png" id="5_ced3p"]
@@ -14,8 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://c3f2nu2v4tafu" path="res://Assets/DialogueBoxTextures/choice_down_white.png" id="7_qer6e"]
 [ext_resource type="Texture2D" uid="uid://c0b3sxlwrktrr" path="res://Assets/DialogueBoxTextures/choice_left_white.png" id="8_psnsn"]
 [ext_resource type="Texture2D" uid="uid://dfmkp4aw4pbg4" path="res://Assets/DialogueBoxTextures/choice_down.png" id="8_qar2h"]
-[ext_resource type="Texture2D" uid="uid://d28c13n7qnmni" path="res://Assets/DialogueBoxTextures/chatbox_right.png" id="10_462jj"]
 [ext_resource type="Texture2D" uid="uid://ciagkcjbti5dm" path="res://Assets/CharacterAssets/olivia/polaroid_olivia.png" id="11_qar2h"]
+[ext_resource type="Script" uid="uid://cdx2rtbvytdgd" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/show_arrow.gd" id="15_od1s0"]
+[ext_resource type="Texture2D" uid="uid://bbrjl4c3wnrwd" path="res://Assets/DialogueBoxTextures/arrow_down.png" id="15_quspg"]
+[ext_resource type="Script" uid="uid://bon5brl8s558i" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/arrow_tween.gd" id="17_joy0p"]
+[ext_resource type="Texture2D" uid="uid://74d688ditqk6" path="res://Assets/DialogueBoxTextures/chatbox_2.png" id="17_wtndk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bgfb2"]
 shader = ExtResource("1_fwn3t")
@@ -28,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_lu3tv")
 protag_talking_setup = NodePath("ProtagonistSpeaking")
 protag_dialogue_backer = NodePath("ProtagonistSpeaking/DialogueBacker")
@@ -45,6 +49,178 @@ protag_speaker_image_label = NodePath("ProtagonistSpeaking/CharacterImage")
 npc_speaker_image_label = NodePath("NPCSpeaking/CharacterImage")
 protag_previous_speaker_image_label = NodePath("ProtagonistSpeaking/LastCharacterImage")
 npc_previous_speaker_image_label = NodePath("NPCSpeaking/LastCharacterImage")
+
+[node name="ProtagonistSpeaking" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="LastCharacterImage" type="TextureRect" parent="ProtagonistSpeaking"]
+material = SubResource("ShaderMaterial_bgfb2")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.641
+anchor_top = 0.444
+anchor_right = 0.962
+anchor_bottom = 0.76
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.10821
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CharacterImage" type="TextureRect" parent="ProtagonistSpeaking"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.38
+anchor_right = 0.278
+anchor_bottom = 0.918
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_u1ixr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueBacker" type="TextureRect" parent="ProtagonistSpeaking"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.212
+anchor_top = 0.627
+anchor_right = 0.782
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u7ytc")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ProtagonistSpeaking/DialogueBacker" node_paths=PackedStringArray("text_label", "arrow")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26
+anchor_top = 0.254
+anchor_right = 0.899
+anchor_bottom = 0.728
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("15_od1s0")
+text_label = NodePath("RichTextLabel")
+arrow = NodePath("../ArrowDown")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ProtagonistSpeaking/DialogueBacker/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="ArrowDown" type="TextureRect" parent="ProtagonistSpeaking/DialogueBacker"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.824
+anchor_top = 0.715
+anchor_right = 1.0
+anchor_bottom = 0.816
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_quspg")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("17_joy0p")
+
+[node name="NPCSpeaking" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="LastCharacterImage" type="TextureRect" parent="NPCSpeaking"]
+material = SubResource("ShaderMaterial_bgfb2")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.132
+anchor_top = 0.479
+anchor_right = 0.238
+anchor_bottom = 0.804
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.10821
+texture = ExtResource("11_qar2h")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CharacterImage" type="TextureRect" parent="NPCSpeaking"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.694
+anchor_top = 0.38
+anchor_right = 1.0
+anchor_bottom = 0.918
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_u1ixr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueBacker" type="TextureRect" parent="NPCSpeaking"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.212
+anchor_top = 0.627
+anchor_right = 0.782
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_wtndk")
+expand_mode = 3
+stretch_mode = 5
+flip_h = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NPCSpeaking/DialogueBacker" node_paths=PackedStringArray("text_label", "arrow")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.124
+anchor_top = 0.254
+anchor_right = 0.746
+anchor_bottom = 0.737
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("15_od1s0")
+text_label = NodePath("RichTextLabel")
+arrow = NodePath("../ArrowDown")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NPCSpeaking/DialogueBacker/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="ArrowDown" type="TextureRect" parent="NPCSpeaking/DialogueBacker"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.715
+anchor_right = 0.184
+anchor_bottom = 0.816
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_quspg")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("17_joy0p")
 
 [node name="Choices" type="Control" parent="."]
 visible = false
@@ -258,150 +434,8 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProtagonistSpeaking" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="LastCharacterImage" type="TextureRect" parent="ProtagonistSpeaking"]
-material = SubResource("ShaderMaterial_bgfb2")
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.641
-anchor_top = 0.444
-anchor_right = 0.962
-anchor_bottom = 0.76
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.10821
-mouse_filter = 2
-expand_mode = 3
-stretch_mode = 5
-
-[node name="DialogueBacker" type="TextureRect" parent="ProtagonistSpeaking"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.212
-anchor_top = 0.627
-anchor_right = 0.782
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("1_u7ytc")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="ScrollContainer" type="ScrollContainer" parent="ProtagonistSpeaking/DialogueBacker"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.207
-anchor_top = 0.289
-anchor_right = 0.86
-anchor_bottom = 0.754
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ProtagonistSpeaking/DialogueBacker/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
-
-[node name="CharacterImage" type="TextureRect" parent="ProtagonistSpeaking"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.38
-anchor_right = 0.278
-anchor_bottom = 0.918
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("4_u1ixr")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="NPCSpeaking" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="LastCharacterImage" type="TextureRect" parent="NPCSpeaking"]
-material = SubResource("ShaderMaterial_bgfb2")
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.132
-anchor_top = 0.479
-anchor_right = 0.238
-anchor_bottom = 0.804
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.10821
-mouse_filter = 2
-texture = ExtResource("11_qar2h")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="DialogueBacker" type="TextureRect" parent="NPCSpeaking"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.212
-anchor_top = 0.627
-anchor_right = 0.782
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("10_462jj")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="ScrollContainer" type="ScrollContainer" parent="NPCSpeaking/DialogueBacker"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.106
-anchor_top = 0.293
-anchor_right = 0.746
-anchor_bottom = 0.772
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="NPCSpeaking/DialogueBacker/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
-
-[node name="CharacterImage" type="TextureRect" parent="NPCSpeaking"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.694
-anchor_top = 0.38
-anchor_right = 1.0
-anchor_bottom = 0.918
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("4_u1ixr")
-expand_mode = 1
-stretch_mode = 5
-
+[connection signal="visibility_changed" from="ProtagonistSpeaking/DialogueBacker/ArrowDown" to="ProtagonistSpeaking/DialogueBacker/ArrowDown" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="NPCSpeaking/DialogueBacker/ArrowDown" to="NPCSpeaking/DialogueBacker/ArrowDown" method="_on_visibility_changed"]
 [connection signal="mouse_entered" from="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="Choices/AspectRatioContainer/Control/ChoiceUp/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceUp/RichTextLabel/Button" method="_on_mouse_entered"]

@@ -1,5 +1,8 @@
 class_name MainDialogueBox extends DialogueBoxProperties
 
+var chatbox1 : CompressedTexture2D = preload("res://Assets/DialogueBoxTextures/chatbox.png")
+var chatbox2 : CompressedTexture2D = preload("res://Assets/DialogueBoxTextures/chatbox_2.png")
+
 @export var protag_talking_setup : Control
 @export var protag_dialogue_backer : Control
 
@@ -103,8 +106,9 @@ func set_ui_state(ui_state : String) -> void:
 	if previous_speaker and current_ui_state != UI_STATES.NPC_SPEAKER:
 		print("Set previous speaker image label: ", previous_speaker)
 		previous_speaker_image_label.texture = previous_speaker.image_polaroid
-		
-	previous_speaker = current_speaker
+	
+	if ui_state != UI_STATES.CHOICES:
+		previous_speaker = current_speaker
 		
 func add_line(line : InkLineInfo) -> void:
 	if line.speaker == "BackgroundNPC":
