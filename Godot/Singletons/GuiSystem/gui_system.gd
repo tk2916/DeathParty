@@ -92,6 +92,7 @@ func show_gui(name:String):
 	if name == "Phone":
 		in_phone = true
 
+		# play the phone unlock sound
 		var phone: Control = get_tree().get_first_node_in_group("phone")
 		var unlock_sound: FmodEventEmitter3D = phone.find_child("UnlockSound")
 		if unlock_sound:
@@ -104,6 +105,7 @@ func hide_gui(name:String):
 	if name == "Phone":
 		in_phone = false
 
+		# play the phone lock sound
 		var phone: Control = get_tree().get_first_node_in_group("phone")
 		var lock_sound: FmodEventEmitter3D = phone.find_child("LockSound")
 		if lock_sound:
