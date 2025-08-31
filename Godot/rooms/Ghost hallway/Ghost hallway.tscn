@@ -1812,7 +1812,7 @@ mesh = SubResource("ArrayMesh_m834i")
 skeleton = NodePath("")
 
 [node name="FreeHugGuy" parent="." instance=ExtResource("21_r4dg4")]
-transform = Transform3D(-0.565754, 0, 1.04708, 0, 1.19015, 0, -1.04708, 0, -0.565754, 1.51309, -1.14312, 1.01632)
+transform = Transform3D(-0.565754, 0, 1.04708, 0, 1.19015, 0, -1.04708, 0, -0.565754, 1.06782, -1.14312, 1.34044)
 
 [node name="Skeleton3D" parent="FreeHugGuy/free hug" index="0"]
 bones/0/position = Vector3(0.198028, -19.9796, -58.6069)
@@ -1930,7 +1930,7 @@ mesh = SubResource("ArrayMesh_wxpjx")
 skeleton = NodePath("")
 
 [node name="Cube_064" type="MeshInstance3D" parent="hallway props"]
-transform = Transform3D(0.771341, 0, 0.726321, 0, 0.958467, 0, -0.600108, 0, 0.933568, -0.0278984, 0.112136, -0.0305873)
+transform = Transform3D(0.771341, 0, 0.726321, 0, 0.958467, 0, -0.600108, 0, 0.933568, -0.454417, 0.112136, 0.305654)
 mesh = SubResource("ArrayMesh_vqdpc")
 skeleton = NodePath("")
 
@@ -1938,7 +1938,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.948771, 0, 0.283662, 0, 0.958467, 0, -0.23437, 0, 1.14832, 2.42948, 0.0784837, -0.315471)
 
 [node name="CoffeeTable" parent="hallway props" instance=ExtResource("19_ci63w")]
-transform = Transform3D(-1.77435e-08, 0, -0.405923, 0, 0.405923, 0, 0.405923, 0, -1.77435e-08, 1.20812, 0.109559, 0.281526)
+transform = Transform3D(-4.22243e-08, 0, -0.965976, 0, 0.965976, 0, 0.965976, 0, -4.22243e-08, 1.20812, 0.109559, 0.281526)
 
 [node name="Circle_001" type="MeshInstance3D" parent="hallway props"]
 transform = Transform3D(0, 0, -1.68006, 0, 1.68006, 0, 1.68006, 0, 0, 1.18244, -0.485644, 0.580125)
@@ -2104,7 +2104,7 @@ shaded = true
 sprite_frames = SubResource("SpriteFrames_y62e8")
 animation = &"fire"
 autoplay = "fire"
-frame_progress = 0.60501
+frame_progress = 0.785844
 
 [editable path="SceneLoader_PartyRoom"]
 [editable path="SceneLoader_Library"]
