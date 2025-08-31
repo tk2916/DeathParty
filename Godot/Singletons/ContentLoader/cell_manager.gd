@@ -38,7 +38,10 @@ func load_in() -> void:
 				cell.load_in()
 				active_cells.push_back(cell)
 	print("CellManager for ", scene.name, " loading in.")
-	update_active_cells(true)
+	if ContentLoader.loaded:
+		update_active_cells(true)
+	else:
+		ContentLoader.finished_loading.connect(update_active_cells.bind(true))
 	max_objects_per_frame = 10
 	GlobalPlayerScript.update_cells.connect(update_active_cells)
 
@@ -146,7 +149,7 @@ func find_player_cell(player_center : Vector3):
 						break
 
 func update_active_cells(initial_load : bool = false) -> void:
-	if number_of_cells == 1: 
+	if number_of_cells == 1 and !initial_load: 
 		#only 1 cell so no need to load/offload
 		return 
 	var start = Time.get_ticks_msec()

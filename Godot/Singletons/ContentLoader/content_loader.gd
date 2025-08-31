@@ -97,6 +97,7 @@ func store_scene_info(node : Node3D) -> void:
 	
 	if og_scene == "" and new_scene_data.cell_manager.scene_aabb.intersects(player_aabb): #check intersection
 		og_scene = node.name
+		scene_data_dict[node_name].set_main_teleport("PlayerSpawn", player_spawn_pos)
 		load_scene(og_scene)
 	
 	print("Stored scene info for ", node.name, " | ", Time.get_ticks_msec())
@@ -133,9 +134,9 @@ func update_player_aabb() -> void:
 func reset() -> void:
 	print("Reset player")
 	if main_node == null: return
-	fade_loading_screen_in()
-	offload_all_scenes()
-	load_scene(og_scene)
+	#fade_loading_screen_in()
+	#offload_all_scenes()
+	direct_teleport_player(og_scene)
 
 func load_scene(scene_name:String) -> Node3D:
 	print("Attempting to load ", scene_name)
