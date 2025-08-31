@@ -19,6 +19,10 @@ func _ready() -> void:
 	interaction_detector.player_interacted.connect(on_interact)
 	interaction_detector.player_in_range.connect(on_in_range)
 	
+	#Get the popup that will be used:
+	popup = get_node_or_null("Popup")
+	
+	
 	if primary_mesh:
 		#print("Primary mesh")
 		create_outline()
@@ -27,11 +31,11 @@ func _ready() -> void:
 		primary_mesh = Utils.find_first_child_of_class(self, MeshInstance3D)
 		create_outline()
 		print("First Mesh")
-	else:
-		popup = get_node_or_null("Popup")
 		
 	if popup:
 		popup.visible = false
+	
+	
 		
 func create_outline():
 	#print("Creating outline")
