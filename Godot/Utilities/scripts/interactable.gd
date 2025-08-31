@@ -4,7 +4,8 @@ class_name Interactable extends Node3D
 @export var use_first_mesh : bool = true
 @export var outline_thickness : float = .7
 
-@export var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader.tres")
+#@export var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader.tres")
+var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader/TestOutlineShader.tres")
 var interaction_detector_file = preload("res://Entities/interaction_detector.tscn")
 var interaction_detector : InteractionDetector
 
@@ -21,9 +22,11 @@ func _ready() -> void:
 	if primary_mesh:
 		#print("Primary mesh")
 		create_outline()
+		print("Primary Mesh")
 	elif use_first_mesh:
 		primary_mesh = Utils.find_first_child_of_class(self, MeshInstance3D)
 		create_outline()
+		print("First Mesh")
 	else:
 		popup = get_node_or_null("Popup")
 		
@@ -48,7 +51,8 @@ func toggle_popup(on : bool):
 		else:
 			value = 0.0
 		surface_material.next_pass.set_shader_parameter("alpha", value)
-	
+
+
 ##OVERRIDE THESE METHODS (but call super() at the beginning)
 func on_interact() -> void:
 	#print("Interacting")
