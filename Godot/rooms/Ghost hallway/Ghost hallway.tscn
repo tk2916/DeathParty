@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=4 uid="uid://ch4fuk8qiva6x"]
+[gd_scene load_steps=155 format=4 uid="uid://ch4fuk8qiva6x"]
 
 [ext_resource type="Texture2D" uid="uid://bcg3mnugm862f" path="res://rooms/Ghost hallway/ghost hallway_wooddark.png" id="2_p1n0h"]
 [ext_resource type="Script" uid="uid://bwumtfq5s3fh3" path="res://rooms/Ghost hallway/ghost_hallway.gd" id="2_rj2l7"]
@@ -21,10 +21,14 @@
 [ext_resource type="Texture2D" uid="uid://mepwmy3wsj0k" path="res://rooms/Ghost hallway/hallway props_red textures.png" id="17_6dg7f"]
 [ext_resource type="PackedScene" uid="uid://dn8tphi4h7qm7" path="res://Assets/props/desk_lamp/desk_lamp.tscn" id="20_yebq4"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="21_r4dg4"]
+[ext_resource type="PackedScene" uid="uid://6xnr14voub8h" path="res://Assets/props/globe/globe.glb" id="22_8nhho"]
 [ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunnies/red_bunny/red_bunny.tscn" id="22_uaw28"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="23_6dg7f"]
+[ext_resource type="PackedScene" uid="uid://bgfgfyll18c40" path="res://rooms/bedroom/small pot plant.glb" id="23_vm54e"]
+[ext_resource type="PackedScene" uid="uid://dmy0dkjekw84j" path="res://Assets/props/plants/plant pot 2.glb" id="24_8vdqa"]
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="24_ywlf5"]
 [ext_resource type="PackedScene" uid="uid://b413od8ag3jvo" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_tall.tscn" id="25_3bhdn"]
+[ext_resource type="PackedScene" uid="uid://cubcxrhw7wq5g" path="res://Assets/props/plants/plant_pot.glb" id="25_45i8w"]
 [ext_resource type="PackedScene" uid="uid://cf7gkb37rdvf1" path="res://Assets/props/jack_o_lanterns/pumpkin_with_beers/pumpkin with beers.glb" id="26_4cdnu"]
 [ext_resource type="Texture2D" uid="uid://b8qqpb3hhwxlu" path="res://rooms/bedroom/bed shelf_dark b.png" id="27_fbulq"]
 [ext_resource type="Texture2D" uid="uid://babb10s7m4kn6" path="res://rooms/bedroom/bed shelf_Image_0_11.png" id="28_8nhho"]
@@ -40,6 +44,9 @@
 [ext_resource type="Texture2D" uid="uid://dvhgtynx8x847" path="res://rooms/bedroom/bed shelf_Image_1_23.png" id="38_o4vhl"]
 [ext_resource type="Texture2D" uid="uid://b6xa4gm7si6po" path="res://rooms/bedroom/bed shelf_Image_2_22.png" id="39_8ba04"]
 [ext_resource type="PackedScene" uid="uid://cmb225vqtsp61" path="res://rooms/bedroom/painting box.glb" id="40_syskn"]
+[ext_resource type="PackedScene" uid="uid://3uonffs6vrbl" path="res://Assets/environment/bookshelves/bookshelf_ornate/bookshelf_ornate.glb" id="45_dp4f2"]
+[ext_resource type="PackedScene" uid="uid://bfsk7udiphl1k" path="res://rooms/Basement/standing_lamp.tscn" id="46_erk23"]
+[ext_resource type="PackedScene" uid="uid://dccl4duycvh75" path="res://rooms/Storage Room/spiderwebs.glb" id="47_qn2ls"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxaoo"]
 size = Vector3(13.7318, 4.49936, 7.14718)
@@ -1386,7 +1393,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sc84s")
 
 [sub_resource type="FogMaterial" id="FogMaterial_ayop1"]
-density = 0.15
+density = 0.1
 albedo = Color(0.11218, 0.000105093, 0.337861, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3enj0"]
@@ -1984,13 +1991,25 @@ skeleton = NodePath("")
 [node name="desk_lamp" parent="hallway props" instance=ExtResource("20_yebq4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15219, 0.208925, -0.309406)
 
+[node name="globe" parent="hallway props" instance=ExtResource("22_8nhho")]
+transform = Transform3D(0.437028, 0, 0.310247, 0, 0.535954, 0, -0.310247, 0, 0.437028, -4.40512, 0.837373, -0.710041)
+
+[node name="small pot plant" parent="hallway props" instance=ExtResource("23_vm54e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84514, 0.3654, -0.486198)
+
+[node name="plant pot 2" parent="hallway props" instance=ExtResource("24_8vdqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.61437, 0.856123, -0.755077)
+
+[node name="plant_pot" parent="hallway props" instance=ExtResource("25_45i8w")]
+transform = Transform3D(-0.0397145, 0, 0.737837, 0, 0.738905, 0, -0.737837, 0, -0.0397145, -7.09929, -0.160063, -1.00038)
+
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.952085, 0, 1.79508)
 size = Vector3(13, 5, 10)
 material = SubResource("FogMaterial_ayop1")
 
 [node name="RedBunny" parent="." instance=ExtResource("22_uaw28")]
-transform = Transform3D(0.932025, 0, 0.686696, 0, 1.15768, 0, -0.686696, 0, 0.932025, -4.9312, -1.18137, -0.309118)
+transform = Transform3D(-1.13303, 0, 0.237631, 0, 1.15768, 0, -0.237631, 0, -1.13303, -4.72686, -1.18137, -0.328684)
 
 [node name="Skeleton3D" parent="RedBunny/model_001" index="0"]
 bones/0/position = Vector3(-3.29559, -2.61634, -99.3374)
@@ -2001,76 +2020,43 @@ bones/3/rotation = Quaternion(0.0265531, 0.00507909, 0.0370029, 0.998949)
 bones/4/rotation = Quaternion(-0.000946732, -0.0100691, -0.01658, 0.999811)
 bones/5/rotation = Quaternion(-0.0792839, -0.165489, -0.0184085, 0.982847)
 bones/7/rotation = Quaternion(-0.635022, -0.374908, 0.439132, -0.51318)
-bones/8/position = Vector3(3.44085e-07, 8.29376, -6.92752e-06)
 bones/8/rotation = Quaternion(0.51522, 0.224334, 0.0011468, 0.827177)
 bones/9/rotation = Quaternion(-0.00601946, -0.0726266, 0.7406, 0.667983)
 bones/10/rotation = Quaternion(0.0680962, 0.373249, 0.00998404, 0.925175)
-bones/11/position = Vector3(-2.37533, 2.59047, 1.21034)
 bones/11/rotation = Quaternion(0.124957, 0.272049, 0.204672, 0.931925)
-bones/12/position = Vector3(-0.217338, 2.96582, 3.35659e-06)
 bones/12/rotation = Quaternion(0.0385192, -0.120429, -0.188149, 0.973968)
 bones/13/rotation = Quaternion(-0.0140915, 0.00833033, 0.219645, 0.975442)
-bones/15/position = Vector3(-2.76418, 8.47956, 0.17441)
 bones/15/rotation = Quaternion(0.250571, 0.00482677, -0.0134783, 0.967992)
 bones/16/rotation = Quaternion(0.36451, -0.00243496, -0.0385181, 0.930399)
-bones/17/position = Vector3(0.000345945, 2.80605, -4.43639e-07)
 bones/17/rotation = Quaternion(0.277534, -0.000659426, -0.0227465, 0.960446)
-bones/19/position = Vector3(-0.846106, 9.46096, -0.146938)
 bones/19/rotation = Quaternion(0.316987, 0.00600454, -0.0466737, 0.947262)
-bones/20/position = Vector3(0.0013186, 2.79771, 2.842e-06)
 bones/20/rotation = Quaternion(0.462162, -0.00412647, -0.0482257, 0.885474)
-bones/21/position = Vector3(0.000416636, 2.85304, 2.53633e-06)
 bones/21/rotation = Quaternion(0.298379, 0.000303406, -0.0293721, 0.953995)
-bones/22/position = Vector3(-0.00173542, 2.59834, 9.75281e-06)
-bones/23/position = Vector3(0.887545, 9.58897, -0.0598016)
 bones/23/rotation = Quaternion(0.399696, 0.0143102, -0.0699656, 0.913862)
 bones/24/rotation = Quaternion(0.52124, 0.00298067, -0.0496258, 0.851961)
-bones/25/position = Vector3(0.00076364, 2.6081, 3.83195e-06)
 bones/25/rotation = Quaternion(0.354037, 0.00396526, -0.0322733, 0.934666)
-bones/26/position = Vector3(-0.00305678, 2.35112, -4.0438e-06)
-bones/27/position = Vector3(2.72274, 8.78345, 0.14995)
 bones/27/rotation = Quaternion(0.476404, 0.0062199, -0.119041, 0.871108)
 bones/28/rotation = Quaternion(0.556511, -0.00411254, -0.0484185, 0.829418)
-bones/29/position = Vector3(0.000693798, 2.08322, 9.37833e-06)
 bones/29/rotation = Quaternion(0.361503, -0.000407157, -0.0398557, 0.931519)
-bones/30/position = Vector3(-0.00123537, 1.78439, -2.98023e-06)
 bones/31/rotation = Quaternion(0.611217, -0.411881, 0.509333, 0.444238)
-bones/32/position = Vector3(-1.23406e-06, 8.29376, -3.66299e-06)
 bones/32/rotation = Quaternion(0.183378, 0.307562, -0.339102, 0.869936)
-bones/33/position = Vector3(4.67169e-07, 22.592, -1.25794e-06)
 bones/33/rotation = Quaternion(-0.121124, 0.0962496, -0.952201, 0.263397)
 bones/34/rotation = Quaternion(-0.263838, -0.00908238, 0.122209, 0.956751)
 bones/35/rotation = Quaternion(0.0712785, -0.131492, -0.364503, 0.919112)
-bones/36/position = Vector3(0.377891, 3.17709, -4.63974e-06)
 bones/36/rotation = Quaternion(-0.0914032, 0.103618, 0.159475, 0.977485)
 bones/37/rotation = Quaternion(-0.0248129, 0.0804684, -0.398909, 0.913116)
-bones/38/position = Vector3(-0.270683, 2.47625, -2.32458e-06)
-bones/39/position = Vector3(2.74755, 9.11899, 0.0187024)
 bones/39/rotation = Quaternion(-0.0599841, -0.0267086, 0.0261182, 0.9975)
 bones/40/rotation = Quaternion(0.567561, 0.00447919, 0.0502726, 0.821783)
-bones/41/position = Vector3(0.000433385, 2.54763, 4.25836e-06)
 bones/41/rotation = Quaternion(0.0604513, 0.00113277, -0.00473893, 0.998159)
-bones/42/position = Vector3(0.00599617, 2.30945, -8.9854e-06)
-bones/43/position = Vector3(0.94393, 8.87492, -0.0491259)
 bones/43/rotation = Quaternion(0.0307675, -0.00692693, 0.0307762, 0.999029)
-bones/44/position = Vector3(-0.00859928, 2.92402, 1.96744e-06)
 bones/44/rotation = Quaternion(0.667249, 0.00713456, 0.0562162, 0.742676)
-bones/45/position = Vector3(-0.00215379, 3.09874, 5.54287e-06)
 bones/45/rotation = Quaternion(0.200806, 0.0107273, -0.025083, 0.979251)
-bones/46/position = Vector3(0.0107535, 2.81526, 8.37445e-06)
 bones/47/rotation = Quaternion(0.041347, -0.0012312, -0.0127174, 0.999063)
-bones/48/position = Vector3(-0.00395723, 2.78957, 2.24296e-06)
 bones/48/rotation = Quaternion(0.792717, -0.00488775, 0.0618348, 0.606426)
-bones/49/position = Vector3(0.00295631, 2.75441, 2.57494e-06)
 bones/49/rotation = Quaternion(0.281339, 0.0152668, -0.034368, 0.958871)
-bones/50/position = Vector3(0.00100209, 2.54849, -1.53296e-06)
-bones/51/position = Vector3(-2.66595, 9.10332, 0.113719)
 bones/51/rotation = Quaternion(0.0146672, 0.0662684, 0.00926139, 0.997651)
-bones/52/position = Vector3(-0.000406742, 2.22862, -2.24314e-06)
 bones/52/rotation = Quaternion(0.800456, 0.00612576, 0.0582832, 0.59652)
-bones/53/position = Vector3(-0.00168097, 1.85729, 1.7328e-06)
 bones/53/rotation = Quaternion(0.204615, 0.0166862, -0.0224107, 0.978444)
-bones/54/position = Vector3(0.00208789, 1.77452, -2.8044e-05)
 bones/56/rotation = Quaternion(0.132613, 0.0833353, 0.982993, -0.0958821)
 bones/57/rotation = Quaternion(-0.229789, -0.0861859, 0.0158869, 0.969287)
 bones/58/rotation = Quaternion(0.50902, -0.214884, 0.0445635, 0.832308)
@@ -2081,7 +2067,7 @@ bones/63/rotation = Quaternion(0.55523, 0.049747, -0.0568053, 0.828262)
 bones/64/rotation = Quaternion(0.327064, 0.0436133, -0.0134993, 0.943899)
 
 [node name="phone_001" parent="RedBunny/model_001/Skeleton3D" index="0"]
-transform = Transform3D(0.236781, 0.195889, -0.386932, -0.0389551, 0.448668, 0.203305, 0.431939, -0.0669185, 0.230444, -15.6352, -14.3228, -141.985)
+transform = Transform3D(0.236781, 0.195889, -0.386931, -0.0389547, 0.448668, 0.203306, 0.431938, -0.0669193, 0.230444, -15.6352, -14.3228, -141.985)
 
 [node name="AnimationPlayer" parent="RedBunny" index="1"]
 autoplay = "idle"
@@ -2099,18 +2085,18 @@ transform = Transform3D(0.65141, 0, -0.758726, 0, 1, 0, 0.758726, 0, 0.65141, 3.
 transform = Transform3D(0.877983, 0, -0.478692, 0, 1, 0, 0.478692, 0, 0.877983, 3.42879, -0.418247, -0.304103)
 
 [node name="pumpkin with beers" parent="." instance=ExtResource("26_4cdnu")]
-transform = Transform3D(-0.536593, 0, 0.843841, 0, 1, 0, -0.843841, 0, -0.536593, -2.78125, -0.196452, 0.478903)
+transform = Transform3D(-0.536593, 0, 0.843841, 0, 1, 0, -0.843841, 0, -0.536593, 2.30824, -0.298922, 1.29325)
 
 [node name="BedsideTable" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78757, 0.0566127, -0.159196)
 
 [node name="Plane_019" type="MeshInstance3D" parent="BedsideTable"]
-transform = Transform3D(0.352053, -0.0060043, 2.57207e-09, 0, -8.39481e-08, -0.632633, 0.0060043, 0.352053, -1.5081e-07, 0.0100538, -0.59877, 0.0110793)
+transform = Transform3D(0.352053, -0.0060043, 2.57207e-09, 0, -8.39481e-08, -0.632633, 0.0060043, 0.352053, -1.5081e-07, -0.546947, -0.59877, 0.0363388)
 mesh = SubResource("ArrayMesh_186wt")
 skeleton = NodePath("")
 
 [node name="Amoung_us__0" type="MeshInstance3D" parent="BedsideTable"]
-transform = Transform3D(0.0122658, 0.0272281, -3.6555e-10, 8.89996e-10, 5.30479e-17, 0.0298633, 0.0272281, -0.0122658, -8.1146e-10, 4.26504, -0.573542, 1.55585)
+transform = Transform3D(0.0122658, 0.0272281, -3.6555e-10, 8.89996e-10, 5.30479e-17, 0.0298633, 0.0272281, -0.0122658, -8.1146e-10, 4.1498, -0.573542, 1.77954)
 mesh = SubResource("ArrayMesh_33lyo")
 skeleton = NodePath("")
 
@@ -2137,7 +2123,26 @@ transform = Transform3D(-0.256751, -0.224295, -1.30653e-07, -1.01603e-07, -1.219
 mesh = SubResource("ArrayMesh_ap4pj")
 skeleton = NodePath("")
 
+[node name="bookshelf_ornate" parent="BedsideTable" instance=ExtResource("45_dp4f2")]
+transform = Transform3D(0.710653, 0, 0, 0, 0.710653, 0, 0, 0, 0.710653, 0.595369, -0.844284, -0.00481869)
+
+[node name="standing lamp" parent="." instance=ExtResource("46_erk23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86598, 0.161105, 0.0867546)
+
+[node name="spiderwebs" parent="." instance=ExtResource("47_qn2ls")]
+transform = Transform3D(2.07934, 0, 0, 0, 2.07934, 0, 0, 0, 2.07934, -2.40837, 0.32354, 2.11127)
+
+[node name="Untitled_Artwork_001" parent="spiderwebs" index="0"]
+transform = Transform3D(-0.792922, -2.83955e-07, 0.269496, -0.269496, 6.86335e-08, -0.792922, 2.55825e-07, -0.837468, -9.98339e-08, 0.667917, -0.0906275, -0.922096)
+
+[node name="dsf_006" parent="spiderwebs" index="1"]
+transform = Transform3D(-0.105406, -1.27442e-07, -1.06906, 1.06906, -1.25654e-08, -0.105406, 0, -1.07425, 1.2806e-07, 3.416, 0.477891, -1.17241)
+
+[node name="dsf_001" parent="spiderwebs" index="2"]
+transform = Transform3D(-1.26121, 0.00175762, -0.107747, 0.132768, -0.00801592, -1.02334, -0.00319094, -1.02825, 0.00779343, -1.91607, 0.533889, -1.24702)
+
 [editable path="SceneLoader_PartyRoom"]
 [editable path="SceneLoader_Library"]
 [editable path="FreeHugGuy"]
 [editable path="RedBunny"]
+[editable path="spiderwebs"]
