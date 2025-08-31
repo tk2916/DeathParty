@@ -1778,6 +1778,7 @@ skeleton = NodePath("")
 transform = Transform3D(-0.00401429, 0, 0.999992, 0, 1, 0, -0.999992, 0, -0.00401429, -7.14089, -0.914738, 1.84623)
 scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
+play_door_sound = true
 
 [node name="CollisionShape3D" parent="SceneLoader_PartyRoom" index="0"]
 debug_color = Color(0, 0.6, 0.701961, 1)
@@ -1789,6 +1790,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.778794, 0.839686, -7.00357)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.23819, -0.917734, 1.90478)
 scene_going_right = "Library"
 scene_going_left = "Library"
+play_door_sound = true
 
 [node name="CollisionShape3D" parent="SceneLoader_Library" index="0"]
 debug_color = Color(0, 0.6, 0.701961, 1)
