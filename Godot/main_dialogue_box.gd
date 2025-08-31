@@ -26,6 +26,8 @@ class_name MainDialogueBox extends DialogueBoxProperties
 var current_speaker : CharacterResource
 var previous_speaker : CharacterResource
 
+var unknown_char_resource : CharacterResource = preload("res://Assets/Resources/CharacterResources/character_properties_unknown.tres")
+
 var text_label : RichTextLabel
 var speaker_image_label : TextureRect
 var previous_speaker_image_label : TextureRect
@@ -91,7 +93,7 @@ func set_ui_state(ui_state : String) -> void:
 		choices_setup.visible = true
 		
 	assign_nodes()
-	print("Current speaker: ", current_speaker.name)
+	#print("Current speaker: ", current_speaker.name)
 	#if current_ui_state != UI_STATES.CHOICES:
 	if current_speaker.image_polaroid_popout:
 		speaker_image_label.texture = current_speaker.image_polaroid_popout
@@ -109,6 +111,8 @@ func add_line(line : InkLineInfo) -> void:
 		current_speaker = DialogueSystem.current_character_resource
 	else:
 		current_speaker = SaveSystem.character_to_resource[line.speaker]
+	if current_speaker == null:
+		current_speaker = unknown_char_resource
 	if current_speaker.name == "Olivia":
 		set_ui_state(UI_STATES.PROTAG_SPEAKER)
 	else:
