@@ -13,9 +13,13 @@ func _init(
 	_instance,
 	_parent_node
 	)
+	#print("New npc: ", _instance.name)
 	npc = instance as NPC
 	character_resource = npc.character_resource
-	on_location_change()
+	if character_resource:
+		character_resource.location_changed.connect(on_location_change)
+		character_resource.interaction_ended.connect(on_chat_ended)
+		on_location_change()
 	save_properties()
 
 func load_in() -> Node3D:
@@ -29,8 +33,7 @@ func load_in() -> Node3D:
 	return instance
 
 func on_location_change() -> void:
-	if character_resource == null: return
-	if character_resource.character_location == "" or character_resource.character_location == scene.name:
+	if character_resource.character_location == "Everywhere" or character_resource.character_location == scene.name:
 		toggled = true
 		if scene.active:
 			self.load_in()
@@ -40,9 +43,9 @@ func on_location_change() -> void:
 			self.offload()
 
 func on_chat_ended() -> void:
-	if instance:
-		pass
-		#instance.
+	if npc:
+		print("Chat ended for ", name)
+		npc.on_in_range(true)
 
 func save_properties():
 	pass

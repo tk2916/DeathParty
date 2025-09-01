@@ -1,8 +1,22 @@
 class_name CharacterResource extends Resource
 
 @export var name : String
-@export var character_location : String
-var npc_data_class : NPCData #for contentloader
+@export_enum(
+	"Everywhere",
+	"Nowhere",
+	"Entrance",
+	"PartyRoom",
+	"Library",
+	"Bathroom",
+	"Basement",
+	"Bedroom",
+	"Storageroom",
+	"Exterior",
+	"Kitchen",
+	"Hourhand hallway",
+	"Control room",
+	"Ghost hallway",
+) var character_location : String = "Everywhere"
 
 @export var image_full : CompressedTexture2D
 @export var image_polaroid : CompressedTexture2D
@@ -26,6 +40,8 @@ var upcoming_chats : Array[JSON] = []
 var ink_resource : InkResource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
 
 signal unread(tf:bool)
+signal location_changed
+signal interaction_ended
 
 func chat_already_loaded(file : JSON) -> bool:
 	for chat : JSON in upcoming_chats:
@@ -55,19 +71,15 @@ func start_chat() -> void:
 		
 func end_chat() -> void:
 	upcoming_chats.pop_front()
-	if npc_data_class:
-		npc_data_class.on_chat_ended()
+	interaction_ended.emit()
 	
 func has_chats() -> bool:
-	if default_chat:
-		return true
-	elif upcoming_chats.size() > 0:
+	if default_chat or upcoming_chats.size() > 0:
 		return true
 	else:
 		return false
 		
 func change_location(location : String) -> void:
 	character_location = location
-	if npc_data_class:
-		npc_data_class.on_location_change()
+	location_changed.emit()
 	
