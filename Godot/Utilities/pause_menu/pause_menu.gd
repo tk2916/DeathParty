@@ -44,30 +44,36 @@ func _physics_process(_delta : float) -> void:
 		if get_tree().get_first_node_in_group("title_screen").visible == true:
 			return
 
+		elif get_tree().get_first_node_in_group("journal") != null:
+			GuiSystem.hide_journal()
+
 		elif settings_menu.visible:
 			settings_menu.hide()
 			main_pause_menu.show()
 			settings_button.grab_focus()
+			click_sound.play()
 
 		elif input_menu.visible:
 			input_menu.hide()
 			settings_menu.show()
 			input_button.grab_focus()
+			click_sound.play()
 
 		elif video_menu.visible:
 			video_menu.hide()
 			settings_menu.show()
 			video_button.grab_focus()
+			click_sound.play()
 
 		elif quit_menu.visible:
 			quit_menu.hide()
 			main_pause_menu.show()
 			quit_button.grab_focus()
+			click_sound.play()
 
 		else:
 			toggle_pause()
-
-		click_sound.play()
+			click_sound.play()
 
 
 func toggle_pause() -> void:
