@@ -1,8 +1,42 @@
 class_name CharacterResource extends Resource
 
+const LOCATIONS = [
+	"Everywhere",
+	"Nowhere",
+	"Entrance",
+	"PartyRoom",
+	"Library",
+	"Bathroom",
+	"Basement",
+	"Bedroom",
+	"Storageroom",
+	"Exterior",
+	"Kitchen",
+	"Hourhand hallway",
+	"Control room",
+	"Ghost hallway",
+]
 @export var name : String
+@export_enum(
+	"Everywhere",
+	"Nowhere",
+	"Entrance",
+	"PartyRoom",
+	"Library",
+	"Bathroom",
+	"Basement",
+	"Bedroom",
+	"Storageroom",
+	"Exterior",
+	"Kitchen",
+	"Hourhand hallway",
+	"Control room",
+	"Ghost hallway",
+) var character_location_index : int = 0
+
 @export var image_full : CompressedTexture2D
-@export var image_torso : CompressedTexture2D
+@export var image_polaroid : CompressedTexture2D
+@export var image_polaroid_popout : CompressedTexture2D
 @export var name_color : String
 @export var text_color : String
 
@@ -22,6 +56,11 @@ var upcoming_chats : Array[JSON] = []
 var ink_resource : InkResource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
 
 signal unread(tf:bool)
+signal location_changed
+signal interaction_ended
+
+var character_location : String:
+	get: return LOCATIONS[character_location_index]
 
 func chat_already_loaded(file : JSON) -> bool:
 	for chat : JSON in upcoming_chats:
@@ -33,6 +72,9 @@ func load_chat(json : JSON) -> void:
 	if chat_already_loaded(json): return
 	upcoming_chats.push_back(json)
 	unread.emit(true)
+
+func set_default_chat(json : JSON) -> void:
+	default_chat = json
 	
 func print_all_chats() -> void:
 	print(name, "'s chats-------")
@@ -51,11 +93,19 @@ func start_chat() -> void:
 		
 func end_chat() -> void:
 	upcoming_chats.pop_front()
+	interaction_ended.emit()
 	
 func has_chats() -> bool:
-	if default_chat:
-		return true
-	elif upcoming_chats.size() > 0:
+	if default_chat or upcoming_chats.size() > 0:
 		return true
 	else:
 		return false
+		
+func change_location(location : String) -> void:
+	#character_location = location
+	for i in range(LOCATIONS.size()):
+		if LOCATIONS[i] == location:
+			character_location_index = i
+			break
+	location_changed.emit()
+	

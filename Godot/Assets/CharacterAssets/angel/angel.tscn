@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddiqilmdbakfb"]
+[gd_scene load_steps=5 format=3 uid="uid://ddiqilmdbakfb"]
 
 [ext_resource type="PackedScene" uid="uid://dy3mkor638arc" path="res://Assets/CharacterAssets/angel/angel.glb" id="1_hn8kl"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_hdmtj"]
+[ext_resource type="Resource" uid="uid://dt8bxog1pac6f" path="res://Assets/Resources/CharacterResources/character_properties_angel.tres" id="3_emiji"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hdmtj"]
 
 [node name="Angel" instance=ExtResource("1_hn8kl")]
 transform = Transform3D(1.08275, 0, 0, 0, 1.08275, 0, 0, 0, 1.08275, 0, 0, 0)
 script = ExtResource("2_hdmtj")
+character_resource = ExtResource("3_emiji")
 outline_thickness = 0.3
 
 [node name="Skeleton3D" parent="model angel" index="0"]

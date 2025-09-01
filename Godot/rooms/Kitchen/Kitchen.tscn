@@ -49,7 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="46_cngrb"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="47_3yiem"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="48_2jg4v"]
-[ext_resource type="PackedScene" uid="uid://ppwcab8jx3ax" path="res://rooms/Exterior Frat Lawn/beer pong sign.glb" id="50_xispf"]
+[ext_resource type="PackedScene" uid="uid://dhon163rkpuq5" path="res://Assets/props/beer_pong_sign.tscn" id="51_022tp"]
 [ext_resource type="PackedScene" uid="uid://b0xusmrkexal4" path="res://Assets/CharacterAssets/frat_boys/pink_hair_frat_boy/pink_hair_frat_boy.tscn" id="51_j0uoq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2hdd"]
@@ -798,6 +798,10 @@ light_energy = 30.0
 shadow_enabled = true
 shadow_opacity = 0.84
 omni_range = 3.654
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SceneLights"]
+transform = Transform3D(1.0929, 0, 0, 0, 1.0929, 0, 0, 0, 1.0929, 6.21547, -0.307371, 12.0814)
+light_color = Color(0.46, 0.505, 1, 1)
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0836284, -1.13811, 0.765971)
@@ -1721,6 +1725,24 @@ transform = Transform3D(0.370044, 0, -0.753689, 0, 0.83963, 0, 0.753689, 0, 0.37
 [node name="BeerBox11" parent="Props/BeerBoxes" instance=ExtResource("42_p4v0j")]
 transform = Transform3D(0.274326, 0, -0.793551, 0, 0.83963, 0, 0.793551, 0, 0.274326, 14.9635, 1.13945, 1.29716)
 
+[node name="BeerPongSign" parent="Props" instance=ExtResource("51_022tp")]
+transform = Transform3D(0.363593, 0, 1.03064, 0, 1.0929, 0, -1.03064, 0, 0.363593, -0.3225, -0.67515, -1.6649)
+
+[node name="folded chairs" parent="Props" instance=ExtResource("26_eupok")]
+transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -10.0882, 0.12444, 2.58955)
+
+[node name="folded chairs2" parent="Props" instance=ExtResource("26_eupok")]
+transform = Transform3D(-1.09118, 0, -0.0688421, 0, 1.09334, 0, 0.0688421, 0, -1.09118, 4.71544, 0.1082, -1.03747)
+
+[node name="PumpkinWithBeers" parent="Props" instance=ExtResource("5_l32yv")]
+transform = Transform3D(-0.806433, 0, 0.738287, 0, 1.09334, 0, -0.738287, 0, -0.806433, -1.01573, 0.61157, -6.42309)
+
+[node name="PumpkinWithBeers2" parent="Props" instance=ExtResource("5_l32yv")]
+transform = Transform3D(-0.729844, 0, -0.814082, 0, 1.09334, 0, 0.814082, 0, -0.729844, -9.97765, 0.91741, 1.37453)
+
+[node name="beerpong trophie" parent="Props" instance=ExtResource("45_l32yv")]
+transform = Transform3D(0.566878, 0, -0.0975908, 0, 0.575217, 0, 0.0975908, 0, 0.566878, 1.54046, 1.63899, -2.43062)
+
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="PinkHairFratBoy" parent="NPCs" instance=ExtResource("51_j0uoq")]
@@ -1913,28 +1935,6 @@ script = null
 [node name="Bartender" parent="NPCs" instance=ExtResource("44_p4v0j")]
 transform = Transform3D(0.711062, 0, 0.844263, 0, 1.14342, 0, -0.844263, 0, 0.711062, -6.16842, -3.1054, -1.79786)
 script = null
-
-[node name="folded chairs" parent="." instance=ExtResource("26_eupok")]
-transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -7.21247, -2.32239, 3.40963)
-
-[node name="folded chairs2" parent="." instance=ExtResource("26_eupok")]
-transform = Transform3D(-1.09118, 0, -0.0688421, 0, 1.09334, 0, 0.0688421, 0, -1.09118, 7.59115, -2.33863, -0.217396)
-
-[node name="PumpkinWithBeers" parent="." instance=ExtResource("5_l32yv")]
-transform = Transform3D(-0.806433, 0, 0.738287, 0, 1.09334, 0, -0.738287, 0, -0.806433, 1.85998, -1.83526, -5.60301)
-
-[node name="PumpkinWithBeers2" parent="." instance=ExtResource("5_l32yv")]
-transform = Transform3D(-0.729844, 0, -0.814082, 0, 1.09334, 0, 0.814082, 0, -0.729844, -7.10194, -1.52942, 2.19461)
-
-[node name="beerpong trophie" parent="." instance=ExtResource("45_l32yv")]
-transform = Transform3D(0.566878, 0, -0.0975908, 0, 0.575217, 0, 0.0975908, 0, 0.566878, 4.41617, -0.807845, -1.61054)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.23121, 7.86724)
-light_color = Color(0.46, 0.505, 1, 1)
-
-[node name="beer pong sign" parent="." instance=ExtResource("50_xispf")]
-transform = Transform3D(0.363593, 0, 1.03064, 0, 1.0929, 0, -1.03064, 0, 0.363593, 2.55321, -3.12198, -0.844819)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="Room"]

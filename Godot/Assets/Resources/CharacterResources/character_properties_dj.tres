@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://6dfxjbootk0p"]
+
+[ext_resource type="Texture2D" uid="uid://ca3syyext70w6" path="res://Assets/CharacterAssets/Polaroids/DJ_a.png" id="1_8lu5d"]
+[ext_resource type="Texture2D" uid="uid://1xw0hxyuo7is" path="res://Assets/CharacterAssets/Polaroids/DJ_b.png" id="2_jyy00"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="3_guwaa"]
+
+[resource]
+script = ExtResource("3_guwaa")
+name = "DJ"
+character_location = "PartyRoom"
+image_polaroid = ExtResource("1_8lu5d")
+image_polaroid_popout = ExtResource("2_jyy00")
+name_color = ""
+text_color = ""
+character_notes = Array[String]([])
+character_description = ""
+profile_tag = "@profiletag123"
+profile_quote = "inspirational quote goes here."
+profile_join_date = "Month 8, 20XX"
+profile_friends = 359

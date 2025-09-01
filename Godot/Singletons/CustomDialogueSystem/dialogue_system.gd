@@ -90,6 +90,7 @@ func setDialogueBox(new_resource : DialogueBoxResource):
 	current_dialogue_box.visible = false
 	dialogue_box_properties = new_resource
 	canvas_layer.add_child(current_dialogue_box)
+	await current_dialogue_box.ready
 	#Transfer all properties over
 	transferBoxProperties()
 
@@ -99,6 +100,10 @@ func clear_children(container):
 		n.queue_free() 
 
 func add_new_line(current_dialogue_info : InkLineInfo, no_animation : bool = false):
+	if current_dialogue_box is MainDialogueBox:
+		current_dialogue_box.add_line(current_dialogue_info)
+		return
+		
 	var speaker = current_dialogue_info.speaker
 	
 	var newline : DialogueLine
@@ -126,11 +131,6 @@ func display_current_dialogue():
 	#clear any old dialogue
 	if dialogue_box_properties["clear_box_after_each_dialogue"]:
 		clear_children(dialogue_container)
-	#var speaker : String = ""
-	#if all_dialogues[current_dialogue_index].has("speaker"):
-	#	speaker = all_dialogues[current_dialogue_index]["speaker"]
-	#var line_text = all_dialogues[current_dialogue_index]["text"]
-	#current_conversation.push_back({"speaker": speaker, "text": line_text})
 	var current_dialogue_info : InkLineInfo = all_dialogues[0]
 	current_conversation.push_back(current_dialogue_info)
 	add_new_line(current_dialogue_info)
@@ -141,7 +141,10 @@ func check_for_choices():
 			set_choices(current_choices)
 	
 func skip_dialogue_animation():
-	current_line_label.skip()
+	if current_dialogue_box is MainDialogueBox:
+		current_dialogue_box.skip()
+	else:
+		current_line_label.skip()
 
 func say(dialogues : Array[InkLineInfo]):
 	in_dialogue = true
@@ -158,7 +161,7 @@ func load_convo(target_name : String, json_name : String, phone_conversation : b
 		target_resource = SaveSystem.phone_chat_to_resource[target_name]
 	else:
 		target_resource = SaveSystem.character_to_resource[target_name]
-	print("Target resource: ", target_resource)
+	#print("Target resource: ", target_resource)
 	target_resource.load_chat(json_file)
 
 func match_command(text_ : String):
@@ -233,17 +236,47 @@ func match_command(text_ : String):
 				SaveSystem.set_key("die_roll_flag", true)
 			else:
 				SaveSystem.set_key("die_roll_flag", false)
-	
+		"/change_location":
+			var target_resource : CharacterResource = SaveSystem.character_to_resource[parameters_array[1]]
+			var target_location : String = parameters_array[2]
+			target_resource.change_location(target_location)
+		"/fade_screen":
+			if parameters_array[1] == "true":
+				ContentLoader.fade_loading_screen_in()
+			elif parameters_array[1] == "false":
+				ContentLoader.fade_loading_screen_out()
+		"/toggle_ui":
+			if parameters_array[1] == "true":
+				current_dialogue_box.visible = false
+			elif parameters_array[1] == "false":
+				current_dialogue_box.visible = true
+		"/wait":
+			var wait_time : float = float(parameters_array[1])
+			await get_tree().create_timer(wait_time).timeout
+		"/play_animation": ##WIP
+			var character_name : String = parameters_array[1]
+			var animation_name : String = parameters_array[2]
+			print("Playing animation ", character_name, " for ", animation_name)
+			var character_resource : CharacterResource = SaveSystem.character_to_resource[character_name]
+			
 func advance_dialogue():
-	if current_line_label.done_state == true:
-			display_current_container()
+	if (
+		(current_line_label
+		and current_line_label.done_state == true)
+		or (current_dialogue_box is MainDialogueBox 
+		and current_dialogue_box.done_state == true)
+	):
+		display_current_container()
 	else:
 		skip_dialogue_animation()
 		
 #CLICK TO ADVANCE DIALOGUE
 var pressed : bool = false
 func _process(delta: float) -> void:
-	if current_dialogue_box && in_dialogue == true && are_choices == false && mouse_contained_within_gui && Input.is_action_pressed("dialogic_default_action"):
+	if (current_dialogue_box && in_dialogue == true 
+	&& are_choices == false && 
+	#mouse_contained_within_gui && 
+	Input.is_action_pressed("dialogic_default_action")):
 		if !pressed:
 			advance_dialogue()
 			pressed = true
@@ -251,25 +284,33 @@ func _process(delta: float) -> void:
 		pressed = false
 
 func change_container(redirect:Array, choice_text:String):
+	print("Changing container")
 	are_choices = false
-	if dialogue_box_properties["clear_box_after_each_dialogue"] == false:
-		for choice in current_choice_labels:
-			choice_container.remove_child(choice)
-			choice.queue_free()
-		current_choice_labels = []
+	if !current_dialogue_box is MainDialogueBox:
+		if dialogue_box_properties["clear_box_after_each_dialogue"] == false:
+			for choice in current_choice_labels:
+				choice_container.remove_child(choice)
+				choice.queue_free()
+			current_choice_labels = []
 	Ink.make_choice(redirect)
 	display_current_container()
 
 func set_choices(choices:Array[InkChoiceInfo]):
 	are_choices = true
-	for choice : InkChoiceInfo in choices:
-		var newchoice : ChoiceButton = dialogue_box_properties.choice_button.instantiate()
-		newchoice.choice_info = choice
-		newchoice.text_properties = dialogue_box_properties
-		
-		newchoice.selected.connect(change_container)
-		choice_container.add_child(newchoice)
-		current_choice_labels.push_back(newchoice)
+	if current_dialogue_box is MainDialogueBox:
+		current_dialogue_box.set_choices(choices)
+	else:
+		for choice : InkChoiceInfo in choices:
+			if choice.jump.size() == 0:
+				#choice info text
+				continue
+			var newchoice : ChoiceButton = dialogue_box_properties.choice_button.instantiate()
+			newchoice.choice_info = choice
+			newchoice.text_properties = dialogue_box_properties
+			
+			newchoice.selected.connect(change_container)
+			choice_container.add_child(newchoice)
+			current_choice_labels.push_back(newchoice)
 
 ################################################################################################
 #JSON RELATED

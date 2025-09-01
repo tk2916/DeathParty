@@ -3,16 +3,19 @@ class_name NPC extends Interactable
 var outline : Node3D
 
 @export var character_resource : CharacterResource
-@export var dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres")
-@export var json_file : JSON = preload("res://Assets/InkExamples/sample_dialogue_template.json")
+@export var dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
+@export var starter_json : JSON = null#= preload("res://Assets/InkExamples/sample_dialogue_template.json")
+@export var default_json: JSON = preload("res://Assets/InkExamples/sample_dialogue_template.json")
 
 func _ready() -> void:
 	super()
 	#print("Ready: ", name)
 	if character_resource:
 		character_resource.unread.connect(on_unread)
-		if json_file:
-			character_resource.load_chat(json_file)
+		if starter_json:
+			character_resource.load_chat(starter_json)
+		if default_json:
+			character_resource.set_default_chat(default_json)
 
 func on_unread(unread : bool):
 	#$SpeechBubble.visible = true
@@ -22,12 +25,9 @@ func on_unread(unread : bool):
 func on_in_range(in_range : bool) -> void:
 	##only show the outline if NPC has something to say
 	var show_outline : bool = false
-	if json_file:
-		show_outline = true
 	if character_resource:
 		if character_resource.has_chats():
 			show_outline = true
-	
 	if show_outline:
 		super(in_range)
 
@@ -36,5 +36,7 @@ func on_interact() -> void:
 	DialogueSystem.setDialogueBox(dialogue_box)
 	if character_resource:
 		character_resource.start_chat()
-	elif json_file:
-		DialogueSystem.from_JSON(json_file)
+	elif starter_json:
+		DialogueSystem.from_JSON(starter_json)
+	elif default_json:
+		DialogueSystem.from_JSON(default_json)

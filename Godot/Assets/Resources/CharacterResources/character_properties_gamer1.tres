@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://c1b1vp0a6fo45"]
+
+[ext_resource type="Texture2D" uid="uid://djofvwukwlnmi" path="res://Assets/CharacterAssets/Polaroids/Gamer_1_a.png" id="1_pftb0"]
+[ext_resource type="Texture2D" uid="uid://hiao73rtp7pg" path="res://Assets/CharacterAssets/Polaroids/gamer_1_b.png" id="2_u138q"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="3_gy23l"]
+
+[resource]
+script = ExtResource("3_gy23l")
+name = "Gamer 1"
+character_location = ""
+image_polaroid = ExtResource("1_pftb0")
+image_polaroid_popout = ExtResource("2_u138q")
+name_color = ""
+text_color = ""
+character_notes = Array[String]([])
+character_description = ""
+profile_tag = "@profiletag123"
+profile_quote = "inspirational quote goes here."
+profile_join_date = "Month 8, 20XX"
+profile_friends = 359

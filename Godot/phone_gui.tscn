@@ -301,4 +301,16 @@ texture = ExtResource("4_0lpnt")
 expand_mode = 3
 stretch_mode = 5
 
+[node name="LockSound" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/300_UI/PhoneLock"
+event_guid = "{e11a6aeb-2252-4442-9987-27d06f4d4728}"
+attached = false
+volume = 0.5
+
+[node name="UnlockSound" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/300_UI/PhoneUnlock"
+event_guid = "{11dc6640-2c2a-4518-baf8-84b1b18ab5c1}"
+attached = false
+volume = 0.5
+
 [editable path="Phone/Screen/Background/MessageApp"]

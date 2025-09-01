@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1ao6n4p81227"]
+[gd_scene load_steps=5 format=3 uid="uid://d1ao6n4p81227"]
 
 [ext_resource type="PackedScene" uid="uid://d1tlxjennu0on" path="res://Assets/CharacterAssets/bunnies/white_bunny/white_bunny.glb" id="1_0jv36"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_n2xof"]
+[ext_resource type="Resource" uid="uid://1x74edsm5hec" path="res://Assets/Resources/CharacterResources/character_properties_sororitygirl1.tres" id="3_4axld"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yfndh"]
 
 [node name="WhiteBunny" instance=ExtResource("1_0jv36")]
 transform = Transform3D(1.15335, 0, 0, 0, 1.15335, 0, 0, 0, 1.15335, 0, 0, 0)
 script = ExtResource("2_n2xof")
+character_resource = ExtResource("3_4axld")
 
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(0.26922, -1.53633, -99.2521)

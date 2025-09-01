@@ -14,6 +14,9 @@ box)
 '''
 @export var resource_file : Resource
 
+var done_state = false
+signal done
+
 func _ready() -> void:
 	if name_container:
 		name_container.bbcode_enabled = true

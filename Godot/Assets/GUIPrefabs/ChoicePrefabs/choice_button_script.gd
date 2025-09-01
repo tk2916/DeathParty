@@ -8,7 +8,7 @@ var text_properties : Resource
 
 signal selected
 
-func _button_pressed():
+func _button_pressed() -> void:
 	print("Choice button pressed: ", choice_info.jump)
 	selected.emit(choice_info.jump, choice_info.text)
 

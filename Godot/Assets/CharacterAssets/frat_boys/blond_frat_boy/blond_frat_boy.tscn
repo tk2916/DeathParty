@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://dpfcftvjayo2k" path="res://Assets/CharacterAssets/frat_boys/blond_frat_boy/blond_frat_boy.glb" id="1_oqk65"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_kafxj"]
-[ext_resource type="Resource" uid="uid://bpephsvb7c542" path="res://Assets/Resources/CharacterResources/character_properties_otherguy.tres" id="3_5ya0h"]
+[ext_resource type="Resource" uid="uid://lfvpkackkrhm" path="res://Assets/Resources/CharacterResources/character_properties_fratboy1.tres" id="3_30tbd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2erb7"]
 
 [node name="BlondFratBoy" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_oqk65")]
 transform = Transform3D(1.23102, 0, 0, 0, 1.23102, 0, 0, 0, 1.23102, 0, 0, 0)
 script = ExtResource("2_kafxj")
-character_resource = ExtResource("3_5ya0h")
+character_resource = ExtResource("3_30tbd")
 primary_mesh = NodePath("model/Skeleton3D/Chest_Bow_002")
 
 [node name="AnimationPlayer" parent="." index="1"]

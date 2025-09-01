@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bndch2w3fgmyf"]
+[gd_scene load_steps=8 format=4 uid="uid://bndch2w3fgmyf"]
 
 [ext_resource type="Texture2D" uid="uid://n8spnwmpcgt0" path="res://Assets/textures/entrance_room_props/entrance room props_pumpkin1.png" id="1_x3pwc"]
 [ext_resource type="Material" uid="uid://dtjo15ph3udf5" path="res://Assets/props/jack_o_lanterns/inner pump.tres" id="2_rf8tf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rf8tf"]
+height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfofh"]
 resource_name = "Material.077"
@@ -94,7 +97,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q6my0")
 
-[node name="JackOLanternSquashed" type="MeshInstance3D"]
+[node name="JackOLanternSquashed" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_rf8tf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.62142e-08, 0, -0.370938, 0, 0.235724, 0, 0.370938, 0, -1.62142e-08, 0, 0, 0)
 lod_bias = 0.25
 mesh = SubResource("ArrayMesh_a6xie")
