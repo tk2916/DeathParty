@@ -33,7 +33,9 @@ func load_in() -> Node3D:
 	return instance
 
 func on_location_change() -> void:
-	if character_resource.character_location == "Everywhere" or character_resource.character_location == scene.name:
+	#print("CHARACTER LOCATION: ", character_resource.character_location)
+	var character_location = character_resource.character_location
+	if character_location == "Everywhere" or character_location == scene.name:
 		toggled = true
 		if scene.active:
 			self.load_in()

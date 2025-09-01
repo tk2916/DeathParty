@@ -1,5 +1,21 @@
 class_name CharacterResource extends Resource
 
+const LOCATIONS = [
+	"Everywhere",
+	"Nowhere",
+	"Entrance",
+	"PartyRoom",
+	"Library",
+	"Bathroom",
+	"Basement",
+	"Bedroom",
+	"Storageroom",
+	"Exterior",
+	"Kitchen",
+	"Hourhand hallway",
+	"Control room",
+	"Ghost hallway",
+]
 @export var name : String
 @export_enum(
 	"Everywhere",
@@ -16,7 +32,7 @@ class_name CharacterResource extends Resource
 	"Hourhand hallway",
 	"Control room",
 	"Ghost hallway",
-) var character_location : String = "Everywhere"
+) var character_location_index : int = 0
 
 @export var image_full : CompressedTexture2D
 @export var image_polaroid : CompressedTexture2D
@@ -42,6 +58,9 @@ var ink_resource : InkResource = load("res://Singletons/InkInterpreter/ink_inter
 signal unread(tf:bool)
 signal location_changed
 signal interaction_ended
+
+var character_location : String:
+	get: return LOCATIONS[character_location_index]
 
 func chat_already_loaded(file : JSON) -> bool:
 	for chat : JSON in upcoming_chats:
@@ -80,6 +99,10 @@ func has_chats() -> bool:
 		return false
 		
 func change_location(location : String) -> void:
-	character_location = location
+	#character_location = location
+	for i in range(LOCATIONS.size()):
+		if LOCATIONS[i] == location:
+			character_location_index = i
+			break
 	location_changed.emit()
 	
