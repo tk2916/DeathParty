@@ -36,7 +36,8 @@ func _physics_process(_delta: float) -> void:
 		if in_journal:
 			hide_journal()
 		else:
-			if get_tree().get_first_node_in_group("title_screen").visible == true:
+			var title_screen = get_tree().get_first_node_in_group("title_screen")
+			if title_screen != null and title_screen.visible == true:
 				return
 			show_journal()
 
@@ -44,7 +45,8 @@ func _physics_process(_delta: float) -> void:
 		if in_phone:
 			hide_gui("Phone")
 		else:
-			if get_tree().get_first_node_in_group("title_screen").visible == true:
+			var title_screen = get_tree().get_first_node_in_group("title_screen")
+			if title_screen != null and title_screen.visible == true:
 				return
 			show_gui("Phone")
 
