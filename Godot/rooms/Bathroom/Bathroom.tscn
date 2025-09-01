@@ -1067,7 +1067,6 @@ transform = Transform3D(1.26223, 0, 0, 0, 1.26223, 0, 0, 0, 1.26223, 6.98782, -0
 
 [node name="cop" parent="NPCs" instance=ExtResource("34_jy5jw")]
 transform = Transform3D(0.744814, 0, 0.869726, 0, 1.14506, 0, -0.869726, 0, 0.744814, 0.904997, -0.232421, -1.38849)
-script = null
 
 [node name="dino" parent="NPCs" instance=ExtResource("36_17afp")]
 transform = Transform3D(1.17834, 0, 0.260541, 0, 1.2068, 0, -0.260541, 0, 1.17834, 2.94863, -0.234269, -4.58556)
