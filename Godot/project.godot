@@ -87,6 +87,7 @@ material_concrete=""
 material_carpet=""
 phone=""
 journal=""
+title_screen=""
 
 [gui]
 

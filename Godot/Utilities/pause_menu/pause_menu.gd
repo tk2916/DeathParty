@@ -41,7 +41,10 @@ func _ready() -> void:
 
 func _physics_process(_delta : float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		if settings_menu.visible:
+		if get_tree().get_first_node_in_group("title_screen").visible == true:
+			return
+
+		elif settings_menu.visible:
 			settings_menu.hide()
 			main_pause_menu.show()
 			settings_button.grab_focus()
