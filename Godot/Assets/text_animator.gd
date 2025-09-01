@@ -92,6 +92,13 @@ func typewriter() -> void:
 	text_label.text = text_prefix + typewriter_text + text_suffix
 	text_index += 1
 
+	var printing_sound = DialogueSystem.current_dialogue_box.find_child("TextPrintingSound")
+
+	# check the reference to the printing sound doesn't error and check the current character
+	# isn't whitespace
+	if printing_sound and line_info.text[text_index - 1] != " ":
+		printing_sound.play()
+
 func skip() -> void:
 	text_index = text_contents.length()
 	if timer:
