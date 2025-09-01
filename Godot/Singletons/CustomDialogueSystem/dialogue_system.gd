@@ -4,6 +4,9 @@ var main : Node
 var canvas_layer : CanvasLayer
 var text_message_box : DialogueBoxNode
 
+var dialogue_advance_sound: PackedScene = preload("res://Utilities/dialogue_advance_sound.tscn")
+
+
 func _ready() -> void:
 	main = get_tree().root.get_node_or_null("Main")
 	if main:
@@ -260,6 +263,9 @@ func match_command(text_ : String):
 			var character_resource : CharacterResource = SaveSystem.character_to_resource[character_name]
 			
 func advance_dialogue():
+	var dialogue_advance_sound_instance = dialogue_advance_sound.instantiate()
+	main.add_child(dialogue_advance_sound_instance)
+
 	if (
 		(current_line_label
 		and current_line_label.done_state == true)
@@ -267,6 +273,7 @@ func advance_dialogue():
 		and current_dialogue_box.done_state == true)
 	):
 		display_current_container()
+		
 	else:
 		skip_dialogue_animation()
 		

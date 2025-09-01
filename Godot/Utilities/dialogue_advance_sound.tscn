@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://pkbre1xaocm2"]
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D"]
+event_name = "event:/000_SFX/300_UI/DialogueAdvance"
+event_guid = "{1b3bb344-f5f8-4a97-96b3-23b5fd588753}"
+attached = false
+autoplay = true
+auto_release = true
+volume = 0.5
