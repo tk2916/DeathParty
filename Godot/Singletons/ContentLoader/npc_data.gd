@@ -24,6 +24,7 @@ func _init(
 	character_resource = npc.character_resource
 		
 	save_properties()
+	scene.npc_dict[name] = self
 
 func load_in() -> Node3D:
 	await super()

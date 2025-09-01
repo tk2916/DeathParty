@@ -257,7 +257,9 @@ func match_command(text_ : String):
 			var character_name : String = parameters_array[1]
 			var animation_name : String = parameters_array[2]
 			print("Playing animation ", character_name, " for ", animation_name)
-			var character_resource : CharacterResource = SaveSystem.character_to_resource[character_name]
+			var npc_model : NPC = ContentLoader.get_active_npc(character_name).npc
+			if npc_model:
+				npc_model.play_animation(animation_name)
 			
 func advance_dialogue():
 	if (

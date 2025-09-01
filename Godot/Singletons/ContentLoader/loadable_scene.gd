@@ -11,6 +11,9 @@ var main_teleport_point_name : String
 var cell_manager : CellManager
 var cell_debugger : ContentLoaderDebugMenu
 
+#NPCs
+var npc_dict : Dictionary[String, NPCData] = {}
+
 ##INITIAL LOAD --------------------------
 func _init(
 	_instance : Node3D, 
@@ -79,3 +82,9 @@ func set_main_teleport(point_name : String, point : Vector3) -> void:
 	main_teleport_point_name = point_name
 	main_teleport_point = point
 ##END SCENE LOADERS
+
+##NPC
+func get_npc(npc_name : String) -> NPCData:
+	if npc_dict.has(npc_name):
+		return npc_dict[npc_name]
+	return null

@@ -1,6 +1,7 @@
 class_name NPC extends Interactable
 
 var outline : Node3D
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 @export var character_resource : CharacterResource
 @export var dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
@@ -37,3 +38,6 @@ func on_interact() -> void:
 		starter_json = null
 	elif default_json:
 		DialogueSystem.from_JSON(default_json)
+		
+func play_animation(anim_name : String):
+	animation_player.play(anim_name)

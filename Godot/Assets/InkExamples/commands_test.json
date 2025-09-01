@@ -1,0 +1,1 @@
+{"inkVersion":21,"root":[["^[BackgroundNPC] This is a commands test","\n","^/fade_screen true","\n","^/wait 3","\n","^/fade_screen false","\n","^This is more dialogue","\n","^/toggle_ui false","\n","^/wait 3","\n","^/toggle_ui true","\n","^/change_location Caleb PartyRoom","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
