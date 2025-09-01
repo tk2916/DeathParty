@@ -65,13 +65,23 @@ func apply_settings_from_cfg() -> void:
 	# input
 	load_bindings()
 
+	# quality
+	filtering = config.get_value("video", "filtering", filtering)
+	apply_filtering(filtering)
+
+	aa = config.get_value("video", "aa", aa)
+	apply_aa(aa)
+
+	lod = config.get_value("video", "lod", lod)
+	apply_lod(lod)
+
+	shadows = config.get_value("video", "shadows", shadows)
+	apply_shadows(shadows)
+
+	ssao = config.get_value("video", "ssao", ssao)
+	apply_ssao(ssao)
+
 	# display
-	fullscreen = config.get_value("video", "fullscreen", fullscreen)
-	apply_fullscreen(fullscreen)
-
-	monitor = config.get_value("video", "monitor", monitor)
-	apply_monitor(monitor)
-
 	vsync = config.get_value("video", "vsync", vsync)
 	apply_vsync(vsync)
 
@@ -90,21 +100,11 @@ func apply_settings_from_cfg() -> void:
 	stats = config.get_value("video", "stats", stats)
 	apply_stats(stats)
 
-	# quality
-	filtering = config.get_value("video", "filtering", filtering)
-	apply_filtering(filtering)
+	fullscreen = config.get_value("video", "fullscreen", fullscreen)
+	apply_fullscreen(fullscreen)
 
-	aa = config.get_value("video", "aa", aa)
-	apply_aa(aa)
-
-	lod = config.get_value("video", "lod", lod)
-	apply_lod(lod)
-
-	shadows = config.get_value("video", "shadows", shadows)
-	apply_shadows(shadows)
-
-	ssao = config.get_value("video", "ssao", ssao)
-	apply_ssao(ssao)
+	monitor = config.get_value("video", "monitor", monitor)
+	apply_monitor(monitor)
 
 	# audio
 	volume = config.get_value("audio", "volume", volume)
