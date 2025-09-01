@@ -115,7 +115,7 @@ func set_ui_state(ui_state : String) -> void:
 		choices_setup.visible = true
 		
 	assign_nodes()
-	#print("Current speaker: ", current_speaker.name)
+	#print("Current speaker: ", current_speaker.name, current_speaker.image_polaroid_popout)
 	#if current_ui_state != UI_STATES.CHOICES:
 	if current_speaker.image_polaroid_popout:
 		speaker_image_label.texture = current_speaker.image_polaroid_popout
@@ -123,7 +123,7 @@ func set_ui_state(ui_state : String) -> void:
 		speaker_image_label.texture = current_speaker.image_polaroid
 	
 	if previous_speaker and current_ui_state != UI_STATES.NPC_SPEAKER:
-		print("Set previous speaker image label: ", previous_speaker)
+		#print("Set previous speaker image label: ", previous_speaker)
 		previous_speaker_image_label.texture = previous_speaker.image_polaroid
 	
 	if ui_state != UI_STATES.CHOICES:
@@ -131,7 +131,7 @@ func set_ui_state(ui_state : String) -> void:
 		
 func add_line(line : InkLineInfo) -> void:
 	done_state = false
-	if line.speaker == "BackgroundNPC":
+	if line.speaker == "BackgroundNPC" or line.speaker == "":
 		current_speaker = DialogueSystem.current_character_resource
 	else:
 		current_speaker = SaveSystem.character_to_resource[line.speaker]
@@ -142,7 +142,7 @@ func add_line(line : InkLineInfo) -> void:
 	else:
 		set_ui_state(UI_STATES.NPC_SPEAKER)
 	
-	print("Line: ", line, line.text, "  ", text_label)
+	#print("Line: ", line, line.text, "  ", text_label)
 	#text_label.text = "[color=black]"+line.text+"[/color]"
 	text_animator.set_text(line, current_speaker)
 

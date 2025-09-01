@@ -84,7 +84,7 @@ func print_all_chats() -> void:
 	
 func start_chat() -> void:
 	print_all_chats()
-	var new_json : JSON = self.upcoming_chats.front()
+	var new_json : JSON = upcoming_chats.front()
 	if new_json == null:
 		if default_chat:
 			DialogueSystem.from_character(self, default_chat)
@@ -92,6 +92,7 @@ func start_chat() -> void:
 		DialogueSystem.from_character(self, new_json)
 		
 func end_chat() -> void:
+	print("Ended chat with ", name, upcoming_chats.front())
 	upcoming_chats.pop_front()
 	interaction_ended.emit()
 	

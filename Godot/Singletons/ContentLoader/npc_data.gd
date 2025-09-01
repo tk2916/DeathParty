@@ -3,6 +3,9 @@ class_name NPCData extends SceneObject
 var npc : NPC
 var character_resource : CharacterResource
 
+var default_dialogue : JSON #plays every time if no other files
+var starter_dialogue : JSON #one-pff file to start
+
 func _init(
 	_scene : LoadableScene,
 	_instance : NPC,
@@ -15,18 +18,14 @@ func _init(
 	)
 	#print("New npc: ", _instance.name)
 	npc = instance as NPC
+	default_dialogue = npc.default_json
+	starter_dialogue = npc.starter_json
+	
 	character_resource = npc.character_resource
-	if character_resource:
-		character_resource.location_changed.connect(on_location_change)
-		character_resource.interaction_ended.connect(on_chat_ended)
-		on_location_change()
+		
 	save_properties()
 
 func load_in() -> Node3D:
-	if character_resource:
-		print("Loading in NPC: ", name, " at ", character_resource.character_location, " vs ", scene.name)
-	#if character_resource and character_resource.character_location != scene.name:
-		#return
 	await super()
 	npc = instance as NPC
 	load_properties()
@@ -34,6 +33,7 @@ func load_in() -> Node3D:
 
 func on_location_change() -> void:
 	#print("CHARACTER LOCATION: ", character_resource.character_location)
+	#toggled prevents this object from being loaded on scene load
 	var character_location = character_resource.character_location
 	if character_location == "Everywhere" or character_location == scene.name:
 		toggled = true
@@ -48,8 +48,17 @@ func on_chat_ended() -> void:
 	if npc:
 		npc.on_in_range(true)
 
-func save_properties():
-	pass
+func save_properties() -> void:
+	if character_resource:
+		character_resource.location_changed.connect(on_location_change)
+		character_resource.interaction_ended.connect(on_chat_ended)
+		on_location_change()
 
-func load_properties():
-	pass
+func load_properties() -> void:
+	if character_resource:
+		print("Loading in NPC: ", name, " with ", starter_dialogue, " and ", default_dialogue, " and ", character_resource.image_polaroid)
+		if starter_dialogue:
+			character_resource.load_chat(starter_dialogue)
+			starter_dialogue = null #only a one-off
+		if default_dialogue:
+			character_resource.set_default_chat(default_dialogue)

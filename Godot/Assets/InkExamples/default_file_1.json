@@ -1,0 +1,25 @@
+{
+	"inkVersion": 21.0,
+	"root": [
+		[
+			"^Default file number one",
+			"\n",
+			"end",
+			[
+				"done",
+				{
+					"#f": 5.0,
+					"#n": "g-0"
+				}
+			],
+			null
+		],
+		"done",
+		{
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
+}

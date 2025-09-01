@@ -12,10 +12,6 @@ func _ready() -> void:
 	#print("Ready: ", name)
 	if character_resource:
 		character_resource.unread.connect(on_unread)
-		if starter_json:
-			character_resource.load_chat(starter_json)
-		if default_json:
-			character_resource.set_default_chat(default_json)
 
 func on_unread(unread : bool):
 	#$SpeechBubble.visible = true
@@ -38,5 +34,6 @@ func on_interact() -> void:
 		character_resource.start_chat()
 	elif starter_json:
 		DialogueSystem.from_JSON(starter_json)
+		starter_json = null
 	elif default_json:
 		DialogueSystem.from_JSON(default_json)
