@@ -91,6 +91,9 @@ func typewriter() -> void:
 	typewriter_text = typewriter_text + line_info.text[text_index]
 	text_label.text = text_prefix + typewriter_text + text_suffix
 	text_index += 1
+	var printing_sound = DialogueSystem.current_dialogue_box.find_child("TextPrintingSound")
+	if printing_sound:
+		printing_sound.play()
 
 func skip() -> void:
 	text_index = text_contents.length()
