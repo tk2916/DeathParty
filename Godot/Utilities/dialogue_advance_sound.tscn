@@ -2,7 +2,7 @@
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D"]
 event_name = "event:/000_SFX/300_UI/DialogueAdvance"
-event_guid = "{1b3bb344-f5f8-4a97-96b3-23b5fd588753}"
+event_guid = "{b203707a-26ca-4818-8ce5-20e2df7f12bf}"
 attached = false
 autoplay = true
 auto_release = true
