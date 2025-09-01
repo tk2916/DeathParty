@@ -46,7 +46,6 @@ func on_location_change() -> void:
 
 func on_chat_ended() -> void:
 	if npc:
-		print("Chat ended for ", name)
 		npc.on_in_range(true)
 
 func save_properties():

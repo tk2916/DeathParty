@@ -72,6 +72,9 @@ func load_chat(json : JSON) -> void:
 	if chat_already_loaded(json): return
 	upcoming_chats.push_back(json)
 	unread.emit(true)
+
+func set_default_chat(json : JSON) -> void:
+	default_chat = json
 	
 func print_all_chats() -> void:
 	print(name, "'s chats-------")
