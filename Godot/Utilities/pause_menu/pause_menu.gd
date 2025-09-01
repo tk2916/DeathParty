@@ -47,6 +47,9 @@ func _physics_process(_delta : float) -> void:
 		elif get_tree().get_first_node_in_group("journal") != null:
 			GuiSystem.hide_journal()
 
+		elif GuiSystem.in_phone == true:
+			GuiSystem.hide_gui("Phone")
+
 		elif settings_menu.visible:
 			settings_menu.hide()
 			main_pause_menu.show()
