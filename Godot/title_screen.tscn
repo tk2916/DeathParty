@@ -1106,7 +1106,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_jqemp")
 Button/styles/normal = SubResource("StyleBoxFlat_013yr")
 Button/styles/pressed = SubResource("StyleBoxFlat_8vmu4")
 
-[node name="TitleScreen" type="CanvasLayer"]
+[node name="TitleScreen" type="CanvasLayer" groups=["title_screen"]]
 
 [node name="FadeThisOut" type="Control" parent="."]
 layout_mode = 3
