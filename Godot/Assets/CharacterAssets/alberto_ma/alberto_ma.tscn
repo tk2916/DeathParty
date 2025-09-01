@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce647ee5srh8k"]
+[gd_scene load_steps=6 format=3 uid="uid://ce647ee5srh8k"]
 
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="1_32tcq"]
 [ext_resource type="PackedScene" uid="uid://c6cexkldpdgpq" path="res://Assets/CharacterAssets/alberto_ma/alberto_ma_model.tscn" id="1_x14h6"]
 [ext_resource type="Resource" uid="uid://csgkjerirp602" path="res://Assets/Resources/CharacterResources/character_properties_albertoma.tres" id="2_5jxso"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/sample_dialogue_template.json" id="3_lxqic"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_32tcq"]
 
 [node name="AlbertoMa" type="Node3D"]
 script = ExtResource("1_32tcq")
 character_resource = ExtResource("2_5jxso")
+starter_json = ExtResource("3_lxqic")
+default_json = null
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 collision_layer = 4
