@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_toiu1")
 name = "Rowan"
-character_location = ""
+character_location_index = 0
 image_polaroid = ExtResource("1_h6cx1")
 image_polaroid_popout = ExtResource("2_usyd4")
 name_color = ""

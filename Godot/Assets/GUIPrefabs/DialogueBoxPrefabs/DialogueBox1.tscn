@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://blkculyy7kbod"]
+[gd_scene load_steps=21 format=3 uid="uid://blkculyy7kbod"]
 
 [ext_resource type="Shader" uid="uid://dy0tt55my5rir" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/brightness2D.gdshader" id="1_fwn3t"]
 [ext_resource type="Script" uid="uid://b65j1ann1xpvc" path="res://main_dialogue_box.gd" id="1_lu3tv"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dmhgvrlcy0bms" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/hover_button.gd" id="7_5mbos"]
 [ext_resource type="Texture2D" uid="uid://pnx5vmjo2ueo" path="res://Assets/DialogueBoxTextures/choice_right.png" id="7_lu3tv"]
 [ext_resource type="Texture2D" uid="uid://c3f2nu2v4tafu" path="res://Assets/DialogueBoxTextures/choice_down_white.png" id="7_qer6e"]
+[ext_resource type="Texture2D" uid="uid://0uec3xndc6vl" path="res://Assets/CharacterAssets/Polaroids/angel_b.png" id="8_joy0p"]
 [ext_resource type="Texture2D" uid="uid://c0b3sxlwrktrr" path="res://Assets/DialogueBoxTextures/choice_left_white.png" id="8_psnsn"]
 [ext_resource type="Texture2D" uid="uid://dfmkp4aw4pbg4" path="res://Assets/DialogueBoxTextures/choice_down.png" id="8_qar2h"]
 [ext_resource type="Texture2D" uid="uid://ciagkcjbti5dm" path="res://Assets/CharacterAssets/olivia/polaroid_olivia.png" id="11_qar2h"]
@@ -162,12 +163,12 @@ stretch_mode = 5
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.694
-anchor_top = 0.38
+anchor_top = 0.271
 anchor_right = 1.0
 anchor_bottom = 0.918
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_u1ixr")
+texture = ExtResource("8_joy0p")
 expand_mode = 1
 stretch_mode = 5
 

@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("3_aalyl")
 name = "Bartender"
-character_location = "PartyRoom"
+character_location_index = 0
 image_polaroid = ExtResource("1_fyumu")
 image_polaroid_popout = ExtResource("2_qsf6a")
 name_color = ""
