@@ -41,8 +41,9 @@ func _ready() -> void:
 
 func _physics_process(_delta : float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		if get_tree().get_first_node_in_group("title_screen").visible == true:
-			return
+		var title_screen = get_tree().get_first_node_in_group("title_screen")
+		if title_screen != null and title_screen.visible == true:
+				return
 
 		elif get_tree().get_first_node_in_group("journal") != null:
 			GuiSystem.hide_journal()
