@@ -30,18 +30,25 @@ func _ready() -> void:
 	for obj in gui_objects:
 		gui_dict[obj.name] = obj
 
+
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("toggle_journal"):
 		if in_journal:
 			hide_journal()
 		else:
+			if get_tree().get_first_node_in_group("title_screen").visible == true:
+				return
 			show_journal()
+
 	elif Input.is_action_just_pressed("toggle_phone"):
 		if in_phone:
 			hide_gui("Phone")
 		else:
+			if get_tree().get_first_node_in_group("title_screen").visible == true:
+				return
 			show_gui("Phone")
-		
+
+
 func close_all_guis():
 	in_gui = false
 	for key in gui_dict:
