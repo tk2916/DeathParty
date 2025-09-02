@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmwf34sovty0i"]
 
-[node name="UIClickSound" type="FmodEventEmitter3D"]
+[node name="ChoiceButtonClickSound" type="FmodEventEmitter3D"]
 event_name = "event:/000_SFX/000_Demo_Test/007_SFX_UIClick"
 event_guid = "{e96fe609-82c4-494e-9458-401b87f34d25}"
 attached = false

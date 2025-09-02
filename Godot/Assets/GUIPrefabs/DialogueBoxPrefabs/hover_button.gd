@@ -5,7 +5,7 @@ class_name HoverButton extends Button
 @export var default_texture : CompressedTexture2D
 @export var hover_texture : CompressedTexture2D
 
-var ui_click_sound_scene: PackedScene = preload("res://audio/ui_click_sound.tscn")
+var click_sound_scene: PackedScene = preload("res://audio/choice_button_click_sound.tscn")
 
 var option_text : String
 
@@ -27,5 +27,5 @@ func _on_mouse_exited() -> void:
 
 
 func _on_pressed() -> void:
-	var ui_click_sound = ui_click_sound_scene.instantiate()
-	get_tree().root.get_node_or_null("Main").add_child(ui_click_sound)
+	var click_sound = click_sound_scene.instantiate()
+	get_tree().root.get_node_or_null("Main").add_child(click_sound)
