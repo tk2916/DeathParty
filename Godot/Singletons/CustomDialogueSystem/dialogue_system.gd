@@ -274,7 +274,7 @@ func match_command(text_ : String):
 			
 func advance_dialogue():
 	if waiting: return
-	var dialogue_advance_sound_instance = dialogue_advance_sound.instantiate()
+	var dialogue_advance_sound_instance: FmodEventEmitter3D = dialogue_advance_sound.instantiate()
 	main.add_child(dialogue_advance_sound_instance)
 
 	if (

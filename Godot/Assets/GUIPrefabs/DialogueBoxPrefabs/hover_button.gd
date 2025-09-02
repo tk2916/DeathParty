@@ -27,5 +27,5 @@ func _on_mouse_exited() -> void:
 
 
 func _on_pressed() -> void:
-	var click_sound = click_sound_scene.instantiate()
+	var click_sound: FmodEventEmitter3D = click_sound_scene.instantiate()
 	get_tree().root.get_node_or_null("Main").add_child(click_sound)
