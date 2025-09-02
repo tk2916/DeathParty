@@ -289,7 +289,6 @@ func advance_dialogue():
 	if not GuiSystem.in_phone:
 		var dialogue_advance_sound_instance: FmodEventEmitter3D = dialogue_advance_sound.instantiate()
 		main.add_child(dialogue_advance_sound_instance)
-		print("SKIPPED THE DIALOGUE ADVANCE SOUND")
 
 
 #CLICK TO ADVANCE DIALOGUE
