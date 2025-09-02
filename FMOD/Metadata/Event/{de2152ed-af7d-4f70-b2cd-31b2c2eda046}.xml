@@ -238,7 +238,7 @@
 			<value>-80</value>
 		</property>
 		<property name="highGain">
-			<value>-5</value>
+			<value>-10</value>
 		</property>
 	</object>
 </objects>
