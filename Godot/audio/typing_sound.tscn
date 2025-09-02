@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cum2a2yxiduvv"]
+
+[node name="TypingSound" type="FmodEventEmitter3D"]
+event_name = "event:/000_SFX/000_Demo_Test/008_SFX_Scissor_A"
+event_guid = "{bf06713e-5ea2-410a-8c9d-e869aeff8542}"
+attached = false
+autoplay = true
+auto_release = true
+volume = 0.5
