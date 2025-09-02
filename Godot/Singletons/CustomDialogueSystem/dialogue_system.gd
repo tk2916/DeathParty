@@ -4,8 +4,9 @@ var main : Node
 var canvas_layer : CanvasLayer
 var text_message_box : DialogueBoxNode
 
-var dialogue_advance_sound: PackedScene = preload("res://Utilities/dialogue_advance_sound.tscn")
+var waiting : bool = false
 
+var dialogue_advance_sound: PackedScene = preload("res://Utilities/dialogue_advance_sound.tscn")
 
 func _ready() -> void:
 	main = get_tree().root.get_node_or_null("Main")
@@ -56,6 +57,7 @@ var rng = RandomNumberGenerator.new()
 
 #CONTACTS (phone)
 signal loaded_new_contact
+signal done_waiting
 
 func emit_contacts():
 	for key in SaveSystem.phone_chat_to_resource:
@@ -245,17 +247,23 @@ func match_command(text_ : String):
 			target_resource.change_location(target_location)
 		"/fade_screen":
 			if parameters_array[1] == "true":
+				current_dialogue_box.visible = false
 				ContentLoader.fade_loading_screen_in()
 			elif parameters_array[1] == "false":
-				ContentLoader.fade_loading_screen_out()
+				var tween : Tween = await ContentLoader.fade_loading_screen_out()
+				await tween.finished
+				current_dialogue_box.visible = true
 		"/toggle_ui":
 			if parameters_array[1] == "true":
-				current_dialogue_box.visible = false
-			elif parameters_array[1] == "false":
 				current_dialogue_box.visible = true
+			elif parameters_array[1] == "false":
+				current_dialogue_box.visible = false
 		"/wait":
+			waiting = true
 			var wait_time : float = float(parameters_array[1])
 			await get_tree().create_timer(wait_time).timeout
+			waiting = false
+			done_waiting.emit()
 		"/play_animation": ##WIP
 			var character_name : String = parameters_array[1]
 			var animation_name : String = parameters_array[2]
@@ -265,6 +273,7 @@ func match_command(text_ : String):
 				npc_model.play_animation(animation_name)
 			
 func advance_dialogue():
+	if waiting: return
 	var dialogue_advance_sound_instance = dialogue_advance_sound.instantiate()
 	main.add_child(dialogue_advance_sound_instance)
 
@@ -340,7 +349,7 @@ func display_current_container():
 	if dialogue_box_properties["clear_box_after_each_dialogue"]:
 		#check that it's loaded
 		clear_children(choice_container)
-	var content = Ink.get_content()
+	var content = await Ink.get_content()
 	print("CONTENT GOT: ", content)
 	if content is int:
 		if content == 405: #end of story
@@ -358,7 +367,7 @@ func display_current_container():
 	if content[0] is InkLineInfo:#content.size() == 1 and !content[0].has("jump"): #dialogue line
 		var lines : Array[InkLineInfo] = convert_to_lines_array(content)
 		if content[0].text[0] == "/":
-			match_command(content[0].text)
+			await match_command(content[0].text)
 			display_current_container()
 		else:
 			say(lines)

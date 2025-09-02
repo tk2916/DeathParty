@@ -487,6 +487,8 @@ func get_content():
 	var og_container = current_container_name()
 	var og_hierarchy_size = rsc.hierarchy.size()
 	var result = next_line()
+	if DialogueSystem.waiting == true:
+		await DialogueSystem.done_waiting
 	##print("Current container index: ", rsc.current_container_i)
 	if result != 404 and typeof(current_container_name()) == typeof(og_container) and (current_container_name() == og_container) and (rsc.hierarchy.size() == og_hierarchy_size):
 		#ONLY increment if you are in the same location as before
@@ -502,7 +504,7 @@ func get_content():
 		if current_container_name() is String:
 			if current_container_name() == "global decl": #it just finished assigning variables, time to send it to main dialogue
 				initialize_hierarchy()
-				return get_content()
+				return await get_content()
 		'''
 		if the third to last hierarchy element is a number, that means we are in a nested array and 
 		we need to get out before returning anything
@@ -514,6 +516,7 @@ func get_content():
 		#print("Result: ", result, " Hierarchy: ", rsc.hierarchy)
 		
 		if result == 405:
+			print("Result 405")
 			#print("Ending: ", rsc.player_choices)
 			return result
 		elif (current_container_inner_index() > current_container_size()-1) && (rsc.player_choices.size() > 0):
@@ -535,8 +538,7 @@ func get_content():
 			var return_val = rsc.output_stream
 			rsc.output_stream = []
 			return return_val
-	
-	return get_content()
+	return await get_content()
 
 func reset_defaults(saved_ink_resource : InkResource) -> void:#resume_from_hierarchy):
 	#set all the variables equal to each other
