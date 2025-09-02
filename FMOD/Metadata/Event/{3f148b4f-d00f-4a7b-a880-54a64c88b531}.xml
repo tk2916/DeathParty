@@ -97,6 +97,7 @@
 		<relationship name="effects">
 			<destination>{3f737b75-5d32-4616-ba39-d77e32b0ef04}</destination>
 			<destination>{ceeb8b02-a109-4c74-b7ba-8f9373db8541}</destination>
+			<destination>{ab8ff90a-4010-4be1-b8fb-4006e8ac1e23}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{8baa53bb-d4ea-4cc5-8c15-ad1612545e05}" />
@@ -113,6 +114,23 @@
 	<object class="ThreeEQEffect" id="{ceeb8b02-a109-4c74-b7ba-8f9373db8541}">
 		<property name="lowGain">
 			<value>-80</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{ab8ff90a-4010-4be1-b8fb-4006e8ac1e23}">
+		<property name="threshold">
+			<value>-45</value>
+		</property>
+		<property name="ratio">
+			<value>3</value>
+		</property>
+		<property name="attackTime">
+			<value>15</value>
+		</property>
+		<property name="releaseTime">
+			<value>250</value>
+		</property>
+		<property name="gain">
+			<value>5</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{a3d415ad-0a90-44cb-94a2-f5b8c5a3e3ca}">
