@@ -7,6 +7,8 @@ var text_message_box : DialogueBoxNode
 var waiting : bool = false
 
 var dialogue_advance_sound: PackedScene = preload("res://Utilities/dialogue_advance_sound.tscn")
+var new_message_sound_scene: PackedScene = preload("res://audio/new_message_sound.tscn")
+
 
 func _ready() -> void:
 	main = get_tree().root.get_node_or_null("Main")
@@ -116,6 +118,9 @@ func add_new_line(current_dialogue_info : InkLineInfo, no_animation : bool = fal
 		newline = dialogue_box_properties.protagonist_dialogue_line.instantiate()
 	else:
 		newline = dialogue_box_properties.dialogue_line.instantiate()
+		var new_message_sound = new_message_sound_scene.instantiate()
+		DialogueSystem.main.add_child(new_message_sound)
+
 	newline.line_info = current_dialogue_info
 	newline.text_properties = dialogue_box_properties
 	newline.no_animation = no_animation
