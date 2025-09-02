@@ -274,8 +274,6 @@ func match_command(text_ : String):
 			
 func advance_dialogue():
 	if waiting: return
-	var dialogue_advance_sound_instance: FmodEventEmitter3D = dialogue_advance_sound.instantiate()
-	main.add_child(dialogue_advance_sound_instance)
 
 	if (
 		(current_line_label
@@ -287,9 +285,17 @@ func advance_dialogue():
 		
 	else:
 		skip_dialogue_animation()
-		
+
+	if not GuiSystem.in_phone:
+		var dialogue_advance_sound_instance: FmodEventEmitter3D = dialogue_advance_sound.instantiate()
+		main.add_child(dialogue_advance_sound_instance)
+		print("SKIPPED THE DIALOGUE ADVANCE SOUND")
+
+
 #CLICK TO ADVANCE DIALOGUE
 var pressed : bool = false
+
+
 func _process(delta: float) -> void:
 	if (current_dialogue_box && in_dialogue == true 
 	&& are_choices == false && 
