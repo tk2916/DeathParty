@@ -6,7 +6,6 @@ var journal_instance : Journal
 var object_viewer : ObjectViewer
 
 var journal_open_sound : FmodEventEmitter2D
-var journal_close_sound : FmodEventEmitter2D
 var journal_music : FmodEventEmitter3D
 var journal_backpack_bg : PackedScene = preload("res://Assets/JournalTextures/backpack_background.tscn")
 
@@ -22,7 +21,6 @@ func _ready() -> void:
 	journal_instance = journal.instantiate()
 	
 	journal_open_sound = journal_instance.get_node("Sounds/JournalOpenSound")
-	journal_close_sound = journal_instance.get_node("Sounds/JournalCloseSound")
 	journal_music = journal_instance.get_node("Sounds/JournalMusic")
 	
 	object_viewer = main.get_node("ObjectViewerCanvasLayer/ObjectViewer")
@@ -82,7 +80,7 @@ func show_journal(inventory_open : bool = false):
 func hide_journal():
 	if not in_journal: return
 	close_all_guis()
-	journal_close_sound.play()
+	Sounds.play_journal_close()
 	journal_music.stop()
 	FmodServer.set_global_parameter_by_name("InJournal", 0)
 	object_viewer.visible = false

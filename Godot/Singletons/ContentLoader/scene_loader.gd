@@ -8,8 +8,6 @@ class_name SceneLoader extends Area3D
 @export var scene_going_left : String
 @export var play_door_sound: bool = false
 
-@onready var door_sound: FmodEventEmitter3D = %DoorSound
-
 var teleport_pos : Vector3 = Vector3(-1,-1,-1)
 
 var player : Player
@@ -45,7 +43,7 @@ func _on_body_entered(body: Node3D) -> void:
 		print("Loaded scene going left: ", scene_going_left)
 	
 	if play_door_sound:
-		door_sound.play()
+		Sounds.play_door()
 
 #func _on_body_exited(body: Node3D) -> void:
 	#if !(body.is_in_group("player")): return

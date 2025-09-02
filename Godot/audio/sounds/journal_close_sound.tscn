@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cnu4k3wlgpexx"]
+
+[node name="JournalCloseSound" type="FmodEventEmitter3D"]
+event_name = "event:/000_SFX/300_UI/301_SFX_UI_JournalClose"
+event_guid = "{9355ad2b-58c5-4861-8f53-fe56b2894e62}"
+attached = false
+autoplay = true
+auto_release = true
+volume = 0.5
