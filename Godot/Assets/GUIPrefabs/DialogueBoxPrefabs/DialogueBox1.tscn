@@ -436,7 +436,7 @@ vertical_alignment = 1
 event_name = "event:/000_SFX/300_UI/DialogueTextPrint"
 event_guid = "{de2152ed-af7d-4f70-b2cd-31b2c2eda046}"
 attached = false
-volume = 0.5
+volume = 0.4
 
 [connection signal="visibility_changed" from="ProtagonistSpeaking/DialogueBacker/ArrowDown" to="ProtagonistSpeaking/DialogueBacker/ArrowDown" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="NPCSpeaking/DialogueBacker/ArrowDown" to="NPCSpeaking/DialogueBacker/ArrowDown" method="_on_visibility_changed"]
