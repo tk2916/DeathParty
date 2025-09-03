@@ -6,7 +6,7 @@ var text_message_box : DialogueBoxNode
 
 #For chats
 var ink_resource : InkResource = preload("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
-var phone_notification_prefab : PackedScene = preload("C:/Users/kaley/Documents/GitHub/DeathParty/Godot/phone_notification.tscn")
+var phone_notification_prefab : PackedScene = preload("res://phone_notification.tscn")
 var notification_box : VBoxContainer
 #
 
