@@ -106,6 +106,13 @@ flat = true
 script = ExtResource("6_f7x2m")
 notification_root = NodePath("../../..")
 
+[node name="NotificationSound" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/000_SFX/300_UI/PhoneTextNoti"
+event_guid = "{235e4191-f29f-4aff-8ab6-0628f810d136}"
+autoplay = true
+auto_release = true
+volume = 0.5
+
 [connection signal="mouse_entered" from="Root1/Root2/Button" to="Root1/Root2/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Root1/Root2/Button" to="Root1/Root2/Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Root1/Root2/Button" to="Root1/Root2/Button" method="_on_pressed"]
