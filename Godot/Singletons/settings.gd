@@ -162,8 +162,9 @@ func update_binding(action : StringName, index : int, new_event : InputEvent) ->
 	# get current events for this action
 	var events : Array[InputEvent] = InputMap.action_get_events(action)
 
-	# erase the event at the index of our new event
-	InputMap.action_erase_event(action, events[index])
+	# erase the event at the index of our new event (if it exists)
+	if events.get(index) != null:
+		InputMap.action_erase_event(action, events[index])
 
 	# overwrite the event with our new event
 	InputMap.action_add_event(action, new_event)
