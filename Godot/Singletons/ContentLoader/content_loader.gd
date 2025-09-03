@@ -191,6 +191,7 @@ func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 
 func direct_teleport_player(scene_name : String) -> void:
 	if scene_name == active_scene_name: return
+	GuiSystem.set_gui_enabled(true)
 	var target_pos : Vector3 = scene_data_dict[scene_name].main_teleport_point
 	assert(target_pos != Vector3(-1,-1,-1), "" + scene_name + " doesn't have a teleport point assigned. Check that all your SceneLoaders are following the naming convention 'SceneLoader_<scene name (case-sensitive)>'!")
 	scene_loader_load(scene_name, target_pos)
