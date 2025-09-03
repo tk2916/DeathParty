@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=33 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://vkp1p25gspml" path="res://Utilities/dev_menu/dev_menu_teleport_button.tscn" id="5_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://cus1t6k7nkpyv" path="res://phone_notifications.tscn" id="9_kq58d"]
 [ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
@@ -79,6 +80,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="PhoneNotifications" parent="CanvasLayer" instance=ExtResource("9_kq58d")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("37_h8e4i")]
 visible = false

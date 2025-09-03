@@ -1,4 +1,4 @@
-[gd_scene load_steps=241 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=243 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://b4c88kienbj8q" path="res://Singletons/ContentLoader/scene_loader_exterior.tscn" id="4_1qprw"]
 [ext_resource type="Texture2D" uid="uid://b8uue8x55guj4" path="res://rooms/bedroom/polaroids and poster_love birds.png" id="4_fa1og"]
 [ext_resource type="Texture2D" uid="uid://d0vlsucaate3q" path="res://rooms/bedroom/punk posters_singer poster.png" id="4_tluma"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="4_x8yhf"]
 [ext_resource type="Texture2D" uid="uid://dcblfnhmnjp1h" path="res://rooms/bedroom/polaroids and poster_Sam tatt.png" id="5_dyybh"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/caleb_test_dialogue_1.json" id="5_otruv"]
 [ext_resource type="PackedScene" uid="uid://dijllg5x7mlpw" path="res://rooms/bedroom/bed.glb" id="5_rbtdn"]
 [ext_resource type="Texture2D" uid="uid://fuhn5pxlrdsu" path="res://rooms/bedroom/polaroids and poster_Rush over.png" id="6_0t478"]
 [ext_resource type="PackedScene" uid="uid://b8ucr48tcuk2p" path="res://rooms/bedroom/dorm desk.glb" id="7_7a5mm"]
@@ -2117,6 +2119,8 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
 [node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader", "door") instance=ExtResource("3_84fnt")]
+json1 = ExtResource("4_x8yhf")
+json2 = ExtResource("5_otruv")
 exterior_scene_loader = NodePath("../SceneLoader_Exterior")
 door = NodePath("../Door")
 

@@ -4,6 +4,12 @@ var main : Node
 var canvas_layer : CanvasLayer
 var text_message_box : DialogueBoxNode
 
+#For chats
+var ink_resource : InkResource = preload("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
+var phone_notification_prefab : PackedScene = preload("C:/Users/kaley/Documents/GitHub/DeathParty/Godot/phone_notification.tscn")
+var notification_box : VBoxContainer
+#
+
 var waiting : bool = false
 
 var dialogue_advance_sound: PackedScene = preload("res://Utilities/dialogue_advance_sound.tscn")
@@ -11,10 +17,12 @@ var new_message_sound_scene: PackedScene = preload("res://audio/new_message_soun
 
 
 func _ready() -> void:
+	await ContentLoader.finished_loading
 	main = get_tree().root.get_node_or_null("Main")
 	if main:
 		canvas_layer = main.get_node("CanvasLayer")
-		text_message_box = canvas_layer.get_node("Phone/Screen/Background/MessageApp")
+		text_message_box = canvas_layer.get_node("Phone/Phone/Screen/Background/MessageApp")
+		notification_box = canvas_layer.get_node("PhoneNotifications/VBoxContainer")
 		print("Found text message box: ", text_message_box)
 
 const INK_FILE_PATH : String = "res://Assets/InkExamples/"
@@ -433,6 +441,7 @@ func start_text_convo(_text_message_box : DialogueBoxNode,chat_name : String): #
 	current_phone_resource.start_chat() # either starts new one of resumes old one
 
 func pause_text_convo() -> void:
+	if current_phone_resource == null or dialogue_container == null: return
 	current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy
 	in_dialogue = false
 	dialogue_container.mouse_entered.disconnect(mouse_entered) 

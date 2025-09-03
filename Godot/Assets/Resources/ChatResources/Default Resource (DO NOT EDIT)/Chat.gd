@@ -10,8 +10,6 @@ var display_message : String = ""
 var chat_in_progress : bool = false
 var saved_ink_state : InkResource
 
-var ink_resource : InkResource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
-
 signal unread
 
 func update_chat_info() -> void:
@@ -22,6 +20,10 @@ func update_chat_info() -> void:
 func load_chat(json : JSON) -> void:
 	upcoming_chats.push_back(json)
 	update_chat_info()
+	var notif_instance : PhoneNotification = DialogueSystem.phone_notification_prefab.instantiate()
+	notif_instance.set_notif_name(self)
+	notif_instance.set_picture(self)
+	DialogueSystem.notification_box.add_child(notif_instance)
 	unread.emit(true)
 	
 func start_chat() -> void:
@@ -48,7 +50,7 @@ func pause_chat(current_conversation : Array[InkLineInfo]) -> void:
 		print(name, " is saving past chats as ", past_chats)
 		#save current Ink hierarchy
 		#last_ink_hierarchy = Ink.hierarchy
-		saved_ink_state = ink_resource.duplicate(true) #saves current variables
+		saved_ink_state = DialogueSystem.ink_resource.duplicate(true) #saves current variables
 		update_chat_info()
 
 func end_chat(current_conversation : Array[InkLineInfo]) -> void:
