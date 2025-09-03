@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{e55a6f72-41cf-4f8a-9cad-459d455c6426}">
+		<property name="assetPath">
+			<value>000_SFX/300_UI/NewMessageSound/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b578e7d4-82c2-4011-885a-6204f61f86c8}</destination>
+		</relationship>
+	</object>
+</objects>
