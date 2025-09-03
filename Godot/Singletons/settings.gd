@@ -15,7 +15,9 @@ var editable_inputs : Dictionary = {
 	"move_right" : "Right",
 	"move_up" : "Up",
 	"move_down" : "Down",
-	"interact" : "Interact"
+	"interact" : "Interact",
+	"toggle_phone" : "Phone",
+	"toggle_journal" : "Journal"
 }
 
 # video
