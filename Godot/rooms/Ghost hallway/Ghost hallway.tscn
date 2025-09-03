@@ -2101,6 +2101,13 @@ animation = &"fire"
 autoplay = "fire"
 frame_progress = 0.785844
 
+[node name="FireplaceSound" type="FmodEventEmitter3D" parent="AnimatedSprite3D"]
+event_name = "event:/000_SFX/100_Environment/Fireplace"
+event_guid = "{b0174406-cd28-48d3-bc3e-54e8b3332f86}"
+autoplay = true
+volume = 0.5
+transform = Transform3D(25.6092, 0, 0, 0, 37.3871, 0, 0, 0, 37.3871, 0.147507, 4.86384, -0.0377541)
+
 [node name="blue sky" parent="." instance=ExtResource("61_u8eoh")]
 transform = Transform3D(2.3704, 0, 0, 0, 1, 0, 0, 0, 1, -4.07609, 0.696901, -0.9287)
 
