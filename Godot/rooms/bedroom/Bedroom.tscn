@@ -168,7 +168,7 @@ radial_segments = 12
 rings = 12
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mav1h"]
-size = Vector3(5.25, 0.259, 8.046)
+size = Vector3(5.25, 0.259, 8.94442)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01edu"]
 resource_name = "Material.224"
@@ -2122,7 +2122,7 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 json1 = ExtResource("4_x8yhf")
 json2 = ExtResource("5_otruv")
 exterior_scene_loader = NodePath("../SceneLoader_Exterior")
-door = NodePath("../Door")
+door = NodePath("")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109923, 1.47272, 3.11237)
@@ -2168,7 +2168,7 @@ transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -2.002, 
 shape = SubResource("BoxShape3D_qbwcx")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 1.23198e-07, 0, 1, 0, -1.23198e-07, 0, 1, -0.223922, 0.889039, 3.83854)
+transform = Transform3D(1, 0, 1.23198e-07, 0, 1, 0, -1.23198e-07, 0, 1, -0.223922, 0.889039, 5.90665)
 shape = SubResource("BoxShape3D_84fnt")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="Boundaries"]
@@ -2177,6 +2177,12 @@ shape = SubResource("BoxShape3D_b70md")
 
 [node name="SceneLoader_Exterior" parent="." instance=ExtResource("4_1qprw")]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.816608, -0.0933874, 5.45903)
+
+[node name="CollisionShape3D" parent="SceneLoader_Exterior" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.38205, 0.979159, -0.265108)
+
+[node name="door" parent="SceneLoader_Exterior" instance=ExtResource("69_tt7nc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.52056, 1.1989, -0.276342)
 
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_tluma")
@@ -2258,7 +2264,7 @@ draw_pass_1 = SubResource("SphereMesh_mav1h")
 [node name="Floor" type="StaticBody3D" parent="Room" groups=["material_wood"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor"]
-transform = Transform3D(1, 0, 0, 0, 0.999904, 0, 0, 0, 1, -0.135777, -0.242519, 1.2821)
+transform = Transform3D(1, 0, 0, 0, 0.999904, 0, 0, 0, 1, -0.135777, -0.256619, 1.73131)
 shape = SubResource("BoxShape3D_mav1h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
@@ -2315,14 +2321,6 @@ transform = Transform3D(0.991342, 0, 0, 0, 0.979302, 0, 0, 0, 0.945473, 0.128323
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0, 1.25121, 1.05365)
 light_color = Color(0.6485, 0.43, 1, 1)
 omni_range = 4.261
-
-[node name="Door" parent="." instance=ExtResource("69_tt7nc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266712, 0.977943, 5.51204)
-visible = false
-
-[node name="Cube_122" parent="Door" index="0"]
-transform = Transform3D(-0.185362, 0, -1.81196e-08, 0, 0.205958, 0, 6.03988e-08, 0, -0.0556087, 0, 0, 0)
-transparency = 0.75
 
 [node name="Bed" parent="." instance=ExtResource("5_rbtdn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67075, 0.59249, -0.321667)
@@ -2583,7 +2581,7 @@ mesh = SubResource("ArrayMesh_52j18")
 skeleton = NodePath("")
 
 [node name="Plane_047" type="MeshInstance3D" parent="Props/WallDecorations/PunkPosters"]
-transform = Transform3D(-0.00319673, -2.64694, 0.0493566, 0.00448963, -0.0280734, -4.65403, 4.46905, -0.00186517, 0.00471077, -1.24857, -0.702911, 4.37376)
+transform = Transform3D(-0.00319673, -2.64694, 0.0493566, 0.00448963, -0.0280734, -4.65403, 4.46905, -0.00186517, 0.00471077, -1.24857, -0.702911, 5.05363)
 mesh = SubResource("ArrayMesh_jtb5n")
 skeleton = NodePath("")
 
@@ -2904,7 +2902,7 @@ autoplay = "IDLE"
 transform = Transform3D(-1.42152, 0, -1.24273e-07, 0, 1.42152, 0, 1.24273e-07, 0, -1.42152, -1.99513, 1.45399, 4.59441)
 
 [node name="Plane_005" type="MeshInstance3D" parent="carn poster"]
-transform = Transform3D(-0.000259355, -0.201641, 2.08964e-07, 6.26824e-09, -1.44225e-07, -0.292169, 0.210327, -0.000248644, 8.96499e-09, 0, 0, 0)
+transform = Transform3D(-0.000186524, -0.145017, 1.50284e-07, 4.50802e-09, -1.03724e-07, -0.210123, 0.151264, -0.000178821, 6.44748e-09, 0, 0.192925, 0.284678)
 mesh = SubResource("ArrayMesh_86pqr")
 skeleton = NodePath("")
 
@@ -2919,7 +2917,7 @@ transform = Transform3D(0.0636847, 0, 0.577681, 0, 0.58118, 0, -0.577681, 0, 0.0
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
 
-[editable path="Door"]
+[editable path="SceneLoader_Exterior"]
 [editable path="Bed"]
 [editable path="Closet"]
 [editable path="Desk/DeskObjects"]

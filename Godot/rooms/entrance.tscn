@@ -469,7 +469,7 @@ volume = 0.3
 unique_name_in_owner = true
 
 [node name="SceneLoader_Kitchen" parent="." instance=ExtResource("35_nneh3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.30575, 0, 5.5714)
 scene_going_right = "Kitchen"
 scene_going_left = "Kitchen"
 play_door_sound = true
@@ -479,10 +479,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29234, 1.2478, 0.644916)
 shape = SubResource("BoxShape3D_kdf33")
 
 [node name="TeleportPoint" parent="SceneLoader_Kitchen" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -3.37467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301966, 0.839686, -3.2046)
 
 [node name="MeshInstance3D" parent="SceneLoader_Kitchen/TeleportPoint" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.23872, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.243405, 0, 0)
 
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
@@ -495,7 +495,7 @@ transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.1
 shape = SubResource("BoxShape3D_t7spl")
 
 [node name="SceneLoader_Basement" parent="." instance=ExtResource("35_nneh3")]
-transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 13.3283, 1.22732, 6.56851)
+transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 13.3283, 1.22732, 3.35883)
 scene_going_right = "Basement"
 scene_going_left = "Basement"
 play_door_sound = true
@@ -716,10 +716,10 @@ mesh = SubResource("ArrayMesh_rx0xm")
 skeleton = NodePath("")
 
 [node name="BasementDoor" parent="." instance=ExtResource("36_gfuhi")]
-transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.3882, 1.21599, 7.06003)
+transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 12.3882, 1.21599, 3.81454)
 
 [node name="KitchenDoor" parent="." instance=ExtResource("36_gfuhi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.02401, 1.21599, 7.05969)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.02401, 1.21599, 4.27782)
 
 [node name="Pillars" type="Node3D" parent="."]
 

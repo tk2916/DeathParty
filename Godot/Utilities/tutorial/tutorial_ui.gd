@@ -63,7 +63,6 @@ var state: States:
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
 				exterior_scene_loader.monitoring = true
-				door.show()
 				queue_free()
 				
 func send_initial_texts() -> void:
