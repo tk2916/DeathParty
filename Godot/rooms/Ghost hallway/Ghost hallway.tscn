@@ -1740,9 +1740,6 @@ scene_going_right = "PartyRoom"
 scene_going_left = "PartyRoom"
 play_door_sound = true
 
-[node name="CollisionShape3D" parent="SceneLoader_PartyRoom" index="0"]
-debug_color = Color(0, 0.6, 0.701961, 1)
-
 [node name="TeleportPoint" parent="SceneLoader_PartyRoom" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.778794, 0.839686, -7.00357)
 
@@ -1751,9 +1748,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.2381
 scene_going_right = "Library"
 scene_going_left = "Library"
 play_door_sound = true
-
-[node name="CollisionShape3D" parent="SceneLoader_Library" index="0"]
-debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" parent="SceneLoader_Library" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443334, 0.839686, -5.76145)
@@ -2109,6 +2103,13 @@ frame_progress = 0.785844
 
 [node name="blue sky" parent="." instance=ExtResource("61_u8eoh")]
 transform = Transform3D(2.3704, 0, 0, 0, 1, 0, 0, 0, 1, -4.07609, 0.696901, -0.9287)
+
+[node name="IndoorAmbience" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/100_Environment/IndoorAmbience"
+event_guid = "{a9afe7a1-32a6-4520-90b1-e43b257c86b0}"
+autoplay = true
+volume = 0.25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 1)
 
 [editable path="SceneLoader_PartyRoom"]
 [editable path="SceneLoader_Library"]

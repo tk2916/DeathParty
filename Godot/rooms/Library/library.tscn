@@ -2096,9 +2096,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
 [node name="IndoorAmbience" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/000_SFX/100_Environment/IndoorAmbience"
 event_guid = "{a9afe7a1-32a6-4520-90b1-e43b257c86b0}"
-attached = false
 autoplay = true
 volume = 0.1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 10)
 
 [node name="beerpong trophie" parent="." instance=ExtResource("53_iso52")]
 transform = Transform3D(0.313237, 0, 0.303293, 0, 0.43601, 0, -0.303293, 0, 0.313237, 0.969747, -2.87133, 0.861133)
