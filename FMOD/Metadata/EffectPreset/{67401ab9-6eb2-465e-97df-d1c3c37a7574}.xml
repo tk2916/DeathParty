@@ -20,6 +20,9 @@
 		<property name="midGain">
 			<value>-20.5</value>
 		</property>
+		<property name="lowCrossover">
+			<value>300</value>
+		</property>
 		<property name="highCrossover">
 			<value>1000</value>
 		</property>
@@ -146,7 +149,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-50</value>
+			<value>-80</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{1b18abcb-2b16-4636-9c83-b9a39b1ac4b2}">
@@ -226,7 +229,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-20</value>
+			<value>-80</value>
 		</property>
 	</object>
 </objects>
