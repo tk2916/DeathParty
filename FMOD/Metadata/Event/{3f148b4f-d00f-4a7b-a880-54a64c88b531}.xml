@@ -117,6 +117,12 @@
 		</property>
 	</object>
 	<object class="CompressorEffect" id="{ab8ff90a-4010-4be1-b8fb-4006e8ac1e23}">
+		<property name="wetDryEnabled">
+			<value>true</value>
+		</property>
+		<property name="wetMix">
+			<value>0</value>
+		</property>
 		<property name="threshold">
 			<value>-45</value>
 		</property>
