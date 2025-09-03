@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=4 uid="uid://ch4fuk8qiva6x"]
+[gd_scene load_steps=165 format=4 uid="uid://ch4fuk8qiva6x"]
 
 [ext_resource type="Texture2D" uid="uid://bcg3mnugm862f" path="res://rooms/Ghost hallway/ghost hallway_wooddark.png" id="2_p1n0h"]
 [ext_resource type="Script" uid="uid://bwumtfq5s3fh3" path="res://rooms/Ghost hallway/ghost_hallway.gd" id="2_rj2l7"]
@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://b6nkql64iwq61" path="res://rooms/Ghost hallway/fire/fire-10.png" id="58_urdp6"]
 [ext_resource type="Texture2D" uid="uid://dcyx6nxctxmpd" path="res://rooms/Ghost hallway/fire/fire-11.png" id="59_65wwx"]
 [ext_resource type="Texture2D" uid="uid://bp4plqqk6pcdx" path="res://rooms/Ghost hallway/fire/fire-12.png" id="60_5rqn6"]
+[ext_resource type="PackedScene" uid="uid://i7gdcbnkh0w4" path="res://rooms/Ghost hallway/blue_sky.tscn" id="61_u8eoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxaoo"]
 size = Vector3(13.7318, 4.49936, 7.14718)
@@ -2106,8 +2107,12 @@ animation = &"fire"
 autoplay = "fire"
 frame_progress = 0.785844
 
+[node name="blue sky" parent="." instance=ExtResource("61_u8eoh")]
+transform = Transform3D(2.3704, 0, 0, 0, 1, 0, 0, 0, 1, -4.07609, 0.696901, -0.9287)
+
 [editable path="SceneLoader_PartyRoom"]
 [editable path="SceneLoader_Library"]
 [editable path="FreeHugGuy"]
 [editable path="RedBunny"]
 [editable path="spiderwebs"]
+[editable path="blue sky"]

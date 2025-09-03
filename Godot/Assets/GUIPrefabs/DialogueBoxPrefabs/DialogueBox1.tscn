@@ -436,15 +436,19 @@ vertical_alignment = 1
 event_name = "event:/000_SFX/300_UI/DialogueTextPrint"
 event_guid = "{de2152ed-af7d-4f70-b2cd-31b2c2eda046}"
 attached = false
-volume = 0.5
+volume = 0.4
 
 [connection signal="visibility_changed" from="ProtagonistSpeaking/DialogueBacker/ArrowDown" to="ProtagonistSpeaking/DialogueBacker/ArrowDown" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="NPCSpeaking/DialogueBacker/ArrowDown" to="NPCSpeaking/DialogueBacker/ArrowDown" method="_on_visibility_changed"]
 [connection signal="mouse_entered" from="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceRight/RichTextLabel/Button" method="_on_pressed"]
 [connection signal="mouse_entered" from="Choices/AspectRatioContainer/Control/ChoiceUp/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceUp/RichTextLabel/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Choices/AspectRatioContainer/Control/ChoiceUp/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceUp/RichTextLabel/Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Choices/AspectRatioContainer/Control/ChoiceUp/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceUp/RichTextLabel/Button" method="_on_pressed"]
 [connection signal="mouse_entered" from="Choices/AspectRatioContainer/Control/ChoiceDown/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceDown/RichTextLabel/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Choices/AspectRatioContainer/Control/ChoiceDown/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceDown/RichTextLabel/Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Choices/AspectRatioContainer/Control/ChoiceDown/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceDown/RichTextLabel/Button" method="_on_pressed"]
 [connection signal="mouse_entered" from="Choices/AspectRatioContainer/Control/ChoiceLeft/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceLeft/RichTextLabel/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Choices/AspectRatioContainer/Control/ChoiceLeft/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceLeft/RichTextLabel/Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Choices/AspectRatioContainer/Control/ChoiceLeft/RichTextLabel/Button" to="Choices/AspectRatioContainer/Control/ChoiceLeft/RichTextLabel/Button" method="_on_pressed"]

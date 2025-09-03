@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp1txvgr2jd4"]
+
+[ext_resource type="Script" uid="uid://c0g2nbt7ks3x7" path="res://Singletons/sounds/sounds.gd" id="1_w5pjy"]
+[ext_resource type="PackedScene" uid="uid://cnu4k3wlgpexx" path="res://audio/sounds/journal_close_sound.tscn" id="2_iridj"]
+[ext_resource type="PackedScene" uid="uid://cvoowby0sfbj5" path="res://audio/sounds/door_sound.tscn" id="3_wkes1"]
+
+[node name="Sounds" type="Node"]
+script = ExtResource("1_w5pjy")
+journal_close = ExtResource("2_iridj")
+door = ExtResource("3_wkes1")

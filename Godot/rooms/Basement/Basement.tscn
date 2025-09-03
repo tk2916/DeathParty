@@ -1939,7 +1939,7 @@ play_door_sound = true
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" parent="SceneLoader_Storageroom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3209, 3.64938, 15.5486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8525, 3.64938, 15.5486)
 
 [node name="SceneLights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23592, 3.62658, -3.75548)

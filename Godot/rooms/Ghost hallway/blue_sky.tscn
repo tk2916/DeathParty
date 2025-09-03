@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=4 uid="uid://i7gdcbnkh0w4"]
+
+[ext_resource type="Texture2D" uid="uid://ijvtkoxyehyb" path="res://rooms/Ghost hallway/blue sky_blue sky.png" id="1_gbwcd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s22e"]
+resource_name = "Material.009"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.511364)
+albedo_texture = ExtResource("1_gbwcd")
+emission_enabled = true
+emission_energy_multiplier = 5.0
+emission_texture = ExtResource("1_gbwcd")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6hirr"]
+_surfaces = [{
+"aabb": AABB(-11.7332, -6.49229, -1, 23.4665, 12.9846, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material.009",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v2ish"]
+resource_name = "blue sky_Cube_002"
+_surfaces = [{
+"aabb": AABB(-11.7332, -6.49229, -1, 23.4665, 12.9846, 2),
+"attribute_data": PackedByteArray("Ef27/P//LYAx/QeC3f///93////vfy2A//8tgAuA/v8LgP7/Q4IHgu9/LYBdgrv8XYK7/DH9B4JDggeCEf27/N3///9dgrv8C4D+/xH9u/zvfy2AMf0Hgv//LYBDggeC"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_4s22e"),
+"name": "Material.009",
+"primitive": 3,
+"uv_scale": Vector4(1.98926, 1.98136, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AQQAAP//AAAVAgAA/////88CAAAAAAAAuwQAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAADAE////////9gH/////AACyAv//AAD//+wE//8AAP//AAAAAP////8AAP///////wAAAAAAAP//AAAAAAAAAAAAAP//AAD//wAA//8AAAAAAAAAAAAA//8AAP////8AAAAAAAD/////AAAAAP//AAAAAP///////wAAsPsmwiJBRYKGQQyD7/qHwv9//v//f/7//3/+//9//v+/vX97JQLtPu4CiD5dvbx6/3//f/9//3//f/9//3//f/9//z//f/8//3//P/9//z//vwAA/78AAP+/AAD/vwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6hirr")
+
+[node name="blue sky" type="Node3D"]
+
+[node name="Cube_025" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0307569, 0, 0.000324337, 0, 0.0915331, 0, -0.000116987, 0, -0.0852711, 0, 0, 0)
+mesh = SubResource("ArrayMesh_v2ish")
+skeleton = NodePath("")

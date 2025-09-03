@@ -18,6 +18,7 @@ script = ExtResource("1_6wayg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, -0.117279)
 shape = SubResource("BoxShape3D_3cled")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -2.93873)

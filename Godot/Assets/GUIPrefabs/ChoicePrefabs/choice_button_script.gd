@@ -6,11 +6,18 @@ var choice_info : InkChoiceInfo
 var choice_text_color : String
 var text_properties : Resource
 
+var typing_sound_scene: PackedScene = preload("res://audio/typing_sound.tscn")
+
 signal selected
+
 
 func _button_pressed() -> void:
 	print("Choice button pressed: ", choice_info.jump)
 	selected.emit(choice_info.jump, choice_info.text)
+
+	var typing_sound = typing_sound_scene.instantiate()
+	DialogueSystem.main.add_child(typing_sound)
+
 
 func _ready() -> void:
 	if text_properties["default_choice_color"]:
