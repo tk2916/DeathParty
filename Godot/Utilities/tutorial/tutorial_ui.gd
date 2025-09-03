@@ -11,6 +11,9 @@
 
 extends CanvasLayer
 
+@export var json1 : JSON
+@export var json2 : JSON
+
 
 @export var exterior_scene_loader: SceneLoader
 @export var door: Node3D
@@ -42,7 +45,9 @@ var state: States:
 				move_controls_popup.show()
 			States.WALK_COMPLETE:
 				print("TUTORIAL STEP: WALK COMPLETE")
+				GuiSystem.set_gui_enabled(true)
 				walk_complete_timer.start()
+				send_initial_texts()
 			States.UNLOCK_PHONE:
 				print("TUTORIAL STEP: UNLOCK PHONE")
 				move_controls_popup.hide()
@@ -60,7 +65,11 @@ var state: States:
 				exterior_scene_loader.monitoring = true
 				door.show()
 				queue_free()
-
+				
+func send_initial_texts() -> void:
+	DialogueSystem.to_phone("Caleb, Rowan, Nora, You", json1)
+	await get_tree().create_timer(1).timeout
+	DialogueSystem.to_phone("Caleb", json2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -78,6 +87,7 @@ func _ready() -> void:
 	# TODO: adjust the timing of this finished_loading signal in content_loader.gd
 	#		or make a new, safer signal to use instead
 	#		so we can remove this hardcoded timer :p
+	GuiSystem.set_gui_enabled(false)
 	await ContentLoader.finished_loading
 	loading_timer.start()
 	await loading_timer.timeout

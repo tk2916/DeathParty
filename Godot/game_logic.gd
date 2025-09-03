@@ -12,8 +12,6 @@ extends Node
 		#ContentLoader.direct_teleport_player("Library"))
 
 func _ready() -> void:
-	DialogueSystem.to_phone("Caleb, Rowan, Nora, You", json_file)
-	DialogueSystem.to_phone("Caleb", json_file2)
 	SaveSystem.add_task("Second Task")
 	SaveSystem.add_task("A third task")
 	SaveSystem.add_task("A third task")

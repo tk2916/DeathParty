@@ -47,7 +47,7 @@ func tweenBackward() -> Tween:
 	new_tween.parallel().tween_property(self, "anchor_right", right_anchor_before, duration)
 	return new_tween
 
-func on_contact_press(contact : Resource) -> void:
+func on_contact_press(contact : ChatResource) -> void:
 	print("Contact pressed! :", contact.name)
 	if contact_pressed: return # prevent multiple presses
 	contact_pressed = true
