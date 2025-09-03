@@ -13,6 +13,7 @@ var in_journal : bool = false
 var inventory_showing : bool = false #used within journal scripts
 var in_gui : bool = false
 var in_phone : bool = false
+var hid_phone_mid_convo : bool = false
 var prevent_gui : bool = true
 
 func _ready() -> void:
@@ -93,16 +94,20 @@ func hide_journal()->void:
 	in_journal = false
 
 func show_phone(contact_resource : ChatResource = null)->void:
-	if contact_resource != null:
-		print(gui_dict["Phone"])
-		DialogueSystem.text_message_box.onBackPressed()
-		DialogueSystem.text_message_box.on_contact_press(contact_resource)
+	if contact_resource != null or hid_phone_mid_convo:
+		#DialogueSystem.text_message_box.onBackPressed()
+		if contact_resource:
+			DialogueSystem.text_message_box.on_contact_press(contact_resource)
+		elif hid_phone_mid_convo:
+			DialogueSystem.text_message_box.on_contact_press(DialogueSystem.current_phone_resource)
+		hid_phone_mid_convo = false
 		#DialogueSystem.start_text_convo(DialogueSystem.text_message_box, contact_name)
 	show_gui("Phone")
 	
 func hide_phone()->void:
 	if DialogueSystem.are_choices: return
-	DialogueSystem.pause_text_convo()
+	#DialogueSystem.pause_text_convo(true)
+	DialogueSystem.text_message_box.onBackPressed()
 	hide_gui("Phone")
 
 func show_gui(name:String)->void:

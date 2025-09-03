@@ -57,9 +57,18 @@ func on_contact_press(contact : ChatResource) -> void:
 	contact_pressed = false
 	
 func onBackPressed() -> void:
-	if !DialogueSystem.are_choices: #only allows you to leave if you aren't at a choice point
-		DialogueSystem.pause_text_convo()
+	if DialogueSystem.in_dialogue and !DialogueSystem.are_choices: #only allows you to leave if you aren't at a choice point
+		#DialogueSystem.pause_text_convo()
 		tweenBackward()
+		pause_conversation()
+		#tween.finished.connect(pause_conversation)
+		#for n in dialogue_container.get_children(): #clear messages
+		#	dialogue_container.remove_child(n)
+		#	n.queue_free()
+			
+func pause_conversation() -> void:
+	if !DialogueSystem.are_choices:
+		DialogueSystem.pause_text_convo()
 		for n in dialogue_container.get_children(): #clear messages
 			dialogue_container.remove_child(n)
 			n.queue_free()

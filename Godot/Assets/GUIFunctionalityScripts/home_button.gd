@@ -8,6 +8,8 @@ func _pressed() -> void:
 	for app in apps:
 		if app.visible:
 			no_apps_visible = false
+			if app is DialogueBoxNode:
+				app.onBackPressed()
 			app.visible = false
 	if no_apps_visible:
 		GuiSystem.hide_gui("Phone")

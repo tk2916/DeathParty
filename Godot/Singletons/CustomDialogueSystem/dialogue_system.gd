@@ -373,6 +373,7 @@ func display_current_container():
 		if content == 405: #end of story
 			if current_dialogue_box == text_message_box: #if focused dialogue box is message app
 				current_phone_resource.end_chat(current_conversation)
+				current_phone_resource = null
 			else:
 				current_dialogue_box.visible = false
 				current_dialogue_box.queue_free()
@@ -440,10 +441,12 @@ func start_text_convo(_text_message_box : DialogueBoxNode,chat_name : String): #
 	current_phone_resource = chat
 	current_phone_resource.start_chat() # either starts new one of resumes old one
 
-func pause_text_convo() -> void:
+func pause_text_convo(hiding_phone : bool = false) -> void:
 	if current_phone_resource == null or dialogue_container == null: return
+	GuiSystem.hid_phone_mid_convo = hiding_phone
 	current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy
 	in_dialogue = false
+	current_line_label = null
 	dialogue_container.mouse_entered.disconnect(mouse_entered) 
 	dialogue_container.mouse_exited.disconnect(mouse_exited)
 	
