@@ -477,7 +477,6 @@ play_door_sound = true
 [node name="CollisionShape3D" parent="SceneLoader_Kitchen" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29234, 1.2478, 0.644916)
 shape = SubResource("BoxShape3D_kdf33")
-debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" parent="SceneLoader_Kitchen" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -3.37467)
@@ -494,7 +493,6 @@ scene_going_left = "PartyRoom"
 [node name="CollisionShape3D" parent="SceneLoader_PartyRoom" index="0"]
 transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
 shape = SubResource("BoxShape3D_t7spl")
-debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="SceneLoader_Basement" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 13.3283, 1.22732, 6.56851)
@@ -505,7 +503,6 @@ play_door_sound = true
 [node name="CollisionShape3D" parent="SceneLoader_Basement" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496214, -0.052197, 1.26097)
 shape = SubResource("BoxShape3D_la1vu")
-debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint" parent="SceneLoader_Basement" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788603, -1.86279, -6.29928)
@@ -1112,6 +1109,20 @@ transform = Transform3D(-0.28052, 0, 1.07593, 0, 1.1119, 0, -1.07593, 0, -0.2805
 
 [node name="cone ghost" parent="NPCs" instance=ExtResource("46_ihq26")]
 transform = Transform3D(0.269572, 0, -1.12744, 0, 1.15922, 0, 1.12744, 0, 0.269572, 5.01882, -0.00239445, 1.40468)
+
+[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/outdoor ambience"
+event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
+autoplay = true
+volume = 0.5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26)
+
+[node name="CrowdAmbience" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/100_Environment/CrowdAmbience"
+event_guid = "{323807e6-ed3c-48ee-a0c7-a45dddee6161}"
+autoplay = true
+volume = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]
