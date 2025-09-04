@@ -48,7 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="45_la1vu"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="46_ihq26"]
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.tscn" id="47_yqsuh"]
-[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="49_a6eg1"]
+[ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="49_a6eg1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -68,7 +68,7 @@ size = Vector3(7.82025, 2.80212, 1.22092)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4d3f"]
 resource_local_to_scene = true
-size = Vector3(2.35949, 2.80212, 2.82518)
+size = Vector3(2.0318, 2.80212, 2.82518)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cygoc"]
 resource_local_to_scene = true
@@ -454,16 +454,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00567722, 1.23943, -0.3338
 shape = SubResource("BoxShape3D_mg500")
 
 [node name="SceneLoader_Kitchen" parent="." instance=ExtResource("35_nneh3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 6.62432)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 3.68975)
 target_location_index = 8
 play_door_sound = true
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Kitchen" index="1"]
-transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, -0.450344, 1.14966, 1.00331)
+transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, -0.014473, 1.14966, 1.00331)
 
 [node name="CollisionShape3D" parent="SceneLoader_Kitchen/InteractionDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.384493, 1.23943, 0.468261)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54834, 1.23943, 0.468261)
 shape = SubResource("BoxShape3D_f4d3f")
 
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("35_nneh3")]
@@ -471,20 +471,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
 target_location_index = 1
 
 [node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0492892, 0.461627, -0.128304)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0492892, 0.262395, -0.128304)
 
 [node name="CollisionShape3D" parent="SceneLoader_PartyRoom/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15619, 0.218792, -0.17054)
 shape = SubResource("BoxShape3D_cygoc")
 
 [node name="SceneLoader_Basement" parent="." instance=ExtResource("35_nneh3")]
-transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 13.3283, 1.22732, 6.56851)
+transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 13.3283, 1.22732, 3.43122)
 target_location_index = 4
 play_door_sound = true
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Basement" index="1"]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0.61454, 0.296935, 1.89373)
+transform = Transform3D(-6.54836e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.54836e-09, -0.0437851, 0.077431, 1.97252)
 
 [node name="CollisionShape3D" parent="SceneLoader_Basement/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390921, -0.506985, 0.784462)
@@ -1105,12 +1105,12 @@ volume = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
 
 [node name="TeleportPoint3" parent="." instance=ExtResource("49_a6eg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1417, 0.954337, 7.06025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1417, 0.954337, 3.84866)
 skeleton = NodePath("../TeleportPoint2")
 spawn_point_number = 2
 
 [node name="TeleportPoint2" parent="." instance=ExtResource("49_a6eg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43088, 1.20163, 7.069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.53274, 1.20163, 4.05462)
 spawn_point_number = 1
 
 [node name="TeleportPoint" parent="." instance=ExtResource("49_a6eg1")]

@@ -15,7 +15,6 @@ extends CanvasLayer
 @export var json2 : JSON
 
 @export var exterior_scene_loader: SceneLoader
-@export var door: Node3D
 
 @onready var loading_timer: Timer = %LoadingTimer
 @onready var move_controls_popup: PanelContainer = %MoveControlsPopup
@@ -62,7 +61,6 @@ var state: States:
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
 				exterior_scene_loader.enabled = true
-				door.show()
 				queue_free()
 
 
