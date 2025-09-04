@@ -20,7 +20,7 @@ volume = 0.3
 unique_name_in_owner = true
 
 [node name="Popup" type="Sprite3D" parent="."]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 0.801186, -1.044)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.25, -1)
 billboard = 1
 no_depth_test = true
 texture = ExtResource("2_yuodv")

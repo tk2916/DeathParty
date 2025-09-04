@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://h4ongtdtye0r" path="res://rooms/Ghost hallway/ghost hallway_IMG_4443.png" id="6_op2m7"]
 [ext_resource type="Texture2D" uid="uid://b2t57wmdyk8mh" path="res://rooms/Ghost hallway/ghost hallway_IMG_4442.png" id="7_d1x72"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="8_ds0tn"]
-[ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="8_ksoqh"]
+[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="8_ksoqh"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="9_giwxe"]
 [ext_resource type="Texture2D" uid="uid://8cdgn7y4uxtk" path="res://Assets/environment/carpet/carpet_carpet.png" id="10_ayop1"]
 [ext_resource type="Texture2D" uid="uid://cvs4s61cbwwdc" path="res://rooms/Ghost hallway/ghost_ghosts.png" id="11_o2el0"]
@@ -1767,6 +1767,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.2381
 target_location_index = 2
 play_door_sound = true
 
+[node name="Popup" parent="SceneLoader_Library" index="1"]
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.25, 0.5)
+
 [node name="CollisionShape3D" parent="SceneLoader_Library/InteractionDetector" index="0"]
 shape = SubResource("BoxShape3D_ksoqh")
 
@@ -2120,6 +2123,7 @@ autoplay = "fire"
 frame_progress = 0.785844
 
 [node name="FireplaceSound" type="FmodEventEmitter3D" parent="AnimatedSprite3D"]
+event_name = "event:/000_SFX/100_Environment/Fireplace"
 event_guid = "{b0174406-cd28-48d3-bc3e-54e8b3332f86}"
 autoplay = true
 volume = 0.5

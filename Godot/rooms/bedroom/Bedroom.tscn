@@ -87,7 +87,7 @@
 [ext_resource type="PackedScene" uid="uid://5dyu4rpk5qa6" path="res://rooms/bedroom/LEO.glb" id="70_b33ja"]
 [ext_resource type="Texture2D" uid="uid://jhllv8yv42pa" path="res://rooms/bedroom/carn poster_carn stranglers.png" id="81_5smtm"]
 [ext_resource type="PackedScene" uid="uid://bw2herdlwxvnh" path="res://rooms/Basement/bean bag.glb" id="82_p0j85"]
-[ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="88_otruv"]
+[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="88_otruv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.23928, 3.15956, 8.65055)
@@ -2191,7 +2191,7 @@ target_location_index = 7
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 1.14045, 1.15876, -0.447661)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 1.25, 1.25, 0)
 
 [node name="CollisionShape3D" parent="SceneLoader_Exterior/InteractionDetector" index="0"]
 transform = Transform3D(0.999951, 0, 0.00989586, 0, 1, 0, -0.00989586, 0, 0.999951, 1.30716, 0.550691, 0.117994)
