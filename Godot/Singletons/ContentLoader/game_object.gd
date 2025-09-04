@@ -131,8 +131,6 @@ func find_child_scenes(
 				var special_class : Variant = SPECIAL_CHILD_CLASSES[i]
 				var special_class_data : Variant = SPECIAL_CHILD_DATA_CLASSES[i]
 				if is_instance_of(obj, special_class):
-					if special_class == TeleportPoint:
-						print("Found teleport point for ", scene.name)
 					create_child.call(
 						special_class_data,
 						obj,

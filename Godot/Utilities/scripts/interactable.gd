@@ -6,7 +6,7 @@ class_name Interactable extends Node3D
 
 #@export var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader.tres")
 var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader/TestOutlineShader.tres")
-var interaction_detector_file = preload("res://Entities/interaction_detector.tscn")
+var interaction_detector_file : PackedScene = preload("res://Entities/interaction_detector.tscn")
 var interaction_detector : InteractionDetector
 
 var popup : Node3D
@@ -39,7 +39,7 @@ func _ready() -> void:
 	if popup:
 		popup.visible = false
 		
-func create_outline():
+func create_outline() -> void:
 	#print("Creating outline")
 	if primary_mesh == null: return
 	surface_material = primary_mesh.get_active_material(0)
@@ -48,7 +48,7 @@ func create_outline():
 	new_shader.set_shader_parameter("thickness", outline_thickness)
 	surface_material.next_pass = new_shader
 	
-func toggle_popup(on : bool):
+func toggle_popup(on : bool) -> void:
 	if popup:
 		popup.visible = on
 	if surface_material:
@@ -57,7 +57,8 @@ func toggle_popup(on : bool):
 			value = 1.0
 		else:
 			value = 0.0
-		surface_material.next_pass.set_shader_parameter("alpha", value)
+		var shader : ShaderMaterial = surface_material.next_pass
+		shader.set_shader_parameter("alpha", value)
 
 
 ##OVERRIDE THESE METHODS (but call super() at the beginning)

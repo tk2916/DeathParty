@@ -2,7 +2,7 @@ class_name LoadableScene extends GameObject
 
 #SceneLoaders
 var scene_loader_dict : Dictionary[String, SceneLoaderData] = {} #node name, teleport position
-var teleport_points : Array[TeleportPointData]
+var teleport_points : Dictionary[int, TeleportPointData] = {}
 var main_teleport_point : TeleportPointData
 
 #Cells
@@ -33,7 +33,7 @@ func _init(
 ##END INITIAL LOAD
 
 ##LOADING -------------------------------
-func load_files(on : bool = true):
+func load_files(on : bool = true) -> void:
 	for obj : SceneObject in child_objects:
 		obj.load_async(on) #async load assets
 
@@ -62,9 +62,8 @@ func offload() -> void:
 ##SCENE LOADERS
 func set_teleport_points() -> void:
 	for loader_name : String in scene_loader_dict:
-		scene_loader_dict[loader_name].set_teleport_point()
-	if teleport_points.size() > 0:
-		main_teleport_point = teleport_points[0]
+		var loader : SceneLoaderData = scene_loader_dict[loader_name]
+		loader.set_teleport_point()
 		
 ##END SCENE LOADERS
 
