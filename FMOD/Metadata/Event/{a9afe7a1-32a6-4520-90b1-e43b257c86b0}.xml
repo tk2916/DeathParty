@@ -5,7 +5,7 @@
 			<value>IndoorAmbience</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{14d6cdd0-76dd-45e5-8fca-ff212d0c9b92}</destination>
@@ -157,7 +157,7 @@
 		<relationship name="effects">
 			<destination>{d7848e47-904e-4474-b903-f6ca02033ad2}</destination>
 			<destination>{7f994560-f4ad-4b46-b662-95375e0cd960}</destination>
-			<destination>{196d3abb-ff7c-4f9e-94d8-98fc5171797b}</destination>
+			<destination>{26883a2a-9ff6-4d0a-a95a-a565e44f891d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4a0eb1f5-29b4-4b95-8179-77a8a5bb6c4e}" />
@@ -206,20 +206,5 @@
 			<value>-80</value>
 		</property>
 	</object>
-	<object class="PannerEffect" id="{196d3abb-ff7c-4f9e-94d8-98fc5171797b}">
-		<property name="overridingOutputFormat">
-			<value>1</value>
-		</property>
-		<relationship name="modulators">
-			<destination>{efd178d4-dba9-402f-b10a-b794f7d200ad}</destination>
-		</relationship>
-	</object>
-	<object class="RandomizerModulator" id="{efd178d4-dba9-402f-b10a-b794f7d200ad}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>stereoPan</value>
-		</property>
-		<property name="amount">
-			<value>100</value>
-		</property>
-	</object>
+	<object class="SpatialiserEffect" id="{26883a2a-9ff6-4d0a-a95a-a565e44f891d}" />
 </objects>

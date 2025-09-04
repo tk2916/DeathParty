@@ -1926,16 +1926,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.744
 local_spawn_point = 2
 play_door_sound = true
 
-[node name="Popup" parent="SceneLoader_Entrance" index="1"]
-transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 0, 0.474354, 0.741167)
-
-[node name="CollisionShape3D" parent="SceneLoader_Entrance/InteractionDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.089936, 0.880191, 0.431571)
-shape = SubResource("BoxShape3D_5eouh")
-
-[node name="TeleportPoint" parent="." instance=ExtResource("3_xvuva")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.93478, 0.791375, -3.51385)
-skeleton = NodePath("../SceneLoader_Entrance/InteractionDetector")
+[node name="CollisionShape3D" parent="SceneLoader_Entrance" index="0"]
+transform = Transform3D(0.999951, 0, -7.78044e-13, 0, 1, 0, 7.78044e-13, 0, 0.999951, 0.134892, 1.44708, -0.360749)
+shape = SubResource("BoxShape3D_hfud8")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="TeleportPoint2" parent="." instance=ExtResource("3_xvuva")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.96748, 0.791375, -1.04441)

@@ -1945,9 +1945,9 @@ outline_thickness = 0.7
 [node name="IndoorAmbience" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/000_SFX/100_Environment/IndoorAmbience"
 event_guid = "{a9afe7a1-32a6-4520-90b1-e43b257c86b0}"
-attached = false
 autoplay = true
-volume = 0.05
+volume = 0.1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37159, 3.27869, -2.18579)
 
 [editable path="SceneLoader_Entrance"]
 [editable path="SceneLoader_Entrance/InteractionDetector"]

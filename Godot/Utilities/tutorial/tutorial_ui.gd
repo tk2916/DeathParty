@@ -46,11 +46,11 @@ var state: States:
 				print("TUTORIAL STEP: WALK COMPLETE")
 				GuiSystem.set_gui_enabled(true)
 				walk_complete_timer.start()
-				send_initial_texts()
 			States.UNLOCK_PHONE:
 				print("TUTORIAL STEP: UNLOCK PHONE")
 				move_controls_popup.hide()
 				phone_controls_popup.show()
+				send_initial_texts()
 			States.USING_PHONE:
 				print("TUTORIAL STEP: USING PHONE")
 				phone_controls_popup.hide()
@@ -64,11 +64,13 @@ var state: States:
 				exterior_scene_loader.enabled = true
 				door.show()
 				queue_free()
-				
+
+
 func send_initial_texts() -> void:
 	DialogueSystem.to_phone("Caleb, Rowan, Nora, You", json1)
 	await get_tree().create_timer(1).timeout
 	DialogueSystem.to_phone("Caleb", json2)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
