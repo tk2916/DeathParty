@@ -447,7 +447,7 @@ local_spawn_point = 1
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.754307, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.754307, 0)
 
 [node name="CollisionShape3D" parent="SceneLoader_Exterior/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00567722, 1.23943, -0.33387)
@@ -460,7 +460,7 @@ play_door_sound = true
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Kitchen" index="1"]
-transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -0.450344, 1.14966, 1.00331)
+transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, -0.450344, 1.14966, 1.00331)
 
 [node name="CollisionShape3D" parent="SceneLoader_Kitchen/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.384493, 1.23943, 0.468261)
@@ -471,7 +471,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
 target_location_index = 1
 
 [node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0492892, 0.461627, -0.128304)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0492892, 0.461627, -0.128304)
 
 [node name="CollisionShape3D" parent="SceneLoader_PartyRoom/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15619, 0.218792, -0.17054)
@@ -484,7 +484,7 @@ play_door_sound = true
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Basement" index="1"]
-transform = Transform3D(-1.30967e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.30967e-08, 0.61454, 0.296935, 1.89373)
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0.61454, 0.296935, 1.89373)
 
 [node name="CollisionShape3D" parent="SceneLoader_Basement/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390921, -0.506985, 0.784462)

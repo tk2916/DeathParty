@@ -20,7 +20,7 @@ volume = 0.3
 unique_name_in_owner = true
 
 [node name="Popup" type="Sprite3D" parent="."]
-transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, 0.801186, -1.044)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 0.801186, -1.044)
 texture = ExtResource("2_yuodv")
 
 [node name="InteractionDetector" parent="." instance=ExtResource("3_ur62n")]

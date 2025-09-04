@@ -14,7 +14,6 @@ extends CanvasLayer
 @export var json1 : JSON
 @export var json2 : JSON
 
-
 @export var exterior_scene_loader: SceneLoader
 @export var door: Node3D
 
@@ -62,7 +61,7 @@ var state: States:
 				print("TUTORIAL STEP: USING JOURNAL")
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
-				#exterior_scene_loader.monitoring = true
+				exterior_scene_loader.enabled = true
 				door.show()
 				queue_free()
 				
@@ -88,6 +87,7 @@ func _ready() -> void:
 	#		or make a new, safer signal to use instead
 	#		so we can remove this hardcoded timer :p
 	GuiSystem.set_gui_enabled(false)
+	exterior_scene_loader.enabled = false
 	await ContentLoader.finished_loading
 	loading_timer.start()
 	await loading_timer.timeout

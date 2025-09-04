@@ -656,7 +656,7 @@ local_spawn_point = 1
 play_door_sound = true
 
 [node name="Popup" parent="SceneLoader_Entrance" index="1"]
-transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -0.605248, 0.801187, -0.392582)
+transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, -0.605248, 0.801187, -0.392582)
 
 [node name="CollisionShape3D" parent="SceneLoader_Entrance/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.337129, 0.864415, -0.0104828)

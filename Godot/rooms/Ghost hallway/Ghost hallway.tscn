@@ -1757,7 +1757,7 @@ local_spawn_point = 2
 play_door_sound = true
 
 [node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
-transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -6.84474e-08, 0.801186, 0.521097)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, -6.84474e-08, 0.801186, 0.521097)
 
 [node name="CollisionShape3D" parent="SceneLoader_PartyRoom/InteractionDetector" index="0"]
 shape = SubResource("BoxShape3D_u8eoh")
@@ -1768,7 +1768,7 @@ target_location_index = 2
 play_door_sound = true
 
 [node name="Popup" parent="SceneLoader_Library" index="1"]
-transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, -6.22008e-08, 0.801186, 0.567236)
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -6.22008e-08, 0.801186, 0.567236)
 
 [node name="CollisionShape3D" parent="SceneLoader_Library/InteractionDetector" index="0"]
 shape = SubResource("BoxShape3D_ksoqh")

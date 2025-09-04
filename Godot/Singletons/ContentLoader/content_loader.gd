@@ -39,7 +39,7 @@ func _ready() -> void:
 	print(tree.get_nodes_in_group("loadable_scene"))
 	if main_node:
 		main_node_data = GameObject.new(main_node)
-		main_node.ready.connect(load_player)
+		#main_node.ready.connect(load_player)
 		added_scene.connect(on_finished_loading_scenes)
 		
 		main_camera = main_node.get_node("MainCamera")
@@ -55,8 +55,11 @@ func on_finished_loading_scenes() -> void:
 	if scene_data_dict.keys().size() < loadable_scenes_size: return
 	for scene_name : String in scene_data_dict:
 		scene_data_dict[scene_name].set_teleport_points()
-	
+	load_player()
 	direct_teleport_player(og_scene_name)
+	finished_loading.emit()
+	# GuiSystem.fade_loading_screen_out()
+	# 	print("Faded screen out")
 	
 func get_scene(scene_name : String) -> LoadableScene:
 	assert(scene_data_dict.has(scene_name), scene_name + " does not exist!")
@@ -88,10 +91,7 @@ func load_player() -> void:
 		player = player_file.instantiate()
 		player.global_position = player_spawn_pos
 	player.ready.connect(func() -> void:
-		GuiSystem.fade_loading_screen_out()
-		print("Faded screen out")
 		Globals.player = player
-		finished_loading.emit()
 		)
 	main_node.add_child.call_deferred(player)
 	main_camera.player = player

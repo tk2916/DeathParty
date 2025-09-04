@@ -1,5 +1,6 @@
 class_name Interactable extends Node3D
 
+@export var enabled : bool = true
 @export var primary_mesh : MeshInstance3D
 @export var use_first_mesh : bool = true
 @export var outline_thickness : float = .7
@@ -63,8 +64,10 @@ func toggle_popup(on : bool) -> void:
 
 ##OVERRIDE THESE METHODS (but call super() at the beginning)
 func on_interact() -> void:
+	if !enabled: return
 	#print("Interacting")
 	toggle_popup(false)
 	
 func on_in_range(in_range : bool) -> void:
+	if !enabled: return
 	toggle_popup(in_range)
