@@ -86,8 +86,8 @@
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="69_tt7nc"]
 [ext_resource type="PackedScene" uid="uid://5dyu4rpk5qa6" path="res://rooms/bedroom/LEO.glb" id="70_b33ja"]
 [ext_resource type="Texture2D" uid="uid://jhllv8yv42pa" path="res://rooms/bedroom/carn poster_carn stranglers.png" id="81_5smtm"]
-[ext_resource type="PackedScene" uid="uid://bw2herdlwxvnh" path="res://rooms/Basement/bean bag.glb" id="82_p0j85"]
 [ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="88_otruv"]
+[ext_resource type="PackedScene" uid="uid://d043l40l218q2" path="res://Assets/props/bean_bag.tscn" id="88_vr1g1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.23928, 3.15956, 8.65055)
@@ -116,8 +116,8 @@ size = Vector3(2, 2, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7octt"]
 size = Vector3(1.25, 2, 0.1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qbwcx"]
-size = Vector3(1.25, 2, 0.1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_vr1g1"]
+size = Vector3(1.5, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_84fnt"]
 size = Vector3(5, 2, 0.1)
@@ -2138,46 +2138,57 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.213904, 0.889039, -0.355616)
 shape = SubResource("BoxShape3D_gua8r")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.476781, 0.889039, 0.572578)
 shape = SubResource("BoxShape3D_1qprw")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, 1.00026, 0.889039, 0.394064)
 shape = SubResource("BoxShape3D_0hleh")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(1, 0, 1.23198e-07, 0, 1, 0, -1.23198e-07, 0, 1, 1.35588, 0.889039, 1.01639)
 shape = SubResource("BoxShape3D_6hcck")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, 1.62259, 0.889039, 1.72762)
 shape = SubResource("BoxShape3D_tluma")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, 1.8893, 0.889039, 3.86132)
 shape = SubResource("BoxShape3D_kvlly")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -1.31124, 0.889039, 2.4216)
 shape = SubResource("BoxShape3D_p2qrk")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -1.55748, 0.889039, 3.98433)
 shape = SubResource("BoxShape3D_7octt")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -2.002, 0.889039, 4.33741)
-shape = SubResource("BoxShape3D_qbwcx")
+transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, -1.82419, 0.889039, 5.22645)
+shape = SubResource("BoxShape3D_vr1g1")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(1, 0, 1.23198e-07, 0, 1, 0, -1.23198e-07, 0, 1, -0.223922, 0.889039, 5.90665)
 shape = SubResource("BoxShape3D_84fnt")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 3.2)
 shape = SubResource("BoxShape3D_b70md")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="door" parent="." instance=ExtResource("69_tt7nc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0138568, 0.999265, 4.75011)
@@ -2924,7 +2935,7 @@ transform = Transform3D(-0.000259355, -0.201641, 2.08964e-07, 6.26824e-09, -1.44
 mesh = SubResource("ArrayMesh_86pqr")
 skeleton = NodePath("")
 
-[node name="bean bag" parent="." instance=ExtResource("82_p0j85")]
+[node name="BeanBag" parent="." instance=ExtResource("88_vr1g1")]
 transform = Transform3D(0.0636847, 0, 0.577681, 0, 0.58118, 0, -0.577681, 0, 0.0636847, 1.31697, 0.0757391, 5.61384)
 
 [node name="TeleportPoint" parent="." instance=ExtResource("88_otruv")]
