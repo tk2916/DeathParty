@@ -11,10 +11,24 @@ var parent_node : Node3D = null
 var parent_obj : GameObject
 var local_path : NodePath
 
-var active : bool = false
+var active : bool = true
 var toggled : bool = true
 var child_objects : Array[GameObject]
 var max_objects_per_frame : int = 10000
+
+var SPECIAL_CHILD_CLASSES : Array[Variant] = [
+	SceneLoader, 
+	TeleportPoint, 
+	NPC, 
+	InteractionDetector,
+]
+
+var SPECIAL_CHILD_DATA_CLASSES : Array[Variant] = [
+	SceneLoaderData, 
+	TeleportPointData, 
+	NPCData, 
+	InteractionDetectorData,
+]
 
 func _init(_instance : Node3D, _parent_obj : GameObject = null) -> void:
 	instance = _instance
@@ -80,13 +94,28 @@ func info() -> String:
 		child_objects = child_objects.size()
 	}
 	return Utils.dict_to_string(stats)
-	
+
 func find_child_scenes(
 	parent_instance : Node3D, 
-	parent_obj : GameObject, 
+	current_parent_obj : GameObject, 
 	scene : LoadableScene
 ) -> void:
-	#print("Getting children for obj ", parent_obj.name)
+	if parent_instance.name == scene.name:
+		print("Getting children for obj ", current_parent_obj.name)
+	
+	##CREATE CHILD FUNCTION
+	var create_child := func create_child(
+		child_class : Variant,
+		obj : Node3D,
+	) -> void:
+		var new_obj = child_class.new(
+			scene,
+			obj,
+			current_parent_obj,
+		)
+		child_objects.push_back(new_obj)
+	##END CREATE CHILD
+		
 	var children : Array[Node] = Utils.get_children_exclusive(
 		parent_instance,
 		[Node3D],
@@ -95,38 +124,23 @@ func find_child_scenes(
 	for obj : Node3D in children:
 		if obj is Player: continue
 		if obj.scene_file_path == "":
-			find_child_scenes(obj, parent_obj, scene)
+			find_child_scenes(obj, current_parent_obj, scene)
 		else:
-			var new_obj : SceneObject
-			if obj is SceneLoader:
-				new_obj = SceneLoaderData.new(
-					scene,
-					obj,
-					parent_obj,
-				)
-				scene.scene_loader_dict[obj.name] = new_obj
-			elif obj is NPC:
-				new_obj = NPCData.new(
-					scene,
-					obj,
-					parent_obj,
-				)
-			else:
+			var handled : bool = false
+			for i : int in range(SPECIAL_CHILD_CLASSES.size()):
+				var special_class : Variant = SPECIAL_CHILD_CLASSES[i]
+				var special_class_data : Variant = SPECIAL_CHILD_DATA_CLASSES[i]
+				if is_instance_of(obj, special_class):
+					create_child.call(
+						special_class_data,
+						obj,
+					)
+					handled = true
+			if not handled:
 				if !(obj is VisualInstance3D):
 					var visual_node : VisualInstance3D = Utils.find_first_child_of_class(obj, VisualInstance3D)
 					if visual_node == null: continue
-				new_obj = SceneObject.new(
-					scene,
+				create_child.call(
+					SceneObject,
 					obj,
-					parent_obj
 				)
-			child_objects.push_back(new_obj)
-
-func get_surface_materials(mesh : MeshInstance3D) -> Array[Material]:
-	var arr : Array[Material] = []
-	for i in range(0,2):
-		var material : Material = mesh.get_active_material(i)
-		if material:
-			arr.push_back(material)
-	return arr
-		

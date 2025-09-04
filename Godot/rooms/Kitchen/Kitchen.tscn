@@ -1,7 +1,8 @@
-[gd_scene load_steps=93 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=95 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
+[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="2_022tp"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="2_kbocy"]
 [ext_resource type="Texture2D" uid="uid://bno7ud54oxh6n" path="res://rooms/Kitchen/kitchen molding_standardwood.png" id="3_kyy70"]
 [ext_resource type="Texture2D" uid="uid://cxgxr1ajrgm1c" path="res://rooms/Kitchen/Kitchen Setup_metal.png" id="3_qn7eg"]
@@ -18,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bvjqxnm7cpxq0" path="res://Assets/environment/cupboard/cupboard.tscn" id="16_htgpp"]
 [ext_resource type="PackedScene" uid="uid://4ayanb056l2m" path="res://Assets/props/posters/student_athlete_poster/student_athlete_poster.glb" id="16_xg0f7"]
 [ext_resource type="PackedScene" uid="uid://b8roo0kgim21f" path="res://Assets/props/posters/sunday_light_poster/sunday_light_poster.glb" id="17_jqlwo"]
-[ext_resource type="PackedScene" uid="uid://c0775400o470y" path="res://Assets/props/string_lights/string_lights_horizontal_bright.tscn" id="18_54x08"]
+[ext_resource type="PackedScene" path="res://Assets/props/string_lights/string_lights_horizontal_bright.tscn" id="18_54x08"]
 [ext_resource type="PackedScene" uid="uid://ciymie8xu8utv" path="res://Assets/props/flags/party_flags/party_flags_yellow.tscn" id="18_htgpp"]
 [ext_resource type="PackedScene" uid="uid://xgjnbxm5g4j0" path="res://Assets/props/alcohol/beer/beer.glb" id="21_l5f4f"]
 [ext_resource type="PackedScene" uid="uid://5n3pp3uq3d2i" path="res://Assets/props/alcohol/sunday_light/sunday light.glb" id="22_3yrsa"]
@@ -40,7 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://ml4kn25ykoyy" path="res://Assets/props/keg/keg.tscn" id="34_e7jho"]
 [ext_resource type="PackedScene" uid="uid://beusior7ym8c4" path="res://Assets/props/chairs/chair/chair.tscn" id="35_p4v0j"]
 [ext_resource type="PackedScene" uid="uid://cnb05rd1rv7e7" path="res://Assets/CharacterAssets/rowan/rowan.tscn" id="41_h3uy3"]
-[ext_resource type="PackedScene" uid="uid://byj5oetmgrptr" path="res://Assets/props/desk_lamp/simple_lamp.tscn" id="42_e7jho"]
+[ext_resource type="PackedScene" path="res://Assets/props/desk_lamp/simple_lamp.tscn" id="42_e7jho"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="42_et00h"]
 [ext_resource type="PackedScene" uid="uid://dxv1m51cs7gn8" path="res://Assets/props/alcohol/beer_box/beer_box.tscn" id="42_p4v0j"]
 [ext_resource type="PackedScene" uid="uid://c8rq8p1i25wix" path="res://Assets/CharacterAssets/bartender/bartender.tscn" id="44_p4v0j"]
@@ -75,6 +76,10 @@ size = Vector3(1, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xispf"]
 size = Vector3(6, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j0uoq"]
+resource_local_to_scene = true
+size = Vector3(2.26477, 2.85348, 2.22887)
 
 [sub_resource type="FogMaterial" id="FogMaterial_kbocy"]
 density = 0.15
@@ -642,17 +647,20 @@ shape = SubResource("BoxShape3D_vxogu")
 transform = Transform3D(1, 0, 1.55374e-14, 0, 1, 0, -1.55374e-14, 0, 1, -4.92005, -2.07735, -6.56007)
 shape = SubResource("BoxShape3D_xispf")
 
+[node name="TeleportPoint" parent="." instance=ExtResource("2_022tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85248, -1.88039, 2.04246)
+
 [node name="SceneLoader_Entrance" parent="." instance=ExtResource("42_et00h")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.4836, -2.64353, 1.23196)
-scene_going_right = "Entrance"
-scene_going_left = "Entrance"
+local_spawn_point = 1
 play_door_sound = true
 
-[node name="CollisionShape3D" parent="SceneLoader_Entrance" index="0"]
-transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.773, 0.747803, 0.145767)
+[node name="Popup" parent="SceneLoader_Entrance" index="1"]
+transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, -0.605248, 0.801187, -0.392582)
 
-[node name="TeleportPoint" parent="SceneLoader_Entrance" index="1"]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -0.258044, 0.839686, 4.69556)
+[node name="CollisionShape3D" parent="SceneLoader_Entrance/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -0.337129, 0.864415, -0.0104828)
+shape = SubResource("BoxShape3D_j0uoq")
 
 [node name="SceneLights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21547, -0.923839, -4.21413)
@@ -1942,6 +1950,7 @@ volume = 0.1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37159, 3.27869, -2.18579)
 
 [editable path="SceneLoader_Entrance"]
+[editable path="SceneLoader_Entrance/InteractionDetector"]
 [editable path="Room"]
 [editable path="Bar/simple lamp"]
 [editable path="NPCs/free hug2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://bqae87n6emy8q"]
+[gd_scene load_steps=83 format=4 uid="uid://bqae87n6emy8q"]
 
 [ext_resource type="Texture2D" uid="uid://c4o46fvqrk1xg" path="res://rooms/Hourhand hallway/hourhand floor_patterned floor.png" id="2_4pph5"]
 [ext_resource type="Texture2D" uid="uid://c1gtxbrgatf5m" path="res://rooms/Hourhand hallway/hourhand hallway_bronze wall.png" id="2_v1epj"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ccfm4gober6x6" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_baseColor.jpg" id="16_8uf1m"]
 [ext_resource type="Texture2D" uid="uid://dm3hjctqeb8wy" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_metallicRoughness.png" id="17_xaafo"]
 [ext_resource type="Texture2D" uid="uid://5m0xqqnw8gmg" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_normal.png" id="18_dr676"]
+[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="19_xaafo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgvqn"]
 size = Vector3(21.6137, 3.22495, 3.19273)
@@ -32,7 +33,8 @@ size = Vector3(25, 2, 0.1)
 size = Vector3(2, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rs8om"]
-size = Vector3(4, 2, 0.5)
+resource_local_to_scene = true
+size = Vector3(3.09418, 2.96014, 2.04828)
 
 [sub_resource type="FogMaterial" id="FogMaterial_4pph5"]
 density = 0.5
@@ -885,7 +887,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_idoxc")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_df5mx"]
-size = Vector3(4, 2, 0.5)
+resource_local_to_scene = true
+size = Vector3(3.9527, 2.80212, 2.04828)
 
 [node name="Hourhand hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(1.41429, 0, 0, 0, 1.41429, 0, 0, 0, 1.41429, 0, 0, 0)
@@ -916,15 +919,15 @@ shape = SubResource("BoxShape3D_dr676")
 
 [node name="SceneLoader_Storageroom" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.43027, -1.32767, 0.633325)
-scene_going_right = "Storageroom"
-scene_going_left = "Storageroom"
+target_location_index = 6
+local_spawn_point = 1
 
-[node name="CollisionShape3D" parent="SceneLoader_Storageroom" index="0"]
+[node name="Popup" parent="SceneLoader_Storageroom" index="1"]
+transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 5.96046e-08, 0.801186, 0.308354)
+
+[node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116568, 1.16042, 0.0798106)
 shape = SubResource("BoxShape3D_rs8om")
-debug_color = Color(0, 0.6, 0.701961, 1)
-
-[node name="TeleportPoint" parent="SceneLoader_Storageroom" index="1"]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.457653, 0.839686, -8.01622)
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04834, 0.0250244, 1.70543)
@@ -1516,17 +1519,27 @@ skeleton = NodePath("")
 transform = Transform3D(1.71651, 0.0171148, 0.471238, -0.471549, 0.0623006, 1.71538, 1.43126e-09, -1.77893, 0.0646086, 0.593464, 0.166705, 0)
 light_energy = 30.0
 
+[node name="TeleportPoint" parent="." instance=ExtResource("19_xaafo")]
+transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, 13.3118, -1.05251, 1.05504)
+skeleton = NodePath("../walllamp2")
+spawn_point_number = 1
+
+[node name="TeleportPoint2" parent="." instance=ExtResource("19_xaafo")]
+transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, -3.69493, -0.963893, 0.866771)
+skeleton = NodePath("../walllamp2")
+
 [node name="SceneLoader_Control room" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-3.0907e-08, 0, -0.707069, 0, 0.707069, 0, 0.707069, 0, -3.0907e-08, 14.7747, -1.41536, 0.823003)
-scene_going_right = "Control room"
-scene_going_left = "Control room"
+target_location_index = 10
 
-[node name="CollisionShape3D" parent="SceneLoader_Control room" index="0"]
+[node name="Popup" parent="SceneLoader_Control room" index="1"]
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 0.801186, 0.204111)
+
+[node name="CollisionShape3D" parent="SceneLoader_Control room/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, -0.122619, 1.23943, 0.0798111)
 shape = SubResource("BoxShape3D_df5mx")
-debug_color = Color(0, 0.6, 0.701961, 1)
-
-[node name="TeleportPoint" parent="SceneLoader_Control room" index="1"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -3.57628e-07, 4.26004, -11.8865)
 
 [editable path="SceneLoader_Storageroom"]
+[editable path="SceneLoader_Storageroom/InteractionDetector"]
 [editable path="SceneLoader_Control room"]
+[editable path="SceneLoader_Control room/InteractionDetector"]

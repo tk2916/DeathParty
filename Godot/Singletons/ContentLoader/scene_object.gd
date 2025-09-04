@@ -19,7 +19,10 @@ func _init(
 		aabb =  Utils.get_collision_shape_aabb(collision_shape)
 	elif instance is SceneLoader:
 		var collision_shape : CollisionShape3D = instance.get_node("CollisionShape3D")
-		aabb =  Utils.get_collision_shape_aabb(collision_shape)
+		aabb = Utils.get_collision_shape_aabb(collision_shape)
+	elif instance is InteractionDetector:
+		var collision_shape : CollisionShape3D = instance.collision_shape
+		aabb = Utils.get_collision_shape_aabb(collision_shape)
 	else:
 		aabb = Utils.calculate_node_aabb(instance)
 		

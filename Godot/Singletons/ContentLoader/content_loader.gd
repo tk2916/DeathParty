@@ -13,12 +13,6 @@ var scene_data_dict : Dictionary[String, LoadableScene] = {}
 var cell_grids : Dictionary[String, Vector3] = {
 	#"PartyRoom" = Vector3(5,1,1),
 	"PartyRoom" = Vector3(1,1,1),
-	"Entrance" = Vector3(1,1,1),
-	"Bathroom" = Vector3(1,1,1),
-	"Bedroom" = Vector3(1,1,1),
-	"Library" = Vector3(1,1,1),
-	"Basement" = Vector3(1,1,1),
-	"Kitchen" = Vector3(1,1,1),
 	#"Exterior" = Vector3(10,1,10),
 	"Exterior" = Vector3(1,1,1),
 }
@@ -45,8 +39,8 @@ func _ready() -> void:
 	print(tree.get_nodes_in_group("loadable_scene"))
 	if main_node:
 		main_node_data = GameObject.new(main_node)
-		main_node.ready.connect(load_player)
-		added_scene.connect(find_room_teleport_points)
+		#main_node.ready.connect(load_player)
+		added_scene.connect(on_finished_loading_scenes)
 		
 		main_camera = main_node.get_node("MainCamera")
 		loading_screen = main_node.get_node("CanvasLayer/LoadingScreen")
@@ -55,43 +49,29 @@ func _ready() -> void:
 			on_node_added(node)
 			
 	tree.node_added.connect(on_node_added)
-
-func fade_loading_screen_in(fadeout_delay : float = 0) -> Tween:
-	var tween : Tween = tree.create_tween()
-	tween.tween_property(loading_screen, "modulate:a", 1, .2)
-	if fadeout_delay > 0:
-		tween.tween_callback(fade_loading_screen_out.bind(fadeout_delay))
-	return tween
 	
-func fade_loading_screen_out(fadeout_delay : float = 0) -> Tween:
-	if is_instance_valid(player) and player.is_inside_tree():
-		player.movement_disabled = true
-		await tree.create_timer(fadeout_delay).timeout
-		player.movement_disabled = false
-	var tween : Tween = tree.create_tween()
-	tween.tween_property(loading_screen, "modulate:a", 0, 1)
-	return tween
-
-func find_room_teleport_points() -> void:
+func on_finished_loading_scenes() -> void:
 	##Make sure they are all loaded
 	if scene_data_dict.keys().size() < loadable_scenes_size: return
-	##SET THE TELEPORT POINTS FROM EACH ROOM DEPENDING ON THE SCENE LOADERS
 	for scene_name : String in scene_data_dict:
-		var scene_data : LoadableScene = scene_data_dict[scene_name]
-		for loader : SceneLoaderData in scene_data.get_all_scene_loaders():
-			var target_scene_name : String = loader.target_scene_name
-			#print("From ", scene_name, ": ", target_scene_name, " loader: ", loader.name)
-			if scene_data_dict.has(target_scene_name) and scene_data_dict[target_scene_name].main_teleport_point == Vector3(-1,-1,-1):
-				scene_data_dict[target_scene_name].set_main_teleport(loader.name, loader.teleport_pos)
+		scene_data_dict[scene_name].set_teleport_points()
+	load_player()
+	direct_teleport_player(og_scene_name)
+	finished_loading.emit()
+	# GuiSystem.fade_loading_screen_out()
+	# 	print("Faded screen out")
+	
+func get_scene(scene_name : String) -> LoadableScene:
+	assert(scene_data_dict.has(scene_name), scene_name + " does not exist!")
+	return scene_data_dict[scene_name]
 
 func store_scene_info(node : Node3D) -> void:
 	var node_name : String = node.name
 	var node_instance : Node3D = node
 	var cell_grid : Vector3
-	if cell_grids.has(node_name):
-		cell_grid = cell_grids[node_name]
-	else:
-		cell_grid = Vector3(1,1,1)
+	if !cell_grids.has(node_name):
+		cell_grids[node_name] = Vector3(1,1,1)
+	cell_grid = cell_grids[node_name]
 	var new_scene_data : LoadableScene = LoadableScene.new(
 		node_instance,
 		main_node_data,
@@ -101,8 +81,6 @@ func store_scene_info(node : Node3D) -> void:
 	
 	if og_scene_name == "" and new_scene_data.cell_manager.scene_aabb.intersects(player_aabb): #check intersection
 		og_scene_name = node.name
-		scene_data_dict[node_name].set_main_teleport("PlayerSpawn", player_spawn_pos)
-		load_scene(og_scene_name)
 	
 	print("Stored scene info for ", node.name, " | ", Time.get_ticks_msec())
 	added_scene.emit()
@@ -113,9 +91,7 @@ func load_player() -> void:
 		player = player_file.instantiate()
 		player.global_position = player_spawn_pos
 	player.ready.connect(func() -> void:
-		fade_loading_screen_out()
-		print("Faded screen out")
-		finished_loading.emit()
+		Globals.player = player
 		)
 	main_node.add_child.call_deferred(player)
 	main_camera.player = player
@@ -123,10 +99,10 @@ func load_player() -> void:
 func on_node_added(node:Node) -> void:
 	if loaded or !(node is Node3D): return
 	if node.is_in_group("player"):
-		fade_loading_screen_in()
+		GuiSystem.fade_loading_screen_in()
 		player = node
 		update_player_aabb()
-		player_spawn_pos = node.global_position
+		player_spawn_pos = player.global_position
 		main_node.remove_child(node)
 	elif node.is_in_group("loadable_scene"):
 		node.ready.connect(store_scene_info.bind(node))
@@ -138,10 +114,9 @@ func update_player_aabb() -> void:
 func reset() -> void:
 	print("Reset player")
 	if main_node == null: return
-	#fade_loading_screen_in()
-	#offload_all_scenes()
 	direct_teleport_player(og_scene_name)
 
+##LOADING/OFFLOADING
 func load_scene(scene_name:String) -> Node3D:
 	print("Attempting to load ", scene_name)
 	if main_node == null: return
@@ -170,21 +145,22 @@ func offload_old_scene() -> void:
 	if main_node == null: return
 	var old_loaded_scene : LoadableScene = loaded_scenes.pop_back()
 	old_loaded_scene.offload()
+##END LOADING/OFFLOADING
 
-func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
-	var screen_tween : Tween = fade_loading_screen_in()
-	screen_tween.finished.connect(func():
-		scene_teleport_pos = new_position
+##TELEPORTING
+func scene_loader_teleport(scene_name : String, new_position : TeleportPointData) -> void:
+	var screen_tween : Tween = GuiSystem.fade_loading_screen_in()
+	screen_tween.finished.connect(func() -> void:
+		scene_teleport_pos = new_position.teleport_pos
 		var scene : Node3D = load_scene(scene_name)
-		scene.ready.connect(func():
-			#await tree.physics_frame
+		scene.ready.connect(func() -> void:
 			print("Teleporting player to ", scene_name)
-			player.global_position = new_position
+			player.global_position = new_position.teleport_pos
 			GlobalCameraScript.move_camera_jump.emit()
 			
 			offload_old_scenes()
 			await tree.create_timer(1).timeout
-			fade_loading_screen_out()
+			GuiSystem.fade_loading_screen_out()
 			GlobalCameraScript.move_camera_smooth.emit()
 		)
 	)
@@ -192,9 +168,11 @@ func scene_loader_load(scene_name : String, new_position : Vector3) -> void:
 func direct_teleport_player(scene_name : String) -> void:
 	if scene_name == active_scene_name: return
 	GuiSystem.set_gui_enabled(true)
-	var target_pos : Vector3 = scene_data_dict[scene_name].main_teleport_point
-	assert(target_pos != Vector3(-1,-1,-1), "" + scene_name + " doesn't have a teleport point assigned. Check that all your SceneLoaders are following the naming convention 'SceneLoader_<scene name (case-sensitive)>'!")
-	scene_loader_load(scene_name, target_pos)
+	var target_pos : TeleportPointData = scene_data_dict[scene_name].main_teleport_point
+	assert(target_pos != null, "" + scene_name + " doesn't have a teleport point assigned. Make sure all your scenes have at least one TeleportPoint.tscn'!")
+	scene_loader_teleport(scene_name, target_pos)
+##END TELEPORTING
 
-func get_active_npc(npc_name) -> NPCData:
+##NPCs
+func get_active_npc(npc_name : String) -> NPCData:
 	return active_scene.get_npc(npc_name)

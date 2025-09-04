@@ -1,38 +1,7 @@
 class_name CharacterResource extends Resource
 
-const LOCATIONS = [
-	"Everywhere",
-	"Nowhere",
-	"Entrance",
-	"PartyRoom",
-	"Library",
-	"Bathroom",
-	"Basement",
-	"Bedroom",
-	"Storageroom",
-	"Exterior",
-	"Kitchen",
-	"Hourhand hallway",
-	"Control room",
-	"Ghost hallway",
-]
 @export var name : String
-@export_enum(
-	"Everywhere",
-	"Nowhere",
-	"Entrance",
-	"PartyRoom",
-	"Library",
-	"Bathroom",
-	"Basement",
-	"Bedroom",
-	"Storageroom",
-	"Exterior",
-	"Kitchen",
-	"Hourhand hallway",
-	"Control room",
-	"Ghost hallway",
-) var character_location_index : int = 0
+@export var character_location_index : Globals.CHARACTER_LOCATIONS_ENUM = Globals.CHARACTER_LOCATIONS_ENUM.Everywhere
 
 @export var image_full : CompressedTexture2D
 @export var image_polaroid : CompressedTexture2D
@@ -53,14 +22,12 @@ const LOCATIONS = [
 var upcoming_chats : Array[JSON] = []
 @export var default_chat : JSON
 
-var ink_resource : InkResource = load("res://Singletons/InkInterpreter/ink_interpret_resource.tres")
-
 signal unread(tf:bool)
 signal location_changed
 signal interaction_ended
 
 var character_location : String:
-	get: return LOCATIONS[character_location_index]
+	get: return Globals.get_character_location(character_location_index)
 
 func chat_already_loaded(file : JSON) -> bool:
 	for chat : JSON in upcoming_chats:
@@ -104,9 +71,9 @@ func has_chats() -> bool:
 		
 func change_location(location : String) -> void:
 	#character_location = location
-	for i in range(LOCATIONS.size()):
-		if LOCATIONS[i] == location:
-			character_location_index = i
+	for i : int in range(Globals.CHARACTER_LOCATIONS.size()):
+		if Globals.CHARACTER_LOCATIONS[i] == location:
+			character_location_index = i as Globals.CHARACTER_LOCATIONS_ENUM
 			break
 	location_changed.emit()
 	

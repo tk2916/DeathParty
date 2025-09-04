@@ -57,7 +57,7 @@ func save_properties() -> void:
 
 func load_properties() -> void:
 	if character_resource:
-		print("Loading in NPC: ", name, " with ", starter_dialogue, " and ", default_dialogue, " and ", character_resource.image_polaroid)
+		#print("Loading in NPC: ", name, " with ", starter_dialogue, " and ", default_dialogue, " and ", character_resource.image_polaroid)
 		if starter_dialogue:
 			character_resource.load_chat(starter_dialogue)
 			starter_dialogue = null #only a one-off
