@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=85 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -48,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="45_la1vu"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="46_ihq26"]
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.tscn" id="47_yqsuh"]
+[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="49_a6eg1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -60,6 +61,22 @@ size = Vector3(20, 10, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihq26"]
 size = Vector3(5, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mg500"]
+resource_local_to_scene = true
+size = Vector3(7.82025, 2.80212, 1.22092)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4d3f"]
+resource_local_to_scene = true
+size = Vector3(2.35949, 2.80212, 2.82518)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cygoc"]
+resource_local_to_scene = true
+size = Vector3(4.92352, 2.25267, 1.54758)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t3a1b"]
+resource_local_to_scene = true
+size = Vector3(2.28365, 4.10873, 3.43402)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
 density = 0.02
@@ -423,19 +440,55 @@ shape = SubResource("BoxShape3D_klyfx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -2.8)
 shape = SubResource("BoxShape3D_ihq26")
 
-[node name="SceneLoader" parent="." instance=ExtResource("35_nneh3")]
+[node name="SceneLoader_Exterior" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52381, 0, 15.0416)
+target_location_index = 7
+local_spawn_point = 1
+use_first_mesh = true
+
+[node name="Popup" parent="SceneLoader_Exterior" index="1"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.754307, 0)
+
+[node name="CollisionShape3D" parent="SceneLoader_Exterior/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00567722, 1.23943, -0.33387)
+shape = SubResource("BoxShape3D_mg500")
 
 [node name="SceneLoader_Kitchen" parent="." instance=ExtResource("35_nneh3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 6.62432)
+target_location_index = 8
 play_door_sound = true
+use_first_mesh = true
+
+[node name="Popup" parent="SceneLoader_Kitchen" index="1"]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -0.450344, 1.14966, 1.00331)
+
+[node name="CollisionShape3D" parent="SceneLoader_Kitchen/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.384493, 1.23943, 0.468261)
+shape = SubResource("BoxShape3D_f4d3f")
 
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
+target_location_index = 1
+
+[node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0492892, 0.461627, -0.128304)
+
+[node name="CollisionShape3D" parent="SceneLoader_PartyRoom/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15619, 0.218792, -0.17054)
+shape = SubResource("BoxShape3D_cygoc")
 
 [node name="SceneLoader_Basement" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 13.3283, 1.22732, 6.56851)
+target_location_index = 4
 play_door_sound = true
+use_first_mesh = true
+
+[node name="Popup" parent="SceneLoader_Basement" index="1"]
+transform = Transform3D(-1.30967e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.30967e-08, 0.61454, 0.296935, 1.89373)
+
+[node name="CollisionShape3D" parent="SceneLoader_Basement/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390921, -0.506985, 0.784462)
+shape = SubResource("BoxShape3D_t3a1b")
 
 [node name="SceneLights" type="Node3D" parent="."]
 
@@ -1051,10 +1104,26 @@ autoplay = true
 volume = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
 
+[node name="TeleportPoint3" parent="." instance=ExtResource("49_a6eg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1417, 0.954337, 7.06025)
+skeleton = NodePath("../TeleportPoint2")
+spawn_point_number = 2
+
+[node name="TeleportPoint2" parent="." instance=ExtResource("49_a6eg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43088, 1.20163, 7.069)
+spawn_point_number = 1
+
+[node name="TeleportPoint" parent="." instance=ExtResource("49_a6eg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65588, 1.16262, 12.7138)
+
+[node name="TeleportPoint4" parent="." instance=ExtResource("49_a6eg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08336, 1.03249, -3.45225)
+spawn_point_number = 3
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
-[editable path="SceneLoader"]
-[editable path="SceneLoader/InteractionDetector"]
+[editable path="SceneLoader_Exterior"]
+[editable path="SceneLoader_Exterior/InteractionDetector"]
 [editable path="SceneLoader_Kitchen"]
 [editable path="SceneLoader_Kitchen/InteractionDetector"]
 [editable path="SceneLoader_PartyRoom"]

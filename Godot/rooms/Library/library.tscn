@@ -1,9 +1,10 @@
-[gd_scene load_steps=138 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=140 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
 [ext_resource type="Texture2D" uid="uid://pscjmfwes04o" path="res://rooms/Library/library layout_IMG_4352.png" id="1_yidfh"]
 [ext_resource type="PackedScene" uid="uid://bt12f14jam32q" path="res://rooms/Library/blackraillings.glb" id="2_6fo57"]
+[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="2_mwspb"]
 [ext_resource type="Texture2D" uid="uid://d2qmky6uvbv5h" path="res://rooms/Library/library layout_woodlight1.png" id="2_nt7ft"]
 [ext_resource type="Texture2D" uid="uid://cbpg3gmjegrqw" path="res://rooms/Library/library layout_wooddark.png" id="3_1lqw2"]
 [ext_resource type="PackedScene" uid="uid://cujkdwu7yl672" path="res://rooms/Library/bookshelf top floor.glb" id="3_mjo1y"]
@@ -94,6 +95,10 @@ size = Vector3(3, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_twmdx"]
 size = Vector3(15, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aokc7"]
+resource_local_to_scene = true
+size = Vector3(1.68567, 2.36667, 1.70995)
 
 [sub_resource type="FogMaterial" id="FogMaterial_obdan"]
 density = 0.05
@@ -1215,20 +1220,24 @@ shape = SubResource("BoxShape3D_hu7nt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79346, -3.5, 6.89667)
 shape = SubResource("BoxShape3D_twmdx")
 
+[node name="TeleportPoint" parent="." instance=ExtResource("2_mwspb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.85343, -3.48211, 3.96691)
+
 [node name="SceneLoader_Ghost hallway" parent="." instance=ExtResource("1_j03r7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -3.8112, 7.39135)
-scene_going_right = "Ghost hallway"
-scene_going_left = "Ghost hallway"
+target_location_index = 11
+local_spawn_point = 1
 play_door_sound = true
 
-[node name="CollisionShape3D" parent="SceneLoader_Ghost hallway" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37187, 0.447803, -0.87758)
+[node name="Popup" parent="SceneLoader_Ghost hallway" index="1"]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 3.55373, 0.516734, -0.752654)
 
-[node name="TeleportPoint" parent="SceneLoader_Ghost hallway" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03117, 0.839686, -6.00041)
+[node name="InteractionDetector" parent="SceneLoader_Ghost hallway" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38042, 0, 0)
 
-[node name="MeshInstance3D" parent="SceneLoader_Ghost hallway/TeleportPoint" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.234054, 0, -0.277493)
+[node name="CollisionShape3D" parent="SceneLoader_Ghost hallway/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033143, 0.694, -0.715)
+shape = SubResource("BoxShape3D_aokc7")
 
 [node name="SceneLights" type="Node3D" parent="."]
 
@@ -2206,6 +2215,7 @@ autoplay = "IDLE"
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 
 [editable path="SceneLoader_Ghost hallway"]
+[editable path="SceneLoader_Ghost hallway/InteractionDetector"]
 [editable path="Room/BackWall/Bookshelves/Upstairs"]
 [editable path="Balcony/Railings"]
 [editable path="Chandelier"]

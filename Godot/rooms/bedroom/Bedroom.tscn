@@ -87,7 +87,7 @@
 [ext_resource type="PackedScene" uid="uid://5dyu4rpk5qa6" path="res://rooms/bedroom/LEO.glb" id="70_b33ja"]
 [ext_resource type="Texture2D" uid="uid://jhllv8yv42pa" path="res://rooms/bedroom/carn poster_carn stranglers.png" id="81_5smtm"]
 [ext_resource type="PackedScene" uid="uid://bw2herdlwxvnh" path="res://rooms/Basement/bean bag.glb" id="82_p0j85"]
-[ext_resource type="PackedScene" uid="uid://cykdqlo2ui13d" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="88_otruv"]
+[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="88_otruv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.23928, 3.15956, 8.65055)
@@ -127,7 +127,7 @@ size = Vector3(1, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otruv"]
 resource_local_to_scene = true
-size = Vector3(5.33508, 2.80212, 1.06707)
+size = Vector3(4.7276, 2.80212, 3.4548)
 
 [sub_resource type="Curve3D" id="Curve3D_tluma"]
 _data = {
@@ -2181,11 +2181,14 @@ shape = SubResource("BoxShape3D_b70md")
 
 [node name="SceneLoader_Exterior" parent="." instance=ExtResource("6_x8yhf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.60016)
-use_front_icon = true
 target_location_index = 7
+use_first_mesh = true
+
+[node name="Popup" parent="SceneLoader_Exterior" index="2"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.686751, -1.044)
 
 [node name="CollisionShape3D" parent="SceneLoader_Exterior/InteractionDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176025, 1.23943, -1.75858)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.194091, 1.23943, -0.623451)
 shape = SubResource("BoxShape3D_otruv")
 
 [node name="Path3D" type="Path3D" parent="."]

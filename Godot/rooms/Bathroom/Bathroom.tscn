@@ -1,9 +1,10 @@
-[gd_scene load_steps=78 format=4 uid="uid://o1miuonfuk7"]
+[gd_scene load_steps=80 format=4 uid="uid://o1miuonfuk7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="1_qlpr6"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="2_3y0er"]
+[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="2_bym60"]
 [ext_resource type="Texture2D" uid="uid://cpyd6vsbc6h2e" path="res://rooms/Bathroom/Bathroom layout_Wall 2.jpg" id="2_qlpr6"]
 [ext_resource type="Texture2D" uid="uid://bekk2pej44hkd" path="res://rooms/Bathroom/Bathroom layout_wooddark.png" id="3_moj8i"]
 [ext_resource type="Texture2D" uid="uid://bqar6l142xdsc" path="res://rooms/Bathroom/Bathroom layout_IMG_4162.png" id="4_qgpod"]
@@ -70,6 +71,10 @@ size = Vector3(0.75, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_46x1s"]
 size = Vector3(14, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bym60"]
+resource_local_to_scene = true
+size = Vector3(1.52746, 2.80212, 2.11717)
 
 [sub_resource type="FogMaterial" id="FogMaterial_qlpr6"]
 density = 0.3
@@ -595,18 +600,21 @@ shape = SubResource("BoxShape3D_0gtm2")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.28073, -1.4174, 1.51291)
 shape = SubResource("BoxShape3D_46x1s")
 
+[node name="TeleportPoint" parent="." instance=ExtResource("2_bym60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65482, -1.40483, 0)
+
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("2_3y0er")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
-scene_going_right = "PartyRoom"
-scene_going_left = "PartyRoom"
+target_location_index = 1
+local_spawn_point = 1
 play_door_sound = true
 
-[node name="CollisionShape3D" parent="SceneLoader_PartyRoom" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646526, 0.638772, -0.771466)
-debug_color = Color(0, 0.6, 0.701961, 1)
+[node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0.630045, 0.801186, -1.16111)
 
-[node name="TeleportPoint" parent="SceneLoader_PartyRoom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16869e-07, 0.839686, 4.3104)
+[node name="CollisionShape3D" parent="SceneLoader_PartyRoom/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.610626, 1.23943, -0.702423)
+shape = SubResource("BoxShape3D_bym60")
 
 [node name="SceneLights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14101, 3.67368, -2.90071)
@@ -1181,6 +1189,7 @@ bones/63/rotation = Quaternion(0.288924, 0.0842996, -0.0890938, 0.949462)
 autoplay = "puke"
 
 [editable path="SceneLoader_PartyRoom"]
+[editable path="SceneLoader_PartyRoom/InteractionDetector"]
 [editable path="WallLamp"]
 [editable path="WallLamp2"]
 [editable path="DiscoLights"]

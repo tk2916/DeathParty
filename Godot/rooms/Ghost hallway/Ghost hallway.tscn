@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=4 uid="uid://ch4fuk8qiva6x"]
+[gd_scene load_steps=168 format=4 uid="uid://ch4fuk8qiva6x"]
 
 [ext_resource type="Texture2D" uid="uid://bcg3mnugm862f" path="res://rooms/Ghost hallway/ghost hallway_wooddark.png" id="2_p1n0h"]
 [ext_resource type="Script" uid="uid://bwumtfq5s3fh3" path="res://rooms/Ghost hallway/ghost_hallway.gd" id="2_rj2l7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://h4ongtdtye0r" path="res://rooms/Ghost hallway/ghost hallway_IMG_4443.png" id="6_op2m7"]
 [ext_resource type="Texture2D" uid="uid://b2t57wmdyk8mh" path="res://rooms/Ghost hallway/ghost hallway_IMG_4442.png" id="7_d1x72"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="8_ds0tn"]
+[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="8_ksoqh"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="9_giwxe"]
 [ext_resource type="Texture2D" uid="uid://8cdgn7y4uxtk" path="res://Assets/environment/carpet/carpet_carpet.png" id="10_ayop1"]
 [ext_resource type="Texture2D" uid="uid://cvs4s61cbwwdc" path="res://rooms/Ghost hallway/ghost_ghosts.png" id="11_o2el0"]
@@ -766,6 +767,14 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rr045")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8eoh"]
+resource_local_to_scene = true
+size = Vector3(1.61938, 2.80212, 2.04828)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksoqh"]
+resource_local_to_scene = true
+size = Vector3(1.61938, 2.80212, 2.04828)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cwahg"]
 _surfaces = [{
@@ -1734,29 +1743,35 @@ transform = Transform3D(0, 0, -0.428759, 0, 1.68453, 0, 0.428759, 0, 0, 5.03449,
 mesh = SubResource("ArrayMesh_56nhb")
 skeleton = NodePath("")
 
+[node name="TeleportPoint" parent="." instance=ExtResource("8_ksoqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.291, -0.191985, 2.19169)
+
+[node name="TeleportPoint2" parent="." instance=ExtResource("8_ksoqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5619, -0.47776, 1.89654)
+spawn_point_number = 1
+
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("8_ds0tn")]
 transform = Transform3D(-0.00401429, 0, 0.999992, 0, 1, 0, -0.999992, 0, -0.00401429, -7.14089, -0.914738, 1.84623)
-scene_going_right = "PartyRoom"
-scene_going_left = "PartyRoom"
+target_location_index = 1
+local_spawn_point = 2
 play_door_sound = true
 
-[node name="CollisionShape3D" parent="SceneLoader_PartyRoom" index="0"]
-debug_color = Color(0, 0.6, 0.701961, 1)
+[node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -6.84474e-08, 0.801186, 0.521097)
 
-[node name="TeleportPoint" parent="SceneLoader_PartyRoom" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.778794, 0.839686, -7.00357)
+[node name="CollisionShape3D" parent="SceneLoader_PartyRoom/InteractionDetector" index="0"]
+shape = SubResource("BoxShape3D_u8eoh")
 
 [node name="SceneLoader_Library" parent="." instance=ExtResource("8_ds0tn")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.23819, -0.917734, 1.90478)
-scene_going_right = "Library"
-scene_going_left = "Library"
+target_location_index = 2
 play_door_sound = true
 
-[node name="CollisionShape3D" parent="SceneLoader_Library" index="0"]
-debug_color = Color(0, 0.6, 0.701961, 1)
+[node name="Popup" parent="SceneLoader_Library" index="1"]
+transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, -6.22008e-08, 0.801186, 0.567236)
 
-[node name="TeleportPoint" parent="SceneLoader_Library" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443334, 0.839686, -5.76145)
+[node name="CollisionShape3D" parent="SceneLoader_Library/InteractionDetector" index="0"]
+shape = SubResource("BoxShape3D_ksoqh")
 
 [node name="Plane2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0, -5.70488, 0, 0.857832, 0, 1.05168, 0, 0, -1.70241, -1.18371, 5.32539)
@@ -2111,7 +2126,9 @@ frame_progress = 0.785844
 transform = Transform3D(2.3704, 0, 0, 0, 1, 0, 0, 0, 1, -4.07609, 0.696901, -0.9287)
 
 [editable path="SceneLoader_PartyRoom"]
+[editable path="SceneLoader_PartyRoom/InteractionDetector"]
 [editable path="SceneLoader_Library"]
+[editable path="SceneLoader_Library/InteractionDetector"]
 [editable path="FreeHugGuy"]
 [editable path="RedBunny"]
 [editable path="spiderwebs"]
