@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=80 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -38,7 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://bndch2w3fgmyf" path="res://Assets/props/jack_o_lanterns/jack_o_lantern_squashed.tscn" id="35_p1ak8"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="36_gfuhi"]
 [ext_resource type="PackedScene" uid="uid://craae7sxr3poi" path="res://rooms/Basement/DIE flag.glb" id="37_0ritw"]
-[ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="39_t7spl"]
 [ext_resource type="PackedScene" uid="uid://c43bqwa4bftlx" path="res://Assets/props/sofas/sofa_brown_round/sofa_brown_round.tscn" id="39_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://7byda3k0fnfy" path="res://Assets/CharacterAssets/frat_boys/jack/jack.tscn" id="41_6fv14"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="42_a5wms"]
@@ -61,23 +60,6 @@ size = Vector3(20, 10, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihq26"]
 size = Vector3(5, 2, 0.1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
-size = Vector3(17.9089, 3.18161, 0.503846)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
-albedo_color = Color(0.281989, 0.500556, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kdf33"]
-size = Vector3(1.25, 2, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_t7spl"]
-size = Vector3(3, 2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_la1vu"]
-size = Vector3(1.25, 2, 0.5)
 
 [sub_resource type="FogMaterial" id="FogMaterial_nneh3"]
 density = 0.02
@@ -441,74 +423,19 @@ shape = SubResource("BoxShape3D_klyfx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -2.8)
 shape = SubResource("BoxShape3D_ihq26")
 
-[node name="SceneLoader_Exterior" type="Area3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09533, 0, 13.3314)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("39_t7spl")
-scene_going_right = "Exterior"
-scene_going_left = "Exterior"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneLoader_Exterior"]
-transform = Transform3D(0.999988, 0, -3.76588e-13, 0, 1, 0, 3.76588e-13, 0, 0.999988, -1.47154, 0.747803, -0.0853052)
-shape = SubResource("BoxShape3D_3cled")
-
-[node name="TeleportPoint" type="Node3D" parent="SceneLoader_Exterior"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -8.9721, 2.09517, -47.1503)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SceneLoader_Exterior/TeleportPoint"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_6wayg")
-mesh = SubResource("BoxMesh_qelyj")
-
-[node name="DoorSound" type="FmodEventEmitter3D" parent="SceneLoader_Exterior"]
-event_name = "event:/door"
-event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
-attached = false
-volume = 0.3
-unique_name_in_owner = true
+[node name="SceneLoader" parent="." instance=ExtResource("35_nneh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52381, 0, 15.0416)
 
 [node name="SceneLoader_Kitchen" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 8.4075)
-scene_going_right = "Kitchen"
-scene_going_left = "Kitchen"
 play_door_sound = true
-
-[node name="CollisionShape3D" parent="SceneLoader_Kitchen" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29234, 1.2478, 0.644916)
-shape = SubResource("BoxShape3D_kdf33")
-
-[node name="TeleportPoint" parent="SceneLoader_Kitchen" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -3.37467)
-
-[node name="MeshInstance3D" parent="SceneLoader_Kitchen/TeleportPoint" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.23872, 0, 0)
 
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
-offload_delay = 0.0
-scene_going_right = "PartyRoom"
-scene_going_left = "PartyRoom"
-
-[node name="CollisionShape3D" parent="SceneLoader_PartyRoom" index="0"]
-transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.247803, -1.11728)
-shape = SubResource("BoxShape3D_t7spl")
 
 [node name="SceneLoader_Basement" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 13.3283, 1.22732, 6.56851)
-scene_going_right = "Basement"
-scene_going_left = "Basement"
 play_door_sound = true
-
-[node name="CollisionShape3D" parent="SceneLoader_Basement" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496214, -0.052197, 1.26097)
-shape = SubResource("BoxShape3D_la1vu")
-
-[node name="TeleportPoint" parent="SceneLoader_Basement" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788603, -1.86279, -6.29928)
-
-[node name="MeshInstance3D" parent="SceneLoader_Basement/TeleportPoint" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.06286, 0)
 
 [node name="SceneLights" type="Node3D" parent="."]
 
@@ -1125,12 +1052,15 @@ volume = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_entered"]
-[connection signal="body_exited" from="SceneLoader_Exterior" to="SceneLoader_Exterior" method="_on_body_exited"]
 
+[editable path="SceneLoader"]
+[editable path="SceneLoader/InteractionDetector"]
 [editable path="SceneLoader_Kitchen"]
+[editable path="SceneLoader_Kitchen/InteractionDetector"]
 [editable path="SceneLoader_PartyRoom"]
+[editable path="SceneLoader_PartyRoom/InteractionDetector"]
 [editable path="SceneLoader_Basement"]
+[editable path="SceneLoader_Basement/InteractionDetector"]
 [editable path="WallLamps/WallLamp2"]
 [editable path="WallLamps/WallLamp3"]
 [editable path="Windows/ArchWindow"]

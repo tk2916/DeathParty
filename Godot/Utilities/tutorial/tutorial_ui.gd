@@ -62,7 +62,7 @@ var state: States:
 				print("TUTORIAL STEP: USING JOURNAL")
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
-				exterior_scene_loader.monitoring = true
+				#exterior_scene_loader.monitoring = true
 				door.show()
 				queue_free()
 				

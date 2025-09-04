@@ -261,9 +261,9 @@ func match_command(text_ : String):
 		"/fade_screen":
 			if parameters_array[1] == "true":
 				current_dialogue_box.visible = false
-				ContentLoader.fade_loading_screen_in()
+				GuiSystem.fade_loading_screen_in()
 			elif parameters_array[1] == "false":
-				var tween : Tween = await ContentLoader.fade_loading_screen_out()
+				var tween : Tween = await GuiSystem.fade_loading_screen_out()
 				await tween.finished
 				current_dialogue_box.visible = true
 		"/toggle_ui":

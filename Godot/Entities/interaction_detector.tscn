@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dc0eglbdf0sq7" path="res://Utilities/scripts/interaction_detector.gd" id="1_ks6yy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awqde"]
+resource_local_to_scene = true
 size = Vector3(1.61938, 2.80212, 2.04828)
 
 [node name="InteractionDetector" type="Area3D" node_paths=PackedStringArray("collision_shape")]

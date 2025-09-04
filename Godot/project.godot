@@ -50,6 +50,7 @@ ContentLoader="*res://Singletons/ContentLoader/content_loader.gd"
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 InventoryUtils="*res://Singletons/Utils/inventory_utils.gd"
 Sounds="*res://Singletons/sounds/sounds.tscn"
+Globals="*res://globals.gd"
 
 [debug]
 

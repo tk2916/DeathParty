@@ -131,7 +131,7 @@ func show_cells() -> void:
 		
 		scene.parent_node.add_child.call_deferred(mesh_instance)
 
-func find_player_cell(player_center : Vector3):
+func find_player_cell(player_center : Vector3) -> void:
 	#checking the adjacent cells first. 
 	player_cell = null
 	for cell : Cell in active_cells:
@@ -149,11 +149,12 @@ func find_player_cell(player_center : Vector3):
 						break
 
 func update_active_cells(initial_load : bool = false) -> void:
-	if number_of_cells == 1 and !initial_load: 
+	if number_of_cells == 1 and !initial_load:
+		print("NOT Loading in ", scene.name)
 		#only 1 cell so no need to load/offload
-		return 
-	var start = Time.get_ticks_msec()
+		return
 	if not scene.active: return
+	print("YES loading in ", scene.name)
 	var player_center : Vector3
 	if initial_load:
 		#player hasn't teleported into the scene yet,
@@ -164,6 +165,7 @@ func update_active_cells(initial_load : bool = false) -> void:
 		player_center = ContentLoader.player_aabb.get_center()
 	find_player_cell(player_center)
 	if player_cell == null:
+		print("Player cell is null")
 		return
 	#assert(player_cell != null, "Player is not located in a content cell! Did they go outside the RoomArea?")
 	var cell_coords : Vector3 = player_cell.coords
@@ -181,8 +183,6 @@ func update_active_cells(initial_load : bool = false) -> void:
 	
 	active_cells = adjacent_cells
 	scene.cell_debugger.update_active_cells()
-	var duration = (Time.get_ticks_msec() - start)
-	#print("Duration of update_cells(): ", duration, " ms")
 	
 func find_adjacent_cells(
 	adjacent : Array[Cell],

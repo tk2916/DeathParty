@@ -1,14 +1,13 @@
 class_name SceneLoaderData extends SceneObject
 
-#save properties (these are set in main)
-var collision_shape_dimensions : Vector3
-var teleport_pos : Vector3
-var scene_going_right : String
-var scene_going_left : String
+#save properties
+var teleport_point : TeleportPointData
 var play_door_sound : bool
 var offload_delay : float
 
 var target_scene_name : String
+var local_spawn_point : int
+
 var loader : SceneLoader
 
 func _init(
@@ -23,28 +22,33 @@ func _init(
 	)
 	loader = instance as SceneLoader
 	save_properties()
-	target_scene_name = name.substr(12)
+	scene.scene_loader_dict[name] = self
 
 func load_in() -> Node3D:
 	await super()
 	loader = instance as SceneLoader
 	load_properties()
-	return instance
+	return loader
+
+func set_teleport_point():
+	#Called after all scenes have loaded in
+	var target_scene : LoadableScene = ContentLoader.get_scene(target_scene_name)
+	
+	if local_spawn_point < target_scene.teleport_points.size():
+		teleport_point = target_scene.teleport_points[local_spawn_point]
+	print("Checking teleport ", target_scene.name, " for ", local_spawn_point, " | ", teleport_point)
+	if loader and teleport_point:
+		loader.teleport_point = teleport_point
+		print("Set teleport: ", teleport_point)
 
 func save_properties():
-	var collision_shape : CollisionShape3D = loader.get_node("CollisionShape3D") 
-	collision_shape_dimensions = collision_shape.position
-	teleport_pos = loader.teleport_pos
-	scene_going_left = loader.scene_going_left
-	scene_going_right = loader.scene_going_right
 	play_door_sound = loader.play_door_sound
 	offload_delay = loader.offload_delay
+	
+	local_spawn_point = loader.local_spawn_point
+	target_scene_name = loader.target_scene
 
 func load_properties():
-	var collision_shape : CollisionShape3D = loader.get_node("CollisionShape3D") 
-	collision_shape.position = collision_shape_dimensions
-	loader.teleport_pos = teleport_pos
-	loader.scene_going_left = scene_going_left
-	loader.scene_going_right = scene_going_right
+	loader.teleport_point = teleport_point
 	loader.play_door_sound = play_door_sound
 	loader.offload_delay = offload_delay

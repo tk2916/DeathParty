@@ -41,3 +41,4 @@ func on_interact() -> void:
 		
 func play_animation(anim_name : String):
 	animation_player.play(anim_name)
+		

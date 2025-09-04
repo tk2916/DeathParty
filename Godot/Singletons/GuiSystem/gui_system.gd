@@ -5,10 +5,15 @@ var journal : PackedScene = preload("res://Assets/models/bookflip_collisionbody.
 var journal_instance : Journal
 var object_viewer : ObjectViewer
 
+var loading_screen : ColorRect
+var tree : SceneTree
+
+##SOUNDS/ASSETS
 var journal_open_sound : FmodEventEmitter2D
 var journal_music : FmodEventEmitter3D
 var journal_backpack_bg : PackedScene = preload("res://Assets/JournalTextures/backpack_background.tscn")
 
+##STATES
 var in_journal : bool = false
 var inventory_showing : bool = false #used within journal scripts
 var in_gui : bool = false
@@ -17,7 +22,8 @@ var hid_phone_mid_convo : bool = false
 var prevent_gui : bool = true
 
 func _ready() -> void:
-	var main : Node3D = get_tree().root.get_node_or_null("Main")
+	tree = get_tree()
+	var main : Node3D = tree.root.get_node_or_null("Main")
 	if main == null: return
 	
 	journal_instance = journal.instantiate()
@@ -25,8 +31,10 @@ func _ready() -> void:
 	journal_open_sound = journal_instance.get_node("Sounds/JournalOpenSound")
 	journal_music = journal_instance.get_node("Sounds/JournalMusic")
 	
+	loading_screen = main.get_node("CanvasLayer/LoadingScreen")
+	
 	object_viewer = main.get_node("ObjectViewerCanvasLayer/ObjectViewer")
-	var gui_objects : Array[Node] = get_tree().get_nodes_in_group("gui_object")
+	var gui_objects : Array[Node] = tree.get_nodes_in_group("gui_object")
 	for obj in gui_objects:
 		gui_dict[obj.name] = obj
 
@@ -149,3 +157,20 @@ func show_node(node:Control)->void:
 func hide_node(node:Control)->void:
 	node.visible = false
 	in_gui = check_for_open_guis()
+
+##LOADING SCREEN
+func fade_loading_screen_in(fadeout_delay : float = 0) -> Tween:
+	var tween : Tween = tree.create_tween()
+	tween.tween_property(loading_screen, "modulate:a", 1, .2)
+	if fadeout_delay > 0:
+		tween.tween_callback(fade_loading_screen_out.bind(fadeout_delay))
+	return tween
+	
+func fade_loading_screen_out(fadeout_delay : float = 0) -> Tween:
+	if is_instance_valid(Globals.player) and Globals.player.is_inside_tree():
+		Globals.player.movement_disabled = true
+		await tree.create_timer(fadeout_delay).timeout
+		Globals.player.movement_disabled = false
+	var tween : Tween = tree.create_tween()
+	tween.tween_property(loading_screen, "modulate:a", 0, 1)
+	return tween

@@ -15,6 +15,7 @@ func _process(_delta: float) -> void:
 		player_interacted.emit()
 	
 func _on_body_entered(body: Node3D) -> void:
+	print("On body entered: ", body)
 	if body.is_in_group("player"):
 		player_currently_in_range = true
 		player_in_range.emit(true)

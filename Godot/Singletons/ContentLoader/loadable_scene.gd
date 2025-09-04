@@ -2,10 +2,8 @@ class_name LoadableScene extends GameObject
 
 #SceneLoaders
 var scene_loader_dict : Dictionary[String, SceneLoaderData] = {} #node name, teleport position
-
-#Main teleport (set by content_loader.gd)
-var main_teleport_point : Vector3 = Vector3(-1,-1,-1)
-var main_teleport_point_name : String
+var teleport_points : Array[TeleportPointData]
+var main_teleport_point : TeleportPointData
 
 #Cells
 var cell_manager : CellManager
@@ -42,15 +40,12 @@ func load_files(on : bool = true):
 func load_in() -> Node3D:
 	##UI
 	max_objects_per_frame = cell_manager.max_objects_per_frame
-	#print("Max objects per frame: ", max_objects_per_frame)
 	instance = file.instantiate()
 	instance.ready.connect(func() -> void:
 		print(name, " finished loading")
 		)
-	#print("Instance for ", name, " is ", instance)
 	instance.transform = transform
 	parent_node.add_child.call_deferred(instance)
-	#instance.call_deferred("set_global_transform", transform)
 	load_files()
 	super() #loads children
 	cell_debugger.load_in()
@@ -58,29 +53,19 @@ func load_in() -> Node3D:
 	return instance
 
 func offload() -> void:
-	#thread.wait_to_finish()
 	super() #offloads children & self
 	load_files(false)
 	cell_debugger.offload()
 	cell_manager.offload()
-	
 ##END LOADING
 
-##SCENE LOADERS ------------------------------------	
-func get_scene_loader(loader_name:String) -> SceneLoaderData:
-	return scene_loader_dict[loader_name]
-
-func get_all_scene_loaders() -> Array[SceneLoaderData]:
-	var arr : Array[SceneLoaderData] = []
-	for key : String in scene_loader_dict:
-		var value : SceneLoaderData = scene_loader_dict[key]
-		arr.push_back(value)
-	return arr
-
-func set_main_teleport(point_name : String, point : Vector3) -> void:
-	#print("Set main teleport for ", name, ": ", point_name)
-	main_teleport_point_name = point_name
-	main_teleport_point = point
+##SCENE LOADERS
+func set_teleport_points() -> void:
+	for loader_name : String in scene_loader_dict:
+		scene_loader_dict[loader_name].set_teleport_point()
+	if teleport_points.size() > 0:
+		main_teleport_point = teleport_points[0]
+		
 ##END SCENE LOADERS
 
 ##NPC

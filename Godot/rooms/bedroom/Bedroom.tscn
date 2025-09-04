@@ -1,4 +1,4 @@
-[gd_scene load_steps=243 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=245 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://x8vl3v7s7cat" path="res://rooms/bedroom/side wall.glb" id="3_ra5m4"]
 [ext_resource type="Texture2D" uid="uid://bxej6ebm3jetb" path="res://rooms/bedroom/Bedroom_woodmedium.png" id="3_rbtdn"]
 [ext_resource type="PackedScene" uid="uid://8npa6vrpy0jb" path="res://rooms/bedroom/punk posters.glb" id="3_w0jyq"]
-[ext_resource type="PackedScene" uid="uid://b4c88kienbj8q" path="res://Singletons/ContentLoader/scene_loader_exterior.tscn" id="4_1qprw"]
 [ext_resource type="Texture2D" uid="uid://b8uue8x55guj4" path="res://rooms/bedroom/polaroids and poster_love birds.png" id="4_fa1og"]
 [ext_resource type="Texture2D" uid="uid://d0vlsucaate3q" path="res://rooms/bedroom/punk posters_singer poster.png" id="4_tluma"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="4_x8yhf"]
@@ -17,6 +16,7 @@
 [ext_resource type="JSON" path="res://Assets/InkExamples/caleb_test_dialogue_1.json" id="5_otruv"]
 [ext_resource type="PackedScene" uid="uid://dijllg5x7mlpw" path="res://rooms/bedroom/bed.glb" id="5_rbtdn"]
 [ext_resource type="Texture2D" uid="uid://fuhn5pxlrdsu" path="res://rooms/bedroom/polaroids and poster_Rush over.png" id="6_0t478"]
+[ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="6_x8yhf"]
 [ext_resource type="PackedScene" uid="uid://b8ucr48tcuk2p" path="res://rooms/bedroom/dorm desk.glb" id="7_7a5mm"]
 [ext_resource type="Texture2D" uid="uid://dke1flebhebj4" path="res://rooms/bedroom/polaroids and poster_study date wiht nora.png" id="7_84fnt"]
 [ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="8_8bc0i"]
@@ -87,6 +87,7 @@
 [ext_resource type="PackedScene" uid="uid://5dyu4rpk5qa6" path="res://rooms/bedroom/LEO.glb" id="70_b33ja"]
 [ext_resource type="Texture2D" uid="uid://jhllv8yv42pa" path="res://rooms/bedroom/carn poster_carn stranglers.png" id="81_5smtm"]
 [ext_resource type="PackedScene" uid="uid://bw2herdlwxvnh" path="res://rooms/Basement/bean bag.glb" id="82_p0j85"]
+[ext_resource type="PackedScene" uid="uid://cykdqlo2ui13d" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="88_otruv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.23928, 3.15956, 8.65055)
@@ -123,6 +124,10 @@ size = Vector3(5, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b70md"]
 size = Vector3(1, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_otruv"]
+resource_local_to_scene = true
+size = Vector3(5.33508, 2.80212, 1.06707)
 
 [sub_resource type="Curve3D" id="Curve3D_tluma"]
 _data = {
@@ -2118,10 +2123,9 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
-[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader", "door") instance=ExtResource("3_84fnt")]
+[node name="TutorialUI" parent="." node_paths=PackedStringArray("door") instance=ExtResource("3_84fnt")]
 json1 = ExtResource("4_x8yhf")
 json2 = ExtResource("5_otruv")
-exterior_scene_loader = NodePath("../SceneLoader_Exterior")
 door = NodePath("../Door")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
@@ -2175,8 +2179,14 @@ shape = SubResource("BoxShape3D_84fnt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 3.2)
 shape = SubResource("BoxShape3D_b70md")
 
-[node name="SceneLoader_Exterior" parent="." instance=ExtResource("4_1qprw")]
-transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.816608, -0.0933874, 5.45903)
+[node name="SceneLoader_Exterior" parent="." instance=ExtResource("6_x8yhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.60016)
+use_front_icon = true
+target_location_index = 7
+
+[node name="CollisionShape3D" parent="SceneLoader_Exterior/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176025, 1.23943, -1.75858)
+shape = SubResource("BoxShape3D_otruv")
 
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_tluma")
@@ -2916,9 +2926,14 @@ skeleton = NodePath("")
 [node name="bean bag" parent="." instance=ExtResource("82_p0j85")]
 transform = Transform3D(0.0636847, 0, 0.577681, 0, 0.58118, 0, -0.577681, 0, 0.0636847, 1.31697, 0.0757391, 5.61384)
 
+[node name="TeleportPoint" parent="." instance=ExtResource("88_otruv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933156, 1.79014)
+
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
 
+[editable path="SceneLoader_Exterior"]
+[editable path="SceneLoader_Exterior/InteractionDetector"]
 [editable path="Door"]
 [editable path="Bed"]
 [editable path="Closet"]
