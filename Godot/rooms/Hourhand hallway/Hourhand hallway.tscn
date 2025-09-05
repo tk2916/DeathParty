@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ccfm4gober6x6" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_baseColor.jpg" id="16_8uf1m"]
 [ext_resource type="Texture2D" uid="uid://dm3hjctqeb8wy" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_metallicRoughness.png" id="17_xaafo"]
 [ext_resource type="Texture2D" uid="uid://5m0xqqnw8gmg" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_normal.png" id="18_dr676"]
-[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="19_xaafo"]
+[ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="19_xaafo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgvqn"]
 size = Vector3(21.6137, 3.22495, 3.19273)

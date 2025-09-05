@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://ddr81dhpf6gqv"]
+
+[ext_resource type="PackedScene" uid="uid://djpq5iuhqvbkh" path="res://Assets/props/inventory_items/polaroid_olivia.tscn" id="1_4djm2"]
+[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Singletons/SaveSystem/ResourceScripts/inventory_properties_script.gd" id="1_ef5rq"]
+
+[resource]
+script = ExtResource("1_ef5rq")
+name = "Olivia's Polaroid"
+description = "Olivia"
+model = ExtResource("1_4djm2")
+inventory_scale = 1.3
+inventory_position = Vector2(-0.7, 0)

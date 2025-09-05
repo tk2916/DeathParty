@@ -69,14 +69,14 @@ var rng = RandomNumberGenerator.new()
 signal loaded_new_contact
 signal done_waiting
 
-func emit_contacts():
-	for key in SaveSystem.phone_chat_to_resource:
-		loaded_new_contact.emit(SaveSystem.phone_chat_to_resource[key])
+func emit_contacts() -> void:
+	for key in SaveSystem.active_save_file.phone_chats:
+		loaded_new_contact.emit(SaveSystem.get_phone_chat(key))
 
 #in case we want to switch dialogue box mid conversation
-func mouse_entered():
+func mouse_entered() -> void:
 	mouse_contained_within_gui = true
-func mouse_exited():
+func mouse_exited() -> void:
 	mouse_contained_within_gui = false
 
 func transferBoxProperties():
@@ -132,8 +132,9 @@ func add_new_line(current_dialogue_info : InkLineInfo, no_animation : bool = fal
 	newline.line_info = current_dialogue_info
 	newline.text_properties = dialogue_box_properties
 	newline.no_animation = no_animation
-	if SaveSystem.character_to_resource.has(speaker):
-		newline.speaker_resource = SaveSystem.character_to_resource[speaker]
+	var char_resource : CharacterResource = SaveSystem.get_character(speaker)
+	if char_resource:
+		newline.speaker_resource = char_resource
 	else:
 		print("No speaker ", speaker)
 	if image_container:
@@ -176,9 +177,9 @@ func load_convo(target_name : String, json_name : String, phone_conversation : b
 	var json_file : JSON = load(INK_FILE_PATH+json_name)
 	var target_resource : Resource 
 	if phone_conversation:
-		target_resource = SaveSystem.phone_chat_to_resource[target_name]
+		target_resource = SaveSystem.get_phone_chat(target_name)
 	else:
-		target_resource = SaveSystem.character_to_resource[target_name]
+		target_resource = SaveSystem.get_character(target_name)
 	#print("Target resource: ", target_resource)
 	target_resource.load_chat(json_file)
 
@@ -255,7 +256,7 @@ func match_command(text_ : String):
 			else:
 				SaveSystem.set_key("die_roll_flag", false)
 		"/change_location":
-			var target_resource : CharacterResource = SaveSystem.character_to_resource[parameters_array[1]]
+			var target_resource : CharacterResource = SaveSystem.get_character(parameters_array[1])
 			var target_location : String = parameters_array[2]
 			target_resource.change_location(target_location)
 		"/fade_screen":
@@ -420,9 +421,8 @@ func from_character(char_rsc : CharacterResource, file : JSON) -> void:
 
 #PHONE-RELATED
 func find_contact(chat_name:String) -> ChatResource:
-	if SaveSystem.phone_chat_to_resource.has(chat_name):
-		return SaveSystem.phone_chat_to_resource[chat_name]
-	return null
+	var phone_chat : ChatResource = SaveSystem.get_phone_chat(chat_name)
+	return phone_chat #null or chat
 
 func to_phone(chat_name : String, file : JSON) -> void: # called to load json into phone
 	var chat : ChatResource = find_contact(chat_name)

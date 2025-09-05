@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://lfthc37kslft"]
+
+[ext_resource type="Texture2D" uid="uid://dt2q87mwcwbmb" path="res://Assets/CharacterAssets/Polaroids/nora_a.png" id="1_cbegv"]
+[ext_resource type="Texture2D" uid="uid://dka00jbmkrihq" path="res://Assets/CharacterAssets/nora/nora_circle.png" id="2_cbegv"]
+[ext_resource type="Texture2D" uid="uid://gxeghch3pqsi" path="res://Assets/CharacterAssets/Polaroids/nora_b.png" id="2_cdqmh"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="2_to8io"]
+
+[resource]
+script = ExtResource("2_to8io")
+name = "Nora"
+character_location = "Library"
+image_polaroid = ExtResource("1_cbegv")
+image_polaroid_popout = ExtResource("2_cdqmh")
+name_color = ""
+text_color = ""
+character_notes = Array[String]([])
+character_description = ""
+image_profile = ExtResource("2_cbegv")
+profile_tag = "@nora2948"
+profile_quote = "inspirational quote goes here."
+profile_join_date = "Month 8, 20XX"
+profile_friends = 359

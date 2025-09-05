@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SaveFile" load_steps=6 format=3 uid="uid://b5prmshbjg2f6"]
+
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/save_file_script.gd" id="1_7p7yk"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="1_n356d"]
+[ext_resource type="Script" uid="uid://b3w5yn7owert6" path="res://Singletons/SaveSystem/ResourceScripts/Chat.gd" id="2_0q17s"]
+[ext_resource type="Resource" uid="uid://c6xgdhpro5a1j" path="res://Singletons/SaveSystem/DefaultResources/PlayerDataResource/player_data.tres" id="3_ev5or"]
+[ext_resource type="Script" uid="uid://cvt183j47uyr1" path="res://Singletons/SaveSystem/ResourceScripts/task_properties_script.gd" id="5_v2302"]
+
+[resource]
+script = ExtResource("1_7p7yk")
+player_data = ExtResource("3_ev5or")
+tasks = Array[ExtResource("5_v2302")]([])
+characters = Array[ExtResource("1_n356d")]([])
+phone_chats = Array[ExtResource("2_0q17s")]([])

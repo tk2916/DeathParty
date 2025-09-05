@@ -32,7 +32,7 @@ var chatbox2 : CompressedTexture2D = preload("res://Assets/DialogueBoxTextures/c
 var current_speaker : CharacterResource
 var previous_speaker : CharacterResource
 
-var unknown_char_resource : CharacterResource = preload("res://Assets/Resources/CharacterResources/character_properties_unknown.tres")
+var unknown_char_resource : CharacterResource = preload("res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_unknown.tres")
 
 var text_label : RichTextLabel
 var arrow : TextureRect
@@ -134,7 +134,7 @@ func add_line(line : InkLineInfo) -> void:
 	if line.speaker == "BackgroundNPC" or line.speaker == "":
 		current_speaker = DialogueSystem.current_character_resource
 	else:
-		current_speaker = SaveSystem.character_to_resource[line.speaker]
+		current_speaker = SaveSystem.get_character(line.speaker)
 	if current_speaker == null:
 		current_speaker = unknown_char_resource
 	if current_speaker.name == "Olivia":
@@ -146,11 +146,11 @@ func add_line(line : InkLineInfo) -> void:
 	#text_label.text = "[color=black]"+line.text+"[/color]"
 	text_animator.set_text(line, current_speaker)
 
-func skip():
+func skip() -> void:
 	text_animator.skip()
 
 func set_choices(choices : Array[InkChoiceInfo]) -> void:
-	current_speaker = SaveSystem.character_to_resource["Olivia"]
+	current_speaker = SaveSystem.get_character("Olivia")
 	print("Got choices: ", choices)
 	set_ui_state(UI_STATES.CHOICES)
 	var choice_rects : Array[TextureRect] = [choice_down, choice_up, choice_right, choice_left]
@@ -159,7 +159,8 @@ func set_choices(choices : Array[InkChoiceInfo]) -> void:
 			#this is choice info text
 			choice_info.text = choice.text
 		else:
-			var choice_button := LocalChoiceButton.new(choice_rects.pop_back(), choice)
+			var last_choice_rect : TextureRect = choice_rects.pop_back()
+			var choice_button := LocalChoiceButton.new(last_choice_rect, choice)
 			local_choice_buttons.push_back(choice_button)
 	#hide any remaining choice rects
 	for choice_rect : TextureRect in choice_rects:

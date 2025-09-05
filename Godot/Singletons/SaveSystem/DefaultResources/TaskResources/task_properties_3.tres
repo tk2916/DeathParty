@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ccedgial4x66j"]
+
+[ext_resource type="Script" uid="uid://cvt183j47uyr1" path="res://Assets/Resources/TaskResources/Default Resource (DO NOT EDIT)/task_properties_script.gd" id="1_0jm8f"]
+
+[resource]
+script = ExtResource("1_0jm8f")
+name = "A third task"
+description = "here's a third task"

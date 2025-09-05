@@ -31,20 +31,20 @@ func _ready() -> void:
 	#Interact.object_viewer.view_item_info(resource.name, resource.description)
 
 ##INHERITED
-func enter_hover():
+func enter_hover() -> void:
 	if tree == null: return
-	var tween = tree.create_tween()
+	var tween : Tween = tree.create_tween()
 	tween.tween_property(self, "scale", og_scale*1.2, .2)
 	
-func exit_hover():
+func exit_hover() -> void:
 	if tree == null: return
-	var tween = tree.create_tween()
+	var tween : Tween = tree.create_tween()
 	tween.tween_property(self, "scale", og_scale, .2)
 
-func on_mouse_down():
+func on_mouse_down() -> void:
 	clicked_down = true
 
-func on_mouse_up():
+func on_mouse_up() -> void:
 	if not clicked_down: return
 	clicked_down = false
 	InventoryUtils.show_item_details(resource, self)

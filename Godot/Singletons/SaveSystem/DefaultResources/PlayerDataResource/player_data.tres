@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c6xgdhpro5a1j"]
+
+[ext_resource type="Script" uid="uid://dild7h8kxsl6h" path="res://Singletons/SaveSystem/player_data_script.gd" id="1_21j5q"]
+
+[resource]
+script = ExtResource("1_21j5q")
+name = "Player1"
+inventory = Dictionary[String, int]({})
+tasks = Array[String]([])
+time = 27.27
+intelligence = 10
+strength = 10
+empathy = 10
+sleaziness = 10
+current_outtfit = "none"

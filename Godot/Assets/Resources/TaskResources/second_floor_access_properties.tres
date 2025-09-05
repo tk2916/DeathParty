@@ -1,8 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d1uhhnl6m0nmm"]
-
-[ext_resource type="Script" uid="uid://cvt183j47uyr1" path="res://Assets/Resources/TaskResources/Default Resource (DO NOT EDIT)/task_properties_script.gd" id="1_vefoe"]
-
-[resource]
-script = ExtResource("1_vefoe")
-name = "2nd Floor Access"
-description = "Gotta get to the second floor"

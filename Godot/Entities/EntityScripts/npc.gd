@@ -14,7 +14,7 @@ func _ready() -> void:
 	if character_resource:
 		character_resource.unread.connect(on_unread)
 
-func on_unread(unread : bool):
+func on_unread(_unread : bool) -> void:
 	#$SpeechBubble.visible = true
 	pass
 
