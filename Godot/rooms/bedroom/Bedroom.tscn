@@ -2194,7 +2194,7 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0138568, 0.999265, 4.75011)
 
 [node name="Cube_122" parent="door" index="0"]
-transform = Transform3D(-9.00272e-09, 0, -0.205958, 0, 0.205958, 0, 0.205958, 0, -9.00272e-09, -2.07836, 0.0393792, 0.425814)
+transform = Transform3D(-9.00272e-09, 0, -0.205958, 0, 0.205958, 0, 0.205958, 0, -9.00272e-09, -2.23056, 0.0393792, 0.425814)
 
 [node name="SceneLoader_Exterior" parent="." instance=ExtResource("6_x8yhf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48049, 0, 5.078)
@@ -2850,7 +2850,7 @@ autoplay = "IDLE"
 transform = Transform3D(-1.42152, 0, -1.24273e-07, 0, 1.42152, 0, 1.24273e-07, 0, -1.42152, -1.99513, 1.45399, 4.59441)
 
 [node name="Plane_005" type="MeshInstance3D" parent="carn poster"]
-transform = Transform3D(-0.000186524, -0.145017, 1.50284e-07, 4.50802e-09, -1.03724e-07, -0.210123, 0.151264, -0.000178821, 6.44748e-09, 0, 0.192925, 0.284678)
+transform = Transform3D(-0.000186524, -0.145017, 1.50284e-07, 4.50802e-09, -1.03724e-07, -0.210123, 0.151264, -0.000178821, 6.44748e-09, 0, 0.192925, 0.334634)
 mesh = SubResource("ArrayMesh_86pqr")
 skeleton = NodePath("")
 
