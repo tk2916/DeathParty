@@ -92,7 +92,8 @@ func get_scope(final_index : int) -> Array:
 			#SET REDIRECT TABLE IF ANY
 			var final_element = current_scope.back()
 			var second_to_last = current_scope[current_scope.size()-2]
-			if final_element is Dictionary and !final_element.has("#f"): 
+			const str_lookup : String = char(35) + "f" # == "#f"
+			if final_element is Dictionary and !final_element.has(str_lookup): 
 				# FOUND REDIRECT TABLE
 				rsc.redirect_table = final_element
 				rsc.redirect_table_address = current_scope.size()-1
@@ -567,7 +568,17 @@ func get_first_message(temp_json : JSON) -> InkLineInfo:
 	var json_as_text : String = FileAccess.get_file_as_string(filepath)
 	var json_as_dict : Dictionary = JSON.parse_string(json_as_text)
 	assert(json_as_dict != null, "JSON dictionary is null.")
-	return break_up_dialogue(json_as_dict["root"][0][0].substr(1))
+
+	var first_item = json_as_dict["root"][0][0]
+	var first_str : String
+	## First item might be a redirect or text
+	if first_item is Dictionary:
+		var redirect_container = first_item["->"]
+		first_str = json_as_dict["root"][2][redirect_container][0][0]
+	else:
+		first_str = json_as_dict["root"][0][0]
+		
+	return break_up_dialogue(first_str.substr(1))
 
 func from_JSON(file : JSON, saved_ink_resource : InkResource) -> void:#resume_from_hierarchy : Array = []):
 	#reset variables

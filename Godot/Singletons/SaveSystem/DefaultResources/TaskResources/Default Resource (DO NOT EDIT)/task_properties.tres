@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bycb2bfx3ht6l"]
+
+[ext_resource type="Script" uid="uid://cvt183j47uyr1" path="res://Assets/Resources/TaskResources/Default Resource (DO NOT EDIT)/task_properties_script.gd" id="1_8ob3t"]
+
+[resource]
+script = ExtResource("1_8ob3t")
+task_name = "Panic! At the Photography club"
+task_description = ""

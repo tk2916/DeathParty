@@ -1,8 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cj8ej051tp5sb"]
-
-[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_properties_script.gd" id="1_r00jv"]
-
-[resource]
-script = ExtResource("1_r00jv")
-item_name = "Mysterious Scissors"
-item_description = ""

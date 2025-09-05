@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="ChatResource" load_steps=2 format=3 uid="uid://c51ux8bxr5hmm"]
-
-[ext_resource type="Script" uid="uid://b3w5yn7owert6" path="res://Assets/Resources/ChatResources/Default Resource (DO NOT EDIT)/Chat.gd" id="2_8cte3"]
-
-[resource]
-script = ExtResource("2_8cte3")
-name = ""

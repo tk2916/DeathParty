@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://csoh6pwblyomm" path="res://Assets/CharacterAssets/Caleb/Caleb.glb" id="1_q5ip8"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_f3byp"]
-[ext_resource type="Resource" uid="uid://clfvsvp2igosb" path="res://Assets/Resources/CharacterResources/character_properties_caleb.tres" id="3_gvj3b"]
+[ext_resource type="Resource" path="res://Assets/Resources/CharacterResources/character_properties_caleb.tres" id="3_gvj3b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f3byp"]
 radius = 0.6
