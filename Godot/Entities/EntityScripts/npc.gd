@@ -5,13 +5,15 @@ var outline : Node3D
 
 @export var character_resource : CharacterResource
 @export var dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
-@export var starter_json : JSON = null#= preload("res://Assets/InkExamples/sample_dialogue_template.json")
+@export var starter_json : JSON = null
 @export var default_json: JSON = preload("res://Assets/InkExamples/sample_dialogue_template.json")
 
 func _ready() -> void:
 	super()
-	#print("Ready: ", name)
 	if character_resource:
+		#Get the current character resource from the save file
+		character_resource = SaveSystem.get_character(character_resource.name)
+		#Connect signals
 		character_resource.unread.connect(on_unread)
 
 func on_unread(_unread : bool) -> void:
