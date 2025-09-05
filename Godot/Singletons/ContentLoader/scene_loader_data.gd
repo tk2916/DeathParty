@@ -4,6 +4,7 @@ class_name SceneLoaderData extends SceneObject
 var teleport_point : TeleportPointData
 var play_door_sound : bool
 var popup_transform : Transform3D
+var popup_texture : CompressedTexture2D
 
 var target_scene_name : String
 var local_spawn_point : Globals.SPAWN_OPTIONS
@@ -47,10 +48,14 @@ func save_properties() -> void:
 	local_spawn_point = loader.local_spawn_point
 	target_scene_name = loader.target_scene
 	if loader.popup:
-		popup_transform = loader.popup.transform
+		var popup : Sprite3D= loader.popup as Sprite3D
+		popup_transform = popup.transform
+		popup_texture = popup.texture
 
 func load_properties() -> void:
 	loader.teleport_point = teleport_point
 	loader.play_door_sound = play_door_sound
 	if loader.popup:
-		loader.popup.transform = popup_transform
+		var popup : Sprite3D= loader.popup as Sprite3D
+		popup.transform = popup_transform
+		popup.texture = popup_texture
