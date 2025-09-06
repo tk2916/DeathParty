@@ -1,4 +1,4 @@
-[gd_scene load_steps=245 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=246 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b8ucr48tcuk2p" path="res://rooms/bedroom/dorm desk.glb" id="7_7a5mm"]
 [ext_resource type="Texture2D" uid="uid://dke1flebhebj4" path="res://rooms/bedroom/polaroids and poster_study date wiht nora.png" id="7_84fnt"]
 [ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="8_8bc0i"]
+[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="8_vr1g1"]
 [ext_resource type="PackedScene" uid="uid://bjlg5o0t38qqs" path="res://rooms/bedroom/shoe rack.glb" id="9_l0p45"]
 [ext_resource type="PackedScene" uid="uid://dg5lud6e674m5" path="res://rooms/bedroom/dorm bookshelf.glb" id="10_0aena"]
 [ext_resource type="PackedScene" uid="uid://bgeyi70mq0w08" path="res://rooms/bedroom/dorm string lights.glb" id="12_0ajex"]
@@ -2202,7 +2203,8 @@ target_location_index = 7
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 1.25, 1.25, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.5, 1.75, 0)
+texture = ExtResource("8_vr1g1")
 
 [node name="CollisionShape3D" parent="SceneLoader_Exterior/InteractionDetector" index="0"]
 transform = Transform3D(0.999951, 0, 0.00989586, 0, 1, 0, -0.00989586, 0, 0.999951, 1.30716, 0.550691, 0.117994)
