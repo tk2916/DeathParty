@@ -70,6 +70,7 @@ func button_pressed(input_button: Button, action: StringName, index: int) -> voi
 		current_action = action
 		current_index = index
 		changing_input = true
+		button_to_change.text = "AWAITING INPUT"
 
 
 func _input(event: InputEvent) -> void:
