@@ -19,13 +19,13 @@ var facing: int = 0
 var movement_direction: int = 0
 var prev_movement_direction: int = 0
 
-var holding_jog_input := false
 var jog_speed_multiplier := 1.5
 
 # animation enum and vars
-enum AnimationState {IDLE, WALK, TURN} # TURN currently unused
+enum AnimationState {IDLE, WALK, TURN, JOG} # TURN currently unused
 var blend_speed: float = 8
 var walk_blend: float = 0
+var jog_blend: float = 0
 var current_animation: AnimationState = AnimationState.IDLE
 
 var movement_disabled: bool = false
@@ -103,16 +103,26 @@ func handle_animations(delta: float) -> void:
 
 	# set anim state to WALK if player moving
 	elif player_velocity != Vector3.ZERO:
-		current_animation = AnimationState.WALK
+		if Input.is_action_pressed("jog"):
+			current_animation = AnimationState.JOG
+		else:
+			current_animation = AnimationState.WALK
 
 	# interpolate blend between IDLE and WALK anim states
 	match current_animation:
 		AnimationState.IDLE:
 			walk_blend = lerpf(walk_blend, 0, blend_speed * delta)
+			jog_blend = lerpf(jog_blend, 0, blend_speed * delta)
 		AnimationState.WALK:
 			walk_blend = lerpf(walk_blend, 1, blend_speed * delta)
+			jog_blend = lerpf(jog_blend, 0, blend_speed * delta)
+		AnimationState.JOG:
+			walk_blend = lerpf(walk_blend, 0, blend_speed * delta)
+			jog_blend = lerpf(jog_blend, 1, blend_speed * delta)
+
 
 	animation_tree["parameters/Walk Blend/blend_amount"] = walk_blend
+	animation_tree["parameters/Jog Blend/blend_amount"] = jog_blend
 
 	# adjust speed of walk animation based on player_speed
 
@@ -135,7 +145,7 @@ func rotate_model(delta: float) -> void:
 			model.rotation.y = lerp_angle(model.rotation.y, PI / 5, blend_speed * delta)
 
 	# rotate while walking
-	if current_animation == AnimationState.WALK:
+	if current_animation == AnimationState.WALK or AnimationState.JOG:
 		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
 
 
