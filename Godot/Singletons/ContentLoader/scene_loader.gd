@@ -18,7 +18,8 @@ var target_scene: String:
 @export_group("")
 @export var arrow_direction: Direction:
 	set(dir):
-		match dir:
+		arrow_direction = dir
+		match arrow_direction:
 			Direction.LEFT:
 				%Popup.texture = left_arrow_asset
 			Direction.RIGHT:
