@@ -464,7 +464,7 @@ play_door_sound = true
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Kitchen" index="1"]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.75, 1.25)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 2, 1.25)
 texture = ExtResource("4_f4d3f")
 
 [node name="CollisionShape3D" parent="SceneLoader_Kitchen/InteractionDetector" index="0"]
@@ -492,7 +492,7 @@ arrow_direction = 1
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Basement" index="1"]
-transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 0.75, 2)
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 1, 2)
 
 [node name="CollisionShape3D" parent="SceneLoader_Basement/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390921, -0.506985, 0.784462)

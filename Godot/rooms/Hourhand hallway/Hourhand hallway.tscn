@@ -924,7 +924,7 @@ target_location_index = 6
 local_spawn_point = 1
 
 [node name="Popup" parent="SceneLoader_Storageroom" index="1"]
-transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 5.96046e-08, 0.801186, 0.308354)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.5, 1.25)
 texture = ExtResource("3_dr676")
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
@@ -1536,7 +1536,7 @@ target_location_index = 10
 arrow_direction = 1
 
 [node name="Popup" parent="SceneLoader_Control room" index="1"]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 0.801186, 0.204111)
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 1.5, 1.25)
 
 [node name="CollisionShape3D" parent="SceneLoader_Control room/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, -0.122619, 1.23943, 0.0798111)
