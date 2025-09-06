@@ -1,9 +1,10 @@
-[gd_scene load_steps=220 format=4 uid="uid://3iwh0xc60rih"]
+[gd_scene load_steps=221 format=4 uid="uid://3iwh0xc60rih"]
 
 [ext_resource type="Script" uid="uid://ct6edy87engi4" path="res://rooms/Basement/basement.gd" id="1_e2jnh"]
 [ext_resource type="Texture2D" uid="uid://cphr3akbxc7wm" path="res://rooms/Basement/basement layout_Entryway wood.png" id="1_xu4va"]
+[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="3_bu75b"]
 [ext_resource type="PackedScene" uid="uid://drj74iejy03cg" path="res://Assets/environment/heavy_door.tscn" id="3_nmyg0"]
-[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="3_xvuva"]
+[ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="3_xvuva"]
 [ext_resource type="Texture2D" uid="uid://b5yohrcvl2y3j" path="res://rooms/Basement/basement layout_woodmedium.png" id="4_c5yie"]
 [ext_resource type="Texture2D" uid="uid://7oqsupnu0m38" path="res://rooms/Basement/basement layout_TCom_ConcreteBunker0258_1_S.jpg" id="5_42eom"]
 [ext_resource type="Texture2D" uid="uid://cetoey0b2j10g" path="res://rooms/Basement/basement layout_image.png" id="6_1otdw"]
@@ -1928,6 +1929,7 @@ play_door_sound = true
 
 [node name="Popup" parent="SceneLoader_Entrance" index="1"]
 transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 0, 0.474354, 0.741167)
+texture = ExtResource("3_bu75b")
 
 [node name="CollisionShape3D" parent="SceneLoader_Entrance/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.089936, 0.880191, 0.431571)
@@ -1949,6 +1951,7 @@ play_door_sound = true
 
 [node name="Popup" parent="SceneLoader_Storageroom" index="1"]
 transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 0, 1.27177, 0.356107)
+texture = ExtResource("3_bu75b")
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144353, 1.23943, 0.251274)
