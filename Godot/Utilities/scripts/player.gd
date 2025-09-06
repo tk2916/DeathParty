@@ -144,7 +144,7 @@ func rotate_model(delta: float) -> void:
 		if facing == 1:
 			model.rotation.y = lerp_angle(model.rotation.y, PI / 5, blend_speed * delta)
 
-	# rotate while walking
+	# rotate while moving
 	if current_animation == AnimationState.WALK or AnimationState.JOG:
 		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
 
