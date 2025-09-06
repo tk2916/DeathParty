@@ -1,10 +1,9 @@
-[gd_scene load_steps=87 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=86 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
-[ext_resource type="Texture2D" uid="uid://ccuxjk7edg5dg" path="res://Assets/pop_ups/EnterArrowDown.png" id="3_mg500"]
 [ext_resource type="Texture2D" uid="uid://crk0vj8w35rm1" path="res://Assets/textures/entrance_room_props/entrance wall_MAT_wallpaper_DIFFUSE.png" id="3_t7spl"]
-[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="4_f4d3f"]
+[ext_resource type="Texture2D" uid="uid://6sxva7xhuvix" path="res://Assets/pop_ups/EnterArrowRight.png" id="4_f4d3f"]
 [ext_resource type="PackedScene" uid="uid://gvcvg7qptl0c" path="res://Assets/environment/entrance_room_wall.tscn" id="4_tmedt"]
 [ext_resource type="Texture2D" uid="uid://wmjauu70t6b1" path="res://Assets/textures/entrance_room_environment/entrance room layout_IMG_4162.png" id="5_8jruo"]
 [ext_resource type="PackedScene" uid="uid://bitlbgb4mv2pu" path="res://Assets/environment/wood_pillar.tscn" id="6_lmevy"]
@@ -452,7 +451,7 @@ use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.75, 0)
-texture = ExtResource("3_mg500")
+texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Exterior/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00567722, 1.23943, -0.33387)
@@ -460,14 +459,12 @@ shape = SubResource("BoxShape3D_mg500")
 
 [node name="SceneLoader_Kitchen" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 3.68975)
-interactable = true
 target_location_index = 8
 play_door_sound = true
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Kitchen" index="1"]
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 2, 1.25)
-texture = ExtResource("4_f4d3f")
 
 [node name="CollisionShape3D" parent="SceneLoader_Kitchen/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54834, 1.23943, 0.468261)
@@ -481,7 +478,7 @@ arrow_direction = 2
 
 [node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, 0)
-texture = ExtResource("3_mg500")
+texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_PartyRoom/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15619, 0.218792, -0.17054)
@@ -489,7 +486,6 @@ shape = SubResource("BoxShape3D_cygoc")
 
 [node name="SceneLoader_Basement" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 13.3283, 1.22732, 3.43122)
-interactable = true
 target_location_index = 4
 play_door_sound = true
 arrow_direction = 1
@@ -497,6 +493,7 @@ use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Basement" index="1"]
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 1, 2)
+texture = ExtResource("4_f4d3f")
 
 [node name="CollisionShape3D" parent="SceneLoader_Basement/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390921, -0.506985, 0.784462)
