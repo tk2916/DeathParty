@@ -32,16 +32,18 @@ var teleport_point: TeleportPointData
 
 const POPUP_SCALE = .1
 
+
 func _ready() -> void:
 	super ()
 	popup.scale = Vector3.ONE * POPUP_SCALE
-	arrow_direction = arrow_direction
+
 
 func is_player_facing_collider(player_model: Node3D) -> bool:
 	var player_forward: Vector3 = - player_model.transform.basis.z
 	var dot_product: float = player_forward.dot(self.transform.basis.z)
 	return dot_product > 0 # facing towards if > 0
 		
+
 func on_interact() -> void:
 	if !enabled: return
 	super ()
