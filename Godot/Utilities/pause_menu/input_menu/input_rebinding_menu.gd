@@ -65,7 +65,7 @@ func button_pressed(input_button: Button, action: StringName, index: int) -> voi
 		Settings.save_settings()
 		input_button.text = "-"
 	else:
-		input_button.release_focus()
+		#input_button.release_focus()
 		button_to_change = input_button
 		current_action = action
 		current_index = index
@@ -81,7 +81,7 @@ func _input(event: InputEvent) -> void:
 
 			changing_input = false
 
-			button_to_change.grab_focus()
+			#button_to_change.grab_focus()
 
 			button_to_change = null
 
