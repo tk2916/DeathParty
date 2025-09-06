@@ -7,7 +7,15 @@ enum Direction {LEFT, RIGHT, DOWN}
 ## enable to give this scene loader an interactable popup
 ##
 ## (disable to make the scene loader instantly tp the player when they enter its area)
-@export var interactable := true
+@export var interactable := true:
+	set(value):
+		interactable = value
+		notify_property_list_changed()
+
+		if interactable:
+			arrow_direction = arrow_direction
+		else:
+			%Popup.texture = null
 
 @export var target_location_index: Globals.SCENE_LOCATIONS_ENUM = Globals.SCENE_LOCATIONS_ENUM.Entrance
 var target_scene: String:
@@ -43,6 +51,12 @@ func _ready() -> void:
 	popup.scale = Vector3.ONE * POPUP_SCALE
 
 
+func _validate_property(property: Dictionary) -> void:
+	if property.name == "arrow_direction":
+		if not interactable:
+			property.usage = PROPERTY_USAGE_NO_EDITOR
+
+
 func is_player_facing_collider(player_model: Node3D) -> bool:
 	var player_forward: Vector3 = - player_model.transform.basis.z
 	var dot_product: float = player_forward.dot(self.transform.basis.z)
@@ -57,6 +71,7 @@ func on_interact() -> void:
 		
 	if play_door_sound:
 		Sounds.play_door()
+
 
 func on_in_range(in_range: bool) -> void:
 	if !enabled: return
