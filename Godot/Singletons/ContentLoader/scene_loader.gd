@@ -4,6 +4,11 @@ class_name SceneLoader extends Interactable
 
 enum Direction {LEFT, RIGHT, DOWN}
 
+## enable to give this scene loader an interactable popup
+##
+## (disable to make the scene loader instantly tp the player when they enter its area)
+@export var interactable := true
+
 @export var target_location_index: Globals.SCENE_LOCATIONS_ENUM = Globals.SCENE_LOCATIONS_ENUM.Entrance
 var target_scene: String:
 	get: return Globals.get_scene_location(target_location_index)
@@ -52,3 +57,15 @@ func on_interact() -> void:
 		
 	if play_door_sound:
 		Sounds.play_door()
+
+func on_in_range(in_range: bool) -> void:
+	if !enabled: return
+
+	if interactable:
+		super (in_range)
+	else:
+		print("Teleport point for ", target_scene, " is ", teleport_point.spawn_number, " vs ", local_spawn_point)
+		ContentLoader.scene_loader_teleport(target_scene, teleport_point)
+
+		if play_door_sound:
+			Sounds.play_door()

@@ -12,6 +12,7 @@ size = Vector3(1.61938, 2.80212, 2.04828)
 
 [node name="SceneLoader" type="Node3D"]
 script = ExtResource("1_6wayg")
+interactable = null
 left_arrow_asset = ExtResource("2_xpaum")
 right_arrow_asset = ExtResource("3_0sak6")
 down_arrow_asset = ExtResource("4_31qgr")
