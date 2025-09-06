@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=4 uid="uid://ch4fuk8qiva6x"]
+[gd_scene load_steps=169 format=4 uid="uid://ch4fuk8qiva6x"]
 
 [ext_resource type="Texture2D" uid="uid://bcg3mnugm862f" path="res://rooms/Ghost hallway/ghost hallway_wooddark.png" id="2_p1n0h"]
 [ext_resource type="Script" uid="uid://bwumtfq5s3fh3" path="res://rooms/Ghost hallway/ghost_hallway.gd" id="2_rj2l7"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="8_ksoqh"]
 [ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="9_giwxe"]
 [ext_resource type="Texture2D" uid="uid://8cdgn7y4uxtk" path="res://Assets/environment/carpet/carpet_carpet.png" id="10_ayop1"]
+[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="10_g60q4"]
 [ext_resource type="Texture2D" uid="uid://cvs4s61cbwwdc" path="res://rooms/Ghost hallway/ghost_ghosts.png" id="11_o2el0"]
 [ext_resource type="Texture2D" uid="uid://us3fuyoufo3d" path="res://rooms/Ghost hallway/hallway props_Entryway wood.png" id="11_wa7sj"]
 [ext_resource type="Texture2D" uid="uid://t3c1de7hujig" path="res://Assets/environment/carpet/carpet_Plastic.png" id="11_yebq4"]
@@ -61,7 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://b6nkql64iwq61" path="res://rooms/Ghost hallway/fire/fire-10.png" id="58_urdp6"]
 [ext_resource type="Texture2D" uid="uid://dcyx6nxctxmpd" path="res://rooms/Ghost hallway/fire/fire-11.png" id="59_65wwx"]
 [ext_resource type="Texture2D" uid="uid://bp4plqqk6pcdx" path="res://rooms/Ghost hallway/fire/fire-12.png" id="60_5rqn6"]
-[ext_resource type="PackedScene" uid="uid://i7gdcbnkh0w4" path="res://rooms/Ghost hallway/blue_sky.tscn" id="61_u8eoh"]
+[ext_resource type="PackedScene" path="res://rooms/Ghost hallway/blue_sky.tscn" id="61_u8eoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxaoo"]
 size = Vector3(13.7318, 4.49936, 7.14718)
@@ -1757,7 +1758,8 @@ local_spawn_point = 2
 play_door_sound = true
 
 [node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, -6.84474e-08, 0.801186, 0.521097)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.75, 1)
+texture = ExtResource("10_g60q4")
 
 [node name="CollisionShape3D" parent="SceneLoader_PartyRoom/InteractionDetector" index="0"]
 shape = SubResource("BoxShape3D_u8eoh")
@@ -1766,9 +1768,10 @@ shape = SubResource("BoxShape3D_u8eoh")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.23819, -0.917734, 1.90478)
 target_location_index = 2
 play_door_sound = true
+arrow_direction = 1
 
 [node name="Popup" parent="SceneLoader_Library" index="1"]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.25, 0.5)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.75, 1)
 
 [node name="CollisionShape3D" parent="SceneLoader_Library/InteractionDetector" index="0"]
 shape = SubResource("BoxShape3D_ksoqh")

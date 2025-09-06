@@ -1,8 +1,9 @@
-[gd_scene load_steps=83 format=4 uid="uid://bqae87n6emy8q"]
+[gd_scene load_steps=84 format=4 uid="uid://bqae87n6emy8q"]
 
 [ext_resource type="Texture2D" uid="uid://c4o46fvqrk1xg" path="res://rooms/Hourhand hallway/hourhand floor_patterned floor.png" id="2_4pph5"]
 [ext_resource type="Texture2D" uid="uid://c1gtxbrgatf5m" path="res://rooms/Hourhand hallway/hourhand hallway_bronze wall.png" id="2_v1epj"]
 [ext_resource type="Script" uid="uid://won4e1o3f7gg" path="res://rooms/Hourhand hallway/hourhand_hallway.gd" id="2_xgvqn"]
+[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="3_dr676"]
 [ext_resource type="Texture2D" uid="uid://do503bq13ur3t" path="res://rooms/Hourhand hallway/hourhand hallway_TCom_ConcreteBare0318_5_S.jpg" id="3_xgvqn"]
 [ext_resource type="Texture2D" uid="uid://bk2cxm07d8gtg" path="res://rooms/Hourhand hallway/hourhand hallway_New Concret (1).png" id="4_1ehwm"]
 [ext_resource type="Texture2D" uid="uid://bj5g2qwqvmjy0" path="res://rooms/Hourhand hallway/hourhand hallway_TCom_OrnamentsOrientalTrimDetails0002_1_S.jpg" id="5_4u7t1"]
@@ -923,7 +924,8 @@ target_location_index = 6
 local_spawn_point = 1
 
 [node name="Popup" parent="SceneLoader_Storageroom" index="1"]
-transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 5.96046e-08, 0.801186, 0.308354)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.5, 1.25)
+texture = ExtResource("3_dr676")
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116568, 1.16042, 0.0798106)
@@ -1531,9 +1533,10 @@ skeleton = NodePath("../walllamp2")
 [node name="SceneLoader_Control room" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-3.0907e-08, 0, -0.707069, 0, 0.707069, 0, 0.707069, 0, -3.0907e-08, 14.7747, -1.41536, 0.823003)
 target_location_index = 10
+arrow_direction = 1
 
 [node name="Popup" parent="SceneLoader_Control room" index="1"]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 0.801186, 0.204111)
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 1.5, 1.25)
 
 [node name="CollisionShape3D" parent="SceneLoader_Control room/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, -0.122619, 1.23943, 0.0798111)
