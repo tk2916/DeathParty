@@ -10,12 +10,15 @@ class_name FootstepSounds extends FmodEventEmitter3D
 
 var previous_position: Vector3 = global_position
 var speed: Vector3
+const FOOTSTEP_COOLDOWN := 0.3
+var time_since_last_step := 0.0
 
 
 # track position across physics frames to see if character is moving
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	speed = global_position - previous_position
 	previous_position = global_position
+	time_since_last_step += delta
 
 
 # this func should be called from character animations
@@ -48,6 +51,6 @@ func play_footstep_sound() -> void:
 		set_parameter("LandTexture", surface_material)
 
 	# play a step sound if the character is moving
-	if speed != Vector3.ZERO:
+	if speed != Vector3.ZERO and time_since_last_step > FOOTSTEP_COOLDOWN:
 		play()
-		#print("STEP")
+		time_since_last_step = 0.0
