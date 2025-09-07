@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dga2tnvugyda7"]
+[gd_scene load_steps=3 format=3 uid="uid://dga2tnvugyda7"]
 
 [ext_resource type="PackedScene" uid="uid://6fyb1kpv2sae" path="res://Assets/models/pillbottle.glb" id="1_eppo6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eppo6"]
+transparency = 1
+depth_draw_mode = 1
 
 [node name="pillbottle" instance=ExtResource("1_eppo6")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
@@ -10,3 +14,4 @@ transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, 0.15, 0, -0.15, -6.55671e-0
 
 [node name="Cylinder" parent="." index="1"]
 transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, 0.15, 0, -0.15, -6.55671e-09, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_eppo6")
