@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ccfm4gober6x6" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_baseColor.jpg" id="16_8uf1m"]
 [ext_resource type="Texture2D" uid="uid://dm3hjctqeb8wy" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_metallicRoughness.png" id="17_xaafo"]
 [ext_resource type="Texture2D" uid="uid://5m0xqqnw8gmg" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_normal.png" id="18_dr676"]
-[ext_resource type="PackedScene" uid="uid://dcn3phivlsip1" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="19_xaafo"]
+[ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="19_xaafo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgvqn"]
 size = Vector3(21.6137, 3.22495, 3.19273)
@@ -919,11 +919,13 @@ shape = SubResource("BoxShape3D_dr676")
 
 [node name="SceneLoader_Storageroom" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.43027, -1.32767, 0.633325)
+interactable = false
 target_location_index = 6
 local_spawn_point = 1
 
 [node name="Popup" parent="SceneLoader_Storageroom" index="1"]
-transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 5.96046e-08, 0.801186, 0.308354)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.5, 1.25)
+texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116568, 1.16042, 0.0798106)
@@ -1530,10 +1532,13 @@ skeleton = NodePath("../walllamp2")
 
 [node name="SceneLoader_Control room" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-3.0907e-08, 0, -0.707069, 0, 0.707069, 0, 0.707069, 0, -3.0907e-08, 14.7747, -1.41536, 0.823003)
+interactable = false
 target_location_index = 10
+arrow_direction = 1
 
 [node name="Popup" parent="SceneLoader_Control room" index="1"]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 0.801186, 0.204111)
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 1.5, 1.25)
+texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Control room/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, -0.122619, 1.23943, 0.0798111)

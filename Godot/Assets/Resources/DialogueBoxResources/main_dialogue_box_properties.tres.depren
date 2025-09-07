@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="DialogueBoxResource" load_steps=5 format=3 uid="uid://ctm37ktmfb1yn"]
+
+[ext_resource type="PackedScene" uid="uid://cu7kunew4a70o" path="res://Assets/GUIPrefabs/ChoicePrefabs/choice_button.tscn" id="1_31yuv"]
+[ext_resource type="PackedScene" uid="uid://b1vqeofabh56y" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/diag_line.tscn" id="2_iiivu"]
+[ext_resource type="PackedScene" uid="uid://blkculyy7kbod" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/DialogueBox1.tscn" id="2_swp53"]
+[ext_resource type="Script" uid="uid://ckddp2g3xeuu0" path="res://Assets/Resources/DialogueBoxResources/Default Resource (DO NOT EDIT)/dialogue_properties_script.gd" id="3_l5k8q"]
+
+[resource]
+script = ExtResource("3_l5k8q")
+dialogue_box = ExtResource("2_swp53")
+dialogue_line = ExtResource("2_iiivu")
+choice_button = ExtResource("1_31yuv")
+protagonist_dialogue_line = ExtResource("2_iiivu")
+text_size = 15
+name_size = 15
+choice_size = 15
+default_text_color = "black"
+default_name_color = "yellow"
+default_choice_color = "yellow"
+line_separation = 0
+include_speaker_in_text = false
+prefix_choices_with_player_name = false
+clear_box_after_each_dialogue = false
+text_animation = "typewriter"
+image_key = "full"

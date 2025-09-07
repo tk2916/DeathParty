@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcn3phivlsip1"]
+[gd_scene load_steps=4 format=3 uid="uid://b5sjjc5i61576"]
 
-[ext_resource type="Script" path="res://Singletons/ContentLoader/teleport_point.gd" id="1_f3cru"]
+[ext_resource type="Script" uid="uid://bvrnwajd7sxfk" path="res://Singletons/ContentLoader/teleport_point.gd" id="1_f3cru"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3cru"]
 albedo_color = Color(0, 0.697167, 0.89, 1)

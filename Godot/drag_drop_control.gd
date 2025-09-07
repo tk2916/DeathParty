@@ -7,6 +7,9 @@ class_name DragDropControl extends ThreeDGUI
 @export var reveal_scene : PackedScene
 @export var reveal_texture : CompressedTexture2D
 
+@export var on_reveal_dialogue : JSON
+const dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
+
 @export var color_rect : ColorRect
 
 func _ready() -> void:
@@ -14,6 +17,9 @@ func _ready() -> void:
 		color_rect.visible = false
 	if SaveSystem.is_journal_entry_active(correct_item.name):
 		reveal_info()
+		if on_reveal_dialogue:
+			DialogueSystem.setDialogueBox(dialogue_box)
+			DialogueSystem.from_JSON(on_reveal_dialogue)
 
 func enter_hover() -> void:
 	print("Entered hover: ", self.name)
@@ -34,7 +40,7 @@ func reveal_info() -> void:
 		var revealed_info : Control = reveal_scene.instantiate()
 		self.add_child(revealed_info)
 	elif reveal_texture:
-		var texture_rect = TextureRect.new()
+		var texture_rect : TextureRect = TextureRect.new()
 		texture_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		texture_rect.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
 		texture_rect.stretch_mode = TextureRect.STRETCH_SCALE
