@@ -41,6 +41,7 @@ theme_override_constants/margin_bottom = 15
 
 [node name="Text" type="RichTextLabel" parent="MarginContainer/ColorRect/MarginContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_qauwv")
 theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
