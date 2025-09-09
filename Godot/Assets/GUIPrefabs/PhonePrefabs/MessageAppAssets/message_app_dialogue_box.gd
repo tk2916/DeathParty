@@ -68,10 +68,23 @@ func on_contact_press(contact : ChatResource) -> void:
 	if contact_pressed: return # prevent multiple presses
 	contact_pressed = true
 	
-	contact_name_label.text = "[color=black]"+contact.name+"[/color]"
-	contact.start_chat()
+	setup_dms(contact)
 	tween_forward()
 	contact_pressed = false
+
+func setup_dms(contact : ChatResource) -> void:
+	set_participants(contact)
+	clear_boxes()
+
+	contact_name_label.text = "[color=black]"+contact.name+"[/color]"
+	contact.start_chat()
+
+func clear_boxes() -> void:
+	#clear boxes
+	for node : Node in dialogue_container.get_children():
+		node.queue_free()
+	for node : Node in choice_container.get_children():
+		node.queue_free()
 
 func set_participants(contact : ChatResource) -> void:
 	#clear box
@@ -96,8 +109,12 @@ func add_line(line : InkLineInfo) -> void:
 		clone = text_message_prefab_protag.instantiate()
 	else:
 		clone = text_message_prefab_npc.instantiate()
+	var character : CharacterResource = SaveSystem.get_character(line.speaker)
+	clone.Img.texture = character.image_profile
 	dialogue_container.add_child(clone)
-	AnimatedTextLabel.new(self, clone.Text)
+	var animated_label : AnimatedTextLabel = AnimatedTextLabel.new(self, clone.Text)
+	print("Setting text: ", line.text)
+	animated_label.set_text(line)
 
 func set_choices(choices : Array[InkChoiceInfo]) -> void:
 	for choice in choices:
@@ -107,9 +124,7 @@ func set_choices(choices : Array[InkChoiceInfo]) -> void:
 func pause_conversation() -> void:
 	if !DialogueSystem.are_choices:
 		DialogueSystem.pause_dialogue()
-		for n in dialogue_container.get_children(): #clear messages
-			dialogue_container.remove_child(n)
-			n.queue_free()
+		clear_boxes()
 
 # SHOW PARTICIPANTS
 func _on_contact_name_mouse_entered() -> void:
