@@ -27,6 +27,7 @@ func set_text(line_info : InkLineInfo) -> void:
 	full_text = line_info.text
 
 	if animation_style == DialogueSystem.ANIMATION_STYLES.TYPEWRITER:
+		#timer that will execute typewriter animation
 		if timer == null:
 			timer = Timer.new()
 			timer.wait_time = char_delay
@@ -36,7 +37,6 @@ func set_text(line_info : InkLineInfo) -> void:
 		typewriter_text = ""
 		text_label.text = ""
 		text_index = 0
-		#timer that will execute typewriter animation
 	else:
 		skip()
 
@@ -60,9 +60,11 @@ func skip() -> void:
 	if timer:
 		timer.stop()
 		timer.queue_free()
+	print("Setting label text to ", full_text)
 	text_label.text = full_text
 	finish()
 
 func finish() -> void:
+	print("Done firing")
 	done.emit()
 	done_state = true
