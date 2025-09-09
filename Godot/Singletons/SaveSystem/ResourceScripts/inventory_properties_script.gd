@@ -1,6 +1,5 @@
-class_name InventoryItemResource extends Resource
+class_name InventoryItemResource extends DefaultResource
 
-@export var name : String
 @export var description : String
 @export var model : PackedScene
 @export var inventory_scale : float = 1.0

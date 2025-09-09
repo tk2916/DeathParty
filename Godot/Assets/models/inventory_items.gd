@@ -59,7 +59,7 @@ func delete_item(item_name:String) -> void:
 		index += 1
 
 func load_items() -> void:
-	print("Loading items!")
+	#print("Loading items!")
 	player_inventory = SaveSystem.get_inventory()
 	for item_name : String in player_inventory:
 		var item : InventoryItemResource = player_inventory[item_name]

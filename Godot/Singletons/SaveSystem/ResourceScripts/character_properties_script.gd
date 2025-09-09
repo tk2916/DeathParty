@@ -1,6 +1,5 @@
-class_name CharacterResource extends Resource
+class_name CharacterResource extends DefaultResource
 
-@export var name : String
 @export var character_location_index : Globals.CHARACTER_LOCATIONS_ENUM = Globals.CHARACTER_LOCATIONS_ENUM.Everywhere
 
 @export var image_full : CompressedTexture2D
@@ -29,6 +28,13 @@ signal interaction_ended
 var character_location : String:
 	get: return Globals.get_character_location(character_location_index)
 
+var first_chat: JSON:
+	get:
+		if upcoming_chats.is_empty():
+			return null
+		else:
+			return upcoming_chats.front()
+
 func chat_already_loaded(file : JSON) -> bool:
 	for chat : JSON in upcoming_chats:
 		if chat.resource_path == file.resource_path:
@@ -50,21 +56,20 @@ func print_all_chats() -> void:
 	print("------")
 	
 func start_chat() -> void:
-	print_all_chats()
-	var new_json : JSON = upcoming_chats.front()
-	if new_json == null:
+	#print_all_chats()
+	if first_chat == null:
 		if default_chat:
 			DialogueSystem.from_character(self, default_chat)
 	else:
-		DialogueSystem.from_character(self, new_json)
+		DialogueSystem.from_character(self, first_chat)
 		
 func end_chat() -> void:
-	print("Ended chat with ", name, upcoming_chats.front())
+	print("Ended chat with ", name, first_chat)
 	upcoming_chats.pop_front()
 	interaction_ended.emit()
 	
 func has_chats() -> bool:
-	if default_chat or upcoming_chats.size() > 0:
+	if default_chat or first_chat != null:
 		return true
 	else:
 		return false

@@ -28,7 +28,9 @@ var active_scene_name : String = ""
 var loading_screen : ColorRect
 
 var active_scene : LoadableScene:
-	get: 
+	get:
+		if !scene_data_dict.has(active_scene_name):
+			return null
 		return scene_data_dict[active_scene_name]
 
 var loaded : bool = false

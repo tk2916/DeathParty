@@ -65,8 +65,7 @@ var state: States:
 
 
 func send_initial_texts() -> void:
-	DialogueSystem.to_phone("Caleb, Rowan, Nora, You", json1)
-	await get_tree().create_timer(1).timeout
+	DialogueSystem.to_phone("Rowan", json1)
 	DialogueSystem.to_phone("Caleb", json2)
 
 
@@ -97,28 +96,31 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	match state:
 		States.WALK:
 			if player.player_velocity != Vector3.ZERO:
-				state += 1
+				increment_state()
 		States.UNLOCK_PHONE:
-			if get_tree().get_first_node_in_group("phone").visible == true:
-				state += 1
+			if GuiSystem.in_phone == true:
+				increment_state()
 		States.USING_PHONE:
-			if get_tree().get_first_node_in_group("phone").visible == false:
-				state += 1
+			if GuiSystem.in_phone == false:
+				increment_state()
 		States.OPEN_JOURNAL:
-			if get_tree().get_first_node_in_group("journal") != null:
-				state += 1
+			if GuiSystem.in_journal == true:
+				increment_state()
 		States.USING_JOURNAL:
-			if get_tree().get_first_node_in_group("journal") == null:
-				state += 1
+			if GuiSystem.in_journal == false:
+				increment_state()
 
 
 func _on_bedroom_intro_finished() -> void:
-	state += 1
+	increment_state()
 
 
 func _on_walk_complete_timer_timeout() -> void:
-	state += 1
+	increment_state()
+
+func increment_state() -> void:
+	state = (state + 1) as States

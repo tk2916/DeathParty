@@ -18,7 +18,9 @@ var chatbox2 : CompressedTexture2D = preload("res://Assets/DialogueBoxTextures/c
 @export var choice_info : RichTextLabel
 
 @export var protag_text_label : RichTextLabel
+var protag_animated_label : AnimatedTextLabel
 @export var npc_text_label : RichTextLabel
+var npc_animated_label : AnimatedTextLabel
 
 @export var protag_arrow : TextureRect
 @export var npc_arrow : TextureRect
@@ -34,7 +36,7 @@ var previous_speaker : CharacterResource
 
 var unknown_char_resource : CharacterResource = preload("res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_unknown.tres")
 
-var text_label : RichTextLabel
+var text_label : AnimatedTextLabel
 var arrow : TextureRect
 var speaker_image_label : TextureRect
 var previous_speaker_image_label : TextureRect
@@ -50,7 +52,7 @@ class LocalChoiceButton:
 		button.change_text(info.text)
 		button.pressed.connect(on_pressed)
 	func on_pressed() -> void:
-		DialogueSystem.change_container(info.jump, info.text)
+		DialogueSystem.change_container(info.jump)
 
 var UI_STATES : Dictionary[String, String] = {
 	PROTAG_SPEAKER = "ProtagSpeaker",
@@ -63,26 +65,18 @@ var current_ui_state : String
 var text_animator : TextAnimator
 
 func _ready() -> void:
+	protag_animated_label = AnimatedTextLabel.new(self, protag_text_label, DialogueSystem.ANIMATION_STYLES.TYPEWRITER)
+	npc_animated_label = AnimatedTextLabel.new(self, npc_text_label, DialogueSystem.ANIMATION_STYLES.TYPEWRITER)
 	assign_nodes()
-	text_animator = TextAnimator.new(
-		self,
-		DialogueSystem.dialogue_box_properties,
-	)
-	text_animator.done.connect(
-		func() -> void:
-			done_state = true
-			arrow.visible = true
-			done.emit()
-	)
 
 func assign_nodes() -> void:
 	if current_ui_state != UI_STATES.NPC_SPEAKER:
-		text_label = protag_text_label
+		text_label = protag_animated_label
 		arrow = protag_arrow
 		speaker_image_label = protag_speaker_image_label
 		previous_speaker_image_label = protag_previous_speaker_image_label
 	else:
-		text_label = npc_text_label
+		text_label = npc_animated_label
 		arrow = npc_arrow
 		speaker_image_label = npc_speaker_image_label
 		previous_speaker_image_label = npc_previous_speaker_image_label
@@ -144,7 +138,7 @@ func add_line(line : InkLineInfo) -> void:
 	
 	#print("Line: ", line, line.text, "  ", text_label)
 	#text_label.text = "[color=black]"+line.text+"[/color]"
-	text_animator.set_text(line, current_speaker)
+	text_label.set_text(line)
 
 func skip() -> void:
 	text_animator.skip()
@@ -155,7 +149,7 @@ func set_choices(choices : Array[InkChoiceInfo]) -> void:
 	set_ui_state(UI_STATES.CHOICES)
 	var choice_rects : Array[TextureRect] = [choice_down, choice_up, choice_right, choice_left]
 	for choice : InkChoiceInfo in choices:
-		if choice.jump.size() == 0:
+		if choice.jump == "":
 			#this is choice info text
 			choice_info.text = choice.text
 		else:
@@ -165,3 +159,7 @@ func set_choices(choices : Array[InkChoiceInfo]) -> void:
 	#hide any remaining choice rects
 	for choice_rect : TextureRect in choice_rects:
 		choice_rect.visible = false
+
+func on_text_animator_finish() -> void:
+	super()
+	arrow.visible = true

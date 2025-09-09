@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ChatResource" load_steps=3 format=3 uid="uid://cblfyb6ea675j"]
+
+[ext_resource type="Texture2D" uid="uid://dlooichshuir8" path="res://Assets/CharacterAssets/rowan/rowan_circle.png" id="1_0p36k"]
+[ext_resource type="Script" uid="uid://cxhduc02fxsvl" path="res://Singletons/SaveSystem/ResourceScripts/phone_chat_properties.gd" id="2_0h5cr"]
+
+[resource]
+script = ExtResource("2_0h5cr")
+name = "Rowan"
+image = ExtResource("1_0p36k")

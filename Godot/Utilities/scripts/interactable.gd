@@ -29,13 +29,11 @@ func _ready() -> void:
 	#Get the popup that will be used:
 	popup = get_node_or_null("Popup")
 	
-	print("Loading ", name, ": ", primary_mesh, " ", use_first_mesh)
+	#print("Loading ", name, ": ", primary_mesh, " ", use_first_mesh)
 	if primary_mesh:
-		print("Primary Mesh")
 		create_outline()
 	elif use_first_mesh:
 		primary_mesh = Utils.find_first_child_of_class(self, MeshInstance3D)
-		print("First Mesh")
 		create_outline()
 	if popup:
 		popup.visible = false

@@ -9,15 +9,14 @@ class_name PhoneChoiceButton extends ChoiceButton
 @export var tween_time : float = .2
 
 func _ready() -> void:
-	super()
 	#otherwise the tweens affect all instances
 	panel.add_theme_stylebox_override("panel", stylebox)
 	stylebox.bg_color = normal_color
 	resize_control.resize()
 	custom_minimum_size.y = self.panel.custom_minimum_size.y
 	
-func tween_to_color(color : Color):
-	var tween = get_tree().create_tween()
+func tween_to_color(color : Color) -> void:
+	var tween : Tween = get_tree().create_tween()
 	tween.tween_property(stylebox, "bg_color", color, tween_time)
 
 func _on_button_mouse_entered() -> void:

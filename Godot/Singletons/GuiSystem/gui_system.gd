@@ -103,7 +103,7 @@ func hide_journal()->void:
 
 func show_phone(contact_resource : ChatResource = null)->void:
 	if contact_resource != null or hid_phone_mid_convo:
-		#DialogueSystem.text_message_box.onBackPressed()
+		#DialogueSystem.text_message_box.on_back_pressed()
 		if contact_resource:
 			DialogueSystem.text_message_box.on_contact_press(contact_resource)
 		elif hid_phone_mid_convo:
@@ -115,7 +115,7 @@ func show_phone(contact_resource : ChatResource = null)->void:
 func hide_phone()->void:
 	if DialogueSystem.are_choices: return
 	#DialogueSystem.pause_text_convo(true)
-	DialogueSystem.text_message_box.onBackPressed()
+	DialogueSystem.text_message_box.on_back_pressed()
 	hide_gui("Phone")
 
 func show_gui(name:String)->void:

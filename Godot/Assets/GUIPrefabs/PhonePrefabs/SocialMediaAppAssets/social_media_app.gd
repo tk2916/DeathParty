@@ -25,7 +25,7 @@ func _ready() -> void:
 	left_anchor_after = left_anchor_before-1
 	right_anchor_after = right_anchor_before-1
 	
-	back_button.pressed.connect(tweenBackward)
+	back_button.pressed.connect(tween_backward)
 
 func user_pressed_false():
 	user_pressed = false
@@ -43,15 +43,15 @@ func on_user_pressed(char_resource : CharacterResource) -> void:
 	join_date_label.text = char_resource.profile_join_date
 	friends_label.text = str(char_resource.profile_friends) + " friends"
 	
-	tweenForward().finished.connect(user_pressed_false)
+	tween_forward().finished.connect(user_pressed_false)
 	
-func tweenForward() -> Tween:
+func tween_forward() -> Tween:
 	var tween : Tween = get_tree().create_tween()
 	tween.tween_property(self, "anchor_left", left_anchor_after, duration)
 	tween.parallel().tween_property(self, "anchor_right", right_anchor_after, duration)
 	return tween
 
-func tweenBackward() -> Tween:
+func tween_backward() -> Tween:
 	var tween : Tween = get_tree().create_tween()
 	tween.tween_property(self, "anchor_left", left_anchor_before, duration)
 	tween.parallel().tween_property(self, "anchor_right", right_anchor_before, duration)

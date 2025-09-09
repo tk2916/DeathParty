@@ -1,9 +1,9 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dq53pgwkptb3w"]
+[gd_resource type="Resource" script_class="ChatResource" load_steps=3 format=3 uid="uid://dq53pgwkptb3w"]
 
-[ext_resource type="Texture2D" uid="uid://s742yxoo5vvv" path="res://Assets/CharacterAssets/CharacterTextures/kai_pikachu_waistup.png" id="1_xywhi"]
-[ext_resource type="Script" uid="uid://b3w5yn7owert6" path="res://Assets/Resources/ChatResources/Default Resource (DO NOT EDIT)/Chat.gd" id="2_bsqnq"]
+[ext_resource type="Texture2D" uid="uid://buxqmi3ppd6wf" path="res://Assets/CharacterAssets/Polaroids/caleb_a.png" id="1_v6wyu"]
+[ext_resource type="Script" uid="uid://cxhduc02fxsvl" path="res://Singletons/SaveSystem/ResourceScripts/phone_chat_properties.gd" id="2_4rdxh"]
 
 [resource]
-script = ExtResource("2_bsqnq")
+script = ExtResource("2_4rdxh")
 name = "Caleb"
-image = ExtResource("1_xywhi")
+image = ExtResource("1_v6wyu")

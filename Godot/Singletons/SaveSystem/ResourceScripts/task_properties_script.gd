@@ -1,6 +1,5 @@
-class_name TaskResource extends Resource
+class_name TaskResource extends DefaultResource
 
-@export var name : String
 @export var description : String
 var assigned : bool = false
 var finished : bool = false

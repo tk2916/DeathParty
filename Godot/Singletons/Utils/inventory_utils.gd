@@ -74,5 +74,4 @@ func show_item_details(
 	if item_resource.viewed == false:
 		item_resource.viewed = true
 		if item_resource.dialogue_on_first_view != null:
-			DialogueSystem.setDialogueBox(dialogue_box)
-			DialogueSystem.from_JSON(item_resource.dialogue_on_first_view)
+			DialogueSystem.begin_dialogue(item_resource.dialogue_on_first_view)
