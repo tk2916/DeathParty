@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://caavjoc7svryg" path="res://rooms/Hourhand hallway/headlight pipes.glb" id="20_dr676"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgvqn"]
-size = Vector3(21.6137, 3.22495, 3.19273)
+size = Vector3(24.0006, 3.22495, 4.99314)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uf1m"]
 size = Vector3(25, 2, 0.1)
@@ -31,18 +31,15 @@ size = Vector3(25, 2, 0.1)
 size = Vector3(25, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dr676"]
-size = Vector3(2, 2, 0.1)
+size = Vector3(5.10004, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rs8om"]
 resource_local_to_scene = true
-size = Vector3(3.09418, 2.96014, 2.04828)
+size = Vector3(5.28977, 2.96014, 2.04828)
 
 [sub_resource type="FogMaterial" id="FogMaterial_4pph5"]
 density = 0.5
 albedo = Color(0.228619, 0.0822746, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6vtq0"]
-size = Vector3(12.3743, 0.145386, 2.83722)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7sn00"]
 resource_name = "Material.019"
@@ -889,21 +886,24 @@ shadow_mesh = SubResource("ArrayMesh_idoxc")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_df5mx"]
 resource_local_to_scene = true
-size = Vector3(3.9527, 2.80212, 2.04828)
+size = Vector3(6.58365, 2.80212, 2.04828)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vssp0"]
+size = Vector3(24.8802, 0.978088, 6.76335)
 
 [node name="Hourhand hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
-transform = Transform3D(-0.00120957, 0, 1.41429, 0, 1.41429, 0, -1.41429, 0, -0.00120957, -2.36488, 0, 0)
+transform = Transform3D(-6.18206e-08, 0, 1.41429, 0, 1.41429, 0, -1.41429, 0, -6.18206e-08, -2.36488, 0, 0)
 script = ExtResource("2_xgvqn")
 room_area = NodePath("RoomArea")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.83734, 0.016718, 0.523476)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3263, 0.016718, 1.74834)
 shape = SubResource("BoxShape3D_xgvqn")
 
 [node name="Boundaries" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65655, -0.707069, 1.97979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65655, -0.707069, 3.71316)
 shape = SubResource("BoxShape3D_8uf1m")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
@@ -911,11 +911,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65655, -0.707069, 0)
 shape = SubResource("BoxShape3D_xaafo")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.58584, -0.636362, 1.0606)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.58584, -0.636362, 1.65881)
 shape = SubResource("BoxShape3D_dr676")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9191, -0.636362, 1.0606)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9191, -0.636362, 1.40023)
 shape = SubResource("BoxShape3D_dr676")
 
 [node name="SceneLoader_Storageroom" parent="." instance=ExtResource("13_1ehwm")]
@@ -929,7 +929,7 @@ transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 
 texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116568, 1.16042, 0.0798106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08614, 1.16042, 0.0798106)
 shape = SubResource("BoxShape3D_rs8om")
 
 [node name="FogVolume" type="FogVolume" parent="."]
@@ -939,13 +939,7 @@ material = SubResource("FogMaterial_4pph5")
 
 [node name="hallway 1" type="Node3D" parent="."]
 
-[node name="Floor" type="StaticBody3D" parent="hallway 1"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hallway 1/Floor"]
-transform = Transform3D(-0.917549, 0, 1.50996e-07, 0, 1, 0, -1.38546e-07, 0, -1, -0.14662, -1.66319, 0.817468)
-shape = SubResource("BoxShape3D_6vtq0")
-
-[node name="Plane_009" type="MeshInstance3D" parent="hallway 1/Floor"]
+[node name="Plane_009" type="MeshInstance3D" parent="hallway 1"]
 transform = Transform3D(0.920191, 0, -0.00632066, 0, 1, 0, 0.00309144, 0, 1.88139, 2.93253, -1.58631, 1.67419)
 mesh = SubResource("ArrayMesh_b0h22")
 skeleton = NodePath("")
@@ -1212,13 +1206,7 @@ skeleton = NodePath("")
 [node name="hallway 2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4405, 0, 0)
 
-[node name="Floor" type="StaticBody3D" parent="hallway 2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hallway 2/Floor"]
-transform = Transform3D(-0.917549, 0, 1.50996e-07, 0, 1, 0, -1.38546e-07, 0, -1, -0.14662, -1.66319, 0.817468)
-shape = SubResource("BoxShape3D_6vtq0")
-
-[node name="Plane_009" type="MeshInstance3D" parent="hallway 2/Floor"]
+[node name="Plane_009" type="MeshInstance3D" parent="hallway 2"]
 transform = Transform3D(0.919796, 0, -0.00620945, 0, 1, 0, 0.00309011, 0, 1.84829, 3.83131, -1.58631, 1.74068)
 mesh = SubResource("ArrayMesh_b0h22")
 skeleton = NodePath("")
@@ -1495,18 +1483,6 @@ skeleton = NodePath("")
 [node name="hallway 3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 3.36159)
 
-[node name="Floor" type="StaticBody3D" parent="hallway 3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hallway 3/Floor"]
-transform = Transform3D(-0.917549, 0, 1.50996e-07, 0, 1, 0, -1.38546e-07, 0, -1, -0.14662, -1.66319, 0.817468)
-shape = SubResource("BoxShape3D_6vtq0")
-
-[node name="Plane_009" type="MeshInstance3D" parent="hallway 3/Floor"]
-transform = Transform3D(0.917545, 0, -0.00335955, 0, 1, 0, 0.00308255, 0, 0.999994, 2.93253, -1.58631, 0.78339)
-visible = false
-mesh = SubResource("ArrayMesh_b0h22")
-skeleton = NodePath("")
-
 [node name="Cube" type="MeshInstance3D" parent="hallway 3"]
 transform = Transform3D(-1.46668, 0, 1.22646e-07, 0, 1, 0, -2.21463e-07, 0, -0.812246, -5.27424, -0.473793, 0.112138)
 material_override = SubResource("StandardMaterial3D_kkyc1")
@@ -1768,18 +1744,6 @@ skeleton = NodePath("")
 
 [node name="hallway 4" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 10.4405, 0, 3.36159)
-
-[node name="Floor" type="StaticBody3D" parent="hallway 4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hallway 4/Floor"]
-transform = Transform3D(-0.917549, 0, 1.50996e-07, 0, 1, 0, -1.38546e-07, 0, -1, -0.14662, -1.66319, 0.817468)
-shape = SubResource("BoxShape3D_6vtq0")
-
-[node name="Plane_009" type="MeshInstance3D" parent="hallway 4/Floor"]
-transform = Transform3D(0.917545, 0, -0.00335955, 0, 1, 0, 0.00308255, 0, 0.999994, 3.79716, -1.58631, 0.78339)
-visible = false
-mesh = SubResource("ArrayMesh_b0h22")
-skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="hallway 4"]
 transform = Transform3D(-1.46668, 0, 1.22646e-07, 0, 1, 0, -2.21463e-07, 0, -0.812246, -5.27424, -0.473793, 0.112138)
@@ -2081,12 +2045,12 @@ transform = Transform3D(1.71651, 0.0171148, 0.471238, -0.471549, 0.0623006, 1.71
 light_energy = 30.0
 
 [node name="TeleportPoint" parent="." instance=ExtResource("19_xaafo")]
-transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, 13.3118, -1.05251, 1.05504)
+transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, 12.7979, -0.759066, 1.67509)
 skeleton = NodePath("../walllamp2")
 spawn_point_number = 1
 
 [node name="TeleportPoint2" parent="." instance=ExtResource("19_xaafo")]
-transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, -3.69493, -0.963893, 0.866771)
+transform = Transform3D(0.561765, 0, 3.55271e-15, 0, 0.561765, 0, -3.55271e-15, 0, 0.561765, -2.98816, -0.723932, 1.60672)
 skeleton = NodePath("../walllamp2")
 
 [node name="SceneLoader_Control room" parent="." instance=ExtResource("13_1ehwm")]
@@ -2100,11 +2064,20 @@ transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-0
 texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Control room/InteractionDetector" index="0"]
-transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, -0.122619, 1.23943, 0.0798111)
+transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, 1.19286, 1.23943, 0.0798111)
 shape = SubResource("BoxShape3D_df5mx")
 
 [node name="headlight pipes" parent="." instance=ExtResource("20_dr676")]
 transform = Transform3D(-4.7025e-08, 0, 1.07581, 0, 1.07581, 0, -1.07581, 0, -4.7025e-08, -1.40695, 0.741849, 1.54311)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.39438e-08, -1.52106, 1.69164)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 5.56155, -0.53537, 0.0264213)
+shape = SubResource("BoxShape3D_vssp0")
 
 [editable path="SceneLoader_Storageroom"]
 [editable path="SceneLoader_Storageroom/InteractionDetector"]

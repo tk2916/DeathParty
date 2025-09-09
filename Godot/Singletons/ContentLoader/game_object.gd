@@ -4,7 +4,6 @@ var name : String
 var filepath : String
 var file : PackedScene
 var transform : Transform3D
-var g_pos : Vector3
 var aabb : AABB
 var instance : Node3D = null
 var parent_node : Node3D = null
