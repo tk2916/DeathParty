@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=141 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d2qmky6uvbv5h" path="res://rooms/Library/library layout_woodlight1.png" id="2_nt7ft"]
 [ext_resource type="Texture2D" uid="uid://cbpg3gmjegrqw" path="res://rooms/Library/library layout_wooddark.png" id="3_1lqw2"]
 [ext_resource type="PackedScene" uid="uid://cujkdwu7yl672" path="res://rooms/Library/bookshelf top floor.glb" id="3_mjo1y"]
+[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="4_8rbln"]
 [ext_resource type="PackedScene" uid="uid://s8nqkwhr8xqp" path="res://Assets/environment/chandelier.tscn" id="4_30q20"]
 [ext_resource type="Texture2D" uid="uid://di4lenj2tr56j" path="res://rooms/Library/library layout_standardwood.png" id="4_a1w3s"]
 [ext_resource type="PackedScene" uid="uid://3p6jhq8h6e4i" path="res://Assets/environment/chandelior bar.glb" id="5_l745y"]
@@ -1225,12 +1226,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.85343, -3.48211, 3.96691)
 
 [node name="SceneLoader_Ghost hallway" parent="." instance=ExtResource("1_j03r7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -3.8112, 7.39135)
+interactable = true
 target_location_index = 11
 local_spawn_point = 1
 play_door_sound = true
 
 [node name="Popup" parent="SceneLoader_Ghost hallway" index="1"]
-transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 3.55373, 0.516734, -0.752654)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 3.5, 1.5, -0.25)
+texture = ExtResource("4_8rbln")
 
 [node name="InteractionDetector" parent="SceneLoader_Ghost hallway" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38042, 0, 0)

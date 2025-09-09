@@ -1923,11 +1923,13 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="SceneLoader_Entrance" parent="." instance=ExtResource("47_cdidy")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74461, 2.07904, -3.58745)
+interactable = false
 local_spawn_point = 2
 play_door_sound = true
 
 [node name="Popup" parent="SceneLoader_Entrance" index="1"]
 transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 0, 0.474354, 0.741167)
+texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Entrance/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.089936, 0.880191, 0.431571)
@@ -1948,7 +1950,7 @@ target_location_index = 6
 play_door_sound = true
 
 [node name="Popup" parent="SceneLoader_Storageroom" index="1"]
-transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 0, 1.27177, 0.356107)
+transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 0, 1.75, 0.5)
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144353, 1.23943, 0.251274)

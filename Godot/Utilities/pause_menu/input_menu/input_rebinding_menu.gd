@@ -1,15 +1,15 @@
 extends Control
 
 
-@onready var editable_inputs : Dictionary = Settings.editable_inputs
-@onready var list : VBoxContainer = %BindingList
-@onready var binding_item_prefab : PackedScene = preload("res://Utilities/pause_menu/input_menu/input_binding_item.tscn")
+@onready var editable_inputs: Dictionary = Settings.editable_inputs
+@onready var list: VBoxContainer = %BindingList
+@onready var binding_item_prefab: PackedScene = preload("res://Utilities/pause_menu/input_menu/input_binding_item.tscn")
 
 # TODO: maybe give these clearer names
-var button_to_change : Button
-var changing_input : bool = false
-var current_action : StringName
-var current_index : int
+var button_to_change: Button
+var changing_input: bool = false
+var current_action: StringName
+var current_index: int
 
 
 func _ready() -> void:
@@ -40,7 +40,7 @@ func populate_list() -> void:
 
 		# get array of inputs currently bound to this action
 		#TODO: probably rename this to 'events' for consistent wording
-		var inputs : Array[InputEvent] = InputMap.action_get_events(action)
+		var inputs: Array[InputEvent] = InputMap.action_get_events(action)
 
 		if inputs.size() == 0:
 			input_a.text = "-"
@@ -54,30 +54,36 @@ func populate_list() -> void:
 
 		list.add_child(binding_item)
 
-		input_a.pressed.connect(button_pressed.bind(input_a,action,0))
-		input_b.pressed.connect(button_pressed.bind(input_b,action,1))
+		input_a.pressed.connect(button_pressed.bind(input_a, action, 0))
+		input_b.pressed.connect(button_pressed.bind(input_b, action, 1))
 
 
-func button_pressed(input_button : Button, action : StringName, index : int) -> void:
+func button_pressed(input_button: Button, action: StringName, index: int) -> void:
 	if Input.is_action_just_released("remove_input"):
 		var events = InputMap.action_get_events(action)
 		InputMap.action_erase_event(action, events[index])
 		Settings.save_settings()
 		input_button.text = "-"
 	else:
+		#input_button.release_focus()
 		button_to_change = input_button
 		current_action = action
 		current_index = index
 		changing_input = true
+		button_to_change.text = "PRESS A KEY"
 
 
-func _input(event : InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if changing_input:
 		if event is InputEventKey:
 			button_to_change.text = event.as_text_keycode()
 
 			Settings.update_binding(current_action, current_index, event)
 
+			changing_input = false
+
+			#button_to_change.grab_focus()
+
 			button_to_change = null
 
-			changing_input = false
+			accept_event()

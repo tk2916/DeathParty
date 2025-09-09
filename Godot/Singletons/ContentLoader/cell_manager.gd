@@ -150,7 +150,6 @@ func find_player_cell(player_center : Vector3) -> void:
 
 func update_active_cells(initial_load : bool = false) -> void:
 	if number_of_cells == 1 and !initial_load:
-		print("NOT Loading in ", scene.name)
 		#only 1 cell so no need to load/offload
 		return
 	if not scene.active: return

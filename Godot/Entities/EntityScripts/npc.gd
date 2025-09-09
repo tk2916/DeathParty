@@ -6,6 +6,7 @@ var outline : Node3D
 @export var character_resource : CharacterResource
 @export var dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
 @export var starter_json : JSON = null
+@export var starter_json : JSON = null
 @export var default_json: JSON = preload("res://Assets/InkExamples/sample_dialogue_template.json")
 
 func _ready() -> void:

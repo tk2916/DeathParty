@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://bqae87n6emy8q"]
+[gd_scene load_steps=84 format=4 uid="uid://bqae87n6emy8q"]
 
 [ext_resource type="Texture2D" uid="uid://c4o46fvqrk1xg" path="res://rooms/Hourhand hallway/hourhand floor_patterned floor.png" id="2_4pph5"]
 [ext_resource type="Texture2D" uid="uid://c1gtxbrgatf5m" path="res://rooms/Hourhand hallway/hourhand hallway_bronze wall.png" id="2_v1epj"]
@@ -19,9 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://dm3hjctqeb8wy" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_metallicRoughness.png" id="17_xaafo"]
 [ext_resource type="Texture2D" uid="uid://5m0xqqnw8gmg" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_normal.png" id="18_dr676"]
 [ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="19_xaafo"]
+[ext_resource type="PackedScene" uid="uid://caavjoc7svryg" path="res://rooms/Hourhand hallway/headlight pipes.glb" id="20_dr676"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgvqn"]
-size = Vector3(21.6137, 3.22495, 3.19273)
+size = Vector3(24.0006, 3.22495, 4.99314)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uf1m"]
 size = Vector3(25, 2, 0.1)
@@ -30,18 +31,15 @@ size = Vector3(25, 2, 0.1)
 size = Vector3(25, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dr676"]
-size = Vector3(2, 2, 0.1)
+size = Vector3(5.10004, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rs8om"]
 resource_local_to_scene = true
-size = Vector3(3.09418, 2.96014, 2.04828)
+size = Vector3(5.28977, 2.96014, 2.04828)
 
 [sub_resource type="FogMaterial" id="FogMaterial_4pph5"]
 density = 0.5
 albedo = Color(0.228619, 0.0822746, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6vtq0"]
-size = Vector3(12.3743, 0.145386, 2.83722)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7sn00"]
 resource_name = "Material.019"
@@ -888,21 +886,24 @@ shadow_mesh = SubResource("ArrayMesh_idoxc")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_df5mx"]
 resource_local_to_scene = true
-size = Vector3(3.9527, 2.80212, 2.04828)
+size = Vector3(6.58365, 2.80212, 2.04828)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vssp0"]
+size = Vector3(24.8802, 0.978088, 6.76335)
 
 [node name="Hourhand hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
-transform = Transform3D(1.41429, 0, 0, 0, 1.41429, 0, 0, 0, 1.41429, 0, 0, 0)
+transform = Transform3D(-6.18206e-08, 0, 1.41429, 0, 1.41429, 0, -1.41429, 0, -6.18206e-08, -2.36488, 0, 0)
 script = ExtResource("2_xgvqn")
 room_area = NodePath("RoomArea")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.83734, 0.016718, 0.523476)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3263, 0.016718, 1.74834)
 shape = SubResource("BoxShape3D_xgvqn")
 
 [node name="Boundaries" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65655, -0.707069, 1.97979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65655, -0.707069, 3.71316)
 shape = SubResource("BoxShape3D_8uf1m")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries"]
@@ -910,23 +911,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65655, -0.707069, 0)
 shape = SubResource("BoxShape3D_xaafo")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.58584, -0.636362, 1.0606)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.58584, -0.636362, 1.65881)
 shape = SubResource("BoxShape3D_dr676")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9191, -0.636362, 1.0606)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9191, -0.636362, 1.40023)
 shape = SubResource("BoxShape3D_dr676")
 
 [node name="SceneLoader_Storageroom" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.43027, -1.32767, 0.633325)
+interactable = false
 target_location_index = 6
 local_spawn_point = 1
 
 [node name="Popup" parent="SceneLoader_Storageroom" index="1"]
-transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 5.96046e-08, 0.801186, 0.308354)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.5, 1.25)
+texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116568, 1.16042, 0.0798106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08614, 1.16042, 0.0798106)
 shape = SubResource("BoxShape3D_rs8om")
 
 [node name="FogVolume" type="FogVolume" parent="."]
@@ -936,14 +939,8 @@ material = SubResource("FogMaterial_4pph5")
 
 [node name="hallway 1" type="Node3D" parent="."]
 
-[node name="Floor" type="StaticBody3D" parent="hallway 1"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hallway 1/Floor"]
-transform = Transform3D(-0.917549, 0, 1.50996e-07, 0, 1, 0, -1.38546e-07, 0, -1, -0.14662, -1.66319, 0.817468)
-shape = SubResource("BoxShape3D_6vtq0")
-
-[node name="Plane_009" type="MeshInstance3D" parent="hallway 1/Floor"]
-transform = Transform3D(0.917545, 0, -0.00335955, 0, 1, 0, 0.00308255, 0, 0.999994, 2.93253, -1.58631, 0.78339)
+[node name="Plane_009" type="MeshInstance3D" parent="hallway 1"]
+transform = Transform3D(0.920191, 0, -0.00632066, 0, 1, 0, 0.00309144, 0, 1.88139, 2.93253, -1.58631, 1.67419)
 mesh = SubResource("ArrayMesh_b0h22")
 skeleton = NodePath("")
 
@@ -1209,14 +1206,8 @@ skeleton = NodePath("")
 [node name="hallway 2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4405, 0, 0)
 
-[node name="Floor" type="StaticBody3D" parent="hallway 2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hallway 2/Floor"]
-transform = Transform3D(-0.917549, 0, 1.50996e-07, 0, 1, 0, -1.38546e-07, 0, -1, -0.14662, -1.66319, 0.817468)
-shape = SubResource("BoxShape3D_6vtq0")
-
-[node name="Plane_009" type="MeshInstance3D" parent="hallway 2/Floor"]
-transform = Transform3D(0.917545, 0, -0.00335955, 0, 1, 0, 0.00308255, 0, 0.999994, 3.79716, -1.58631, 0.78339)
+[node name="Plane_009" type="MeshInstance3D" parent="hallway 2"]
+transform = Transform3D(0.919796, 0, -0.00620945, 0, 1, 0, 0.00309011, 0, 1.84829, 3.83131, -1.58631, 1.74068)
 mesh = SubResource("ArrayMesh_b0h22")
 skeleton = NodePath("")
 
@@ -1489,6 +1480,540 @@ material_override = SubResource("StandardMaterial3D_ujtly")
 mesh = SubResource("ArrayMesh_1byei")
 skeleton = NodePath("")
 
+[node name="hallway 3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 3.36159)
+
+[node name="Cube" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, 0, 1.22646e-07, 0, 1, 0, -2.21463e-07, 0, -0.812246, -5.27424, -0.473793, 0.112138)
+material_override = SubResource("StandardMaterial3D_kkyc1")
+mesh = SubResource("ArrayMesh_upwq2")
+skeleton = NodePath("")
+
+[node name="Cube_001" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1, 0, -2.21463e-07, 0, -0.993232, -5.27424, -1.39789, -0.549219)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_002" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 2.14359, 0, -2.21463e-07, 0, -0.993232, -5.27424, -1.53747, -0.549219)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_004" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1, 0, -2.21463e-07, 0, -0.993232, -3.32382, -0.564721, -0.543518)
+mesh = SubResource("ArrayMesh_54x15")
+skeleton = NodePath("")
+
+[node name="Cube_008" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.22668, -2.4021e-08, 1.10489e-07, 6.05567e-08, 0.368152, 0.544763, -1.62682e-07, 0.318168, -0.630345, -1.40108, 0.518585, 0.273221)
+mesh = SubResource("ArrayMesh_l35ka")
+skeleton = NodePath("")
+
+[node name="Plane_003" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-0.914832, 3.7942e-08, 7.45786e-08, -5.58963e-08, 0.364766, -0.503616, -1.09639e-07, -0.502557, -0.365535, -1.08992, 0.785996, 0.0412594)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_004" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(0.914832, 3.7942e-08, -1.93845e-08, -5.58963e-08, 0.364766, -0.503616, 2.84972e-08, -0.502557, -0.365535, -1.60411, 0.785996, 0.0412594)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_001" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-0.914832, 3.7942e-08, 7.45786e-08, -5.58963e-08, 0.364766, -0.503616, -1.09639e-07, -0.502557, -0.365535, -5.05225, 0.785996, 0.0412591)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_002" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(0.914832, 3.7942e-08, -1.93845e-08, -5.58963e-08, 0.364766, -0.503616, 2.84972e-08, -0.502557, -0.365535, -5.56644, 0.785996, 0.041259)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Cube_009" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1, 0, -2.21463e-07, 0, -0.993232, -3.26747, 0.441108, -0.256598)
+mesh = SubResource("ArrayMesh_tqear")
+skeleton = NodePath("")
+
+[node name="Cube_011" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, 0, 1.22646e-07, 0, 1, 0, -2.21463e-07, 0, -0.812246, -1.40535, -0.473793, 0.112138)
+mesh = SubResource("ArrayMesh_y8ips")
+skeleton = NodePath("")
+
+[node name="Cube_012" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1, 0, -2.21463e-07, 0, -0.993232, -1.38681, -1.39789, -0.549218)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_013" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 2.14359, 0, -2.21463e-07, 0, -0.993232, -1.38681, -1.53747, -0.549218)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_005" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1, -3.62852e-08, 1.41705e-07, 3.62852e-08, 0.876933, 0.480612, -1.41705e-07, 0.480612, -0.876933, -4.05338, 0.607768, 0.0581512)
+mesh = SubResource("ArrayMesh_x585o")
+skeleton = NodePath("")
+
+[node name="Cube_007" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, -4.92238e-08, 1.32107e-07, 7.24048e-08, 0.754416, 0.651348, -1.94511e-07, 0.651989, -0.753674, -1.40108, 0.691547, 0.429894)
+mesh = SubResource("ArrayMesh_httjt")
+skeleton = NodePath("")
+
+[node name="Cutter" type="MeshInstance3D" parent="hallway 3/Cube_007"]
+transform = Transform3D(-1, 1.07613e-07, 1.09192e-07, -1.07613e-07, 0.014566, -0.999894, -1.09192e-07, -0.999894, -0.0145659, 0.00390222, -0.0661623, -0.00363722)
+material_override = SubResource("StandardMaterial3D_gr06p")
+mesh = SubResource("ArrayMesh_3yckj")
+skeleton = NodePath("")
+
+[node name="Cutter_001" type="MeshInstance3D" parent="hallway 3/Cube_007"]
+transform = Transform3D(-1, 1.07613e-07, 1.09192e-07, -1.07613e-07, 0.014566, -0.999894, -1.09192e-07, -0.999894, -0.0145659, -0.383832, 0.208369, 0.524844)
+mesh = SubResource("ArrayMesh_sws54")
+skeleton = NodePath("")
+
+[node name="Cube_003" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.22668, -2.4021e-08, 1.10489e-07, 6.05567e-08, 0.368152, 0.544763, -1.62682e-07, 0.318168, -0.630345, -5.28961, 0.518585, 0.27322)
+mesh = SubResource("ArrayMesh_l35ka")
+skeleton = NodePath("")
+
+[node name="Cube_006" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, -4.92238e-08, 1.32107e-07, 7.24048e-08, 0.754416, 0.651348, -1.94511e-07, 0.651989, -0.753674, -5.28961, 0.691547, 0.429894)
+mesh = SubResource("ArrayMesh_httjt")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="hallway 3/Cube_006"]
+transform = Transform3D(0.681811, 3.55271e-15, 1.42109e-14, 0, 1.0029, -8.9407e-08, -2.13163e-14, 2.98023e-08, 1.00388, 0, -0.0571278, -0.0494202)
+omni_attenuation = 1.5
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="hallway 3/Cube_006"]
+light_color = Color(1, 0.6, 0, 1)
+light_energy = 5.0
+omni_range = 1.25
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="hallway 3/Cube_006"]
+transform = Transform3D(0.681811, -3.55271e-15, 1.42109e-14, 0, 1.0029, -2.98023e-08, -4.9738e-14, 2.98023e-08, 1.00388, -2.65232, -0.057128, -0.0494197)
+omni_attenuation = 1.5
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="hallway 3/Cube_006"]
+transform = Transform3D(0.681811, 3.55271e-15, 1.42109e-14, 0, 1.0029, -8.9407e-08, -2.13163e-14, 2.98023e-08, 1.00388, -2.65232, -1.78814e-07, 5.36442e-07)
+light_color = Color(1, 0.6, 0, 1)
+light_energy = 5.0
+omni_range = 1.25
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="hallway 3/Cube_006"]
+transform = Transform3D(0.681811, -3.55271e-15, 2.13163e-14, 7.10543e-15, 1.0029, -5.96046e-08, -5.68434e-14, 2.98023e-08, 1.00388, -4.4736, -0.0571281, -0.0494192)
+omni_attenuation = 1.5
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="hallway 3/Cube_006"]
+transform = Transform3D(0.681811, -3.55271e-15, 1.42109e-14, 0, 1.0029, -2.98023e-08, -4.9738e-14, 2.98023e-08, 1.00388, -4.4736, -2.38419e-07, 9.23872e-07)
+light_color = Color(1, 0.6, 0, 1)
+light_energy = 5.0
+omni_range = 1.25
+
+[node name="Cube_014" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1.04634, 0, -2.21463e-07, 0, -0.993232, -3.14806, -0.537938, -0.609351)
+mesh = SubResource("ArrayMesh_4lnyj")
+skeleton = NodePath("")
+
+[node name="Cube_015" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.0769973, -0.379698, -0.596703)
+mesh = SubResource("ArrayMesh_of2ph")
+skeleton = NodePath("")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="hallway 3/Cube_015"]
+transform = Transform3D(1, -1.46657e-07, -1.1506e-07, 1.46657e-07, 0.237991, 0.971267, -1.1506e-07, -0.971267, 0.237991, 2.5332e-07, 1.74954, 1.65202)
+light_color = Color(0.883, 0.46, 1, 1)
+light_energy = 100.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+spot_range = 7.298
+spot_angle = 45.91
+
+[node name="Cube_016" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.107327, -1.32941, -0.842332)
+mesh = SubResource("ArrayMesh_xbqlg")
+skeleton = NodePath("")
+
+[node name="Cube_017" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1.03143, 0, 2.04301e-07, 0, 1.03677, 0, -1.55741e-07, 0, -1.35303, -0.0505648, 0.441108, -0.258228)
+mesh = SubResource("ArrayMesh_tqear")
+skeleton = NodePath("")
+
+[node name="Cube_020" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1, 0, 1.23481e-07, 0, 1, 0, -1.50996e-07, 0, -0.81778, 1.28347, -0.473793, 0.113021)
+material_override = SubResource("StandardMaterial3D_rlu0n")
+mesh = SubResource("ArrayMesh_upwq2")
+skeleton = NodePath("")
+
+[node name="Cube_022" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1.28347, -1.39789, -0.552842)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_023" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 2.14359, 0, -1.50996e-07, 0, -1, 1.28347, -1.53747, -0.552842)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Plane_005" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-0.623743, 3.81107e-08, 7.47528e-08, -3.81107e-08, 0.366388, -0.504792, -7.47528e-08, -0.504792, -0.366388, 1.43482, 0.785996, 0.0416594)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_006" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(0.623743, 3.81107e-08, -1.94297e-08, -3.81107e-08, 0.366388, -0.504792, 1.94297e-08, -0.504792, -0.366388, 1.08424, 0.785996, 0.0416593)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Cube_024" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-0.836363, -2.40906e-08, 1.10918e-07, 4.12882e-08, 0.369218, 0.546879, -1.10918e-07, 0.319089, -0.632793, 1.27299, 0.518585, 0.275201)
+mesh = SubResource("ArrayMesh_l35ka")
+skeleton = NodePath("")
+
+[node name="Cube_025" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-1, -4.93664e-08, 1.3262e-07, 4.93664e-08, 0.756601, 0.653877, -1.3262e-07, 0.653877, -0.756601, 1.27299, 0.691547, 0.432942)
+mesh = SubResource("ArrayMesh_httjt")
+skeleton = NodePath("")
+
+[node name="Cube_026" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(1.46668, 0, 0, 0, 1, 0, 0, 0, -0.812246, 5.09899, -0.473793, 0.112139)
+material_override = SubResource("StandardMaterial3D_bypwo")
+mesh = SubResource("ArrayMesh_upwq2")
+skeleton = NodePath("")
+
+[node name="Cube_027" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(1.46668, 0, 0, 0, 1, 0, 0, 0, -0.993232, 5.09899, -1.39789, -0.549218)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_028" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(1.46668, 0, 0, 0, 2.14359, 0, 0, 0, -0.993232, 5.09899, -1.53747, -0.549218)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_029" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(1.46668, 0, 0, 0, 1, 0, 0, 0, -0.993232, 3.14858, -0.564721, -0.543517)
+mesh = SubResource("ArrayMesh_54x15")
+skeleton = NodePath("")
+
+[node name="Plane_007" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(0.914832, 3.7942e-08, -1.93845e-08, -5.58963e-08, 0.364766, -0.503616, 2.84972e-08, -0.502557, -0.365535, 4.877, 0.785996, 0.04126)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_008" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-0.914832, 3.7942e-08, 7.45786e-08, -5.58963e-08, 0.364766, -0.503616, -1.09639e-07, -0.502557, -0.365535, 5.39119, 0.785996, 0.04126)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Cube_030" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(1.46668, 0, 0, 0, 1, 0, 0, 0, -0.993232, 3.09222, 0.441108, -0.256598)
+mesh = SubResource("ArrayMesh_tqear")
+skeleton = NodePath("")
+
+[node name="Cube_031" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(1.22668, -2.4021e-08, -1.53097e-08, 6.05567e-08, 0.368152, 0.544763, 2.25416e-08, 0.318168, -0.630345, 5.11436, 0.518585, 0.273221)
+mesh = SubResource("ArrayMesh_l35ka")
+skeleton = NodePath("")
+
+[node name="Cube_032" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(1.46668, -4.92238e-08, -1.8305e-08, 7.24047e-08, 0.754416, 0.651348, 2.69519e-08, 0.651989, -0.753674, 5.11436, 0.691547, 0.429895)
+mesh = SubResource("ArrayMesh_httjt")
+skeleton = NodePath("")
+
+[node name="Cube_033" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(1.46668, 0, 0, 0, 1.04634, 0, 0, 0, -0.993232, 2.97281, -0.537938, -0.609351)
+mesh = SubResource("ArrayMesh_4lnyj")
+skeleton = NodePath("")
+
+[node name="Cube_034" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(-0.949693, -3.62852e-08, 1.41705e-07, 3.44598e-08, 0.876933, 0.480612, -1.34576e-07, 0.480612, -0.876933, 2.24203, 0.607768, 0.0581517)
+mesh = SubResource("ArrayMesh_x585o")
+skeleton = NodePath("")
+
+[node name="Cube_036" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(5.92013e-08, 1.46668, 1.77636e-15, -2.96006e-08, 1.30268e-15, 1, 0.993232, -8.74211e-08, 2.98023e-08, -3.57407, 1.36711, 1.40912)
+material_override = SubResource("StandardMaterial3D_riv6x")
+mesh = SubResource("ArrayMesh_1byei")
+skeleton = NodePath("")
+
+[node name="Cube_037" type="MeshInstance3D" parent="hallway 3"]
+transform = Transform3D(5.92013e-08, 1.46668, 1.77636e-15, -2.96006e-08, 1.30268e-15, 1, 0.993232, -8.74211e-08, 2.98023e-08, 3.03177, 1.36711, 1.40912)
+material_override = SubResource("StandardMaterial3D_ujtly")
+mesh = SubResource("ArrayMesh_1byei")
+skeleton = NodePath("")
+
+[node name="hallway 4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 10.4405, 0, 3.36159)
+
+[node name="Cube" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, 0, 1.22646e-07, 0, 1, 0, -2.21463e-07, 0, -0.812246, -5.27424, -0.473793, 0.112138)
+material_override = SubResource("StandardMaterial3D_kkyc1")
+mesh = SubResource("ArrayMesh_upwq2")
+skeleton = NodePath("")
+
+[node name="Cube_001" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1, 0, -2.21463e-07, 0, -0.993232, -5.27424, -1.39789, -0.549219)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_002" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 2.14359, 0, -2.21463e-07, 0, -0.993232, -5.27424, -1.53747, -0.549219)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_004" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1, 0, -2.21463e-07, 0, -0.993232, -3.32382, -0.564721, -0.543518)
+mesh = SubResource("ArrayMesh_54x15")
+skeleton = NodePath("")
+
+[node name="Cube_008" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.22668, -2.4021e-08, 1.10489e-07, 6.05567e-08, 0.368152, 0.544763, -1.62682e-07, 0.318168, -0.630345, -1.40108, 0.518585, 0.273221)
+mesh = SubResource("ArrayMesh_l35ka")
+skeleton = NodePath("")
+
+[node name="Plane_003" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-0.914832, 3.7942e-08, 7.45786e-08, -5.58963e-08, 0.364766, -0.503616, -1.09639e-07, -0.502557, -0.365535, -1.08992, 0.785996, 0.0412594)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_004" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(0.914832, 3.7942e-08, -1.93845e-08, -5.58963e-08, 0.364766, -0.503616, 2.84972e-08, -0.502557, -0.365535, -1.60411, 0.785996, 0.0412594)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_001" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-0.914832, 3.7942e-08, 7.45786e-08, -5.58963e-08, 0.364766, -0.503616, -1.09639e-07, -0.502557, -0.365535, -5.05225, 0.785996, 0.0412591)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_002" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(0.914832, 3.7942e-08, -1.93845e-08, -5.58963e-08, 0.364766, -0.503616, 2.84972e-08, -0.502557, -0.365535, -5.56644, 0.785996, 0.041259)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Cube_009" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1, 0, -2.21463e-07, 0, -0.993232, -3.26747, 0.441108, -0.256598)
+mesh = SubResource("ArrayMesh_tqear")
+skeleton = NodePath("")
+
+[node name="Cube_011" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, 0, 1.22646e-07, 0, 1, 0, -2.21463e-07, 0, -0.812246, -1.40535, -0.473793, 0.112138)
+mesh = SubResource("ArrayMesh_y8ips")
+skeleton = NodePath("")
+
+[node name="Cube_012" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1, 0, -2.21463e-07, 0, -0.993232, -1.38681, -1.39789, -0.549218)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_013" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 2.14359, 0, -2.21463e-07, 0, -0.993232, -1.38681, -1.53747, -0.549218)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_005" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1, -3.62852e-08, 1.41705e-07, 3.62852e-08, 0.876933, 0.480612, -1.41705e-07, 0.480612, -0.876933, -2.15457, 0.607768, 0.0581512)
+mesh = SubResource("ArrayMesh_x585o")
+skeleton = NodePath("")
+
+[node name="Cube_007" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, -4.92238e-08, 1.32107e-07, 7.24048e-08, 0.754416, 0.651348, -1.94511e-07, 0.651989, -0.753674, -1.40108, 0.691547, 0.429894)
+mesh = SubResource("ArrayMesh_httjt")
+skeleton = NodePath("")
+
+[node name="Cutter" type="MeshInstance3D" parent="hallway 4/Cube_007"]
+transform = Transform3D(-1, 1.07613e-07, 1.09192e-07, -1.07613e-07, 0.014566, -0.999894, -1.09192e-07, -0.999894, -0.0145659, 0.00390222, -0.0661623, -0.00363722)
+material_override = SubResource("StandardMaterial3D_gr06p")
+mesh = SubResource("ArrayMesh_3yckj")
+skeleton = NodePath("")
+
+[node name="Cutter_001" type="MeshInstance3D" parent="hallway 4/Cube_007"]
+transform = Transform3D(-1, 1.07613e-07, 1.09192e-07, -1.07613e-07, 0.014566, -0.999894, -1.09192e-07, -0.999894, -0.0145659, -0.383832, 0.208369, 0.524844)
+mesh = SubResource("ArrayMesh_sws54")
+skeleton = NodePath("")
+
+[node name="Cube_003" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.22668, -2.4021e-08, 1.10489e-07, 6.05567e-08, 0.368152, 0.544763, -1.62682e-07, 0.318168, -0.630345, -5.28961, 0.518585, 0.27322)
+mesh = SubResource("ArrayMesh_l35ka")
+skeleton = NodePath("")
+
+[node name="Cube_006" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, -4.92238e-08, 1.32107e-07, 7.24048e-08, 0.754416, 0.651348, -1.94511e-07, 0.651989, -0.753674, -5.28961, 0.691547, 0.429894)
+mesh = SubResource("ArrayMesh_httjt")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="hallway 4/Cube_006"]
+transform = Transform3D(0.681811, 3.55271e-15, 1.42109e-14, 0, 1.0029, -8.9407e-08, -2.13163e-14, 2.98023e-08, 1.00388, 0, -0.0571278, -0.0494202)
+omni_attenuation = 1.5
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="hallway 4/Cube_006"]
+light_color = Color(1, 0.6, 0, 1)
+light_energy = 5.0
+omni_range = 1.25
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="hallway 4/Cube_006"]
+transform = Transform3D(0.681811, -3.55271e-15, 1.42109e-14, 0, 1.0029, -2.98023e-08, -4.9738e-14, 2.98023e-08, 1.00388, -2.65232, -0.057128, -0.0494197)
+omni_attenuation = 1.5
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="hallway 4/Cube_006"]
+transform = Transform3D(0.681811, 3.55271e-15, 1.42109e-14, 0, 1.0029, -8.9407e-08, -2.13163e-14, 2.98023e-08, 1.00388, -2.65232, -1.78814e-07, 5.36442e-07)
+light_color = Color(1, 0.6, 0, 1)
+light_energy = 5.0
+omni_range = 1.25
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="hallway 4/Cube_006"]
+transform = Transform3D(0.681811, -3.55271e-15, 2.13163e-14, 7.10543e-15, 1.0029, -5.96046e-08, -5.68434e-14, 2.98023e-08, 1.00388, -4.4736, -0.0571281, -0.0494192)
+omni_attenuation = 1.5
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="hallway 4/Cube_006"]
+transform = Transform3D(0.681811, -3.55271e-15, 1.42109e-14, 0, 1.0029, -2.98023e-08, -4.9738e-14, 2.98023e-08, 1.00388, -4.4736, -2.38419e-07, 9.23872e-07)
+light_color = Color(1, 0.6, 0, 1)
+light_energy = 5.0
+omni_range = 1.25
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="hallway 4/Cube_006"]
+transform = Transform3D(0.681811, -3.55271e-15, 4.26326e-14, 7.10543e-15, 1.0029, -8.9407e-08, -5.68434e-14, 2.98023e-08, 1.00388, -7.09292, -0.0571282, -0.0494186)
+omni_attenuation = 1.5
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="hallway 4/Cube_006"]
+transform = Transform3D(0.681811, -3.55271e-15, 2.13163e-14, 7.10543e-15, 1.0029, -5.96046e-08, -5.68434e-14, 2.98023e-08, 1.00388, -7.09292, -3.57628e-07, 1.51992e-06)
+light_color = Color(1, 0.6, 0, 1)
+light_energy = 5.0
+omni_range = 1.25
+
+[node name="Cube_014" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.46668, 0, 1.49974e-07, 0, 1.04634, 0, -2.21463e-07, 0, -0.993232, -3.14806, -0.537938, -0.609351)
+mesh = SubResource("ArrayMesh_4lnyj")
+skeleton = NodePath("")
+
+[node name="Cube_015" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.0769973, -0.379698, -0.596703)
+mesh = SubResource("ArrayMesh_of2ph")
+skeleton = NodePath("")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="hallway 4/Cube_015"]
+transform = Transform3D(1, -1.46657e-07, -1.1506e-07, 1.46657e-07, 0.237991, 0.971267, -1.1506e-07, -0.971267, 0.237991, 2.5332e-07, 1.74954, 1.65202)
+light_color = Color(0.883, 0.46, 1, 1)
+light_energy = 100.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+spot_range = 7.298
+spot_angle = 45.91
+
+[node name="Cube_016" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.107327, -1.32941, -0.842332)
+mesh = SubResource("ArrayMesh_xbqlg")
+skeleton = NodePath("")
+
+[node name="Cube_017" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1.03143, 0, 2.04301e-07, 0, 1.03677, 0, -1.55741e-07, 0, -1.35303, -0.0505648, 0.441108, -0.258228)
+mesh = SubResource("ArrayMesh_tqear")
+skeleton = NodePath("")
+
+[node name="Cube_020" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1, 0, 1.23481e-07, 0, 1, 0, -1.50996e-07, 0, -0.81778, 1.28347, -0.473793, 0.113021)
+material_override = SubResource("StandardMaterial3D_rlu0n")
+mesh = SubResource("ArrayMesh_upwq2")
+skeleton = NodePath("")
+
+[node name="Cube_022" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1.28347, -1.39789, -0.552842)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_023" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 2.14359, 0, -1.50996e-07, 0, -1, 1.28347, -1.53747, -0.552842)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Plane_005" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-0.623743, 3.81107e-08, 7.47528e-08, -3.81107e-08, 0.366388, -0.504792, -7.47528e-08, -0.504792, -0.366388, 1.43482, 0.785996, 0.0416594)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_006" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(0.623743, 3.81107e-08, -1.94297e-08, -3.81107e-08, 0.366388, -0.504792, 1.94297e-08, -0.504792, -0.366388, 1.08424, 0.785996, 0.0416593)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Cube_024" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-0.836363, -2.40906e-08, 1.10918e-07, 4.12882e-08, 0.369218, 0.546879, -1.10918e-07, 0.319089, -0.632793, 1.27299, 0.518585, 0.275201)
+mesh = SubResource("ArrayMesh_l35ka")
+skeleton = NodePath("")
+
+[node name="Cube_025" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-1, -4.93664e-08, 1.3262e-07, 4.93664e-08, 0.756601, 0.653877, -1.3262e-07, 0.653877, -0.756601, 1.27299, 0.691547, 0.432942)
+mesh = SubResource("ArrayMesh_httjt")
+skeleton = NodePath("")
+
+[node name="Cube_026" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(1.46668, 0, 0, 0, 1, 0, 0, 0, -0.812246, 5.09899, -0.473793, 0.112139)
+material_override = SubResource("StandardMaterial3D_bypwo")
+mesh = SubResource("ArrayMesh_upwq2")
+skeleton = NodePath("")
+
+[node name="Cube_027" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(1.46668, 0, 0, 0, 1, 0, 0, 0, -0.993232, 5.09899, -1.39789, -0.549218)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_028" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(1.46668, 0, 0, 0, 2.14359, 0, 0, 0, -0.993232, 5.09899, -1.53747, -0.549218)
+mesh = SubResource("ArrayMesh_reg2x")
+skeleton = NodePath("")
+
+[node name="Cube_029" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(1.46668, 0, 0, 0, 1, 0, 0, 0, -0.993232, 3.14858, -0.564721, -0.543517)
+mesh = SubResource("ArrayMesh_54x15")
+skeleton = NodePath("")
+
+[node name="Plane_007" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(0.914832, 3.7942e-08, -1.93845e-08, -5.58963e-08, 0.364766, -0.503616, 2.84972e-08, -0.502557, -0.365535, 4.877, 0.785996, 0.04126)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Plane_008" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-0.914832, 3.7942e-08, 7.45786e-08, -5.58963e-08, 0.364766, -0.503616, -1.09639e-07, -0.502557, -0.365535, 5.39119, 0.785996, 0.04126)
+mesh = SubResource("ArrayMesh_fibnq")
+skeleton = NodePath("")
+
+[node name="Cube_030" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(1.46668, 0, 0, 0, 1, 0, 0, 0, -0.993232, 3.09222, 0.441108, -0.256598)
+mesh = SubResource("ArrayMesh_tqear")
+skeleton = NodePath("")
+
+[node name="Cube_031" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(1.22668, -2.4021e-08, -1.53097e-08, 6.05567e-08, 0.368152, 0.544763, 2.25416e-08, 0.318168, -0.630345, 5.11436, 0.518585, 0.273221)
+mesh = SubResource("ArrayMesh_l35ka")
+skeleton = NodePath("")
+
+[node name="Cube_032" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(1.46668, -4.92238e-08, -1.8305e-08, 7.24047e-08, 0.754416, 0.651348, 2.69519e-08, 0.651989, -0.753674, 5.11436, 0.691547, 0.429895)
+mesh = SubResource("ArrayMesh_httjt")
+skeleton = NodePath("")
+
+[node name="Cube_033" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(1.46668, 0, 0, 0, 1.04634, 0, 0, 0, -0.993232, 2.97281, -0.537938, -0.609351)
+mesh = SubResource("ArrayMesh_4lnyj")
+skeleton = NodePath("")
+
+[node name="Cube_034" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(-0.949693, -3.62852e-08, 1.41705e-07, 3.44598e-08, 0.876933, 0.480612, -1.34576e-07, 0.480612, -0.876933, 4.15266, 0.607768, 0.0581517)
+mesh = SubResource("ArrayMesh_x585o")
+skeleton = NodePath("")
+
+[node name="Cube_036" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(5.92013e-08, 1.46668, 1.77636e-15, -2.96006e-08, 1.30268e-15, 1, 0.993232, -8.74211e-08, 2.98023e-08, -3.57407, 1.36711, 1.40912)
+material_override = SubResource("StandardMaterial3D_riv6x")
+mesh = SubResource("ArrayMesh_1byei")
+skeleton = NodePath("")
+
+[node name="Cube_037" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(5.92013e-08, 1.46668, 1.77636e-15, -2.96006e-08, 1.30268e-15, 1, 0.993232, -8.74211e-08, 2.98023e-08, 3.03177, 1.36711, 1.40912)
+material_override = SubResource("StandardMaterial3D_ujtly")
+mesh = SubResource("ArrayMesh_1byei")
+skeleton = NodePath("")
+
 [node name="canyon painting" parent="." instance=ExtResource("14_66r5h")]
 transform = Transform3D(1.17396, 0, 0, 0, 1.17396, 0, 0, 0, 1.17396, 3.08098, -0.235254, -0.541393)
 
@@ -1520,24 +2045,39 @@ transform = Transform3D(1.71651, 0.0171148, 0.471238, -0.471549, 0.0623006, 1.71
 light_energy = 30.0
 
 [node name="TeleportPoint" parent="." instance=ExtResource("19_xaafo")]
-transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, 13.3118, -1.05251, 1.05504)
+transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, 12.7979, -0.759066, 1.67509)
 skeleton = NodePath("../walllamp2")
 spawn_point_number = 1
 
 [node name="TeleportPoint2" parent="." instance=ExtResource("19_xaafo")]
-transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, -3.69493, -0.963893, 0.866771)
+transform = Transform3D(0.561765, 0, 3.55271e-15, 0, 0.561765, 0, -3.55271e-15, 0, 0.561765, -2.98816, -0.723932, 1.60672)
 skeleton = NodePath("../walllamp2")
 
 [node name="SceneLoader_Control room" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-3.0907e-08, 0, -0.707069, 0, 0.707069, 0, 0.707069, 0, -3.0907e-08, 14.7747, -1.41536, 0.823003)
+interactable = false
 target_location_index = 10
+arrow_direction = 1
 
 [node name="Popup" parent="SceneLoader_Control room" index="1"]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 0.801186, 0.204111)
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 1.5, 1.25)
+texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Control room/InteractionDetector" index="0"]
-transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, -0.122619, 1.23943, 0.0798111)
+transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, 1.19286, 1.23943, 0.0798111)
 shape = SubResource("BoxShape3D_df5mx")
+
+[node name="headlight pipes" parent="." instance=ExtResource("20_dr676")]
+transform = Transform3D(-4.7025e-08, 0, 1.07581, 0, 1.07581, 0, -1.07581, 0, -4.7025e-08, -1.40695, 0.741849, 1.54311)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.39438e-08, -1.52106, 1.69164)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 5.56155, -0.53537, 0.0264213)
+shape = SubResource("BoxShape3D_vssp0")
 
 [editable path="SceneLoader_Storageroom"]
 [editable path="SceneLoader_Storageroom/InteractionDetector"]
