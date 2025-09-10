@@ -117,7 +117,8 @@ func set_ui_state(ui_state : String) -> void:
 	
 	if previous_speaker and current_ui_state != UI_STATES.NPC_SPEAKER:
 		#print("Set previous speaker image label: ", previous_speaker)
-		previous_speaker_image_label.texture = previous_speaker.image_polaroid
+		if not (current_ui_state == UI_STATES.PROTAG_SPEAKER and previous_speaker.name == "Olivia"):
+			previous_speaker_image_label.texture = previous_speaker.image_polaroid
 	
 	if ui_state != UI_STATES.CHOICES:
 		previous_speaker = current_speaker
