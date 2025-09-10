@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=141 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -64,6 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="58_dsi3o"]
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.tscn" id="59_oa8vk"]
 [ext_resource type="PackedScene" uid="uid://cfen8ypgv1gjf" path="res://Assets/CharacterAssets/gamers/shark_gamer/shark_gamer.tscn" id="60_ullqy"]
+[ext_resource type="PackedScene" uid="uid://csh7q4aonjs3d" path="res://Assets/CharacterAssets/frat_boys/red_hat_frat_boy/Frat boy red hat.glb" id="62_8rbln"]
 [ext_resource type="PackedScene" uid="uid://5dyu4rpk5qa6" path="res://rooms/bedroom/LEO.glb" id="62_mxmye"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obdan"]
@@ -1817,7 +1818,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0982453, -4.18208, -0.93487
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59761, 0.142828, -1.67339)
 
 [node name="JackOLanternTall2" parent="Props/JackOLanterns" instance=ExtResource("35_tm5mn")]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 0.7, 0, -0.258819, 0, 0.965926, -8.3702, 0.00706291, 5.85171)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 0.7, 0, -0.258819, 0, 0.965926, -8.3702, 0.00706291, 6.84803)
 
 [node name="JackOLantern2" parent="Props/JackOLanterns" instance=ExtResource("34_sy7sl")]
 transform = Transform3D(1.20741, 0, -0.323524, 0, 1.25, 0, 0.323524, 0, 1.20741, -1.13544, -0.0511427, -1.62402)
@@ -1838,7 +1839,7 @@ transform = Transform3D(0.83297, 0, -0.553319, 0, 1, 0, 0.553319, 0, 0.83297, -6
 transform = Transform3D(0.996384, 0, -0.0849648, 0, 1, 0, 0.0849648, 0, 0.996384, 0.234775, -4.40411, -0.659418)
 
 [node name="Chair3" parent="Props" instance=ExtResource("45_jpbuu")]
-transform = Transform3D(-0.0983471, 0, 0.995152, 0, 1, 0, -0.995152, 0, -0.0983471, -8.46623, -4.41174, 5.18043)
+transform = Transform3D(-0.0983471, 0, 0.995152, 0, 1, 0, -0.995152, 0, -0.0983471, -8.46623, -4.41174, 6.17675)
 
 [node name="FoldedChairs" parent="Props" instance=ExtResource("52_rwfot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.15962, -3.71333, 7.38065)
@@ -2085,6 +2086,112 @@ bones/63/rotation = Quaternion(0.305781, 0.159722, -0.0598599, 0.936698)
 [node name="AnimationPlayer" parent="NPCs/free hug2" index="1"]
 autoplay = "sleep"
 
+[node name="Frat boy red hat" parent="NPCs" instance=ExtResource("62_8rbln")]
+transform = Transform3D(-0.559222, 0, 0.829018, 0, 1, 0, -0.829018, 0, -0.559222, -2.85008, 0.085969, 4.30402)
+
+[node name="Skeleton3D" parent="NPCs/Frat boy red hat/Frat bro red hat" index="0"]
+bones/0/position = Vector3(-0.416141, -24.9625, -69.9174)
+bones/0/rotation = Quaternion(-0.718098, -0.00216378, -0.00701602, 0.695903)
+bones/1/rotation = Quaternion(0.0881675, -0.000590878, -0.0163553, 0.995971)
+bones/2/rotation = Quaternion(0.284914, 0.00519724, -0.0272117, 0.958153)
+bones/3/rotation = Quaternion(0.284824, 0.00373389, -0.0278522, 0.958168)
+bones/4/rotation = Quaternion(0.136679, 0.00615799, 0.0015103, 0.990595)
+bones/5/rotation = Quaternion(-0.00282329, 0.0392078, 0.000245085, 0.999227)
+bones/7/rotation = Quaternion(-0.580295, -0.431479, 0.470479, -0.505701)
+bones/8/position = Vector3(-4.45379e-06, 14.4894, 2.11147e-06)
+bones/8/rotation = Quaternion(0.40139, -0.290645, 0.288494, 0.819257)
+bones/9/position = Vector3(-3.78217e-07, 30.5556, 8.90472e-07)
+bones/9/rotation = Quaternion(-0.0188887, -0.264505, 0.616039, 0.741739)
+bones/10/position = Vector3(2.61425e-06, 25.9953, -4.47844e-06)
+bones/10/rotation = Quaternion(-0.100552, 0.0888323, 0.00623881, 0.990939)
+bones/11/position = Vector3(-4.06433, 4.97477, 1.76528)
+bones/11/rotation = Quaternion(0.19031, 0.446582, 0.33067, 0.809324)
+bones/12/position = Vector3(-0.330358, 5.31941, -6.14102e-06)
+bones/12/rotation = Quaternion(0.00362421, -0.0740341, -0.242165, 0.967399)
+bones/13/position = Vector3(0.109308, 4.7009, 1.49318e-06)
+bones/13/rotation = Quaternion(-0.028177, -0.0347537, -0.101591, 0.99382)
+bones/14/position = Vector3(0.221043, 3.46966, -1.35034e-05)
+bones/15/position = Vector3(-5.07963, 14.3458, -0.0365657)
+bones/15/rotation = Quaternion(0.427437, 0.0247764, 0.00393648, 0.903697)
+bones/16/position = Vector3(0.00061588, 5.25204, -7.60969e-06)
+bones/16/rotation = Quaternion(0.6021, -8.80741e-05, -0.069045, 0.79543)
+bones/17/position = Vector3(0.00089438, 4.99902, -9.8075e-06)
+bones/17/rotation = Quaternion(0.317156, 2.94993e-05, -0.0366422, 0.947665)
+bones/18/position = Vector3(-0.0015154, 4.15239, 2.60419e-06)
+bones/19/position = Vector3(-1.69117, 14.594, 0.221789)
+bones/19/rotation = Quaternion(0.427286, 0.0268007, 0.00424343, 0.903709)
+bones/20/position = Vector3(-0.00569715, 5.20374, -1.39413e-05)
+bones/20/rotation = Quaternion(0.602477, 0.000164425, -0.0660887, 0.795395)
+bones/21/position = Vector3(0.00267985, 5.09557, -1.10902e-05)
+bones/21/rotation = Quaternion(0.317294, -0.000183778, -0.0350882, 0.947678)
+bones/22/position = Vector3(0.00302258, 4.60479, -1.00344e-05)
+bones/23/position = Vector3(2.02115, 14.8419, -0.0944325)
+bones/23/rotation = Quaternion(0.42742, 0.0255312, 0.00365675, 0.903685)
+bones/24/position = Vector3(-0.00503318, 4.85878, -9.33367e-06)
+bones/24/rotation = Quaternion(0.602177, 0.000315698, -0.0680131, 0.795461)
+bones/25/position = Vector3(-0.000252178, 4.49978, 4.64845e-07)
+bones/25/rotation = Quaternion(0.317196, -0.000174967, -0.0353742, 0.9477)
+bones/26/position = Vector3(0.0052954, 3.97452, -4.02705e-07)
+bones/27/position = Vector3(4.74965, 14.0847, 0.149127)
+bones/27/rotation = Quaternion(0.422485, 0.0410974, -0.0275011, 0.90502)
+bones/28/position = Vector3(-0.000505706, 4.18608, 2.3864e-07)
+bones/28/rotation = Quaternion(0.605196, 0.0216396, -0.0392578, 0.794813)
+bones/29/position = Vector3(4.58204e-05, 3.41605, 6.04396e-06)
+bones/29/rotation = Quaternion(0.317249, -2.35411e-05, -0.0354901, 0.947678)
+bones/30/position = Vector3(0.000463726, 3.08054, -1.38419e-05)
+bones/31/rotation = Quaternion(0.544905, -0.455879, 0.542211, 0.448619)
+bones/32/position = Vector3(2.39253e-06, 14.4894, 6.04533e-06)
+bones/32/rotation = Quaternion(0.33642, 0.2607, -0.500962, 0.753587)
+bones/33/position = Vector3(1.86951e-06, 30.5531, -8.91974e-07)
+bones/33/rotation = Quaternion(-0.00135472, 0.194842, -0.453194, 0.869856)
+bones/34/position = Vector3(-1.28219e-05, 25.9677, -2.77734e-06)
+bones/34/rotation = Quaternion(-0.147961, 0.231491, 0.0305403, 0.961034)
+bones/35/position = Vector3(4.19893, 5.03944, 1.8548)
+bones/35/rotation = Quaternion(0.178184, -0.11126, -0.145476, 0.966803)
+bones/36/position = Vector3(0.323861, 5.44372, -1.22563e-05)
+bones/36/rotation = Quaternion(0.112784, -0.138782, -0.00376192, 0.983873)
+bones/37/position = Vector3(-0.170147, 4.68268, -1.54529e-06)
+bones/37/rotation = Quaternion(0.0243472, -0.0677089, -0.0245942, 0.997105)
+bones/38/position = Vector3(-0.153718, 3.24922, -2.50876e-05)
+bones/39/position = Vector3(5.03928, 13.8189, 0.107967)
+bones/39/rotation = Quaternion(0.158836, -0.00883466, -0.0347156, 0.986655)
+bones/40/position = Vector3(0.000828713, 5.37419, 3.37978e-07)
+bones/40/rotation = Quaternion(0.319087, 2.78186e-05, 0.0390383, 0.946921)
+bones/41/position = Vector3(-0.0016858, 5.16369, 6.47693e-06)
+bones/41/rotation = Quaternion(0.161704, 1.40977e-05, 0.020154, 0.986634)
+bones/42/position = Vector3(0.000862026, 4.41945, 3.94136e-06)
+bones/43/position = Vector3(1.56819, 14.3081, 0.117306)
+bones/43/rotation = Quaternion(0.15881, -0.00956739, -0.0348764, 0.986647)
+bones/44/position = Vector3(0.000365484, 5.23433, 1.33132e-05)
+bones/44/rotation = Quaternion(0.319147, 0.000145895, 0.0382163, 0.946934)
+bones/45/rotation = Quaternion(0.161735, -1.24595e-05, 0.0208087, 0.986615)
+bones/46/position = Vector3(0.00563278, 4.6055, 1.48701e-05)
+bones/47/position = Vector3(-1.86879, 15.1279, -0.296085)
+bones/47/rotation = Quaternion(0.158893, -0.00722242, -0.0344352, 0.986669)
+bones/48/position = Vector3(0.000887045, 4.79376, 9.68688e-06)
+bones/48/rotation = Quaternion(0.318958, -8.53909e-05, 0.0403783, 0.946908)
+bones/49/position = Vector3(0.00151924, 4.50665, -6.59355e-06)
+bones/49/rotation = Quaternion(0.161638, 1.85483e-05, 0.0199543, 0.986648)
+bones/50/position = Vector3(-0.00240676, 3.84495, -1.17962e-05)
+bones/51/position = Vector3(-4.7387, 14.5252, 0.255169)
+bones/51/rotation = Quaternion(0.158793, -0.0100656, -0.0350929, 0.986637)
+bones/52/position = Vector3(-0.000862232, 3.96268, 1.67141e-06)
+bones/52/rotation = Quaternion(0.319187, 1.57827e-05, 0.0385983, 0.946905)
+bones/53/position = Vector3(0.000305301, 3.35821, -4.21333e-06)
+bones/53/rotation = Quaternion(0.161755, -2.44469e-05, 0.0195323, 0.986638)
+bones/54/position = Vector3(0.000558645, 2.9565, -6.13052e-06)
+bones/55/rotation = Quaternion(0.16314, 0.661299, 0.72764, -0.0812883)
+bones/56/rotation = Quaternion(-0.766477, 0.0539218, -0.0235037, 0.639573)
+bones/57/rotation = Quaternion(0.490263, 0.0802581, 0.128158, 0.858357)
+bones/58/rotation = Quaternion(0.400006, -0.242492, 0.060951, 0.881747)
+bones/60/rotation = Quaternion(-0.0946723, 0.671755, 0.734325, 0.0234281)
+bones/61/rotation = Quaternion(-0.753221, -0.0498832, -0.0249765, 0.655397)
+bones/62/rotation = Quaternion(0.456969, -0.0614936, -0.0886466, 0.882916)
+bones/63/rotation = Quaternion(0.409799, 0.23931, -0.0521582, 0.878678)
+
+[node name="AnimationPlayer" parent="NPCs/Frat boy red hat" index="1"]
+autoplay = "sitt bored"
+
 [node name="WoodCreakSound" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/000_SFX/000_Demo_Test/009_SFX_WoodCreak"
 event_guid = "{f38bbadd-9a04-4803-8491-24000f134dfa}"
@@ -2228,4 +2335,5 @@ autoplay = "IDLE"
 [editable path="Props/Desk2/desk_lamp"]
 [editable path="NPCs/shark"]
 [editable path="NPCs/free hug2"]
+[editable path="NPCs/Frat boy red hat"]
 [editable path="LEO"]
