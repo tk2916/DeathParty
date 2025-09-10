@@ -32,7 +32,7 @@ const SLOT_TO_PATH : Dictionary[SaveSlots, String] = {
 ##END DATA
 
 #For creating new save files
-const blank_save_file : SaveFile = preload("res://Singletons/SaveSystem/DefaultResources/save_file.tres")
+var blank_save_file : SaveFile = load("res://Singletons/SaveSystem/DefaultResources/save_file.tres")
 #For creating new inventory items at runtime (e.g. taking polaroids)
 const default_inventory_item_resource : InventoryItemResource = preload("res://Singletons/SaveSystem/DefaultResources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_item_properties.tres")
 
@@ -159,12 +159,12 @@ func key_exists(key:String) -> bool: # returns whether key exists
 func key_exists_assert(key:String) -> void: # returns location of key & errors if it doesn't exist
 	assert(key_exists(key), "ERROR: invalid key '" + key + "'. Check your spelling!")
 
-func key_is_type(key:String, type:int) -> void: # errors if types don't match (passing type enum)
+func key_is_type(key:String, type:int, value:Variant) -> void: # errors if types don't match (passing type enum)
 	key_exists_assert(key)
-	assert(typeof(player_data.variable_dict[key])==type, "ERROR: " + key + " not of type " + str(type))
+	assert(typeof(player_data.variable_dict[key])==type, "TYPE ERROR: " + key + " (current value: " + str(player_data.variable_dict[key]) + ") not of type " + str(type) + " (current value: " + str(value) + ")")
 
 func match_type(key:String, value:Variant) -> void: # errors if types don't match (passing new value)
-	key_is_type(key, typeof(value))
+	key_is_type(key, typeof(value), value)
 
 #Mapping names to resources
 func get_character(char_name : String) -> CharacterResource:
@@ -214,10 +214,12 @@ func item_exists(item_name:String) -> InventoryItemResource:
 	assert(active_save_file.inventory_items.has(item_name), "ERROR: no such item '" + item_name + "'. Check your spelling!")
 	return active_save_file.inventory_items[item_name]
 
-func add_item(item_name:String) -> void:
+func add_item(item_name:String, show_item_details : bool = false) -> void:
 	var item := item_exists(item_name)
 	item.amount_owned += 1
 	inventory_changed.emit("add", item)
+	if show_item_details:
+		InventoryUtils.show_item_details(item)
 
 func remove_item(item_name:String) -> bool: #returns 1 if successful, 0 if there aren't any left
 	var item := item_exists(item_name)

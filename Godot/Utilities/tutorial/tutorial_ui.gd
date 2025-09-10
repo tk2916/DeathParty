@@ -11,8 +11,9 @@
 
 extends CanvasLayer
 
-@export var json1 : JSON
-@export var json2 : JSON
+@export var rowan_invite_dialogue : JSON
+@export var on_phone_close_dialogue : JSON
+@export var on_journal_dialogue : JSON
 
 @export var exterior_scene_loader: SceneLoader
 
@@ -49,25 +50,22 @@ var state: States:
 				print("TUTORIAL STEP: UNLOCK PHONE")
 				move_controls_popup.hide()
 				phone_controls_popup.show()
-				send_initial_texts()
+				DialogueSystem.to_phone("Rowan", rowan_invite_dialogue)
 			States.USING_PHONE:
 				print("TUTORIAL STEP: USING PHONE")
 				phone_controls_popup.hide()
 			States.OPEN_JOURNAL:
+				DialogueSystem.begin_dialogue(on_phone_close_dialogue)
 				print("TUTORIAL STEP: OPEN JOURNAL")
 				journal_controls_popup.show()
 			States.USING_JOURNAL:
 				print("TUTORIAL STEP: USING JOURNAL")
+				DialogueSystem.begin_dialogue(on_journal_dialogue)
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
 				exterior_scene_loader.enabled = true
 				queue_free()
-
-
-func send_initial_texts() -> void:
-	DialogueSystem.to_phone("Rowan", json1)
-	DialogueSystem.to_phone("Caleb", json2)
-
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

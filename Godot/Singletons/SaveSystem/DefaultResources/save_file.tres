@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="1_n356d"]
 [ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Singletons/SaveSystem/ResourceScripts/inventory_properties_script.gd" id="2_mjajr"]
 [ext_resource type="Resource" uid="uid://c6xgdhpro5a1j" path="res://Singletons/SaveSystem/DefaultResources/PlayerDataResource/player_data.tres" id="3_ev5or"]
-[ext_resource type="Script" uid="uid://cxhduc02fxsvl" path="res://Singletons/SaveSystem/ResourceScripts/phone_chat_properties.gd" id="3_mjajr"]
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/Chat.gd" id="3_mjajr"]
 [ext_resource type="Script" uid="uid://cvt183j47uyr1" path="res://Singletons/SaveSystem/ResourceScripts/task_properties_script.gd" id="5_v2302"]
 
 [resource]

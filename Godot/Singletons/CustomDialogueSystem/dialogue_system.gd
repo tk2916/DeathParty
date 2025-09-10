@@ -23,14 +23,22 @@ var current_address : InkAddress:
 	get: return Ink.address
 
 ## CONSTANTS or UTILITIES
-const INK_FILE_PATH : String = "res://Assets/InkExamples/"
-var phone_notification_prefab : PackedScene = preload("res://phone_notification.tscn") 
+const INK_FILE_PATH : String = "res://Assets/InkFiles/"
+const INK_EXAMPLES_FILE_PATH : String = "res://Assets/InkExamples/"
+var phone_notification_prefab : PackedScene = preload("res://phone_notification.tscn")
+var dialogue_advance_sound: PackedScene = preload("res://Utilities/dialogue_advance_sound.tscn")
+var new_message_sound_scene: PackedScene = preload("res://audio/new_message_sound.tscn") 
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 enum ANIMATION_STYLES {
 	TYPEWRITER,
 	NONE,
 }
 signal loaded_new_contact(contact : ChatResource)
+
+## EMIT CONTACTS
+func emit_contacts() -> void:
+	for key in SaveSystem.active_save_file.phone_chats:
+		loaded_new_contact.emit(SaveSystem.get_phone_chat(key))
 
 ## CONST PREFABS
 const main_dialogue_box_prefab : PackedScene = preload("res://Assets/GUIPrefabs/DialogueBoxPrefabs/main_dialogue_box.tscn")
@@ -56,11 +64,8 @@ func begin_dialogue(file : JSON, in_phone : bool = false) -> void:
 	if in_dialogue:
 		print("You can't start a new chat while in a dialogue!")
 		return
+	in_dialogue = true
 	show_dialogue_box(in_phone)
-	# if in_phone:
-	# 	var chat : ChatResource = SaveSystem.get_phone_chat(chat_name)
-	# 	current_phone_resource = chat
-	# 	current_phone_resource.start_chat()
 	Ink.from_JSON(file)
 	display_content()
 
@@ -98,7 +103,11 @@ func spawn_dialogue_box() -> void:
 	current_dialogue_box = clone
 
 func load_json(json_file_name : String) -> JSON:
-	return load(INK_FILE_PATH+json_file_name)
+	if FileAccess.file_exists(INK_FILE_PATH+json_file_name):
+		return load(INK_FILE_PATH+json_file_name)
+	elif FileAccess.file_exists(INK_EXAMPLES_FILE_PATH+json_file_name):
+		return load(INK_EXAMPLES_FILE_PATH+json_file_name)
+	return null
 
 func load_conversation(character_name : String, json_file_name : String) -> void:
 	var json : JSON = load_json(json_file_name)
@@ -122,6 +131,10 @@ func to_phone(chat_name : String, file : JSON) -> void: # called to load json in
 	var chat : ChatResource = SaveSystem.get_phone_chat(chat_name)
 	current_phone_resource = chat
 	current_phone_resource.load_chat(file)
+
+func from_character(char_rsc : CharacterResource, file : JSON) -> void:
+	current_character_resource = char_rsc
+	begin_dialogue(file)
 ##
 
 ## PROCESS CONTENT
@@ -148,6 +161,7 @@ func display_content() -> void:
 		var choices : Array[InkChoiceInfo] = []
 		for choice : InkChoiceInfo in content:
 			choices.push_back(choice)
+		are_choices = true
 		current_dialogue_box.set_choices(choices)
 
 ## PROCESS COMMANDS
@@ -171,12 +185,17 @@ func match_command(text_ : String) -> void:
 	#match the first parameters (the command)
 	match(parameters_array[0]):
 		"/give_item":
-			SaveSystem.add_item(parameters_array[1])
+			waiting = true
+			SaveSystem.add_item(parameters_array[1], true)
 			'''
 			set this automatically so writers don't have to keep
 			writing /give_item and /has_item right after each other
 			'''
-			SaveSystem.set_key("has_item_flag", true) 
+			SaveSystem.set_key("has_item_flag", true)
+			current_dialogue_box.visible = false
+			await GuiSystem.guis_closed
+			waiting = false
+			current_dialogue_box.visible = true
 		"/remove_item":
 			#alerts if you don't have enough items
 			var result : int = SaveSystem.remove_item(parameters_array[1])
@@ -253,6 +272,49 @@ func match_command(text_ : String) -> void:
 			var npc_model : NPC = ContentLoader.get_active_npc(character_name).npc
 			if npc_model:
 				npc_model.play_animation(animation_name)
+
+## ADVANCE DIALOGUE
+func skip() -> void:
+	current_dialogue_box.skip()
+
+func advance_dialogue() -> void:
+	print("Trying to advance dialogue: ", !in_dialogue, !is_instance_valid(current_dialogue_box), are_choices, waiting)
+	if (
+		!in_dialogue
+		or !is_instance_valid(current_dialogue_box)
+		or are_choices
+		or waiting
+	): return	
+
+	if (
+		current_dialogue_box.done_state == true
+	):
+		display_content()
+		
+	else:
+		skip()
+
+	if not GuiSystem.in_phone:
+		var dialogue_advance_sound_instance: FmodEventEmitter3D = dialogue_advance_sound.instantiate()
+		main.add_child(dialogue_advance_sound_instance)
+
+
+#CLICK TO ADVANCE DIALOGUE
+var pressed : bool = false
+
+func _process(_delta: float) -> void:
+	if (Input.is_action_pressed("dialogic_default_action")):
+		if !pressed:
+			advance_dialogue()
+			pressed = true
+	else:
+		pressed = false
+## MAKE CHOICE
+func make_choice(redirect:String) -> void:
+	are_choices = false
+	print("Making choice: ", redirect)
+	Ink.make_choice(redirect)
+	display_content()
 
 # var main : Node
 # var canvas_layer : CanvasLayer

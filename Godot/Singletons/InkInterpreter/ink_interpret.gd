@@ -82,6 +82,7 @@ func get_content() -> Array[InkNode]:
 
 func make_choice(redirect_path : String) -> void:
 	address = redirect_path_to_address(address, redirect_path)
+	print("Made choice: ", address)
 
 func get_first_message(json : JSON) -> InkLineInfo:
 	var old_address : InkAddress = address

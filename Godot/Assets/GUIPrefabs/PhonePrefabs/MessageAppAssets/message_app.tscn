@@ -23,7 +23,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8bu3"]
 
-[node name="MessageApp" type="MarginContainer" node_paths=PackedStringArray("contact_name_label", "back_button", "all_contacts", "participants_list", "dialogue_container", "choice_container")]
+[node name="MessageApp" type="MarginContainer" node_paths=PackedStringArray("contact_name_label", "back_button", "all_contacts", "participants_list", "dialogue_container", "choice_container", "touch_screen")]
 anchors_preset = -1
 anchor_left = 0.03
 anchor_top = 0.03
@@ -37,7 +37,8 @@ back_button = NodePath("HBoxContainer/MessagePanel/BackArrow/Button")
 all_contacts = NodePath("HBoxContainer/ContactsPanel/Background/ScrollContainer/AllContacts")
 participants_list = NodePath("HBoxContainer/MessagePanel/ParticipantsList/ScrollContainer/ParticipantsList")
 dialogue_container = NodePath("HBoxContainer/MessagePanel/TextsArea/ScrollContainer/DialogueContainer")
-choice_container = NodePath("HBoxContainer/MessagePanel/TextsArea/ScrollContainer/DialogueContainer")
+choice_container = NodePath("HBoxContainer/MessagePanel/TextsArea/Choices")
+touch_screen = NodePath("HBoxContainer/MessagePanel/TextsArea/TouchScreen")
 text_message_prefab_protag = ExtResource("2_det87")
 text_message_prefab_npc = ExtResource("3_y6bpy")
 choice_prefab = ExtResource("4_y6bpy")
@@ -264,6 +265,16 @@ grow_horizontal = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_tb7f1")
 
+[node name="Choices" type="VBoxContainer" parent="HBoxContainer/MessagePanel/TextsArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 3
+
 [node name="ContactName" type="RichTextLabel" parent="HBoxContainer/MessagePanel"]
 layout_mode = 1
 anchors_preset = -1
@@ -299,6 +310,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_r8bu3")
 flat = true
 
 [node name="ParticipantsList" type="Control" parent="HBoxContainer/MessagePanel"]
+visible = false
 layout_mode = 1
 anchor_left = 0.1
 anchor_top = 0.15
@@ -306,6 +318,7 @@ anchor_right = 0.9
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MessagePanel/ParticipantsList"]
 layout_mode = 1

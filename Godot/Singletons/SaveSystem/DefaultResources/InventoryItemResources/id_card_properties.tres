@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://c352de41ecj6e"]
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=4 format=3 uid="uid://c352de41ecj6e"]
 
 [ext_resource type="PackedScene" uid="uid://bltu8s8l4ihrv" path="res://rooms/Exterior Frat Lawn/id_card.tscn" id="1_3t4u5"]
-[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_properties_script.gd" id="2_gi3kb"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/ext_entrance_Olivia_inventory_inspect_wallet.json" id="1_07afw"]
+[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Singletons/SaveSystem/ResourceScripts/inventory_properties_script.gd" id="2_gi3kb"]
 
 [resource]
 script = ExtResource("2_gi3kb")
-name = "ID Card"
-description = "Someone's lost ID"
+description = "Wallet"
 model = ExtResource("1_3t4u5")
 inventory_scale = 2.0
 inventory_position = Vector2(1, 0.6)
+amount_owned = 0
+dialogue_on_first_view = ExtResource("1_07afw")
+name = "ID Card"

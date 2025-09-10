@@ -1,0 +1,89 @@
+{
+	"inkVersion": 21.0,
+	"root": [
+		[
+			{
+				"->": "OliviaDormDoor"
+			},
+			[
+				"done",
+				{
+					"#f": 5.0,
+					"#n": "g-0"
+				}
+			],
+			null
+		],
+		"done",
+		{
+			"OliviaDormDoor": [
+				[
+					"ev",
+					{
+						"VAR?": "has_camera"
+					},
+					{
+						"VAR?": "has_journal"
+					},
+					"&&",
+					"/ev",
+					{
+						"->": ".^.b",
+						"c": true
+					},
+					{
+						"b": [
+							"\n",
+							"^[Olivia] I think I have everything. Time to go!",
+							"\n",
+							{
+								"->": ".^.^.^.2"
+							},
+							null
+						]
+					}
+				],
+				[
+					{
+						"->": ".^.b"
+					},
+					{
+						"b": [
+							"\n",
+							"^[Olivia] I wanna make sure I have everything I need before I leave.",
+							"\n",
+							{
+								"->": ".^.^.^.2"
+							},
+							null
+						]
+					}
+				],
+				"nop",
+				"\n",
+				"end",
+				{
+					"#f": 1.0
+				}
+			],
+			"global decl": [
+				"ev",
+				true,
+				{
+					"VAR=": "has_camera"
+				},
+				true,
+				{
+					"VAR=": "has_journal"
+				},
+				"/ev",
+				"end",
+				null
+			],
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
+}

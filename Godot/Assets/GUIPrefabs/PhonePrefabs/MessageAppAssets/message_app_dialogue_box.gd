@@ -20,6 +20,7 @@ var contact_pressed := false
 @export var participants_list : VBoxContainer
 @export var dialogue_container : VBoxContainer
 @export var choice_container : BoxContainer
+@export var touch_screen : Control
 
 ## PREFABS/SCENES
 @export var contact_panel_scene : PackedScene = preload("res://Assets/GUIPrefabs/PhonePrefabs/MessageAppAssets/contact_panel.tscn")
@@ -28,6 +29,30 @@ var contact_pressed := false
 @export var text_message_prefab_protag : PackedScene
 @export var text_message_prefab_npc : PackedScene
 @export var choice_prefab : PackedScene
+
+var choices_array : Array[MessageAppChoiceButton] = []
+
+class MessageAppChoiceButton:
+	var info : InkChoiceInfo
+	var button : PhoneChoiceButton
+	var box : MessageAppBox
+	func _init(_box : MessageAppBox, choice_container : Control, choice : InkChoiceInfo) -> void:
+		info = choice
+		box = _box
+		button = box.choice_prefab.instantiate()
+		button.set_text(choice.text)
+		choice_container.add_child(button)
+		button.button.pressed.connect(on_pressed)
+		box.choices_array.push_back(self)
+
+	func on_pressed() -> void:
+		DialogueSystem.make_choice(info.jump)
+		for item in box.choices_array:
+			item.destroy()
+		box.choices_array = []
+	func destroy() -> void:
+		print("Destroying button")
+		button.destroy()
 
 func _ready() -> void:
 	left_anchor_before = anchor_left
@@ -39,7 +64,7 @@ func _ready() -> void:
 	
 	back_button.pressed.connect(on_back_pressed)
 	DialogueSystem.loaded_new_contact.connect(instantiate_contact) #this signal is being emitted before the node is loaded
-
+	DialogueSystem.emit_contacts()
 #SETUP
 func instantiate_contact(contact : ChatResource) -> void:
 	#print("Instantiating with contact: ", contact.name)
@@ -103,32 +128,52 @@ func on_back_pressed() -> void:
 	pause_conversation()
 
 ## INHERITED
+var last_speaker : String = ""
 func add_line(line : InkLineInfo) -> void:
+	touch_screen.visible = true
 	var clone : DialogueLine
+	#decide which prefab to instance
 	if line.speaker == "Olivia":
 		clone = text_message_prefab_protag.instantiate()
 	else:
 		clone = text_message_prefab_npc.instantiate()
+	
+	#find speaker
 	var character : CharacterResource = SaveSystem.get_character(line.speaker)
-	clone.Img.texture = character.image_profile
+	assert(character != null, "Character " + line.speaker + " does not exist!")
+	
+	# show/hide image
+	if last_speaker == line.speaker:
+		clone.toggle_image(false)
+	else:
+		clone.set_image(character.image_profile)
+	last_speaker = line.speaker
+
+	#add to tree
 	dialogue_container.add_child(clone)
+
+	#animate text (fires the "done" signal so the dialogue can advance)
 	var animated_label : AnimatedTextLabel = AnimatedTextLabel.new(self, clone.Text)
-	print("Setting text: ", line.text)
+	print("Setting text: ", line.text, " in ", clone.Text)
 	animated_label.set_text(line)
 
 func set_choices(choices : Array[InkChoiceInfo]) -> void:
+	touch_screen.visible = false
 	for choice in choices:
-		var clone : ChoiceButton = choice_prefab.instantiate()
-		choice_container.add_child(clone)
+		MessageAppChoiceButton.new(self, choice_container, choice)
 
 func pause_conversation() -> void:
 	if !DialogueSystem.are_choices:
 		DialogueSystem.pause_dialogue()
 		clear_boxes()
 
+func skip() -> void:
+	pass
+
 # SHOW PARTICIPANTS
 func _on_contact_name_mouse_entered() -> void:
-	participants_list.visible = true
+	pass
+	#participants_list.visible = true
 
 func _on_contact_name_mouse_exited() -> void:
 	participants_list.visible = false

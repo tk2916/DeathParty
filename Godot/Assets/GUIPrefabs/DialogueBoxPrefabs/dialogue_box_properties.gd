@@ -24,17 +24,22 @@ class AnimatedTextLabel:
 	func set_text(line : InkLineInfo) -> void:
 		parent.done_state = false
 		animator.set_text(line)
+	func skip() -> void:
+		animator.skip()
 
 ## OVERRIDE THESE FUNCTIONS
 func add_line(_line : InkLineInfo) -> void:
-	pass
+	assert(false, "You need to define add_line() in your DialogueBox")
 
 func set_choices(_choices : Array[InkChoiceInfo]) -> void:
-	pass
+	assert(false, "You need to define set_choices() in your DialogueBox")
 
 func pause_conversation() -> void:
-	pass
+	assert(false, "You need to define pause_conversation() in your DialogueBox")
 
 func on_text_animator_finish() -> void:
 	done_state = true
 	done.emit()
+
+func skip() -> void:
+	assert(false, "You need to define skip() in your DialogueBox")

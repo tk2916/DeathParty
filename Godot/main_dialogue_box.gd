@@ -52,7 +52,7 @@ class LocalChoiceButton:
 		button.change_text(info.text)
 		button.pressed.connect(on_pressed)
 	func on_pressed() -> void:
-		DialogueSystem.change_container(info.jump)
+		DialogueSystem.make_choice(info.jump)
 
 var UI_STATES : Dictionary[String, String] = {
 	PROTAG_SPEAKER = "ProtagSpeaker",
@@ -62,7 +62,6 @@ var UI_STATES : Dictionary[String, String] = {
 
 var local_choice_buttons : Array[LocalChoiceButton] = []
 var current_ui_state : String
-var text_animator : TextAnimator
 
 func _ready() -> void:
 	protag_animated_label = AnimatedTextLabel.new(self, protag_text_label, DialogueSystem.ANIMATION_STYLES.TYPEWRITER)
@@ -141,7 +140,7 @@ func add_line(line : InkLineInfo) -> void:
 	text_label.set_text(line)
 
 func skip() -> void:
-	text_animator.skip()
+	text_label.skip()
 
 func set_choices(choices : Array[InkChoiceInfo]) -> void:
 	current_speaker = SaveSystem.get_character("Olivia")

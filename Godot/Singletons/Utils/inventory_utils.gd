@@ -51,19 +51,21 @@ func fix_materials(mesh : MeshInstance3D) -> void:
 	for i in range(mesh.mesh.get_surface_count()):
 		var material : Material= mesh.get_active_material(i)
 		if material is BaseMaterial3D:
-			material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			var base_material : BaseMaterial3D = material
+			base_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
 func show_item_details(
 	item_resource : InventoryItemResource, 
-	clickable_obj : ClickableInventoryItem = null
+	clickable_obj : ObjectViewerInteractable = null
 	) -> void:
-	if clickable_obj == null:
+	if clickable_obj == null or not (clickable_obj is ClickableInventoryItem):
 		clickable_obj = create_clickable_item(item_resource)
 	GuiSystem.hide_journal()
 	var clone : ObjectViewerRotatable = ObjectViewerRotatable.new()
 	for child in clickable_obj.get_children():
 		if child is CollisionShape3D:
-			child.disabled = false
+			var collision_shape : CollisionShape3D = child
+			collision_shape.disabled = false
 		clone.add_child(child.duplicate())
 	
 	clone.scale = clone.scale*3
