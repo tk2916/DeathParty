@@ -1937,7 +1937,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.089936, 0.880191, 0.431571)
 shape = SubResource("BoxShape3D_5eouh")
 
 [node name="TeleportPoint" parent="." instance=ExtResource("3_xvuva")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.84279, 1.96153, -3.51385)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.26074, 0.843524, -3.51385)
 skeleton = NodePath("../SceneLoader_Entrance/InteractionDetector")
 
 [node name="TeleportPoint2" parent="." instance=ExtResource("3_xvuva")]
