@@ -298,7 +298,6 @@ func advance_dialogue() -> void:
 		var dialogue_advance_sound_instance: FmodEventEmitter3D = dialogue_advance_sound.instantiate()
 		main.add_child(dialogue_advance_sound_instance)
 
-
 #CLICK TO ADVANCE DIALOGUE
 var pressed : bool = false
 

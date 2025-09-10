@@ -889,7 +889,7 @@ resource_local_to_scene = true
 size = Vector3(6.58365, 2.80212, 2.04828)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vssp0"]
-size = Vector3(24.8802, 0.978088, 6.76335)
+size = Vector3(32.8532, 0.978088, 13.0097)
 
 [node name="Hourhand hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(-6.18206e-08, 0, 1.41429, 0, 1.41429, 0, -1.41429, 0, -6.18206e-08, -2.36488, 0, 0)
@@ -901,6 +901,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3263, 0.016718, 1.74834)
 shape = SubResource("BoxShape3D_xgvqn")
 
 [node name="Boundaries" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65655, -0.707069, 3.71316)
@@ -2076,7 +2077,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 5.56155, -0.53537, 0.0264213)
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 5.32947, -0.53537, -0.175595)
 shape = SubResource("BoxShape3D_vssp0")
 
 [editable path="SceneLoader_Storageroom"]

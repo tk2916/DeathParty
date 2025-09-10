@@ -32,6 +32,9 @@ anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pesbb")
+text_message_prefab_protag = ExtResource("2_det87")
+text_message_prefab_npc = ExtResource("3_y6bpy")
+choice_prefab = ExtResource("4_y6bpy")
 contact_name_label = NodePath("HBoxContainer/MessagePanel/ContactName")
 back_button = NodePath("HBoxContainer/MessagePanel/BackArrow/Button")
 all_contacts = NodePath("HBoxContainer/ContactsPanel/Background/ScrollContainer/AllContacts")
@@ -39,9 +42,6 @@ participants_list = NodePath("HBoxContainer/MessagePanel/ParticipantsList/Scroll
 dialogue_container = NodePath("HBoxContainer/MessagePanel/TextsArea/ScrollContainer/DialogueContainer")
 choice_container = NodePath("HBoxContainer/MessagePanel/TextsArea/Choices")
 touch_screen = NodePath("HBoxContainer/MessagePanel/TextsArea/TouchScreen")
-text_message_prefab_protag = ExtResource("2_det87")
-text_message_prefab_npc = ExtResource("3_y6bpy")
-choice_prefab = ExtResource("4_y6bpy")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 2

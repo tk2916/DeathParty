@@ -49,6 +49,12 @@ player = NodePath("../Player")
 party_room_music = NodePath("../PartyRoomMusic")
 teleport_button_scene = ExtResource("5_xuqvo")
 
+[node name="ObjectViewerCanvasLayer" parent="." instance=ExtResource("2_a6jrf")]
+visible = false
+
+[node name="SubViewport" parent="ObjectViewerCanvasLayer/ObjectViewer/SubViewportContainer" index="0"]
+render_target_update_mode = 0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 process_mode = 3
@@ -109,12 +115,6 @@ Camera_2D = NodePath("../../../../PolaroidCamera/PictureExample/Camera2D")
 polaroid_camera = NodePath("../../../../PolaroidCamera")
 View_Finder = NodePath("../../../../PolaroidCamera/PictureExample/ViewFinder")
 object_viewer = NodePath("../../../../ObjectViewerCanvasLayer")
-
-[node name="ObjectViewerCanvasLayer" parent="." instance=ExtResource("2_a6jrf")]
-visible = false
-
-[node name="SubViewport" parent="ObjectViewerCanvasLayer/ObjectViewer/SubViewportContainer" index="0"]
-render_target_update_mode = 0
 
 [node name="WorldBoundary" type="Area3D" parent="."]
 collision_mask = 2
@@ -378,6 +378,6 @@ grow_vertical = 2
 [connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
 [connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
 
+[editable path="ObjectViewerCanvasLayer"]
 [editable path="PolaroidCamera"]
 [editable path="Polaroid"]
-[editable path="ObjectViewerCanvasLayer"]

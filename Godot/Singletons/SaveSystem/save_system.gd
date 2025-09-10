@@ -215,6 +215,7 @@ func item_exists(item_name:String) -> InventoryItemResource:
 	return active_save_file.inventory_items[item_name]
 
 func add_item(item_name:String, show_item_details : bool = false) -> void:
+	if item_name == "Journal": return
 	var item := item_exists(item_name)
 	item.amount_owned += 1
 	inventory_changed.emit("add", item)
