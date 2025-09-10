@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=4 uid="uid://bqae87n6emy8q"]
+[gd_scene load_steps=88 format=4 uid="uid://bqae87n6emy8q"]
 
 [ext_resource type="Texture2D" uid="uid://c4o46fvqrk1xg" path="res://rooms/Hourhand hallway/hourhand floor_patterned floor.png" id="2_4pph5"]
 [ext_resource type="Texture2D" uid="uid://c1gtxbrgatf5m" path="res://rooms/Hourhand hallway/hourhand hallway_bronze wall.png" id="2_v1epj"]
@@ -14,12 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://cmwhoxhj5pdw5" path="res://rooms/Hourhand hallway/hourhand hallway_IMG_4162.png" id="12_yxj23"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="13_1ehwm"]
 [ext_resource type="PackedScene" uid="uid://bpb73pxvgtl0s" path="res://rooms/Hourhand hallway/canyon painting.glb" id="14_66r5h"]
+[ext_resource type="Texture2D" uid="uid://ceaey4kptqr4x" path="res://rooms/control room/Control room_518233709_10236937404997646_5794273750296707854_n.jpg" id="14_rs8om"]
 [ext_resource type="PackedScene" uid="uid://buynljxwq46s4" path="res://rooms/Hourhand hallway/cloud painting.glb" id="15_xc4ch"]
 [ext_resource type="Texture2D" uid="uid://ccfm4gober6x6" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_baseColor.jpg" id="16_8uf1m"]
 [ext_resource type="Texture2D" uid="uid://dm3hjctqeb8wy" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_metallicRoughness.png" id="17_xaafo"]
 [ext_resource type="Texture2D" uid="uid://5m0xqqnw8gmg" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone_industrial_wall_sconce_normal.png" id="18_dr676"]
 [ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="19_xaafo"]
-[ext_resource type="PackedScene" uid="uid://caavjoc7svryg" path="res://rooms/Hourhand hallway/headlight pipes.glb" id="20_dr676"]
+[ext_resource type="PackedScene" uid="uid://bh7sq4oeu0f3s" path="res://rooms/Hourhand hallway/headlight_pipes.tscn" id="20_dr676"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgvqn"]
 size = Vector3(24.0006, 3.22495, 4.99314)
@@ -35,11 +36,11 @@ size = Vector3(5.10004, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rs8om"]
 resource_local_to_scene = true
-size = Vector3(5.28977, 2.96014, 2.04828)
+size = Vector3(5.28977, 2.96014, 5.89013)
 
 [sub_resource type="FogMaterial" id="FogMaterial_4pph5"]
-density = 0.5
-albedo = Color(0.228619, 0.0822746, 0, 1)
+density = 0.25
+albedo = Color(0.23, 0.154253, 0.1104, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7sn00"]
 resource_name = "Material.019"
@@ -836,6 +837,44 @@ shadow_mesh = SubResource("ArrayMesh_wi5ou")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujtly"]
 albedo_texture = ExtResource("2_v1epj")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2dk2"]
+resource_name = "Material.053"
+cull_mode = 2
+albedo_texture = ExtResource("14_rs8om")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xeytp"]
+_surfaces = [{
+"aabb": AABB(1.18569, -5.03952, 5.71158, 1.05688, 5.44023, 8.71395),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABgAFAAAABgAHAAUACAAJAAoACgAJAAsACgALAAwACAANAAkADgANAAgADgAPAA0A"),
+"name": "Material.053",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("J/j//1qxAABT4AAACNkAAFPg//8I2QAAAJ4AAP//AAAAnv////8AACf4AABasQAAP////x9+AAA//wAAH34AAO65//8hTAAAiXEAAFMlAACJcf//UyUAAAAAAAAAAAAAAAD//wAAAADuuQAAIUwAAP////+ofgAA//8AAKh+AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_df5mx"]
+resource_name = "Control room_Cylinder_029"
+_surfaces = [{
+"aabb": AABB(1.18569, -5.03952, 5.71158, 1.05688, 5.44023, 8.71395),
+"attribute_data": PackedByteArray("wp7ahArAt+EKwNqEc+C34XPg2oTCnrfhpHPahKRzt+EWSdqE8Ce34fAn2oTGB7fhxgfahBZJt+EZdNqEGXS34Q=="),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABgAFAAAABgAHAAUACAAJAAoACgAJAAsACgALAAwACAANAAkADgANAAgADgAPAA0A"),
+"material": SubResource("StandardMaterial3D_g2dk2"),
+"name": "Material.053",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("J/j//1qxAABT4AAACNkAAFPg//8I2QAAAJ4AAP//AAAAnv////8AACf4AABasQAAP////x9+AAA//wAAH34AAO65//8hTBG4iXEAAFMlQ7SJcf//UyVDtAAAAAAAAJmxAAD//wAAmbHuuQAAIUwRuP////+ofjS5//8AAKh+NLmQvv9/kbv/f5G7/391uf9/dbn/f5C+/391v/9/db//f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xeytp")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mo0nr"]
 resource_name = "industrial_wall_sconce"
 cull_mode = 2
@@ -929,12 +968,12 @@ transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 
 texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08614, 1.16042, 0.0798106)
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -1.08614, 1.16042, 2.00074)
 shape = SubResource("BoxShape3D_rs8om")
 
 [node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04834, 0.0250244, 1.70543)
-size = Vector3(22.835, 3.69897, 4.2486)
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 5.04834, -0.0407115, 1.65006)
+size = Vector3(22.835, 3.83044, 4.90663)
 material = SubResource("FogMaterial_4pph5")
 
 [node name="hallway 1" type="Node3D" parent="."]
@@ -1082,6 +1121,7 @@ skeleton = NodePath("")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="hallway 1/Cube_015"]
 transform = Transform3D(1, -1.46657e-07, -1.1506e-07, 1.46657e-07, 0.237991, 0.971267, -1.1506e-07, -0.971267, 0.237991, 2.5332e-07, 1.74954, 1.65202)
+visible = false
 light_color = Color(0.883, 0.46, 1, 1)
 light_energy = 100.0
 light_volumetric_fog_energy = 30.0
@@ -1205,6 +1245,16 @@ skeleton = NodePath("")
 
 [node name="hallway 2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4405, 0, 0)
+
+[node name="dooor" type="MeshInstance3D" parent="hallway 2"]
+transform = Transform3D(0.968991, 0.0157626, -0.0624329, -0.0292212, 0.529701, 0.000268303, 0.121268, 0.00168757, 0.498933, 4.85397, 1.05553, -3.68325)
+mesh = SubResource("ArrayMesh_df5mx")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="hallway 2/dooor"]
+transform = Transform3D(0.723724, -2.04891e-08, 1.2666e-07, 2.98023e-08, 1.33425, 1.90921e-08, -1.19209e-07, -1.39698e-09, 1.40619, 1.66561, -2.45525, 10.4825)
+light_energy = 20.0
+omni_range = 4.019
 
 [node name="Plane_009" type="MeshInstance3D" parent="hallway 2"]
 transform = Transform3D(0.919796, 0, -0.00620945, 0, 1, 0, 0.00309011, 0, 1.84829, 3.83131, -1.58631, 1.74068)
@@ -1359,6 +1409,7 @@ skeleton = NodePath("")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="hallway 2/Cube_015"]
 transform = Transform3D(1, -1.46657e-07, -1.1506e-07, 1.46657e-07, 0.237991, 0.971267, -1.1506e-07, -0.971267, 0.237991, 2.5332e-07, 1.74954, 1.65202)
+visible = false
 light_color = Color(0.883, 0.46, 1, 1)
 light_energy = 100.0
 light_volumetric_fog_energy = 30.0
@@ -1460,6 +1511,11 @@ skeleton = NodePath("")
 
 [node name="Cube_033" type="MeshInstance3D" parent="hallway 2"]
 transform = Transform3D(1.46668, 0, 0, 0, 1.04634, 0, 0, 0, -0.993232, 2.97281, -0.537938, -0.609351)
+mesh = SubResource("ArrayMesh_4lnyj")
+skeleton = NodePath("")
+
+[node name="Cube_035" type="MeshInstance3D" parent="hallway 2"]
+transform = Transform3D(1.46668, 0, 3.55271e-15, 0, 1.04634, 0, 0, 0, -0.993232, 7.26841, -0.537938, -0.609351)
 mesh = SubResource("ArrayMesh_4lnyj")
 skeleton = NodePath("")
 
@@ -1621,6 +1677,7 @@ skeleton = NodePath("")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="hallway 3/Cube_015"]
 transform = Transform3D(1, -1.46657e-07, -1.1506e-07, 1.46657e-07, 0.237991, 0.971267, -1.1506e-07, -0.971267, 0.237991, 2.5332e-07, 1.74954, 1.65202)
+visible = false
 light_color = Color(0.883, 0.46, 1, 1)
 light_energy = 100.0
 light_volumetric_fog_energy = 30.0
@@ -1893,6 +1950,7 @@ skeleton = NodePath("")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="hallway 4/Cube_015"]
 transform = Transform3D(1, -1.46657e-07, -1.1506e-07, 1.46657e-07, 0.237991, 0.971267, -1.1506e-07, -0.971267, 0.237991, 2.5332e-07, 1.74954, 1.65202)
+visible = false
 light_color = Color(0.883, 0.46, 1, 1)
 light_energy = 100.0
 light_volumetric_fog_energy = 30.0
@@ -1997,6 +2055,11 @@ transform = Transform3D(1.46668, 0, 0, 0, 1.04634, 0, 0, 0, -0.993232, 2.97281, 
 mesh = SubResource("ArrayMesh_4lnyj")
 skeleton = NodePath("")
 
+[node name="Cube_035" type="MeshInstance3D" parent="hallway 4"]
+transform = Transform3D(1.46668, 0, -3.55271e-15, 0, 1.04634, 0, 0, 0, -0.993232, 7.28812, -0.537938, -0.609351)
+mesh = SubResource("ArrayMesh_4lnyj")
+skeleton = NodePath("")
+
 [node name="Cube_034" type="MeshInstance3D" parent="hallway 4"]
 transform = Transform3D(-0.949693, -3.62852e-08, 1.41705e-07, 3.44598e-08, 0.876933, 0.480612, -1.34576e-07, 0.480612, -0.876933, 4.15266, 0.607768, 0.0581517)
 mesh = SubResource("ArrayMesh_x585o")
@@ -2031,6 +2094,8 @@ skeleton = NodePath("")
 [node name="SpotLight3D" type="SpotLight3D" parent="walllamp"]
 transform = Transform3D(1.71651, 0.0171148, 0.471238, -0.471549, 0.0623006, 1.71538, 1.43126e-09, -1.77893, 0.0646086, 0.593464, 0.166705, 0)
 light_energy = 30.0
+spot_range = 3.285
+spot_angle = 41.36
 
 [node name="walllamp2" type="Node3D" parent="."]
 transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, 7.14643, 0.439544, -0.182133)
@@ -2043,6 +2108,7 @@ skeleton = NodePath("")
 [node name="SpotLight3D" type="SpotLight3D" parent="walllamp2"]
 transform = Transform3D(1.71651, 0.0171148, 0.471238, -0.471549, 0.0623006, 1.71538, 1.43126e-09, -1.77893, 0.0646086, 0.593464, 0.166705, 0)
 light_energy = 30.0
+spot_range = 3.15
 
 [node name="TeleportPoint" parent="." instance=ExtResource("19_xaafo")]
 transform = Transform3D(-2.45555e-08, 0, -0.561765, 0, 0.561765, 0, 0.561765, 0, -2.45555e-08, 12.7979, -0.759066, 1.67509)
@@ -2050,7 +2116,7 @@ skeleton = NodePath("../walllamp2")
 spawn_point_number = 1
 
 [node name="TeleportPoint2" parent="." instance=ExtResource("19_xaafo")]
-transform = Transform3D(0.561765, 0, 3.55271e-15, 0, 0.561765, 0, -3.55271e-15, 0, 0.561765, -2.98816, -0.723932, 1.60672)
+transform = Transform3D(0.561765, 0, 1.77636e-15, 0, 0.561765, 0, -1.77636e-15, 0, 0.561765, 0.242265, -0.723932, 1.60672)
 skeleton = NodePath("../walllamp2")
 
 [node name="SceneLoader_Control room" parent="." instance=ExtResource("13_1ehwm")]
@@ -2067,9 +2133,6 @@ texture = null
 transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, 1.19286, 1.23943, 0.0798111)
 shape = SubResource("BoxShape3D_df5mx")
 
-[node name="headlight pipes" parent="." instance=ExtResource("20_dr676")]
-transform = Transform3D(-4.7025e-08, 0, 1.07581, 0, 1.07581, 0, -1.07581, 0, -4.7025e-08, -1.40695, 0.741849, 1.54311)
-
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.39438e-08, -1.52106, 1.69164)
 collision_layer = 3
@@ -2078,6 +2141,40 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 5.32947, -0.53537, -0.175595)
 shape = SubResource("BoxShape3D_vssp0")
+
+[node name="headlight pipes" parent="." instance=ExtResource("20_dr676")]
+transform = Transform3D(-3.0907e-08, 0, -1.7717, 0, 0.723525, 0, 0.707069, 0, -7.74436e-08, 1.37824, 0.912523, 1.67323)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="headlight pipes"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, -0.00714612, -0.538759, 1.04033)
+light_energy = 30.0
+shadow_enabled = true
+spot_range = 6.198
+spot_angle = 37.81
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="headlight pipes"]
+transform = Transform3D(-1, -1.67287e-07, -3.86744e-22, -3.82137e-15, 2.28432e-08, 0.977255, -8.74228e-08, 0.522591, -1.22155e-08, -0.00714612, -0.538759, -1.04529)
+light_energy = 30.0
+shadow_enabled = true
+spot_range = 6.198
+spot_angle = 37.81
+
+[node name="headlight pipes2" parent="." instance=ExtResource("20_dr676")]
+transform = Transform3D(-3.0907e-08, 0, -1.7717, 0, 0.723525, 0, 0.707069, 0, -7.74436e-08, 11.6824, 0.912523, 1.67323)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="headlight pipes2"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, -0.00714612, -0.538759, 1.04033)
+light_energy = 30.0
+shadow_enabled = true
+spot_range = 6.198
+spot_angle = 37.81
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="headlight pipes2"]
+transform = Transform3D(-1, -1.67287e-07, -3.86744e-22, -3.82137e-15, 2.28432e-08, 0.977255, -8.74228e-08, 0.522591, -1.22155e-08, -0.00714612, -0.538759, -1.04529)
+light_energy = 30.0
+shadow_enabled = true
+spot_range = 6.198
+spot_angle = 37.81
 
 [editable path="SceneLoader_Storageroom"]
 [editable path="SceneLoader_Storageroom/InteractionDetector"]
