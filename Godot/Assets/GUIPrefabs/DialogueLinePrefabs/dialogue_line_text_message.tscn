@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://jwdi6yghs0j5"]
+[gd_scene load_steps=5 format=3 uid="uid://jwdi6yghs0j5"]
 
 [ext_resource type="Script" uid="uid://vmicr38ur4in" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_script_expand.gd" id="1_yl38p"]
 [ext_resource type="Texture2D" uid="uid://djx0yq4hfer6g" path="res://Assets/CharacterAssets/CharacterTextures/kai_jax_waistup.png" id="2_i0e0h"]
 [ext_resource type="FontFile" uid="uid://w4kmxbbwxg4c" path="res://Assets/Fonts/Inria_Sans/InriaSans-Regular.ttf" id="4_i0e0h"]
 
-[node name="DialogueLineCharacter" type="Control" node_paths=PackedStringArray("control_to_resize", "Img", "Text")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl38p"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="DialogueLineCharacter" type="Control" node_paths=PackedStringArray("control_to_resize", "chat_backer", "Img", "Text")]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 3
 anchors_preset = 15
@@ -13,7 +20,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yl38p")
-control_to_resize = NodePath("Panel2")
+control_to_resize = NodePath(".")
+chat_backer = NodePath("Panel2")
 Img = NodePath("Image")
 Text = NodePath("Panel2/MarginContainer/Text")
 
@@ -27,34 +35,30 @@ size_flags_horizontal = 3
 texture = ExtResource("2_i0e0h")
 stretch_mode = 5
 
-[node name="Panel2" type="ColorRect" parent="."]
+[node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
 anchor_right = 0.2
 anchor_bottom = 1.0
-grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.03
+theme_override_styles/panel = SubResource("StyleBoxFlat_yl38p")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel2"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 13
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 13
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 10
 
 [node name="Text" type="RichTextLabel" parent="Panel2/MarginContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_i0e0h")
 theme_override_font_sizes/normal_font_size = 15
-bbcode_enabled = true
-text = "[color=black]aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa[/color]"
 fit_content = true
 scroll_active = false
 

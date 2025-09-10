@@ -11,8 +11,9 @@
 
 extends CanvasLayer
 
-@export var json1 : JSON
-@export var json2 : JSON
+@export var rowan_invite_dialogue : JSON
+@export var on_phone_close_dialogue : JSON
+@export var on_journal_dialogue : JSON
 
 @export var exterior_scene_loader: SceneLoader
 
@@ -49,26 +50,22 @@ var state: States:
 				print("TUTORIAL STEP: UNLOCK PHONE")
 				move_controls_popup.hide()
 				phone_controls_popup.show()
-				send_initial_texts()
+				DialogueSystem.to_phone("Rowan", rowan_invite_dialogue)
 			States.USING_PHONE:
 				print("TUTORIAL STEP: USING PHONE")
 				phone_controls_popup.hide()
 			States.OPEN_JOURNAL:
+				DialogueSystem.begin_dialogue(on_phone_close_dialogue)
 				print("TUTORIAL STEP: OPEN JOURNAL")
 				journal_controls_popup.show()
 			States.USING_JOURNAL:
 				print("TUTORIAL STEP: USING JOURNAL")
+				DialogueSystem.begin_dialogue(on_journal_dialogue)
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
 				exterior_scene_loader.enabled = true
 				queue_free()
-
-
-func send_initial_texts() -> void:
-	DialogueSystem.to_phone("Caleb, Rowan, Nora, You", json1)
-	await get_tree().create_timer(1).timeout
-	DialogueSystem.to_phone("Caleb", json2)
-
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -97,28 +94,31 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	match state:
 		States.WALK:
 			if player.player_velocity != Vector3.ZERO:
-				state += 1
+				increment_state()
 		States.UNLOCK_PHONE:
-			if get_tree().get_first_node_in_group("phone").visible == true:
-				state += 1
+			if GuiSystem.in_phone == true:
+				increment_state()
 		States.USING_PHONE:
-			if get_tree().get_first_node_in_group("phone").visible == false:
-				state += 1
+			if GuiSystem.in_phone == false:
+				increment_state()
 		States.OPEN_JOURNAL:
-			if get_tree().get_first_node_in_group("journal") != null:
-				state += 1
+			if GuiSystem.in_journal == true:
+				increment_state()
 		States.USING_JOURNAL:
-			if get_tree().get_first_node_in_group("journal") == null:
-				state += 1
+			if GuiSystem.in_journal == false:
+				increment_state()
 
 
 func _on_bedroom_intro_finished() -> void:
-	state += 1
+	increment_state()
 
 
 func _on_walk_complete_timer_timeout() -> void:
-	state += 1
+	increment_state()
+
+func increment_state() -> void:
+	state = (state + 1) as States

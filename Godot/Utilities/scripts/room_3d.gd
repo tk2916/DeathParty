@@ -6,6 +6,9 @@ class_name Room3D
 @export var path_follow_node: PathFollow3D
 @export var room_environment: Environment
 
+#DIALOGUE
+@export var first_visit_json : JSON
+
 # offsets must be changd MANUALLY if the MainCamera's default position or fov change
 # offset's x value is the desired distance from the edges of the area
 var camera_LR_offset: Vector3 = Vector3(3.8, 0, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=245 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=246 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -10,18 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://bxej6ebm3jetb" path="res://rooms/bedroom/Bedroom_woodmedium.png" id="3_rbtdn"]
 [ext_resource type="PackedScene" uid="uid://8npa6vrpy0jb" path="res://rooms/bedroom/punk posters.glb" id="3_w0jyq"]
 [ext_resource type="Texture2D" uid="uid://b8uue8x55guj4" path="res://rooms/bedroom/polaroids and poster_love birds.png" id="4_fa1og"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/RowanDormInvite.json" id="4_otruv"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/RowanDormInvite.ink.json" id="4_otruv"]
 [ext_resource type="Texture2D" uid="uid://d0vlsucaate3q" path="res://rooms/bedroom/punk posters_singer poster.png" id="4_tluma"]
 [ext_resource type="Texture2D" uid="uid://dcblfnhmnjp1h" path="res://rooms/bedroom/polaroids and poster_Sam tatt.png" id="5_dyybh"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/caleb_test_dialogue_1.json" id="5_otruv"]
 [ext_resource type="PackedScene" uid="uid://dijllg5x7mlpw" path="res://rooms/bedroom/bed.glb" id="5_rbtdn"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaDormClosePhone.json" id="5_shd6j"]
 [ext_resource type="Texture2D" uid="uid://fuhn5pxlrdsu" path="res://rooms/bedroom/polaroids and poster_Rush over.png" id="6_0t478"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="6_x8yhf"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaDormJournal.ink.json" id="6_yxfps"]
 [ext_resource type="PackedScene" uid="uid://b8ucr48tcuk2p" path="res://rooms/bedroom/dorm desk.glb" id="7_7a5mm"]
 [ext_resource type="Texture2D" uid="uid://dke1flebhebj4" path="res://rooms/bedroom/polaroids and poster_study date wiht nora.png" id="7_84fnt"]
 [ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="8_8bc0i"]
 [ext_resource type="PackedScene" uid="uid://bjlg5o0t38qqs" path="res://rooms/bedroom/shoe rack.glb" id="9_l0p45"]
-[ext_resource type="PackedScene" uid="uid://dg5lud6e674m5" path="res://rooms/bedroom/dorm bookshelf.glb" id="10_0aena"]
 [ext_resource type="PackedScene" uid="uid://bgeyi70mq0w08" path="res://rooms/bedroom/dorm string lights.glb" id="12_0ajex"]
 [ext_resource type="Texture2D" uid="uid://b8qqpb3hhwxlu" path="res://rooms/bedroom/bed shelf_dark b.png" id="12_h7dpu"]
 [ext_resource type="Texture2D" uid="uid://ct3k0jic0541x" path="res://rooms/bedroom/bed shelf_Image_0.png" id="13_pstno"]
@@ -69,6 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://cuqqdj0suey7g" path="res://rooms/bedroom/closet_Image_1.png" id="42_b70md"]
 [ext_resource type="Texture2D" uid="uid://b0hytr60y4xc0" path="res://rooms/bedroom/closet_Image_2.png" id="43_x8yhf"]
 [ext_resource type="Texture2D" uid="uid://cc86ku3golyuq" path="res://rooms/Basement/standing lamp_IMG_4331.png" id="48_fa1og"]
+[ext_resource type="PackedScene" uid="uid://r11twgabwx5k" path="res://Assets/environment/bookshelves/dorm_bookshelf.tscn" id="50_shd6j"]
 [ext_resource type="Texture2D" uid="uid://cgvs4fwjt83jn" path="res://rooms/bedroom/punk posters_IMG_0684.png" id="51_kvlly"]
 [ext_resource type="Texture2D" uid="uid://6p5vltopl887" path="res://rooms/bedroom/punk posters_IMG_4143.png" id="53_5smtm"]
 [ext_resource type="Texture2D" uid="uid://q8smajfubmrv" path="res://rooms/bedroom/punk posters_corkboard.png" id="54_p0j85"]
@@ -2124,8 +2125,9 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
 [node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader") instance=ExtResource("3_84fnt")]
-json1 = ExtResource("4_otruv")
-json2 = ExtResource("5_otruv")
+rowan_invite_dialogue = ExtResource("4_otruv")
+on_phone_close_dialogue = ExtResource("5_shd6j")
+on_journal_dialogue = ExtResource("6_yxfps")
 exterior_scene_loader = NodePath("../SceneLoader_Exterior")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
@@ -2494,6 +2496,9 @@ transform = Transform3D(1.04428, 0, 0, 0, 1.04428, 0, 0, 0, 1.04428, 0.17809, 0.
 transform = Transform3D(0.00504853, 0, 0.00600667, 0, 0.00784651, 0, -0.00600667, 0, 0.00504853, -0.572594, 0.0979841, -0.19839)
 visible = false
 
+[node name="dorm bookshelf" parent="Desk/DeskObjects" instance=ExtResource("50_shd6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77232, 0.386788, 4.90497)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="Desk/DeskObjects"]
 transform = Transform3D(0.851345, 0, 0, 0, 0.851345, 0, 0, 0, 0.851345, 0.144768, 0.0613446, -0.149783)
 light_energy = 3.0
@@ -2511,9 +2516,6 @@ shadow_enabled = true
 
 [node name="Chair" parent="." instance=ExtResource("8_8bc0i")]
 transform = Transform3D(0.994789, 0, -0.101959, 0, 1, 0, 0.101959, 0, 0.994789, -0.776669, 0.348179, 0.718062)
-
-[node name="Bookshelf" parent="." instance=ExtResource("10_0aena")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91154, 1.17567, 4.28585)
 
 [node name="CorkBoard" parent="." instance=ExtResource("16_i33k8")]
 transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 1.4748, -1.18352)

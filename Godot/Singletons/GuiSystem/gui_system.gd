@@ -21,6 +21,8 @@ var in_phone : bool = false
 var hid_phone_mid_convo : bool = false
 var prevent_gui : bool = true
 
+signal guis_closed
+
 func _ready() -> void:
 	tree = get_tree()
 	var main : Node3D = tree.root.get_node_or_null("Main")
@@ -100,10 +102,12 @@ func hide_journal()->void:
 	Interact.clear_active_subviewport()
 	in_gui = false
 	in_journal = false
+	
+	guis_closed.emit()
 
 func show_phone(contact_resource : ChatResource = null)->void:
 	if contact_resource != null or hid_phone_mid_convo:
-		#DialogueSystem.text_message_box.onBackPressed()
+		#DialogueSystem.text_message_box.on_back_pressed()
 		if contact_resource:
 			DialogueSystem.text_message_box.on_contact_press(contact_resource)
 		elif hid_phone_mid_convo:
@@ -115,37 +119,37 @@ func show_phone(contact_resource : ChatResource = null)->void:
 func hide_phone()->void:
 	if DialogueSystem.are_choices: return
 	#DialogueSystem.pause_text_convo(true)
-	DialogueSystem.text_message_box.onBackPressed()
+	DialogueSystem.text_message_box.on_back_pressed()
 	hide_gui("Phone")
 
-func show_gui(name:String)->void:
-	if gui_dict[name].is_in_group("gui_object"):
+func show_gui(gui_name:String)->void:
+	if gui_dict[gui_name].is_in_group("gui_object"):
 		close_all_guis()
 	hide_journal()
-	gui_dict[name].visible = true
+	gui_dict[gui_name].visible = true
 	in_gui = true
-	if name == "Phone":
+	if gui_name == "Phone":
 		in_phone = true
 
 		# play the phone unlock sound
-		var phone: Control = gui_dict[name]
+		var phone: Control = gui_dict[gui_name]
 		var unlock_sound: FmodEventEmitter3D = phone.find_child("UnlockSound")
 		if unlock_sound:
 			unlock_sound.play()
 
-
-func hide_gui(name:String)->void:
-	gui_dict[name].visible = false
+func hide_gui(gui_name:String)->void:
+	gui_dict[gui_name].visible = false
 	in_gui = check_for_open_guis()
-	if name == "Phone":
+	if gui_name == "Phone":
 		in_phone = false
 
 		# play the phone lock sound
-		var phone: Control = gui_dict[name]
+		var phone: Control = gui_dict[gui_name]
 		var lock_sound: FmodEventEmitter3D = phone.find_child("LockSound")
 		if lock_sound:
 			lock_sound.play()
-
+	if !in_gui:
+		guis_closed.emit()
 
 func show_node(node:Control)->void:
 	if node.is_in_group("gui_object"):
@@ -157,6 +161,8 @@ func show_node(node:Control)->void:
 func hide_node(node:Control)->void:
 	node.visible = false
 	in_gui = check_for_open_guis()
+	if !in_gui:
+		guis_closed.emit()
 
 ##LOADING SCREEN
 func fade_loading_screen_in(fadeout_delay : float = 0) -> Tween:

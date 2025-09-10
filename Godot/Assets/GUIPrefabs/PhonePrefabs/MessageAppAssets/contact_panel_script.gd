@@ -7,13 +7,13 @@ class_name ContactPanel extends Control
 @export var image_label : TextureRect
 @export var unread_alert : Control
 
-var message_app : DialogueBoxNode
-var contact : Resource
+var message_app : MessageAppBox
+var contact : ChatResource
 
-func on_pressed():
+func on_pressed() -> void:
 	message_app.on_contact_press(contact)
 
-func on_unread(active : bool):
+func on_unread(active : bool) -> void:
 	if active:
 		unread_alert.activate()
 	else:

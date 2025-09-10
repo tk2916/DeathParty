@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cu7kunew4a70o" path="res://Assets/GUIPrefabs/ChoicePrefabs/choice_button.tscn" id="1_31yuv"]
 [ext_resource type="PackedScene" uid="uid://b1vqeofabh56y" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/diag_line.tscn" id="2_iiivu"]
-[ext_resource type="PackedScene" uid="uid://blkculyy7kbod" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/DialogueBox1.tscn" id="2_swp53"]
+[ext_resource type="PackedScene" uid="uid://blkculyy7kbod" path="res://Assets/GUIPrefabs/DialogueBoxPrefabs/main_dialogue_box.tscn" id="2_swp53"]
 [ext_resource type="Script" uid="uid://ckddp2g3xeuu0" path="res://Assets/Resources/DialogueBoxResources/Default Resource (DO NOT EDIT)/dialogue_properties_script.gd" id="3_l5k8q"]
 
 [resource]

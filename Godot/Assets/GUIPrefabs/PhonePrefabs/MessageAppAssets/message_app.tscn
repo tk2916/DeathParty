@@ -1,15 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://ibs6xbf36j7"]
+[gd_scene load_steps=21 format=3 uid="uid://ibs6xbf36j7"]
 
 [ext_resource type="Script" uid="uid://hxb8rnfqqsl" path="res://Assets/GUIPrefabs/PhonePrefabs/MessageAppAssets/message_app_dialogue_box.gd" id="1_pesbb"]
+[ext_resource type="PackedScene" uid="uid://g8mue586ud5x" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_text_message_protag.tscn" id="2_det87"]
 [ext_resource type="Texture2D" uid="uid://crrdum07mi87s" path="res://Assets/PhoneTextures/Chats_home_bg.png" id="2_my33r"]
-[ext_resource type="Resource" uid="uid://dfsf66usc4sbb" path="res://Assets/Resources/DialogueBoxResources/phone_dialogue_box.tres" id="2_tb7f1"]
 [ext_resource type="Texture2D" uid="uid://dxr2k7d112hiu" path="res://Assets/PhoneTextures/Chat_bg.png" id="3_bhp3y"]
 [ext_resource type="Texture2D" uid="uid://cgvy57j52hsc3" path="res://Assets/PhoneTextures/Chats.png" id="3_jgsn4"]
 [ext_resource type="Texture2D" uid="uid://cv7rlbne3cno1" path="res://Assets/PhoneTextures/connection_battery.png" id="3_wax2f"]
+[ext_resource type="PackedScene" uid="uid://jwdi6yghs0j5" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_text_message.tscn" id="3_y6bpy"]
 [ext_resource type="FontFile" uid="uid://boycxonuwk8ms" path="res://Assets/Fonts/Jaro/Jaro-Regular-VariableFont_opsz.ttf" id="4_4k43y"]
 [ext_resource type="Texture2D" uid="uid://gtqlae4reefa" path="res://Assets/PhoneTextures/messages_backer.png" id="4_bhp3y"]
 [ext_resource type="FontFile" uid="uid://djdb1gk0322b" path="res://Assets/Fonts/Jaro/static/Jaro-Regular.ttf" id="4_ojvwc"]
 [ext_resource type="Script" uid="uid://bffdpcyyowj58" path="res://Assets/GUIDesignScripts/scroll_container.gd" id="4_q2qpm"]
+[ext_resource type="PackedScene" uid="uid://bbdcge3tqhcpw" path="res://Assets/GUIPrefabs/ChoicePrefabs/choice_button_text_message.tscn" id="4_y6bpy"]
 [ext_resource type="Texture2D" uid="uid://da7cbng1hddfn" path="res://Assets/PhoneTextures/back_arrow_chats.png" id="5_jgsn4"]
 [ext_resource type="Texture2D" uid="uid://dofbdwec2q72h" path="res://Assets/PhoneTextures/chat_separators.png" id="5_skhv3"]
 [ext_resource type="Script" uid="uid://dehejbaawpqyj" path="res://Assets/GUIFunctionalityScripts/clock.gd" id="5_wopup"]
@@ -21,7 +23,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8bu3"]
 
-[node name="MessageApp" type="MarginContainer" node_paths=PackedStringArray("contact_name_label", "back_button", "all_contacts", "dialogue_container", "choice_container")]
+[node name="MessageApp" type="MarginContainer" node_paths=PackedStringArray("contact_name_label", "back_button", "all_contacts", "participants_list", "dialogue_container", "choice_container", "touch_screen")]
 anchors_preset = -1
 anchor_left = 0.03
 anchor_top = 0.03
@@ -33,9 +35,13 @@ script = ExtResource("1_pesbb")
 contact_name_label = NodePath("HBoxContainer/MessagePanel/ContactName")
 back_button = NodePath("HBoxContainer/MessagePanel/BackArrow/Button")
 all_contacts = NodePath("HBoxContainer/ContactsPanel/Background/ScrollContainer/AllContacts")
+participants_list = NodePath("HBoxContainer/MessagePanel/ParticipantsList/ScrollContainer/ParticipantsList")
 dialogue_container = NodePath("HBoxContainer/MessagePanel/TextsArea/ScrollContainer/DialogueContainer")
-choice_container = NodePath("HBoxContainer/MessagePanel/TextsArea/ChoiceContainer")
-resource_file = ExtResource("2_tb7f1")
+choice_container = NodePath("HBoxContainer/MessagePanel/TextsArea/Choices")
+touch_screen = NodePath("HBoxContainer/MessagePanel/TextsArea/TouchScreen")
+text_message_prefab_protag = ExtResource("2_det87")
+text_message_prefab_npc = ExtResource("3_y6bpy")
+choice_prefab = ExtResource("4_y6bpy")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 2
@@ -238,7 +244,7 @@ texture = ExtResource("4_bhp3y")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.85
+anchor_bottom = 1.0
 grow_horizontal = 2
 follow_focus = true
 horizontal_scroll_mode = 0
@@ -254,24 +260,20 @@ size_flags_vertical = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.85
+anchor_bottom = 1.0
 grow_horizontal = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_tb7f1")
 
-[node name="ChoiceContainer" type="HBoxContainer" parent="HBoxContainer/MessagePanel/TextsArea"]
+[node name="Choices" type="VBoxContainer" parent="HBoxContainer/MessagePanel/TextsArea"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.03
-anchor_top = 0.85
-anchor_right = 0.97
+anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 5
-alignment = 1
+theme_override_constants/separation = 3
 
 [node name="ContactName" type="RichTextLabel" parent="HBoxContainer/MessagePanel"]
 layout_mode = 1
@@ -307,7 +309,34 @@ mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r8bu3")
 flat = true
 
+[node name="ParticipantsList" type="Control" parent="HBoxContainer/MessagePanel"]
+visible = false
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MessagePanel/ParticipantsList"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ParticipantsList" type="VBoxContainer" parent="HBoxContainer/MessagePanel/ParticipantsList/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
 [connection signal="mouse_entered" from="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" to="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" to="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="HBoxContainer/MessagePanel/TextsArea/TouchScreen" to="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" method="_on_touch_screen_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/MessagePanel/TextsArea/TouchScreen" to="HBoxContainer/MessagePanel/TextsArea/ScrollContainer" method="_on_touch_screen_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxContainer/MessagePanel/ContactName" to="." method="_on_contact_name_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MessagePanel/ContactName" to="." method="_on_contact_name_mouse_exited"]

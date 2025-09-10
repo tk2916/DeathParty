@@ -1,0 +1,215 @@
+{
+  "inkVersion": 21,
+  "root": [
+    [
+      "^Once upon a time...",
+      "\n",
+      [
+        "ev",
+        {
+          "VAR?": "points"
+        },
+        10,
+        ">=",
+        "/ev",
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "\n",
+            "^Your exceptional skills shine through.",
+            "\n",
+            {
+              "->": "0.5"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        "ev",
+        {
+          "VAR?": "points"
+        },
+        5,
+        ">=",
+        "/ev",
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "\n",
+            "^You show promise and determination.",
+            "\n",
+            {
+              "->": "0.5"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        {
+          "->": ".^.b"
+        },
+        {
+          "b": [
+            "\n",
+            "^There's room for improvement.",
+            "\n",
+            {
+              "->": "0.5"
+            },
+            null
+          ]
+        }
+      ],
+      "nop",
+      "\n",
+      "ev",
+      {
+        "VAR?": "points"
+      },
+      10,
+      ">=",
+      "/ev",
+      [
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "^ You're doing great! Keep it up!",
+            {
+              "->": "0.13"
+            },
+            null
+          ]
+        }
+      ],
+      "nop",
+      "\n",
+      "ev",
+      {
+        "VAR?": "points"
+      },
+      5,
+      ">=",
+      {
+        "VAR?": "points"
+      },
+      10,
+      "<",
+      "&&",
+      "/ev",
+      [
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "^ You're making progress.",
+            {
+              "->": "0.25"
+            },
+            null
+          ]
+        }
+      ],
+      "nop",
+      "\n",
+      "ev",
+      {
+        "VAR?": "points"
+      },
+      5,
+      "<",
+      "/ev",
+      [
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "^ You need to work harder.",
+            {
+              "->": "0.33"
+            },
+            null
+          ]
+        }
+      ],
+      "nop",
+      "\n",
+      "ev",
+      {
+        "VAR?": "points"
+      },
+      10,
+      ">=",
+      "/ev",
+      [
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "^ Ten ",
+            {
+              "->": "0.42"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        {
+          "->": ".^.b"
+        },
+        {
+          "b": [
+            "^ Not ten",
+            {
+              "->": "0.42"
+            },
+            null
+          ]
+        }
+      ],
+      "nop",
+      "\n",
+      "end",
+      [
+        "done",
+        {
+          "#f": 5,
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "global decl": [
+        "ev",
+        7,
+        {
+          "VAR=": "points"
+        },
+        "/ev",
+        "end",
+        null
+      ],
+      "#f": 1
+    }
+  ],
+  "listDefs": {}
+}

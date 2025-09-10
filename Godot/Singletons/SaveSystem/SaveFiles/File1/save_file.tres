@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="1_g5w43"]
 [ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/inventory_properties_script.gd" id="2_swgoc"]
-[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/Chat.gd" id="3_scte8"]
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/phone_chat_properties.gd" id="3_scte8"]
 [ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/player_data_script.gd" id="4_h6cuo"]
 [ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/save_file_script.gd" id="5_vmvjp"]
 [ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/task_properties_script.gd" id="6_yb5f0"]

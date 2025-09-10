@@ -11,12 +11,18 @@ var active_save_file : SaveFile
 var player_data : PlayerData
 
 ##START DATA
+#Phone chats depend on Characters so load Characters first
 const DIRECTORIES : Dictionary[String, String] = {
 	TASKS = "res://Singletons/SaveSystem/DefaultResources/TaskResources/",
 	CHARACTERS = "res://Singletons/SaveSystem/DefaultResources/CharacterResources/",
 	PHONE_CHATS = "res://Singletons/SaveSystem/DefaultResources/ChatResources/",
 	INVENTORY_ITEMS = "res://Singletons/SaveSystem/DefaultResources/InventoryItemResources/",
-	
+}
+const DIRECTORIES_TO_DICTIONARIES : Dictionary[String, String] = {
+	DIRECTORIES.TASKS : "tasks",
+	DIRECTORIES.CHARACTERS : "characters",
+	DIRECTORIES.PHONE_CHATS : "phone_chats",
+	DIRECTORIES.INVENTORY_ITEMS : "inventory_items",
 }
 const SLOT_TO_PATH : Dictionary[SaveSlots, String] = {
 	SaveSlots.ONE: "Singletons/SaveSystem/SaveFiles/File1/save_file.tres",
@@ -26,7 +32,7 @@ const SLOT_TO_PATH : Dictionary[SaveSlots, String] = {
 ##END DATA
 
 #For creating new save files
-const blank_save_file : SaveFile = preload("res://Singletons/SaveSystem/DefaultResources/save_file.tres")
+var blank_save_file : SaveFile = load("res://Singletons/SaveSystem/DefaultResources/save_file.tres")
 #For creating new inventory items at runtime (e.g. taking polaroids)
 const default_inventory_item_resource : InventoryItemResource = preload("res://Singletons/SaveSystem/DefaultResources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_item_properties.tres")
 
@@ -36,7 +42,7 @@ signal inventory_changed(addremove : String, item : InventoryItemResource)
 signal tasks_changed
 signal loaded
 
-func _init() -> void:
+func _ready() -> void:
 	#Check if there is an existing save file (if not, a new one will be created at SaveSlots.ONE)
 	if FileAccess.file_exists(SLOT_TO_PATH[SaveSlots.ONE]):
 		active_save_slot = SaveSlots.ONE
@@ -50,10 +56,15 @@ func _init() -> void:
 	load_active_save_file()
 
 func update_save_file(file : SaveFile) -> void:
-	load_into_dictionary(DIRECTORIES.TASKS, file.tasks)
-	load_into_dictionary(DIRECTORIES.CHARACTERS, file.characters)
-	load_into_dictionary(DIRECTORIES.PHONE_CHATS, file.phone_chats)
-	load_into_dictionary(DIRECTORIES.INVENTORY_ITEMS, file.inventory_items)
+	for directory_name : String in DIRECTORIES:
+		var directory : String = DIRECTORIES[directory_name]
+		var dictionary_name : String = DIRECTORIES_TO_DICTIONARIES[directory]
+		var dictionary : Dictionary = file[dictionary_name]
+		load_into_dictionary(directory, dictionary)
+	# load_into_dictionary(DIRECTORIES.TASKS, file.tasks)
+	# load_into_dictionary(DIRECTORIES.CHARACTERS, file.characters)
+	# load_into_dictionary(DIRECTORIES.PHONE_CHATS, file.phone_chats)
+	# load_into_dictionary(DIRECTORIES.INVENTORY_ITEMS, file.inventory_items)
 
 #SAVE/LOAD
 func save_data() -> void:
@@ -84,7 +95,8 @@ func load_active_save_file() -> void:
 	loaded.emit()
 ##END SAVE/LOAD
 
-func load_into_dictionary(address : String, dict:Dictionary) -> void:
+func load_into_dictionary(address : String, dict : Dictionary) -> void:
+	print("Loading into dict: ", address)
 	## To clear out any extra keys (such as old items that don't exist anymore),
 	## keep track of the mentioned keys here and check against dict afterward
 	var dict_keys : Array[String] = []
@@ -94,14 +106,13 @@ func load_into_dictionary(address : String, dict:Dictionary) -> void:
 	if dir:
 		while file_name != "":
 			if !dir.current_is_dir():
-				var file : Resource = load(address + file_name)
+				var file : DefaultResource = load(address + file_name)
 				if file == null: continue
 				var filename : String = file.name
-				if address == DIRECTORIES.INVENTORY_ITEMS:
-					print("Found inventory item: ", filename)
 				dict_keys.push_back(filename)
 				if !dict.has(filename):
 					dict[filename] = file.duplicate(true)
+					file.initialize()
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the directory " + address)
@@ -148,12 +159,12 @@ func key_exists(key:String) -> bool: # returns whether key exists
 func key_exists_assert(key:String) -> void: # returns location of key & errors if it doesn't exist
 	assert(key_exists(key), "ERROR: invalid key '" + key + "'. Check your spelling!")
 
-func key_is_type(key:String, type:int) -> void: # errors if types don't match (passing type enum)
+func key_is_type(key:String, type:int, value:Variant) -> void: # errors if types don't match (passing type enum)
 	key_exists_assert(key)
-	assert(typeof(player_data.variable_dict[key])==type, "ERROR: " + key + " not of type " + str(type))
+	assert(typeof(player_data.variable_dict[key])==type, "TYPE ERROR: " + key + " (current value: " + str(player_data.variable_dict[key]) + ") not of type " + str(type) + " (current value: " + str(value) + ")")
 
 func match_type(key:String, value:Variant) -> void: # errors if types don't match (passing new value)
-	key_is_type(key, typeof(value))
+	key_is_type(key, typeof(value), value)
 
 #Mapping names to resources
 func get_character(char_name : String) -> CharacterResource:
@@ -203,10 +214,12 @@ func item_exists(item_name:String) -> InventoryItemResource:
 	assert(active_save_file.inventory_items.has(item_name), "ERROR: no such item '" + item_name + "'. Check your spelling!")
 	return active_save_file.inventory_items[item_name]
 
-func add_item(item_name:String) -> void:
+func add_item(item_name:String, show_item_details : bool = false) -> void:
 	var item := item_exists(item_name)
 	item.amount_owned += 1
 	inventory_changed.emit("add", item)
+	if show_item_details:
+		InventoryUtils.show_item_details(item)
 
 func remove_item(item_name:String) -> bool: #returns 1 if successful, 0 if there aren't any left
 	var item := item_exists(item_name)

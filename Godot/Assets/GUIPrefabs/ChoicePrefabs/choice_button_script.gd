@@ -2,29 +2,6 @@ class_name ChoiceButton extends Control
 
 @export var button : Button
 @export var text_label : RichTextLabel
-var choice_info : InkChoiceInfo
-var choice_text_color : String
-var text_properties : Resource
 
-var typing_sound_scene: PackedScene = preload("res://audio/typing_sound.tscn")
-
-signal selected
-
-
-func _button_pressed() -> void:
-	print("Choice button pressed: ", choice_info.jump)
-	selected.emit(choice_info.jump, choice_info.text)
-
-	var typing_sound = typing_sound_scene.instantiate()
-	DialogueSystem.main.add_child(typing_sound)
-
-
-func _ready() -> void:
-	if text_properties["default_choice_color"]:
-		choice_text_color = text_properties["default_choice_color"]
-	text_label.add_theme_font_size_override("normal_font_size", text_properties["choice_size"])
-	if text_properties["prefix_choices_with_player_name"]:
-		text_label.text = "[color="+choice_text_color+"] YOU: "+choice_info.text+"[/color]"
-	else:
-		text_label.text = "[color="+choice_text_color+"]"+choice_info.text+"[/color]"
-	button.pressed.connect(_button_pressed)
+func set_text(text : String) -> void:
+	text_label.text = text

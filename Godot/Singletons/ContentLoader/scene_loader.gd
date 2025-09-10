@@ -17,12 +17,14 @@ enum Direction {LEFT, RIGHT, DOWN}
 		else:
 			%Popup.texture = null
 
+#SceneLoader functionality
 @export var target_location_index: Globals.SCENE_LOCATIONS_ENUM = Globals.SCENE_LOCATIONS_ENUM.Entrance
 var target_scene: String:
 	get: return Globals.get_scene_location(target_location_index)
 @export var local_spawn_point: Globals.SPAWN_OPTIONS = Globals.SPAWN_OPTIONS.ONE
 @export var play_door_sound: bool = false
 
+#Popup
 @export_group("assets")
 @export var left_arrow_asset: CompressedTexture2D
 @export var right_arrow_asset: CompressedTexture2D
@@ -45,7 +47,6 @@ var teleport_point: TeleportPointData
 
 const POPUP_SCALE = .1
 
-
 func _ready() -> void:
 	super ()
 	popup.scale = Vector3.ONE * POPUP_SCALE
@@ -64,8 +65,8 @@ func is_player_facing_collider(player_model: Node3D) -> bool:
 		
 
 func on_interact() -> void:
+	super()
 	if !enabled: return
-	super ()
 	print("Teleport point for ", target_scene, " is ", teleport_point.spawn_number, " vs ", local_spawn_point)
 	ContentLoader.scene_loader_teleport(target_scene, teleport_point)
 		
@@ -75,9 +76,8 @@ func on_interact() -> void:
 
 func on_in_range(in_range: bool) -> void:
 	if !enabled: return
-
 	if interactable:
-		super (in_range)
+		super(in_range)
 	else:
 		print("Teleport point for ", target_scene, " is ", teleport_point.spawn_number, " vs ", local_spawn_point)
 		ContentLoader.scene_loader_teleport(target_scene, teleport_point)

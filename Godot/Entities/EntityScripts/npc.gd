@@ -11,7 +11,7 @@ var outline : Node3D
 func _ready() -> void:
 	super()
 	if character_resource:
-		#Get the current character resource from teh save file
+		#Get the current character resource from the save file
 		character_resource = SaveSystem.get_character(character_resource.name)
 		#Connect signals
 		character_resource.unread.connect(on_unread)
@@ -32,15 +32,14 @@ func on_in_range(in_range : bool) -> void:
 
 func on_interact() -> void:
 	super()
-	DialogueSystem.setDialogueBox(dialogue_box)
 	if character_resource:
 		character_resource.start_chat()
 	elif starter_json:
-		DialogueSystem.from_JSON(starter_json)
+		DialogueSystem.begin_dialogue(starter_json)
 		starter_json = null
 	elif default_json:
-		DialogueSystem.from_JSON(default_json)
+		DialogueSystem.begin_dialogue(default_json)
 		
-func play_animation(anim_name : String):
+func play_animation(anim_name : String) -> void:
 	animation_player.play(anim_name)
 		

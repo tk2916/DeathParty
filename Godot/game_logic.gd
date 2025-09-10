@@ -27,6 +27,8 @@ func _ready() -> void:
 	SaveSystem.add_item("Pill Bottle")
 	#SaveSystem.add_item("Polaroid Camera")
 	SaveSystem.add_item("ID Card")
+
+	#print("PARSING JSON -----", InkParser.parse(json_file).containers["root"].tostring())
 	
 	#SaveSystem.create_new_item("TestItem", "", test_inventory_item)
 	#SaveSystem.add_item("TestItem")
