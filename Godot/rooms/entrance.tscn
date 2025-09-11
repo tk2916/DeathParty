@@ -778,6 +778,9 @@ use_first_mesh = true
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 1, 2)
 texture = ExtResource("4_f4d3f")
 
+[node name="InteractionDetector" parent="SceneLoader_Basement" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0123334, 0.0255487, -0.312664)
+
 [node name="CollisionShape3D" parent="SceneLoader_Basement/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390921, -0.506985, 0.784462)
 shape = SubResource("BoxShape3D_t3a1b")
@@ -1799,7 +1802,7 @@ volume = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
 
 [node name="TeleportPoint3" parent="." instance=ExtResource("49_a6eg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1417, 0.954337, 3.84866)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9136, 0.936098, 3.85269)
 skeleton = NodePath("../TeleportPoint2")
 spawn_point_number = 2
 

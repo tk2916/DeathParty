@@ -1933,16 +1933,19 @@ play_door_sound = true
 transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 0, 0.474354, 0.741167)
 texture = null
 
+[node name="InteractionDetector" parent="SceneLoader_Entrance" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02929, 1.71819, -2.93233)
+
 [node name="CollisionShape3D" parent="SceneLoader_Entrance/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.089936, 0.880191, 0.431571)
 shape = SubResource("BoxShape3D_5eouh")
 
 [node name="TeleportPoint" parent="." instance=ExtResource("3_xvuva")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.26074, 0.843524, -3.51385)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.21303, 3.1812, -3.51392)
 skeleton = NodePath("../SceneLoader_Entrance/InteractionDetector")
 
 [node name="TeleportPoint2" parent="." instance=ExtResource("3_xvuva")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.96748, 0.791375, -1.04441)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.03015, 0.77492, -1.04071)
 skeleton = NodePath("../SceneLoader_Entrance/InteractionDetector")
 spawn_point_number = 1
 
@@ -2157,7 +2160,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.683, -0.0453024, -1.533)
 
 [node name="Cube_103" type="MeshInstance3D" parent="Room/Ceiling/Ceiling"]
-transform = Transform3D(-0.154672, 0, -0.00011954, 0, 0.154672, 0, 0.00011954, 0, -0.154672, 0, 0, 0)
+transform = Transform3D(-0.154672, 0, -0.00011954, 0, 0.154672, 0, 0.00011954, 0, -0.154672, 0.00117779, 0, 1.74046e-05)
 mesh = SubResource("ArrayMesh_41fwu")
 skeleton = NodePath("")
 
