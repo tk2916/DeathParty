@@ -14,12 +14,14 @@ var typewriter_text: String = ""
 
 signal done
 
+
 func _init(
 	_text_label: RichTextLabel,
 	_animation_style: DialogueSystem.ANIMATION_STYLES = DialogueSystem.ANIMATION_STYLES.NONE,
 ) -> void:
 	text_label = _text_label
 	animation_style = _animation_style
+
 
 func set_text(line_info: InkLineInfo) -> void:
 	full_text = line_info.text
@@ -64,6 +66,7 @@ func skip() -> void:
 	text_label.text = full_text
 	print("Setting label text ", text_label, " to ", full_text, " | ", text_label.text)
 	finish()
+
 
 func finish() -> void:
 	print("Done firing")

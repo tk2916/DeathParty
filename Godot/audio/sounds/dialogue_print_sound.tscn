@@ -4,6 +4,4 @@
 event_name = "event:/000_SFX/300_UI/DialogueTextPrint"
 event_guid = "{de2152ed-af7d-4f70-b2cd-31b2c2eda046}"
 attached = false
-autoplay = true
-auto_release = true
-volume = 0.25
+volume = 0.5
