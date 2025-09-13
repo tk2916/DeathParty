@@ -9,8 +9,10 @@
 [node name="Sounds" type="Node"]
 script = ExtResource("1_w5pjy")
 journal_close = ExtResource("2_iridj")
-phone_typing = ExtResource("4_1bc3q")
 door = ExtResource("3_wkes1")
 
 [node name="DialoguePrint" parent="." instance=ExtResource("3_5xerr")]
+unique_name_in_owner = true
+
+[node name="PhoneTyping" parent="." instance=ExtResource("4_1bc3q")]
 unique_name_in_owner = true
