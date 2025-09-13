@@ -1,30 +1,30 @@
 extends CanvasLayer
 
 
-@onready var bottom_ui_bar : CanvasLayer = %CanvasLayer
+@onready var bottom_ui_bar: CanvasLayer = %CanvasLayer
 
-@onready var main_pause_menu : VBoxContainer = %MainPauseMenu
+@onready var main_pause_menu: VBoxContainer = %MainPauseMenu
 
-@onready var resume_button : Button = %ResumeButton
-@onready var settings_button : Button = %SettingsButton
-@onready var quit_button : Button = %QuitButton
+@onready var resume_button: Button = %ResumeButton
+@onready var settings_button: Button = %SettingsButton
+@onready var quit_button: Button = %QuitButton
 
-@onready var settings_menu : VBoxContainer = %SettingsMenu
-@onready var volume_slider : HSlider = %VolumeSlider
-@onready var volume_number : Label = %VolumeNumber
+@onready var settings_menu: VBoxContainer = %SettingsMenu
+@onready var volume_slider: HSlider = %VolumeSlider
+@onready var volume_number: Label = %VolumeNumber
 @onready var input_button: Button = %InputButton
 @onready var video_button: Button = %VideoButton
 
-@onready var input_menu : VBoxContainer = %InputMenu
-@onready var input_back_button : Button = %InputBackButton
+@onready var input_menu: VBoxContainer = %InputMenu
+@onready var input_back_button: Button = %InputBackButton
 
-@onready var video_menu : VBoxContainer = %VideoMenu
-@onready var video_back_button : Button = %VideoBackButton
+@onready var video_menu: VBoxContainer = %VideoMenu
+@onready var video_back_button: Button = %VideoBackButton
 
-@onready var quit_menu : VBoxContainer = %QuitMenu
-@onready var yes_quit_button : Button = %YesQuitButton
+@onready var quit_menu: VBoxContainer = %QuitMenu
+@onready var yes_quit_button: Button = %YesQuitButton
 
-@onready var click_sound : FmodEventEmitter2D = %ClickSound
+@onready var click_sound: FmodEventEmitter2D = %ClickSound
 
 
 func _ready() -> void:
@@ -36,14 +36,18 @@ func _ready() -> void:
 			button.pressed.connect(on_any_button_pressed)
 
 		if button is TabContainer:
-			button.tab_clicked.connect(func(tab : int): on_any_button_pressed())
+			button.tab_clicked.connect(func(tab: int): on_any_button_pressed())
 
 
-func _physics_process(_delta : float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		var title_screen = get_tree().get_first_node_in_group("title_screen")
+
 		if title_screen != null and title_screen.visible == true:
-				return
+			return
+
+		elif GuiSystem.loading_screen_visible:
+			return
 
 		elif get_tree().get_first_node_in_group("journal") != null:
 			GuiSystem.hide_journal()
@@ -119,19 +123,18 @@ func _on_video_button_pressed() -> void:
 	video_back_button.grab_focus()
 
 
-func _on_volume_slider_value_changed(value : float) -> void:
+func _on_volume_slider_value_changed(value: float) -> void:
 	# im doing str(int()) cos without converting to an int first, it adds
 	# a decimal after the float when its concatenated
 	# and i think the other way to convert to an int uses % in the syntax
 	# which would maybe look weird/hard to read since this is a percentage
-
 	# (if anyone knows a nicer way to do this feel free to replace it lol)
 	volume_number.text = str(int(volume_slider.value)) + "%"
 
 	Settings.set_volume(volume_slider.value)
 
 
-func _on_volume_slider_drag_ended(_value_changed : bool) -> void:
+func _on_volume_slider_drag_ended(_value_changed: bool) -> void:
 	Settings.set_volume(volume_slider.value)
 
 
