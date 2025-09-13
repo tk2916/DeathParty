@@ -1,15 +1,18 @@
 extends Node
-
-
-## singleton with functions for playing short sounds
+## singleton with functions for playing one-shot sounds
 ##
-## mostly for sounds it would be awkward to have as nodes, or sounds that get called from
-## scenes as they're freed (which would otherwise get cut off)
+## mostly for short sounds it would be awkward to have as permanent nodes, or
+## sounds that get called from scenes as they're freed (which would otherwise get cut off)
 ##
 ## i realised i was doing this in a few places with hardcoded preloads which feels a bit
 ## messy so i wanted to set something up with export vars that could be called in one line
 ##
 ## all these scenes pretty much just spawn in, play a sound, then free themself
+##
+## NOTE: probably not a good way to do sounds that play repeatedly in quick
+## succession like dialogue printing sounds, because each sound is an independent
+## node so it wont cut off the previous one when played again which can make them
+## overlap in an ugly way
 ##
 ## if this is the dumbest thing ever (either in concept or in the specific
 ## way im doing it with functions for each sound etc) let me know lol
