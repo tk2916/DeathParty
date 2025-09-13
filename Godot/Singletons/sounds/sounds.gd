@@ -18,6 +18,7 @@ extends Node
 @export_group("UI sounds")
 @export var journal_close: PackedScene
 @export var dialogue_print: PackedScene
+@export var phone_typing: PackedScene
 
 @export_group("environment sounds")
 @export var door: PackedScene
@@ -39,3 +40,7 @@ func play_door() -> void:
 
 func play_dialogue_print() -> void:
 	play(dialogue_print)
+
+
+func play_phone_typing() -> void:
+	play(phone_typing)
