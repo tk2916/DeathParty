@@ -1,29 +1,27 @@
 class_name TextAnimator
 
-var text_label : RichTextLabel
-var printing_sound : Node
-var animation_style : DialogueSystem.ANIMATION_STYLES
+var text_label: RichTextLabel
+var animation_style: DialogueSystem.ANIMATION_STYLES
 
 #ANIMATION
-var char_delay : float = .03
-var text_index : int = 0
-var done_state : bool = false
-var timer : Timer
+var char_delay: float = .03
+var text_index: int = 0
+var done_state: bool = false
+var timer: Timer
 
-var full_text : String
-var typewriter_text : String = ""
+var full_text: String
+var typewriter_text: String = ""
 
 signal done
 
 func _init(
-	_text_label : RichTextLabel,
-	_animation_style : DialogueSystem.ANIMATION_STYLES = DialogueSystem.ANIMATION_STYLES.NONE,
-	_printing_sound : Node = null,
+	_text_label: RichTextLabel,
+	_animation_style: DialogueSystem.ANIMATION_STYLES = DialogueSystem.ANIMATION_STYLES.NONE,
 ) -> void:
 	text_label = _text_label
 	animation_style = _animation_style
 
-func set_text(line_info : InkLineInfo) -> void:
+func set_text(line_info: InkLineInfo) -> void:
 	full_text = line_info.text
 	print("set text: ", full_text)
 
@@ -41,9 +39,10 @@ func set_text(line_info : InkLineInfo) -> void:
 	else:
 		skip()
 
+
 func typewriter() -> void:
 	#timer is continuously firing even when paused
-	if (text_index > full_text.length()-1): #end loop
+	if (text_index > full_text.length() - 1): # end loop
 		timer.queue_free()
 		finish()
 		return
@@ -51,10 +50,10 @@ func typewriter() -> void:
 	text_label.text = typewriter_text
 	text_index += 1
 
-	# check the reference to the printing sound doesn't error and check the current character
-	# isn't whitespace
-	if printing_sound and full_text[text_index - 1] != " ":
-		printing_sound.play()
+	# play printing sound if the last char added wasnt a space
+	if full_text[text_index - 1] != " ":
+		Sounds.play_dialogue_print()
+
 
 func skip() -> void:
 	print("Skipping")

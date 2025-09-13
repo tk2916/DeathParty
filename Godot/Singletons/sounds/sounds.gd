@@ -17,6 +17,7 @@ extends Node
 
 @export_group("UI sounds")
 @export var journal_close: PackedScene
+@export var dialogue_print: PackedScene
 
 @export_group("environment sounds")
 @export var door: PackedScene
@@ -24,7 +25,7 @@ extends Node
 
 func play(sound_scene: PackedScene) -> void:
 	if sound_scene:
-		var sound_instance = sound_scene.instantiate()
+		var sound_instance: FmodEventEmitter3D = sound_scene.instantiate()
 		get_tree().current_scene.add_child(sound_instance)
 
 
@@ -34,3 +35,7 @@ func play_journal_close() -> void:
 
 func play_door() -> void:
 	play(door)
+
+
+func play_dialogue_print() -> void:
+	play(dialogue_print)
