@@ -61,7 +61,10 @@ func toggle_popup(on: bool) -> void:
 		else:
 			value = 0.0
 		var shader: ShaderMaterial = surface_material.next_pass
-		shader.set_shader_parameter("alpha", value)
+
+		# this is commented out to disable the outline shader temporarily
+		# should work like normal if we un-comment
+		#shader.set_shader_parameter("alpha", value)
 
 
 ##OVERRIDE THESE METHODS (but call super() at the beginning)
