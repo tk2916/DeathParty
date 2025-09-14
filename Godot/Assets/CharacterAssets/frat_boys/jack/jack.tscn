@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://7byda3k0fnfy"]
+[gd_scene load_steps=5 format=3 uid="uid://7byda3k0fnfy"]
 
 [ext_resource type="PackedScene" uid="uid://dm33ql3jl18xu" path="res://Assets/CharacterAssets/frat_boys/jack/Jack.glb" id="1_0vx1f"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_0244l"]
 [ext_resource type="Resource" uid="uid://f3wwrax8f4lf" path="res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_jack.tres" id="3_scl1w"]
+[ext_resource type="PackedScene" uid="uid://bslr2tafqki5h" path="res://Common/Popup UI/npc_interact_popup.tscn" id="4_scl1w"]
 
 [node name="Jack" instance=ExtResource("1_0vx1f")]
 script = ExtResource("2_0244l")
@@ -100,3 +101,6 @@ bones/125/rotation = Quaternion(-0.69367, -0.137192, -0.137192, 0.693671)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "drink"
+
+[node name="Popup" parent="." index="2" instance=ExtResource("4_scl1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.25, 0)

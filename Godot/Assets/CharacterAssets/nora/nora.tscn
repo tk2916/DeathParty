@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfxvpoegl0xb5"]
+[gd_scene load_steps=6 format=3 uid="uid://cfxvpoegl0xb5"]
 
-[ext_resource type="PackedScene" uid="uid://c53usghwv4r2l" path="res://Assets/CharacterAssets/nora/nora.glb" id="1_jbvsc"]
+[ext_resource type="PackedScene" uid="uid://c53usghwv4r2l" path="res://Assets/CharacterAssets/nora/Nora.glb" id="1_jbvsc"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_2wvjm"]
-[ext_resource type="Resource" uid="uid://lfthc37kslft" path="res://Assets/Resources/CharacterResources/character_properties_nora.tres" id="3_1mxnw"]
+[ext_resource type="Resource" uid="uid://lfthc37kslft" path="res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_nora.tres" id="3_1mxnw"]
+[ext_resource type="PackedScene" uid="uid://bslr2tafqki5h" path="res://Common/Popup UI/npc_interact_popup.tscn" id="4_o7wdt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2wvjm"]
 radius = 0.7
@@ -170,3 +171,6 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12554, 0.112554)
 shape = SubResource("CapsuleShape3D_2wvjm")
+
+[node name="Popup" parent="." index="3" instance=ExtResource("4_o7wdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.5, 0)

@@ -1,26 +1,27 @@
 class_name Interactable extends Node3D
 
-@export var enabled : bool = true
-@export var primary_mesh : MeshInstance3D
-@export var use_first_mesh : bool = true
-@export var outline_thickness : float = .7
+@export var enabled: bool = true
+@export var primary_mesh: MeshInstance3D
+@export var use_first_mesh: bool = true
+@export var outline_thickness: float = .7
 
-@export var dialogue_on_interact : JSON
+@export var dialogue_on_interact: JSON
 
 #@export var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader.tres")
-var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader/TestOutlineShader.tres")
-var interaction_detector_file : PackedScene = preload("res://Entities/interaction_detector.tscn")
-var interaction_detector : InteractionDetector
+var outline_shader: ShaderMaterial = preload("res://Assets/Shaders/OutlineShader/TestOutlineShader.tres")
+var interaction_detector_file: PackedScene = preload("res://Entities/interaction_detector.tscn")
+var interaction_detector: InteractionDetector
 
-var popup : Node3D
-var surface_material : StandardMaterial3D = null
+var popup: Node3D
+var surface_material: StandardMaterial3D = null
+
 
 func _ready() -> void:
 	#print("New interctable")
 	interaction_detector = get_node_or_null("InteractionDetector")
 	if interaction_detector == null:
 		interaction_detector = interaction_detector_file.instantiate()
-		var char_body : CharacterBody3D = get_node_or_null("CharacterBody3D")
+		var char_body: CharacterBody3D = get_node_or_null("CharacterBody3D")
 		if char_body:
 			char_body.add_child(interaction_detector)
 		else:
@@ -39,27 +40,31 @@ func _ready() -> void:
 		create_outline()
 	if popup:
 		popup.visible = false
+
 		
 func create_outline() -> void:
 	#print("Creating outline")
 	if primary_mesh == null: return
 	surface_material = primary_mesh.get_active_material(0)
-	var new_shader : ShaderMaterial = outline_shader.duplicate()
+	var new_shader: ShaderMaterial = outline_shader.duplicate()
 	new_shader.set_shader_parameter("alpha", 0)
 	new_shader.set_shader_parameter("thickness", outline_thickness)
 	surface_material.next_pass = new_shader
 	
-func toggle_popup(on : bool) -> void:
+func toggle_popup(on: bool) -> void:
 	if popup:
 		popup.visible = on
 	if surface_material:
-		var value : float
+		var value: float
 		if on:
 			value = 1.0
 		else:
 			value = 0.0
-		var shader : ShaderMaterial = surface_material.next_pass
-		shader.set_shader_parameter("alpha", value)
+		var shader: ShaderMaterial = surface_material.next_pass
+
+		# this is commented out to disable the outline shader temporarily
+		# should work like normal if we un-comment
+		#shader.set_shader_parameter("alpha", value)
 
 
 ##OVERRIDE THESE METHODS (but call super() at the beginning)
@@ -68,6 +73,6 @@ func on_interact() -> void:
 	if dialogue_on_interact:
 		DialogueSystem.begin_dialogue(dialogue_on_interact)
 	
-func on_in_range(in_range : bool) -> void:
+func on_in_range(in_range: bool) -> void:
 	if !enabled: return
 	toggle_popup(in_range)
