@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1nd01uwlqaij"]
+[gd_scene load_steps=6 format=3 uid="uid://c1nd01uwlqaij"]
 
 [ext_resource type="PackedScene" uid="uid://8pl4qpktu1pb" path="res://Assets/CharacterAssets/drug_dealer/drug_dealer.glb" id="1_t4org"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_bc2ut"]
-[ext_resource type="Resource" uid="uid://dl1j2fy1ptyn" path="res://Assets/Resources/CharacterResources/character_properties_drugdealer.tres" id="3_i4lac"]
+[ext_resource type="Resource" uid="uid://dl1j2fy1ptyn" path="res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_drugdealer.tres" id="3_i4lac"]
+[ext_resource type="PackedScene" uid="uid://bslr2tafqki5h" path="res://Common/Popup UI/npc_interact_popup.tscn" id="4_hyqk8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bc2ut"]
 radius = 0.6
@@ -63,3 +64,6 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.1)
 shape = SubResource("CapsuleShape3D_bc2ut")
+
+[node name="Popup" parent="." index="3" instance=ExtResource("4_hyqk8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57, 2.2, 0)
