@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba200ffpgk2tg"]
+[gd_scene load_steps=6 format=3 uid="uid://ba200ffpgk2tg"]
 
 [ext_resource type="PackedScene" uid="uid://dfj68fd4u7ckh" path="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer.glb" id="1_gryoh"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_loyf8"]
-[ext_resource type="Resource" uid="uid://c1b1vp0a6fo45" path="res://Assets/Resources/CharacterResources/character_properties_gamer1.tres" id="3_loyf8"]
+[ext_resource type="Resource" uid="uid://c1b1vp0a6fo45" path="res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_gamer1.tres" id="3_loyf8"]
+[ext_resource type="PackedScene" uid="uid://bslr2tafqki5h" path="res://Common/Popup UI/npc_interact_popup.tscn" id="4_ooqrp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lg7en"]
 radius = 0.65
@@ -84,3 +85,6 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.903473, 0.180695)
 shape = SubResource("CapsuleShape3D_lg7en")
+
+[node name="Popup" parent="." index="3" instance=ExtResource("4_ooqrp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 2, 0)

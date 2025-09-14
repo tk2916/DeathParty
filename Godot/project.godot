@@ -73,6 +73,7 @@ layout/style_directory={}
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/initial_position_type=0
 window/stretch/mode="canvas_items"
 
 [editor]
