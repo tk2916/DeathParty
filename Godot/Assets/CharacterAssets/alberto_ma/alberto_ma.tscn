@@ -12,7 +12,6 @@
 script = ExtResource("1_32tcq")
 character_resource = ExtResource("2_5jxso")
 starter_json = ExtResource("3_lxqic")
-default_json = null
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 collision_layer = 4

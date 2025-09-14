@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjkogt4y2w5dp"]
+[gd_scene load_steps=6 format=3 uid="uid://cjkogt4y2w5dp"]
 
 [ext_resource type="PackedScene" uid="uid://vcggh24vgfnh" path="res://Assets/CharacterAssets/bunnies/red_bunny/red_bunny.glb" id="1_fxskl"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_fpg7b"]
-[ext_resource type="Resource" uid="uid://dq6c6xmfveuln" path="res://Assets/Resources/CharacterResources/character_properties_sororitygirl2.tres" id="3_d5mki"]
+[ext_resource type="Resource" uid="uid://dq6c6xmfveuln" path="res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_sororitygirl2.tres" id="3_d5mki"]
+[ext_resource type="PackedScene" uid="uid://bslr2tafqki5h" path="res://Common/Popup UI/npc_interact_popup.tscn" id="4_syuym"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8wmxq"]
 
@@ -111,3 +112,6 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863796, 0)
 shape = SubResource("CapsuleShape3D_8wmxq")
+
+[node name="Popup" parent="." index="3" instance=ExtResource("4_syuym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)

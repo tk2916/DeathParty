@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dts4qro0icnli" path="res://Assets/pop_ups/BackgroundRight.png" id="1_nalsp"]
 
-[node name="NpcInteractPopup" type="Node3D"]
+[node name="Popup" type="Node3D"]
 
 [node name="Background" type="Sprite3D" parent="."]
 pixel_size = 0.0025
@@ -10,7 +10,16 @@ billboard = 1
 no_depth_test = true
 texture = ExtResource("1_nalsp")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="NameLabel" type="Label3D" parent="."]
+sorting_offset = 1.0
+pixel_size = 0.0025
+offset = Vector2(-150, 125)
+billboard = 1
+no_depth_test = true
+modulate = Color(0, 0, 0, 1)
+text = "[CHARACTER NAME HERE]"
+
+[node name="TalkLabel" type="Label3D" parent="."]
 sorting_offset = 1.0
 pixel_size = 0.0025
 offset = Vector2(200, 32)
