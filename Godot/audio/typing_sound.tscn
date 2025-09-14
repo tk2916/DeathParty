@@ -1,9 +1,0 @@
-[gd_scene load_steps=0 format=3 uid="uid://cum2a2yxiduvv"]
-
-[node name="TypingSound" type="FmodEventEmitter3D"]
-event_name = "event:/000_SFX/300_UI/PhoneTyping"
-event_guid = "{3f148b4f-d00f-4a7b-a880-54a64c88b531}"
-attached = false
-autoplay = true
-auto_release = true
-volume = 0.5
