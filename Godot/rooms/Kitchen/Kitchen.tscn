@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=99 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
@@ -605,6 +605,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e3smd")
+
+[sub_resource type="Resource" id="Resource_6j32o"]
+metadata/__load_path__ = "res://Assets/Resources/CharacterResources/character_properties_bartender.tres"
 
 [node name="Kitchen" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
@@ -1834,6 +1837,7 @@ transform = Transform3D(0.761458, 0, -0.648214, 0, 1, 0, 0.648214, 0, 0.761458, 
 
 [node name="Bartender" parent="NPCs" instance=ExtResource("44_p4v0j")]
 transform = Transform3D(0.644191, 0, 0.764865, 0, 1, 0, -0.764865, 0, 0.644191, -6.16842, -3.1054, -1.79786)
+character_resource = SubResource("Resource_6j32o")
 outline_thickness = 0.7
 
 [node name="Frat boy red hat" parent="NPCs" instance=ExtResource("54_ab58j")]
