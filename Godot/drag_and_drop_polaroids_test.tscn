@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://csrnib2iw1f4u"]
 
 [ext_resource type="Script" uid="uid://cy8eaeg2hxbcl" path="res://drag_drop_control.gd" id="1_n3442"]
-[ext_resource type="Resource" uid="uid://cvtmg14drynon" path="res://Assets/Resources/InventoryItemResources/polaroid_nora_properties.tres" id="2_k8c0u"]
-[ext_resource type="Resource" uid="uid://ddr81dhpf6gqv" path="res://Assets/Resources/InventoryItemResources/polaroid_olivia_properties.tres" id="3_5bn1t"]
+[ext_resource type="Resource" uid="uid://cvtmg14drynon" path="res://Singletons/SaveSystem/DefaultResources/InventoryItemResources/polaroid_nora_properties.tres" id="2_k8c0u"]
+[ext_resource type="Resource" uid="uid://ddr81dhpf6gqv" path="res://Singletons/SaveSystem/DefaultResources/InventoryItemResources/polaroid_olivia_properties.tres" id="3_5bn1t"]
 [ext_resource type="Texture2D" uid="uid://brf5v15vqd7ws" path="res://Assets/models/polaroid_nora_polaroid_nora.png" id="3_wrbjp"]
 [ext_resource type="Texture2D" uid="uid://bfs08836pfnw2" path="res://Assets/models/polaroid_olivia_polaroid_olivia.png" id="5_w0ofx"]
 [ext_resource type="Texture2D" uid="uid://b3e7dwf07t8wv" path="res://Assets/JournalTextures/_temp_paper_texture.jpg" id="6_wrbjp"]

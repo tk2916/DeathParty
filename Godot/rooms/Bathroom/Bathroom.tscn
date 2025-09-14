@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bekk2pej44hkd" path="res://rooms/Bathroom/Bathroom layout_wooddark.png" id="3_moj8i"]
 [ext_resource type="Texture2D" uid="uid://6sxva7xhuvix" path="res://Assets/pop_ups/EnterArrowRight.png" id="4_dbaul"]
 [ext_resource type="Texture2D" uid="uid://bqar6l142xdsc" path="res://rooms/Bathroom/Bathroom layout_IMG_4162.png" id="4_qgpod"]
+[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="5_icx1l"]
 [ext_resource type="Texture2D" uid="uid://cfw17stkpko7w" path="res://rooms/Bathroom/Bathroom layout_IMG_0536.png" id="5_uea66"]
 [ext_resource type="PackedScene" uid="uid://d1dmvsqupb3xm" path="res://Assets/CharacterAssets/Jesus/jesus.tscn" id="5_uyvi5"]
 [ext_resource type="Texture2D" uid="uid://bmub61elciuu6" path="res://rooms/Bathroom/Bathroom layout_woodlight1.png" id="6_duuvr"]
@@ -27,7 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunnies/white_bunny/white_bunny.tscn" id="21_hbt0t"]
 [ext_resource type="PackedScene" uid="uid://bgjtl8sm74fd2" path="res://Assets/props/hot_dog_stand/hot_dog_stand.tscn" id="22_htvqj"]
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="23_sjkt2"]
-[ext_resource type="JSON" path="res://Assets/InkFiles/bathroom_Olivia_graffiti_interact.json" id="24_16j1d"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="24_cixmb"]
 [ext_resource type="PackedScene" uid="uid://dxahcd25ocjsx" path="res://Assets/props/balloons/balloons_four_tall.tscn" id="25_dn2c2"]
 [ext_resource type="PackedScene" uid="uid://ml4kn25ykoyy" path="res://Assets/props/keg/keg.tscn" id="26_c8t5l"]
@@ -611,10 +611,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65482, -1.40483, 0)
 
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("2_3y0er")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
-target_location_index = 1
+interactable = null
+target_scene = 3
 local_spawn_point = 1
-play_door_sound = true
-arrow_direction = 1
+left_arrow_asset = true
+right_arrow_asset = null
+down_arrow_asset = ExtResource("5_icx1l")
 
 [node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.63, 1.75, -1.5)
@@ -902,7 +904,6 @@ transform = Transform3D(0.9525, -8.933e-05, -0.0298424, 0.000101212, 0.952968, 0
 
 [node name="graf_004" parent="Graffiti" index="1"]
 script = ExtResource("23_sjkt2")
-dialogue_on_interact = ExtResource("24_16j1d")
 
 [node name="graf_005" parent="Graffiti" index="2"]
 transform = Transform3D(1.88731, -0.000606835, 0.186284, 0.18628, -0.00774927, -1.8873, -0.00136506, -1.89647, 0.00765219, 3.74531, 4.16608, -2.19784)
@@ -1080,7 +1081,6 @@ transform = Transform3D(-1.21819, 0, 0.312007, 0, 1.25751, 0, -0.312007, 0, -1.2
 [node name="Bunny2" parent="NPCs" instance=ExtResource("35_rjeq7")]
 transform = Transform3D(1.26223, 0, 0, 0, 1.26223, 0, 0, 0, 1.26223, 6.98782, -0.240322, -3.62567)
 starter_json = ExtResource("40_l3jgi")
-default_json = null
 
 [node name="cop" parent="NPCs" instance=ExtResource("34_jy5jw")]
 transform = Transform3D(0.744814, 0, 0.869726, 0, 1.14506, 0, -0.869726, 0, 0.744814, 0.904997, -0.232421, -1.38849)

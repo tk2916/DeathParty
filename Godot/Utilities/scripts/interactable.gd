@@ -5,7 +5,7 @@ class_name Interactable extends Node3D
 @export var use_first_mesh : bool = true
 @export var outline_thickness : float = .7
 
-@export var dialogue_on_interact : JSON
+@export var talking_object_resource : TalkingObjectResource
 
 #@export var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader.tres")
 var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader/TestOutlineShader.tres")
@@ -64,9 +64,10 @@ func toggle_popup(on : bool) -> void:
 
 ##OVERRIDE THESE METHODS (but call super() at the beginning)
 func on_interact() -> void:
+	print("Interactable interacted")
 	toggle_popup(false)
-	if dialogue_on_interact:
-		DialogueSystem.begin_dialogue(dialogue_on_interact)
+	if talking_object_resource:
+		talking_object_resource.start_chat()
 	
 func on_in_range(in_range : bool) -> void:
 	if !enabled: return

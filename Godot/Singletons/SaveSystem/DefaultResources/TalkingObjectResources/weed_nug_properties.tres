@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TalkingObjectResource" load_steps=3 format=3 uid="uid://cv0ylpwl5fs54"]
+
+[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="1_8fx6q"]
+[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="1_x6m3n"]
+
+[resource]
+script = ExtResource("1_x6m3n")
+default_chats = Dictionary[int, JSON]({})
+queue_chats = Dictionary[int, ExtResource("1_8fx6q")]({})
+name = "Weed Nug"

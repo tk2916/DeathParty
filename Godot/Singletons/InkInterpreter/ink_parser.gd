@@ -47,7 +47,7 @@ class InkParseContainer:
 			path = "0"
 
 		# Will automatically parent itself to parent_container if not null
-		var new_ink_container : InkContainer = InkContainer.new(parent_container, name, path, [], true, is_redirect)
+		var new_ink_container : InkContainer = InkContainer.new(parent_container, name, path, [], is_redirect)
 		
 		#Find redirect table
 		var last_element : Variant = root[root.size()-1]

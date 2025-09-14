@@ -49,7 +49,7 @@ func load_in() -> void:
 	if !ContentLoader.cell_grids.has(scene.name):
 		grid_dimensions_label.text = "Grid: 1 x 1 x 1"
 	else:
-		var grid_dimensions : Vector3 = ContentLoader.cell_grids[scene.name]
+		var grid_dimensions : Vector3 = ContentLoader.cell_grids[scene.scene_enum]
 		grid_dimensions_label.text = (
 			"Grid: " 
 			+ str(int(grid_dimensions.x))

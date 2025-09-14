@@ -15,12 +15,14 @@ var player_data : PlayerData
 const DIRECTORIES : Dictionary[String, String] = {
 	TASKS = "res://Singletons/SaveSystem/DefaultResources/TaskResources/",
 	CHARACTERS = "res://Singletons/SaveSystem/DefaultResources/CharacterResources/",
+	TALKING_OBJECTS = "res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/",
 	PHONE_CHATS = "res://Singletons/SaveSystem/DefaultResources/ChatResources/",
 	INVENTORY_ITEMS = "res://Singletons/SaveSystem/DefaultResources/InventoryItemResources/",
 }
 const DIRECTORIES_TO_DICTIONARIES : Dictionary[String, String] = {
 	DIRECTORIES.TASKS : "tasks",
 	DIRECTORIES.CHARACTERS : "characters",
+	DIRECTORIES.TALKING_OBJECTS : "talking_objects",
 	DIRECTORIES.PHONE_CHATS : "phone_chats",
 	DIRECTORIES.INVENTORY_ITEMS : "inventory_items",
 }
@@ -61,18 +63,10 @@ func update_save_file(file : SaveFile) -> void:
 		var dictionary_name : String = DIRECTORIES_TO_DICTIONARIES[directory]
 		var dictionary : Dictionary = file[dictionary_name]
 		load_into_dictionary(directory, dictionary)
-	# load_into_dictionary(DIRECTORIES.TASKS, file.tasks)
-	# load_into_dictionary(DIRECTORIES.CHARACTERS, file.characters)
-	# load_into_dictionary(DIRECTORIES.PHONE_CHATS, file.phone_chats)
-	# load_into_dictionary(DIRECTORIES.INVENTORY_ITEMS, file.inventory_items)
 
 #SAVE/LOAD
 func save_data() -> void:
-	var error : Error = ResourceSaver.save(active_save_file, SLOT_TO_PATH[active_save_slot])
-	if error:
-		print("Error saving resource:", error)
-	else:
-		print("Resource saved successfully!")
+	ResourceSaver.save(active_save_file, SLOT_TO_PATH[active_save_slot])
 
 func save_data_to_slot(slot : SaveSlots) -> void:
 	var slot_path : String = SLOT_TO_PATH[slot]
@@ -171,6 +165,11 @@ func get_character(char_name : String) -> CharacterResource:
 	if !active_save_file.characters.has(char_name):
 		return null
 	return active_save_file.characters[char_name]
+
+func get_talking_object(obj_name : String) -> TalkingObjectResource:
+	if !active_save_file.talking_objects.has(obj_name):
+		return null
+	return active_save_file.talking_objects[obj_name]
 
 func get_phone_chat(phone_chat_name : String) -> ChatResource:
 	if !active_save_file.phone_chats.has(phone_chat_name):

@@ -1,7 +1,6 @@
 extends Node
 
-## CHARACTER LOCATIONS
-enum CHARACTER_LOCATIONS_ENUM {
+enum SCENES {
 	Everywhere,
 	Nowhere,
 	Entrance,
@@ -18,55 +17,29 @@ enum CHARACTER_LOCATIONS_ENUM {
 	GhostHallway,
 }
 
-const CHARACTER_LOCATIONS = [
-	"Everywhere",
-	"Nowhere",
-	"Entrance",
-	"PartyRoom",
-	"Library",
-	"Bathroom",
-	"Basement",
-	"Bedroom",
-	"Storageroom",
-	"Exterior",
-	"Kitchen",
-	"Hourhand hallway",
-	"Control room",
-	"Ghost hallway",
-]
-##
-
-##SCENES
-enum SCENE_LOCATIONS_ENUM {
-	Entrance,
-	PartyRoom,
-	Library,
-	Bathroom,
-	Basement,
-	Bedroom,
-	StorageRoom,
-	Exterior,
-	Kitchen,
-	HourhandHallway,
-	ControlRoom,
-	GhostHallway,
+const SCENES_STR : Dictionary[String, SCENES] = {
+	"Everywhere" = SCENES.Everywhere,
+	"Nowhere" = SCENES.Nowhere,
+	"Entrance" = SCENES.Entrance,
+	"PartyRoom" = SCENES.PartyRoom,
+	"Library" = SCENES.Library,
+	"Bathroom" = SCENES.Bathroom,
+	"Basement" = SCENES.Basement,
+	"Bedroom" = SCENES.Bedroom,
+	"Storageroom" = SCENES.StorageRoom,
+	"Exterior" = SCENES.Exterior,
+	"Kitchen" = SCENES.Kitchen,
+	"Hourhand hallway" = SCENES.HourhandHallway,
+	"Control room" = SCENES.ControlRoom,
+	"Ghost hallway" = SCENES.GhostHallway,
 }
-
-const SCENE_LOCATIONS = [
-	"Entrance",
-	"PartyRoom",
-	"Library",
-	"Bathroom",
-	"Basement",
-	"Bedroom",
-	"Storageroom",
-	"Exterior",
-	"Kitchen",
-	"Hourhand hallway",
-	"Control room",
-	"Ghost hallway",
-]
 ##
+
+func get_scene_name(scene_enum : Globals.SCENES) -> String:
+	for sc_name : String in Globals.SCENES_STR:
+		if Globals.SCENES_STR[sc_name] == scene_enum:
+			return sc_name
+	return ""
 
 enum SPAWN_OPTIONS {
 	ONE,
@@ -76,10 +49,3 @@ enum SPAWN_OPTIONS {
 }
 
 var player : Player
-
-##FUNCTIONS
-func get_scene_location(index : int) -> String:
-	return SCENE_LOCATIONS[index]
-	
-func get_character_location(index : int) -> String:
-	return CHARACTER_LOCATIONS[index]

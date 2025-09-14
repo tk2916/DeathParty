@@ -1,6 +1,8 @@
 class_name LoadableScene extends GameObject
 
 #General
+var scene_enum : Globals.SCENES
+
 var first_time_visit : bool = true
 var first_visit_json : JSON
 var room : Room3D #instance
@@ -19,11 +21,14 @@ var npc_dict : Dictionary[String, NPCData] = {}
 
 ##INITIAL LOAD --------------------------
 func _init(
+	_enum : Globals.SCENES,
 	_instance : Node3D, 
 	_parent_obj : GameObject,
 	_cell_grid : Vector3 = Vector3(1,1,1)
 ) -> void:
 	super(_instance, _parent_obj)
+	scene_enum = _enum
+	
 	room = instance as Room3D
 
 	file = load(filepath)

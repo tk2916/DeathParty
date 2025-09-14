@@ -1,4 +1,4 @@
-[gd_scene load_steps=246 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=249 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -21,8 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://b8ucr48tcuk2p" path="res://rooms/bedroom/dorm desk.glb" id="7_7a5mm"]
 [ext_resource type="Texture2D" uid="uid://dke1flebhebj4" path="res://rooms/bedroom/polaroids and poster_study date wiht nora.png" id="7_84fnt"]
 [ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="8_8bc0i"]
+[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="9_kxkdt"]
 [ext_resource type="PackedScene" uid="uid://bjlg5o0t38qqs" path="res://rooms/bedroom/shoe rack.glb" id="9_l0p45"]
 [ext_resource type="PackedScene" uid="uid://bgeyi70mq0w08" path="res://rooms/bedroom/dorm string lights.glb" id="12_0ajex"]
+[ext_resource type="Resource" uid="uid://bijwy7mhohjk3" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/camera_properties.tres" id="12_86ph5"]
 [ext_resource type="Texture2D" uid="uid://b8qqpb3hhwxlu" path="res://rooms/bedroom/bed shelf_dark b.png" id="12_h7dpu"]
 [ext_resource type="Texture2D" uid="uid://ct3k0jic0541x" path="res://rooms/bedroom/bed shelf_Image_0.png" id="13_pstno"]
 [ext_resource type="PackedScene" uid="uid://7m16a0qo1h75" path="res://rooms/bedroom/hanging ivy.glb" id="13_ufsvp"]
@@ -71,6 +73,7 @@
 [ext_resource type="Texture2D" uid="uid://cc86ku3golyuq" path="res://rooms/Basement/standing lamp_IMG_4331.png" id="48_fa1og"]
 [ext_resource type="PackedScene" uid="uid://r11twgabwx5k" path="res://Assets/environment/bookshelves/dorm_bookshelf.tscn" id="50_shd6j"]
 [ext_resource type="Texture2D" uid="uid://cgvs4fwjt83jn" path="res://rooms/bedroom/punk posters_IMG_0684.png" id="51_kvlly"]
+[ext_resource type="Resource" uid="uid://d0fndtx3jo5n3" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/bookcase_properties.tres" id="53_2p7ti"]
 [ext_resource type="Texture2D" uid="uid://6p5vltopl887" path="res://rooms/bedroom/punk posters_IMG_4143.png" id="53_5smtm"]
 [ext_resource type="Texture2D" uid="uid://q8smajfubmrv" path="res://rooms/bedroom/punk posters_corkboard.png" id="54_p0j85"]
 [ext_resource type="Texture2D" uid="uid://bt5m0rdvonpdq" path="res://rooms/bedroom/punk posters_poster_medium_IMGtexture.png" id="55_ope5w"]
@@ -2200,8 +2203,11 @@ transform = Transform3D(-9.00272e-09, 0, -0.205958, 0, 0.205958, 0, 0.205958, 0,
 
 [node name="SceneLoader_Exterior" parent="." instance=ExtResource("6_x8yhf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48049, 0, 5.078)
-target_location_index = 7
-play_door_sound = true
+target_scene = 9
+local_spawn_point = 7
+left_arrow_asset = null
+right_arrow_asset = null
+down_arrow_asset = ExtResource("9_kxkdt")
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
@@ -2261,6 +2267,7 @@ material = SubResource("FogMaterial_lxtj2")
 [node name="Polaroid Camera" parent="." instance=ExtResource("66_dyybh")]
 transform = Transform3D(0.608386, 0, 0.648273, 0, 0.889039, 0, -0.648273, 0, 0.608386, 1.22371, 0.489549, 0.743623)
 outline_thickness = 0.3
+talking_object_resource = ExtResource("12_86ph5")
 
 [node name="Particles" type="Node3D" parent="."]
 
@@ -2498,6 +2505,7 @@ visible = false
 
 [node name="dorm bookshelf" parent="Desk/DeskObjects" instance=ExtResource("50_shd6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77232, 0.386788, 4.90497)
+talking_object_resource = ExtResource("53_2p7ti")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Desk/DeskObjects"]
 transform = Transform3D(0.851345, 0, 0, 0, 0.851345, 0, 0, 0, 0.851345, 0.144768, 0.0613446, -0.149783)

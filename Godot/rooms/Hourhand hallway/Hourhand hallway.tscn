@@ -1,10 +1,12 @@
-[gd_scene load_steps=84 format=4 uid="uid://bqae87n6emy8q"]
+[gd_scene load_steps=86 format=4 uid="uid://bqae87n6emy8q"]
 
 [ext_resource type="Texture2D" uid="uid://c4o46fvqrk1xg" path="res://rooms/Hourhand hallway/hourhand floor_patterned floor.png" id="2_4pph5"]
 [ext_resource type="Texture2D" uid="uid://c1gtxbrgatf5m" path="res://rooms/Hourhand hallway/hourhand hallway_bronze wall.png" id="2_v1epj"]
 [ext_resource type="Script" uid="uid://won4e1o3f7gg" path="res://rooms/Hourhand hallway/hourhand_hallway.gd" id="2_xgvqn"]
+[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="3_df5mx"]
 [ext_resource type="Texture2D" uid="uid://do503bq13ur3t" path="res://rooms/Hourhand hallway/hourhand hallway_TCom_ConcreteBare0318_5_S.jpg" id="3_xgvqn"]
 [ext_resource type="Texture2D" uid="uid://bk2cxm07d8gtg" path="res://rooms/Hourhand hallway/hourhand hallway_New Concret (1).png" id="4_1ehwm"]
+[ext_resource type="Texture2D" uid="uid://ccuxjk7edg5dg" path="res://Assets/pop_ups/EnterArrowDown.png" id="4_vssp0"]
 [ext_resource type="Texture2D" uid="uid://bj5g2qwqvmjy0" path="res://rooms/Hourhand hallway/hourhand hallway_TCom_OrnamentsOrientalTrimDetails0002_1_S.jpg" id="5_4u7t1"]
 [ext_resource type="Texture2D" uid="uid://bv8dqjvgu516f" path="res://rooms/Hourhand hallway/hourhand hallway_golden ornate.jpg" id="6_swdjj"]
 [ext_resource type="Texture2D" uid="uid://0oypildhcku5" path="res://rooms/Hourhand hallway/hourhand hallway_TCom_BronzeCopper0106_1_S.jpg" id="8_ikewq"]
@@ -920,9 +922,14 @@ shape = SubResource("BoxShape3D_dr676")
 
 [node name="SceneLoader_Storageroom" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.43027, -1.32767, 0.633325)
-interactable = false
-target_location_index = 6
-local_spawn_point = 1
+interactable = null
+target_scene = 8
+local_spawn_point = 6
+play_door_sound = ""
+left_arrow_asset = false
+right_arrow_asset = null
+down_arrow_asset = ExtResource("3_df5mx")
+arrow_direction = ExtResource("4_vssp0")
 
 [node name="Popup" parent="SceneLoader_Storageroom" index="1"]
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.5, 1.25)
@@ -2055,9 +2062,14 @@ skeleton = NodePath("../walllamp2")
 
 [node name="SceneLoader_Control room" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-3.0907e-08, 0, -0.707069, 0, 0.707069, 0, 0.707069, 0, -3.0907e-08, 14.7747, -1.41536, 0.823003)
-interactable = false
-target_location_index = 10
-arrow_direction = 1
+interactable = null
+target_scene = 12
+local_spawn_point = 10
+play_door_sound = ""
+left_arrow_asset = false
+right_arrow_asset = null
+down_arrow_asset = ExtResource("3_df5mx")
+arrow_direction = ExtResource("4_vssp0")
 
 [node name="Popup" parent="SceneLoader_Control room" index="1"]
 transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 1.5, 1.25)
