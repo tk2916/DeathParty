@@ -7,6 +7,9 @@
 [node name="Witch" instance=ExtResource("1_b5mcr")]
 transform = Transform3D(1.11378, 0, 0, 0, 1.11378, 0, 0, 0, 1.11378, 0, 0, 0)
 
+[node name="model witch" parent="." index="0"]
+transform = Transform3D(0.011, 0, 0, 0, -4.80825e-10, -0.011, 0, 0.011, -4.80825e-10, 0, 0, 0)
+
 [node name="Skeleton3D" parent="model witch" index="0"]
 bones/0/position = Vector3(1.22551, -0.0609841, -92.283)
 bones/0/rotation = Quaternion(-0.724329, 0.025776, 0.018511, 0.688724)
@@ -95,3 +98,6 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897843, 0)
 shape = SubResource("CapsuleShape3D_xk6by")
+
+[node name="Node3D" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.78, 0)
