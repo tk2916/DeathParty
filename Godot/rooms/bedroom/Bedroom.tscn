@@ -1,4 +1,4 @@
-[gd_scene load_steps=246 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=247 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -89,6 +89,7 @@
 [ext_resource type="Texture2D" uid="uid://jhllv8yv42pa" path="res://rooms/bedroom/carn poster_carn stranglers.png" id="81_5smtm"]
 [ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="88_otruv"]
 [ext_resource type="PackedScene" uid="uid://d043l40l218q2" path="res://Assets/props/bean_bag.tscn" id="88_vr1g1"]
+[ext_resource type="PackedScene" uid="uid://bslr2tafqki5h" path="res://Common/Popup UI/npc_interact_popup.tscn" id="90_shd6j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aasoq"]
 size = Vector3(4.23928, 3.15956, 8.65055)
@@ -2867,6 +2868,9 @@ transform = Transform3D(0.0636847, 0, 0.577681, 0, 0.58118, 0, -0.577681, 0, 0.0
 
 [node name="TeleportPoint" parent="." instance=ExtResource("88_otruv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0746622, 0.648893, 1.82383)
+
+[node name="NpcInteractPopup" parent="." instance=ExtResource("90_shd6j")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.9, 1.9)
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
