@@ -161,7 +161,7 @@ transform = Transform3D(1.15875, 0, 0, 0, 1.15875, 0, 0, 0, 1.15875, -39.7969, 0
 transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579, -1.32205, -6.60381)
 
 [node name="Exterior" parent="." groups=["loadable_scene"] instance=ExtResource("27_qsp4k")]
-transform = Transform3D(0.791022, 0, 0, 0, 0.791022, 0, 0, 0, 0.791022, -17.1306, 5.92461, 55.0464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1306, 5.92461, 55.0464)
 
 [node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
 transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 3.00441)

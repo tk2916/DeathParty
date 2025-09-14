@@ -1758,19 +1758,19 @@ transform = Transform3D(0.566878, 0, -0.0975908, 0, 0.575217, 0, 0.0975908, 0, 0
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="PinkHairFratBoy" parent="NPCs" instance=ExtResource("51_j0uoq")]
-transform = Transform3D(1.00628, 0, 0.86832, 0, 1.32913, 0, -0.86832, 0, 1.00628, 1.06213, -3.11953, -1.03238)
+transform = Transform3D(0.757098, 0, 0.653301, 0, 1, 0, -0.653301, 0, 0.757098, 1.06213, -3.11953, -1.03238)
 
 [node name="witch" parent="NPCs" instance=ExtResource("46_cngrb")]
-transform = Transform3D(0.303973, 0, -1.17868, 0, 1.21725, 0, 1.17868, 0, 0.303973, 6.10182, -3.12238, -4.27165)
+transform = Transform3D(0.249722, 0, -0.968318, 0, 1, 0, 0.968318, 0, 0.249722, 6.10182, -3.12238, -4.27165)
 
 [node name="chi omega" parent="NPCs" instance=ExtResource("47_3yiem")]
-transform = Transform3D(-0.25506, 0, 1.18812, 0, 1.21519, 0, -1.18812, 0, -0.25506, 5.2901, -3.12422, -4.11111)
+transform = Transform3D(-0.209893, 0, 0.977724, 0, 1, 0, -0.977724, 0, -0.209893, 5.2901, -3.12422, -4.11111)
 
 [node name="cone ghost" parent="NPCs" instance=ExtResource("48_2jg4v")]
-transform = Transform3D(1.17388, 0, 0.476519, 0, 1.26691, 0, -0.476519, 0, 1.17388, -5.09145, -3.11913, -5.21472)
+transform = Transform3D(0.926568, 0, 0.376127, 0, 1, 0, -0.376127, 0, 0.926568, -5.09145, -3.11913, -5.21472)
 
 [node name="free hug3" parent="NPCs" instance=ExtResource("45_vxogu")]
-transform = Transform3D(0.766941, 0, 1.05055, 0, 1.30071, 0, -1.05055, 0, 0.766941, 3.89342, -4.35183, 2.99064)
+transform = Transform3D(0.589631, 0, 0.807673, 0, 1, 0, -0.807673, 0, 0.589631, 3.89342, -4.35183, 2.99064)
 
 [node name="Skeleton3D" parent="NPCs/free hug3/free hug" index="0"]
 bones/0/position = Vector3(4.07081, -1.01985, -113.799)
@@ -1831,14 +1831,14 @@ bones/63/rotation = Quaternion(0.340546, 0.16435, -0.0579738, 0.923936)
 autoplay = "crazyy"
 
 [node name="Rowan" parent="NPCs" instance=ExtResource("41_h3uy3")]
-transform = Transform3D(1.00847, 0, -0.858491, 0, 1.3244, 0, 0.858491, 0, 1.00847, 3.60612, -3.0926, -0.911231)
+transform = Transform3D(0.761458, 0, -0.648214, 0, 1, 0, 0.648214, 0, 0.761458, 3.60612, -3.0926, -0.911231)
 
 [node name="Bartender" parent="NPCs" instance=ExtResource("44_p4v0j")]
-transform = Transform3D(0.711062, 0, 0.844263, 0, 1.14342, 0, -0.844263, 0, 0.711062, -6.16842, -3.1054, -1.79786)
+transform = Transform3D(0.644191, 0, 0.764865, 0, 1.035, 0, -0.764865, 0, 0.644191, -6.16842, -3.1054, -1.79786)
 outline_thickness = 0.7
 
 [node name="Frat boy red hat" parent="NPCs" instance=ExtResource("54_ab58j")]
-transform = Transform3D(0.776253, 0, -0.769321, 0, 1.0929, 0, 0.769321, 0, 0.776253, -3.24266, -3.0997, -2.45032)
+transform = Transform3D(0.710271, 0, -0.703928, 0, 1, 0, 0.703928, 0, 0.710271, -3.24266, -3.0997, -2.45032)
 
 [node name="Skeleton3D" parent="NPCs/Frat boy red hat/Frat bro red hat" index="0"]
 bones/0/position = Vector3(-1.31243, -5.60875, -105.524)
@@ -1944,7 +1944,7 @@ bones/63/rotation = Quaternion(0.296075, 0.21883, -0.0696294, 0.927149)
 autoplay = "yell"
 
 [node name="Frat boy long hair" parent="NPCs" instance=ExtResource("55_6j32o")]
-transform = Transform3D(0.796648, 0, 0.748181, 0, 1.0929, 0, -0.748181, 0, 0.796648, -5.9475, -2.96731, 0.774412)
+transform = Transform3D(0.728933, 0, 0.684585, 0, 1, 0, -0.684585, 0, 0.728933, -5.9475, -2.96731, 0.774412)
 
 [node name="Skeleton3D" parent="NPCs/Frat boy long hair/long hair" index="0"]
 bones/0/position = Vector3(1.55144, 4.73443, -65.2285)
