@@ -2,18 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://dts4qro0icnli" path="res://Assets/pop_ups/BackgroundRight.png" id="1_nalsp"]
 
-[node name="NpcInteractPopup" type="Sprite3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+[node name="NpcInteractPopup" type="Node3D"]
+
+[node name="Background" type="Sprite3D" parent="."]
+pixel_size = 0.001
 billboard = 1
 no_depth_test = true
 fixed_size = true
 texture = ExtResource("1_nalsp")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.75, 0.25, 0.05)
+sorting_offset = 1.0
+pixel_size = 0.001
+offset = Vector2(200, 32)
 billboard = 1
 no_depth_test = true
 fixed_size = true
 modulate = Color(0, 0, 0, 1)
 text = "Talk"
-font_size = 128
+font_size = 96
