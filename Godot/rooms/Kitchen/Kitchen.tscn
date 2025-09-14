@@ -607,7 +607,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e3smd")
 
 [node name="Kitchen" type="Area3D" node_paths=PackedStringArray("room_area")]
-transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_e7jho")
 room_area = NodePath("RoomArea")
@@ -1834,7 +1833,7 @@ autoplay = "crazyy"
 transform = Transform3D(0.761458, 0, -0.648214, 0, 1, 0, 0.648214, 0, 0.761458, 3.60612, -3.0926, -0.911231)
 
 [node name="Bartender" parent="NPCs" instance=ExtResource("44_p4v0j")]
-transform = Transform3D(0.644191, 0, 0.764865, 0, 1.035, 0, -0.764865, 0, 0.644191, -6.16842, -3.1054, -1.79786)
+transform = Transform3D(0.644191, 0, 0.764865, 0, 1, 0, -0.764865, 0, 0.644191, -6.16842, -3.1054, -1.79786)
 outline_thickness = 0.7
 
 [node name="Frat boy red hat" parent="NPCs" instance=ExtResource("54_ab58j")]

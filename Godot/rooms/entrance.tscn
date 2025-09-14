@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://d3uev5wxhcoe1"]
+[gd_scene load_steps=112 format=4 uid="uid://d3uev5wxhcoe1"]
 
 [ext_resource type="Script" uid="uid://b8ij6ghpwhgox" path="res://rooms/entrance.gd" id="1_3k57g"]
 [ext_resource type="Texture2D" uid="uid://cn8ag1br2becc" path="res://Assets/textures/entrance_room_environment/entrance room layout_big floor.png" id="3_ekhf5"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="44_kdf33"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/commands_test.json" id="45_a6eg1"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="45_la1vu"]
+[ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="45_pvy67"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="46_ihq26"]
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.tscn" id="47_yqsuh"]
 [ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="49_a6eg1"]
@@ -624,6 +625,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3qtki")
+
+[sub_resource type="Resource" id="Resource_77dsr"]
+metadata/__load_path__ = "res://Assets/Resources/CharacterResources/character_properties_caleb.tres"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa36f"]
 resource_name = "Material.002"
@@ -1419,20 +1423,23 @@ transform = Transform3D(-1.29904, 0, 0.750001, 0, 1.77, 0, -0.750001, 0, -1.2990
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="chirstmas tree" parent="NPCs" instance=ExtResource("47_yqsuh")]
-transform = Transform3D(-0.601051, 0, -1.02136, 0, 1.18509, 0, 1.02136, 0, -0.601051, 7.07089, 4.59808, -4.50796)
+transform = Transform3D(-0.507177, 0, -0.861842, 0, 1, 0, 0.861842, 0, -0.507177, 7.07089, 4.59808, -4.50796)
 
 [node name="free hug2" parent="NPCs" instance=ExtResource("42_a5wms")]
-transform = Transform3D(1.19015, 0, 0, 0, 1.19015, 0, 0, 0, 1.19015, 1.90492, 2.66248, 0.17008)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90492, 2.66248, 0.17008)
 
 [node name="AnimationPlayer" parent="NPCs/free hug2" index="1"]
 autoplay = "sitttttt"
 
 [node name="witch" parent="NPCs" instance=ExtResource("44_kdf33")]
-transform = Transform3D(-0.682014, 0, 0.880547, 0, 1.11378, 0, -0.880547, 0, -0.682014, -3.75813, -0.00254369, 4.89165)
+transform = Transform3D(-0.612342, 0, 0.790593, 0, 1, 0, -0.790593, 0, -0.612342, -3.75813, -0.00254369, 4.89165)
 
-[node name="Caleb" parent="NPCs" instance=ExtResource("35_gfuhi")]
-transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
+[node name="Caleb" parent="NPCs" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("35_gfuhi")]
+transform = Transform3D(0.828089, 0, 0.560596, 0, 1, 0, -0.560596, 0, 0.828089, 0.419961, 0.0419717, 2.25816)
+script = ExtResource("45_pvy67")
+character_resource = SubResource("Resource_77dsr")
 starter_json = ExtResource("45_a6eg1")
+primary_mesh = NodePath("Model/Skeleton3D/caleb_base_v04_003")
 
 [node name="Jack" parent="NPCs" instance=ExtResource("41_6fv14")]
 transform = Transform3D(0.967661, 0, -0.252255, 0, 1, 0, 0.252255, 0, 0.967661, 3.59408, 3.54126, -3.38941)
@@ -1441,10 +1448,10 @@ transform = Transform3D(0.967661, 0, -0.252255, 0, 1, 0, 0.252255, 0, 0.967661, 
 transform = Transform3D(0.840888, 0, 0.541209, 0, 1, 0, -0.541209, 0, 0.840888, 0.9877, 3.52862, -3.50614)
 
 [node name="chi omega" parent="NPCs" instance=ExtResource("45_la1vu")]
-transform = Transform3D(0.77808, 0, -0.7943, 0, 1.1119, 0, 0.7943, 0, 0.77808, 4.68345, -0.00364683, 6.13054)
+transform = Transform3D(0.699775, 0, -0.714363, 0, 1, 0, 0.714363, 0, 0.699775, 4.68345, -0.00364683, 6.13054)
 
 [node name="chi omega2" parent="NPCs" instance=ExtResource("45_la1vu")]
-transform = Transform3D(-0.28052, 0, 1.07593, 0, 1.1119, 0, -1.07593, 0, -0.28052, -2.59934, 4.58581, -3.70973)
+transform = Transform3D(-0.252289, 0, 0.967652, 0, 1, 0, -0.967652, 0, -0.252289, -2.59934, 4.58581, -3.70973)
 
 [node name="Frat boy red hat" parent="NPCs" instance=ExtResource("49_cygoc")]
 transform = Transform3D(0.661547, 0, -0.749903, 0, 1, 0, 0.749903, 0, 0.661547, 8.29458, 0.0127136, 8.69468)
@@ -1553,7 +1560,7 @@ bones/63/rotation = Quaternion(0.390428, 0.249392, -0.0498785, 0.884806)
 autoplay = "sitt bored"
 
 [node name="cone ghost" parent="NPCs" instance=ExtResource("46_ihq26")]
-transform = Transform3D(0.269572, 0, -1.12744, 0, 1.15922, 0, 1.12744, 0, 0.269572, 5.01882, -0.00239445, 1.40468)
+transform = Transform3D(0.232546, 0, -0.972585, 0, 1, 0, 0.972585, 0, 0.232546, 5.01882, -0.00239445, 1.40468)
 
 [node name="Frat boy long hair" parent="NPCs" instance=ExtResource("51_t3a1b")]
 transform = Transform3D(0.827708, 0, 0.561159, 0, 1, 0, -0.561159, 0, 0.827708, 1.45498, -0.00287838, -4.79513)
