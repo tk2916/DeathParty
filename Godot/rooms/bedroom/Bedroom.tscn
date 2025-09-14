@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bxej6ebm3jetb" path="res://rooms/bedroom/Bedroom_woodmedium.png" id="3_rbtdn"]
 [ext_resource type="PackedScene" uid="uid://8npa6vrpy0jb" path="res://rooms/bedroom/punk posters.glb" id="3_w0jyq"]
 [ext_resource type="Texture2D" uid="uid://b8uue8x55guj4" path="res://rooms/bedroom/polaroids and poster_love birds.png" id="4_fa1og"]
-[ext_resource type="JSON" path="res://Assets/InkFiles/RowanDormInvite.ink.json" id="4_otruv"]
+[ext_resource type="JSON" path="res://Assets/InkExamples/RowanDormInvite.json" id="4_kajnm"]
 [ext_resource type="Texture2D" uid="uid://d0vlsucaate3q" path="res://rooms/bedroom/punk posters_singer poster.png" id="4_tluma"]
 [ext_resource type="Texture2D" uid="uid://dcblfnhmnjp1h" path="res://rooms/bedroom/polaroids and poster_Sam tatt.png" id="5_dyybh"]
 [ext_resource type="PackedScene" uid="uid://dijllg5x7mlpw" path="res://rooms/bedroom/bed.glb" id="5_rbtdn"]
@@ -2128,7 +2128,7 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
 [node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader") instance=ExtResource("3_84fnt")]
-rowan_invite_dialogue = ExtResource("4_otruv")
+rowan_invite_dialogue = ExtResource("4_kajnm")
 on_phone_close_dialogue = ExtResource("5_shd6j")
 on_journal_dialogue = ExtResource("6_yxfps")
 exterior_scene_loader = NodePath("../SceneLoader_Exterior")
@@ -2203,12 +2203,12 @@ transform = Transform3D(-9.00272e-09, 0, -0.205958, 0, 0.205958, 0, 0.205958, 0,
 
 [node name="SceneLoader_Exterior" parent="." instance=ExtResource("6_x8yhf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48049, 0, 5.078)
+target_scene = 9
+local_spawn_point = 7
 left_arrow_asset = null
 right_arrow_asset = null
 down_arrow_asset = ExtResource("9_kxkdt")
 use_first_mesh = true
-target_scene = 9
-local_spawn_point = 7
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.5, 1.75, 0)

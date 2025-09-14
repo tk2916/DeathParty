@@ -240,7 +240,6 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 					choice_text,
 					redirect_location,
 					eval_stack,
-					true,
 				)
 			elif next_dict.has("->"):
 				var redirect : String = next_dict["->"]
@@ -258,7 +257,6 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 					redirect,
 					path,
 					eval_stack,
-					condition,
 				)
 
 func break_up_dialogue(parent_container : InkContainer, path : String, dialogue:String) -> InkLineInfo:

@@ -611,10 +611,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65482, -2.13015, -0.531126)
 
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("2_3y0er")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
-interactable = null
 target_scene = 3
 local_spawn_point = 1
-left_arrow_asset = true
 right_arrow_asset = null
 down_arrow_asset = ExtResource("5_icx1l")
 

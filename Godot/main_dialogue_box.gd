@@ -163,3 +163,14 @@ func set_choices(choices : Array[InkChoiceInfo]) -> void:
 func on_text_animator_finish() -> void:
 	super()
 	arrow.visible = true
+
+#CLICK TO ADVANCE DIALOGUE
+var pressed : bool = false
+
+func _process(_delta: float) -> void:
+	if (Input.is_action_pressed("dialogic_default_action")):
+		if !pressed:
+			DialogueSystem.advance_dialogue()
+			pressed = true
+	else:
+		pressed = false

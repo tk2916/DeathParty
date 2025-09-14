@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="TalkingObjectResource" load_steps=4 format=3 uid="uid://cap2fa85l8k25"]
 
-[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="1_jxh6m"]
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="1_jxh6m"]
 [ext_resource type="JSON" path="res://Assets/InkFiles/ext_entrance_Olivia_beer_spider_interact.json" id="1_nd6qq"]
-[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="2_nd6qq"]
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="2_nd6qq"]
 
 [resource]
 script = ExtResource("2_nd6qq")

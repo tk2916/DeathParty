@@ -3,7 +3,7 @@ extends Node
 ## Cache
 var ink_tree_cache : Dictionary[String, InkTree] = {}
 var most_recently_used : Array[String] = []
-const CACHE_MAX : int = 4
+const CACHE_MAX : int 	= 4
 
 var evaluation_stack : Array = []
 

@@ -124,6 +124,7 @@ func load_phone_conversation(chat_name : String, json_file_name : String) -> voi
 
 func load_past_messages(past_chats : Array[InkLineInfo]) -> void:
 	#print("Loading past messages: ", past_chats)
+	current_dialogue_box = text_message_box
 	current_conversation = past_chats
 	for n in range(current_conversation.size()):
 		var chat : InkLineInfo = current_conversation[n]
@@ -300,16 +301,6 @@ func advance_dialogue() -> void:
 		var dialogue_advance_sound_instance: FmodEventEmitter3D = dialogue_advance_sound.instantiate()
 		main.add_child(dialogue_advance_sound_instance)
 
-#CLICK TO ADVANCE DIALOGUE
-var pressed : bool = false
-
-func _process(_delta: float) -> void:
-	if (Input.is_action_pressed("dialogic_default_action")):
-		if !pressed:
-			advance_dialogue()
-			pressed = true
-	else:
-		pressed = false
 ## MAKE CHOICE
 func make_choice(redirect:String) -> void:
 	are_choices = false
