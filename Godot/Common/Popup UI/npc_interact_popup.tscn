@@ -5,19 +5,17 @@
 [node name="NpcInteractPopup" type="Node3D"]
 
 [node name="Background" type="Sprite3D" parent="."]
-pixel_size = 0.001
+pixel_size = 0.0025
 billboard = 1
 no_depth_test = true
-fixed_size = true
 texture = ExtResource("1_nalsp")
 
 [node name="Label3D" type="Label3D" parent="."]
 sorting_offset = 1.0
-pixel_size = 0.001
+pixel_size = 0.0025
 offset = Vector2(200, 32)
 billboard = 1
 no_depth_test = true
-fixed_size = true
 modulate = Color(0, 0, 0, 1)
 text = "Talk"
 font_size = 96
