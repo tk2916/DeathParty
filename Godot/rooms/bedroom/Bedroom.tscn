@@ -2203,12 +2203,12 @@ transform = Transform3D(-9.00272e-09, 0, -0.205958, 0, 0.205958, 0, 0.205958, 0,
 
 [node name="SceneLoader_Exterior" parent="." instance=ExtResource("6_x8yhf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48049, 0, 5.078)
-target_scene = 9
-local_spawn_point = 7
 left_arrow_asset = null
 right_arrow_asset = null
 down_arrow_asset = ExtResource("9_kxkdt")
 use_first_mesh = true
+target_scene = 9
+local_spawn_point = 7
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.5, 1.75, 0)
