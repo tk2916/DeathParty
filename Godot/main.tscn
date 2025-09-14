@@ -149,7 +149,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -24.16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.423, 4.7584, -20.5061)
 
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
-transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.668, 2.34912, -17.0223)
 
 [node name="Basement" parent="." groups=["loadable_scene"] instance=ExtResource("38_b1qrp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 7.73886)

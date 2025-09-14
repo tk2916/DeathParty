@@ -1438,7 +1438,7 @@ starter_json = ExtResource("45_a6eg1")
 transform = Transform3D(0.967661, 0, -0.252255, 0, 1, 0, 0.252255, 0, 0.967661, 3.59408, 3.54126, -3.38941)
 
 [node name="BlondeFratBoy" parent="NPCs" instance=ExtResource("42_wxsgv")]
-transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.52862, -3.50614)
+transform = Transform3D(0.840888, 0, 0.541209, 0, 1, 0, -0.541209, 0, 0.840888, 0.9877, 3.52862, -3.50614)
 
 [node name="chi omega" parent="NPCs" instance=ExtResource("45_la1vu")]
 transform = Transform3D(0.77808, 0, -0.7943, 0, 1.1119, 0, 0.7943, 0, 0.77808, 4.68345, -0.00364683, 6.13054)

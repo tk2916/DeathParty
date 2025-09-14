@@ -13,6 +13,9 @@ script = ExtResource("2_hdmtj")
 character_resource = ExtResource("3_emiji")
 outline_thickness = 0.3
 
+[node name="model angel" parent="." index="0"]
+transform = Transform3D(1.77815, 0, 0, 0, -7.77253e-08, -1.77815, 0, 1.77815, -7.77253e-08, 0, 0, 0)
+
 [node name="Skeleton3D" parent="model angel" index="0"]
 bones/0/position = Vector3(0.00466147, 0.00995347, -0.542686)
 bones/0/rotation = Quaternion(-0.729145, 0.0134933, -0.0598408, 0.681605)
