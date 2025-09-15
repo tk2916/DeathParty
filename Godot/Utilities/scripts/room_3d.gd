@@ -13,12 +13,16 @@ class_name Room3D
 # offset's x value is the desired distance from the edges of the area
 var camera_LR_offset: Vector3 = Vector3(3.8, 0, 0)
 var camera_y_offset: float
+var left_point : Vector3
+var right_point : Vector3
 var left_bound: Plane
 var right_bound: Plane
 var lower_bound: float
 var upper_bound: float
 var inner_bound: Plane
 var outer_bound: Plane
+var inner_point: Vector3
+var outer_point: Vector3
 var room_area_center: Vector3
 var room_area_shape: BoxShape3D
 var background_plane: Plane
@@ -41,7 +45,7 @@ func _ready() -> void:
 func calculate_bounds() -> void:
 	# Calling await in _ready is bad practice, I think
 	if get_tree() == null: return
-	await get_tree().process_frame # Wait a frame before calculating center - required if scene is loaded at runtime
+	await get_tree().physics_frame # Wait a frame before calculating center - required if scene is loaded at runtime
 	room_area_center = room_area.global_transform.origin
 	room_area_shape = room_area.shape
 	background_plane = Plane(room_area.basis.z, (room_area_center - (room_area.shape.size/2 * basis)))
@@ -53,8 +57,8 @@ func calculate_bounds() -> void:
 	# [.x...|       <= $RoomArea.shape.size.x/2 - camera_LR_offset
 	#   x...|       <= Where the camera is limited to go
 	camera_LR_offset = abs((room_area_shape.size/2 - camera_LR_offset) * basis)
-	var left_point: Vector3 = (room_area_center) + (camera_LR_offset * -basis.x)
-	var right_point: Vector3 = (room_area_center) + (camera_LR_offset * basis.x)
+	left_point = (room_area_center) + (camera_LR_offset * -basis.x)
+	right_point = (room_area_center) + (camera_LR_offset * basis.x)
 	
 	 #If left bound and right bound go past each other (in the case of small rooms),
 	 #center the camera on the room instead
@@ -78,8 +82,11 @@ func calculate_bounds() -> void:
 	
 	## Depth Bounds
 	# By default, camera stays 9m away
-	inner_bound = Plane(basis.z, default_depth)
-	outer_bound = Plane(-basis.z, default_depth)
+	inner_point = default_depth
+	outer_point = default_depth
+	inner_bound = Plane(basis.z, inner_point)
+	outer_bound = Plane(-basis.z, outer_point)
+	
 
 
 func move_player_to_foreground(body: Node3D) -> void:
@@ -131,7 +138,13 @@ func remove_all_bounds(body: Node3D) -> void:
 	GlobalCameraScript.remove_camera_bounds_path.emit()
 	GlobalCameraScript.set_camera_offset.emit(Vector3.ZERO)
 
-func bind_camera_LR(body: Node3D) -> void:
+func bind_camera_LR(body: Node3D, left: Vector3 = left_point, right: Vector3 = right_point) -> void:
+	# If new points are defined, redefined the left and right bounds
+	if left != left_point:
+		left_bound = Plane(basis.x, left)
+	if right != right_point:
+		right_bound = Plane(-basis.x, right)
+		
 	GlobalCameraScript.bind_camera_LR.emit(left_bound, right_bound, basis)
 
 ## [param lower]: global y-value that the camera cannot go UNDER
@@ -155,7 +168,12 @@ func bind_camera_y(body: Node3D, lower: float = lower_bound, upper: float = uppe
 	GlobalCameraScript.bind_camera_y.emit(lower, upper)
 
 
-func bind_camera_depth(body: Node3D) -> void:
+func bind_camera_depth(body: Node3D, inner: Vector3 = default_depth, outer: Vector3 = default_depth) -> void:
+	if inner != default_depth:
+		inner_bound = Plane(basis.z, inner)
+	if outer != default_depth:
+		outer_bound = Plane(-basis.z, outer)
+	
 	GlobalCameraScript.bind_camera_depth.emit(inner_bound, outer_bound, basis)
 
 
