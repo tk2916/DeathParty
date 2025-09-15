@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://cn6shp7xdi6q5" path="res://Assets/props/posters/enjoy_poster/enjoy_poster.glb" id="25_b6r2c"]
 [ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://Assets/props/red_cup/red_cup.glb" id="25_eupok"]
 [ext_resource type="PackedScene" uid="uid://h7vyawprgyhu" path="res://Assets/props/posters/sexy_poster/sexy_poster.glb" id="26_b6r2c"]
-[ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="26_eupok"]
 [ext_resource type="PackedScene" uid="uid://db6cyshdnsaxs" path="res://Assets/environment/trash/trash.glb" id="27_b6r2c"]
 [ext_resource type="PackedScene" uid="uid://bjutys11t6nx5" path="res://Assets/props/posters/drink_sign/drink_sign.glb" id="27_v5gra"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="30_6oann"]
@@ -48,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://c8rq8p1i25wix" path="res://Assets/CharacterAssets/bartender/bartender.tscn" id="44_p4v0j"]
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="45_l32yv"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="45_vxogu"]
+[ext_resource type="PackedScene" uid="uid://cchhyshb6rl64" path="res://Assets/environment/folding_chairs.tscn" id="46_6j32o"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="46_cngrb"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="47_3yiem"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="48_2jg4v"]
@@ -1742,12 +1742,6 @@ transform = Transform3D(0.274326, 0, -0.793551, 0, 0.83963, 0, 0.793551, 0, 0.27
 [node name="BeerPongSign" parent="Props" instance=ExtResource("51_022tp")]
 transform = Transform3D(0.363593, 0, 1.03064, 0, 1.0929, 0, -1.03064, 0, 0.363593, -0.3225, -0.67515, -1.6649)
 
-[node name="folded chairs" parent="Props" instance=ExtResource("26_eupok")]
-transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -10.0882, 0.12444, 2.58955)
-
-[node name="folded chairs2" parent="Props" instance=ExtResource("26_eupok")]
-transform = Transform3D(-1.09118, 0, -0.0688421, 0, 1.09334, 0, 0.0688421, 0, -1.09118, 4.71544, 0.1082, -1.03747)
-
 [node name="PumpkinWithBeers" parent="Props" instance=ExtResource("5_l32yv")]
 transform = Transform3D(-0.806433, 0, 0.738287, 0, 1.09334, 0, -0.738287, 0, -0.806433, -1.01573, 0.61157, -6.42309)
 
@@ -1756,6 +1750,12 @@ transform = Transform3D(-0.729844, 0, -0.814082, 0, 1.09334, 0, 0.814082, 0, -0.
 
 [node name="beerpong trophie" parent="Props" instance=ExtResource("45_l32yv")]
 transform = Transform3D(0.566878, 0, -0.0975908, 0, 0.575217, 0, 0.0975908, 0, 0.566878, 1.54046, 1.63899, -2.43062)
+
+[node name="FoldingChairs" parent="Props" instance=ExtResource("46_6j32o")]
+transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -10.0882, 0.12444, 2.58955)
+
+[node name="FoldingChairs2" parent="Props" instance=ExtResource("46_6j32o")]
+transform = Transform3D(-1.09118, 0, -0.0688421, 0, 1.09334, 0, 0.0688421, 0, -1.09118, 4.71544, 0.1082, -1.03747)
 
 [node name="NPCs" type="Node3D" parent="."]
 
