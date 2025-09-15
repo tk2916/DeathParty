@@ -5,10 +5,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mx7id"]
 bg_color = Color(0.505882, 0.823529, 0.498039, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="ProtagChoice" type="Control" node_paths=PackedStringArray("button", "text_label")]
 layout_mode = 3
@@ -16,7 +16,6 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
 size_flags_horizontal = 3
 script = ExtResource("1_ih1n7")
 hover_color = Color(0.270588, 0.486275, 0.266667, 1)
@@ -26,21 +25,20 @@ text_label = NodePath("ChoicePanel/MarginContainer/RichTextLabel")
 [node name="ChoicePanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
+anchor_left = 0.2
+anchor_right = 0.8
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_mx7id")
 
 [node name="MarginContainer" type="MarginContainer" parent="ChoicePanel"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
 theme_override_constants/margin_left = 7
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 7
@@ -48,6 +46,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ChoicePanel/MarginContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_oy8up")
 theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true

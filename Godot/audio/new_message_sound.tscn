@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://xom2586sjn8n"]
+
+[node name="NewMessageSound" type="FmodEventEmitter3D"]
+event_name = "event:/000_SFX/300_UI/PhoneNewMessage"
+event_guid = "{c95bee2a-1a3a-4cef-92d1-f36e15351743}"
+autoplay = true
+auto_release = true
+volume = 0.0

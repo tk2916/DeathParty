@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=32 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
@@ -6,18 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://csddlxbt5psnk" path="res://Entities/main_camera.tscn" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://vkp1p25gspml" path="res://Utilities/dev_menu/dev_menu_teleport_button.tscn" id="5_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://cus1t6k7nkpyv" path="res://phone_notifications.tscn" id="9_kq58d"]
 [ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
-[ext_resource type="PackedScene" uid="uid://cqgpdpfplj5ph" path="res://basic_gui.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
-[ext_resource type="Script" uid="uid://b3qslxwn0wgdo" path="res://Assets/GUIDesignScripts/default_gui_button.gd" id="22_lswn8"]
-[ext_resource type="Script" uid="uid://dpknx84rk5bac" path="res://Assets/GUIFunctionalityScripts/test_inventory.gd" id="25_0odxb"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
 [ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="27_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://dph5ihe40llhe" path="res://rooms/Exterior Frat Lawn/Exterior.tscn" id="27_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://bqae87n6emy8q" path="res://rooms/Hourhand hallway/Hourhand hallway.tscn" id="27_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://bpjb4k8tcm014" path="res://rooms/control room/Controlroom.tscn" id="28_kq58d"]
+[ext_resource type="Script" uid="uid://kp3w3bjsanur" path="res://cell_visualizer.gd" id="28_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://c7033b4susyvc" path="res://rooms/Storage Room/Storageroom.tscn" id="28_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://ch4fuk8qiva6x" path="res://rooms/Ghost hallway/Ghost hallway.tscn" id="29_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
-[ext_resource type="PackedScene" uid="uid://bschhxvd0bvn7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
+[ext_resource type="PackedScene" uid="uid://o1miuonfuk7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
 [ext_resource type="PackedScene" uid="uid://c44l5t4o5i1qg" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
@@ -41,41 +43,29 @@ script = ExtResource("26_lswn8")
 json_file = ExtResource("27_a6jrf")
 json_file2 = SubResource("Resource_a6jrf")
 
-[node name="DevMenu" parent="." node_paths=PackedStringArray("player", "party_room_music", "game_ui") instance=ExtResource("4_h8e4i")]
+[node name="DevMenu" parent="." node_paths=PackedStringArray("player", "party_room_music") instance=ExtResource("4_h8e4i")]
 visible = false
 player = NodePath("../Player")
 party_room_music = NodePath("../PartyRoomMusic")
-game_ui = NodePath("../CanvasLayer/BasicGUI")
 teleport_button_scene = ExtResource("5_xuqvo")
+
+[node name="ObjectViewerCanvasLayer" parent="." instance=ExtResource("2_a6jrf")]
+visible = false
+
+[node name="SubViewport" parent="ObjectViewerCanvasLayer/ObjectViewer/SubViewportContainer" index="0"]
+render_target_update_mode = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 process_mode = 3
 
-[node name="BasicGUI" parent="CanvasLayer" instance=ExtResource("18_getpj")]
-
-[node name="Button" parent="CanvasLayer/BasicGUI/Panel2/Panel2" index="1" node_paths=PackedStringArray("show_element")]
-script = ExtResource("22_lswn8")
-show_element = NodePath("../../../../TestInventory")
-
-[node name="Button4" parent="CanvasLayer/BasicGUI/Panel2/Panel4" index="1" node_paths=PackedStringArray("show_element")]
-show_element = NodePath("../../../../Phone")
-
-[node name="ColorRect" parent="CanvasLayer/BasicGUI" index="1"]
+[node name="Phone" parent="CanvasLayer" groups=["gui_object", "phone"] instance=ExtResource("20_d13ii")]
 visible = false
 
-[node name="TextureRect" parent="CanvasLayer/BasicGUI/ColorRect" index="0"]
-texture = null
-
-[node name="Phone" parent="CanvasLayer" groups=["gui_object"] instance=ExtResource("20_d13ii")]
-visible = false
-
-[node name="TestInventory" type="ColorRect" parent="CanvasLayer" node_paths=PackedStringArray("vbox") groups=["gui_object"]]
+[node name="TestInventory" type="ColorRect" parent="CanvasLayer" groups=["gui_object"]]
 visible = false
 offset_right = 137.0
 offset_bottom = 242.0
-script = ExtResource("25_0odxb")
-vbox = NodePath("VBoxContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TestInventory"]
 layout_mode = 1
@@ -93,6 +83,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="PhoneNotifications" parent="CanvasLayer" instance=ExtResource("9_kq58d")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("37_h8e4i")]
 visible = false
@@ -138,12 +130,6 @@ polaroid_camera = NodePath("../../../../PolaroidCamera")
 ViewFinder = NodePath("../../../../PolaroidCamera/body/MainImage/ViewFinder/ViewFinder_aim")
 filter_control = NodePath("../../../../PolaroidCamera/body/MainImage/ViewFinder/filter_control")
 
-[node name="ObjectViewerCanvasLayer" parent="." instance=ExtResource("2_a6jrf")]
-visible = false
-
-[node name="SubViewport" parent="ObjectViewerCanvasLayer/ObjectViewer/SubViewportContainer" index="0"]
-render_target_update_mode = 0
-
 [node name="WorldBoundary" type="Area3D" parent="."]
 collision_mask = 2
 
@@ -155,11 +141,11 @@ environment = ExtResource("15_a6jrf")
 script = ExtResource("3_cyx1q")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3293, 0.0322108, 25.2049)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.786, 0.0322108, 25.2049)
 floor_constant_speed = true
 
 [node name="MainCamera" parent="." node_paths=PackedStringArray("main_camera", "player") instance=ExtResource("3_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.444, 2, 9.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8502, 1.51749, 24.6872)
 fov = 30.0
 main_camera = NodePath(".")
 player = NodePath("../Player")
@@ -174,37 +160,237 @@ script = null
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -24.161, 0, -17.392)
 
 [node name="Library" parent="." groups=["loadable_scene"] instance=ExtResource("41_4lmeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698557, 4.7584, -20.5061)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.423, 4.7584, -20.5061)
 
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
 transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
 
 [node name="Basement" parent="." groups=["loadable_scene"] instance=ExtResource("38_b1qrp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 14.4393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 7.73886)
 
 [node name="Bedroom" parent="." instance=ExtResource("39_h8e4i")]
 transform = Transform3D(1.15875, 0, 0, 0, 1.15875, 0, 0, 0, 1.15875, -39.7969, 0.0111146, 22.715)
 
 [node name="Storageroom" parent="." instance=ExtResource("28_xuqvo")]
-transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579, -1.32205, -3.35617)
+transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579, -1.32205, -6.60381)
 
 [node name="Exterior" parent="." groups=["loadable_scene"] instance=ExtResource("27_qsp4k")]
 transform = Transform3D(0.791022, 0, 0, 0, 0.791022, 0, 0, 0, 0.791022, -17.1306, 5.92461, 55.0464)
+
+[node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
+transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 3.00441)
+
+[node name="Control room" parent="." groups=["loadable_scene"] instance=ExtResource("28_kq58d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9052, -0.391259, 0.0333636)
+
+[node name="Ghost hallway" parent="." instance=ExtResource("29_qsp4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56845, 1.95251, -18.0343)
+
+[node name="Hourhand hallway" parent="." groups=["loadable_scene"] instance=ExtResource("27_xuqvo")]
+transform = Transform3D(-0.00120957, 0, 1.41429, 0, 1.41429, 0, -1.41429, 0, -0.00120957, 10.2549, 0, 15.4498)
 
 [node name="PartyRoomMusic" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/900_MX/Party Room music"
 event_guid = "{757f62e0-b188-491e-9503-6ad99b13690a}"
 autoplay = true
-volume = 0.75
+volume = 0.65
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4073, 2.53713, -21.0312)
 
-[node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
-transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 5.7468)
+[node name="CellVisualizer" type="CanvasLayer" parent="."]
+script = ExtResource("28_qsp4k")
+
+[node name="Control" type="Control" parent="CellVisualizer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CellName" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Now viewing:"
+fit_content = true
+scroll_active = false
+
+[node name="SceneName" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_right = 0.3
+anchor_bottom = 0.05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Scene:"
+fit_content = true
+scroll_active = false
+
+[node name="GridDimensions" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_right = 0.5
+anchor_bottom = 0.05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Grid: "
+fit_content = true
+scroll_active = false
+
+[node name="ActiveCell" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_right = 0.7
+anchor_bottom = 0.05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+fit_content = true
+scroll_active = false
+
+[node name="ItemName" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "bunny girl:"
+fit_content = true
+scroll_active = false
+
+[node name="ItemInfoContainer" type="ScrollContainer" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.15
+anchor_right = 0.8
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="ItemInfo" type="RichTextLabel" parent="CellVisualizer/Control/ItemInfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "name: witch2
+file: ----"
+scroll_active = false
+
+[node name="LabelActive" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.15
+anchor_right = 0.3
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Active Objects:"
+fit_content = true
+scroll_active = false
+
+[node name="LabelInactive" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Inactive Objects:"
+fit_content = true
+scroll_active = false
+
+[node name="Button" type="Button" parent="CellVisualizer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cell0"
+
+[node name="Active" type="ScrollContainer" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.2
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CellVisualizer/Control/Active"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Inactive" type="ScrollContainer" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CellVisualizer/Control/Inactive"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Cells" type="ScrollContainer" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 0.1
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CellVisualizer/Control/Cells"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ActiveCells" type="RichTextLabel" parent="CellVisualizer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
 
-[editable path="CanvasLayer/BasicGUI"]
+[editable path="ObjectViewerCanvasLayer"]
 [editable path="PolaroidCamera"]
 [editable path="Polaroid"]
-[editable path="ObjectViewerCanvasLayer"]

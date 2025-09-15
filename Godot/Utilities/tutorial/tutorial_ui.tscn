@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctn3kb2kouu4x"]
+
+[ext_resource type="Script" uid="uid://db2he2dcccelj" path="res://Utilities/tutorial/tutorial_ui.gd" id="1_lunjo"]
+
+[node name="TutorialUI" type="CanvasLayer"]
+script = ExtResource("1_lunjo")
+
+[node name="LoadingTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.75
+one_shot = true
+
+[node name="MoveControlsPopup" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -160.0
+offset_right = 72.5
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UseWASDToMoveLabel" type="Label" parent="MoveControlsPopup"]
+layout_mode = 2
+text = "Use WASD to move"
+
+[node name="WalkCompleteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="PhoneControlsPopup" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -110.0
+offset_right = -104.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+
+[node name="PressQToUnlockPhoneLabel" type="Label" parent="PhoneControlsPopup"]
+layout_mode = 2
+text = "Press Q to unlock your phone"
+
+[node name="JournalControlsPopup" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -160.0
+offset_right = 339.0
+offset_bottom = -120.0
+grow_vertical = 2
+
+[node name="PressTabToOpenJournalLabel" type="Label" parent="JournalControlsPopup"]
+layout_mode = 2
+text = "Press TAB to open your journal"
+
+[connection signal="timeout" from="WalkCompleteTimer" to="." method="_on_walk_complete_timer_timeout"]

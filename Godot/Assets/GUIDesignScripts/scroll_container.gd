@@ -1,34 +1,31 @@
 extends ScrollContainer
-var max_scroll_length = 0
+var max_scroll_length : float = 0
 
 var hovering : bool = false
 var holding_click : bool = false
 	
 @onready var scrollbar : VScrollBar = self.get_v_scroll_bar()
-func _ready():
+func _ready() -> void:
 	scrollbar.connect("changed", handle_scrollbar_changed)
 	max_scroll_length = scrollbar.max_value    #autoscroll to bottom
 	
-func handle_scrollbar_changed():
+func handle_scrollbar_changed() -> void:
 	if max_scroll_length != scrollbar.max_value:
 		max_scroll_length = scrollbar.max_value
-		scroll_vertical = max_scroll_length
+		scroll_vertical = int(max_scroll_length)
 
 func _on_touch_screen_mouse_entered() -> void:
-	print("Hovering true")
 	hovering = true
 
 func _on_touch_screen_mouse_exited() -> void:
-	print("Hovering false")
 	hovering = false
 
-func scroll(delta : float):
-	var cur_scroll_value = get_v_scroll()
-	print("delta", delta, " ", cur_scroll_value)
-	var difference = -2*delta
-	var new_val = cur_scroll_value+difference
+func scroll(delta : float) -> void:
+	var cur_scroll_value := get_v_scroll()
+	var difference := -2*delta
+	var new_val := cur_scroll_value+difference
 	new_val = clamp(new_val, 0, scrollbar.max_value)
-	set_v_scroll(new_val)
+	set_v_scroll(int(new_val))
 
 #click and drag to scroll (like on phone)
 func _input(event: InputEvent) -> void:

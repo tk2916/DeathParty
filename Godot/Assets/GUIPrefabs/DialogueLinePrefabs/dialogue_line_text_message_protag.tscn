@@ -1,46 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://g8mue586ud5x"]
+[gd_scene load_steps=4 format=3 uid="uid://g8mue586ud5x"]
 
 [ext_resource type="Script" uid="uid://vmicr38ur4in" path="res://Assets/GUIPrefabs/DialogueLinePrefabs/dialogue_line_script_expand.gd" id="1_xrgtu"]
 [ext_resource type="FontFile" uid="uid://w4kmxbbwxg4c" path="res://Assets/Fonts/Inria_Sans/InriaSans-Regular.ttf" id="3_qauwv"]
 
-[node name="ProtagLine" type="Control" node_paths=PackedStringArray("control_to_resize", "Text")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrgtu"]
+bg_color = Color(0.505882, 0.823529, 0.498039, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ProtagLine" type="Control" node_paths=PackedStringArray("control_to_resize", "chat_backer", "Text")]
 layout_mode = 3
-anchor_right = 0.9
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_xrgtu")
-control_to_resize = NodePath("MarginContainer/ColorRect")
-Text = NodePath("MarginContainer/ColorRect/MarginContainer/Text")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 13.11
-color = Color(0.505882, 0.823529, 0.498039, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 13
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 13
-theme_override_constants/margin_bottom = 15
+script = ExtResource("1_xrgtu")
+control_to_resize = NodePath(".")
+chat_backer = NodePath("ColorRect")
+Text = NodePath("ColorRect/MarginContainer/Text")
 
-[node name="Text" type="RichTextLabel" parent="MarginContainer/ColorRect/MarginContainer"]
+[node name="ColorRect" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95
+anchor_right = 0.95
+anchor_bottom = 1.0
+grow_horizontal = 0
+size_flags_stretch_ratio = 13.11
+theme_override_styles/panel = SubResource("StyleBoxFlat_xrgtu")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 5
+
+[node name="Text" type="RichTextLabel" parent="ColorRect/MarginContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_qauwv")
 theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
@@ -48,4 +51,4 @@ text = "[color=black]aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 fit_content = true
 scroll_active = false
 
-[connection signal="resized" from="MarginContainer/ColorRect/MarginContainer/Text" to="." method="_on_text_resized"]
+[connection signal="resized" from="ColorRect/MarginContainer/Text" to="." method="_on_text_resized"]

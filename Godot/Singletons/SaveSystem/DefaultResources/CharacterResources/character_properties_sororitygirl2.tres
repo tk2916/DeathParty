@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://dq6c6xmfveuln"]
+
+[ext_resource type="Texture2D" uid="uid://cpwere23b0y31" path="res://Assets/CharacterAssets/Polaroids/sorority_2_a.png" id="1_vh8hi"]
+[ext_resource type="Texture2D" uid="uid://bxwslig80hi1" path="res://Assets/CharacterAssets/Polaroids/sorority_2_b.png" id="2_dyxtk"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="3_y01bm"]
+
+[resource]
+script = ExtResource("3_y01bm")
+character_location_index = 0
+image_polaroid = ExtResource("1_vh8hi")
+image_polaroid_popout = ExtResource("2_dyxtk")
+name_color = ""
+text_color = ""
+character_notes = Array[String]([])
+character_description = ""
+profile_tag = "@profiletag123"
+profile_quote = "inspirational quote goes here."
+profile_join_date = "Month 8, 20XX"
+profile_friends = 359
+name = "Sorority Girl 2"

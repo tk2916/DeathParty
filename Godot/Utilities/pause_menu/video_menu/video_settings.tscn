@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7mfbhjbnelg1"]
 
 [ext_resource type="Script" uid="uid://ctx1sho6q6vom" path="res://Utilities/pause_menu/video_menu/video_settings.gd" id="1_gs30i"]
-[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="2_e2l73"]
+[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/themes/theme.tres" id="2_e2l73"]
 
 [node name="GraphicsSettings" type="Control"]
 layout_mode = 3

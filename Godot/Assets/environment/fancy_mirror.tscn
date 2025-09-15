@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://i3ggmp3f5py"]
+
+[ext_resource type="PackedScene" uid="uid://cfw0wk6bmu4yf" path="res://rooms/Bathroom/fancy mirror.glb" id="1_3mnr6"]
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_ki1oi"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/bathroom_Olivia_mirror_reflection_monologue.json" id="3_ki1oi"]
+
+[node name="fancy mirror" instance=ExtResource("1_3mnr6")]
+script = ExtResource("2_ki1oi")
+dialogue_on_interact = ExtResource("3_ki1oi")

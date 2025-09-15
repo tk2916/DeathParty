@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3xafr817kkyq"]
+
+[ext_resource type="Script" uid="uid://dnbdrjo3q0ftg" path="res://phone_notification.gd" id="1_v5rbt"]
+[ext_resource type="Texture2D" uid="uid://lk6ytebftv22" path="res://Assets/PhoneTextures/Exclamation.png" id="2_h6o7f"]
+[ext_resource type="Texture2D" uid="uid://ctgkq77jiftlg" path="res://Assets/PhoneTextures/NotificationBody.png" id="3_xeaoi"]
+[ext_resource type="Texture2D" uid="uid://dlooichshuir8" path="res://Assets/CharacterAssets/rowan/rowan_circle.png" id="4_ilxni"]
+[ext_resource type="FontFile" uid="uid://detm7lhggrxwi" path="res://Assets/Fonts/Anonymous_Pro/AnonymousPro-Regular.ttf" id="5_jom7k"]
+[ext_resource type="Script" uid="uid://dt5qxwpmhuidi" path="res://phone_notification_button.gd" id="6_f7x2m"]
+
+[node name="Notification" type="AspectRatioContainer" node_paths=PackedStringArray("root", "exclamation", "image_container", "name_label", "button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 3.4896
+stretch_mode = 0
+alignment_horizontal = 2
+script = ExtResource("1_v5rbt")
+root = NodePath("Root1/Root2")
+exclamation = NodePath("Root1/Root2/Exclamation")
+image_container = NodePath("Root1/Root2/NotificationBacker/ProfilePic")
+name_label = NodePath("Root1/Root2/NotificationBacker/Name")
+button = NodePath("Root1/Root2/Button")
+
+[node name="Root1" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Root2" type="Control" parent="Root1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Exclamation" type="TextureRect" parent="Root1/Root2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.14
+anchor_bottom = 0.348
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h6o7f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NotificationBacker" type="TextureRect" parent="Root1/Root2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.077
+anchor_top = 0.153
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource("3_xeaoi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProfilePic" type="TextureRect" parent="Root1/Root2/NotificationBacker"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.266
+anchor_right = 0.253
+anchor_bottom = 0.716
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ilxni")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="Root1/Root2/NotificationBacker"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.231
+anchor_top = 0.353
+anchor_right = 0.829
+anchor_bottom = 0.553
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_jom7k")
+theme_override_font_sizes/normal_font_size = 20
+text = "Rowan"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Root1/Root2" node_paths=PackedStringArray("notification_root")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.072
+anchor_top = 0.134
+anchor_right = 1.0
+anchor_bottom = 0.976
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+flat = true
+script = ExtResource("6_f7x2m")
+notification_root = NodePath("../../..")
+
+[node name="NotificationSound" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/000_SFX/300_UI/PhoneTextNoti"
+event_guid = "{235e4191-f29f-4aff-8ab6-0628f810d136}"
+autoplay = true
+auto_release = true
+volume = 0.5
+
+[connection signal="mouse_entered" from="Root1/Root2/Button" to="Root1/Root2/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Root1/Root2/Button" to="Root1/Root2/Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Root1/Root2/Button" to="Root1/Root2/Button" method="_on_pressed"]

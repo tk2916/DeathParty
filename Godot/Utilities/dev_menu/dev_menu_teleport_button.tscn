@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://vkp1p25gspml"]
 
-[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="1_tcodu"]
+[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/themes/theme.tres" id="1_tcodu"]
 
 [node name="TeleportButton" type="Button"]
 focus_mode = 0

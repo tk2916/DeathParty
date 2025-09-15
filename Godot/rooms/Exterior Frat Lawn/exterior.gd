@@ -1,7 +1,7 @@
 extends Room3D
 
 func _ready() -> void:
-	super()
+	super ()
 	body_entered.connect(handle_player_entrance)
 
 func handle_player_entrance(body: Node3D) -> void:

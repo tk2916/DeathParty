@@ -60,21 +60,22 @@ func _ready() -> void:
 	ContentLoader.finished_loading.connect(set_up_camera)
 
 func _physics_process(delta: float) -> void:
-	if default_player_camera_location_node == null: return
+	if !is_instance_valid(default_player_camera_location_node) or !is_instance_valid(camera_location_node): return
 	if !default_player_camera_location_node.is_inside_tree() or !camera_location_node.is_inside_tree(): return
 	# make camera follow player
 	if camera_on_player:
 		camera_speed = PLAYER_CAMERA_FOLLOW_SPEED
 		camera_location_node = default_player_camera_location_node
 	
+	#  / camera_parent_basis.get_scale().x is to counteract the effects of the basis being scaled, and ASSUMES THAT THE OBJECT IS SCALED UNIFORMLY
 	# restrict x values of camera
 	if camera_bound_LR:
 		var distance_to_left_bound: Vector3 = Vector3(camera_left_bound.distance_to(camera_location_node.global_position), 0, 0)
 		var distance_to_right_bound: Vector3 = Vector3(camera_right_bound.distance_to(camera_location_node.global_position), 0, 0)
 		if distance_to_left_bound.x < 0:
-			camera_location_node.global_position -= camera_parent_basis * distance_to_left_bound
+			camera_location_node.global_position -= camera_parent_basis.orthonormalized() * distance_to_left_bound / camera_parent_basis.get_scale().x
 		elif distance_to_right_bound.x < 0:
-			camera_location_node.global_position += camera_parent_basis * distance_to_right_bound
+			camera_location_node.global_position += camera_parent_basis.orthonormalized() * distance_to_right_bound / camera_parent_basis.get_scale().x
 	
 	# restrict y values of camera
 	if camera_bound_y:
@@ -83,15 +84,16 @@ func _physics_process(delta: float) -> void:
 		elif camera_location_node.global_position.y > camera_upper_bound_y:
 			camera_location_node.global_position.y = camera_upper_bound_y
 	
+	#  / camera_parent_basis.get_scale().x is to counteract the effects of the basis being scaled, and ASSUMES THAT THE OBJECT IS SCALED UNIFORMLY
 	# restrict depth of camera
 	if camera_bound_depth:
 		var distance_to_inner_bound: Vector3 = Vector3(0, 0, camera_inner_bound.distance_to(camera_location_node.global_position))
 		var distance_to_outer_bound: Vector3 = Vector3(0, 0, camera_outer_bound.distance_to(camera_location_node.global_position))
 		if distance_to_inner_bound.z < 0:
-			camera_location_node.global_position -= camera_parent_basis * distance_to_inner_bound
+			camera_location_node.global_position -= camera_parent_basis.orthonormalized() * distance_to_inner_bound / camera_parent_basis.get_scale().x
 		elif distance_to_outer_bound.z < 0:
-			camera_location_node.global_position += camera_parent_basis * distance_to_outer_bound
-	
+			camera_location_node.global_position += camera_parent_basis.orthonormalized() * distance_to_outer_bound / camera_parent_basis.get_scale().x
+
 	# camera either moves smoothly or jumps to the next position
 	if camera_smooth:
 		main_camera.global_transform = main_camera.global_transform.interpolate_with(camera_location_node.global_transform, delta * camera_speed)
@@ -99,6 +101,7 @@ func _physics_process(delta: float) -> void:
 		main_camera.global_transform = camera_location_node.global_transform
 	
 	main_camera.global_position += camera_offset
+	GlobalCameraScript.finished_moving.emit()
 
 func _move_camera_smooth() -> void:
 	camera_smooth = true

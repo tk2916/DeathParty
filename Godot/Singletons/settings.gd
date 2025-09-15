@@ -1,7 +1,7 @@
 extends Node
 
 
-var config : ConfigFile = ConfigFile.new()
+var config: ConfigFile = ConfigFile.new()
 
 # input
 
@@ -10,38 +10,41 @@ var config : ConfigFile = ConfigFile.new()
 # its converting these to StringNames down the line when update_binding is called
 # since input map action names are StringNames (while these dictionary keys are
 # just strings) I DOUBT THIS MATTERS MUCH FOR PERFORMANCE THO LOL
-var editable_inputs : Dictionary = {
-	"move_left" : "Left",
-	"move_right" : "Right",
-	"move_up" : "Up",
-	"move_down" : "Down",
-	"interact" : "Interact"
+var editable_inputs: Dictionary = {
+	"move_left": "Left",
+	"move_right": "Right",
+	"move_up": "Up",
+	"move_down": "Down",
+	"jog": "Jog",
+	"interact": "Interact",
+	"toggle_phone": "Phone",
+	"toggle_journal": "Journal"
 }
 
 # video
-var fullscreen : int = 1
-var monitor : int = 0
-var vsync : int = 1
-var scale : float = 1.0
-var upscale : int = 0
-var sharpness : float = 0.2
-var fps : float = 0.0
-var stats : int = 0
+var fullscreen: int = 1
+var monitor: int = 0
+var vsync: int = 1
+var scale: float = 1.0
+var upscale: int = 0
+var sharpness: float = 0.2
+var fps: float = 0.0
+var stats: int = 0
 
 # effects
-var filtering : int = 3
-var aa : int = 3
-var lod : int = 3
-var shadows : int = 2
-var ssao : int = 4
+var filtering: int = 3
+var aa: int = 3
+var lod: int = 3
+var shadows: int = 2
+var ssao: int = 4
 
 # audio
-var volume : float = 50
+var volume: float = 50
 
 
 func _ready() -> void:
 	# check if the cfg will load
-	var err : Error = config.load("user://settings.cfg")
+	var err: Error = config.load("user://settings.cfg")
 	print("loading settings.cfg . . .")
 
 	# if it loads, apply each setting with the values from the cfg
@@ -65,13 +68,23 @@ func apply_settings_from_cfg() -> void:
 	# input
 	load_bindings()
 
+	# quality
+	filtering = config.get_value("video", "filtering", filtering)
+	apply_filtering(filtering)
+
+	aa = config.get_value("video", "aa", aa)
+	apply_aa(aa)
+
+	lod = config.get_value("video", "lod", lod)
+	apply_lod(lod)
+
+	shadows = config.get_value("video", "shadows", shadows)
+	apply_shadows(shadows)
+
+	ssao = config.get_value("video", "ssao", ssao)
+	apply_ssao(ssao)
+
 	# display
-	fullscreen = config.get_value("video", "fullscreen", fullscreen)
-	apply_fullscreen(fullscreen)
-
-	monitor = config.get_value("video", "monitor", monitor)
-	apply_monitor(monitor)
-
 	vsync = config.get_value("video", "vsync", vsync)
 	apply_vsync(vsync)
 
@@ -90,21 +103,11 @@ func apply_settings_from_cfg() -> void:
 	stats = config.get_value("video", "stats", stats)
 	apply_stats(stats)
 
-	# quality
-	filtering = config.get_value("video", "filtering", filtering)
-	apply_filtering(filtering)
+	fullscreen = config.get_value("video", "fullscreen", fullscreen)
+	apply_fullscreen(fullscreen)
 
-	aa = config.get_value("video", "aa", aa)
-	apply_aa(aa)
-
-	lod = config.get_value("video", "lod", lod)
-	apply_lod(lod)
-
-	shadows = config.get_value("video", "shadows", shadows)
-	apply_shadows(shadows)
-
-	ssao = config.get_value("video", "ssao", ssao)
-	apply_ssao(ssao)
+	monitor = config.get_value("video", "monitor", monitor)
+	apply_monitor(monitor)
 
 	# audio
 	volume = config.get_value("audio", "volume", volume)
@@ -112,7 +115,6 @@ func apply_settings_from_cfg() -> void:
 
 
 func save_settings() -> void:
-
 	# input
 	save_bindings()
 
@@ -139,29 +141,29 @@ func save_settings() -> void:
 
 
 func load_bindings() -> void:
-	for action : StringName in editable_inputs.keys():
+	for action: StringName in editable_inputs.keys():
 		# TODO: maybe make the fallback something better than an empty string
-
 		# OR MAYBE NOT, since default binds are in the project settings, so
 		# maybe binds dont need proper fallbacks like other settings
-		var physical_key_codes : Array[Key]
+		var physical_key_codes: Array[Key]
 		physical_key_codes.assign(config.get_value("input", action, []))
 
 		if physical_key_codes.size() > 0:
 			InputMap.action_erase_events(action)
 
-			for code : Key in physical_key_codes:
+			for code: Key in physical_key_codes:
 				var event := InputEventKey.new()
 				event.physical_keycode = code
 				InputMap.action_add_event(action, event)
 
 
-func update_binding(action : StringName, index : int, new_event : InputEvent) -> void:
+func update_binding(action: StringName, index: int, new_event: InputEvent) -> void:
 	# get current events for this action
-	var events : Array[InputEvent] = InputMap.action_get_events(action)
+	var events: Array[InputEvent] = InputMap.action_get_events(action)
 
-	# erase the event at the index of our new event
-	InputMap.action_erase_event(action, events[index])
+	# erase the event at the index of our new event (if it exists)
+	if events.get(index) != null:
+		InputMap.action_erase_event(action, events[index])
 
 	# overwrite the event with our new event
 	InputMap.action_add_event(action, new_event)
@@ -170,13 +172,13 @@ func update_binding(action : StringName, index : int, new_event : InputEvent) ->
 
 
 func save_bindings() -> void:
-	for action : StringName in editable_inputs.keys():
-		var events : Array[InputEvent] = InputMap.action_get_events(action)
-		var physical_key_codes : Array = []
+	for action: StringName in editable_inputs.keys():
+		var events: Array[InputEvent] = InputMap.action_get_events(action)
+		var physical_key_codes: Array = []
 
-		for event : InputEvent in events:
+		for event: InputEvent in events:
 			if event is InputEventKey:
-				var event_key : InputEventKey = event
+				var event_key: InputEventKey = event
 				physical_key_codes.append(event_key.physical_keycode)
 
 		# TODO: make these save as more user-readable values like key names
@@ -184,7 +186,7 @@ func save_bindings() -> void:
 		config.set_value("input", action, physical_key_codes)
 
 
-func apply_fullscreen(mode : int) -> void:
+func apply_fullscreen(mode: int) -> void:
 	match mode:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -192,23 +194,23 @@ func apply_fullscreen(mode : int) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
 
-func set_fullscreen(mode : int) -> void:
+func set_fullscreen(mode: int) -> void:
 	fullscreen = mode
 	apply_fullscreen(fullscreen)
 	save_settings()
 
 
-func apply_monitor(screen : int) -> void:
+func apply_monitor(screen: int) -> void:
 	DisplayServer.window_set_current_screen(screen)
 
 
-func set_monitor(screen : int) -> void:
+func set_monitor(screen: int) -> void:
 	monitor = screen
 	apply_monitor(monitor)
 	save_settings()
 
 
-func apply_vsync(mode : int) -> void:
+func apply_vsync(mode: int) -> void:
 	match mode:
 		0:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
@@ -218,23 +220,23 @@ func apply_vsync(mode : int) -> void:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 
 
-func set_vsync(mode : int) -> void:
+func set_vsync(mode: int) -> void:
 	vsync = mode
 	apply_vsync(vsync)
 	save_settings()
 
 
-func apply_scale(value : float) -> void:
+func apply_scale(value: float) -> void:
 	get_viewport().scaling_3d_scale = value
 
 
-func set_scale(value : float) -> void:
+func set_scale(value: float) -> void:
 	scale = value
 	apply_scale(scale)
 	save_settings()
 
 
-func apply_upscale(mode : int) -> void:
+func apply_upscale(mode: int) -> void:
 	match mode:
 		0:
 			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
@@ -244,44 +246,44 @@ func apply_upscale(mode : int) -> void:
 			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
 
 
-func set_upscale(mode : int) -> void:
+func set_upscale(mode: int) -> void:
 	upscale = mode
 	apply_upscale(upscale)
 	save_settings()
 
 
-func apply_sharpness(value : float) -> void:
+func apply_sharpness(value: float) -> void:
 	get_viewport().fsr_sharpness = 2.0 - value
 
 
-func set_sharpness(value : float) -> void:
+func set_sharpness(value: float) -> void:
 	sharpness = value
 	apply_sharpness(sharpness)
 	save_settings()
 
 
-func apply_fps(cap : float) -> void:
+func apply_fps(cap: float) -> void:
 	Engine.max_fps = floor(cap)
 
 
-func set_fps(cap : float) -> void:
+func set_fps(cap: float) -> void:
 	fps = cap
 	apply_fps(fps)
 	save_settings()
 
-func apply_stats(_mode : int) -> void:
-	var stats_node : Node = get_tree().current_scene.find_child("Stats")
+func apply_stats(_mode: int) -> void:
+	var stats_node: Node = get_tree().current_scene.find_child("Stats")
 	if stats_node is StatsDisplay:
-		var stats_display : StatsDisplay = stats_node
+		var stats_display: StatsDisplay = stats_node
 		stats_display.init()
 
-func set_stats(mode : int) -> void:
+func set_stats(mode: int) -> void:
 	stats = mode
 	apply_stats(mode)
 	save_settings()
 
 
-func apply_filtering(mode : int) -> void:
+func apply_filtering(mode: int) -> void:
 	match mode:
 		0:
 			get_viewport().set_anisotropic_filtering_level(Viewport.ANISOTROPY_DISABLED)
@@ -295,13 +297,13 @@ func apply_filtering(mode : int) -> void:
 			get_viewport().set_anisotropic_filtering_level(Viewport.ANISOTROPY_16X)
 
 
-func set_filtering(mode : int) -> void:
+func set_filtering(mode: int) -> void:
 	filtering = mode
 	apply_filtering(filtering)
 	save_settings()
 
 
-func apply_aa(mode : int) -> void:
+func apply_aa(mode: int) -> void:
 	# disable all anti-aliasing solutions
 	get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
 	get_viewport().use_taa = false
@@ -323,7 +325,7 @@ func apply_aa(mode : int) -> void:
 			get_viewport().msaa_3d = Viewport.MSAA_8X
 
 
-func set_aa(mode : int) -> void:
+func set_aa(mode: int) -> void:
 	aa = mode
 	apply_aa(aa)
 	save_settings()
@@ -336,7 +338,7 @@ func set_aa(mode : int) -> void:
 # maybe in the final game, this setting should be removed OR there should just
 # be 2 settings like 'high' or 'default' (1.0) and 'low' (2.0 or 4.0)
 #	- jack
-func apply_lod(level : int) -> void:
+func apply_lod(level: int) -> void:
 	if level == 0: # Very Low
 		get_viewport().mesh_lod_threshold = 16.0
 	if level == 1: # Low
@@ -349,13 +351,13 @@ func apply_lod(level : int) -> void:
 		get_viewport().mesh_lod_threshold = 1.0
 
 
-func set_lod(level : int) -> void:
+func set_lod(level: int) -> void:
 	lod = level
 	apply_lod(lod)
 	save_settings()
 
 
-func apply_shadows(level : int) -> void:
+func apply_shadows(level: int) -> void:
 	if level == 0: # Very Low
 		# Shadow size
 		RenderingServer.directional_shadow_atlas_set_size(1024, true)
@@ -403,35 +405,35 @@ func apply_shadows(level : int) -> void:
 		RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)
 
 
-func set_shadows(level : int) -> void:
+func set_shadows(level: int) -> void:
 	shadows = level
 	apply_shadows(shadows)
 	save_settings()
 
 
-func apply_ssao(level : int) -> void:
-	var world_environment_node : Node = get_tree().current_scene.find_child("WorldEnvironment")
+func apply_ssao(level: int) -> void:
+	var world_environment_node: Node = get_tree().current_scene.find_child("WorldEnvironment")
 	
 	if world_environment_node is CustomWorldEnvironment:
-		var world_environment : CustomWorldEnvironment = world_environment_node
+		var world_environment: CustomWorldEnvironment = world_environment_node
 		world_environment.set_ssao(level)
 
 
-func set_ssao(level : int) -> void:
+func set_ssao(level: int) -> void:
 	ssao = level
 	apply_ssao(ssao)
 	save_settings()
 
 
-func apply_volume(value : float) -> void:
-	var bus : FmodBus = FmodServer.get_bus("bus:/")
+func apply_volume(value: float) -> void:
+	var bus: FmodBus = FmodServer.get_bus("bus:/")
 
 	# i think the volume for the bus goes from 0 to 1, so im dividing the
 	# slider percentage by 100 - might not actually work like that though lol
 	bus.set_volume(value / 100)
 
 
-func set_volume(value : float) -> void:
+func set_volume(value: float) -> void:
 	volume = value
 	apply_volume(volume)
 	save_settings()

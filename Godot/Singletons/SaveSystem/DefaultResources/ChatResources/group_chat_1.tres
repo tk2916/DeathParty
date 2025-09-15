@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ChatResource" load_steps=3 format=3 uid="uid://deqdppi5ljsht"]
+
+[ext_resource type="Texture2D" uid="uid://djx0yq4hfer6g" path="res://Assets/CharacterAssets/CharacterTextures/kai_jax_waistup.png" id="1_d6jri"]
+[ext_resource type="Script" uid="uid://cxhduc02fxsvl" path="res://Singletons/SaveSystem/ResourceScripts/phone_chat_properties.gd" id="2_oweqc"]
+
+[resource]
+script = ExtResource("2_oweqc")
+name = "Rowan, Nora, Caleb, You"
+image = ExtResource("1_d6jri")

@@ -1,31 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbyg62wymptn6"]
+[gd_scene load_steps=7 format=3 uid="uid://bbyg62wymptn6"]
 
 [ext_resource type="Script" uid="uid://f5ke07o2mygi" path="res://Singletons/ContentLoader/scene_loader.gd" id="1_6wayg"]
+[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="2_xpaum"]
+[ext_resource type="Texture2D" uid="uid://6sxva7xhuvix" path="res://Assets/pop_ups/EnterArrowRight.png" id="3_0sak6"]
+[ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="3_ur62n"]
+[ext_resource type="Texture2D" uid="uid://ccuxjk7edg5dg" path="res://Assets/pop_ups/EnterArrowDown.png" id="4_31qgr"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3cled"]
-size = Vector3(1, 2, 0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ur62n"]
+resource_local_to_scene = true
+size = Vector3(1.61938, 2.80212, 2.04828)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wayg"]
-albedo_color = Color(0.281989, 0.500556, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qelyj"]
-
-[node name="SceneLoader" type="Area3D"]
-collision_layer = 2
-collision_mask = 2
+[node name="SceneLoader" type="Node3D"]
 script = ExtResource("1_6wayg")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.747803, -0.117279)
-shape = SubResource("BoxShape3D_3cled")
-
-[node name="TeleportPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839686, -2.93873)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TeleportPoint"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_6wayg")
-mesh = SubResource("BoxMesh_qelyj")
+left_arrow_asset = ExtResource("2_xpaum")
+right_arrow_asset = ExtResource("3_0sak6")
+down_arrow_asset = ExtResource("4_31qgr")
+use_first_mesh = false
 
 [node name="DoorSound" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/door"
@@ -34,5 +24,19 @@ attached = false
 volume = 0.3
 unique_name_in_owner = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="Popup" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.75, -1.25)
+pixel_size = 0.002
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("2_xpaum")
+
+[node name="InteractionDetector" parent="." instance=ExtResource("3_ur62n")]
+
+[node name="CollisionShape3D" parent="InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144353, 1.23943, 0.0798109)
+shape = SubResource("BoxShape3D_ur62n")
+
+[editable path="InteractionDetector"]

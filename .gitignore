@@ -34,3 +34,4 @@ mono_crash.*.json
 
 # Custom ignores
 build/
+.vscode/

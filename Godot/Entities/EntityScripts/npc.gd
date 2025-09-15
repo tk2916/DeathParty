@@ -1,40 +1,49 @@
 class_name NPC extends Interactable
 
-var outline : Node3D
+var outline: Node3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@export var character_resource : CharacterResource
-@export var dialogue_box : DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/dialogue_box_properties_2.tres")
-@export var json_file : JSON = preload("res://Assets/InkExamples/sample_dialogue_template.json")
+@export var character_resource: CharacterResource
+@export var dialogue_box: DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
+@export var starter_json: JSON = null
+@export var default_json: JSON = preload("res://Assets/InkExamples/sample_dialogue_template.json")
+
 
 func _ready() -> void:
-	super()
-	#print("Ready: ", name)
+	super ()
 	if character_resource:
+		#Get the current character resource from the save file
+		character_resource = SaveSystem.get_character(character_resource.name)
+		#Connect signals
 		character_resource.unread.connect(on_unread)
-		if json_file:
-			character_resource.load_chat(json_file)
 
-func on_unread(unread : bool):
+		if popup:
+			popup.find_child("NameLabel").text = character_resource.name
+
+
+func on_unread(_unread: bool) -> void:
 	#$SpeechBubble.visible = true
 	pass
 
 ##INHERITED
-func on_in_range(in_range : bool) -> void:
+func on_in_range(in_range: bool) -> void:
 	##only show the outline if NPC has something to say
-	var show_outline : bool = false
-	if json_file:
-		show_outline = true
+	var show_outline: bool = false
 	if character_resource:
 		if character_resource.has_chats():
 			show_outline = true
-	
 	if show_outline:
-		super(in_range)
+		super (in_range)
 
 func on_interact() -> void:
-	super()
-	DialogueSystem.setDialogueBox(dialogue_box)
+	super ()
 	if character_resource:
 		character_resource.start_chat()
-	elif json_file:
-		DialogueSystem.from_JSON(json_file)
+	elif starter_json:
+		DialogueSystem.begin_dialogue(starter_json)
+		starter_json = null
+	elif default_json:
+		DialogueSystem.begin_dialogue(default_json)
+		
+func play_animation(anim_name: String) -> void:
+	animation_player.play(anim_name)

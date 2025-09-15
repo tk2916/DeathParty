@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8jbowdnorp1f"]
 
 [ext_resource type="Script" uid="uid://dkwxukji4mmmu" path="res://Utilities/pause_menu/pause_menu.gd" id="1_52f8u"]
-[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/theme.tres" id="2_qpukh"]
+[ext_resource type="Theme" uid="uid://dr1yk2pxxkcq3" path="res://Assets/themes/theme.tres" id="2_qpukh"]
 [ext_resource type="PackedScene" uid="uid://ica25dt1nph6" path="res://Utilities/pause_menu/input_menu/input_rebinding_menu.tscn" id="3_ua3y5"]
 [ext_resource type="PackedScene" uid="uid://b7mfbhjbnelg1" path="res://Utilities/pause_menu/video_menu/video_settings.tscn" id="4_53meo"]
 
@@ -128,6 +128,14 @@ custom_minimum_size = Vector2(0, 520)
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="UnbindInstructionsLabel" type="Label" parent="MarginContainer/InputMenu"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_qpukh")
+theme_override_font_sizes/font_size = 16
+text = "right click to unbind a key"
+horizontal_alignment = 1
+
 [node name="InputBackButton" type="Button" parent="MarginContainer/InputMenu" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
@@ -185,7 +193,7 @@ text = "no"
 [node name="ClickSound" type="FmodEventEmitter2D" parent="Audio"]
 event_name = "event:/000_SFX/000_Demo_Test/007_SFX_UIClick"
 event_guid = "{e96fe609-82c4-494e-9458-401b87f34d25}"
-volume = 0.5
+volume = 0.4
 unique_name_in_owner = true
 
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]

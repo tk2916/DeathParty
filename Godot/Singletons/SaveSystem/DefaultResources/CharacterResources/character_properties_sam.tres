@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://dy2offscqhpxg"]
+
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="1_0hub4"]
+[ext_resource type="Texture2D" uid="uid://q7v0audy1ra8" path="res://Assets/CharacterAssets/Polaroids/sam_a.png" id="1_iqqf2"]
+[ext_resource type="Texture2D" uid="uid://x0uifydcxtx1" path="res://Assets/CharacterAssets/Polaroids/sam_b.png" id="2_a7tjk"]
+[ext_resource type="Texture2D" uid="uid://b4kctexnnjkj0" path="res://Assets/CharacterAssets/sam/sam_circle.png" id="2_qv81c"]
+
+[resource]
+script = ExtResource("1_0hub4")
+name = "Sam"
+character_location = ""
+image_polaroid = ExtResource("1_iqqf2")
+image_polaroid_popout = ExtResource("2_a7tjk")
+name_color = ""
+text_color = ""
+character_notes = Array[String](["Sam character note", "Blah blah blah"])
+character_description = "Sam is an inquisitive soul"
+image_profile = ExtResource("2_qv81c")
+profile_tag = "@profiletag123"
+profile_quote = "inspirational quote goes here."
+profile_join_date = "Month 8, 20XX"
+profile_friends = 359
