@@ -7,14 +7,14 @@
 [node name="Popup" type="Node3D"]
 
 [node name="Background" type="Sprite3D" parent="."]
-pixel_size = 0.0025
+pixel_size = 0.002
 billboard = 1
 no_depth_test = true
 texture = ExtResource("1_nalsp")
 
 [node name="NameLabel" type="Label3D" parent="."]
 sorting_offset = 1.0
-pixel_size = 0.0025
+pixel_size = 0.002
 offset = Vector2(-125, 125)
 billboard = 1
 no_depth_test = true
@@ -29,7 +29,7 @@ outline_size = 32
 
 [node name="TalkLabel" type="Label3D" parent="."]
 sorting_offset = 1.0
-pixel_size = 0.0025
+pixel_size = 0.002
 offset = Vector2(185, 28)
 billboard = 1
 no_depth_test = true

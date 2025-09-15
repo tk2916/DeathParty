@@ -1960,7 +1960,10 @@ bones/63/rotation = Quaternion(0.245826, 0.0383539, -0.0108754, 0.968494)
 autoplay = "sit chill"
 
 [node name="Nora" parent="NPCs" instance=ExtResource("44_j03r7")]
-transform = Transform3D(0.801865, 0, -0.38259, 0, 0.888461, 0, 0.38259, 0, 0.801865, 4.91355, -0.0234952, 1.64471)
+transform = Transform3D(0.70107, 0, -0.545768, 0, 0.888461, 0, 0.545768, 0, 0.70107, 0.631361, -0.0234952, 0.565242)
+
+[node name="Sam" parent="NPCs" instance=ExtResource("43_obdan")]
+transform = Transform3D(0.979724, 0, 0.583987, 0, 1.14057, 0, -0.583987, 0, 0.979724, -0.672603, 0.0335598, 0.825987)
 
 [node name="angel" parent="NPCs" instance=ExtResource("50_m1j1w")]
 transform = Transform3D(0.871046, 0, 0.643131, 0, 1.08275, 0, -0.643131, 0, 0.871046, -2.26855, -0.00449276, 1.25362)
@@ -1969,13 +1972,10 @@ default_json = ExtResource("56_mwspb")
 outline_thickness = 0.7
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("45_owm1a")]
-transform = Transform3D(0.736692, 0, -0.887413, 0, 1.15335, 0, 0.887413, 0, 0.736692, 1.84554, 0.0134149, -1.17766)
+transform = Transform3D(0.736692, 0, -0.887413, 0, 1.15335, 0, 0.887413, 0, 0.736692, 3.46859, 0.0134149, -1.41783)
 
 [node name="Bunny2" parent="NPCs" instance=ExtResource("51_ndciv")]
-transform = Transform3D(1.03238, 0, 0.523845, 0, 1.15768, 0, -0.523845, 0, 1.03238, 1.04508, 0.0174899, -1.42578)
-
-[node name="Sam" parent="NPCs" instance=ExtResource("43_obdan")]
-transform = Transform3D(1.06079, 0, 0.419076, 0, 1.14057, 0, -0.419076, 0, 1.06079, 3.77524, 0.0335598, 1.11134)
+transform = Transform3D(1.03238, 0, 0.523845, 0, 1.15768, 0, -0.523845, 0, 1.03238, 2.66813, 0.0174899, -1.66595)
 
 [node name="free hug2" parent="NPCs" instance=ExtResource("58_ddclk")]
 transform = Transform3D(0.72674, 0, -0.9425, 0, 1.19015, 0, 0.9425, 0, 0.72674, 6.30366, 0.0545883, 1.1788)

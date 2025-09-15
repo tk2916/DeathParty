@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqxjk5afxrhem"]
+
+[ext_resource type="Texture2D" uid="uid://dts4qro0icnli" path="res://Assets/pop_ups/BackgroundRight.png" id="1_e0hgs"]
+[ext_resource type="FontFile" uid="uid://csg2vlq4u84fp" path="res://Assets/Fonts/Permanent_Marker/PermanentMarker-Regular.ttf" id="2_rulvq"]
+[ext_resource type="FontFile" uid="uid://cq0tjqh2bcwar" path="res://Assets/Fonts/Gantari/static/Gantari-Thin.ttf" id="3_vkr8j"]
+
+[node name="Popup" type="Node3D"]
+
+[node name="Background" type="Sprite3D" parent="."]
+pixel_size = 0.002
+billboard = 1
+no_depth_test = true
+texture = ExtResource("1_e0hgs")
+
+[node name="NameLabel" type="Label3D" parent="."]
+sorting_offset = 1.0
+pixel_size = 0.002
+offset = Vector2(-125, 125)
+billboard = 1
+no_depth_test = true
+render_priority = 2
+outline_render_priority = 1
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "[OBJECT NAME HERE]"
+font = ExtResource("2_rulvq")
+font_size = 96
+outline_size = 32
+
+[node name="TakeLabel" type="Label3D" parent="."]
+sorting_offset = 1.0
+pixel_size = 0.002
+offset = Vector2(185, 28)
+billboard = 1
+no_depth_test = true
+render_priority = 2
+outline_render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "Take"
+font = ExtResource("3_vkr8j")
+font_size = 82
