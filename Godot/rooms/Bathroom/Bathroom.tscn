@@ -816,7 +816,7 @@ shadow_enabled = false
 omni_attenuation = 1.0
 
 [node name="TissueDispenser" parent="." instance=ExtResource("18_alw3p")]
-transform = Transform3D(1.29289, 0, 0, 0, 1.29289, 0, 0, 0, 1.29289, 5.34513, -0.00661792, -3.07714)
+transform = Transform3D(1.0254, 0, 0, 0, 1.0254, 0, 0, 0, 1.0254, 5.34513, -0.557334, -2.59834)
 
 [node name="DiscoLights" parent="." instance=ExtResource("13_uea66")]
 transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, -2.05757, 1.09594, -0.286055)
@@ -938,7 +938,7 @@ transform = Transform3D(0.255065, -4.09782e-07, -0.966924, 0.966924, 5.95464e-08
 transform = Transform3D(-0.289472, -1.72295e-07, 0.391071, -0.391071, -2.32336e-07, -0.289472, 2.87779e-07, -0.486549, -1.86265e-09, 7.58354, -1.03668, -1.11105)
 
 [node name="Trashcan" parent="." instance=ExtResource("19_r2w82")]
-transform = Transform3D(0.805545, 0, -0.0977813, 0, 0.894754, 0, 0.0977813, 0, 0.805545, 4.9036, -1.80825, -2.8243)
+transform = Transform3D(0.665455, 0, -0.0807764, 0, 0.73915, 0, 0.0807764, 0, 0.665455, 4.9036, -1.80825, -2.8243)
 
 [node name="HotDogStand" parent="." instance=ExtResource("22_htvqj")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -5.80337, -2.39737, 0.687645)
@@ -1071,7 +1071,7 @@ transform = Transform3D(-0.230673, -0.0474685, 0.0112298, 0, 0.0542798, 0.229441
 transform = Transform3D(-0.229998, -0.0504774, 0.0119415, 3.39363e-09, 0.0542798, 0.229441, -0.05187, 0.22382, -0.05295, -2.56923, 0.882565, 2.78631)
 
 [node name="Cup9" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
-transform = Transform3D(0.127769, 0.192831, -0.0456187, 3.29384e-10, 0.0542798, 0.229441, 0.198153, -0.124338, 0.029415, -1.9376, 0.899615, 2.92876)
+transform = Transform3D(0.127471, 0.196502, -0.0269827, -0.007392, 0.0367586, 0.232774, 0.198207, -0.125004, 0.0260343, -1.9376, 0.870211, 2.92876)
 
 [node name="Cup10" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
 transform = Transform3D(-0.011095, 0.22973, 0.05187, 0.2355, 0.0113736, -8.48408e-10, -0.0025022, 0.0518095, -0.229998, -1.83378, 0.936977, 1.82708)
