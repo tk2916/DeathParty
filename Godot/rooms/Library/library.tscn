@@ -1247,7 +1247,7 @@ shape = SubResource("BoxShape3D_aokc7")
 transform = Transform3D(0.0293456, -0.714521, 0.698998, 0.0299709, 0.699614, 0.713892, -0.99912, 1.305e-08, 0.0419454, 8.34207, 5.06671, 2.91847)
 light_color = Color(0.4464, 0.87358, 0.93, 1)
 light_energy = 50.0
-light_volumetric_fog_energy = 70.0
+light_volumetric_fog_energy = 30.0
 light_specular = 0.767
 shadow_enabled = true
 shadow_bias = 0.145
@@ -1275,7 +1275,7 @@ spot_angle = 35.0
 spot_angle_attenuation = 1.62451
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="SceneLights"]
-transform = Transform3D(0.791234, 0.0226855, 0.611092, -0.611513, 0.0293526, 0.79069, 1.83469e-10, -0.999312, 0.0370973, 4.21954, 1.60518, 2.81283)
+transform = Transform3D(0.791234, 0.0226855, 0.611092, -0.611513, 0.0293526, 0.79069, 1.83469e-10, -0.999312, 0.0370973, 4.20921, 1.60518, 1.24518)
 light_color = Color(0.4176, 0.81722, 0.87, 1)
 light_energy = 2.4
 shadow_enabled = true
@@ -1505,7 +1505,7 @@ transform = Transform3D(0.27786, 0, 0, 0, 0.27786, 0, 0, 0, 0.27786, -2.7911, 0.
 
 [node name="OmniLight3D" parent="Chandelier/Lights" index="0"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
-light_energy = 12.82
+light_energy = 5.0
 light_volumetric_fog_energy = 5.0
 omni_range = 0.7
 
@@ -1525,7 +1525,7 @@ light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 16.0
 
 [node name="OmniLight3D8" parent="Chandelier/Lights" index="7"]
-light_energy = 5.356
+omni_attenuation = 1.0
 
 [node name="OmniLight3D10" parent="Chandelier/Lights" index="9"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
@@ -1537,8 +1537,7 @@ light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 8.0
 
 [node name="OmniLight3D12" parent="Chandelier/Lights" index="11"]
-light_energy = 16.0
-light_volumetric_fog_energy = 5.0
+omni_attenuation = 1.0
 
 [node name="chandelior bar2" parent="Chandelier" instance=ExtResource("5_l745y")]
 transform = Transform3D(5.61817, 0, 0, 0, 3.52113, 0, 0, 0, 3.87769, 0, 13.0462, -0.00364685)
@@ -2078,7 +2077,6 @@ bones/56/rotation = Quaternion(-0.64577, -0.0450565, 0.0352766, 0.761385)
 bones/57/rotation = Quaternion(0.212925, -0.100761, 0.0148956, 0.971745)
 bones/58/position = Vector3(9.28673e-07, 17.612, -4.60005e-06)
 bones/58/rotation = Quaternion(0.307579, -0.144881, 0.0559051, 0.938765)
-bones/60/position = Vector3(-9.65631, -3.87431, -1.32732)
 bones/60/rotation = Quaternion(-0.138909, 0.318385, 0.91582, 0.201516)
 bones/61/rotation = Quaternion(-0.692744, 0.0810484, -0.0593049, 0.714157)
 bones/62/rotation = Quaternion(0.321785, -0.0134779, -0.0522615, 0.945273)

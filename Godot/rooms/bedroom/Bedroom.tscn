@@ -2111,7 +2111,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rx7x6")
 
 [node name="Bedroom" type="Area3D" node_paths=PackedStringArray("play_button", "quit_button", "fade_title", "title_screen", "closet", "room_area", "path_follow_node") groups=["loadable_scene"]]
-transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_lxtj2")
 play_button = NodePath("TitleScreen/FadeThisOut/StartGameButton")
@@ -2530,7 +2530,7 @@ transform = Transform3D(0.900741, 0, 0, 0, 0.900741, 0, 0, 0, 0.900741, -0.03268
 transform = Transform3D(0.957283, 0, 0.418028, 0, 1.04458, 0, -0.418028, 0, 0.957283, 1.87073, 1.88894, 5.52289)
 
 [node name="StarRug" parent="." groups=["material_carpet"] instance=ExtResource("20_y7msa")]
-transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.106077, 1.50737)
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.120105, 1.50737)
 
 [node name="Sunset" type="Node3D" parent="."]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.703348, 1.5229, -1.46966)
