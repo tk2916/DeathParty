@@ -788,15 +788,7 @@ transform = Transform3D(-4.7659e-08, 0, -1.09031, 0, 1.09031, 0, 1.09031, 0, -4.
 [node name="industrial_wall_sconce_industrial_wall_sconce_0_005" parent="WallLamp2" index="0"]
 transform = Transform3D(1.88538e-08, -0.158157, -3.77075e-08, -3.77075e-08, -3.77075e-08, 0.158157, -0.158157, -1.88538e-08, -3.77076e-08, -0.0149193, -0.296974, 0.0259202)
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="WallLamp2"]
-transform = Transform3D(0.912699, -0.00328309, -0.0903963, 0.0904559, 0.0331264, 0.912098, 1.9547e-10, -0.916566, 0.0332887, 0.317239, -0.39678, 0.0363796)
-light_color = Color(0.98, 0.61936, 0.0392, 1)
-light_energy = 50.0
-light_volumetric_fog_energy = 100.0
-spot_range = 3.788
-spot_angle = 38.67
-
-[node name="SpotLight3D" parent="WallLamp2" index="2"]
+[node name="SpotLight3D" parent="WallLamp2" index="1"]
 transform = Transform3D(0.995125, -0.00357959, -0.0985601, 0.098625, 0.036118, 0.994469, 2.13117e-10, -0.999341, 0.0362949, 0.427708, -0.020424, -2.38419e-07)
 visible = false
 light_color = Color(0.98, 0.44688, 0.0392, 1)
@@ -806,7 +798,7 @@ spot_range = 3.202
 spot_attenuation = 1.0
 spot_angle = 22.31
 
-[node name="OmniLight3D" parent="WallLamp2" index="3"]
+[node name="OmniLight3D" parent="WallLamp2" index="2"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0.413326, -0.329722, -1.19209e-07)
 visible = false
 light_color = Color(1, 0.766667, 0, 1)
@@ -814,6 +806,14 @@ light_energy = 50.0
 light_volumetric_fog_energy = 30.0
 shadow_enabled = false
 omni_attenuation = 1.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WallLamp2"]
+transform = Transform3D(0.912699, -0.00328309, -0.0903963, 0.0904559, 0.0331264, 0.912098, 1.9547e-10, -0.916566, 0.0332887, 0.317239, -0.39678, 0.0363796)
+light_color = Color(0.98, 0.61936, 0.0392, 1)
+light_energy = 50.0
+light_volumetric_fog_energy = 100.0
+spot_range = 3.788
+spot_angle = 38.67
 
 [node name="TissueDispenser" parent="." instance=ExtResource("18_alw3p")]
 transform = Transform3D(1.0254, 0, 0, 0, 1.0254, 0, 0, 0, 1.0254, 5.34513, -0.557334, -2.59834)

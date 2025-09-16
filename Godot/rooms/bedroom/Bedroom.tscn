@@ -2111,7 +2111,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rx7x6")
 
 [node name="Bedroom" type="Area3D" node_paths=PackedStringArray("play_button", "quit_button", "fade_title", "title_screen", "closet", "room_area", "path_follow_node") groups=["loadable_scene"]]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_lxtj2")
 play_button = NodePath("TitleScreen/FadeThisOut/StartGameButton")
@@ -2515,7 +2514,7 @@ light_energy = 5.0
 shadow_enabled = true
 
 [node name="Chair" parent="." instance=ExtResource("8_8bc0i")]
-transform = Transform3D(0.994789, 0, -0.101959, 0, 1, 0, 0.101959, 0, 0.994789, -0.776669, 0.348179, 0.718062)
+transform = Transform3D(0.998259, 0, -0.102315, 0, 1.00349, 0, 0.102315, 0, 0.998259, -0.776669, 0.361875, 0.718062)
 
 [node name="CorkBoard" parent="." instance=ExtResource("16_i33k8")]
 transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 1.4748, -1.18352)
@@ -2844,7 +2843,7 @@ visible = false
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.53885, 0.162011, 3.82304)
 
 [node name="LEO" parent="." instance=ExtResource("70_b33ja")]
-transform = Transform3D(0.482226, 0.721213, -0.194167, 0.118592, 0.154253, 0.867487, 0.737418, -0.496436, -0.0125363, -0.680539, 0.412796, 0.940097)
+transform = Transform3D(0.565345, 0.845524, -0.227634, 0.139033, 0.180841, 1.01701, 0.864522, -0.582004, -0.0146971, -0.759522, 0.426311, 0.940097)
 
 [node name="AnimationPlayer" parent="LEO" index="1"]
 autoplay = "IDLE"
