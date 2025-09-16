@@ -932,7 +932,7 @@ size = Vector3(6.58365, 2.80212, 2.04828)
 size = Vector3(32.8532, 0.978088, 13.0097)
 
 [node name="Hourhand hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
-transform = Transform3D(-6.18206e-08, 0, 1.41429, 0, 1.41429, 0, -1.41429, 0, -6.18206e-08, -2.36488, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.36488, 0, 0)
 script = ExtResource("2_xgvqn")
 room_area = NodePath("RoomArea")
 
