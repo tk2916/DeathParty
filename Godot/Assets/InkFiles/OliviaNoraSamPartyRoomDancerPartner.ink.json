@@ -1,0 +1,164 @@
+{
+  "inkVersion": 21,
+  "root": [
+    [
+      {
+        "->": "OliviaNoraSamPartyRoomDancePartner"
+      },
+      [
+        "done",
+        {
+          "#f": 5,
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "OliviaNoraSamPartyRoomDancePartner": [
+        [
+          "ev",
+          "str",
+          "^Hey Nora, care to dance?",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 4
+          },
+          "ev",
+          "str",
+          "^Sam, it's been a while since you and I were in a moshpit together.",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 4
+          },
+          "ev",
+          "str",
+          "^Hey Rowan--",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 4
+          },
+          {
+            "c-0": [
+              "^ ",
+              {
+                "->": "NoraDance"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "^ ",
+              {
+                "->": "SamDance"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "^ ",
+              {
+                "->": "RowanDance"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "NoraDance": [
+        "^[Nora] That depends...what do you have in mind?",
+        "\n",
+        "^[Olivia] Have you practiced your voguing at all since we last watched Paris is Burning?",
+        "\n",
+        "^[Nora] Haha, I may have dabbled...",
+        "\n",
+        {
+          "->": "DJAnnouncement"
+        },
+        {
+          "#f": 1
+        }
+      ],
+      "SamDance": [
+        "^[Olivia] What was the name of that band we saw right after winter break?",
+        "\n",
+        "^[Sam] Cairn Stranglers...Their bassist kicked ass.",
+        "\n",
+        "^[Olivia] Definitely a different crowd here. Should we see if we can get a moshpit going?",
+        "\n",
+        "^[Sam] Hell yea.",
+        "\n",
+        {
+          "->": "DJAnnouncement"
+        },
+        {
+          "#f": 1
+        }
+      ],
+      "RowanDance": [
+        "^[Rowan] Liv! Come dance with me!",
+        "\n",
+        "^[Olivia] I was just about to ask if you wanted to--",
+        "\n",
+        "^[Rowan] Yes girl. Come here, I'll lead!\"",
+        "\n",
+        {
+          "->": "DJAnnouncement"
+        },
+        {
+          "#f": 1
+        }
+      ],
+      "DJAnnouncement": [
+        "ev",
+        true,
+        "/ev",
+        {
+          "VAR=": "DJ_announcement",
+          "re": true
+        },
+        "^[DJ] What is up my ghouls and goblins! You all look so great out there on that dance floor tonight! We're gonna be changing it up a bit and slowing down the beats for all you lovely couples to get in a dance.",
+        "\n",
+        "^Are you lonely? Got nobody to dance with? That's okay! DIE wants me to remind you that their Beer Pong for Bills charity tournament is about to get started!",
+        "\n",
+        "^If you want a chance at winning seven minutes in heaven with DIE's very own president, get your asses to the kitchen and get your wallets ready!",
+        "\n",
+        "^[Olivia] That actually might not be a bad way to get some answers out of Caleb.",
+        "\n",
+        "end",
+        {
+          "#f": 1
+        }
+      ],
+      "global decl": [
+        "ev",
+        false,
+        {
+          "VAR=": "DJ_announcement"
+        },
+        "/ev",
+        "end",
+        null
+      ],
+      "#f": 1
+    }
+  ],
+  "listDefs": {}
+}

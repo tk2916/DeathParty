@@ -1,20 +1,20 @@
 extends Node
 
 enum SCENES {
-	Everywhere,
-	Nowhere,
-	Entrance,
-	PartyRoom,
-	Library,
-	Bathroom,
-	Basement,
-	Bedroom,
-	StorageRoom,
-	Exterior,
-	Kitchen,
-	HourhandHallway,
-	ControlRoom,
-	GhostHallway,
+	Everywhere = 0,
+	Nowhere = 1,
+	Entrance = 2,
+	PartyRoom = 3,
+	Library = 4,
+	Bathroom = 5,
+	Basement = 6,
+	Bedroom = 7,
+	StorageRoom = 8,
+	Exterior = 9,
+	Kitchen = 10,
+	HourhandHallway = 11,
+	ControlRoom = 12,
+	GhostHallway = 13,
 }
 
 const SCENES_STR : Dictionary[String, SCENES] = {

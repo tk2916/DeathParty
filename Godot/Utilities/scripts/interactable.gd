@@ -69,7 +69,6 @@ func toggle_popup(on: bool) -> void:
 
 ##OVERRIDE THESE METHODS (but call super() at the beginning)
 func on_interact() -> void:
-	print("Interactable interacted")
 	toggle_popup(false)
 	if talking_object_resource:
 		talking_object_resource.start_chat()

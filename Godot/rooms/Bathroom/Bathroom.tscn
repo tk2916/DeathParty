@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://o1miuonfuk7"]
+[gd_scene load_steps=83 format=4 uid="uid://o1miuonfuk7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -44,8 +44,6 @@
 [ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunnies/red_bunny/red_bunny.tscn" id="35_rjeq7"]
 [ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer.tscn" id="36_17afp"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="40_46x1s"]
-[ext_resource type="JSON" path="res://Assets/InkFiles/bathroom_Olivia_makeup_npc_interact.json" id="40_l3jgi"]
-[ext_resource type="JSON" path="res://Assets/InkFiles/bathroom_Olivia_drug_dealer_interact_looped.json" id="41_icx1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -1071,14 +1069,12 @@ transform = Transform3D(1.17787, 0, -0.0929695, 0, 1.18154, 0, 0.0929695, 0, 1.1
 
 [node name="DrugDealer" parent="NPCs" instance=ExtResource("14_duuvr")]
 transform = Transform3D(0.647317, 0, 0.721472, 0, 0.969299, 0, -0.721472, 0, 0.647317, -0.395593, -0.194828, 0.09628)
-default_json = ExtResource("41_icx1l")
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("21_hbt0t")]
 transform = Transform3D(-1.21819, 0, 0.312007, 0, 1.25751, 0, -0.312007, 0, -1.21819, 7.92395, -0.239568, -2.85654)
 
 [node name="Bunny2" parent="NPCs" instance=ExtResource("35_rjeq7")]
 transform = Transform3D(1.26223, 0, 0, 0, 1.26223, 0, 0, 0, 1.26223, 6.98782, -0.240322, -3.62567)
-starter_json = ExtResource("40_l3jgi")
 
 [node name="cop" parent="NPCs" instance=ExtResource("34_jy5jw")]
 transform = Transform3D(0.744814, 0, 0.869726, 0, 1.14506, 0, -0.869726, 0, 0.744814, 0.904997, -0.232421, -1.38849)

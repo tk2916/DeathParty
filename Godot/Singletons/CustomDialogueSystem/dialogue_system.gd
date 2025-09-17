@@ -62,7 +62,8 @@ func show_dialogue_box(in_phone : bool) -> void:
 func begin_dialogue(file : JSON, in_phone : bool = false) -> void:
 	assert(file != null, "You forgot to assign a JSON file!")
 	if in_dialogue:
-		print("You can't start a new chat while in a dialogue!")
+		pause_dialogue()
+		#print("You can't start a new chat while in a dialogue!")
 		return
 	in_dialogue = true
 	show_dialogue_box(in_phone)
@@ -71,13 +72,16 @@ func begin_dialogue(file : JSON, in_phone : bool = false) -> void:
 
 func resume_dialogue(address : InkAddress) -> void:
 	if in_dialogue:
-		print("You can't resume a chat while in a dialogue!")
+		pause_dialogue()
+		#print("You can't resume a chat while in a dialogue!")
 		return
+	in_dialogue = true
 	show_dialogue_box(true)
 	Ink.from_address(address)
 	display_content()
 
 func end_dialogue() -> void:
+	print("End dialogue false")
 	in_dialogue = false
 	if current_dialogue_box == text_message_box: #if focused dialogue box is message app
 		current_phone_resource.end_chat(current_conversation)
@@ -89,9 +93,13 @@ func end_dialogue() -> void:
 			current_character_resource.end_chat()
 	current_conversation = []
 
-func pause_dialogue() -> void: #ONLY FOR PHONE CONVERSATIONS
+func pause_dialogue(revert_address : bool = false) -> void: #ONLY FOR PHONE CONVERSATIONS
 	if current_phone_resource == null or current_dialogue_box == null: return
+	are_choices = false
 	#GuiSystem.hid_phone_mid_convo = hiding_phone
+	if revert_address:
+		Ink.address.index -= 1
+		current_conversation.pop_back()
 	current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy
 	in_dialogue = false
 ##
@@ -128,7 +136,7 @@ func load_past_messages(past_chats : Array[InkLineInfo]) -> void:
 	current_conversation = past_chats
 	for n in range(current_conversation.size()):
 		var chat : InkLineInfo = current_conversation[n]
-		current_dialogue_box.add_line(chat)
+		current_dialogue_box.add_line(chat, true)
 
 func to_phone(chat_name : String, file : JSON) -> void: # called to load json into phone
 	var chat : ChatResource = SaveSystem.get_phone_chat(chat_name)
@@ -153,13 +161,14 @@ func display_content() -> void:
 	if content[0] is InkLineInfo:
 		var line : InkLineInfo = content[0]
 		if line.speaker == "System" and line.text == "end":
+			print("Ended dialogue")
 			end_dialogue()
 		elif line.text[0] == "/":
 			await match_command(line.text)
 			display_content()
 		else:
-			current_conversation.push_back(line)
 			current_dialogue_box.add_line(line)
+			current_conversation.push_back(line)
 	elif content[0] is InkChoiceInfo:
 		var choices : Array[InkChoiceInfo] = []
 		for choice : InkChoiceInfo in content:

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TalkingObjectResource" load_steps=5 format=3 uid="uid://bsag7mrm78x04"]
+
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="1_l8vw0"]
+[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="2_r7v7y"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaKitchenPotsPansOnce.ink.json" id="2_sf3tf"]
+
+[sub_resource type="Resource" id="Resource_8d8or"]
+script = ExtResource("1_l8vw0")
+json_array = Array[JSON]([ExtResource("2_sf3tf"), null])
+metadata/_custom_type_script = "uid://d1yny6oqf2gvp"
+
+[resource]
+script = ExtResource("2_r7v7y")
+default_chats = Dictionary[int, JSON]({})
+queue_chats = Dictionary[int, ExtResource("1_l8vw0")]({
+10: SubResource("Resource_8d8or")
+})
+name = "Pots Pans"

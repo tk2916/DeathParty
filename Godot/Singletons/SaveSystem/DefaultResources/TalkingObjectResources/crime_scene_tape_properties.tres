@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TalkingObjectResource" load_steps=4 format=3 uid="uid://cnhny0ax0dbam"]
+
+[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaBasementCrimeSceneTape.ink.json" id="1_d2dmm"]
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="2_qlicf"]
+[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="3_uk0ey"]
+
+[resource]
+script = ExtResource("3_uk0ey")
+default_chats = Dictionary[int, JSON]({
+6: ExtResource("1_d2dmm")
+})
+queue_chats = Dictionary[int, ExtResource("2_qlicf")]({})
+name = "Crime Scene Tape"

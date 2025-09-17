@@ -123,7 +123,7 @@ func set_ui_state(ui_state : String) -> void:
 	if ui_state != UI_STATES.CHOICES:
 		previous_speaker = current_speaker
 		
-func add_line(line : InkLineInfo) -> void:
+func add_line(line : InkLineInfo, _skip_delay : bool = false) -> void:
 	done_state = false
 	if line.speaker == "BackgroundNPC" or line.speaker == "":
 		current_speaker = DialogueSystem.current_character_resource

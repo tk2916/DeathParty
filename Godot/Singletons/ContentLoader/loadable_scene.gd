@@ -84,6 +84,7 @@ func offload() -> void:
 
 func on_first_visit() -> void:
 	if first_visit_json:
+		await instance.get_tree().create_timer(2).timeout
 		DialogueSystem.begin_dialogue(first_visit_json)
 ##END LOADING
 

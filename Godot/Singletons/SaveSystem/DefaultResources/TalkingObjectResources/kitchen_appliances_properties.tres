@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TalkingObjectResource" load_steps=5 format=3 uid="uid://bl7xlmmftkyu7"]
+
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="1_hsl7f"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaKitchenAppliances.ink.json" id="2_hsl7f"]
+[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="3_5lyvy"]
+
+[sub_resource type="Resource" id="Resource_8d8or"]
+script = ExtResource("1_hsl7f")
+json_array = Array[JSON]([ExtResource("2_hsl7f"), null])
+metadata/_custom_type_script = "uid://d1yny6oqf2gvp"
+
+[resource]
+script = ExtResource("3_5lyvy")
+default_chats = Dictionary[int, JSON]({})
+queue_chats = Dictionary[int, ExtResource("1_hsl7f")]({
+10: SubResource("Resource_8d8or")
+})
+name = "Kitchen Appliances"

@@ -26,12 +26,18 @@ var first_chat: JSON:
 
 func load_chats_for_room() -> void:
 	if ContentLoader.active_scene_enum == Globals.SCENES.Nowhere: return
-	print("Loading chats for room ", Globals.get_scene_name(ContentLoader.active_scene_enum))
+	
 	default_chat = null
 	upcoming_chats = []
 
 	#set default chat
 	var room : Globals.SCENES = ContentLoader.active_scene_enum
+	print("Loading chats=== DEBUG INFO FOR ", name, " ===")
+	print("Loading chatsdefault_chats dictionary: ", name, default_chats)
+	print("Loading chatsdefault_chats.keys(): ", name, default_chats.keys())
+	print("Loading chatsLooking for room: ", name, room, " (", Globals.get_scene_name(room), ")")
+	print("Loading chatsDictionary has room key: ", name, default_chats.has(room))
+	print("Loading chats for "+name+" in room ", Globals.get_scene_name(ContentLoader.active_scene_enum), ". Default chats has: ", default_chats.has(room))
 	if default_chats.has(room) and default_chats[room] != null:
 		print("Got default chat for ", name)
 		default_chat = default_chats[room]
