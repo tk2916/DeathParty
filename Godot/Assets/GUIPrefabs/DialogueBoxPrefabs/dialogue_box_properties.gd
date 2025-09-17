@@ -26,7 +26,7 @@ class AnimatedTextLabel:
 		animator.skip()
 
 ## OVERRIDE THESE FUNCTIONS
-func add_line(_line: InkLineInfo) -> void:
+func add_line(_line: InkLineInfo, _skip_delay : bool = false) -> void:
 	assert(false, "You need to define add_line() in your DialogueBox")
 
 func set_choices(_choices: Array[InkChoiceInfo]) -> void:

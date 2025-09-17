@@ -12,6 +12,7 @@
 extends CanvasLayer
 
 @export var rowan_invite_dialogue : JSON
+@export var example_json : JSON
 @export var on_phone_close_dialogue : JSON
 @export var on_journal_dialogue : JSON
 

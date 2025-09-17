@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://rjlwmibbgl3v"]
+[gd_scene load_steps=5 format=3 uid="uid://rjlwmibbgl3v"]
 
 [ext_resource type="PackedScene" uid="uid://dyu7jnww1pkd6" path="res://rooms/Exterior Frat Lawn/wallet and ID.glb" id="1_704gp"]
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_v34je"]
-[ext_resource type="JSON" path="res://Assets/InkFiles/ext_entrance_Olivia_missing_wallet_interact.json" id="3_08i33"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2b2ao"]
 transparency = 1
@@ -14,7 +13,6 @@ depth_draw_mode = 1
 
 [node name="wallet and ID" instance=ExtResource("1_704gp")]
 script = ExtResource("2_v34je")
-dialogue_on_interact = ExtResource("3_08i33")
 
 [node name="IDcard" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_2b2ao")

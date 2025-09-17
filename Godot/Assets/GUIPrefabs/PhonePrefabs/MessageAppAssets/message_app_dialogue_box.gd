@@ -18,6 +18,7 @@ var contact_pressed := false
 @export var back_button: Button
 @export var all_contacts: VBoxContainer
 @export var participants_list: VBoxContainer
+@export var dialogue_scroll_container : ScrollContainer
 @export var dialogue_container: VBoxContainer
 @export var choice_container: BoxContainer
 @export var touch_screen: Control
@@ -29,6 +30,10 @@ var contact_pressed := false
 @export var text_message_prefab_protag: PackedScene
 @export var text_message_prefab_npc: PackedScene
 @export var choice_prefab: PackedScene
+
+var delayed_lines : Array[InkLineInfo] = []
+
+var first_message : bool = true;
 
 var choices_array: Array[MessageAppChoiceButton] = []
 
@@ -52,7 +57,8 @@ class MessageAppChoiceButton:
 		box.choices_array = []
 	func destroy() -> void:
 		print("Destroying button")
-		button.destroy()
+		if is_instance_valid(button):
+			button.destroy()
 
 func _ready() -> void:
 	left_anchor_before = anchor_left
@@ -92,6 +98,10 @@ func on_contact_press(contact: ChatResource) -> void:
 	print("Contact pressed! :", contact.name)
 	if contact_pressed: return # prevent multiple presses
 	contact_pressed = true
+
+	if DialogueSystem.in_dialogue and GuiSystem.in_phone:
+		print("Pausing conversation")
+		pause_conversation()
 	
 	setup_dms(contact)
 	tween_forward()
@@ -105,6 +115,7 @@ func setup_dms(contact: ChatResource) -> void:
 	contact.start_chat()
 
 func clear_boxes() -> void:
+	first_message = true;
 	#clear boxes
 	for node: Node in dialogue_container.get_children():
 		node.queue_free()
@@ -129,7 +140,11 @@ func on_back_pressed() -> void:
 
 ## INHERITED
 var last_speaker: String = ""
-func add_line(line: InkLineInfo) -> void:
+func add_line(line: InkLineInfo, skip_delay : bool = false) -> void:
+	#DELAY BEFORE SHOWING (except on first message)
+	var delay_time : float = line.text.length()/30.0
+	
+	dialogue_scroll_container.offset_bottom = 0
 	touch_screen.visible = true
 	var clone: DialogueLine
 	#decide which prefab to instance
@@ -147,25 +162,53 @@ func add_line(line: InkLineInfo) -> void:
 	if last_speaker == line.speaker:
 		clone.toggle_image(false)
 	else:
+		if line.speaker != "Olivia":
+			delay_time+=1 ##Delay if NPC is replying
+		else:
+			delay_time = 0
 		clone.set_image(character.image_profile)
 	last_speaker = line.speaker
+
+	##DELAY BEFORE SHOWING MESSAGE
+	if first_message or skip_delay or !DialogueSystem.in_dialogue:
+		first_message = false
+	else:
+		delayed_lines.push_back(line)
+		await get_tree().create_timer(delay_time).timeout
+		var newline : InkLineInfo = delayed_lines.pop_back()
+		if newline == null or line != newline:
+			#a different conversation has started
+			return
 
 	#add to tree
 	dialogue_container.add_child(clone)
 
 	#animate text (fires the "done" signal so the dialogue can advance)
 	var animated_label: AnimatedTextLabel = AnimatedTextLabel.new(self, clone.Text)
-	print("Setting text: ", line.text, " in ", clone.Text)
 	animated_label.set_text(line)
+
+	#ADVANCE DIALOGUE AUTOMATICALLY
+	DialogueSystem.advance_dialogue()
 
 func set_choices(choices: Array[InkChoiceInfo]) -> void:
 	touch_screen.visible = false
 	for choice in choices:
 		MessageAppChoiceButton.new(self, choice_container, choice)
+	
+	dialogue_scroll_container.offset_bottom = -41*choices.size()-10
+	await get_tree().process_frame
+	var scrollbar : VScrollBar = dialogue_scroll_container.get_v_scroll_bar()
+	var max_scroll_length : float = scrollbar.max_value
+	dialogue_scroll_container.scroll_vertical = int(max_scroll_length)
 
 func pause_conversation() -> void:
+	var revert_one_line : bool = false #if we stopped the conversation early, it should be one line behind when they come back
+	if delayed_lines.size() > 0:
+		print("delayed lines > 0")
+		revert_one_line = true
+		delayed_lines.clear()
 	if !DialogueSystem.are_choices:
-		DialogueSystem.pause_dialogue()
+		DialogueSystem.pause_dialogue(revert_one_line)
 		clear_boxes()
 
 func skip() -> void:

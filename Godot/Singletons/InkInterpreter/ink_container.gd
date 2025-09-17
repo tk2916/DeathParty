@@ -15,11 +15,10 @@ func _init(
     _name : String,
     _path : String, 
     _evaluation_stack: Array[String] = [], 
-    _condition : bool = true,
     is_redirect : bool = false,
 ) -> void:
     #print("Initial container names: ", _name)
-    super(_parent_container, _path, _evaluation_stack, _condition)
+    super(_parent_container, _path, _evaluation_stack)
     name = _name
     if parent_container:
         if is_redirect:

@@ -9,9 +9,8 @@ func _init(
 	_speaker : String,
 	_text : String, 
 	_condition_stack: Array[String] = [], 
-	_condition : bool = true, 
 ) -> void:
-	super(_parent_container, _path, _condition_stack, _condition)
+	super(_parent_container, _path, _condition_stack)
 	speaker = _speaker
 	text = _text
 	if parent_container:

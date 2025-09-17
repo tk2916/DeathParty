@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://iuue476upc48"]
+
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_6gqde"]
+[ext_resource type="PackedScene" uid="uid://bvjqxnm7cpxq0" path="res://Assets/environment/cupboard/cupboard.tscn" id="1_b2yg3"]
+[ext_resource type="Resource" uid="uid://bl7xlmmftkyu7" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/kitchen_appliances_properties.tres" id="2_mtxdq"]
+
+[node name="Cupboards" type="Node3D"]
+transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, 0, 0, 0)
+script = ExtResource("1_6gqde")
+talking_object_resource = ExtResource("2_mtxdq")
+
+[node name="Cupboard" parent="." instance=ExtResource("1_b2yg3")]
+transform = Transform3D(0.0981181, 0, -0.000140211, 0, 0.183089, 0, 0.000170847, 0, 0.080524, -2.92851, 1.56813, -0.634586)
+
+[node name="Cupboard2" parent="." instance=ExtResource("1_b2yg3")]
+transform = Transform3D(0.0981181, 0, -0.000140211, 0, 0.183089, 0, 0.000170847, 0, 0.080524, -2.06548, 1.56813, -0.634586)
+
+[node name="Cupboard3" parent="." instance=ExtResource("1_b2yg3")]
+transform = Transform3D(0.196236, 0, -0.000139967, 0, 0.183089, 0, 0.000341694, 0, 0.0803838, 1.57842, 1.56813, -0.634586)
+
+[node name="Cupboard4" parent="." instance=ExtResource("1_b2yg3")]
+transform = Transform3D(-0.000341702, 0, -0.0803838, 0, 0.183089, 0, 0.196236, 0, -0.000139971, 2.72913, 1.56813, 0.516122)
+
+[node name="Cupboard5" parent="." instance=ExtResource("1_b2yg3")]
+transform = Transform3D(-0.000280965, 0, -0.0803767, 0, 0.183089, 0, 0.161355, 0, -0.000139959, 2.72913, 1.56813, 2.14629)

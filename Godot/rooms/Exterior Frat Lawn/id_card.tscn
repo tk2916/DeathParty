@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bltu8s8l4ihrv"]
+[gd_scene load_steps=6 format=3 uid="uid://bltu8s8l4ihrv"]
 
 [ext_resource type="PackedScene" uid="uid://dyu7jnww1pkd6" path="res://rooms/Exterior Frat Lawn/wallet and ID.glb" id="1_7e6jp"]
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_7ovxn"]
+[ext_resource type="Resource" uid="uid://6y3d0fbgk6f4" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/idcard_properties.tres" id="3_pf67t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7e6jp"]
 transparency = 1
@@ -11,6 +13,8 @@ transparency = 1
 depth_draw_mode = 1
 
 [node name="ID card" instance=ExtResource("1_7e6jp")]
+script = ExtResource("2_7ovxn")
+talking_object_resource = ExtResource("3_pf67t")
 
 [node name="IDcard" parent="." index="0"]
 transform = Transform3D(-0.186502, 3.88885e-12, 0.0061646, 0.010199, -0.000249188, 0.11138, -0.00112166, -0.00226582, -0.0122492, 0, 0, 0)

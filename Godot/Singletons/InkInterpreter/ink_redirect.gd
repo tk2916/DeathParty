@@ -7,9 +7,8 @@ func _init(
     _redirect : String,
     _path : String, 
     _evaluation_stack: Array = [], 
-    _condition : bool = true
 ) -> void:
-    super(_parent_container, _path, _evaluation_stack, _condition)
+    super(_parent_container, _path, _evaluation_stack)
     redirect = _redirect
     _parent_container.dialogue_lines.push_back(self)
 

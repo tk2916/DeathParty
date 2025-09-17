@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dg5lud6e674m5" path="res://rooms/bedroom/dorm bookshelf.glb" id="1_kehos"]
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_ng412"]
-[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaDormBookcase.ink.json" id="3_n3ctl"]
+[ext_resource type="Resource" uid="uid://d0fndtx3jo5n3" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/bookcase_properties.tres" id="3_ng412"]
 
 [node name="dorm bookshelf" instance=ExtResource("1_kehos")]
 script = ExtResource("2_ng412")
-dialogue_on_interact = ExtResource("3_n3ctl")
+talking_object_resource = ExtResource("3_ng412")
