@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" path="res://Utilities/stats.tscn" id="56_e71vb"]
 [ext_resource type="PackedScene" uid="uid://byfsccg4kb4bw" path="res://polaroid_pop_up.tscn" id="57_vke2r"]
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
-[ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
+[ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://Assets/CharacterAssets/bartender/Kitchen.tscn" id="67_rqtf5"]
 
 [sub_resource type="Resource" id="Resource_a6jrf"]
 metadata/__load_path__ = "res://Assets/InkExamples/example.ink7.json"

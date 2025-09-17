@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cn707228cpn0v"]
 
-[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_cmhhv"]
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_7qhes"]
 [ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://Assets/props/red_cup/red_cup.glb" id="1_doxhs"]
-[ext_resource type="Resource" uid="uid://r16cmm4nabg7" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/cups_on_floor_properties.tres" id="2_7qhes"]
+[ext_resource type="Resource" uid="uid://r16cmm4nabg7" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/cups_on_floor_properties.tres" id="2_prlkr"]
 
 [node name="CupsOnFloor" type="Node3D"]
 transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, 0, 0, 0)
-script = ExtResource("1_cmhhv")
-talking_object_resource = ExtResource("2_7qhes")
+script = ExtResource("1_7qhes")
+talking_object_resource = ExtResource("2_prlkr")
 
 [node name="Cup" parent="." instance=ExtResource("1_doxhs")]
 transform = Transform3D(0.0106429, -0.22037, 0.0831477, 0.2355, 0.0113736, 0, -0.00401099, 0.083051, 0.220626, -3.01406, 1.31247, 5.1322)

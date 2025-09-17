@@ -127,10 +127,12 @@ func redirect_path_to_address(current_address : InkAddress, path : String) -> In
 		for n in range(1, final_index): # exclude last element (redirect or index), skip first element (empty space)
 			var item : String = path_array[n]
 			if item == "^":
+				print("Found carat")
 				if first_carat:
 					first_carat = false
 					continue
 				else:
+					print("Going up a container: ", new_address.container.name, " -> ", new_address.container.parent_container.name)
 					new_address.container = new_address.container.parent_container # set address container to parent
 
 		# Get index or redirect container within current container

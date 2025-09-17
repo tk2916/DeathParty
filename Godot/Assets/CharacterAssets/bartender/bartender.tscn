@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8rq8p1i25wix"]
+[gd_scene load_steps=5 format=3 uid="uid://ck4xtxo7o2lj3"]
 
 [ext_resource type="PackedScene" uid="uid://ccnq3piokb8b1" path="res://Assets/CharacterAssets/bartender/Bartender.glb" id="1_1fimp"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_8jnbp"]

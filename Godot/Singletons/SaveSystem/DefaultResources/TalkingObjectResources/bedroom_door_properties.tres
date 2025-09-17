@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TalkingObjectResource" load_steps=4 format=3 uid="uid://kc633bug7tos"]
 
-[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaDormBookcase.ink.json" id="1_yhbtn"]
-[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="2_78m8b"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaDormDoor.ink.json" id="1_yhbtn"]
+[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="2_78m8b"]
 [ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="3_k01bb"]
 
 [resource]

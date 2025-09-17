@@ -3,7 +3,7 @@
 [ext_resource type="JSON" path="res://Assets/InkFiles/OliviaBartenderKitchen.ink.json" id="1_2hbgg"]
 [ext_resource type="Texture2D" uid="uid://54x56h7xrd4q" path="res://Assets/CharacterAssets/Polaroids/bartender_a.png" id="1_fyumu"]
 [ext_resource type="Texture2D" uid="uid://cnp53nqjoyhc" path="res://Assets/CharacterAssets/Polaroids/bartender_b.png" id="2_qsf6a"]
-[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="3_3x2fh"]
+[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="3_3x2fh"]
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="3_aalyl"]
 
 [resource]
