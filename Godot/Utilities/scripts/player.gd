@@ -138,14 +138,19 @@ func handle_animations(delta: float) -> void:
 
 func rotate_model(delta: float) -> void:
 	# rotate model slightly towards camera while idle
-	if current_animation == AnimationState.IDLE:
-		if facing == -1:
-			model.rotation.y = lerp_angle(model.rotation.y, -PI / 5, blend_speed * delta)
-		if facing == 1:
-			model.rotation.y = lerp_angle(model.rotation.y, PI / 5, blend_speed * delta)
-
-	# rotate while moving
-	if current_animation == AnimationState.WALK or AnimationState.JOG:
+	# if current_animation == AnimationState.IDLE:
+	# 	if facing == -1:
+	# 		model.rotation.y = lerp_angle(model.rotation.y, -PI / 5, blend_speed * delta)
+	# 	if facing == 1:
+	# 		model.rotation.y = lerp_angle(model.rotation.y, PI / 5, blend_speed * delta)	# rotate while moving
+	# if current_animation == AnimationState.WALK or AnimationState.JOG:
+		# model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
+	# 
+	# ^ commented out the old code which rotated the model to the camera while idle
+	#
+	# for some reason using the logic of checking current_animation wouldnt work when i disabled that
+	# so thats why we have this ugly check for all movement inputs lol (sorry)
+	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
 		model.rotation.y = lerp_angle(model.rotation.y, basis.z.signed_angle_to(velocity, basis.y), blend_speed * delta)
 
 
