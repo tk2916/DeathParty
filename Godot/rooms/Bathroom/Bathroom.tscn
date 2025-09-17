@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://o1miuonfuk7"]
+[gd_scene load_steps=86 format=4 uid="uid://o1miuonfuk7"]
 
 [ext_resource type="Texture2D" uid="uid://bwyduh5ck58ao" path="res://rooms/Bathroom/Bathroom layout_IMG_4144.png" id="1_3eiq5"]
 [ext_resource type="Script" uid="uid://c00klyh6eq146" path="res://rooms/Bathroom/bathroom.gd" id="1_qgpod"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bekk2pej44hkd" path="res://rooms/Bathroom/Bathroom layout_wooddark.png" id="3_moj8i"]
 [ext_resource type="Texture2D" uid="uid://6sxva7xhuvix" path="res://Assets/pop_ups/EnterArrowRight.png" id="4_dbaul"]
 [ext_resource type="Texture2D" uid="uid://bqar6l142xdsc" path="res://rooms/Bathroom/Bathroom layout_IMG_4162.png" id="4_qgpod"]
-[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="5_icx1l"]
 [ext_resource type="Texture2D" uid="uid://cfw17stkpko7w" path="res://rooms/Bathroom/Bathroom layout_IMG_0536.png" id="5_uea66"]
 [ext_resource type="PackedScene" uid="uid://d1dmvsqupb3xm" path="res://Assets/CharacterAssets/Jesus/jesus.tscn" id="5_uyvi5"]
 [ext_resource type="Texture2D" uid="uid://bmub61elciuu6" path="res://rooms/Bathroom/Bathroom layout_woodlight1.png" id="6_duuvr"]
@@ -28,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ao6n4p81227" path="res://Assets/CharacterAssets/bunnies/white_bunny/white_bunny.tscn" id="21_hbt0t"]
 [ext_resource type="PackedScene" uid="uid://bgjtl8sm74fd2" path="res://Assets/props/hot_dog_stand/hot_dog_stand.tscn" id="22_htvqj"]
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="23_sjkt2"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/bathroom_Olivia_graffiti_interact.json" id="24_16j1d"]
 [ext_resource type="PackedScene" uid="uid://qxtsegrvj5jn" path="res://Assets/environment/wall_lamps/wall_lamp_cone/wall_lamp_cone.tscn" id="24_cixmb"]
 [ext_resource type="PackedScene" uid="uid://dxahcd25ocjsx" path="res://Assets/props/balloons/balloons_four_tall.tscn" id="25_dn2c2"]
 [ext_resource type="PackedScene" uid="uid://ml4kn25ykoyy" path="res://Assets/props/keg/keg.tscn" id="26_c8t5l"]
@@ -44,6 +44,9 @@
 [ext_resource type="PackedScene" uid="uid://cjkogt4y2w5dp" path="res://Assets/CharacterAssets/bunnies/red_bunny/red_bunny.tscn" id="35_rjeq7"]
 [ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer.tscn" id="36_17afp"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="40_46x1s"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/bathroom_Olivia_makeup_npc_interact.json" id="40_l3jgi"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/bathroom_Olivia_drug_dealer_interact_looped.json" id="41_icx1l"]
+[ext_resource type="PackedScene" uid="uid://srm6yxmh01rl" path="res://rooms/Bathroom/toilet.glb" id="47_icx1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlpr6"]
 size = Vector3(13.2642, 4.39355, 10.2759)
@@ -556,7 +559,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vwuk5")
 
 [node name="Bathroom" type="Area3D" node_paths=PackedStringArray("room_area")]
-transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_qgpod")
 room_area = NodePath("RoomArea")
@@ -609,10 +611,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65482, -2.13015, -0.531126)
 
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("2_3y0er")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.82258, -1.96882, 0)
-target_scene = 3
+target_location_index = 1
 local_spawn_point = 1
-right_arrow_asset = null
-down_arrow_asset = ExtResource("5_icx1l")
+play_door_sound = true
+arrow_direction = 1
 
 [node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.63, 1.75, -1.5)
@@ -741,7 +743,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.00813317, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00813317, 0.111419, 0.11269, -0.0345619)
 
 [node name="Sink" parent="." instance=ExtResource("13_htvqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18989, -1.56048, -3.80021)
+transform = Transform3D(0.973561, 0, 0, 0, 0.845225, 0, 0, 0, 0.845225, 3.37567, -1.63731, -3.93006)
 
 [node name="SinkDripSound" type="FmodEventEmitter3D" parent="Sink"]
 event_name = "event:/000_SFX/000_Demo_Test/013_SFX_SinkDrip"
@@ -753,22 +755,27 @@ volume = 0.25
 transform = Transform3D(0.973203, 0, 0, 0, 0.973203, 0, 0, 0, 0.973203, -3.22659, -1.4682, -2.54998)
 
 [node name="fancy mirror" parent="." instance=ExtResource("18_dbaul")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01783, 0.141108, -4.4494)
+transform = Transform3D(0.75792, 0, 0, 0, 0.75792, 0, 0, 0, 0.75792, 3.19922, -0.233918, -4.47551)
 
 [node name="WallLamp" parent="." instance=ExtResource("24_cixmb")]
 transform = Transform3D(-4.7659e-08, 0, -1.09031, 0, 1.09031, 0, 1.09031, 0, -4.7659e-08, 1.73995, 0.0351484, -4.53407)
 
+[node name="industrial_wall_sconce_industrial_wall_sconce_0_005" parent="WallLamp" index="0"]
+transform = Transform3D(1.88538e-08, -0.158157, -3.77075e-08, -3.77075e-08, -3.77075e-08, 0.158157, -0.158157, -1.88538e-08, -3.77076e-08, -0.0149193, -0.296974, -0.347762)
+
 [node name="SpotLight3D" parent="WallLamp" index="1"]
-transform = Transform3D(0.995125, -0.00357959, -0.0985601, 0.098625, 0.036118, 0.994469, 2.13117e-10, -0.999341, 0.0362949, 0.427708, -0.020424, -2.38419e-07)
-light_color = Color(0.98, 0.44688, 0.0392, 1)
+transform = Transform3D(0.912699, -0.00328309, -0.0903963, 0.0904559, 0.0331264, 0.912098, 1.9547e-10, -0.916566, 0.0332887, 0.31724, -0.39678, -0.349519)
+light_color = Color(0.98, 0.61936, 0.0392, 1)
 light_energy = 50.0
-light_volumetric_fog_energy = 50.0
-spot_range = 3.202
+light_volumetric_fog_energy = 100.0
+shadow_enabled = false
+spot_range = 3.788
 spot_attenuation = 1.0
-spot_angle = 22.31
+spot_angle = 38.67
 
 [node name="OmniLight3D" parent="WallLamp" index="2"]
-transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0.413326, -0.329722, -1.19209e-07)
+transform = Transform3D(0.91717, 0, 3.55271e-15, 0, 0.91717, 0, -3.55271e-15, 0, 0.91717, 0.384281, -0.519575, -0.364916)
+visible = false
 light_color = Color(1, 0.716667, 0, 1)
 light_energy = 50.0
 light_volumetric_fog_energy = 30.0
@@ -778,8 +785,12 @@ omni_attenuation = 1.0
 [node name="WallLamp2" parent="." instance=ExtResource("24_cixmb")]
 transform = Transform3D(-4.7659e-08, 0, -1.09031, 0, 1.09031, 0, 1.09031, 0, -4.7659e-08, 4.37235, 0.0351484, -4.53407)
 
+[node name="industrial_wall_sconce_industrial_wall_sconce_0_005" parent="WallLamp2" index="0"]
+transform = Transform3D(1.88538e-08, -0.158157, -3.77075e-08, -3.77075e-08, -3.77075e-08, 0.158157, -0.158157, -1.88538e-08, -3.77076e-08, -0.0149193, -0.296974, 0.0259202)
+
 [node name="SpotLight3D" parent="WallLamp2" index="1"]
 transform = Transform3D(0.995125, -0.00357959, -0.0985601, 0.098625, 0.036118, 0.994469, 2.13117e-10, -0.999341, 0.0362949, 0.427708, -0.020424, -2.38419e-07)
+visible = false
 light_color = Color(0.98, 0.44688, 0.0392, 1)
 light_energy = 50.0
 light_volumetric_fog_energy = 50.0
@@ -789,14 +800,23 @@ spot_angle = 22.31
 
 [node name="OmniLight3D" parent="WallLamp2" index="2"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0.413326, -0.329722, -1.19209e-07)
+visible = false
 light_color = Color(1, 0.766667, 0, 1)
 light_energy = 50.0
 light_volumetric_fog_energy = 30.0
 shadow_enabled = false
 omni_attenuation = 1.0
 
+[node name="SpotLight3D2" type="SpotLight3D" parent="WallLamp2"]
+transform = Transform3D(0.912699, -0.00328309, -0.0903963, 0.0904559, 0.0331264, 0.912098, 1.9547e-10, -0.916566, 0.0332887, 0.317239, -0.39678, 0.0363796)
+light_color = Color(0.98, 0.61936, 0.0392, 1)
+light_energy = 50.0
+light_volumetric_fog_energy = 100.0
+spot_range = 3.788
+spot_angle = 38.67
+
 [node name="TissueDispenser" parent="." instance=ExtResource("18_alw3p")]
-transform = Transform3D(1.29289, 0, 0, 0, 1.29289, 0, 0, 0, 1.29289, 5.34513, -0.00661792, -3.07714)
+transform = Transform3D(1.0254, 0, 0, 0, 1.0254, 0, 0, 0, 1.0254, 5.34513, -0.557334, -2.59834)
 
 [node name="DiscoLights" parent="." instance=ExtResource("13_uea66")]
 transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, -2.05757, 1.09594, -0.286055)
@@ -900,6 +920,7 @@ transform = Transform3D(0.9525, -8.933e-05, -0.0298424, 0.000101212, 0.952968, 0
 
 [node name="graf_004" parent="Graffiti" index="1"]
 script = ExtResource("23_sjkt2")
+dialogue_on_interact = ExtResource("24_16j1d")
 
 [node name="graf_005" parent="Graffiti" index="2"]
 transform = Transform3D(1.88731, -0.000606835, 0.186284, 0.18628, -0.00774927, -1.8873, -0.00136506, -1.89647, 0.00765219, 3.74531, 4.16608, -2.19784)
@@ -917,7 +938,7 @@ transform = Transform3D(0.255065, -4.09782e-07, -0.966924, 0.966924, 5.95464e-08
 transform = Transform3D(-0.289472, -1.72295e-07, 0.391071, -0.391071, -2.32336e-07, -0.289472, 2.87779e-07, -0.486549, -1.86265e-09, 7.58354, -1.03668, -1.11105)
 
 [node name="Trashcan" parent="." instance=ExtResource("19_r2w82")]
-transform = Transform3D(0.805545, 0, -0.0977813, 0, 0.894754, 0, 0.0977813, 0, 0.805545, 4.9036, -1.80825, -2.8243)
+transform = Transform3D(0.665455, 0, -0.0807764, 0, 0.73915, 0, 0.0807764, 0, 0.665455, 4.9036, -1.80825, -2.8243)
 
 [node name="HotDogStand" parent="." instance=ExtResource("22_htvqj")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -5.80337, -2.39737, 0.687645)
@@ -1050,7 +1071,7 @@ transform = Transform3D(-0.230673, -0.0474685, 0.0112298, 0, 0.0542798, 0.229441
 transform = Transform3D(-0.229998, -0.0504774, 0.0119415, 3.39363e-09, 0.0542798, 0.229441, -0.05187, 0.22382, -0.05295, -2.56923, 0.882565, 2.78631)
 
 [node name="Cup9" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
-transform = Transform3D(0.127769, 0.192831, -0.0456187, 3.29384e-10, 0.0542798, 0.229441, 0.198153, -0.124338, 0.029415, -1.9376, 0.899615, 2.92876)
+transform = Transform3D(0.127471, 0.196502, -0.0269827, -0.007392, 0.0367586, 0.232774, 0.198207, -0.125004, 0.0260343, -1.9376, 0.870211, 2.92876)
 
 [node name="Cup10" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
 transform = Transform3D(-0.011095, 0.22973, 0.05187, 0.2355, 0.0113736, -8.48408e-10, -0.0025022, 0.0518095, -0.229998, -1.83378, 0.936977, 1.82708)
@@ -1059,31 +1080,34 @@ transform = Transform3D(-0.011095, 0.22973, 0.05187, 0.2355, 0.0113736, -8.48408
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38037, -2.15731, 1.0661)
 
 [node name="cone ghost" parent="NPCs" instance=ExtResource("27_kqfen")]
-transform = Transform3D(1.26391, 0, 0, 0, 1.26391, 0, 0, 0, 1.26391, 1.54565, 0.620375, -4.35039)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54565, 0.812936, -4.35039)
 
 [node name="batman" parent="NPCs" instance=ExtResource("28_0gtm2")]
 transform = Transform3D(1.69276, 0, 0, 0, 1.69276, 0, 0, 0, 1.69276, 4.91007, -0.640438, -3.83338)
 
 [node name="Jesus" parent="NPCs" instance=ExtResource("5_uyvi5")]
-transform = Transform3D(1.17787, 0, -0.0929695, 0, 1.18154, 0, 0.0929695, 0, 1.17787, 2.08641, -0.238866, -1.49376)
+transform = Transform3D(0.996899, 0, -0.0786855, 0, 1, 0, 0.0786855, 0, 0.996899, 2.08641, -0.238866, -1.49376)
 
 [node name="DrugDealer" parent="NPCs" instance=ExtResource("14_duuvr")]
-transform = Transform3D(0.647317, 0, 0.721472, 0, 0.969299, 0, -0.721472, 0, 0.647317, -0.395593, -0.194828, 0.09628)
+transform = Transform3D(0.667819, 0, 0.744323, 0, 1, 0, -0.744323, 0, 0.667819, -0.395593, -0.194828, 0.09628)
+default_json = ExtResource("41_icx1l")
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("21_hbt0t")]
-transform = Transform3D(-1.21819, 0, 0.312007, 0, 1.25751, 0, -0.312007, 0, -1.21819, 7.92395, -0.239568, -2.85654)
+transform = Transform3D(-0.968731, 0, 0.248115, 0, 1, 0, -0.248115, 0, -0.968731, 7.92395, -0.239568, -2.85654)
 
 [node name="Bunny2" parent="NPCs" instance=ExtResource("35_rjeq7")]
-transform = Transform3D(1.26223, 0, 0, 0, 1.26223, 0, 0, 0, 1.26223, 6.98782, -0.240322, -3.62567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.98782, -0.240322, -3.62567)
+starter_json = ExtResource("40_l3jgi")
+default_json = null
 
 [node name="cop" parent="NPCs" instance=ExtResource("34_jy5jw")]
-transform = Transform3D(0.744814, 0, 0.869726, 0, 1.14506, 0, -0.869726, 0, 0.744814, 0.904997, -0.232421, -1.38849)
+transform = Transform3D(0.650456, 0, 0.759544, 0, 1, 0, -0.759544, 0, 0.650456, 0.904997, -0.232421, -1.38849)
 
 [node name="dino" parent="NPCs" instance=ExtResource("36_17afp")]
 transform = Transform3D(1.17834, 0, 0.260541, 0, 1.2068, 0, -0.260541, 0, 1.17834, 2.94863, -0.234269, -4.58556)
 
 [node name="free hug2" parent="NPCs" instance=ExtResource("40_46x1s")]
-transform = Transform3D(-1.2976, 0, -0.00910455, 0, 1.29763, 0, 0.00910455, 0, -1.2976, -0.389518, -0.216703, -4.03119)
+transform = Transform3D(-0.999975, 0, -0.00701628, 0, 1, 0, 0.00701628, 0, -0.999975, -0.389518, -0.216703, -4.03119)
 
 [node name="Skeleton3D" parent="NPCs/free hug2/free hug" index="0"]
 bones/0/position = Vector3(0.492276, -10.1502, -46.6561)
@@ -1190,6 +1214,12 @@ bones/63/rotation = Quaternion(0.288924, 0.0842996, -0.0890938, 0.949462)
 
 [node name="AnimationPlayer" parent="NPCs/free hug2" index="1"]
 autoplay = "puke"
+
+[node name="toilet" parent="." instance=ExtResource("47_icx1l")]
+transform = Transform3D(0.862797, 0, 0, 0, 0.862797, 0, 0, 0, 0.862797, -4.79865, -1.71662, -3.86615)
+
+[node name="toilet2" parent="." instance=ExtResource("47_icx1l")]
+transform = Transform3D(0.862797, 0, 0, 0, 0.862797, 0, 0, 0, 0.862797, -1.34222, -1.71662, -3.86615)
 
 [editable path="SceneLoader_PartyRoom"]
 [editable path="SceneLoader_PartyRoom/InteractionDetector"]

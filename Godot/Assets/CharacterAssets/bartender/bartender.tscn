@@ -7,11 +7,13 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8jnbp"]
 
 [node name="Bartender" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_1fimp")]
-transform = Transform3D(1.00957, 0, 0, 0, 1.0458, 0, 0, 0, 1.00957, 0, 0, 0)
 script = ExtResource("2_8jnbp")
-character_resource = ExtResource("3_8y3le")
+character_resource = SubResource("Resource_8jnbp")
 primary_mesh = NodePath("Model/Skeleton3D/Basemesh_F_020_002")
 outline_thickness = 0.3
+
+[node name="Model" parent="." index="0"]
+transform = Transform3D(1.025, 0, 0, 0, 1.025, 0, 0, 0, 1.025, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Model" index="0"]
 bones/0/position = Vector3(0.0174506, 1.01803, -0.00183699)
@@ -167,3 +169,6 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.956206, 0)
 shape = SubResource("CapsuleShape3D_8jnbp")
+
+[node name="Node3D" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)

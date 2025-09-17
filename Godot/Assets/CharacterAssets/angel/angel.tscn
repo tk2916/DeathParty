@@ -8,10 +8,12 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hdmtj"]
 
 [node name="Angel" instance=ExtResource("1_hn8kl")]
-transform = Transform3D(1.08275, 0, 0, 0, 1.08275, 0, 0, 0, 1.08275, 0, 0, 0)
 script = ExtResource("2_hdmtj")
 character_resource = ExtResource("3_emiji")
 outline_thickness = 0.3
+
+[node name="model angel" parent="." index="0"]
+transform = Transform3D(1.95, 0, 0, 0, -8.52372e-08, -1.95, 0, 1.95, -8.52372e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="model angel" index="0"]
 bones/0/position = Vector3(0.00466147, 0.00995347, -0.542686)

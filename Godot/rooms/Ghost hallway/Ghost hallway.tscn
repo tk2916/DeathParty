@@ -62,7 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://b6nkql64iwq61" path="res://rooms/Ghost hallway/fire/fire-10.png" id="58_urdp6"]
 [ext_resource type="Texture2D" uid="uid://dcyx6nxctxmpd" path="res://rooms/Ghost hallway/fire/fire-11.png" id="59_65wwx"]
 [ext_resource type="Texture2D" uid="uid://bp4plqqk6pcdx" path="res://rooms/Ghost hallway/fire/fire-12.png" id="60_5rqn6"]
-[ext_resource type="PackedScene" uid="uid://i7gdcbnkh0w4" path="res://rooms/Ghost hallway/blue_sky.tscn" id="61_u8eoh"]
+[ext_resource type="PackedScene" path="res://rooms/Ghost hallway/blue_sky.tscn" id="61_u8eoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxaoo"]
 size = Vector3(13.7318, 4.49936, 7.14718)
@@ -1831,7 +1831,7 @@ mesh = SubResource("ArrayMesh_m834i")
 skeleton = NodePath("")
 
 [node name="FreeHugGuy" parent="." instance=ExtResource("21_r4dg4")]
-transform = Transform3D(-0.565754, 0, 1.04708, 0, 1.19015, 0, -1.04708, 0, -0.565754, 1.06782, -1.14312, 1.34044)
+transform = Transform3D(-0.475364, 0, 0.879789, 0, 1, 0, -0.879789, 0, -0.475364, 1.06782, -1.14312, 1.34044)
 
 [node name="Skeleton3D" parent="FreeHugGuy/free hug" index="0"]
 bones/0/position = Vector3(0.198028, -19.9796, -58.6069)
@@ -1985,7 +1985,7 @@ size = Vector3(13, 5, 10)
 material = SubResource("FogMaterial_ayop1")
 
 [node name="RedBunny" parent="." instance=ExtResource("22_uaw28")]
-transform = Transform3D(-1.13303, 0, 0.237631, 0, 1.15768, 0, -0.237631, 0, -1.13303, -4.72686, -1.18137, -0.328684)
+transform = Transform3D(-0.978706, 0, 0.205265, 0, 1, 0, -0.205265, 0, -0.978706, -4.72686, -1.18137, -0.328684)
 
 [node name="Skeleton3D" parent="RedBunny/model_001" index="0"]
 bones/0/position = Vector3(-3.29559, -2.61634, -99.3374)

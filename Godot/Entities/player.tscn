@@ -24,7 +24,6 @@ animation = &"the walking"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ov2v6"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gb1tc"]
-graph_offset = Vector2(26.1266, -45.6533)
 "nodes/Idle Anim/node" = SubResource("AnimationNodeAnimation_pvmex")
 "nodes/Idle Anim/position" = Vector2(160, 100)
 "nodes/Jog Anim/node" = SubResource("AnimationNodeAnimation_xd3k7")

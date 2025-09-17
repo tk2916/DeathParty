@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhn4nq3dwy343"]
+
+[ext_resource type="PackedScene" uid="uid://csh7q4aonjs3d" path="res://Assets/CharacterAssets/frat_boys/red_hat_frat_boy/Frat boy red hat.glb" id="1_0j1lr"]
+
+[node name="Frat boy red hat" instance=ExtResource("1_0j1lr")]

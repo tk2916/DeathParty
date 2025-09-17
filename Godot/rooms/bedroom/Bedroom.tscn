@@ -1,4 +1,4 @@
-[gd_scene load_steps=249 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=246 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -10,10 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bxej6ebm3jetb" path="res://rooms/bedroom/Bedroom_woodmedium.png" id="3_rbtdn"]
 [ext_resource type="PackedScene" uid="uid://8npa6vrpy0jb" path="res://rooms/bedroom/punk posters.glb" id="3_w0jyq"]
 [ext_resource type="Texture2D" uid="uid://b8uue8x55guj4" path="res://rooms/bedroom/polaroids and poster_love birds.png" id="4_fa1og"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/RowanDormInvite.json" id="4_kajnm"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/RowanDormInvite.ink.json" id="4_otruv"]
 [ext_resource type="Texture2D" uid="uid://d0vlsucaate3q" path="res://rooms/bedroom/punk posters_singer poster.png" id="4_tluma"]
 [ext_resource type="Texture2D" uid="uid://dcblfnhmnjp1h" path="res://rooms/bedroom/polaroids and poster_Sam tatt.png" id="5_dyybh"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/DP_dialogue test 2.5_conditionals.json" id="5_kxkdt"]
 [ext_resource type="PackedScene" uid="uid://dijllg5x7mlpw" path="res://rooms/bedroom/bed.glb" id="5_rbtdn"]
 [ext_resource type="JSON" path="res://Assets/InkFiles/OliviaDormClosePhone.json" id="5_shd6j"]
 [ext_resource type="Texture2D" uid="uid://fuhn5pxlrdsu" path="res://rooms/bedroom/polaroids and poster_Rush over.png" id="6_0t478"]
@@ -22,11 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://b8ucr48tcuk2p" path="res://rooms/bedroom/dorm desk.glb" id="7_7a5mm"]
 [ext_resource type="Texture2D" uid="uid://dke1flebhebj4" path="res://rooms/bedroom/polaroids and poster_study date wiht nora.png" id="7_84fnt"]
 [ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="8_8bc0i"]
-[ext_resource type="PackedScene" uid="uid://d1qxgis4ntsgc" path="res://bedroom_door.tscn" id="8_kxkdt"]
-[ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="9_kxkdt"]
 [ext_resource type="PackedScene" uid="uid://bjlg5o0t38qqs" path="res://rooms/bedroom/shoe rack.glb" id="9_l0p45"]
 [ext_resource type="PackedScene" uid="uid://bgeyi70mq0w08" path="res://rooms/bedroom/dorm string lights.glb" id="12_0ajex"]
-[ext_resource type="Resource" uid="uid://bijwy7mhohjk3" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/camera_properties.tres" id="12_86ph5"]
 [ext_resource type="Texture2D" uid="uid://b8qqpb3hhwxlu" path="res://rooms/bedroom/bed shelf_dark b.png" id="12_h7dpu"]
 [ext_resource type="Texture2D" uid="uid://ct3k0jic0541x" path="res://rooms/bedroom/bed shelf_Image_0.png" id="13_pstno"]
 [ext_resource type="PackedScene" uid="uid://7m16a0qo1h75" path="res://rooms/bedroom/hanging ivy.glb" id="13_ufsvp"]
@@ -88,6 +84,7 @@
 [ext_resource type="Texture2D" uid="uid://dvixxs4ofg1hj" path="res://rooms/bedroom/punk posters_Image_2.jpg" id="62_vr1g1"]
 [ext_resource type="Texture2D" uid="uid://bgdnqggiql0ln" path="res://rooms/bedroom/punk posters_Style baseloose.png" id="63_shd6j"]
 [ext_resource type="PackedScene" uid="uid://dasq5wgeyo38c" path="res://Assets/props/polaroid_camera_collectable.tscn" id="66_dyybh"]
+[ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="69_tt7nc"]
 [ext_resource type="PackedScene" uid="uid://5dyu4rpk5qa6" path="res://rooms/bedroom/LEO.glb" id="70_b33ja"]
 [ext_resource type="Texture2D" uid="uid://jhllv8yv42pa" path="res://rooms/bedroom/carn poster_carn stranglers.png" id="81_5smtm"]
 [ext_resource type="PackedScene" uid="uid://b5sjjc5i61576" path="res://Singletons/ContentLoader/TeleportPoint.tscn" id="88_otruv"]
@@ -112,7 +109,7 @@ size = Vector3(1, 2, 0.1)
 size = Vector3(1.4, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kvlly"]
-size = Vector3(3, 2, 0.1)
+size = Vector3(3, 2, 0.156934)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2qrk"]
 size = Vector3(2, 2, 0.1)
@@ -127,7 +124,7 @@ size = Vector3(1.5, 2, 0.1)
 size = Vector3(5, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b70md"]
-size = Vector3(1, 1, 2)
+size = Vector3(1, 1, 0.585815)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otruv"]
 resource_local_to_scene = true
@@ -2079,7 +2076,6 @@ shadow_mesh = SubResource("ArrayMesh_o7qs3")
 resource_name = "Material.014"
 cull_mode = 2
 albedo_texture = ExtResource("81_5smtm")
-roughness = 0.834764
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rx7x6"]
 _surfaces = [{
@@ -2114,7 +2110,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rx7x6")
 
 [node name="Bedroom" type="Area3D" node_paths=PackedStringArray("play_button", "quit_button", "fade_title", "title_screen", "closet", "room_area", "path_follow_node") groups=["loadable_scene"]]
-transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_lxtj2")
 play_button = NodePath("TitleScreen/FadeThisOut/StartGameButton")
@@ -2128,8 +2123,7 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
 [node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader") instance=ExtResource("3_84fnt")]
-rowan_invite_dialogue = ExtResource("4_kajnm")
-example_json = ExtResource("5_kxkdt")
+rowan_invite_dialogue = ExtResource("4_otruv")
 on_phone_close_dialogue = ExtResource("5_shd6j")
 on_journal_dialogue = ExtResource("6_yxfps")
 exterior_scene_loader = NodePath("../SceneLoader_Exterior")
@@ -2167,7 +2161,7 @@ shape = SubResource("BoxShape3D_tluma")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, 1.8893, 0.889039, 3.86132)
+transform = Transform3D(7.94863e-08, 0, -1, 0, 1, 0, 1, 0, 7.94863e-08, 1.86083, 0.889039, 3.86132)
 shape = SubResource("BoxShape3D_kvlly")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
@@ -2192,19 +2186,20 @@ shape = SubResource("BoxShape3D_84fnt")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="Boundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 3.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 2.49291)
 shape = SubResource("BoxShape3D_b70md")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="BedroomDoor" parent="." instance=ExtResource("8_kxkdt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.24154, 1.0239, 5.16275)
+[node name="door" parent="." instance=ExtResource("69_tt7nc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0138568, 0.999265, 4.75011)
+
+[node name="Cube_122" parent="door" index="0"]
+transform = Transform3D(-7.11308e-09, 0, -0.162728, 0, 0.162728, 0, 0.162728, 0, -7.11308e-09, -2.17797, -0.155035, 0.425814)
 
 [node name="SceneLoader_Exterior" parent="." instance=ExtResource("6_x8yhf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48049, 0, 5.078)
-target_scene = 9
-left_arrow_asset = null
-right_arrow_asset = null
-down_arrow_asset = ExtResource("9_kxkdt")
+target_location_index = 7
+play_door_sound = true
 use_first_mesh = true
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
@@ -2264,7 +2259,6 @@ material = SubResource("FogMaterial_lxtj2")
 [node name="Polaroid Camera" parent="." instance=ExtResource("66_dyybh")]
 transform = Transform3D(0.608386, 0, 0.648273, 0, 0.889039, 0, -0.648273, 0, 0.608386, 1.22371, 0.489549, 0.743623)
 outline_thickness = 0.3
-talking_object_resource = ExtResource("12_86ph5")
 
 [node name="Particles" type="Node3D" parent="."]
 
@@ -2519,7 +2513,7 @@ light_energy = 5.0
 shadow_enabled = true
 
 [node name="Chair" parent="." instance=ExtResource("8_8bc0i")]
-transform = Transform3D(0.994789, 0, -0.101959, 0, 1, 0, 0.101959, 0, 0.994789, -0.776669, 0.348179, 0.718062)
+transform = Transform3D(0.998259, 0, -0.102315, 0, 1.00349, 0, 0.102315, 0, 0.998259, -0.776669, 0.361875, 0.718062)
 
 [node name="CorkBoard" parent="." instance=ExtResource("16_i33k8")]
 transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 1.4748, -1.18352)
@@ -2534,7 +2528,7 @@ transform = Transform3D(0.900741, 0, 0, 0, 0.900741, 0, 0, 0, 0.900741, -0.03268
 transform = Transform3D(0.957283, 0, 0.418028, 0, 1.04458, 0, -0.418028, 0, 0.957283, 1.87073, 1.88894, 5.52289)
 
 [node name="StarRug" parent="." groups=["material_carpet"] instance=ExtResource("20_y7msa")]
-transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.106077, 1.50737)
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.120105, 1.50737)
 
 [node name="Sunset" type="Node3D" parent="."]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.703348, 1.5229, -1.46966)
@@ -2607,12 +2601,12 @@ mesh = SubResource("ArrayMesh_sirs5")
 skeleton = NodePath("")
 
 [node name="Plane_042" type="MeshInstance3D" parent="Props/WallDecorations/PunkPosters"]
-transform = Transform3D(-0.000863685, 1.27076, 0.00529541, -0.00115069, 0.00497878, -1.35132, 1.16659, 0.000945721, -0.00132898, 3.44078, -0.00608325, 0.256436)
+transform = Transform3D(-0.000863685, 1.27076, 0.00529541, -0.00115069, 0.00497878, -1.35132, 1.16659, 0.000945721, -0.00132898, 3.44039, -0.00608325, 0.256436)
 mesh = SubResource("ArrayMesh_52j18")
 skeleton = NodePath("")
 
 [node name="Plane_047" type="MeshInstance3D" parent="Props/WallDecorations/PunkPosters"]
-transform = Transform3D(-0.00319673, -2.64694, 0.0493566, 0.00448963, -0.0280734, -4.65403, 4.46905, -0.00186517, 0.00471077, -1.24857, -0.702911, 5.05363)
+transform = Transform3D(-0.00270523, -1.93361, -0.0218239, 0.00394693, 0.0140847, -2.99572, 3.88003, -0.00136248, 0.00303215, 3.44092, -0.223209, 5.47299)
 mesh = SubResource("ArrayMesh_jtb5n")
 skeleton = NodePath("")
 
@@ -2790,20 +2784,22 @@ transform = Transform3D(-0.446636, 0.000419213, -0.62511, 0.000833922, 0.768274,
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.7287, 1.08326, 5.10819)
 
 [node name="Cylinder_006" type="MeshInstance3D" parent="Props/Lamp"]
-transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, -0.0312566, -0.168954, 1.11224)
+transform = Transform3D(-0.184595, 0, -0.000142667, 0, 0.184595, 0, 0.000142667, 0, -0.184595, 4.01187, -0.168954, 2.21528)
 mesh = SubResource("ArrayMesh_dcbqy")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Props/Lamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0536875, 0.221358, 1.13314)
+transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 4.09681, 0.221358, 2.23618)
 light_color = Color(1, 0.685, 0.3, 1)
-light_specular = 4.611
-omni_range = 1.768
+light_energy = 1.323
+light_volumetric_fog_energy = 4.614
+omni_range = 2.069
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Props/Lamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146604, 0.460419, -0.313007)
+transform = Transform3D(1.12481, 0, 0, 0, 1.12481, 0, 0, 0, 1.12481, 0.146604, 0.0762308, 0.021152)
 light_color = Color(1, 0.685, 0.3, 1)
-omni_range = 1.238
+light_specular = 2.197
+omni_range = 1.768
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Props/Lamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.764965, -0.157796, -2.66014)
@@ -2845,10 +2841,10 @@ transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -0.86629
 visible = false
 
 [node name="shoe rack" parent="." instance=ExtResource("9_l0p45")]
-transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 1.53885, 0.162011, 3.82304)
+transform = Transform3D(0.0153607, 0, 0.888906, 0, 0.889039, 0, -0.888906, 0, 0.0153607, -1.2086, 0.162011, 6.03118)
 
 [node name="LEO" parent="." instance=ExtResource("70_b33ja")]
-transform = Transform3D(0.482226, 0.721213, -0.194167, 0.118592, 0.154253, 0.867487, 0.737418, -0.496436, -0.0125363, -0.680539, 0.412796, 0.940097)
+transform = Transform3D(0.565345, 0.845524, -0.227634, 0.139033, 0.180841, 1.01701, 0.864522, -0.582004, -0.0146971, -0.759522, 0.426311, 0.940097)
 
 [node name="AnimationPlayer" parent="LEO" index="1"]
 autoplay = "IDLE"
@@ -2857,7 +2853,7 @@ autoplay = "IDLE"
 transform = Transform3D(-1.42152, 0, -1.24273e-07, 0, 1.42152, 0, 1.24273e-07, 0, -1.42152, -1.99513, 1.45399, 4.59441)
 
 [node name="Plane_005" type="MeshInstance3D" parent="carn poster"]
-transform = Transform3D(-0.000186524, -0.145017, 1.50284e-07, 4.50802e-09, -1.03724e-07, -0.210123, 0.151264, -0.000178821, 6.44748e-09, 0, 0.192925, 0.334634)
+transform = Transform3D(-0.000300242, -0.23343, 2.41908e-07, 7.25643e-09, -1.66962e-07, -0.338229, 0.243485, -0.000287843, 1.03783e-08, 0.00893843, -0.0083307, -1.34245)
 mesh = SubResource("ArrayMesh_86pqr")
 skeleton = NodePath("")
 
@@ -2867,7 +2863,7 @@ mesh = SubResource("ArrayMesh_86pqr")
 skeleton = NodePath("")
 
 [node name="BeanBag" parent="." instance=ExtResource("88_vr1g1")]
-transform = Transform3D(0.0636847, 0, 0.577681, 0, 0.58118, 0, -0.577681, 0, 0.0636847, 1.31697, 0.0757391, 5.61384)
+transform = Transform3D(0.0636847, 0, 0.577681, 0, 0.58118, 0, -0.577681, 0, 0.0636847, 1.31697, 0.0757391, 5.95902)
 
 [node name="TeleportPoint" parent="." instance=ExtResource("88_otruv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0746622, 0.648893, 1.82383)
@@ -2875,6 +2871,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0746622, 0.648893, 1.82383)
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
 
+[editable path="door"]
 [editable path="SceneLoader_Exterior"]
 [editable path="SceneLoader_Exterior/InteractionDetector"]
 [editable path="Bed"]
