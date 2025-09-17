@@ -2229,7 +2229,7 @@ skeleton = NodePath("")
 transform = Transform3D(-0.0144858, 0, -0.999895, 0, 1, 0, 0.999895, 0, -0.0144858, 3.27714, 0.479389, 0.607965)
 
 [node name="TVStand" parent="." instance=ExtResource("15_xaevv")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.9604, -0.194101, 3.12855)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.9604, -0.194101, 2.55269)
 
 [node name="TV" parent="TVStand" instance=ExtResource("16_4bbn0")]
 transform = Transform3D(1.33507, 0, 0, 0, 1.33507, 0, 0, 0, 1.33507, -1.32823, -0.179388, 0.973876)
@@ -2258,12 +2258,12 @@ mesh = SubResource("ArrayMesh_xtkkb")
 skeleton = NodePath("")
 
 [node name="Controller3" type="MeshInstance3D" parent="TVStand"]
-transform = Transform3D(0.0562181, 0.00468612, -0.0573118, -0.00182862, 0.0802561, 0.00476842, 0.057474, -0.00203026, 0.0562112, -2.72183, 1.14074, 2.65689)
+transform = Transform3D(0.0648767, 0.00429005, -0.0473253, -0.00182862, 0.0802561, 0.00476842, 0.0474841, -0.00277076, 0.0648433, -2.17472, 1.08246, 2.6275)
 mesh = SubResource("ArrayMesh_xtkkb")
 skeleton = NodePath("")
 
 [node name="Controller2" type="MeshInstance3D" parent="TVStand"]
-transform = Transform3D(0.0503689, 0.00382136, -0.0450004, -0.00153831, 0.0675148, 0.00401139, 0.0451362, -0.00196337, 0.0503542, -1.47794, 0.990339, 2.7632)
+transform = Transform3D(0.0578832, 0.00338965, -0.0348527, -0.00153831, 0.0675148, 0.00401139, 0.0349834, -0.00263968, 0.0578435, -0.664485, 0.904513, 2.79003)
 mesh = SubResource("ArrayMesh_jle5p")
 skeleton = NodePath("")
 
@@ -2670,7 +2670,7 @@ transform = Transform3D(0.579555, 0, 0.134068, 0, 0.69, 0, -0.155291, 0, 0.50035
 transform = Transform3D(0.640859, 0, -0.3375, 0, 0.815, 0, 0.37, 0, 0.584567, -0.343097, -0.479562, -1.86544)
 
 [node name="dino" parent="." instance=ExtResource("79_g8hj1")]
-transform = Transform3D(0.751407, 0, 0.812697, 0, 1.10684, 0, -0.812697, 0, 0.751407, 3.88038, -0.0322655, 0.0567777)
+transform = Transform3D(0.710419, 0, 0.703779, 0, 1, 0, -0.703779, 0, 0.710419, 3.97707, -0.0322655, 0.0567777)
 
 [node name="Skeleton3D" parent="dino/model" index="0"]
 bones/0/position = Vector3(0.12533, 1.01138, -29.1144)
@@ -2760,19 +2760,19 @@ light_energy = 3.0
 omni_range = 1.01
 
 [node name="witch" parent="." instance=ExtResource("81_i5ndi")]
-transform = Transform3D(0.534983, 0, 0.976882, 0, 1.11378, 0, -0.976882, 0, 0.534983, -8.61553, -0.0906362, 5.91422)
+transform = Transform3D(0.480331, 0, 0.877087, 0, 1, 0, -0.877087, 0, 0.480331, -8.61553, -0.0906362, 5.91422)
 
 [node name="chi omega" parent="." instance=ExtResource("82_48c5o")]
-transform = Transform3D(1.02535, 0, -0.430091, 0, 1.1119, 0, 0.430091, 0, 1.02535, -8.14734, -0.081018, 5.59844)
+transform = Transform3D(0.922161, 0, -0.386807, 0, 1, 0, 0.386807, 0, 0.922161, -8.14734, -0.081018, 5.59844)
 
 [node name="cone ghost" parent="." instance=ExtResource("83_ij3m0")]
-transform = Transform3D(0.375108, 0, -1.09685, 0, 1.15922, 0, 1.09685, 0, 0.375108, -4.05285, -0.0756876, 0.710441)
+transform = Transform3D(0.323587, 0, -0.946198, 0, 1, 0, 0.946198, 0, 0.323587, -4.05285, -0.0756876, 0.710441)
 
 [node name="chirstmas tree" parent="." instance=ExtResource("84_reyxf")]
-transform = Transform3D(0.0894528, 0, 1.1817, 0, 1.18509, 0, -1.1817, 0, 0.0894528, -6.51778, -0.0678052, 0.640151)
+transform = Transform3D(0.0754825, 0, 0.997147, 0, 1, 0, -0.997147, 0, 0.0754825, -6.51778, -0.0678052, 0.640151)
 
 [node name="free hug2" parent="." instance=ExtResource("61_5eouh")]
-transform = Transform3D(-0.832699, -0.485197, 0.698321, -0.192623, 1.05961, 0.506534, -0.82823, 0.24138, -0.819895, -1.98595, 0.107399, 5.19391)
+transform = Transform3D(-0.699659, -0.407678, 0.58675, -0.161848, 0.890317, 0.425606, -0.695904, 0.202815, -0.6889, -1.98595, 0.107399, 5.19391)
 
 [node name="Skeleton3D" parent="free hug2/free hug" index="0"]
 bones/0/position = Vector3(0.385726, -20.0863, -58.0404)
@@ -2882,7 +2882,7 @@ bones/63/rotation = Quaternion(0.337014, 0.163887, -0.0581702, 0.925299)
 autoplay = "sitttttt"
 
 [node name="shark" parent="." instance=ExtResource("85_vdfwq")]
-transform = Transform3D(0.417584, 0, 1.00913, 0, 1.09212, 0, -1.00913, 0, 0.417584, 3.70487, -0.046867, 1.4025)
+transform = Transform3D(0.559758, 0, 0.828656, 0, 1, 0, -0.828656, 0, 0.559758, 3.79462, -0.046867, 1.62606)
 
 [node name="Frat boy red hat" parent="." instance=ExtResource("88_bu75b")]
 transform = Transform3D(-0.991206, 0, 0.132326, 0, 1, 0, -0.132326, 0, -0.991206, 2.32993, -0.0593581, -3.31908)

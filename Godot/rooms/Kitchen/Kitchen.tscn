@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://cjo88oqrqtxdm"]
+[gd_scene load_steps=99 format=4 uid="uid://cjo88oqrqtxdm"]
 
 [ext_resource type="Script" uid="uid://bmko8diwsja6b" path="res://rooms/Kitchen/kitchen.gd" id="1_e7jho"]
 [ext_resource type="PackedScene" uid="uid://tq4enqk57vl1" path="res://rooms/Kitchen/Kitchen Layout.glb" id="1_ootlj"]
@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://cn6shp7xdi6q5" path="res://Assets/props/posters/enjoy_poster/enjoy_poster.glb" id="25_b6r2c"]
 [ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://Assets/props/red_cup/red_cup.glb" id="25_eupok"]
 [ext_resource type="PackedScene" uid="uid://h7vyawprgyhu" path="res://Assets/props/posters/sexy_poster/sexy_poster.glb" id="26_b6r2c"]
-[ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="26_eupok"]
 [ext_resource type="PackedScene" uid="uid://db6cyshdnsaxs" path="res://Assets/environment/trash/trash.glb" id="27_b6r2c"]
 [ext_resource type="PackedScene" uid="uid://bjutys11t6nx5" path="res://Assets/props/posters/drink_sign/drink_sign.glb" id="27_v5gra"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="30_6oann"]
@@ -48,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://c8rq8p1i25wix" path="res://Assets/CharacterAssets/bartender/bartender.tscn" id="44_p4v0j"]
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="45_l32yv"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="45_vxogu"]
+[ext_resource type="PackedScene" uid="uid://cchhyshb6rl64" path="res://Assets/environment/folding_chairs.tscn" id="46_6j32o"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="46_cngrb"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="47_3yiem"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="48_2jg4v"]
@@ -606,8 +606,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e3smd")
 
+[sub_resource type="Resource" id="Resource_6j32o"]
+metadata/__load_path__ = "res://Assets/Resources/CharacterResources/character_properties_bartender.tres"
+
 [node name="Kitchen" type="Area3D" node_paths=PackedStringArray("room_area")]
-transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, 0, 0, 0)
 collision_mask = 2
 script = ExtResource("1_e7jho")
 room_area = NodePath("RoomArea")
@@ -920,13 +922,14 @@ mesh = SubResource("ArrayMesh_s8s5b")
 skeleton = NodePath("")
 
 [node name="PumpkinWithBeers" parent="Room" instance=ExtResource("5_l32yv")]
-transform = Transform3D(-1.00264, 0, 0.436023, 0, 1.09334, 0, -0.436023, 0, -1.00264, -0.271077, -0.260996, -6.14923)
+transform = Transform3D(-1.00264, 0, 0.436023, 0, 1.09334, 0, -0.436023, 0, -1.00264, -0.282086, -0.545544, -6.17995)
 
 [node name="EntranceDoor" parent="." instance=ExtResource("2_kbocy")]
 transform = Transform3D(-4.77916e-08, 0, -1.09334, 0, 1.09334, 0, 1.09334, 0, -4.77916e-08, 8.25604, -1.78701, 1.93738)
 
 [node name="Door" parent="." instance=ExtResource("2_kbocy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95739, -1.89188, -6.50884)
+transform = Transform3D(0.879256, 0, 0, 0, 0.879256, 0, 0, 0, 0.879256, -2.95739, -2.03776, -6.48252)
+visible = false
 
 [node name="Counter" type="Node3D" parent="."]
 transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, 15.4959, -6.55734, -16.1351)
@@ -1160,7 +1163,7 @@ transform = Transform3D(-0.922749, 0, 0.260887, 0, 0.958919, 0, -0.260887, 0, -0
 transform = Transform3D(-0.770727, 0, 0.570537, 0, 0.958919, 0, -0.570537, 0, -0.770727, -3.69622, 2.09357, 5.51417)
 
 [node name="Fridge" parent="." instance=ExtResource("5_qn7eg")]
-transform = Transform3D(9.65579e-09, -0.220898, 0.000384708, -0.220898, -9.6558e-09, 1.28579e-11, 3.95823e-12, -0.000384708, -0.220898, -0.0816185, -1.8518, -6.04825)
+transform = Transform3D(8.59726e-09, -0.196682, 0.000342534, -0.196682, -8.59727e-09, 1.14483e-11, 3.5243e-12, -0.000342534, -0.196682, -0.0816185, -1.9746, -6.04825)
 
 [node name="red_cup28" parent="Fridge" instance=ExtResource("25_eupok")]
 transform = Transform3D(4.22059e-08, -1.21696, 3.23791e-08, -0.964566, -5.31952e-08, -0.742029, 0.742029, 7.08363e-11, -0.964566, -5.66248, -1.97153, -2.31753)
@@ -1264,10 +1267,10 @@ shadow_blur = 0.333
 spot_angle = 43.93
 
 [node name="Trashcan" parent="LightFixtures" instance=ExtResource("7_84i0v")]
-transform = Transform3D(0.878684, 0, 0, 0, 0.878684, 0, 0, 0, 0.878684, -0.31219, -2.22854, -3.70571)
+transform = Transform3D(0.762824, 0, 0, 0, 0.762824, 0, 0, 0, 0.762824, -0.31219, -2.22854, -3.70571)
 
 [node name="Bar" parent="." instance=ExtResource("22_p4v0j")]
-transform = Transform3D(0.826821, 0, -0.463421, 0, 0.947835, 0, 0.463421, 0, 0.826821, -5.10501, -2.37436, -2.06597)
+transform = Transform3D(0.746993, 0, -0.418679, 0, 0.856324, 0, 0.418679, 0, 0.746993, -5.10501, -2.42759, -2.06597)
 
 [node name="blue goose2" parent="Bar" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.654846, 0, -0.755762, 0, 1, 0, 0.755762, 0, 0.654846, 0.334109, 0.36635, -0.46438)
@@ -1503,7 +1506,7 @@ omni_range = 1.552
 omni_attenuation = 2.0
 
 [node name="BeerpongTable" parent="Props" instance=ExtResource("33_p4v0j")]
-transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, 0.208894, -0.675152, -2.06584)
+transform = Transform3D(1.0302, 0, 0, 0, 1.0302, 0, 0, 0, 1.0302, 0.208894, -0.672458, -2.06584)
 
 [node name="red_cup" parent="Props/BeerpongTable" instance=ExtResource("25_eupok")]
 transform = Transform3D(0.245875, 0, 0, 0, 0.245875, 0, 0, 0, 0.245875, -0.869934, 0.951074, -0.812398)
@@ -1515,7 +1518,7 @@ transform = Transform3D(0.245875, 0, 0, 0, 0.245875, 0, 0, 0, 0.245875, -0.86993
 transform = Transform3D(0.245875, 0, 0, 0, 0.245875, 0, 0, 0, 0.245875, -1.18358, 0.951074, -0.422939)
 
 [node name="red_cup5" parent="Props/BeerpongTable" instance=ExtResource("25_eupok")]
-transform = Transform3D(-0.000540597, 0.186593, -0.160117, -0.245874, -0.000712346, 0, -0.000463888, 0.160116, 0.186594, -5.33245, 0.972666, 4.82214)
+transform = Transform3D(-0.000540597, 0.186593, -0.160117, -0.245874, -0.000712346, 0, -0.000463888, 0.160116, 0.186594, -5.57514, 1.03018, 5.20724)
 
 [node name="red_cup7" parent="Props/BeerpongTable" instance=ExtResource("25_eupok")]
 transform = Transform3D(0.245875, 0, 0, 0, 0.245875, 0, 0, 0, 0.245875, -1.18358, 0.951074, -1.21694)
@@ -1554,16 +1557,16 @@ transform = Transform3D(0.245875, 0, 0, 0, 0.245875, 0, 0, 0, 0.245875, 0.741225
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.873823, -0.408064, -0.869725)
 
 [node name="Chair" parent="Props/Chairs" instance=ExtResource("35_p4v0j")]
-transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -8.27693, -0.266488, 0.502031)
+transform = Transform3D(1.04139, 0, 0, 0, 1.04139, 0, 0, 0, 1.04139, -8.19586, -0.266488, 0.504259)
 
 [node name="blue goose6" parent="Props/Chairs/Chair" instance=ExtResource("6_l47d5")]
 transform = Transform3D(0.704448, 0, -0.583351, 0, 0.914628, 0, 0.583351, 0, 0.704448, 0.73953, 0.027905, 0.767607)
 
 [node name="Chair2" parent="Props/Chairs" instance=ExtResource("35_p4v0j")]
-transform = Transform3D(-1.0207, 0, -0.391873, 0, 1.09334, 0, 0.391873, 0, -1.0207, 5.47241, -0.266488, 4.95001)
+transform = Transform3D(-0.983598, 0, -0.0758578, 0, 0.986518, 0, 0.0758578, 0, -0.983598, 5.47241, -0.266488, 4.95001)
 
 [node name="Chair3" parent="Props/Chairs" instance=ExtResource("35_p4v0j")]
-transform = Transform3D(1.05146, 0, 0.299734, 0, 1.09334, 0, -0.299734, 0, 1.05146, 4.18971, -0.266488, -3.03973)
+transform = Transform3D(0.997418, 0, 0.284329, 0, 1.03715, 0, -0.284329, 0, 0.997418, 4.18971, -0.266488, -3.03973)
 
 [node name="Tequila" parent="Props/Chairs/Chair3" instance=ExtResource("23_wf8rc")]
 transform = Transform3D(-0.702739, 0.000391416, -0.711438, -0.00083525, 1, 0.00137523, 0.711438, 0.00156065, -0.702739, 0.346519, 0.57236, 0.138307)
@@ -1740,12 +1743,6 @@ transform = Transform3D(0.274326, 0, -0.793551, 0, 0.83963, 0, 0.793551, 0, 0.27
 [node name="BeerPongSign" parent="Props" instance=ExtResource("51_022tp")]
 transform = Transform3D(0.363593, 0, 1.03064, 0, 1.0929, 0, -1.03064, 0, 0.363593, -0.3225, -0.67515, -1.6649)
 
-[node name="folded chairs" parent="Props" instance=ExtResource("26_eupok")]
-transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -10.0882, 0.12444, 2.58955)
-
-[node name="folded chairs2" parent="Props" instance=ExtResource("26_eupok")]
-transform = Transform3D(-1.09118, 0, -0.0688421, 0, 1.09334, 0, 0.0688421, 0, -1.09118, 4.71544, 0.1082, -1.03747)
-
 [node name="PumpkinWithBeers" parent="Props" instance=ExtResource("5_l32yv")]
 transform = Transform3D(-0.806433, 0, 0.738287, 0, 1.09334, 0, -0.738287, 0, -0.806433, -1.01573, 0.61157, -6.42309)
 
@@ -1753,24 +1750,30 @@ transform = Transform3D(-0.806433, 0, 0.738287, 0, 1.09334, 0, -0.738287, 0, -0.
 transform = Transform3D(-0.729844, 0, -0.814082, 0, 1.09334, 0, 0.814082, 0, -0.729844, -9.97765, 0.91741, 1.37453)
 
 [node name="beerpong trophie" parent="Props" instance=ExtResource("45_l32yv")]
-transform = Transform3D(0.566878, 0, -0.0975908, 0, 0.575217, 0, 0.0975908, 0, 0.566878, 1.54046, 1.63899, -2.43062)
+transform = Transform3D(0.478052, 0, -0.0822989, 0, 0.485084, 0, 0.0822989, 0, 0.478052, 1.38772, 1.37775, -2.43062)
+
+[node name="FoldingChairs" parent="Props" instance=ExtResource("46_6j32o")]
+transform = Transform3D(1.09334, 0, 0, 0, 1.09334, 0, 0, 0, 1.09334, -10.0882, 0.12444, 2.58955)
+
+[node name="FoldingChairs2" parent="Props" instance=ExtResource("46_6j32o")]
+transform = Transform3D(-1.09118, 0, -0.0688421, 0, 1.09334, 0, 0.0688421, 0, -1.09118, 4.71544, 0.1082, -1.03747)
 
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="PinkHairFratBoy" parent="NPCs" instance=ExtResource("51_j0uoq")]
-transform = Transform3D(1.00628, 0, 0.86832, 0, 1.32913, 0, -0.86832, 0, 1.00628, 1.06213, -3.11953, -1.03238)
+transform = Transform3D(0.757098, 0, 0.653301, 0, 1, 0, -0.653301, 0, 0.757098, 1.06213, -3.11953, -1.03238)
 
 [node name="witch" parent="NPCs" instance=ExtResource("46_cngrb")]
-transform = Transform3D(0.303973, 0, -1.17868, 0, 1.21725, 0, 1.17868, 0, 0.303973, 6.10182, -3.12238, -4.27165)
+transform = Transform3D(0.249722, 0, -0.968318, 0, 1, 0, 0.968318, 0, 0.249722, 6.10182, -3.12238, -4.27165)
 
 [node name="chi omega" parent="NPCs" instance=ExtResource("47_3yiem")]
-transform = Transform3D(-0.25506, 0, 1.18812, 0, 1.21519, 0, -1.18812, 0, -0.25506, 5.2901, -3.12422, -4.11111)
+transform = Transform3D(-0.209893, 0, 0.977724, 0, 1, 0, -0.977724, 0, -0.209893, 5.2901, -3.12422, -4.11111)
 
 [node name="cone ghost" parent="NPCs" instance=ExtResource("48_2jg4v")]
-transform = Transform3D(1.17388, 0, 0.476519, 0, 1.26691, 0, -0.476519, 0, 1.17388, -5.09145, -3.11913, -5.21472)
+transform = Transform3D(0.926568, 0, 0.376127, 0, 1, 0, -0.376127, 0, 0.926568, -5.09145, -3.11913, -5.21472)
 
 [node name="free hug3" parent="NPCs" instance=ExtResource("45_vxogu")]
-transform = Transform3D(0.766941, 0, 1.05055, 0, 1.30071, 0, -1.05055, 0, 0.766941, 3.89342, -4.35183, 2.99064)
+transform = Transform3D(0.589631, 0, 0.807673, 0, 1, 0, -0.807673, 0, 0.589631, 3.89342, -4.35183, 2.99064)
 
 [node name="Skeleton3D" parent="NPCs/free hug3/free hug" index="0"]
 bones/0/position = Vector3(4.07081, -1.01985, -113.799)
@@ -1831,14 +1834,15 @@ bones/63/rotation = Quaternion(0.340546, 0.16435, -0.0579738, 0.923936)
 autoplay = "crazyy"
 
 [node name="Rowan" parent="NPCs" instance=ExtResource("41_h3uy3")]
-transform = Transform3D(1.00847, 0, -0.858491, 0, 1.3244, 0, 0.858491, 0, 1.00847, 3.60612, -3.0926, -0.911231)
+transform = Transform3D(0.761458, 0, -0.648214, 0, 1, 0, 0.648214, 0, 0.761458, 3.60612, -3.0926, -0.911231)
 
 [node name="Bartender" parent="NPCs" instance=ExtResource("44_p4v0j")]
-transform = Transform3D(0.711062, 0, 0.844263, 0, 1.14342, 0, -0.844263, 0, 0.711062, -6.16842, -3.1054, -1.79786)
+transform = Transform3D(0.644191, 0, 0.764865, 0, 1, 0, -0.764865, 0, 0.644191, -6.16842, -3.1054, -1.79786)
+character_resource = SubResource("Resource_6j32o")
 outline_thickness = 0.7
 
 [node name="Frat boy red hat" parent="NPCs" instance=ExtResource("54_ab58j")]
-transform = Transform3D(0.776253, 0, -0.769321, 0, 1.0929, 0, 0.769321, 0, 0.776253, -3.24266, -3.0997, -2.45032)
+transform = Transform3D(0.710271, 0, -0.703928, 0, 1, 0, 0.703928, 0, 0.710271, -3.24266, -3.0997, -2.45032)
 
 [node name="Skeleton3D" parent="NPCs/Frat boy red hat/Frat bro red hat" index="0"]
 bones/0/position = Vector3(-1.31243, -5.60875, -105.524)
@@ -1944,7 +1948,7 @@ bones/63/rotation = Quaternion(0.296075, 0.21883, -0.0696294, 0.927149)
 autoplay = "yell"
 
 [node name="Frat boy long hair" parent="NPCs" instance=ExtResource("55_6j32o")]
-transform = Transform3D(0.796648, 0, 0.748181, 0, 1.0929, 0, -0.748181, 0, 0.796648, -5.9475, -2.96731, 0.774412)
+transform = Transform3D(0.728933, 0, 0.684585, 0, 1, 0, -0.684585, 0, 0.728933, -5.9475, -2.96731, 0.774412)
 
 [node name="Skeleton3D" parent="NPCs/Frat boy long hair/long hair" index="0"]
 bones/0/position = Vector3(1.55144, 4.73443, -65.2285)

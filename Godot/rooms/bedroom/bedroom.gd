@@ -28,10 +28,13 @@ func handle_player_entrance(body: Node3D) -> void:
 	GlobalCameraScript.move_camera_jump.emit()
 	remove_all_bounds(body)
 	rotate_player(body)
-	
 	bind_camera_path(body)
-	bind_camera_LR(body)
+	#var bedroom_camera_offset_LR: Vector3 = Vector3(.61, 0, 0)
+	#bind_camera_LR(body, room_area_center-bedroom_camera_offset_LR, room_area_center+bedroom_camera_offset_LR)
 	bind_camera_y(body, 1.2, 1.6)
+	var bedroom_camera_depth_point: Vector3 = Vector3(0, 0, 34.4)
+	bind_camera_depth(body, Vector3.ZERO, bedroom_camera_depth_point)
+	
 	#await get_tree().create_timer(1).timeout
 	await GlobalCameraScript.finished_moving
 	GlobalCameraScript.move_camera_smooth.emit()
@@ -62,6 +65,10 @@ func _on_play() -> void:
 	var tween2: Tween = get_tree().create_tween()
 	tween2.tween_property(path_follow_node, "progress_ratio", 1, 1.2)
 	await tween2.finished
+	
+	var bedroom_camera_offset_LR: Vector3 = Vector3(.61, 0, 0)
+	bind_camera_LR(null, room_area_center-bedroom_camera_offset_LR, room_area_center+bedroom_camera_offset_LR)
+	bind_camera_y(null, 1.2, 1.35)
 	
 	GlobalCameraScript.camera_on_player.emit(true)
 	intro_finished.emit()

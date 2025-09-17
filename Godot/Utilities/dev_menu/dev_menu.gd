@@ -33,9 +33,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("toggle_dev_menu"):
+	if Input.is_action_just_pressed("toggle_dev_menu") and OS.has_feature("debug"):
 		toggle_menu()
-	elif Input.is_action_just_pressed("toggle_content_loader_menu"):
+	elif Input.is_action_just_pressed("toggle_content_loader_menu") and OS.has_feature("debug"):
 		visible = false
 
 

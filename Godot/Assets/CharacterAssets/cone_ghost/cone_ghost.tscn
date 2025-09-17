@@ -6,7 +6,9 @@
 radius = 0.65
 
 [node name="ConeGhost" instance=ExtResource("1_xcp3k")]
-transform = Transform3D(1.15922, 0, 0, 0, 1.15922, 0, 0, 0, 1.15922, 0, 0, 0)
+
+[node name="cone model" parent="." index="0"]
+transform = Transform3D(0.011, 0, 0, 0, -4.80825e-10, -0.011, 0, 0.011, -4.80825e-10, 0, 0, 0)
 
 [node name="Skeleton3D" parent="cone model" index="0"]
 bones/0/position = Vector3(-15.3002, -1.31452, -86.5199)
