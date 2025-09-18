@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4u4mevg8tumc"
-path.s3tc="res://.godot/imported/benny_The_Egg_Thumbs_Up_0628143456_texture.png-870e11765f8e5af3f6725789bc0d3833.s3tc.ctex"
-path.etc2="res://.godot/imported/benny_The_Egg_Thumbs_Up_0628143456_texture.png-870e11765f8e5af3f6725789bc0d3833.etc2.ctex"
+path.s3tc="res://.godot/imported/benny_The_Egg_Thumbs_Up_0628143456_texture.png-fb420f1125815da279b52e642b803206.s3tc.ctex"
+path.etc2="res://.godot/imported/benny_The_Egg_Thumbs_Up_0628143456_texture.png-fb420f1125815da279b52e642b803206.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/benny/benny_The_Egg_Thumbs_Up_0628143456_texture.png"
-dest_files=["res://.godot/imported/benny_The_Egg_Thumbs_Up_0628143456_texture.png-870e11765f8e5af3f6725789bc0d3833.s3tc.ctex", "res://.godot/imported/benny_The_Egg_Thumbs_Up_0628143456_texture.png-870e11765f8e5af3f6725789bc0d3833.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/Benny/benny_The_Egg_Thumbs_Up_0628143456_texture.png"
+dest_files=["res://.godot/imported/benny_The_Egg_Thumbs_Up_0628143456_texture.png-fb420f1125815da279b52e642b803206.s3tc.ctex", "res://.godot/imported/benny_The_Egg_Thumbs_Up_0628143456_texture.png-fb420f1125815da279b52e642b803206.etc2.ctex"]
 
 [params]
 

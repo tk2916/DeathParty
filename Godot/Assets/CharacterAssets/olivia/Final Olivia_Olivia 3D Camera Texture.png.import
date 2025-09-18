@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhjvgtshj4f7j"
-path.s3tc="res://.godot/imported/Final Olivia_Olivia 3D Camera Texture.png-fff94ea8244a8168bf8ebd0072d2c9cb.s3tc.ctex"
-path.etc2="res://.godot/imported/Final Olivia_Olivia 3D Camera Texture.png-fff94ea8244a8168bf8ebd0072d2c9cb.etc2.ctex"
+path.s3tc="res://.godot/imported/Final Olivia_Olivia 3D Camera Texture.png-6919edbb0732dca7d5038807e5acf4e6.s3tc.ctex"
+path.etc2="res://.godot/imported/Final Olivia_Olivia 3D Camera Texture.png-6919edbb0732dca7d5038807e5acf4e6.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/olivia/Final Olivia_Olivia 3D Camera Texture.png"
-dest_files=["res://.godot/imported/Final Olivia_Olivia 3D Camera Texture.png-fff94ea8244a8168bf8ebd0072d2c9cb.s3tc.ctex", "res://.godot/imported/Final Olivia_Olivia 3D Camera Texture.png-fff94ea8244a8168bf8ebd0072d2c9cb.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/Olivia/Final Olivia_Olivia 3D Camera Texture.png"
+dest_files=["res://.godot/imported/Final Olivia_Olivia 3D Camera Texture.png-6919edbb0732dca7d5038807e5acf4e6.s3tc.ctex", "res://.godot/imported/Final Olivia_Olivia 3D Camera Texture.png-6919edbb0732dca7d5038807e5acf4e6.etc2.ctex"]
 
 [params]
 

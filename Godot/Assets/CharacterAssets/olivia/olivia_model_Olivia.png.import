@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxb51ymodcjnw"
-path.s3tc="res://.godot/imported/olivia_model_Olivia.png-ddc7e2cd0371d07d9163e1c3d6b38d7c.s3tc.ctex"
-path.etc2="res://.godot/imported/olivia_model_Olivia.png-ddc7e2cd0371d07d9163e1c3d6b38d7c.etc2.ctex"
+path.s3tc="res://.godot/imported/olivia_model_Olivia.png-e105e4cebf34436d62d367fe562c060f.s3tc.ctex"
+path.etc2="res://.godot/imported/olivia_model_Olivia.png-e105e4cebf34436d62d367fe562c060f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/olivia/olivia_model_Olivia.png"
-dest_files=["res://.godot/imported/olivia_model_Olivia.png-ddc7e2cd0371d07d9163e1c3d6b38d7c.s3tc.ctex", "res://.godot/imported/olivia_model_Olivia.png-ddc7e2cd0371d07d9163e1c3d6b38d7c.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/Olivia/olivia_model_Olivia.png"
+dest_files=["res://.godot/imported/olivia_model_Olivia.png-e105e4cebf34436d62d367fe562c060f.s3tc.ctex", "res://.godot/imported/olivia_model_Olivia.png-e105e4cebf34436d62d367fe562c060f.etc2.ctex"]
 
 [params]
 

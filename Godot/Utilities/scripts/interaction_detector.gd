@@ -10,6 +10,7 @@ signal player_in_range(tf : bool)
 
 var player_currently_in_range : bool = false
 
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_currently_in_range:
 		player_interacted.emit()

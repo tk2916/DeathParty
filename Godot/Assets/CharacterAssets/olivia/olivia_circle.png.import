@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2dn2bv18hmga"
-path="res://.godot/imported/olivia_circle.png-05e25e1c429af276d7c44acdc5cbe536.ctex"
+path="res://.godot/imported/olivia_circle.png-b384f180f3ea1c5726f6d1e5b0ec077e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/olivia/olivia_circle.png"
-dest_files=["res://.godot/imported/olivia_circle.png-05e25e1c429af276d7c44acdc5cbe536.ctex"]
+source_file="res://Assets/CharacterAssets/Olivia/olivia_circle.png"
+dest_files=["res://.godot/imported/olivia_circle.png-b384f180f3ea1c5726f6d1e5b0ec077e.ctex"]
 
 [params]
 
