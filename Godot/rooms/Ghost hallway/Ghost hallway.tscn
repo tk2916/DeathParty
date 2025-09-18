@@ -1753,7 +1753,7 @@ spawn_point_number = 1
 
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("8_ds0tn")]
 transform = Transform3D(-0.00401429, 0, 0.999992, 0, 1, 0, -0.999992, 0, -0.00401429, -7.14089, -0.914738, 1.84623)
-target_location_index = 1
+target_scene = 3
 local_spawn_point = 2
 play_door_sound = true
 
@@ -1765,7 +1765,7 @@ shape = SubResource("BoxShape3D_u8eoh")
 
 [node name="SceneLoader_Library" parent="." instance=ExtResource("8_ds0tn")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.23819, -0.917734, 1.90478)
-target_location_index = 2
+target_scene = 4
 play_door_sound = true
 arrow_direction = 1
 

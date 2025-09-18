@@ -4,7 +4,6 @@ class_name InkNode extends RefCounted
 var parent_container : InkContainer
 var path : String
 var evaluation_stack_items : Array
-var condition : bool
 
 # At runtime
 const ALL_OPERATORS : Array[String] = ["+", "-", "/", "*", "%", "==", ">", "<", ">=", "<=", "!=", "!", "&&", "||", "MIN", "MAX"]
@@ -20,12 +19,10 @@ func _init(
     _container: InkContainer, 
     _path : String, 
     _evaluation_stack_items: Array, 
-    _condition : bool,
 ) -> void:
     parent_container = _container
     path = _path
     evaluation_stack_items = _evaluation_stack_items
-    condition = _condition
 
 func tostring() -> String:
     var eval_stack_str : String = "Evaluation stack: \n"

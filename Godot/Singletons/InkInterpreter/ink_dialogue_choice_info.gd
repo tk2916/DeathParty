@@ -9,9 +9,8 @@ func _init(
 	_text : String, 
 	_jump : String,
 	_condition_stack: Array = [], 
-	_condition : bool = true, 
 ) -> void:
-	super(_container, _path, _condition_stack, _condition)
+	super(_container, _path, _condition_stack)
 	parent_container.dialogue_choices.push_back(self)
 	text = _text
 	jump = _jump

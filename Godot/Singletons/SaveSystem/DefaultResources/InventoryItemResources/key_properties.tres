@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://b34ywcqwoidu7"]
 
 [ext_resource type="PackedScene" uid="uid://b0rxhbqfjj1l8" path="res://Assets/props/inventory_items/scissors.tscn" id="1_6rlcd"]
-[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Assets/Resources/InventoryItemResources/Default Resource (DO NOT EDIT)/inventory_properties_script.gd" id="2_wyj8l"]
+[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Singletons/SaveSystem/ResourceScripts/inventory_properties_script.gd" id="2_wyj8l"]
 
 [resource]
 script = ExtResource("2_wyj8l")
-name = "Key"
-description = "a key"
+description = "A withered antique key with an intricate handle, given to you by Caleb. This key opens the locked room inside the basement."
 model = ExtResource("1_6rlcd")
+inventory_scale = 1.0
+inventory_position = Vector2(0, 0)
+amount_owned = 0
+name = "Key"

@@ -75,4 +75,4 @@ func teleport_player(room: String) -> void:
 	GlobalCameraScript.camera_on_player.emit(true)
 
 	# teleport the player
-	ContentLoader.direct_teleport_player(room)
+	ContentLoader.direct_teleport_player(Globals.SCENES_STR[room])

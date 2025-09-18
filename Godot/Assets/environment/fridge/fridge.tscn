@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://bce1xv0wcorsw"]
+[gd_scene load_steps=7 format=4 uid="uid://bce1xv0wcorsw"]
 
 [ext_resource type="Texture2D" uid="uid://vf6povpx76j7" path="res://Assets/environment/fridge/Kitchen Setup_fridge.png" id="1_f57ir"]
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_8nbdk"]
+[ext_resource type="Resource" uid="uid://bbndcljyasevk" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/fridge_properties.tres" id="3_2walw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqb5t"]
 resource_name = "Material.002"
@@ -46,3 +48,5 @@ shadow_mesh = SubResource("ArrayMesh_dlg7w")
 transform = Transform3D(0, -0.19374, 0.000337409, -0.19374, 1.96398e-14, 1.12771e-11, -1.12771e-11, -0.000337409, -0.19374, 0, 0, 0)
 mesh = SubResource("ArrayMesh_f57ir")
 skeleton = NodePath("")
+script = ExtResource("2_8nbdk")
+talking_object_resource = ExtResource("3_2walw")

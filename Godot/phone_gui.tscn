@@ -263,7 +263,7 @@ texture = ExtResource("5_d1h66")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="Phone/HomeButton2" node_paths=PackedStringArray("phone", "apps")]
+[node name="Button" type="Button" parent="Phone/HomeButton2" node_paths=PackedStringArray("phone")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.03
@@ -281,7 +281,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_0lpnt")
 flat = true
 script = ExtResource("5_hnfnb")
 phone = NodePath("../..")
-apps = [NodePath("../../Screen/Background/MessageApp"), NodePath("../../Screen/Background/SocialMediaApp")]
 
 [node name="PhoneCase" type="TextureRect" parent="Phone"]
 layout_mode = 1

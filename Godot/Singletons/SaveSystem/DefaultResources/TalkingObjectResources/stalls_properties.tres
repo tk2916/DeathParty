@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TalkingObjectResource" load_steps=4 format=3 uid="uid://dny7mkak8b8m1"]
+
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="1_g4u27"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/bathroom_Olivia_couple_in_stall_monologue.json" id="1_gckbk"]
+[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="2_gckbk"]
+
+[resource]
+script = ExtResource("2_gckbk")
+default_chats = Dictionary[int, JSON]({
+5: ExtResource("1_gckbk")
+})
+queue_chats = Dictionary[int, ExtResource("1_g4u27")]({})
+name = "Stalls"

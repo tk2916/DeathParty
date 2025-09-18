@@ -5,8 +5,6 @@ var outline: Node3D
 
 @export var character_resource: CharacterResource
 @export var dialogue_box: DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
-@export var starter_json: JSON = null
-@export var default_json: JSON = preload("res://Assets/InkExamples/sample_dialogue_template.json")
 
 
 func _ready() -> void:
@@ -39,11 +37,6 @@ func on_interact() -> void:
 	super ()
 	if character_resource:
 		character_resource.start_chat()
-	elif starter_json:
-		DialogueSystem.begin_dialogue(starter_json)
-		starter_json = null
-	elif default_json:
-		DialogueSystem.begin_dialogue(default_json)
 		
 func play_animation(anim_name: String) -> void:
 	animation_player.play(anim_name)

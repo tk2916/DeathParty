@@ -1,20 +1,19 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://dt8bxog1pac6f"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://dt8bxog1pac6f"]
 
 [ext_resource type="Texture2D" uid="uid://7iwsfv8bepkp" path="res://Assets/CharacterAssets/Polaroids/angel_a.png" id="1_xtq41"]
 [ext_resource type="Texture2D" uid="uid://0uec3xndc6vl" path="res://Assets/CharacterAssets/Polaroids/angel_b.png" id="2_l4a7t"]
-[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="3_2rvbx"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="3_2rvbx"]
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="3_mp3pr"]
 
 [resource]
 script = ExtResource("3_2rvbx")
-name = "Angel"
-character_location_index = 0
+character_location = 0
 image_polaroid = ExtResource("1_xtq41")
 image_polaroid_popout = ExtResource("2_l4a7t")
-name_color = ""
-text_color = ""
-character_notes = Array[String]([])
-character_description = ""
 profile_tag = "@profiletag123"
 profile_quote = "inspirational quote goes here."
 profile_join_date = "Month 8, 20XX"
 profile_friends = 359
+default_chats = Dictionary[int, JSON]({})
+queue_chats = Dictionary[int, ExtResource("3_mp3pr")]({})
+name = ""

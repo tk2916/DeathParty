@@ -23,7 +23,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8bu3"]
 
-[node name="MessageApp" type="MarginContainer" node_paths=PackedStringArray("contact_name_label", "back_button", "all_contacts", "participants_list", "dialogue_container", "choice_container", "touch_screen")]
+[node name="MessageApp" type="MarginContainer" node_paths=PackedStringArray("contact_name_label", "back_button", "all_contacts", "participants_list", "dialogue_scroll_container", "dialogue_container", "choice_container", "touch_screen")]
 anchors_preset = -1
 anchor_left = 0.03
 anchor_top = 0.03
@@ -32,16 +32,17 @@ anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pesbb")
-text_message_prefab_protag = ExtResource("2_det87")
-text_message_prefab_npc = ExtResource("3_y6bpy")
-choice_prefab = ExtResource("4_y6bpy")
 contact_name_label = NodePath("HBoxContainer/MessagePanel/ContactName")
 back_button = NodePath("HBoxContainer/MessagePanel/BackArrow/Button")
 all_contacts = NodePath("HBoxContainer/ContactsPanel/Background/ScrollContainer/AllContacts")
 participants_list = NodePath("HBoxContainer/MessagePanel/ParticipantsList/ScrollContainer/ParticipantsList")
+dialogue_scroll_container = NodePath("HBoxContainer/MessagePanel/TextsArea/ScrollContainer")
 dialogue_container = NodePath("HBoxContainer/MessagePanel/TextsArea/ScrollContainer/DialogueContainer")
 choice_container = NodePath("HBoxContainer/MessagePanel/TextsArea/Choices")
 touch_screen = NodePath("HBoxContainer/MessagePanel/TextsArea/TouchScreen")
+text_message_prefab_protag = ExtResource("2_det87")
+text_message_prefab_npc = ExtResource("3_y6bpy")
+choice_prefab = ExtResource("4_y6bpy")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 2

@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn707228cpn0v"]
+
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_7qhes"]
+[ext_resource type="PackedScene" uid="uid://s51v6ume0dg2" path="res://Assets/props/red_cup/red_cup.glb" id="1_doxhs"]
+[ext_resource type="Resource" uid="uid://r16cmm4nabg7" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/cups_on_floor_properties.tres" id="2_prlkr"]
+
+[node name="CupsOnFloor" type="Node3D"]
+transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, 0, 0, 0)
+script = ExtResource("1_7qhes")
+talking_object_resource = ExtResource("2_prlkr")
+
+[node name="Cup" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(0.0106429, -0.22037, 0.0831477, 0.2355, 0.0113736, 0, -0.00401099, 0.083051, 0.220626, -3.01406, 1.31247, 5.1322)
+
+[node name="Cup2" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(0.235774, 0, 0, 0, 0.0542798, 0.229441, 0, -0.229441, 0.0542798, -2.67958, 0.870777, 4.03545)
+
+[node name="Cup3" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(-0.168232, -0.160752, 0.0380297, 0, 0.0542798, 0.229441, -0.165189, 0.163714, -0.0387304, -3.32707, 0.887827, 4.03545)
+
+[node name="Cup4" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(-0.168232, -0.160752, 0.0380297, 0, 0.0542798, 0.229441, -0.165189, 0.163714, -0.0387304, -7.77037, 0.887827, 4.03545)
+
+[node name="Cup5" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(0.130417, 0.191144, -0.0452197, 1.59319e-09, 0.0542798, 0.229441, 0.19642, -0.126914, 0.0300246, -8.29641, 1.2895, 5.93129)
+
+[node name="Cup6" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(-0.230673, -0.0474685, 0.0112298, 0, 0.0542798, 0.229441, -0.0487787, 0.224477, -0.0531055, -8.61073, 0.881574, 6.22204)
+
+[node name="Cup7" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(-0.0111276, 0.230405, 0.0487787, 0.2355, 0.0113736, -2.25639e-10, -0.00235307, 0.048722, -0.230673, -7.88822, 0.935987, 5.25302)
+
+[node name="Cup8" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(-0.196806, 0.126346, -0.0298903, 0, 0.0542798, 0.229441, 0.129834, 0.19152, -0.0453086, 0.00835276, 0.882565, 5.6838)
+
+[node name="Cup9" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(0.231392, 0.044031, -0.0104166, 0, 0.0542798, 0.229441, 0.0452464, -0.225177, 0.053271, 0.548829, 0.899615, 5.32725)
+
+[node name="Cup10" parent="." instance=ExtResource("1_doxhs")]
+transform = Transform3D(-0.00949385, 0.196577, -0.129834, 0.2355, 0.0113736, 0, 0.00626313, -0.129683, -0.196806, -0.17332, 0.936977, 4.48881)

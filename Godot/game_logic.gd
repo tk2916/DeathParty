@@ -26,7 +26,7 @@ func _ready() -> void:
 	SaveSystem.add_item("Scissors")
 	SaveSystem.add_item("Pill Bottle")
 	#SaveSystem.add_item("Polaroid Camera")
-	SaveSystem.add_item("ID Card")
+	#SaveSystem.add_item("ID Card")
 
 	#print("PARSING JSON -----", InkParser.parse(json_file).containers["root"].tostring())
 	

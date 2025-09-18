@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpc3qxhnh5xme"]
+
+[ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="1_wxyu2"]
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_mnal5"]
+[ext_resource type="Resource" uid="uid://kc633bug7tos" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/bedroom_door_properties.tres" id="3_7xexk"]
+
+[node name="door" instance=ExtResource("1_wxyu2")]
+script = ExtResource("2_mnal5")
+talking_object_resource = ExtResource("3_7xexk")

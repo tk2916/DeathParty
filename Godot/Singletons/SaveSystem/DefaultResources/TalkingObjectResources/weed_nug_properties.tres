@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TalkingObjectResource" load_steps=6 format=3 uid="uid://cv0ylpwl5fs54"]
+
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="1_8fx6q"]
+[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="1_x6m3n"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaBasementWeedPlant1.ink.json" id="2_vp5j7"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaBasementWeedPlant2.ink.json" id="3_ge6t6"]
+
+[sub_resource type="Resource" id="Resource_r8xjc"]
+script = ExtResource("1_8fx6q")
+json_array = Array[JSON]([ExtResource("2_vp5j7"), ExtResource("3_ge6t6")])
+metadata/_custom_type_script = "uid://d1yny6oqf2gvp"
+
+[resource]
+script = ExtResource("1_x6m3n")
+default_chats = Dictionary[int, JSON]({})
+queue_chats = Dictionary[int, ExtResource("1_8fx6q")]({
+6: SubResource("Resource_r8xjc")
+})
+name = "Weed Nug"

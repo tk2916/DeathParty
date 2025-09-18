@@ -47,7 +47,7 @@ class InkParseContainer:
 			path = "0"
 
 		# Will automatically parent itself to parent_container if not null
-		var new_ink_container : InkContainer = InkContainer.new(parent_container, name, path, [], true, is_redirect)
+		var new_ink_container : InkContainer = InkContainer.new(parent_container, name, path, [], is_redirect)
 		
 		#Find redirect table
 		var last_element : Variant = root[root.size()-1]
@@ -94,8 +94,6 @@ func parse(file : JSON) -> InkTree:
 	for other_container_name : String in json_dict["root"][2]:
 		if other_container_name != HASH_F and json_dict["root"][2][other_container_name] is Array:
 			var other_container : Array = json_dict["root"][2][other_container_name]
-			if other_container[0] is Array:
-				other_container = other_container[0] #if there is a sub-array, take that
 			InkParseContainer.new(new_tree, null, other_container_name, other_container)
 	
 	return new_tree
@@ -240,7 +238,6 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 					choice_text,
 					redirect_location,
 					eval_stack,
-					true,
 				)
 			elif next_dict.has("->"):
 				var redirect : String = next_dict["->"]
@@ -258,7 +255,6 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 					redirect,
 					path,
 					eval_stack,
-					condition,
 				)
 
 func break_up_dialogue(parent_container : InkContainer, path : String, dialogue:String) -> InkLineInfo:
