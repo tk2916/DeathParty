@@ -16,8 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c0a0yla875kc4" path="res://Assets/props/alcohol/tequila/tequila.glb" id="14_gc6dk"]
 [ext_resource type="PackedScene" uid="uid://o6auwjh1fi7d" path="res://Assets/props/alcohol/whiskey/whiskey.glb" id="15_vxrcx"]
 [ext_resource type="Texture2D" uid="uid://cxgxr1ajrgm1c" path="res://rooms/Kitchen/Kitchen Setup_metal.png" id="16_h3558"]
-[ext_resource type="PackedScene" uid="uid://c1y2mld3gpxw8" path="res://Assets/props/pan.tscn" id="17_6jwyw"]
-[ext_resource type="PackedScene" uid="uid://doj2p1ypfieac" path="res://Assets/props/pot.tscn" id="18_a8hmt"]
+[ext_resource type="PackedScene" uid="uid://bu7a8uwbagay4" path="res://Assets/environment/pots_pans.tscn" id="17_m2sgf"]
 [ext_resource type="PackedScene" uid="uid://xdanx1rjnktk" path="res://Assets/props/jack_o_lanterns/jack_o_lantern.tscn" id="19_p3sxt"]
 [ext_resource type="PackedScene" uid="uid://bce1xv0wcorsw" path="res://Assets/environment/fridge/fridge.tscn" id="20_jfb8d"]
 [ext_resource type="PackedScene" uid="uid://bhe0kgbucqoad" path="res://Assets/environment/drawers.tscn" id="21_va1g6"]
@@ -607,6 +606,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e3smd")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vlyyl"]
+resource_local_to_scene = true
+size = Vector3(1.70474, 1.77474, 2.46465)
+
 [node name="Kitchen" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
 script = ExtResource("1_m2sgf")
@@ -1000,23 +1003,7 @@ transform = Transform3D(-0.222464, 0, 0.000387435, 0, 0.222465, 0, -0.000387435,
 mesh = SubResource("ArrayMesh_h3uy3")
 skeleton = NodePath("")
 
-[node name="Pan" parent="Counter/Stove" instance=ExtResource("17_6jwyw")]
-transform = Transform3D(0.0698927, 0, -0.676115, 0, 0.679718, 0, 0.676115, 0, 0.0698927, -4.52642, 2.04581, 5.18624)
-
-[node name="Pan2" parent="Counter/Stove" instance=ExtResource("17_6jwyw")]
-transform = Transform3D(0.242503, 0, -0.634988, 0, 0.679718, 0, 0.634988, 0, 0.242503, -3.75928, 2.04581, 5.18624)
-
-[node name="Pan3" parent="Counter/Stove" instance=ExtResource("17_6jwyw")]
-transform = Transform3D(-0.440466, 0.120748, -0.306446, 0.107798, 0.536375, 0.056404, 0.311238, -0.0148914, -0.453221, -4.85103, 2.21728, 4.90188)
-
-[node name="Pot" parent="Counter/Stove" instance=ExtResource("18_a8hmt")]
-transform = Transform3D(0.578032, 0, -0.357624, 0, 0.679718, 0, 0.357624, 0, 0.578032, -4.81958, 2.04959, 4.89271)
-
-[node name="Pot2" parent="Counter/Stove" instance=ExtResource("18_a8hmt")]
-transform = Transform3D(0.578032, 0, -0.357624, 0, 0.679718, 0, 0.357624, 0, 0.578032, -3.92122, 2.04959, 4.89271)
-
-[node name="Pot3" parent="Counter/Stove" instance=ExtResource("18_a8hmt")]
-transform = Transform3D(0.433141, -0.00764385, -0.267981, 0.0221011, 0.149805, -0.0136738, 0.268329, 0, 0.433704, -4.82683, 2.23855, 4.88689)
+[node name="PotsPans" parent="Counter/Stove" instance=ExtResource("17_m2sgf")]
 
 [node name="Drawers2" type="Node3D" parent="Counter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19977, 1.72631, 4.03024)
@@ -1645,6 +1632,10 @@ transform = Transform3D(-0.267576, -0.000443392, 0.0138321, 0.0153315, -0.000344
 [node name="CupsOnFloor" parent="Props" instance=ExtResource("43_4s5wm")]
 transform = Transform3D(1.14018, 0, 0, 0, 1.14018, 0, 0, 0, 1.14018, 2.31297, -1.6282, -8.67955)
 
+[node name="CollisionShape3D" parent="Props/CupsOnFloor/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354838, 1.34889, 5.37595)
+shape = SubResource("BoxShape3D_vlyyl")
+
 [node name="BeerBoxes" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3874, -0.659643, -5.00448)
 
@@ -1775,7 +1766,7 @@ bones/63/rotation = Quaternion(0.340546, 0.16435, -0.0579738, 0.923936)
 autoplay = "crazyy"
 
 [node name="Rowan" parent="NPCs" instance=ExtResource("52_8j16j")]
-transform = Transform3D(0.761458, 0, -0.648214, 0, 1, 0, 0.648214, 0, 0.761458, 3.60612, -3.0926, -0.911231)
+transform = Transform3D(0.761458, 0, -0.648214, 0, 1, 0, 0.648214, 0, 0.761458, 3.6029, -3.0926, -0.910856)
 
 [node name="Frat boy red hat" parent="NPCs" instance=ExtResource("53_snasi")]
 transform = Transform3D(0.710271, 0, -0.703928, 0, 1, 0, 0.703928, 0, 0.710271, -3.24266, -3.0997, -2.45032)
@@ -2013,6 +2004,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37159, 3.27869, -2.18579)
 [editable path="SceneLoader_Entrance/InteractionDetector"]
 [editable path="Room"]
 [editable path="Bar/simple lamp"]
+[editable path="Props/CupsOnFloor"]
+[editable path="Props/CupsOnFloor/InteractionDetector"]
 [editable path="NPCs/free hug3"]
 [editable path="NPCs/Frat boy red hat"]
 [editable path="NPCs/Frat boy long hair"]

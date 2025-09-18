@@ -31,11 +31,12 @@ func on_in_range(in_range: bool) -> void:
 		if character_resource.has_chats():
 			show_outline = true
 	if show_outline:
-		super (in_range)
+		super(in_range)
 
 func on_interact() -> void:
-	super ()
+	super()
 	if character_resource:
+		print("Found character resource: ", character_resource.name)
 		character_resource.start_chat()
 		
 func play_animation(anim_name: String) -> void:

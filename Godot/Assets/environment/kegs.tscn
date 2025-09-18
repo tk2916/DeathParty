@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://04oiajsb4r4u"]
+[gd_scene load_steps=6 format=3 uid="uid://04oiajsb4r4u"]
 
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_khbxt"]
 [ext_resource type="PackedScene" uid="uid://ml4kn25ykoyy" path="res://Assets/props/keg/keg.tscn" id="1_mlk4r"]
 [ext_resource type="Resource" uid="uid://b0sea5wx3dt8f" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/beerkeg_properties.tres" id="2_y3qqj"]
+[ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="3_y3qqj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jcy4"]
+resource_local_to_scene = true
+size = Vector3(3.3941, 2.80212, 3.45676)
 
 [node name="Kegs" type="Node3D"]
 script = ExtResource("1_khbxt")
 talking_object_resource = ExtResource("2_y3qqj")
+
+[node name="InteractionDetector" parent="." instance=ExtResource("3_y3qqj")]
+
+[node name="CollisionShape3D" parent="InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047027, 0.901062, 0.668258)
+shape = SubResource("BoxShape3D_2jcy4")
 
 [node name="keg" parent="." instance=ExtResource("1_mlk4r")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0.268425, -0.201374, -1.02467)
@@ -19,3 +30,5 @@ transform = Transform3D(-0.271654, -0.766044, 0.582563, -0.906308, -3.9616e-08, 
 
 [node name="keg4" parent="." instance=ExtResource("1_mlk4r")]
 transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, -0.964726, -0.201374, 1.61887)
+
+[editable path="InteractionDetector"]
