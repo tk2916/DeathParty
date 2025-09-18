@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://bqae87n6emy8q"]
+[gd_scene load_steps=90 format=4 uid="uid://bqae87n6emy8q"]
 
 [ext_resource type="Texture2D" uid="uid://c4o46fvqrk1xg" path="res://rooms/Hourhand hallway/hourhand floor_patterned floor.png" id="2_4pph5"]
 [ext_resource type="Texture2D" uid="uid://c1gtxbrgatf5m" path="res://rooms/Hourhand hallway/hourhand hallway_bronze wall.png" id="2_v1epj"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b6e4jlycbcxdv" path="res://Assets/pop_ups/EnterArrowLeft.png" id="3_df5mx"]
 [ext_resource type="Texture2D" uid="uid://do503bq13ur3t" path="res://rooms/Hourhand hallway/hourhand hallway_TCom_ConcreteBare0318_5_S.jpg" id="3_xgvqn"]
 [ext_resource type="Texture2D" uid="uid://bk2cxm07d8gtg" path="res://rooms/Hourhand hallway/hourhand hallway_New Concret (1).png" id="4_1ehwm"]
-[ext_resource type="Texture2D" uid="uid://ccuxjk7edg5dg" path="res://Assets/pop_ups/EnterArrowDown.png" id="4_vssp0"]
 [ext_resource type="Texture2D" uid="uid://bj5g2qwqvmjy0" path="res://rooms/Hourhand hallway/hourhand hallway_TCom_OrnamentsOrientalTrimDetails0002_1_S.jpg" id="5_4u7t1"]
 [ext_resource type="Texture2D" uid="uid://bv8dqjvgu516f" path="res://rooms/Hourhand hallway/hourhand hallway_golden ornate.jpg" id="6_swdjj"]
 [ext_resource type="Texture2D" uid="uid://0oypildhcku5" path="res://rooms/Hourhand hallway/hourhand hallway_TCom_BronzeCopper0106_1_S.jpg" id="8_ikewq"]
@@ -39,7 +38,7 @@ size = Vector3(5.10004, 2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rs8om"]
 resource_local_to_scene = true
-size = Vector3(5.28977, 2.96014, 1.56811)
+size = Vector3(5.28977, 2.96014, 1.64386)
 
 [sub_resource type="FogMaterial" id="FogMaterial_4pph5"]
 density = 0.25
@@ -963,22 +962,19 @@ shape = SubResource("BoxShape3D_dr676")
 debug_color = Color(0, 0.595, 0.7, 1)
 
 [node name="SceneLoader_Storageroom" parent="." instance=ExtResource("13_1ehwm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.43027, -1.32767, 0.633325)
-interactable = null
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.01516, -1.32767, 0.633325)
+interactable = false
 target_scene = 8
-local_spawn_point = 6
-play_door_sound = ""
-left_arrow_asset = false
+local_spawn_point = 1
 right_arrow_asset = null
 down_arrow_asset = ExtResource("3_df5mx")
-arrow_direction = ExtResource("4_vssp0")
 
 [node name="Popup" parent="SceneLoader_Storageroom" index="1"]
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 1.5, 1.25)
 texture = null
 
 [node name="CollisionShape3D" parent="SceneLoader_Storageroom/InteractionDetector" index="0"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -1.08614, 1.16042, -0.160269)
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -1.08614, 1.16042, -0.122394)
 shape = SubResource("BoxShape3D_rs8om")
 
 [node name="FogVolume" type="FogVolume" parent="."]
@@ -2131,11 +2127,9 @@ skeleton = NodePath("../walllamp2")
 
 [node name="SceneLoader_Control room" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-3.0907e-08, 0, -0.707069, 0, 0.707069, 0, 0.707069, 0, -3.0907e-08, 14.7747, -1.41536, 0.823003)
-interactable = null
 target_scene = 12
 local_spawn_point = 10
 play_door_sound = true
-left_arrow_asset = false
 right_arrow_asset = null
 down_arrow_asset = ExtResource("3_df5mx")
 arrow_direction = 2
