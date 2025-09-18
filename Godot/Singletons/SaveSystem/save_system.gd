@@ -106,7 +106,7 @@ func load_into_dictionary(address : String, dict : Dictionary) -> void:
 				dict_keys.push_back(filename)
 				if !dict.has(filename):
 					dict[filename] = file.duplicate(true)
-					file.initialize()
+					dict[filename].initialize()
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the directory " + address)

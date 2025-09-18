@@ -1,7 +1,5 @@
 class_name TalkingObjectResource extends DefaultResource
 
-#const JSONArray : Resource = preload("res://Singletons/SaveSystem/json_array.tres")
-
 #CHATS
 var upcoming_chats : Array[JSON] = []
 var default_chat : JSON
@@ -46,7 +44,7 @@ func load_chats_for_room() -> void:
 	if queue_chats.has(Globals.SCENES.Everywhere) and not queue_chats[Globals.SCENES.Everywhere].json_array.is_empty():
 		upcoming_chats.append_array(queue_chats[Globals.SCENES.Everywhere].json_array)
 
-	print(name, " default chat: ", default_chat)
+	print(name, " default chat for "+Globals.get_scene_name(room)+": ", default_chat)
 
 func chat_already_loaded(file : JSON) -> bool:
 	for chat : JSON in upcoming_chats:
@@ -58,9 +56,6 @@ func load_chat(json : JSON) -> void:
 	if chat_already_loaded(json): return
 	upcoming_chats.push_back(json)
 	unread.emit(true)
-
-func set_default_chat(json : JSON) -> void:
-	default_chat = json
 	
 func print_all_chats() -> void:
 	print(name, "'s chats-------")

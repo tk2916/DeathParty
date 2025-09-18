@@ -36,7 +36,6 @@ func on_in_range(in_range: bool) -> void:
 func on_interact() -> void:
 	super()
 	if character_resource:
-		print("Found character resource: ", character_resource.name)
 		character_resource.start_chat()
 		
 func play_animation(anim_name: String) -> void:
