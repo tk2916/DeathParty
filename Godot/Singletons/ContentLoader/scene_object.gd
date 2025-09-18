@@ -83,15 +83,15 @@ func load_async(loading_in : bool = true) -> void:
 		return
 	ResourceLoader.load_threaded_request(filepath)
 	while true:
-		var progress = []
-		var status = ResourceLoader.load_threaded_get_status(filepath, progress)
+		var progress : Array = []
+		var status : ResourceLoader.ThreadLoadStatus = ResourceLoader.load_threaded_get_status(filepath, progress)
 		match status:
 			ResourceLoader.THREAD_LOAD_LOADED:
 				file = ResourceLoader.load_threaded_get(filepath)
 				file_loaded.emit()
 				break
 			ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-				await scene.get_tree().process_frame
+				await scene.instance.get_tree().process_frame
 			ResourceLoader.THREAD_LOAD_FAILED:
 				break
 

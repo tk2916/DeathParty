@@ -65,6 +65,7 @@ func begin_dialogue(file : JSON, in_phone : bool = false) -> void:
 		pause_dialogue()
 		#print("You can't start a new chat while in a dialogue!")
 		return
+	print("Beginning dialogue")
 	in_dialogue = true
 	show_dialogue_box(in_phone)
 	Ink.from_JSON(file)
@@ -81,7 +82,7 @@ func resume_dialogue(address : InkAddress) -> void:
 	display_content()
 
 func end_dialogue() -> void:
-	print("End dialogue false")
+	print("Ending dialogue")
 	in_dialogue = false
 	if current_dialogue_box == text_message_box: #if focused dialogue box is message app
 		current_phone_resource.end_chat(current_conversation)
@@ -161,7 +162,6 @@ func display_content() -> void:
 	if content[0] is InkLineInfo:
 		var line : InkLineInfo = content[0]
 		if line.speaker == "System" and line.text == "end":
-			print("Ended dialogue")
 			end_dialogue()
 		elif line.text[0] == "/":
 			await match_command(line.text)

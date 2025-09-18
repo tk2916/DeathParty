@@ -68,11 +68,11 @@
 			],
 			"global decl": [
 				"ev",
-				true,
+				false,
 				{
 					"VAR=": "has_camera"
 				},
-				true,
+				false,
 				{
 					"VAR=": "has_journal"
 				},

@@ -62,7 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://b6nkql64iwq61" path="res://rooms/Ghost hallway/fire/fire-10.png" id="58_urdp6"]
 [ext_resource type="Texture2D" uid="uid://dcyx6nxctxmpd" path="res://rooms/Ghost hallway/fire/fire-11.png" id="59_65wwx"]
 [ext_resource type="Texture2D" uid="uid://bp4plqqk6pcdx" path="res://rooms/Ghost hallway/fire/fire-12.png" id="60_5rqn6"]
-[ext_resource type="PackedScene" path="res://rooms/Ghost hallway/blue_sky.tscn" id="61_u8eoh"]
+[ext_resource type="PackedScene" uid="uid://i7gdcbnkh0w4" path="res://rooms/Ghost hallway/blue_sky.tscn" id="61_u8eoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxaoo"]
 size = Vector3(13.7318, 4.49936, 7.14718)
