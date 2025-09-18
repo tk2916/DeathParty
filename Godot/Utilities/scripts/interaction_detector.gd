@@ -18,11 +18,20 @@ func _process(_delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	print("On body entered: ", body)
 	if body.is_in_group("player"):
-		player_currently_in_range = true
-		player_in_range.emit(true)
+		#Add the interaction to the priority
+		InteractablePriority.add_interactable(self)
 
 func _on_body_exited(body : Node3D) -> void:
 	if body.is_in_group("player"):
-		#print("Player exited")
-		player_currently_in_range = false
-		player_in_range.emit(false)
+		#Add interaction to the priority
+		InteractablePriority.remove_interactable(self)
+		pass
+		
+#Enables the Detector
+func enable():
+	player_currently_in_range = true
+	player_in_range.emit(true)
+
+func disable():
+	player_currently_in_range = false
+	player_in_range.emit(false)

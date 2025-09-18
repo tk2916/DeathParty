@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ciagkcjbti5dm"
-path.s3tc="res://.godot/imported/polaroid_olivia.png-e161e3681c7d1cdebc48cb812800cfd3.s3tc.ctex"
-path.etc2="res://.godot/imported/polaroid_olivia.png-e161e3681c7d1cdebc48cb812800cfd3.etc2.ctex"
+path.s3tc="res://.godot/imported/polaroid_olivia.png-73da6d4e6d86e91135a971f0fc47b1bc.s3tc.ctex"
+path.etc2="res://.godot/imported/polaroid_olivia.png-73da6d4e6d86e91135a971f0fc47b1bc.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/CharacterAssets/Olivia/polaroid_olivia.png"
-dest_files=["res://.godot/imported/polaroid_olivia.png-e161e3681c7d1cdebc48cb812800cfd3.s3tc.ctex", "res://.godot/imported/polaroid_olivia.png-e161e3681c7d1cdebc48cb812800cfd3.etc2.ctex"]
+source_file="res://Assets/CharacterAssets/olivia/polaroid_olivia.png"
+dest_files=["res://.godot/imported/polaroid_olivia.png-73da6d4e6d86e91135a971f0fc47b1bc.s3tc.ctex", "res://.godot/imported/polaroid_olivia.png-73da6d4e6d86e91135a971f0fc47b1bc.etc2.ctex"]
 
 [params]
 
