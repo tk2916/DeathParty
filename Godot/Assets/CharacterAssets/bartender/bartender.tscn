@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck4xtxo7o2lj3"]
+[gd_scene load_steps=5 format=3 uid="uid://ck4xtxo7o2lj3"]
 
 [ext_resource type="PackedScene" uid="uid://ccnq3piokb8b1" path="res://Assets/CharacterAssets/bartender/Bartender.glb" id="1_1fimp"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_8jnbp"]
 [ext_resource type="Resource" uid="uid://bjotw4lrnmjtx" path="res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_bartender.tres" id="3_kfods"]
+[ext_resource type="PackedScene" uid="uid://bslr2tafqki5h" path="res://Common/Popup UI/npc_interact_popup.tscn" id="4_1xf02"]
 
 [node name="Bartender" instance=ExtResource("1_1fimp")]
 script = ExtResource("2_8jnbp")
 character_resource = ExtResource("3_kfods")
+
+[node name="Popup" parent="." index="0" instance=ExtResource("4_1xf02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76913, 2.22461, 0)
 
 [node name="Skeleton3D" parent="Model" index="0"]
 bones/0/position = Vector3(0.0174506, 1.01803, -0.00183699)
@@ -153,6 +157,6 @@ bones/165/rotation = Quaternion(0.000449364, -2.57288e-05, -6.45881e-05, 1)
 bones/167/position = Vector3(-0.142206, 0.518062, 0.529693)
 bones/167/rotation = Quaternion(-0.707107, 3.40922e-09, -8.67581e-09, 0.707107)
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="2"]
 root_motion_track = NodePath("Model/Skeleton3D:Ctrl_Hand_IK_Left")
 root_motion_local = false

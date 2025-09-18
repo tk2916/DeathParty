@@ -218,7 +218,7 @@ func add_item(item_name:String, show_item_details : bool = false) -> void:
 	var item := item_exists(item_name)
 	item.amount_owned += 1
 	inventory_changed.emit("add", item)
-	if show_item_details:
+	if show_item_details and item.model != null:
 		InventoryUtils.show_item_details(item)
 
 func remove_item(item_name:String) -> bool: #returns 1 if successful, 0 if there aren't any left

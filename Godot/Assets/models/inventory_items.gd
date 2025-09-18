@@ -44,6 +44,7 @@ func on_inventory_change(action:String, item:InventoryItemResource) -> void:
 	
 func new_item(item_name:String) -> void:
 	var item_resource : InventoryItemResource = SaveSystem.get_inventory_item(item_name)
+	if item_resource.model == null: return
 	var static_body : ObjectViewerInteractable = InventoryUtils.create_clickable_item(item_resource)
 	item_instances.push_back(static_body)
 	#print("Static body name: ", static_body.name)

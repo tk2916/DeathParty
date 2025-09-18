@@ -204,8 +204,10 @@ func match_command(text_ : String) -> void:
 			writing /give_item and /has_item right after each other
 			'''
 			SaveSystem.set_key("has_item_flag", true)
-			current_dialogue_box.visible = false
-			await GuiSystem.guis_closed
+			if SaveSystem.item_exists(parameters_array[1]).model != null:
+				#wait for inventory preview to close
+				current_dialogue_box.visible = false
+				await GuiSystem.guis_closed
 			waiting = false
 			current_dialogue_box.visible = true
 		"/remove_item":

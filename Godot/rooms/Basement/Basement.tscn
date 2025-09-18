@@ -80,7 +80,7 @@
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="60_1mcaq"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="61_5eouh"]
 [ext_resource type="Texture2D" uid="uid://cescg2luxp8a1" path="res://rooms/Basement/bean bag_Screenshot_2025-07-07_193553.png" id="77_jle5p"]
-[ext_resource type="VideoStream" uid="uid://durjhoccw8ld2" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
+[ext_resource type="VideoStream" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
 [ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer.tscn" id="79_g8hj1"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="81_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="82_48c5o"]

@@ -1,4 +1,11 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://dlhvvfgrqs5ib"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dlhvvfgrqs5ib"]
+
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="1_p6dcq"]
+[ext_resource type="Texture2D" uid="uid://dts4qro0icnli" path="res://Assets/pop_ups/BackgroundRight.png" id="2_bfdor"]
 
 [resource]
 resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_p6dcq")
+shader_parameter/albedo_texture = ExtResource("2_bfdor")
+shader_parameter/multiplier = 0.6

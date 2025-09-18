@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://dhon163rkpuq5"]
+[gd_scene load_steps=7 format=4 uid="uid://dhon163rkpuq5"]
 
 [ext_resource type="Texture2D" uid="uid://b543ufqfx8ra4" path="res://rooms/Exterior Frat Lawn/beer pong sign_Image_0.png" id="1_6bw6m"]
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_ik6mh"]
-[ext_resource type="Resource" uid="uid://i05ysruptna" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/beerpong_poster_properties.tres" id="2_7fa1t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nm8p"]
 resource_name = "T_floor_sign_1001"
@@ -48,7 +47,6 @@ size = Vector3(0.75, 1.25, 0.75)
 
 [node name="BeerPongSign" type="StaticBody3D"]
 script = ExtResource("1_ik6mh")
-talking_object_resource = ExtResource("2_7fa1t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.925492, 0, 0, 0, -4.41309e-07, 0.925492, 0, -0.925492, -4.41309e-07, 0, 0, 0)
