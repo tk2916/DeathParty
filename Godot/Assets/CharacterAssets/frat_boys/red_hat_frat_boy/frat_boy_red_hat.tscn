@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhn4nq3dwy343"]
+[gd_scene load_steps=3 format=3 uid="uid://cd3gxo5pookxd"]
 
 [ext_resource type="PackedScene" uid="uid://csh7q4aonjs3d" path="res://Assets/CharacterAssets/frat_boys/red_hat_frat_boy/Frat boy red hat.glb" id="1_0j1lr"]
 
-[node name="Frat boy red hat" instance=ExtResource("1_0j1lr")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tgy3t"]
+radius = 0.6
+
+[node name="FratBoyRedHat" instance=ExtResource("1_0j1lr")]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_tgy3t")
