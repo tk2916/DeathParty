@@ -223,15 +223,26 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 
 				#Choice's redirect
 				var redirect_location : String = next_dict["*"]
+				#One-off choice?
+				var once_only : bool = false
 
 				#If 1 bit is set, store conditional statements on stack
 				#these will be checked during runtime to decide whether to show the choice
 				var eval_stack : Array = []
+				#bits to check
+				var flag_one : int = 1
+				var flag_sixteen : int = 16
+
 				var flag : int = next_dict["flg"]
-				if int(flag)&1 == 1: #check if 1 bit is set 
+				
+				if flag&flag_one != 0: #check if 1 bit is set 
 					#Means it is conditional text
 					eval_stack = evaluation_stack_items
 					evaluation_stack_items = []
+				if flag&flag_sixteen != 0:
+					print("One-off choice: ", choice_text)
+					#Means it is a one-off choice
+					once_only = true
 				
 				InkChoiceInfo.new(
 					new_container, 
@@ -239,6 +250,7 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 					choice_text,
 					redirect_location,
 					eval_stack,
+					once_only,
 				)
 			elif next_dict.has("->"):
 				var redirect : String = next_dict["->"]

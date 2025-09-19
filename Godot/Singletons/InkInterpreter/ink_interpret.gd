@@ -80,7 +80,9 @@ func get_content() -> Array[InkNode]:
 
 	return get_content()
 
-func make_choice(redirect_path : String) -> void:
+func make_choice(choice : InkChoiceInfo) -> void:
+	choice.set_viewed()
+	var redirect_path : String = choice.jump
 	address = redirect_path_to_address(address, redirect_path)
 	print("Made choice: ", address)
 
@@ -120,6 +122,7 @@ func redirect_path_to_address(current_address : InkAddress, path : String) -> In
 	var path_array : Array = Array(path.split('.'))
 
 	var final_index : int = path_array.size()-1
+	var last_path_element : String = path_array[final_index]
 
 	# Go up the parent tree
 	if relative_path:
@@ -136,9 +139,11 @@ func redirect_path_to_address(current_address : InkAddress, path : String) -> In
 					new_address.container = new_address.container.parent_container # set address container to parent
 
 		# Get index or redirect container within current container
-		var last_path_element : String = path_array[final_index]
 		if last_path_element.is_valid_int(): #then it is an index
 			new_address.index = int(last_path_element)
+		elif last_path_element == "^":
+			new_address.container = new_address.container.parent_container
+			new_address.index = 0
 		else: #then it is a redirect (sub-container)
 			print("New container: ", new_address.container.name)
 			new_address.container = new_address.container.redirects[last_path_element]

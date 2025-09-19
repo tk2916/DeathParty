@@ -76,6 +76,8 @@ func resume_dialogue(address : InkAddress) -> void:
 		pause_dialogue()
 		#print("You can't resume a chat while in a dialogue!")
 		return
+
+	print("Resuming dialogue")
 	in_dialogue = true
 	show_dialogue_box(true)
 	Ink.from_address(address)
@@ -102,6 +104,7 @@ func pause_dialogue(revert_address : bool = false) -> void: #ONLY FOR PHONE CONV
 		Ink.address.index -= 1
 		current_conversation.pop_back()
 	current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy
+	print("Pausing dialogue")
 	in_dialogue = false
 ##
 
@@ -314,8 +317,8 @@ func advance_dialogue() -> void:
 		main.add_child(dialogue_advance_sound_instance)
 
 ## MAKE CHOICE
-func make_choice(redirect:String) -> void:
+func make_choice(choice : InkChoiceInfo) -> void:
 	are_choices = false
-	print("Making choice: ", redirect)
-	Ink.make_choice(redirect)
+	print("Making choice: ", choice)
+	Ink.make_choice(choice)
 	display_content()

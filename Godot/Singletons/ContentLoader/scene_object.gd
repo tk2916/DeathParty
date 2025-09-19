@@ -101,7 +101,7 @@ func add_cell(cell:Cell) -> void:
 	owner_cells.push_back(cell)
 
 func assign_existing_node() -> void:
-	print("Assigning existing node: ", name, " in ", parent_obj.name, " instance: ", parent_obj.instance)
+	#print("Assigning existing node: ", name, " in ", parent_obj.name, " instance: ", parent_obj.instance)
 	if (!is_instance_valid(parent_obj.instance)):
 		var parent_scene_object : SceneObject = parent_obj
 		parent_scene_object.assign_existing_node()

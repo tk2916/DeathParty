@@ -11,10 +11,10 @@ var scene_teleport_pos : Vector3
 
 var scene_data_dict : Dictionary[Globals.SCENES, LoadableScene] = {}
 var cell_grids : Dictionary[Globals.SCENES, Vector3] = {
-	#"PartyRoom" = Vector3(5,1,1),
-	"PartyRoom" = Vector3(1,1,1),
+	Globals.SCENES.PartyRoom: Vector3(5,1,1),
+	#"PartyRoom" = Vector3(1,1,1),
 	#"Exterior" = Vector3(10,1,10),
-	"Exterior" = Vector3(1,1,1),
+	Globals.SCENES.Exterior: Vector3(1,1,1),
 }
 
 @onready var tree : SceneTree = get_tree()
@@ -91,6 +91,9 @@ func store_scene_info(node : Node3D) -> void:
 	added_scene.emit()
 
 func load_player() -> void:
+	GuiSystem.show_journal() #puts journal into cache
+	await get_tree().process_frame
+	GuiSystem.hide_journal()
 	loaded = true
 	if !is_instance_valid(player):
 		player = player_file.instantiate()

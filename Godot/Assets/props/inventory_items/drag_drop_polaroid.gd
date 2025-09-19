@@ -8,14 +8,14 @@ var bookflip_instance : BookFlip
 @onready var og_position : Vector3 = position
 var mesh : MeshInstance3D
 
-var item_resource : Resource
+var item_resource : InventoryItemResource
 
 var og_scale : Vector3
 
-func _init(_item_resource : Resource) -> void:
+func _init(_item_resource : InventoryItemResource) -> void:
 	super()
 	item_resource = _item_resource
-	og_scale = Vector3.ONE*_item_resource.inventory_scale
+	og_scale = Vector3.ONE*item_resource.inventory_scale
 	scale = og_scale
 
 func _ready() -> void:
@@ -23,18 +23,18 @@ func _ready() -> void:
 	tree = get_tree()
 	mesh = Utils.find_first_child_of_class(self, MeshInstance3D)
 	
-func return_to_og_position():
+func return_to_og_position() -> void:
 	position = og_position
 
 ##INHERITED
 func enter_hover() -> void:
 	if tree == null: return
-	var tween = tree.create_tween()
+	var tween := tree.create_tween()
 	tween.tween_property(self, "scale", og_scale*1.2, .2)
 	
 func exit_hover() -> void:
 	if tree == null: return
-	var tween = tree.create_tween()
+	var tween := tree.create_tween()
 	tween.tween_property(self, "scale", og_scale, .2)
 	
 func on_mouse_down()-> void:

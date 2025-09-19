@@ -51,7 +51,7 @@ class MessageAppChoiceButton:
 		box.choices_array.push_back(self)
 
 	func on_pressed() -> void:
-		DialogueSystem.make_choice(info.jump)
+		DialogueSystem.make_choice(info)
 		for item in box.choices_array:
 			item.destroy()
 		box.choices_array = []
