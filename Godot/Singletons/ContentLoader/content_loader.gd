@@ -11,7 +11,7 @@ var scene_teleport_pos : Vector3
 
 var scene_data_dict : Dictionary[Globals.SCENES, LoadableScene] = {}
 var cell_grids : Dictionary[Globals.SCENES, Vector3] = {
-	Globals.SCENES.PartyRoom: Vector3(5,1,1),
+	#Globals.SCENES.PartyRoom: Vector3(5,1,1),
 	#"PartyRoom" = Vector3(1,1,1),
 	#"Exterior" = Vector3(10,1,10),
 	Globals.SCENES.Exterior: Vector3(1,1,1),
