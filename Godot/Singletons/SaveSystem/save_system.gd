@@ -191,11 +191,18 @@ func get_time_string(include_ampm:bool = true) -> String:
 #EDITING
 func get_key(key:String) ->  Variant:
 	key_exists_assert(key)
+	print("global decl GET key function: ", key, " | ", player_data.variable_dict[key])
 	return player_data.variable_dict[key]
 
 func set_key(key:String, value:Variant) -> void:
 	if key_exists(key):
 		match_type(key, value) # asserts that they are of matching types
+	if value is String:
+		if value == "true":
+			value = true
+		elif value == "false":
+			value = false
+	print("global decl set key function: ", key, " value: ", value)
 	player_data.variable_dict[key] = value
 	if key == "time":
 		time_changed.emit(value)

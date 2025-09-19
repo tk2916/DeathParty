@@ -197,14 +197,15 @@ func match_command(text_ : String) -> void:
 	#match the first parameters (the command)
 	match(parameters_array[0]):
 		"/give_item":
+			var item_name : String = parameters_array[1]
 			waiting = true
-			SaveSystem.add_item(parameters_array[1], true)
+			SaveSystem.add_item(item_name, true)
 			'''
 			set this automatically so writers don't have to keep
 			writing /give_item and /has_item right after each other
 			'''
 			SaveSystem.set_key("has_item_flag", true)
-			if SaveSystem.item_exists(parameters_array[1]).model != null:
+			if item_name == "Journal" or SaveSystem.item_exists(item_name).model != null:
 				#wait for inventory preview to close
 				current_dialogue_box.visible = false
 				await GuiSystem.guis_closed

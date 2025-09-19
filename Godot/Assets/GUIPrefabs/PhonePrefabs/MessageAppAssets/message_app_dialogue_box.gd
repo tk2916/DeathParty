@@ -187,7 +187,13 @@ func add_line(line: InkLineInfo, skip_delay : bool = false) -> void:
 	var animated_label: AnimatedTextLabel = AnimatedTextLabel.new(self, clone.Text)
 	animated_label.set_text(line)
 
-	#ADVANCE DIALOGUE AUTOMATICALLY
+	##this is hacky code to get around a bug where the text messages appear unaligned
+	var anchor_left_before : float = clone.anchor_left
+	clone.anchor_left = -1
+	clone.anchor_bottom = anchor_left_before
+	##
+
+	#ADVANCE DIALOGUE AUTOMATICALLY (PHONE ONLY)
 	DialogueSystem.advance_dialogue()
 
 func set_choices(choices: Array[InkChoiceInfo]) -> void:

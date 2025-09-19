@@ -178,7 +178,8 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 						var redirect_container : InkContainer = new_container.redirects[redirect_name]
 						var first_line : InkLineInfo = redirect_container.dialogue_lines[0]
 						string_eval_stream = string_eval_stream + first_line.text
-						
+			else:
+				push(next)
 
 		elif not string_evaluation_mode:
 			if next is Dictionary:

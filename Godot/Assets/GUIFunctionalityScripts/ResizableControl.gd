@@ -23,7 +23,7 @@ func _init(_control : Control, _label : RichTextLabel, _resize_x : bool = true, 
 	theme_font_size = label.get_theme_font_size("normal")
 
 func resize() -> void:
-	if not (control and label): return
+	if control == null or label == null: return
 	#print("Resizing-------", control.name)
 	if self.resize_x:
 		var actual_content_width : float = theme_font.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1, theme_font_size).x

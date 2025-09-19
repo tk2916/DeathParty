@@ -3,7 +3,7 @@ class_name ChatResource extends DefaultResource
 @export var image : CompressedTexture2D
 
 #Display participants on name hover
-var participants : Array[CharacterResource] = [] #Characters in group cht
+var participants : Array[CharacterResource] = [] #Characters in group chat
 
 #Chats
 var upcoming_chats : Array[JSON] = []
@@ -80,6 +80,5 @@ func end_chat(current_conversation : Array[InkLineInfo]) -> void:
 func parse_participants() -> void:
 	var name_split : Array = Array(name.split(", "))
 	for person_name : String in name_split:
-		print("Name in group chat: ", name, SaveSystem)
 		var person : CharacterResource = SaveSystem.get_character(person_name)
 		participants.push_back(person)
