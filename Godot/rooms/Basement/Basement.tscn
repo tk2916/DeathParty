@@ -80,7 +80,7 @@
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="60_1mcaq"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="61_5eouh"]
 [ext_resource type="Texture2D" uid="uid://cescg2luxp8a1" path="res://rooms/Basement/bean bag_Screenshot_2025-07-07_193553.png" id="77_jle5p"]
-[ext_resource type="VideoStream" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
+[ext_resource type="VideoStream" uid="uid://durjhoccw8ld2" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
 [ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer.tscn" id="79_g8hj1"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="81_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="82_48c5o"]
@@ -88,7 +88,7 @@
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.tscn" id="84_reyxf"]
 [ext_resource type="PackedScene" uid="uid://cfen8ypgv1gjf" path="res://Assets/CharacterAssets/gamers/shark_gamer/shark_gamer.tscn" id="85_vdfwq"]
 [ext_resource type="PackedScene" uid="uid://csh7q4aonjs3d" path="res://Assets/CharacterAssets/frat_boys/red_hat_frat_boy/Frat boy red hat.glb" id="88_bu75b"]
-[ext_resource type="PackedScene" uid="uid://bte4agxfg1yhm" path="res://Assets/CharacterAssets/frat_boys/Long_Hair_frat_boy/Frat boy long hair.glb" id="89_2nnqp"]
+[ext_resource type="PackedScene" uid="uid://c8dmqdvlt6p8x" path="res://Assets/CharacterAssets/frat_boys/Long_Hair_frat_boy/frat_boy_long_hair.tscn" id="89_2nnqp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
 size = Vector3(19.3558, 3.4958, 13.0126)
@@ -2990,29 +2990,29 @@ bones/63/rotation = Quaternion(0.313657, 0.220676, -0.0677292, 0.921051)
 [node name="AnimationPlayer" parent="Frat boy red hat" index="1"]
 autoplay = "drunk idle"
 
-[node name="Frat boy long hair" parent="." instance=ExtResource("89_2nnqp")]
+[node name="FratBoyLongHair" parent="." instance=ExtResource("89_2nnqp")]
 transform = Transform3D(0.803421, 0, -0.595412, 0, 1, 0, 0.595412, 0, 0.803421, -0.33511, -0.0778844, 0.961569)
 
-[node name="Skeleton3D" parent="Frat boy long hair/long hair" index="0"]
-bones/0/position = Vector3(1.30759, 1.53788, -24.6997)
-bones/0/rotation = Quaternion(-0.0438141, -0.0296545, -0.00965012, 0.998553)
-bones/1/rotation = Quaternion(-0.0601916, 0.00435873, -1.59042e-05, 0.998177)
+[node name="Skeleton3D" parent="FratBoyLongHair/long hair" index="0"]
+bones/0/position = Vector3(0.039032, 1.55302, -17.9356)
+bones/0/rotation = Quaternion(-0.0103211, -0.0342341, -0.0140068, 0.999262)
+bones/1/rotation = Quaternion(-0.0503392, 0.0179669, 0.00494029, 0.998558)
 bones/2/position = Vector3(3.42734e-08, 9.96932, -8.13977e-07)
-bones/2/rotation = Quaternion(0.00659687, 0.00719629, 1.68207e-05, 0.999952)
+bones/2/rotation = Quaternion(0.0159942, 0.0125608, 0.00269237, 0.99979)
 bones/3/position = Vector3(-3.63798e-12, 11.3935, 3.3946e-06)
-bones/3/rotation = Quaternion(0.00658169, 0.00721214, 3.38626e-05, 0.999952)
+bones/3/rotation = Quaternion(0.0158629, 0.0126878, 0.00304184, 0.999789)
 bones/4/position = Vector3(-2.0466e-07, 12.8177, 3.82404e-06)
-bones/4/rotation = Quaternion(-0.105678, -0.00500827, 0.0492207, 0.993169)
+bones/4/rotation = Quaternion(-0.117923, -0.00948812, 0.0354729, 0.992344)
 bones/5/position = Vector3(2.22737e-07, 6.05791, 2.60921)
-bones/5/rotation = Quaternion(-0.184513, 0.0346538, -0.0229479, 0.981951)
+bones/5/rotation = Quaternion(-0.255728, 0.018482, -0.0316379, 0.966054)
 bones/6/position = Vector3(1.76504e-05, 23.2093, 9.99655)
-bones/7/rotation = Quaternion(-0.464398, -0.531506, 0.568394, -0.422806)
+bones/7/rotation = Quaternion(-0.462801, -0.512446, 0.609227, -0.389945)
 bones/8/position = Vector3(-5.27209e-07, 14.4481, -2.20471e-06)
-bones/8/rotation = Quaternion(0.189394, 0.160332, 0.148181, 0.957322)
+bones/8/rotation = Quaternion(0.151641, 0.155029, 0.0272418, 0.975822)
 bones/9/position = Vector3(7.74331e-07, 28.6183, -1.99077e-06)
-bones/9/rotation = Quaternion(0.00515171, -0.00016051, 0.801465, 0.59802)
+bones/9/rotation = Quaternion(0.00562149, -0.000130432, 0.874595, 0.484822)
 bones/10/position = Vector3(1.29321e-06, 29.4375, -1.40685e-06)
-bones/10/rotation = Quaternion(-0.622569, 0.312012, 0.0531135, 0.715706)
+bones/10/rotation = Quaternion(-0.6213, 0.29993, 0.105383, 0.716186)
 bones/11/position = Vector3(-4.33267, 4.41452, 2.1703)
 bones/11/rotation = Quaternion(0.0209259, 0.156088, 0.409298, 0.898707)
 bones/12/position = Vector3(-0.158084, 5.24175, -1.69291e-06)
@@ -3048,14 +3048,14 @@ bones/28/rotation = Quaternion(0.043414, -7.20889e-06, -0.00438488, 0.999048)
 bones/29/position = Vector3(7.86558e-05, 3.40441, 1.50449e-06)
 bones/29/rotation = Quaternion(0.0434147, 1.524e-05, -0.00447045, 0.999047)
 bones/30/position = Vector3(-0.00140967, 3.07398, -1.11172e-05)
-bones/31/rotation = Quaternion(0.49612, -0.515945, 0.551184, 0.42879)
+bones/31/rotation = Quaternion(0.498217, -0.509145, 0.567069, 0.413503)
 bones/32/position = Vector3(1.47779e-06, 14.4481, 5.70735e-08)
-bones/32/rotation = Quaternion(0.284019, -0.0853569, -0.121722, 0.947223)
+bones/32/rotation = Quaternion(0.309972, -0.0900854, 0.0534077, 0.94496)
 bones/33/position = Vector3(1.07282e-06, 28.6191, -2.63497e-06)
-bones/33/rotation = Quaternion(0.0175675, 9.84106e-05, -0.826182, 0.563129)
+bones/33/rotation = Quaternion(0.0195831, 6.83554e-05, -0.920986, 0.389103)
 bones/34/position = Vector3(1.19168e-06, 29.4201, -1.23578e-06)
-bones/34/rotation = Quaternion(-0.602034, -0.228219, 0.0612969, 0.762702)
-bones/35/rotation = Quaternion(-0.0310537, -0.0531871, -0.239986, 0.968821)
+bones/34/rotation = Quaternion(-0.578032, -0.279173, 0.0207936, 0.766492)
+bones/35/rotation = Quaternion(-0.0282289, -0.0538685, -0.239607, 0.968963)
 bones/36/position = Vector3(0.417386, 5.12923, 5.69842e-06)
 bones/36/rotation = Quaternion(0.032814, -0.123548, -0.0191242, 0.991612)
 bones/37/position = Vector3(-0.234915, 4.34716, 6.23077e-07)
@@ -3089,21 +3089,21 @@ bones/52/rotation = Quaternion(0.0434576, 1.65672e-05, 0.00405599, 0.999047)
 bones/53/position = Vector3(0.000148846, 3.20116, 3.23041e-06)
 bones/53/rotation = Quaternion(0.0434595, -2.44829e-05, 0.00408492, 0.999047)
 bones/54/position = Vector3(0.00210434, 2.87449, 1.45873e-06)
-bones/55/rotation = Quaternion(0.0847188, 0.0297562, 0.995854, -0.0145396)
-bones/56/rotation = Quaternion(-0.0931352, -0.0442581, 0.065324, 0.992522)
-bones/57/rotation = Quaternion(0.628681, 0.0195383, 0.0865934, 0.77258)
+bones/55/rotation = Quaternion(0.0850903, 0.0679225, 0.993588, -0.0304772)
+bones/56/rotation = Quaternion(-0.165046, -0.0282893, 0.0677079, 0.983552)
+bones/57/rotation = Quaternion(0.652885, 0.0150569, 0.083213, 0.752721)
 bones/58/position = Vector3(7.33676e-06, 19.8772, 1.32283e-05)
-bones/58/rotation = Quaternion(0.646894, -0.393601, -0.0289675, 0.652509)
-bones/60/rotation = Quaternion(-0.0723436, 0.0545682, 0.995794, 0.0135258)
+bones/58/rotation = Quaternion(0.671123, -0.37281, -0.0210262, 0.640441)
+bones/60/rotation = Quaternion(-0.0693612, 0.0868886, 0.993767, 0.0081037)
 bones/61/position = Vector3(1.52863e-06, 46.6223, 2.16776e-06)
-bones/61/rotation = Quaternion(-0.113123, 0.0226756, -0.0457656, 0.992267)
+bones/61/rotation = Quaternion(-0.171521, 0.00344872, -0.0453043, 0.984132)
 bones/62/position = Vector3(1.3217e-06, 52.7085, -8.00139e-07)
-bones/62/rotation = Quaternion(0.473961, -0.00215768, -0.0211739, 0.880289)
+bones/62/rotation = Quaternion(0.503041, 0.000353401, -0.0220554, 0.863981)
 bones/63/position = Vector3(-1.20337e-05, 19.7376, 1.59119e-05)
-bones/63/rotation = Quaternion(0.651291, 0.448677, 0.0673765, 0.608251)
+bones/63/rotation = Quaternion(0.663991, 0.434605, 0.0625791, 0.605243)
 bones/64/position = Vector3(1.40544e-05, 7.3007, 1.97079e-06)
 
-[node name="AnimationPlayer" parent="Frat boy long hair" index="1"]
+[node name="AnimationPlayer" parent="FratBoyLongHair" index="1"]
 autoplay = "push up"
 
 [editable path="SceneLoader_Entrance"]
@@ -3116,4 +3116,4 @@ autoplay = "push up"
 [editable path="free hug2"]
 [editable path="shark"]
 [editable path="Frat boy red hat"]
-[editable path="Frat boy long hair"]
+[editable path="FratBoyLongHair"]
