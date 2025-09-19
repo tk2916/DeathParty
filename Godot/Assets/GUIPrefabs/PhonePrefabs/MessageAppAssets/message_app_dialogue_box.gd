@@ -140,6 +140,7 @@ func on_back_pressed() -> void:
 
 ## INHERITED
 var last_speaker: String = ""
+var previous_text_instance : DialogueLineExpand
 func add_line(line: InkLineInfo, skip_delay : bool = false) -> void:
 	#DELAY BEFORE SHOWING (except on first message)
 	var delay_time : float = line.text.length()/30.0
@@ -180,6 +181,9 @@ func add_line(line: InkLineInfo, skip_delay : bool = false) -> void:
 			#a different conversation has started
 			return
 
+	if previous_text_instance:
+		previous_text_instance.minimum_y_size = 0
+		previous_text_instance.resize()
 	#add to tree
 	dialogue_container.add_child(clone)
 
@@ -192,6 +196,8 @@ func add_line(line: InkLineInfo, skip_delay : bool = false) -> void:
 	clone.anchor_left = -1
 	clone.anchor_bottom = anchor_left_before
 	##
+
+	previous_text_instance = clone
 
 	#ADVANCE DIALOGUE AUTOMATICALLY (PHONE ONLY)
 	DialogueSystem.advance_dialogue()
