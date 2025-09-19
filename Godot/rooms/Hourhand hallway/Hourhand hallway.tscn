@@ -933,7 +933,7 @@ size = Vector3(6.58365, 2.80212, 2.04828)
 size = Vector3(32.8532, 0.978088, 13.0097)
 
 [node name="Hourhand hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.36488, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("2_xgvqn")
 room_area = NodePath("RoomArea")
 
@@ -1806,7 +1806,7 @@ mesh = SubResource("ArrayMesh_1byei")
 skeleton = NodePath("")
 
 [node name="hallway 4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 10.4405, 0, 3.36159)
+transform = Transform3D(1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, -1, 10.4405, 0, 3.36159)
 
 [node name="Cube" type="MeshInstance3D" parent="hallway 4"]
 transform = Transform3D(-1.46668, 0, 1.22646e-07, 0, 1, 0, -2.21463e-07, 0, -0.812246, -5.27424, -0.473793, 0.112138)
