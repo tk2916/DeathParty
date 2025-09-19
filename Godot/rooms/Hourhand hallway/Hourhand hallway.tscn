@@ -2128,7 +2128,6 @@ skeleton = NodePath("../walllamp2")
 [node name="SceneLoader_Control room" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-3.0907e-08, 0, -0.707069, 0, 0.707069, 0, 0.707069, 0, -3.0907e-08, 14.7747, -1.41536, 0.823003)
 target_scene = 12
-local_spawn_point = 10
 play_door_sound = true
 right_arrow_asset = null
 down_arrow_asset = ExtResource("3_df5mx")
