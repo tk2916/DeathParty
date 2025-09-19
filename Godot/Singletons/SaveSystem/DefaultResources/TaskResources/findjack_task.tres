@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TaskResource" load_steps=2 format=3 uid="uid://calux58lykada"]
+
+[ext_resource type="Script" uid="uid://cvt183j47uyr1" path="res://Singletons/SaveSystem/ResourceScripts/task_properties_script.gd" id="1_fgi5q"]
+
+[resource]
+script = ExtResource("1_fgi5q")
+description = "You have Jack's wallet. Return it to him!"
+name = "Find Jack"

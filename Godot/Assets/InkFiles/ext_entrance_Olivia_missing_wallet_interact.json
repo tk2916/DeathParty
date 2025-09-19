@@ -1,1 +1,41 @@
-{"inkVersion":21,"root":[["^[Olivia]The party is just getting started and someone already lost their wallet?","\n","^Whoever this belongs to probably has some kind of ID in it. I should check.","\n","^/give_item Wallet","\n","^/give_task FindJack","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev",false,{"VAR=":"has_wallet"},"/ev","end",null],"#f":1}],"listDefs":{}}
+{
+	"inkVersion": 21.0,
+	"root": [
+		[
+			"^[Olivia]The party is just getting started and someone already lost their wallet?",
+			"\n",
+			"^Whoever this belongs to probably has some kind of ID in it. I should check.",
+			"\n",
+			"^/give_item Wallet",
+			"\n",
+			"^/give_task \"Find Jack\"",
+			"\n",
+			"end",
+			[
+				"done",
+				{
+					"#f": 5.0,
+					"#n": "g-0"
+				}
+			],
+			null
+		],
+		"done",
+		{
+			"global decl": [
+				"ev",
+				false,
+				{
+					"VAR=": "has_wallet"
+				},
+				"/ev",
+				"end",
+				null
+			],
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
+}

@@ -205,7 +205,7 @@
 										"\n",
 										"^/remove_item Wallet",
 										"\n",
-										"^/complete_task FindJack",
+										"^/complete_task \"Find Jack\"",
 										"\n",
 										"^/give \"Bag of drugs\"",
 										"\n",
