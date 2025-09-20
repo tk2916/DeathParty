@@ -1,17 +1,16 @@
-[gd_scene load_steps=40 format=3 uid="uid://d0sd1bp5esd04"]
+[gd_scene load_steps=39 format=3 uid="uid://d0sd1bp5esd04"]
 
 [ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
 [ext_resource type="Texture2D" uid="uid://g8gi1go6brft" path="res://Assets/PNGAssets/viewfinder_final.png" id="3_42nwo"]
 [ext_resource type="Texture2D" uid="uid://c7sn438n6fn2n" path="res://Assets/PNGAssets/green_lens.png" id="4_a6jrl"]
 [ext_resource type="Script" uid="uid://cg5lhigmboc73" path="res://Utilities/polaroid_camera/view_finder.gd" id="5_hbg1w"]
-[ext_resource type="Script" path="res://Utilities/polaroid_camera/filter_control.gd" id="5_omcg7"]
+[ext_resource type="Script" uid="uid://bd5wy6rj1xank" path="res://Utilities/polaroid_camera/filter_control.gd" id="5_omcg7"]
 [ext_resource type="Shader" uid="uid://dflfu0c1r3cql" path="res://Utilities/pause_menu/background_blur.gdshader" id="5_ph0pu"]
 [ext_resource type="Shader" path="res://Utilities/polaroid_camera/polaroid_layer_unblur.gdshader" id="6_7wtwj"]
 [ext_resource type="Texture2D" uid="uid://cy5s70jehrwrr" path="res://Assets/PNGAssets/viewfinder.png" id="6_8fs6k"]
 [ext_resource type="Script" uid="uid://qfuy0m0xcjwf" path="res://Utilities/polaroid_camera/picturetake.gd" id="6_or4cw"]
 [ext_resource type="Shader" path="res://Utilities/polaroid_camera/polaroid_layer.gdshader" id="7_42nwo"]
 [ext_resource type="Texture2D" uid="uid://bv6px42lbjq5f" path="res://Assets/PNGAssets/temp_rotate_arrow.png" id="11_42nwo"]
-[ext_resource type="Texture2D" uid="uid://l4w4262k124a" path="res://Assets/PNGAssets/outer_ring_final.png" id="11_ph0pu"]
 [ext_resource type="Texture2D" uid="uid://djidfl63ug16b" path="res://Assets/PNGAssets/inner_ring.png" id="12_7wtwj"]
 [ext_resource type="Texture2D" uid="uid://cdvberuogb0k" path="res://Assets/PNGAssets/base_final.png" id="13_qpijf"]
 [ext_resource type="Texture2D" uid="uid://8cmqnmgxkmiu" path="res://Assets/PNGAssets/filter_color_dots.png" id="14_pxotk"]
@@ -79,23 +78,37 @@ radius = 17.0294
 [node name="PolaroidCamera" type="CanvasLayer"]
 follow_viewport_enabled = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1e-05, 1.01586e-05)
+anchor_mode = 0
+ignore_rotation = false
+zoom = Vector2(1.045, 1.045)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+
 [node name="body" type="Node2D" parent="."]
 
 [node name="MainImage" type="TextureRect" parent="body"]
-offset_left = -13.0
-offset_top = -18.0
-offset_right = 1303.0
-offset_bottom = 735.0
-scale = Vector2(1, 1.0079)
+offset_top = -2.0
+offset_right = 1280.0
+offset_bottom = 718.0
+scale = Vector2(1.43, 1.43)
 texture = ExtResource("1_t72bm")
 expand_mode = 1
 
 [node name="shoot" type="Button" parent="body/MainImage"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 22.8197
-offset_right = 1302.0
-offset_bottom = 756.82
+offset_left = 8.0
+offset_top = -1.0
+offset_right = 1283.0
+offset_bottom = 721.0
 theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_c4tks")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_or4cw")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8ifkd")
@@ -109,31 +122,29 @@ offset_top = -8.0
 offset_right = 1307.0
 offset_bottom = 746.0
 
-[node name="ViewFinder" type="TextureRect" parent="body/MainImage" node_paths=PackedStringArray("viewfinder_camera")]
+[node name="ViewFinder" type="TextureRect" parent="body"]
 unique_name_in_owner = true
 top_level = true
-layout_mode = 0
-offset_left = 221.0
-offset_top = -8.0
-offset_right = 5191.0
-offset_bottom = 3701.0
+offset_left = 272.0
+offset_top = -67.0
+offset_right = 5255.0
+offset_bottom = 3963.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_42nwo")
 expand_mode = 1
 script = ExtResource("5_hbg1w")
-viewfinder_camera = NodePath("../Camera2D")
 
-[node name="blur_new" type="ColorRect" parent="body/MainImage/ViewFinder"]
+[node name="blur_new" type="ColorRect" parent="body/ViewFinder"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_42nwo")
 layout_mode = 0
 offset_left = -2280.0
 offset_top = -4125.0
-offset_right = 6675.0
-offset_bottom = 4045.0
+offset_right = 7580.0
+offset_bottom = 5545.0
 color = Color(1, 0, 0, 1)
 
-[node name="unblur" type="ColorRect" parent="body/MainImage/ViewFinder/blur_new"]
+[node name="unblur" type="ColorRect" parent="body/ViewFinder/blur_new"]
 material = SubResource("ShaderMaterial_qpijf")
 layout_mode = 0
 offset_left = 2825.0
@@ -142,17 +153,17 @@ offset_right = 5130.0
 offset_bottom = 6900.0
 color = Color(0, 0, 1, 1)
 
-[node name="ViewFinder_aim" type="TextureRect" parent="body/MainImage/ViewFinder"]
+[node name="ViewFinder_aim" type="TextureRect" parent="body/ViewFinder"]
 layout_mode = 1
-offset_left = 1395.0
-offset_top = 1500.0
-offset_right = 1472.0
-offset_bottom = 1572.0
+offset_left = 1385.0
+offset_top = 1685.0
+offset_right = 1462.0
+offset_bottom = 1757.0
 scale = Vector2(9, 9)
 texture = ExtResource("6_8fs6k")
 expand_mode = 1
 
-[node name="Blur" type="Panel" parent="body/MainImage/ViewFinder"]
+[node name="Blur" type="Panel" parent="body/ViewFinder"]
 visible = false
 show_behind_parent = true
 material = SubResource("ShaderMaterial_4q0hv")
@@ -162,17 +173,17 @@ offset_top = -15.0
 offset_right = 5985.0
 offset_bottom = 3720.0
 
-[node name="filter" type="TextureRect" parent="body/MainImage/ViewFinder"]
+[node name="filter" type="TextureRect" parent="body/ViewFinder"]
 show_behind_parent = true
 layout_mode = 0
-offset_left = 620.0
-offset_top = 730.0
-offset_right = 2955.0
-offset_bottom = 2870.0
+offset_left = 590.0
+offset_top = 905.0
+offset_right = 2925.0
+offset_bottom = 3045.0
 texture = ExtResource("4_a6jrl")
 expand_mode = 1
 
-[node name="filter_control" type="Node2D" parent="body/MainImage/ViewFinder" node_paths=PackedStringArray("left_button", "right_button", "filter_base_button", "lens", "ViewFinder", "filter_letter")]
+[node name="filter_control" type="Node2D" parent="body/ViewFinder" node_paths=PackedStringArray("left_button", "right_button", "filter_base_button", "lens", "ViewFinder", "filter_letter")]
 position = Vector2(-1345, -335)
 scale = Vector2(5, 5)
 script = ExtResource("5_omcg7")
@@ -183,33 +194,25 @@ lens = NodePath("../filter")
 ViewFinder = NodePath("..")
 filter_letter = NodePath("filter_letter")
 
-[node name="outer_ring" type="TextureRect" parent="body/MainImage/ViewFinder/filter_control"]
-visible = false
-offset_left = 539.0
-offset_top = 95.0
-offset_right = 1265.0
-offset_bottom = 689.0
-texture = ExtResource("11_ph0pu")
-expand_mode = 1
-
-[node name="inner_ring" type="TextureRect" parent="body/MainImage/ViewFinder/filter_control"]
-offset_left = 265.0
-offset_top = 74.0
-offset_right = 1983.0
-offset_bottom = 1573.0
+[node name="inner_ring" type="TextureRect" parent="body/ViewFinder/filter_control"]
+custom_minimum_size = Vector2(0, 100)
+offset_left = 276.0
+offset_top = 69.0
+offset_right = 1978.49
+offset_bottom = 1734.18
 scale = Vector2(0.58, 0.48)
 texture = ExtResource("12_7wtwj")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="filter_base" type="Sprite2D" parent="body/MainImage/ViewFinder/filter_control"]
-position = Vector2(1059, 333)
+[node name="filter_base" type="Sprite2D" parent="body/ViewFinder/filter_control"]
+position = Vector2(1059.73, 354.82)
 rotation = 6.28319
-scale = Vector2(0.55, 0.55)
+scale = Vector2(0.547, 0.547)
 texture = ExtResource("13_qpijf")
 offset = Vector2(-525, 209.92)
 
-[node name="filter_base_button" type="Button" parent="body/MainImage/ViewFinder/filter_control/filter_base"]
+[node name="filter_base_button" type="Button" parent="body/ViewFinder/filter_control/filter_base"]
 offset_left = -158.183
 offset_top = -158.181
 offset_right = 154.817
@@ -227,64 +230,63 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gnj1l")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tiy8x")
 button_mask = 7
 
-[node name="Area2D" type="Area2D" parent="body/MainImage/ViewFinder/filter_control/filter_base"]
+[node name="Area2D" type="Area2D" parent="body/ViewFinder/filter_control/filter_base"]
 visible = false
 position = Vector2(-1.99946, 2.00272e-05)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body/MainImage/ViewFinder/filter_control/filter_base/Area2D"]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/Area2D"]
 position = Vector2(-1.78604, -4.34783)
 scale = Vector2(7.347, 7.604)
 shape = SubResource("CircleShape2D_4q0hv")
 
-[node name="white_filter" type="Sprite2D" parent="body/MainImage/ViewFinder/filter_control/filter_base"]
+[node name="white_filter" type="Sprite2D" parent="body/ViewFinder/filter_control/filter_base"]
 position = Vector2(-1050, 447.5)
 texture = ExtResource("14_pxotk")
 offset = Vector2(525.434, -235.649)
 
-[node name="white" type="Area2D" parent="body/MainImage/ViewFinder/filter_control/filter_base/white_filter"]
+[node name="white" type="Area2D" parent="body/ViewFinder/filter_control/filter_base/white_filter"]
 position = Vector2(965, -435)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body/MainImage/ViewFinder/filter_control/filter_base/white_filter/white"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/white_filter/white"]
 position = Vector2(-0.71484, -5.97836)
 shape = SubResource("CircleShape2D_lj084")
 
-[node name="red_filter" type="Sprite2D" parent="body/MainImage/ViewFinder/filter_control/filter_base"]
+[node name="red_filter" type="Sprite2D" parent="body/ViewFinder/filter_control/filter_base"]
 position = Vector2(-6.91414e-06, -71.9346)
 
-[node name="red" type="Area2D" parent="body/MainImage/ViewFinder/filter_control/filter_base/red_filter"]
+[node name="red" type="Area2D" parent="body/ViewFinder/filter_control/filter_base/red_filter"]
 position = Vector2(1.78572, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body/MainImage/ViewFinder/filter_control/filter_base/red_filter/red"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/red_filter/red"]
 position = Vector2(-1.78581, -11.7018)
 shape = SubResource("CircleShape2D_a6jrl")
 
-[node name="blue_filter" type="Sprite2D" parent="body/MainImage/ViewFinder/filter_control/filter_base"]
+[node name="blue_filter" type="Sprite2D" parent="body/ViewFinder/filter_control/filter_base"]
 position = Vector2(1.63435, 70.2997)
 
-[node name="blue" type="Area2D" parent="body/MainImage/ViewFinder/filter_control/filter_base/blue_filter"]
+[node name="blue" type="Area2D" parent="body/ViewFinder/filter_control/filter_base/blue_filter"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body/MainImage/ViewFinder/filter_control/filter_base/blue_filter/blue"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/blue_filter/blue"]
 position = Vector2(0.183916, 13.3367)
 shape = SubResource("CircleShape2D_8fs6k")
 
-[node name="green_filter" type="Sprite2D" parent="body/MainImage/ViewFinder/filter_control/filter_base"]
+[node name="green_filter" type="Sprite2D" parent="body/ViewFinder/filter_control/filter_base"]
 position = Vector2(70.2748, 1.63487)
 
-[node name="green" type="Area2D" parent="body/MainImage/ViewFinder/filter_control/filter_base/green_filter"]
+[node name="green" type="Area2D" parent="body/ViewFinder/filter_control/filter_base/green_filter"]
 position = Vector2(-440.275, 150.865)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body/MainImage/ViewFinder/filter_control/filter_base/green_filter/green"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/green_filter/green"]
 position = Vector2(452.225, -149.135)
 shape = SubResource("CircleShape2D_ngt84")
 
-[node name="rotate_left _button" type="Sprite2D" parent="body/MainImage/ViewFinder/filter_control"]
+[node name="rotate_left _button" type="Sprite2D" parent="body/ViewFinder/filter_control"]
 visible = false
 position = Vector2(1026, 430)
 scale = Vector2(0.0997929, 0.0997929)
 texture = ExtResource("11_42nwo")
 
-[node name="left_button" type="Button" parent="body/MainImage/ViewFinder/filter_control/rotate_left _button"]
+[node name="left_button" type="Button" parent="body/ViewFinder/filter_control/rotate_left _button"]
 offset_left = -170.0
 offset_top = -170.0
 offset_right = 170.0
@@ -292,14 +294,14 @@ offset_bottom = 170.0
 disabled = true
 metadata/_edit_use_anchors_ = true
 
-[node name="rotate_right_button" type="Sprite2D" parent="body/MainImage/ViewFinder/filter_control"]
+[node name="rotate_right_button" type="Sprite2D" parent="body/ViewFinder/filter_control"]
 visible = false
 position = Vector2(1098, 428)
 rotation = 3.14159
 scale = Vector2(0.108901, 0.106676)
 texture = ExtResource("11_42nwo")
 
-[node name="right_button" type="Button" parent="body/MainImage/ViewFinder/filter_control/rotate_right_button"]
+[node name="right_button" type="Button" parent="body/ViewFinder/filter_control/rotate_right_button"]
 anchors_preset = -1
 anchor_bottom = 0.00295858
 offset_left = -169.0
@@ -309,41 +311,26 @@ offset_bottom = 171.0
 disabled = true
 metadata/_edit_use_anchors_ = true
 
-[node name="selector" type="Area2D" parent="body/MainImage/ViewFinder/filter_control"]
+[node name="selector" type="Area2D" parent="body/ViewFinder/filter_control"]
+visible = false
 position = Vector2(1085, 272)
 
-[node name="selector_shape" type="CollisionShape2D" parent="body/MainImage/ViewFinder/filter_control/selector"]
-position = Vector2(-73, 61)
+[node name="selector_shape" type="CollisionShape2D" parent="body/ViewFinder/filter_control/selector"]
+position = Vector2(-71, 82)
 shape = SubResource("CircleShape2D_omcg7")
 
-[node name="filter_letter" type="TextureRect" parent="body/MainImage/ViewFinder/filter_control"]
-offset_left = 962.0
-offset_top = 327.0
-offset_right = 976.0
-offset_bottom = 341.0
+[node name="filter_letter" type="TextureRect" parent="body/ViewFinder/filter_control"]
+offset_left = 963.86
+offset_top = 350.995
+offset_right = 977.86
+offset_bottom = 364.995
 texture = ExtResource("15_7wtwj")
 expand_mode = 1
 
-[node name="Camera2D" type="Camera2D" parent="body/MainImage"]
-position = Vector2(23, 24.8041)
-scale = Vector2(1e-05, 1.0079e-05)
-anchor_mode = 0
-ignore_rotation = false
-zoom = Vector2(1.1, 1.26)
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.0
-drag_top_margin = 0.0
-drag_right_margin = 0.0
-drag_bottom_margin = 0.0
-
 [connection signal="button_up" from="body/MainImage/shoot" to="." method="_on_shoot_button_up"]
 [connection signal="pressed" from="body/MainImage/shoot" to="body/MainImage/shoot" method="_on_pressed"]
-[connection signal="pressed" from="body/MainImage/ViewFinder/filter_control/filter_base/filter_base_button" to="body/MainImage/ViewFinder/filter_control" method="_on_filter_base_button_pressed"]
-[connection signal="input_event" from="body/MainImage/ViewFinder/filter_control/filter_base/Area2D" to="body/MainImage/ViewFinder/filter_control" method="_on_area_2d_input_event"]
-[connection signal="pressed" from="body/MainImage/ViewFinder/filter_control/rotate_left _button/left_button" to="body/MainImage/ViewFinder/filter_control" method="_on_left_button_pressed"]
-[connection signal="pressed" from="body/MainImage/ViewFinder/filter_control/rotate_right_button/right_button" to="body/MainImage/ViewFinder/filter_control" method="_on_right_button_pressed"]
-[connection signal="area_shape_entered" from="body/MainImage/ViewFinder/filter_control/selector" to="body/MainImage/ViewFinder/filter_control" method="_on_selector_area_shape_entered"]
+[connection signal="pressed" from="body/ViewFinder/filter_control/filter_base/filter_base_button" to="body/ViewFinder/filter_control" method="_on_filter_base_button_pressed"]
+[connection signal="input_event" from="body/ViewFinder/filter_control/filter_base/Area2D" to="body/ViewFinder/filter_control" method="_on_area_2d_input_event"]
+[connection signal="pressed" from="body/ViewFinder/filter_control/rotate_left _button/left_button" to="body/ViewFinder/filter_control" method="_on_left_button_pressed"]
+[connection signal="pressed" from="body/ViewFinder/filter_control/rotate_right_button/right_button" to="body/ViewFinder/filter_control" method="_on_right_button_pressed"]
+[connection signal="area_shape_entered" from="body/ViewFinder/filter_control/selector" to="body/ViewFinder/filter_control" method="_on_selector_area_shape_entered"]

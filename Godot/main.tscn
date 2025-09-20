@@ -14,12 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://dph5ihe40llhe" path="res://rooms/Exterior Frat Lawn/Exterior.tscn" id="27_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://bqae87n6emy8q" path="res://rooms/Hourhand hallway/Hourhand hallway.tscn" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://bpjb4k8tcm014" path="res://rooms/control room/Controlroom.tscn" id="28_kq58d"]
-[ext_resource type="Script" uid="uid://kp3w3bjsanur" path="res://cell_visualizer.gd" id="28_qsp4k"]
+[ext_resource type="Script" path="res://cell_visualizer.gd" id="28_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://c7033b4susyvc" path="res://rooms/Storage Room/Storageroom.tscn" id="28_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://ch4fuk8qiva6x" path="res://rooms/Ghost hallway/Ghost hallway.tscn" id="29_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
-[ext_resource type="PackedScene" uid="uid://o1miuonfuk7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
+[ext_resource type="PackedScene" uid="uid://bschhxvd0bvn7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
 [ext_resource type="PackedScene" uid="uid://c44l5t4o5i1qg" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
@@ -94,7 +94,7 @@ process_mode = 3
 
 [node name="PolaroidCamera" parent="." node_paths=PackedStringArray("viewfinder_camera") instance=ExtResource("55_e71vb")]
 script = ExtResource("65_uatky")
-viewfinder_camera = NodePath("body/MainImage/Camera2D")
+viewfinder_camera = NodePath("Camera2D")
 
 [node name="shoot" parent="PolaroidCamera/body/MainImage" index="0"]
 offset_left = 0.0
@@ -102,33 +102,12 @@ offset_top = 0.0
 offset_right = 1287.0
 offset_bottom = 734.0
 
-[node name="Blur" parent="PolaroidCamera/body/MainImage/ViewFinder" index="2"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 6525.0
-offset_bottom = 3735.0
-
-[node name="filter_base_button" parent="PolaroidCamera/body/MainImage/ViewFinder/filter_control/filter_base" index="0"]
-offset_left = -155.0
-offset_top = -151.0
-offset_right = 141.0
-offset_bottom = 150.0
-
-[node name="left_button" parent="PolaroidCamera/body/MainImage/ViewFinder/filter_control/rotate_left _button" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 340.0
-offset_bottom = 340.0
-
 [node name="Polaroid" parent="." instance=ExtResource("57_vke2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.2135, 0)
 visible = false
 
-[node name="Polaroid_image" parent="Polaroid/bookmark_tab/Polaroid_frame" index="0" node_paths=PackedStringArray("Camera_2D", "polaroid_camera", "ViewFinder", "filter_control")]
-Camera_2D = NodePath("../../../../PolaroidCamera/body/MainImage/Camera2D")
+[node name="Polaroid_image" parent="Polaroid/bookmark_tab/Polaroid_frame" index="0" node_paths=PackedStringArray("polaroid_camera")]
 polaroid_camera = NodePath("../../../../PolaroidCamera")
-ViewFinder = NodePath("../../../../PolaroidCamera/body/MainImage/ViewFinder/ViewFinder_aim")
-filter_control = NodePath("../../../../PolaroidCamera/body/MainImage/ViewFinder/filter_control")
 
 [node name="WorldBoundary" type="Area3D" parent="."]
 collision_mask = 2
@@ -388,7 +367,6 @@ anchor_bottom = 0.1
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="pressed" from="CanvasLayer/BasicGUI/Panel2/Panel5/Button2" to="PauseMenu" method="_on_button_2_pressed"]
 [connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
 
 [editable path="ObjectViewerCanvasLayer"]
