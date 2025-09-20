@@ -6,24 +6,36 @@ var resize_x : bool
 var resize_y : bool
 var padding_bottom : float
 var padding_horizontal : float
+var minimum_y_size : float
+
+var current_min_y_size : float = 0
 
 const MAX_WIDTH : float = 190
 var theme_font : FontFile
 var theme_font_size : int
 
-func _init(_control : Control, _label : RichTextLabel, _resize_x : bool = true, _resize_y : bool = true, _padding_bottom : float = 5, _padding_horizontal : float = 0) -> void:
+func _init(
+	_control : Control, 
+	_label : RichTextLabel, 
+	_resize_x : bool = true, 
+	_resize_y : bool = true, 
+	_padding_bottom : float = 5,
+	_padding_horizontal : float = 0,
+	_minimum_y_size : float = 0,
+) -> void:
 	control = _control
 	label = _label
 	resize_x = _resize_x
 	resize_y = _resize_y
 	padding_bottom = _padding_bottom
 	padding_horizontal = _padding_horizontal
+	minimum_y_size = _minimum_y_size
 	
 	theme_font = label.get_theme_font("normal")
 	theme_font_size = label.get_theme_font_size("normal")
 
 func resize() -> void:
-	if not (control and label): return
+	if control == null or label == null: return
 	#print("Resizing-------", control.name)
 	if self.resize_x:
 		var actual_content_width : float = theme_font.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1, theme_font_size).x
@@ -38,9 +50,10 @@ func resize() -> void:
 	if resize_y:
 		var content_height : int = label.get_content_height()
 		var new_min_size_y : float = content_height + padding_bottom
-		control.custom_minimum_size.y = new_min_size_y
+		current_min_y_size = new_min_size_y
+		control.custom_minimum_size.y = max(new_min_size_y, minimum_y_size)
 	print("Final custom min size: ", control.custom_minimum_size)
 
 func resize_component(component : Control) -> void:
 	if not (control and label and component): return
-	component.custom_minimum_size = control.custom_minimum_size
+	component.custom_minimum_size = Vector2(control.custom_minimum_size.x, current_min_y_size)

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu7a8uwbagay4"]
+
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_6fr3i"]
+[ext_resource type="PackedScene" uid="uid://c1y2mld3gpxw8" path="res://Assets/props/pan.tscn" id="1_g0su7"]
+[ext_resource type="Resource" uid="uid://bsag7mrm78x04" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/potspans_properties.tres" id="2_055ua"]
+[ext_resource type="PackedScene" uid="uid://doj2p1ypfieac" path="res://Assets/props/pot.tscn" id="2_p5s8y"]
+[ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="5_055ua"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjn1x"]
+resource_local_to_scene = true
+size = Vector3(1.91424, 2.80212, 2.04828)
+
+[node name="PotsPans" type="Node3D"]
+script = ExtResource("1_6fr3i")
+talking_object_resource = ExtResource("2_055ua")
+
+[node name="Pan" parent="." instance=ExtResource("1_g0su7")]
+transform = Transform3D(0.0698927, 0, -0.676115, 0, 0.679718, 0, 0.676115, 0, 0.0698927, -4.52642, 2.04581, 5.18624)
+
+[node name="Pan2" parent="." instance=ExtResource("1_g0su7")]
+transform = Transform3D(0.242503, 0, -0.634988, 0, 0.679718, 0, 0.634988, 0, 0.242503, -3.75928, 2.04581, 5.18624)
+
+[node name="Pan3" parent="." instance=ExtResource("1_g0su7")]
+transform = Transform3D(-0.440466, 0.120748, -0.306446, 0.107798, 0.536375, 0.056404, 0.311238, -0.0148914, -0.453221, -4.85103, 2.21728, 4.90188)
+
+[node name="Pot" parent="." instance=ExtResource("2_p5s8y")]
+transform = Transform3D(0.578032, 0, -0.357624, 0, 0.679718, 0, 0.357624, 0, 0.578032, -4.81958, 2.04959, 4.89271)
+
+[node name="Pot2" parent="." instance=ExtResource("2_p5s8y")]
+transform = Transform3D(0.578032, 0, -0.357624, 0, 0.679718, 0, 0.357624, 0, 0.578032, -3.92122, 2.04959, 4.89271)
+
+[node name="Pot3" parent="." instance=ExtResource("2_p5s8y")]
+transform = Transform3D(0.433141, -0.00764385, -0.267981, 0.0221011, 0.149805, -0.0136738, 0.268329, 0, 0.433704, -4.82683, 2.23855, 4.88689)
+
+[node name="InteractionDetector" parent="." instance=ExtResource("5_055ua")]
+
+[node name="CollisionShape3D" parent="InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38336, 2.07835, 5.59126)
+shape = SubResource("BoxShape3D_wjn1x")
+
+[editable path="InteractionDetector"]

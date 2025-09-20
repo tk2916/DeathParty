@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://h0tswjr1iy5v"]
+
+[ext_resource type="PackedScene" uid="uid://bij3bw4s6epdt" path="res://rooms/Basement/caution tape.glb" id="1_q0u7c"]
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_uccd7"]
+[ext_resource type="Resource" uid="uid://cnhny0ax0dbam" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/crime_scene_tape_properties.tres" id="3_do2ap"]
+
+[node name="caution tape" instance=ExtResource("1_q0u7c")]
+script = ExtResource("2_uccd7")
+talking_object_resource = ExtResource("3_do2ap")

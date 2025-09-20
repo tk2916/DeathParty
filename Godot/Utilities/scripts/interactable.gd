@@ -65,6 +65,8 @@ func toggle_popup(on: bool) -> void:
 		# this is commented out to disable the outline shader temporarily
 		# should work like normal if we un-comment
 		#shader.set_shader_parameter("alpha", value)
+	if talking_object_resource:
+		talking_object_resource = SaveSystem.get_talking_object(talking_object_resource.name)
 
 
 ##OVERRIDE THESE METHODS (but call super() at the beginning)

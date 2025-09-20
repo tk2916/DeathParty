@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bgxwfolv62qsi" path="res://Assets/GUIPrefabs/PhonePrefabs/MessageAppAssets/participant_panel.gd" id="1_tnwfb"]
 
-[node name="ContactPanel" type="ColorRect"]
+[node name="ContactPanel" type="ColorRect" node_paths=PackedStringArray("rtl")]
 custom_minimum_size = Vector2(0, 50)
 script = ExtResource("1_tnwfb")
+rtl = NodePath("RichTextLabel")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1

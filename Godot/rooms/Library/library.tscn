@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=140 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -55,10 +55,8 @@
 [ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="52_rwfot"]
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="53_iso52"]
 [ext_resource type="Texture2D" uid="uid://qatlo1rl0gdd" path="res://rooms/Storage Room/spiderwebs_Untitled_Artwork.png" id="54_yma0n"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/starter_file_2.json" id="55_aokc7"]
 [ext_resource type="Texture2D" uid="uid://bs6b6l2er7cvd" path="res://rooms/Storage Room/spiderwebs_dsf.png" id="55_hu7nt"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="56_hu7nt"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/default_file_2.json" id="56_mwspb"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="57_twmdx"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="58_ddclk"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="58_dsi3o"]
@@ -1227,7 +1225,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.85343, -3.48211, 3.96691)
 
 [node name="SceneLoader_Ghost hallway" parent="." instance=ExtResource("1_j03r7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -3.8112, 7.39135)
-target_location_index = 11
+target_scene = 13
 local_spawn_point = 1
 play_door_sound = true
 
@@ -1966,8 +1964,6 @@ transform = Transform3D(0.858978, 0, 0.512013, 0, 1, 0, -0.512013, 0, 0.858978, 
 
 [node name="angel" parent="NPCs" instance=ExtResource("50_m1j1w")]
 transform = Transform3D(0.804479, 0, 0.593982, 0, 1, 0, -0.593982, 0, 0.804479, -2.26855, -0.00449276, 1.25362)
-starter_json = ExtResource("55_aokc7")
-default_json = ExtResource("56_mwspb")
 outline_thickness = 0.7
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("45_owm1a")]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="1_5gmr0"]
 [ext_resource type="Texture2D" uid="uid://buxqmi3ppd6wf" path="res://Assets/CharacterAssets/Polaroids/caleb_a.png" id="1_ecyof"]
 [ext_resource type="Texture2D" uid="uid://b8sqw7pteykmi" path="res://Assets/CharacterAssets/Polaroids/caleb_b.png" id="2_0c5ri"]
-[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="3_npws7"]
+[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="3_npws7"]
 [ext_resource type="JSON" path="res://Assets/InkFiles/OliviaCalebPartyRoom.json" id="4_eyuf2"]
 
 [sub_resource type="Resource" id="Resource_x6qpo"]

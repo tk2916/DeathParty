@@ -1,1 +1,148 @@
-{"inkVersion":21,"root":[[{"->":"OliviaKitchenBeerPongCrowd"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"OliviaKitchenBeerPongCrowd":[["^[Olivia] Wow, huge crowd for beer pong.","\n","^[NPC1] What are we playing for?","\n","^[NPC2] Sweet, sweet victory, duh.","\n","^[NPC3] And seven minutes in heaven with DIE dreamboat Caleb!","\n","^[Olivia] Huh... maybe he'd actually talk to me if we had to be in the same room together.","\n","ev",{"VAR?":"DJ_announcement"},"/ev",[{"->":".^.b","c":true},{"b":["\n","^[FratBroNPC] What's up, you lovely fuckers! DIE's Beerpong for Bills competition is about to get started! If you're looking to play, you gotta pay!\"\"","\n",{"->":".^.^.^.15"},null]}],[{"->":".^.b"},{"b":["\n","^[FratBroNPC] If you're looking to compete, we're gonna be getting started in just a little bit.","\n","^Don't forget, it costs $5 to play and DIE takes NO IOU's! It's for charity y'all, pay up!","\n",{"->":".^.^.^.15"},null]}],"nop","\n","^Ready to cough up five bucks?","\n","ev","str","^Yes","/str","/ev",{"*":".^.c-0","flg":20},"ev","str","^No","/str","/ev",{"*":".^.c-1","flg":20},{"c-0":["^ ","\n","ev",true,"/ev",{"VAR=":"beerpong","re":true},"end",{"#f":5}],"c-1":["^ ","\n","ev",false,"/ev",{"VAR=":"beerpong","re":true},"end",{"#f":5}]}],{"#f":1}],"global decl":["ev",false,{"VAR=":"DJ_announcement"},false,{"VAR=":"beerpong"},"/ev","end",null],"#f":1}],"listDefs":{}}
+{
+  "inkVersion": 21,
+  "root": [
+    [
+      {
+        "->": "OliviaKitchenBeerPongCrowd"
+      },
+      [
+        "done",
+        {
+          "#f": 5,
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "OliviaKitchenBeerPongCrowd": [
+        [
+          "^[Olivia] Wow, huge crowd for beer pong.",
+          "\n",
+          "^[Green Jersey] What are we playing for?",
+          "\n",
+          "^[Frat Boy 1] Sweet, sweet victory, duh.",
+          "\n",
+          "^[Red Hat] And seven minutes in heaven with DIE dreamboat Caleb!",
+          "\n",
+          "^[Olivia] Huh... maybe he'd actually talk to me if we had to be in the same room together.",
+          "\n",
+          "ev",
+          {
+            "VAR?": "DJ_announcement"
+          },
+          "/ev",
+          [
+            {
+              "->": ".^.b",
+              "c": true
+            },
+            {
+              "b": [
+                "\n",
+                "^[Green Jersey] What's up, you lovely fuckers! DIE's Beerpong for Bills competition is about to get started! If you're looking to play, you gotta pay!\"\"",
+                "\n",
+                {
+                  "->": ".^.^.^.15"
+                },
+                null
+              ]
+            }
+          ],
+          [
+            {
+              "->": ".^.b"
+            },
+            {
+              "b": [
+                "\n",
+                "^[Red Hat] If you're looking to compete, we're gonna be getting started in just a little bit.",
+                "\n",
+                "^Don't forget, it costs $5 to play and DIE takes NO IOU's! It's for charity y'all, pay up!",
+                "\n",
+                {
+                  "->": ".^.^.^.15"
+                },
+                null
+              ]
+            }
+          ],
+          "nop",
+          "\n",
+          "^Ready to cough up five bucks?",
+          "\n",
+          "ev",
+          "str",
+          "^Yes",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^No",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "^ ",
+              "\n",
+              "ev",
+              true,
+              "/ev",
+              {
+                "VAR=": "beerpong",
+                "re": true
+              },
+              "end",
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "^ ",
+              "\n",
+              "ev",
+              false,
+              "/ev",
+              {
+                "VAR=": "beerpong",
+                "re": true
+              },
+              "end",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "global decl": [
+        "ev",
+        false,
+        {
+          "VAR=": "DJ_announcement"
+        },
+        false,
+        {
+          "VAR=": "beerpong"
+        },
+        "/ev",
+        "end",
+        null
+      ],
+      "#f": 1
+    }
+  ],
+  "listDefs": {}
+}

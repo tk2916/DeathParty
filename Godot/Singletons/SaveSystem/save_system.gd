@@ -106,7 +106,7 @@ func load_into_dictionary(address : String, dict : Dictionary) -> void:
 				dict_keys.push_back(filename)
 				if !dict.has(filename):
 					dict[filename] = file.duplicate(true)
-					file.initialize()
+					dict[filename].initialize()
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the directory " + address)
@@ -191,11 +191,18 @@ func get_time_string(include_ampm:bool = true) -> String:
 #EDITING
 func get_key(key:String) ->  Variant:
 	key_exists_assert(key)
+	print("global decl GET key function: ", key, " | ", player_data.variable_dict[key])
 	return player_data.variable_dict[key]
 
 func set_key(key:String, value:Variant) -> void:
 	if key_exists(key):
 		match_type(key, value) # asserts that they are of matching types
+	if value is String:
+		if value == "true":
+			value = true
+		elif value == "false":
+			value = false
+	print("global decl set key function: ", key, " value: ", value)
 	player_data.variable_dict[key] = value
 	if key == "time":
 		time_changed.emit(value)
@@ -218,7 +225,7 @@ func add_item(item_name:String, show_item_details : bool = false) -> void:
 	var item := item_exists(item_name)
 	item.amount_owned += 1
 	inventory_changed.emit("add", item)
-	if show_item_details:
+	if show_item_details and item.model != null:
 		InventoryUtils.show_item_details(item)
 
 func remove_item(item_name:String) -> bool: #returns 1 if successful, 0 if there aren't any left

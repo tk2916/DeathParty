@@ -52,7 +52,7 @@ class LocalChoiceButton:
 		button.change_text(info.text)
 		button.pressed.connect(on_pressed)
 	func on_pressed() -> void:
-		DialogueSystem.make_choice(info.jump)
+		DialogueSystem.make_choice(info)
 
 var UI_STATES : Dictionary[String, String] = {
 	PROTAG_SPEAKER = "ProtagSpeaker",

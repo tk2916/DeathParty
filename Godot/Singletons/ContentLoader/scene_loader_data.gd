@@ -57,6 +57,6 @@ func load_properties() -> void:
 	loader.teleport_point = teleport_point
 	loader.play_door_sound = play_door_sound
 	if loader.popup:
-		var popup : Sprite3D= loader.popup as Sprite3D
+		var popup : Sprite3D = loader.popup as Sprite3D
 		popup.transform = popup_transform
 		popup.texture = popup_texture

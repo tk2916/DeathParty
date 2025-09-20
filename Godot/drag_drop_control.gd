@@ -47,7 +47,8 @@ func reveal_info() -> void:
 		self.add_child(texture_rect)
 	
 func mouse_up_polaroid(resource : InventoryItemResource, instance : DragDropPolaroid) -> void:
-	if resource == correct_item:
+	print("Mouse up polaroid: ", resource.name, " vs ", correct_item.name)
+	if resource.name == correct_item.name:
 		SaveSystem.remove_item(resource.name)
 		SaveSystem.set_journal_entry(resource.name, true)
 		reveal_info()

@@ -32,16 +32,13 @@ func _init(
 	#print("Initiated object data for : ", name, " | file: ", file)
 
 func load_in() -> Node3D:
-	var start = Time.get_ticks_msec()
+	print("Loading in ", name)
 	max_objects_per_frame = scene.cell_manager.max_objects_per_frame
 	if !is_instance_valid(parent_node):
 		if not parent_obj.instance.is_node_ready():
 			#sometimes call_deferred() means it's not added immediately
 			await parent_obj.instance.ready
-		#print("Parent instance: ", parent_obj.instance, " | active: ", active)
-		#parent_node = parent_obj.instance.get_node(local_path)
 	assign_existing_node()
-	#print("Loading in node: ", name, " ", parent_obj.name, " ", instance)
 	if !is_instance_valid(instance):
 		if file == null:
 			await file_loaded
@@ -55,11 +52,7 @@ func load_in() -> Node3D:
 		assert(instance != null, name + " doesn't have the NPC/object script attached to it in its base scene!")
 		instance.transform = transform
 		parent_node.add_child.call_deferred(instance)
-		#await parent_node.get_tree().process_frame #lets other things happen
-		#instance.call_deferred("set_global_transform", transform)
 	await super()
-	var duration = (Time.get_ticks_msec() - start)
-	#print("Duration loading in ", name, ": ", duration, " ms")
 	return instance
 
 func offload() -> void:
@@ -72,6 +65,7 @@ func offload() -> void:
 				deactivate = false
 				break
 		if !deactivate: return
+	print("Offloading in ", scene.name, ": ", name)
 	super()
 
 func load_async(loading_in : bool = true) -> void:
@@ -83,15 +77,15 @@ func load_async(loading_in : bool = true) -> void:
 		return
 	ResourceLoader.load_threaded_request(filepath)
 	while true:
-		var progress = []
-		var status = ResourceLoader.load_threaded_get_status(filepath, progress)
+		var progress : Array = []
+		var status : ResourceLoader.ThreadLoadStatus = ResourceLoader.load_threaded_get_status(filepath, progress)
 		match status:
 			ResourceLoader.THREAD_LOAD_LOADED:
 				file = ResourceLoader.load_threaded_get(filepath)
 				file_loaded.emit()
 				break
 			ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-				await scene.get_tree().process_frame
+				await scene.instance.get_tree().process_frame
 			ResourceLoader.THREAD_LOAD_FAILED:
 				break
 
@@ -107,6 +101,10 @@ func add_cell(cell:Cell) -> void:
 	owner_cells.push_back(cell)
 
 func assign_existing_node() -> void:
+	#print("Assigning existing node: ", name, " in ", parent_obj.name, " instance: ", parent_obj.instance)
+	if (!is_instance_valid(parent_obj.instance)):
+		var parent_scene_object : SceneObject = parent_obj
+		parent_scene_object.assign_existing_node()
 	if !is_instance_valid(parent_node):
 		parent_node = parent_obj.instance.get_node(local_path)
 	if !is_instance_valid(instance):

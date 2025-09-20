@@ -64,6 +64,8 @@ func load_in() -> Node3D:
 	return instance
 
 func offload() -> void:
+	if is_instance_valid(instance) and instance.is_in_group("never-offload"):
+		return
 	active = false
 	if not is_instance_valid(instance) or not is_instance_valid(parent_node):
 		return

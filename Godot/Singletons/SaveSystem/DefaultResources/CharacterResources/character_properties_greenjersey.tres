@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://d2x6lf51k1tng"]
+
+[ext_resource type="Texture2D" uid="uid://2ouvywaf5poi" path="res://Assets/CharacterAssets/Polaroids/greenJersey_a.png" id="2_ld4qc"]
+[ext_resource type="Texture2D" uid="uid://d3myrmtgeg0xp" path="res://Assets/CharacterAssets/Polaroids/greenJersey_b.png" id="3_wd70g"]
+[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="5_68g4c"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="6_mg6vh"]
+
+[resource]
+script = ExtResource("6_mg6vh")
+character_location = 0
+image_polaroid = ExtResource("2_ld4qc")
+image_polaroid_popout = ExtResource("3_wd70g")
+profile_tag = "@profiletag123"
+profile_quote = "inspirational quote goes here."
+profile_join_date = "Month 8, 20XX"
+profile_friends = 359
+default_chats = Dictionary[int, JSON]({})
+queue_chats = Dictionary[int, ExtResource("5_68g4c")]({})
+name = "Green Jersey"

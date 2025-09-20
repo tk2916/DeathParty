@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=2 format=3 uid="uid://c2mdrlc84mjsy"]
+
+[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Singletons/SaveSystem/ResourceScripts/inventory_properties_script.gd" id="1_mbr04"]
+
+[resource]
+script = ExtResource("1_mbr04")
+description = ""
+inventory_scale = 1.0
+inventory_position = Vector2(0, 0)
+amount_owned = 0
+name = "freya"

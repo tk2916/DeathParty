@@ -1,20 +1,22 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=4 format=3 uid="uid://lfvpkackkrhm"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://lfvpkackkrhm"]
 
 [ext_resource type="Texture2D" uid="uid://c2uqpj2odjnx4" path="res://Assets/CharacterAssets/Polaroids/buff_a.png" id="1_5mkem"]
+[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaKitchenBeerPongCrowd.ink.json" id="1_33lwr"]
 [ext_resource type="Texture2D" uid="uid://det1e4ou5lcm5" path="res://Assets/CharacterAssets/Polaroids/buff_b.png" id="2_cfcrl"]
-[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Assets/Resources/CharacterResources/Default Resource (DO NOT EDIT)/character_properties_script.gd" id="3_baulm"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="3_baulm"]
+[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="3_ckwfw"]
 
 [resource]
 script = ExtResource("3_baulm")
-name = "Frat Boy 1"
-character_location = "Entrance"
+character_location = 0
 image_polaroid = ExtResource("1_5mkem")
 image_polaroid_popout = ExtResource("2_cfcrl")
-name_color = ""
-text_color = ""
-character_notes = Array[String]([])
-character_description = ""
 profile_tag = "@profiletag123"
 profile_quote = "inspirational quote goes here."
 profile_join_date = "Month 8, 20XX"
 profile_friends = 359
+default_chats = Dictionary[int, JSON]({
+10: ExtResource("1_33lwr")
+})
+queue_chats = Dictionary[int, ExtResource("3_ckwfw")]({})
+name = "Frat Boy 1"
