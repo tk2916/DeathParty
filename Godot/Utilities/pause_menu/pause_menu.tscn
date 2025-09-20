@@ -203,6 +203,12 @@ attached = false
 volume = 0.25
 unique_name_in_owner = true
 
+[node name="FocusSound" type="FmodEventEmitter2D" parent="Audio"]
+event_name = "event:/000_SFX/300_UI/FocusChange"
+event_guid = "{eb371b83-cd23-4eb7-ad77-336db695af66}"
+volume = 0.5
+unique_name_in_owner = true
+
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]

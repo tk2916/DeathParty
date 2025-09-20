@@ -26,6 +26,7 @@ extends CanvasLayer
 
 @onready var click_sound: FmodEventEmitter2D = %ClickSound
 @onready var mouse_over_sound: FmodEventEmitter2D = %MouseOverSound
+@onready var focus_sound: FmodEventEmitter2D = %FocusSound
 
 
 func _ready() -> void:
@@ -37,6 +38,8 @@ func _ready() -> void:
 			button.pressed.connect(on_any_button_pressed)
 
 			button.mouse_entered.connect(on_any_button_moused_over)
+
+			button.focus_entered.connect(on_any_button_focused)
 
 		if button is TabContainer:
 			button.tab_clicked.connect(func(tab: int): on_any_button_pressed())
@@ -175,11 +178,20 @@ func _on_no_quit_button_pressed() -> void:
 	quit_button.grab_focus()
 
 
-# NOTE: the name of this func could maybe be clearer if anyone has ideas
-# (i didnt want to just name it 'on button pressed' since thats close
-# to the signal for a single button which could be confusing)
 func on_any_button_pressed() -> void:
 	click_sound.play()
 
+
 func on_any_button_moused_over() -> void:
 	mouse_over_sound.play()
+
+
+# couldnt figure out a way to get this to not play when buttons are focused
+# automatically when opening a new submenu, so just making it return for now
+# 		- jack
+func on_any_button_focused() -> void:
+	return
+	if Input.is_action_just_pressed("select_input"):
+		return
+
+	focus_sound.play()

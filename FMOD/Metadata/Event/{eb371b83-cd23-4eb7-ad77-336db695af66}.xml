@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{eb371b83-cd23-4eb7-ad77-336db695af66}">
 		<property name="name">
-			<value>MouseOver</value>
+			<value>FocusChange</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -39,7 +39,7 @@
 	</object>
 	<object class="MasterTrack" id="{7ee7182d-a4c9-4e85-ab13-e35fc44bb0ea}">
 		<relationship name="modules">
-			<destination>{203d5967-b172-4895-8078-508e91eb6e66}</destination>
+			<destination>{f4d41e33-b940-4d78-bf21-2fd3e21c36dd}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{013bcf68-f27a-4a4f-b782-014a537b2335}</destination>
@@ -60,7 +60,7 @@
 	<object class="MarkerTrack" id="{801ddaee-ac32-46ab-8cb1-c52eb93f53d4}" />
 	<object class="Timeline" id="{dab3e399-d7e2-4fd9-b7e0-d837d3f9a4dd}">
 		<relationship name="modules">
-			<destination>{203d5967-b172-4895-8078-508e91eb6e66}</destination>
+			<destination>{f4d41e33-b940-4d78-bf21-2fd3e21c36dd}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{013bcf68-f27a-4a4f-b782-014a537b2335}">
@@ -74,15 +74,12 @@
 			<destination>{0756361d-3366-46dd-bf0a-094ac7093e0e}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{203d5967-b172-4895-8078-508e91eb6e66}">
+	<object class="SingleSound" id="{f4d41e33-b940-4d78-bf21-2fd3e21c36dd}">
 		<property name="length">
 			<value>2</value>
 		</property>
-		<property name="pitch">
-			<value>24</value>
-		</property>
 		<relationship name="audioFile">
-			<destination>{4bc01989-4c97-47b3-a6f8-40549cec880b}</destination>
+			<destination>{736e9f81-ea16-4077-9406-2b80263e8de9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{92ec0606-e683-4c06-91eb-d302799ea58d}">
