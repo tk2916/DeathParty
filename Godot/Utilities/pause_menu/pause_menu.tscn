@@ -196,6 +196,13 @@ event_guid = "{e96fe609-82c4-494e-9458-401b87f34d25}"
 volume = 0.4
 unique_name_in_owner = true
 
+[node name="MouseOverSound" type="FmodEventEmitter2D" parent="Audio"]
+event_name = "event:/000_SFX/300_UI/DialogueTextPrint"
+event_guid = "{de2152ed-af7d-4f70-b2cd-31b2c2eda046}"
+attached = false
+volume = 0.25
+unique_name_in_owner = true
+
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]

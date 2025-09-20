@@ -25,6 +25,7 @@ extends CanvasLayer
 @onready var yes_quit_button: Button = %YesQuitButton
 
 @onready var click_sound: FmodEventEmitter2D = %ClickSound
+@onready var mouse_over_sound: FmodEventEmitter2D = %MouseOverSound
 
 
 func _ready() -> void:
@@ -34,6 +35,8 @@ func _ready() -> void:
 	for button in get_tree().get_nodes_in_group("buttons"):
 		if button is BaseButton:
 			button.pressed.connect(on_any_button_pressed)
+
+			button.mouse_entered.connect(on_any_button_moused_over)
 
 		if button is TabContainer:
 			button.tab_clicked.connect(func(tab: int): on_any_button_pressed())
@@ -177,3 +180,6 @@ func _on_no_quit_button_pressed() -> void:
 # to the signal for a single button which could be confusing)
 func on_any_button_pressed() -> void:
 	click_sound.play()
+
+func on_any_button_moused_over() -> void:
+	mouse_over_sound.play()
