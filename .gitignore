@@ -23,11 +23,6 @@ mono_crash.*.json
 # System ignores
 .DS_Store
 
-# FMOD ignores
-/fmod/.cache/
-/fmod/.unsaved/
-/fmod/.user
-
 # Temporary file ignores
 *.tmp
 ~*
