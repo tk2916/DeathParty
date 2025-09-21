@@ -20,7 +20,6 @@ func load_in():
 	scene.cell_debugger.add_cell(self)
 	
 func set_active(_active : bool, initial_load : bool) -> void:
-	var start = Time.get_ticks_msec()
 	if (_active == active) and (not initial_load): return
 	#if !initial_load and active == _active: return #causes errors
 	active = _active
@@ -38,22 +37,18 @@ func set_active(_active : bool, initial_load : bool) -> void:
 		if active and obj.toggled:
 			obj.load_in()
 		else:
-			#print("Offloading existing node: ", obj.name, " ", obj.parent_obj.name, " ", obj.instance)
+			print("Deciding not to load in ", obj.name, " because: ", active, ", ", obj.toggled)
 			obj.offload()
 	scene.cell_debugger.update_cell(self)
-	var duration = (Time.get_ticks_msec() - start)
-	#print("Duration of set_active: ", duration)
 
 func intersects_interactable(data:SceneObject) -> bool:
 	return intersects(data.aabb)
 
-func intersects(aabb2:AABB):
+func intersects(aabb2:AABB) -> bool:
 	return aabb.intersects(aabb2)
 
 func add_object(data:SceneObject) -> bool:
-	#if data.cell_id != -1: return false #already assigned
 	if intersects_interactable(data):
-		#data.cell_id = self.id
 		data.add_cell(self) #an obj might belong to multiple cells
 		loadable_objects.push_back(data)
 		return true

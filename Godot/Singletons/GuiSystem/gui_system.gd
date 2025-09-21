@@ -110,6 +110,7 @@ func show_phone(contact_resource: ChatResource = null) -> void:
 	if contact_resource != null or hid_phone_mid_convo:
 		#DialogueSystem.text_message_box.on_back_pressed()
 		if contact_resource:
+			#DialogueSystem.current_phone_resource = contact_resource
 			DialogueSystem.text_message_box.on_contact_press(contact_resource)
 		elif hid_phone_mid_convo:
 			DialogueSystem.text_message_box.on_contact_press(DialogueSystem.current_phone_resource)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://dhon163rkpuq5"]
+[gd_scene load_steps=8 format=4 uid="uid://dhon163rkpuq5"]
 
 [ext_resource type="Texture2D" uid="uid://b543ufqfx8ra4" path="res://rooms/Exterior Frat Lawn/beer pong sign_Image_0.png" id="1_6bw6m"]
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_ik6mh"]
+[ext_resource type="PackedScene" uid="uid://cqxjk5afxrhem" path="res://Common/Popup UI/object_interact_popup.tscn" id="3_7fa1t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nm8p"]
 resource_name = "T_floor_sign_1001"
@@ -45,6 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_7mlqy")
 size = Vector3(0.75, 1.25, 0.75)
 
 [node name="BeerPongSign" type="StaticBody3D"]
+script = ExtResource("1_ik6mh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.925492, 0, 0, 0, -4.41309e-07, 0.925492, 0, -0.925492, -4.41309e-07, 0, 0, 0)
@@ -54,3 +57,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ik6mh")
+
+[node name="Popup" parent="." instance=ExtResource("3_7fa1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20015, -1.20527)

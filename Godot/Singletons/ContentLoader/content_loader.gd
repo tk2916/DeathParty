@@ -9,12 +9,12 @@ var player_spawn_pos : Vector3
 
 var scene_teleport_pos : Vector3
 
-var scene_data_dict : Dictionary[String, LoadableScene] = {}
-var cell_grids : Dictionary[String, Vector3] = {
-	#"PartyRoom" = Vector3(5,1,1),
-	"PartyRoom" = Vector3(1,1,1),
+var scene_data_dict : Dictionary[Globals.SCENES, LoadableScene] = {}
+var cell_grids : Dictionary[Globals.SCENES, Vector3] = {
+	#Globals.SCENES.PartyRoom: Vector3(5,1,1),
+	#"PartyRoom" = Vector3(1,1,1),
 	#"Exterior" = Vector3(10,1,10),
-	"Exterior" = Vector3(1,1,1),
+	Globals.SCENES.Exterior: Vector3(1,1,1),
 }
 
 @onready var tree : SceneTree = get_tree()
@@ -23,19 +23,20 @@ var main_node_data : GameObject
 
 var loaded_scenes : Array[LoadableScene]
 @onready var loadable_scenes_size : int = tree.get_nodes_in_group("loadable_scene").size()
-var og_scene_name : String = ""
-var active_scene_name : String = ""
+var og_scene_enum : Globals.SCENES = Globals.SCENES.Nowhere
+var active_scene_enum : Globals.SCENES = Globals.SCENES.Nowhere
 var loading_screen : ColorRect
 
 var active_scene : LoadableScene:
 	get:
-		if !scene_data_dict.has(active_scene_name):
+		if !scene_data_dict.has(active_scene_enum):
 			return null
-		return scene_data_dict[active_scene_name]
+		return scene_data_dict[active_scene_enum]
 
 var loaded : bool = false
 signal finished_loading
 signal added_scene
+signal switched_scene
 
 func _ready() -> void:
 	print(tree.get_nodes_in_group("loadable_scene"))
@@ -55,39 +56,44 @@ func _ready() -> void:
 func on_finished_loading_scenes() -> void:
 	##Make sure they are all loaded
 	if scene_data_dict.keys().size() < loadable_scenes_size: return
-	for scene_name : String in scene_data_dict:
-		scene_data_dict[scene_name].set_teleport_points()
+	for scene_enum : Globals.SCENES in scene_data_dict:
+		scene_data_dict[scene_enum].set_teleport_points()
 	load_player()
-	direct_teleport_player(og_scene_name)
+	direct_teleport_player(og_scene_enum)
 	finished_loading.emit()
-	# GuiSystem.fade_loading_screen_out()
-	# 	print("Faded screen out")
 	
-func get_scene(scene_name : String) -> LoadableScene:
-	assert(scene_data_dict.has(scene_name), scene_name + " does not exist!")
-	return scene_data_dict[scene_name]
+func get_scene(scene_enum : Globals.SCENES) -> LoadableScene:
+	assert(scene_data_dict.has(scene_enum), Globals.get_scene_name(scene_enum) + " does not exist!")
+	return scene_data_dict[scene_enum]
 
 func store_scene_info(node : Node3D) -> void:
 	var node_name : String = node.name
 	var node_instance : Node3D = node
 	var cell_grid : Vector3
-	if !cell_grids.has(node_name):
-		cell_grids[node_name] = Vector3(1,1,1)
-	cell_grid = cell_grids[node_name]
+
+	var scene_enum : Globals.SCENES = Globals.SCENES_STR[node_name]
+
+	if !cell_grids.has(scene_enum):
+		cell_grids[scene_enum] = Vector3(1,1,1)
+	cell_grid = cell_grids[scene_enum]
 	var new_scene_data : LoadableScene = LoadableScene.new(
+		scene_enum,
 		node_instance,
 		main_node_data,
 		cell_grid,
 		)
-	scene_data_dict[node_name] = new_scene_data
+	scene_data_dict[scene_enum] = new_scene_data
 	
-	if og_scene_name == "" and new_scene_data.cell_manager.scene_aabb.intersects(player_aabb): #check intersection
-		og_scene_name = node.name
+	if og_scene_enum == Globals.SCENES.Nowhere and new_scene_data.cell_manager.scene_aabb.intersects(player_aabb): #check intersection
+		og_scene_enum = scene_enum
 	
 	print("Stored scene info for ", node.name, " | ", Time.get_ticks_msec())
 	added_scene.emit()
 
 func load_player() -> void:
+	GuiSystem.show_journal() #puts journal into cache
+	await get_tree().process_frame
+	GuiSystem.hide_journal()
 	loaded = true
 	if !is_instance_valid(player):
 		player = player_file.instantiate()
@@ -116,20 +122,23 @@ func update_player_aabb() -> void:
 func reset() -> void:
 	print("Reset player")
 	if main_node == null: return
-	direct_teleport_player(og_scene_name)
+	direct_teleport_player(og_scene_enum)
 
 ##LOADING/OFFLOADING
-func load_scene(scene_name:String) -> Node3D:
+func load_scene(scene_enum : Globals.SCENES) -> Node3D:
+	var scene_name : String = Globals.get_scene_name(scene_enum)
 	print("Attempting to load ", scene_name)
+	
 	if main_node == null: return
-	if scene_name == "" or !scene_data_dict.has(scene_name): 
+	if !scene_data_dict.has(scene_enum): 
 		assert(false, "Scene " + scene_name + " doesn't exist/isn't tagged with loadable_scene!")
 		return
 	#trying to load the currently loaded scene
-	if active_scene_name == scene_name: 
+	if active_scene_enum == scene_enum: 
 		return loaded_scenes.front().instance
-	active_scene_name = scene_name
-	var scene_data : LoadableScene = scene_data_dict[scene_name]
+
+	active_scene_enum = scene_enum
+	var scene_data : LoadableScene = scene_data_dict[scene_enum]
 	var scene_instance : Node3D = scene_data.load_in()
 	loaded_scenes.push_front(scene_data)
 	return scene_instance
@@ -150,13 +159,13 @@ func offload_old_scene() -> void:
 ##END LOADING/OFFLOADING
 
 ##TELEPORTING
-func scene_loader_teleport(scene_name : String, new_position : TeleportPointData) -> void:
+func scene_loader_teleport(scene_enum : Globals.SCENES, new_position : TeleportPointData) -> void:
 	var screen_tween : Tween = GuiSystem.fade_loading_screen_in()
 	screen_tween.finished.connect(func() -> void:
 		scene_teleport_pos = new_position.teleport_pos
-		var scene : Node3D = load_scene(scene_name)
+		var scene : Node3D = load_scene(scene_enum)
 		scene.ready.connect(func() -> void:
-			print("Teleporting player to ", scene_name)
+			print("Teleporting player to ", Globals.get_scene_name(scene_enum))
 			player.global_position = new_position.teleport_pos
 			GlobalCameraScript.move_camera_jump.emit()
 			
@@ -164,15 +173,16 @@ func scene_loader_teleport(scene_name : String, new_position : TeleportPointData
 			await tree.create_timer(1).timeout
 			GuiSystem.fade_loading_screen_out()
 			GlobalCameraScript.move_camera_smooth.emit()
+			switched_scene.emit()
 		)
 	)
 
-func direct_teleport_player(scene_name : String) -> void:
-	if scene_name == active_scene_name: return
+func direct_teleport_player(scene_enum : Globals.SCENES) -> void:
+	if scene_enum == active_scene_enum: return
 	GuiSystem.set_gui_enabled(true)
-	var target_pos : TeleportPointData = scene_data_dict[scene_name].main_teleport_point
-	assert(target_pos != null, "" + scene_name + " doesn't have a teleport point assigned. Make sure all your scenes have at least one TeleportPoint.tscn'!")
-	scene_loader_teleport(scene_name, target_pos)
+	var target_pos : TeleportPointData = scene_data_dict[scene_enum].main_teleport_point
+	assert(target_pos != null, "" + Globals.get_scene_name(scene_enum) + " doesn't have a teleport point assigned. Make sure all your scenes have at least one TeleportPoint.tscn'!")
+	scene_loader_teleport(scene_enum, target_pos)
 ##END TELEPORTING
 
 ##NPCs

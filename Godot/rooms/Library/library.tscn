@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=4 uid="uid://d3cv36i34m681"]
+[gd_scene load_steps=140 format=4 uid="uid://d3cv36i34m681"]
 
 [ext_resource type="Script" uid="uid://bf53h1kpy8ay4" path="res://rooms/Library/library.gd" id="1_508o3"]
 [ext_resource type="PackedScene" uid="uid://bbyg62wymptn6" path="res://Singletons/ContentLoader/scene_loader.tscn" id="1_j03r7"]
@@ -55,10 +55,8 @@
 [ext_resource type="PackedScene" uid="uid://bewi8xed4xchk" path="res://Assets/props/chairs/folded chairs/folded chairs.glb" id="52_rwfot"]
 [ext_resource type="PackedScene" uid="uid://04h45wmndeqi" path="res://rooms/Kitchen/beerpong trophie.glb" id="53_iso52"]
 [ext_resource type="Texture2D" uid="uid://qatlo1rl0gdd" path="res://rooms/Storage Room/spiderwebs_Untitled_Artwork.png" id="54_yma0n"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/starter_file_2.json" id="55_aokc7"]
 [ext_resource type="Texture2D" uid="uid://bs6b6l2er7cvd" path="res://rooms/Storage Room/spiderwebs_dsf.png" id="55_hu7nt"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="56_hu7nt"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/default_file_2.json" id="56_mwspb"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="57_twmdx"]
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="58_ddclk"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="58_dsi3o"]
@@ -1227,7 +1225,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.85343, -3.48211, 3.96691)
 
 [node name="SceneLoader_Ghost hallway" parent="." instance=ExtResource("1_j03r7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.40378, -3.8112, 7.39135)
-target_location_index = 11
+target_scene = 13
 local_spawn_point = 1
 play_door_sound = true
 
@@ -1247,7 +1245,7 @@ shape = SubResource("BoxShape3D_aokc7")
 transform = Transform3D(0.0293456, -0.714521, 0.698998, 0.0299709, 0.699614, 0.713892, -0.99912, 1.305e-08, 0.0419454, 8.34207, 5.06671, 2.91847)
 light_color = Color(0.4464, 0.87358, 0.93, 1)
 light_energy = 50.0
-light_volumetric_fog_energy = 70.0
+light_volumetric_fog_energy = 30.0
 light_specular = 0.767
 shadow_enabled = true
 shadow_bias = 0.145
@@ -1275,7 +1273,7 @@ spot_angle = 35.0
 spot_angle_attenuation = 1.62451
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="SceneLights"]
-transform = Transform3D(0.791234, 0.0226855, 0.611092, -0.611513, 0.0293526, 0.79069, 1.83469e-10, -0.999312, 0.0370973, 4.21954, 1.60518, 2.81283)
+transform = Transform3D(0.791234, 0.0226855, 0.611092, -0.611513, 0.0293526, 0.79069, 1.83469e-10, -0.999312, 0.0370973, 4.20921, 1.60518, 1.24518)
 light_color = Color(0.4176, 0.81722, 0.87, 1)
 light_energy = 2.4
 shadow_enabled = true
@@ -1505,7 +1503,7 @@ transform = Transform3D(0.27786, 0, 0, 0, 0.27786, 0, 0, 0, 0.27786, -2.7911, 0.
 
 [node name="OmniLight3D" parent="Chandelier/Lights" index="0"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
-light_energy = 12.82
+light_energy = 5.0
 light_volumetric_fog_energy = 5.0
 omni_range = 0.7
 
@@ -1525,7 +1523,7 @@ light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 16.0
 
 [node name="OmniLight3D8" parent="Chandelier/Lights" index="7"]
-light_energy = 5.356
+omni_attenuation = 1.0
 
 [node name="OmniLight3D10" parent="Chandelier/Lights" index="9"]
 light_color = Color(0.980392, 0.27451, 0.0392157, 1)
@@ -1537,8 +1535,7 @@ light_color = Color(0.980392, 0.27451, 0.0392157, 1)
 light_energy = 8.0
 
 [node name="OmniLight3D12" parent="Chandelier/Lights" index="11"]
-light_energy = 16.0
-light_volumetric_fog_energy = 5.0
+omni_attenuation = 1.0
 
 [node name="chandelior bar2" parent="Chandelier" instance=ExtResource("5_l745y")]
 transform = Transform3D(5.61817, 0, 0, 0, 3.52113, 0, 0, 0, 3.87769, 0, 13.0462, -0.00364685)
@@ -1849,19 +1846,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.15962, -3.71333, 7.38065)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00599, -4.38653, 1.434)
 
 [node name="witch" parent="NPCs" instance=ExtResource("56_hu7nt")]
-transform = Transform3D(-0.616097, 0, 0.927863, 0, 1.11378, 0, -0.927863, 0, -0.616097, 5.86748, 3.49641, -3.48759)
+transform = Transform3D(-0.553159, 0, 0.833076, 0, 1, 0, -0.833076, 0, -0.553159, 5.86748, 3.49641, -3.48759)
 
 [node name="chi omega" parent="NPCs" instance=ExtResource("57_twmdx")]
-transform = Transform3D(0.981093, 0, -0.523239, 0, 1.1119, 0, 0.523239, 0, 0.981093, 6.78754, 3.49348, -3.89425)
+transform = Transform3D(0.882357, 0, -0.470581, 0, 1, 0, 0.470581, 0, 0.882357, 6.78754, 3.49348, -3.89425)
 
 [node name="cone ghost" parent="NPCs" instance=ExtResource("58_dsi3o")]
-transform = Transform3D(-0.782681, 0, -0.855105, 0, 1.15922, 0, 0.855105, 0, -0.782681, 8.76003, -0.0123301, 6.03533)
+transform = Transform3D(-0.675178, 0, -0.737655, 0, 1, 0, 0.737655, 0, -0.675178, 8.76003, -0.0123301, 6.03533)
 
 [node name="chirstmas tree" parent="NPCs" instance=ExtResource("59_oa8vk")]
-transform = Transform3D(0.712445, 0, 0.947027, 0, 1.18509, 0, -0.947027, 0, 0.712445, 7.95673, -0.0141101, 5.14935)
+transform = Transform3D(0.601174, 0, 0.799118, 0, 1, 0, -0.799118, 0, 0.601174, 7.95673, -0.0141101, 5.14935)
 
 [node name="shark" parent="NPCs" instance=ExtResource("60_ullqy")]
-transform = Transform3D(0.90251, 0, -0.614981, 0, 1.09212, 0, 0.614981, 0, 0.90251, 6.68379, 0.54604, -0.563092)
+transform = Transform3D(0.826384, 0, -0.563108, 0, 1, 0, 0.563108, 0, 0.826384, 6.68379, 0.54604, -0.563092)
 
 [node name="Skeleton3D" parent="NPCs/shark/shark model" index="0"]
 bones/0/position = Vector3(-0.818028, 2.00367, -11.6563)
@@ -1960,25 +1957,23 @@ bones/63/rotation = Quaternion(0.245826, 0.0383539, -0.0108754, 0.968494)
 autoplay = "sit chill"
 
 [node name="Nora" parent="NPCs" instance=ExtResource("44_j03r7")]
-transform = Transform3D(0.70107, 0, -0.545768, 0, 0.888461, 0, 0.545768, 0, 0.70107, 0.631361, -0.0234952, 0.565242)
+transform = Transform3D(0.789084, 0, -0.614285, 0, 1, 0, 0.614285, 0, 0.789084, 0.631361, -0.0234952, 0.565242)
 
 [node name="Sam" parent="NPCs" instance=ExtResource("43_obdan")]
-transform = Transform3D(0.979724, 0, 0.583987, 0, 1.14057, 0, -0.583987, 0, 0.979724, -0.672603, 0.0335598, 0.825987)
+transform = Transform3D(0.858978, 0, 0.512013, 0, 1, 0, -0.512013, 0, 0.858978, -0.672603, 0.0335598, 0.825987)
 
 [node name="angel" parent="NPCs" instance=ExtResource("50_m1j1w")]
-transform = Transform3D(0.871046, 0, 0.643131, 0, 1.08275, 0, -0.643131, 0, 0.871046, -2.26855, -0.00449276, 1.25362)
-starter_json = ExtResource("55_aokc7")
-default_json = ExtResource("56_mwspb")
+transform = Transform3D(0.804479, 0, 0.593982, 0, 1, 0, -0.593982, 0, 0.804479, -2.26855, -0.00449276, 1.25362)
 outline_thickness = 0.7
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("45_owm1a")]
-transform = Transform3D(0.736692, 0, -0.887413, 0, 1.15335, 0, 0.887413, 0, 0.736692, 3.46859, 0.0134149, -1.41783)
+transform = Transform3D(0.638741, 0, -0.769422, 0, 1, 0, 0.769422, 0, 0.638741, 3.46859, 0.0134149, -1.41783)
 
 [node name="Bunny2" parent="NPCs" instance=ExtResource("51_ndciv")]
-transform = Transform3D(1.03238, 0, 0.523845, 0, 1.15768, 0, -0.523845, 0, 1.03238, 2.66813, 0.0174899, -1.66595)
+transform = Transform3D(0.891767, 0, 0.452496, 0, 1, 0, -0.452496, 0, 0.891767, 2.66813, 0.0174899, -1.66595)
 
 [node name="free hug2" parent="NPCs" instance=ExtResource("58_ddclk")]
-transform = Transform3D(0.72674, 0, -0.9425, 0, 1.19015, 0, 0.9425, 0, 0.72674, 6.30366, 0.0545883, 1.1788)
+transform = Transform3D(0.610629, 0, -0.791917, 0, 1, 0, 0.791917, 0, 0.610629, 6.30366, 0.0545883, 1.1788)
 
 [node name="Skeleton3D" parent="NPCs/free hug2/free hug" index="0"]
 bones/0/position = Vector3(-4.90804, -14.9172, -18.3208)
@@ -2078,7 +2073,6 @@ bones/56/rotation = Quaternion(-0.64577, -0.0450565, 0.0352766, 0.761385)
 bones/57/rotation = Quaternion(0.212925, -0.100761, 0.0148956, 0.971745)
 bones/58/position = Vector3(9.28673e-07, 17.612, -4.60005e-06)
 bones/58/rotation = Quaternion(0.307579, -0.144881, 0.0559051, 0.938765)
-bones/60/position = Vector3(-9.65631, -3.87431, -1.32732)
 bones/60/rotation = Quaternion(-0.138909, 0.318385, 0.91582, 0.201516)
 bones/61/rotation = Quaternion(-0.692744, 0.0810484, -0.0593049, 0.714157)
 bones/62/rotation = Quaternion(0.321785, -0.0134779, -0.0522615, 0.945273)

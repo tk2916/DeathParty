@@ -1,0 +1,205 @@
+{
+	"inkVersion": 21.0,
+	"root": [
+		[
+			{
+				"->": "OliviaBartenderKitchen"
+			},
+			[
+				"done",
+				{
+					"#f": 5.0,
+					"#n": "g-0"
+				}
+			],
+			null
+		],
+		"done",
+		{
+			"OliviaBartenderKitchen": [
+				[
+					"^[Bartender] What are you feeling? We've got specialty drinks: Freya, Athena, Lakshmi...if any of that sounds good, let me know!",
+					"\n",
+					"ev",
+					"str",
+					"^Freya sounds interesting.",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-0",
+						"flg": 20.0
+					},
+					"ev",
+					"str",
+					"^How about an Athena?",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-1",
+						"flg": 20.0
+					},
+					"ev",
+					"str",
+					"^Maybe a Lakshmi?",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-2",
+						"flg": 20.0
+					},
+					"ev",
+					"str",
+					"^Are those drinks?",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-3",
+						"flg": 20.0
+					},
+					{
+						"c-0": [
+							"^ ",
+							{
+								"->": "freya"
+							},
+							"\n",
+							{
+								"#f": 5.0
+							}
+						],
+						"c-1": [
+							"^ ",
+							{
+								"->": "athena"
+							},
+							"\n",
+							{
+								"#f": 5.0
+							}
+						],
+						"c-2": [
+							"^ ",
+							{
+								"->": "lakshmi"
+							},
+							"\n",
+							{
+								"#f": 5.0
+							}
+						],
+						"c-3": [
+							"^ ",
+							{
+								"->": "ask_drinks"
+							},
+							"\n",
+							{
+								"#f": 5.0
+							}
+						]
+					}
+				],
+				{
+					"#f": 1.0
+				}
+			],
+			"freya": [
+				"^[Bartender] One glass of battle and beauty, coming right up.",
+				"\n",
+				"^/give_item freya",
+				"\n",
+				"end",
+				{
+					"#f": 1.0
+				}
+			],
+			"athena": [
+				"^[Bartender] Wise choice. Heh.",
+				"\n",
+				"^/give_item athena",
+				"\n",
+				"end",
+				{
+					"#f": 1.0
+				}
+			],
+			"lakshmi": [
+				"^[Bartender] Ooh, my favorite. I'll drink to that choice.",
+				"\n",
+				"^/give_item lakshmi",
+				"\n",
+				"end",
+				{
+					"#f": 1.0
+				}
+			],
+			"ask_drinks": [
+				[
+					"^[Bartender] Goddesses, actually... But yeah, tonight they're drinks.",
+					"\n",
+					"ev",
+					"str",
+					"^Cool. Thanks.",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-0",
+						"flg": 20.0
+					},
+					"ev",
+					"str",
+					"^Sick costume. Are you a cheetah?",
+					"/str",
+					"/ev",
+					{
+						"*": ".^.c-1",
+						"flg": 20.0
+					},
+					{
+						"c-0": [
+							"^ ",
+							"end",
+							"\n",
+							{
+								"#f": 5.0
+							}
+						],
+						"c-1": [
+							"^ ",
+							{
+								"->": "ask_costume"
+							},
+							"\n",
+							{
+								"#f": 5.0
+							}
+						]
+					}
+				],
+				{
+					"#f": 1.0
+				}
+			],
+			"ask_costume": [
+				"^[Bartender] I'm Seshat, the Egyptian Goddess. She was a scribe who dressed in leopard skin and invented writing.",
+				"\n",
+				"^[Olivia] Oh wow, cool.",
+				"\n",
+				"^[Bartender] Yeah, I know. It's a lot, haha. I'm a classics major, so legit, I'm all about the different gods and goddesses. That's my whole jam.",
+				"\n",
+				"^Here's a Flame Drop, for letting me blab. A little heat to get the party going!",
+				"\n",
+				"^/give_item \"flame drop\"",
+				"\n",
+				"end",
+				{
+					"#f": 1.0
+				}
+			],
+			"#f": 1.0
+		}
+	],
+	"listDefs": {
+
+	}
+}

@@ -15,12 +15,14 @@ var player_data : PlayerData
 const DIRECTORIES : Dictionary[String, String] = {
 	TASKS = "res://Singletons/SaveSystem/DefaultResources/TaskResources/",
 	CHARACTERS = "res://Singletons/SaveSystem/DefaultResources/CharacterResources/",
+	TALKING_OBJECTS = "res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/",
 	PHONE_CHATS = "res://Singletons/SaveSystem/DefaultResources/ChatResources/",
 	INVENTORY_ITEMS = "res://Singletons/SaveSystem/DefaultResources/InventoryItemResources/",
 }
 const DIRECTORIES_TO_DICTIONARIES : Dictionary[String, String] = {
 	DIRECTORIES.TASKS : "tasks",
 	DIRECTORIES.CHARACTERS : "characters",
+	DIRECTORIES.TALKING_OBJECTS : "talking_objects",
 	DIRECTORIES.PHONE_CHATS : "phone_chats",
 	DIRECTORIES.INVENTORY_ITEMS : "inventory_items",
 }
@@ -61,18 +63,10 @@ func update_save_file(file : SaveFile) -> void:
 		var dictionary_name : String = DIRECTORIES_TO_DICTIONARIES[directory]
 		var dictionary : Dictionary = file[dictionary_name]
 		load_into_dictionary(directory, dictionary)
-	# load_into_dictionary(DIRECTORIES.TASKS, file.tasks)
-	# load_into_dictionary(DIRECTORIES.CHARACTERS, file.characters)
-	# load_into_dictionary(DIRECTORIES.PHONE_CHATS, file.phone_chats)
-	# load_into_dictionary(DIRECTORIES.INVENTORY_ITEMS, file.inventory_items)
 
 #SAVE/LOAD
 func save_data() -> void:
-	var error : Error = ResourceSaver.save(active_save_file, SLOT_TO_PATH[active_save_slot])
-	if error:
-		print("Error saving resource:", error)
-	else:
-		print("Resource saved successfully!")
+	ResourceSaver.save(active_save_file, SLOT_TO_PATH[active_save_slot])
 
 func save_data_to_slot(slot : SaveSlots) -> void:
 	var slot_path : String = SLOT_TO_PATH[slot]
@@ -112,7 +106,7 @@ func load_into_dictionary(address : String, dict : Dictionary) -> void:
 				dict_keys.push_back(filename)
 				if !dict.has(filename):
 					dict[filename] = file.duplicate(true)
-					file.initialize()
+					dict[filename].initialize()
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the directory " + address)
@@ -172,6 +166,11 @@ func get_character(char_name : String) -> CharacterResource:
 		return null
 	return active_save_file.characters[char_name]
 
+func get_talking_object(obj_name : String) -> TalkingObjectResource:
+	if !active_save_file.talking_objects.has(obj_name):
+		return null
+	return active_save_file.talking_objects[obj_name]
+
 func get_phone_chat(phone_chat_name : String) -> ChatResource:
 	if !active_save_file.phone_chats.has(phone_chat_name):
 		return null
@@ -192,11 +191,18 @@ func get_time_string(include_ampm:bool = true) -> String:
 #EDITING
 func get_key(key:String) ->  Variant:
 	key_exists_assert(key)
+	print("global decl GET key function: ", key, " | ", player_data.variable_dict[key])
 	return player_data.variable_dict[key]
 
 func set_key(key:String, value:Variant) -> void:
 	if key_exists(key):
 		match_type(key, value) # asserts that they are of matching types
+	if value is String:
+		if value == "true":
+			value = true
+		elif value == "false":
+			value = false
+	print("global decl set key function: ", key, " value: ", value)
 	player_data.variable_dict[key] = value
 	if key == "time":
 		time_changed.emit(value)
@@ -219,7 +225,7 @@ func add_item(item_name:String, show_item_details : bool = false) -> void:
 	var item := item_exists(item_name)
 	item.amount_owned += 1
 	inventory_changed.emit("add", item)
-	if show_item_details:
+	if show_item_details and item.model != null:
 		InventoryUtils.show_item_details(item)
 
 func remove_item(item_name:String) -> bool: #returns 1 if successful, 0 if there aren't any left

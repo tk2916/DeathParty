@@ -45,7 +45,6 @@
 [ext_resource type="PackedScene" uid="uid://k3sqairh3uh4" path="res://Assets/CharacterAssets/frat_boys/blond_frat_boy/blond_frat_boy.tscn" id="42_wxsgv"]
 [ext_resource type="PackedScene" uid="uid://bgeabboi8mw6q" path="res://rooms/Exterior Frat Lawn/beer spider.glb" id="43_klyfx"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="44_kdf33"]
-[ext_resource type="JSON" path="res://Assets/InkExamples/commands_test.json" id="45_a6eg1"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="45_la1vu"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="46_ihq26"]
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.tscn" id="47_yqsuh"]
@@ -53,7 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://csh7q4aonjs3d" path="res://Assets/CharacterAssets/frat_boys/red_hat_frat_boy/Frat boy red hat.glb" id="49_cygoc"]
 [ext_resource type="Texture2D" uid="uid://dut3t6ajv8wp" path="res://Assets/textures/entrance_room_environment/two doors_IMG_4472.png" id="51_f4d3f"]
 [ext_resource type="PackedScene" uid="uid://bte4agxfg1yhm" path="res://Assets/CharacterAssets/frat_boys/Long_Hair_frat_boy/Frat boy long hair.glb" id="51_t3a1b"]
-[ext_resource type="PackedScene" uid="uid://dctvsjyt34owa" path="res://Assets/textures/entrance_room_props/red carpet.glb" id="54_1e4ar"]
+[ext_resource type="PackedScene" uid="uid://cbtntid77jgm0" path="res://Assets/environment/red_carpet.tscn" id="53_t3a1b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nneh3"]
 size = Vector3(19.459, 10.481, 20)
@@ -625,6 +624,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3qtki")
 
+[sub_resource type="Resource" id="Resource_77dsr"]
+metadata/__load_path__ = "res://Assets/Resources/CharacterResources/character_properties_caleb.tres"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa36f"]
 resource_name = "Material.002"
 albedo_texture = ExtResource("51_f4d3f")
@@ -727,7 +729,7 @@ shape = SubResource("BoxShape3D_ihq26")
 [node name="SceneLoader_Exterior" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52381, 0, 15.0416)
 interactable = false
-target_location_index = 7
+target_scene = 9
 local_spawn_point = 1
 arrow_direction = 2
 use_first_mesh = true
@@ -742,7 +744,7 @@ shape = SubResource("BoxShape3D_mg500")
 
 [node name="SceneLoader_Kitchen" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.07177, 0, 3.68975)
-target_location_index = 8
+target_scene = 10
 play_door_sound = true
 use_first_mesh = true
 
@@ -756,7 +758,7 @@ shape = SubResource("BoxShape3D_f4d3f")
 [node name="SceneLoader_PartyRoom" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4.96324)
 interactable = false
-target_location_index = 1
+target_scene = 3
 arrow_direction = 2
 
 [node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
@@ -769,7 +771,7 @@ shape = SubResource("BoxShape3D_cygoc")
 
 [node name="SceneLoader_Basement" parent="." instance=ExtResource("35_nneh3")]
 transform = Transform3D(-0.00280997, 0, -0.999996, 0, 1, 0, 0.999996, 0, -0.00280997, 13.3283, 1.22732, 3.43122)
-target_location_index = 4
+target_scene = 6
 play_door_sound = true
 arrow_direction = 1
 use_first_mesh = true
@@ -1419,32 +1421,32 @@ transform = Transform3D(-1.29904, 0, 0.750001, 0, 1.77, 0, -0.750001, 0, -1.2990
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="chirstmas tree" parent="NPCs" instance=ExtResource("47_yqsuh")]
-transform = Transform3D(-0.601051, 0, -1.02136, 0, 1.18509, 0, 1.02136, 0, -0.601051, 7.07089, 4.59808, -4.50796)
+transform = Transform3D(-0.507177, 0, -0.861842, 0, 1, 0, 0.861842, 0, -0.507177, 7.07089, 4.59808, -4.50796)
 
 [node name="free hug2" parent="NPCs" instance=ExtResource("42_a5wms")]
-transform = Transform3D(1.19015, 0, 0, 0, 1.19015, 0, 0, 0, 1.19015, 1.90492, 2.66248, 0.17008)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90492, 2.66248, 0.17008)
 
 [node name="AnimationPlayer" parent="NPCs/free hug2" index="1"]
 autoplay = "sitttttt"
 
 [node name="witch" parent="NPCs" instance=ExtResource("44_kdf33")]
-transform = Transform3D(-0.682014, 0, 0.880547, 0, 1.11378, 0, -0.880547, 0, -0.682014, -3.75813, -0.00254369, 4.89165)
+transform = Transform3D(-0.612342, 0, 0.790593, 0, 1, 0, -0.790593, 0, -0.612342, -3.75813, -0.00254369, 4.89165)
 
 [node name="Caleb" parent="NPCs" instance=ExtResource("35_gfuhi")]
-transform = Transform3D(0.908525, 0, 0.615049, 0, 1.09713, 0, -0.615049, 0, 0.908525, 0.419961, 0.0419717, 2.25816)
-starter_json = ExtResource("45_a6eg1")
+transform = Transform3D(0.828089, 0, 0.560596, 0, 1, 0, -0.560596, 0, 0.828089, 0.419961, 0.0419717, 2.25816)
+character_resource = SubResource("Resource_77dsr")
 
 [node name="Jack" parent="NPCs" instance=ExtResource("41_6fv14")]
 transform = Transform3D(0.967661, 0, -0.252255, 0, 1, 0, 0.252255, 0, 0.967661, 3.59408, 3.54126, -3.38941)
 
 [node name="BlondeFratBoy" parent="NPCs" instance=ExtResource("42_wxsgv")]
-transform = Transform3D(1.03515, 0, 0.666239, 0, 1.23102, 0, -0.666239, 0, 1.03515, 0.9877, 3.52862, -3.50614)
+transform = Transform3D(0.840888, 0, 0.541209, 0, 1, 0, -0.541209, 0, 0.840888, 0.9877, 3.52862, -3.50614)
 
 [node name="chi omega" parent="NPCs" instance=ExtResource("45_la1vu")]
-transform = Transform3D(0.77808, 0, -0.7943, 0, 1.1119, 0, 0.7943, 0, 0.77808, 4.68345, -0.00364683, 6.13054)
+transform = Transform3D(0.699775, 0, -0.714363, 0, 1, 0, 0.714363, 0, 0.699775, 4.68345, -0.00364683, 6.13054)
 
 [node name="chi omega2" parent="NPCs" instance=ExtResource("45_la1vu")]
-transform = Transform3D(-0.28052, 0, 1.07593, 0, 1.1119, 0, -1.07593, 0, -0.28052, -2.59934, 4.58581, -3.70973)
+transform = Transform3D(-0.252289, 0, 0.967652, 0, 1, 0, -0.967652, 0, -0.252289, -2.59934, 4.58581, -3.70973)
 
 [node name="Frat boy red hat" parent="NPCs" instance=ExtResource("49_cygoc")]
 transform = Transform3D(0.661547, 0, -0.749903, 0, 1, 0, 0.749903, 0, 0.661547, 8.29458, 0.0127136, 8.69468)
@@ -1553,7 +1555,7 @@ bones/63/rotation = Quaternion(0.390428, 0.249392, -0.0498785, 0.884806)
 autoplay = "sitt bored"
 
 [node name="cone ghost" parent="NPCs" instance=ExtResource("46_ihq26")]
-transform = Transform3D(0.269572, 0, -1.12744, 0, 1.15922, 0, 1.12744, 0, 0.269572, 5.01882, -0.00239445, 1.40468)
+transform = Transform3D(0.232546, 0, -0.972585, 0, 1, 0, 0.972585, 0, 0.232546, 5.01882, -0.00239445, 1.40468)
 
 [node name="Frat boy long hair" parent="NPCs" instance=ExtResource("51_t3a1b")]
 transform = Transform3D(0.827708, 0, 0.561159, 0, 1, 0, -0.561159, 0, 0.827708, 1.45498, -0.00287838, -4.79513)
@@ -1840,11 +1842,11 @@ transform = Transform3D(0.828326, 0, -2.91038e-11, 0, 0.828326, 0, 0, 0, 0.82832
 light_energy = 3.0
 omni_range = 1.408
 
-[node name="red carpet" parent="." instance=ExtResource("54_1e4ar")]
-transform = Transform3D(0.00258756, 0, 0.999557, 0, 1, 0, -1.20536, 0, 0.00214576, 2.47367, -0.00486986, 6.89631)
+[node name="RedCarpet" parent="two doors" instance=ExtResource("53_t3a1b")]
+transform = Transform3D(-0.998435, 0, 0.00150287, 0, 0.828329, 0, -0.0018123, 0, -0.827962, 10.3125, -1.09956, -0.313595)
 
-[node name="red carpet2" parent="." instance=ExtResource("54_1e4ar")]
-transform = Transform3D(-6.79596e-08, 0, -0.999559, 0, 1, 0, 1.55473, 0, -4.36921e-08, 2.11261, -0.00486986, -3.30053)
+[node name="RedCarpet2" parent="two doors" instance=ExtResource("53_t3a1b")]
+transform = Transform3D(1.28783, 0, 0.000274488, 0, 0.828329, 0, -0.000426944, 0, 0.827963, 1.86622, -1.09956, -0.0117185)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 

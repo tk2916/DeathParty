@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccq8h7b0adkie"]
+
+[ext_resource type="PackedScene" uid="uid://bm3olvlwfwvp1" path="res://Assets/environment/door/door.glb" id="1_ubcd3"]
+[ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_dxaep"]
+
+[node name="door" instance=ExtResource("1_ubcd3")]
+script = ExtResource("2_dxaep")

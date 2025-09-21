@@ -2,19 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://csoh6pwblyomm" path="res://Assets/CharacterAssets/Caleb/Caleb.glb" id="1_q5ip8"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_f3byp"]
-[ext_resource type="Resource" path="res://Assets/Resources/CharacterResources/character_properties_caleb.tres" id="3_gvj3b"]
+
+[sub_resource type="Resource" id="Resource_hq7c8"]
+metadata/__load_path__ = "res://Assets/Resources/CharacterResources/character_properties_caleb.tres"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f3byp"]
 radius = 0.6
 
 [node name="Caleb" node_paths=PackedStringArray("primary_mesh") instance=ExtResource("1_q5ip8")]
-transform = Transform3D(1.09713, 0, 0, 0, 1.09713, 0, 0, 0, 1.09713, 0, 0, 0)
 script = ExtResource("2_f3byp")
-character_resource = ExtResource("3_gvj3b")
+character_resource = SubResource("Resource_hq7c8")
 primary_mesh = NodePath("Model/Skeleton3D/caleb_base_v04_003")
 
 [node name="Skateboard_004" parent="." index="0"]
 lod_bias = 0.25
+
+[node name="Model" parent="." index="1"]
+transform = Transform3D(0.011, 0, 0, 0, -4.80825e-10, -0.011, 0, 0.011, -4.80825e-10, -0.0165274, 0, 0)
 
 [node name="caleb_base_v04_003" parent="Model/Skeleton3D" index="0"]
 lod_bias = 0.25

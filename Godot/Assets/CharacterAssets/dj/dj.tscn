@@ -13,6 +13,9 @@ transform = Transform3D(1.10468, 0, 0, 0, 1.10468, 0, 0, 0, 1.10468, 0, 0, 0)
 script = ExtResource("2_axy1y")
 character_resource = ExtResource("3_lrta7")
 
+[node name="model" parent="." index="0"]
+transform = Transform3D(0.011, 0, 0, 0, -4.80825e-10, -0.011, 0, 0.011, -4.80825e-10, 0, 0, 0)
+
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(-2.43955, -14.2031, -83.6938)
 bones/0/rotation = Quaternion(-0.57108, -0.562747, 0.415134, 0.429938)
@@ -117,4 +120,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90524, 0)
 shape = SubResource("CapsuleShape3D_axy1y")
 
 [node name="Popup" parent="." index="3" instance=ExtResource("4_tg8bx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.1, 0)

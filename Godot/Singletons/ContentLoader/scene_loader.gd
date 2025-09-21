@@ -18,9 +18,7 @@ enum Direction {LEFT, RIGHT, DOWN}
 			%Popup.texture = null
 
 #SceneLoader functionality
-@export var target_location_index: Globals.SCENE_LOCATIONS_ENUM = Globals.SCENE_LOCATIONS_ENUM.Entrance
-var target_scene: String:
-	get: return Globals.get_scene_location(target_location_index)
+@export var target_scene: Globals.SCENES = Globals.SCENES.Entrance
 @export var local_spawn_point: Globals.SPAWN_OPTIONS = Globals.SPAWN_OPTIONS.ONE
 @export var play_door_sound: bool = false
 

@@ -47,7 +47,7 @@ class InkParseContainer:
 			path = "0"
 
 		# Will automatically parent itself to parent_container if not null
-		var new_ink_container : InkContainer = InkContainer.new(parent_container, name, path, [], true, is_redirect)
+		var new_ink_container : InkContainer = InkContainer.new(parent_container, name, path, [], is_redirect)
 		
 		#Find redirect table
 		var last_element : Variant = root[root.size()-1]
@@ -94,8 +94,6 @@ func parse(file : JSON) -> InkTree:
 	for other_container_name : String in json_dict["root"][2]:
 		if other_container_name != HASH_F and json_dict["root"][2][other_container_name] is Array:
 			var other_container : Array = json_dict["root"][2][other_container_name]
-			if other_container[0] is Array:
-				other_container = other_container[0] #if there is a sub-array, take that
 			InkParseContainer.new(new_tree, null, other_container_name, other_container)
 	
 	return new_tree
@@ -180,7 +178,8 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 						var redirect_container : InkContainer = new_container.redirects[redirect_name]
 						var first_line : InkLineInfo = redirect_container.dialogue_lines[0]
 						string_eval_stream = string_eval_stream + first_line.text
-						
+			else:
+				push(next)
 
 		elif not string_evaluation_mode:
 			if next is Dictionary:
@@ -224,15 +223,26 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 
 				#Choice's redirect
 				var redirect_location : String = next_dict["*"]
+				#One-off choice?
+				var once_only : bool = false
 
 				#If 1 bit is set, store conditional statements on stack
 				#these will be checked during runtime to decide whether to show the choice
 				var eval_stack : Array = []
+				#bits to check
+				var flag_one : int = 1
+				var flag_sixteen : int = 16
+
 				var flag : int = next_dict["flg"]
-				if int(flag)&1 == 1: #check if 1 bit is set 
+				
+				if flag&flag_one != 0: #check if 1 bit is set 
 					#Means it is conditional text
 					eval_stack = evaluation_stack_items
 					evaluation_stack_items = []
+				if flag&flag_sixteen != 0:
+					print("One-off choice: ", choice_text)
+					#Means it is a one-off choice
+					once_only = true
 				
 				InkChoiceInfo.new(
 					new_container, 
@@ -240,7 +250,7 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 					choice_text,
 					redirect_location,
 					eval_stack,
-					true,
+					once_only,
 				)
 			elif next_dict.has("->"):
 				var redirect : String = next_dict["->"]
@@ -258,7 +268,6 @@ func classify_line(arr_index : int, new_container : InkContainer, next : Variant
 					redirect,
 					path,
 					eval_stack,
-					condition,
 				)
 
 func break_up_dialogue(parent_container : InkContainer, path : String, dialogue:String) -> InkLineInfo:

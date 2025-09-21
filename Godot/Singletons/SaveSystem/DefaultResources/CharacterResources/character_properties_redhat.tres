@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://cj0bmumhiudrf"]
+
+[ext_resource type="Texture2D" uid="uid://c7o6yxv4po3ab" path="res://Assets/CharacterAssets/Polaroids/redhat_a.png" id="2_phgud"]
+[ext_resource type="Texture2D" uid="uid://cplmmubs3qcbl" path="res://Assets/CharacterAssets/Polaroids/redhat_b.png" id="3_pai3k"]
+[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="4_vr1ii"]
+[ext_resource type="Script" uid="uid://cmr58186dx31r" path="res://Singletons/SaveSystem/ResourceScripts/character_properties_script.gd" id="5_y2cqa"]
+
+[resource]
+script = ExtResource("5_y2cqa")
+character_location = 0
+image_polaroid = ExtResource("2_phgud")
+image_polaroid_popout = ExtResource("3_pai3k")
+profile_tag = "@profiletag123"
+profile_quote = "inspirational quote goes here."
+profile_join_date = "Month 8, 20XX"
+profile_friends = 359
+default_chats = Dictionary[int, JSON]({})
+queue_chats = Dictionary[int, ExtResource("4_vr1ii")]({})
+name = "Red Hat"

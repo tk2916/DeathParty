@@ -34,7 +34,7 @@ func _ready() -> void:
 		object_viewer = main.get_node("ObjectViewerCanvasLayer/ObjectViewer")
 		object_viewer.enabled.connect(switch_camera)
 	
-func switch_camera(enabled, new_cam = null):
+func switch_camera(enabled : bool, new_cam : Camera3D = null) -> void:
 	if !enabled:
 		camera3d = main_camera3d
 	else:
@@ -143,7 +143,7 @@ func clear_active_subviewport() -> void:
 	cur_sub_viewport = null
 	
 ##FOR RAYCASTING INTO GUIs
-func pass_input_to_collided_ui():
+func pass_input_to_collided_ui() -> void:
 	if grabbed_control:
 		if og_grabbed_control == grabbed_control: return
 		if og_grabbed_control:
@@ -153,7 +153,7 @@ func pass_input_to_collided_ui():
 		if og_grabbed_control:
 			og_grabbed_control.exit_hover()
 
-func raycast_to_page(viewport : Viewport, map_mesh : MeshInstance3D, start : Vector3, end : Vector3, exclusions : Array[RID]):
+func raycast_to_page(viewport : Viewport, map_mesh : MeshInstance3D, start : Vector3, end : Vector3, exclusions : Array[RID]) -> Control:
 	var space : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var camera3d : Camera3D = Interact.camera3d
 	if start == Vector3(-1,-1,-1):
@@ -169,6 +169,7 @@ func raycast_to_page(viewport : Viewport, map_mesh : MeshInstance3D, start : Vec
 	if result:
 		var global_position_hit : Vector3 = result.position	
 		return convert_position(global_position_hit, viewport, map_mesh)
+	return null
 		
 
 func convert_position(global_position_hit : Vector3, viewport : Viewport, map_mesh : MeshInstance3D) -> Control:
@@ -184,8 +185,8 @@ func convert_position(global_position_hit : Vector3, viewport : Viewport, map_me
 	var hit_indices : Array[Vector3] = find_collided_triangle(local_position_hit, surface)
 	if hit_indices.size() == 0: #no triangle found
 		return null
-	var indices = hit_indices[0]
-	var bari_coords = hit_indices[1]
+	var indices := hit_indices[0]
+	var bari_coords := hit_indices[1]
 	
 	var UV_coordinates : Array[Vector2] = [
 		UVs[indices.x],
@@ -197,14 +198,14 @@ func convert_position(global_position_hit : Vector3, viewport : Viewport, map_me
 	find the exact UV coordinates (not just the triangle corners)
 	'''
 	var interpolated_uv_coords : Vector2 = UV_coordinates[0]*bari_coords.x + UV_coordinates[1]*bari_coords.y + UV_coordinates[2]*bari_coords.z
-	var viewport_coords = uv_to_viewport_coords(interpolated_uv_coords, viewport)
+	var viewport_coords := uv_to_viewport_coords(interpolated_uv_coords, viewport)
 	#create_debug_dot(viewport_coords)
 	return find_raycasted_ui(viewport_coords, viewport)
 
 ##FIND RAYCASTED UI
 var deepest_node : ThreeDGUI
 var deepest_node_depth : int = 0
-func find_raycasted_ui_recursive(coords : Vector2, node : Control, cur_depth : int):
+func find_raycasted_ui_recursive(coords : Vector2, node : Control, cur_depth : int) -> void:
 	for child : Control in node.get_children():
 		if child.visible:
 			var hover_area : Rect2 = Rect2(child.global_position, child.size)

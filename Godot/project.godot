@@ -76,6 +76,10 @@ window/size/viewport_height=720
 window/size/initial_position_type=0
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="Death Party"
+
 [editor]
 
 export/convert_text_resources_to_binary=false
@@ -96,6 +100,7 @@ material_carpet=""
 phone=""
 journal=""
 title_screen=""
+never-offload=""
 
 [gui]
 

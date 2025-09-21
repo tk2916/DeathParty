@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://dpvccxhf24ilk"]
+
+[ext_resource type="PackedScene" uid="uid://bnppp76cl5kso" path="res://Assets/props/inventory_items/polaroid_camera.tscn" id="2_8tgap"]
+[ext_resource type="Script" uid="uid://cwplai8fhufrp" path="res://Singletons/SaveSystem/ResourceScripts/inventory_properties_script.gd" id="3_pivnl"]
+
+[resource]
+script = ExtResource("3_pivnl")
+description = "A roll of film for a Polaroid camera, found in Olivia’s dorm room."
+model = ExtResource("2_8tgap")
+inventory_scale = 3.0
+inventory_position = Vector2(0.5, 0.6)
+amount_owned = 0
+name = "Film Roll"

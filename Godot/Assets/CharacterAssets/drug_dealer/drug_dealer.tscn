@@ -12,6 +12,9 @@ radius = 0.6
 script = ExtResource("2_bc2ut")
 character_resource = ExtResource("3_i4lac")
 
+[node name="model" parent="." index="0"]
+transform = Transform3D(0.009, 0, 0, 0, -3.93402e-10, -0.009, 0, 0.009, -3.93402e-10, 0, 0, 0)
+
 [node name="Skeleton3D" parent="model" index="0"]
 bones/0/position = Vector3(0.719602, 0.258701, -96.5477)
 bones/0/rotation = Quaternion(-0.728025, -0.0378616, 0.0140152, 0.68436)
@@ -66,4 +69,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.1)
 shape = SubResource("CapsuleShape3D_bc2ut")
 
 [node name="Popup" parent="." index="3" instance=ExtResource("4_hyqk8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 2.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.1, 0)

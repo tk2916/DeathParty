@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0xusmrkexal4"]
+[gd_scene load_steps=5 format=3 uid="uid://b0xusmrkexal4"]
 
 [ext_resource type="PackedScene" uid="uid://dpl1hduk03xsv" path="res://Assets/CharacterAssets/frat_boys/pink_hair_frat_boy/pink_hair_frat_boy.glb" id="1_giv4m"]
 [ext_resource type="Script" uid="uid://d10fwvktnsx7m" path="res://Entities/EntityScripts/npc.gd" id="2_dck10"]
+[ext_resource type="Resource" uid="uid://lfvpkackkrhm" path="res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_fratboy1.tres" id="3_dck10"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_giv4m"]
 radius = 0.65
 
 [node name="PinkHairFratBoy" instance=ExtResource("1_giv4m")]
-transform = Transform3D(1.21615, 0, 0, 0, 1.21615, 0, 0, 0, 1.21615, 0, 0, 0)
 script = ExtResource("2_dck10")
+character_resource = ExtResource("3_dck10")
+
+[node name="model_002" parent="." index="0"]
+transform = Transform3D(0.012, 0, 0, 0, -5.24537e-10, -0.012, 0, 0.012, -5.24537e-10, 0, 0, 0)
 
 [node name="Skeleton3D" parent="model_002" index="0"]
 bones/0/position = Vector3(-1.59999, 1.03637, -96.2389)
@@ -92,3 +96,6 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.822267, 0)
 shape = SubResource("CapsuleShape3D_giv4m")
+
+[node name="Node3D" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0)

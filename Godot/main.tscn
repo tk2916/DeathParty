@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
 [ext_resource type="PackedScene" uid="uid://byfsccg4kb4bw" path="res://polaroid_pop_up.tscn" id="57_vke2r"]
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
-[ext_resource type="PackedScene" uid="uid://cjo88oqrqtxdm" path="res://rooms/Kitchen/Kitchen.tscn" id="67_rqtf5"]
+[ext_resource type="PackedScene" uid="uid://c4aonpguu6u11" path="res://Assets/CharacterAssets/bartender/Kitchen.tscn" id="67_rqtf5"]
 
 [sub_resource type="Resource" id="Resource_a6jrf"]
 metadata/__load_path__ = "res://Assets/InkExamples/example.ink7.json"
@@ -142,22 +142,22 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -24.16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.423, 4.7584, -20.5061)
 
 [node name="Bathroom" parent="." groups=["loadable_scene"] instance=ExtResource("39_come4")]
-transform = Transform3D(0.91717, 0, 0, 0, 0.91717, 0, 0, 0, 0.91717, -41.668, 2.34912, -17.0223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.668, 2.34912, -17.0223)
 
 [node name="Basement" parent="." groups=["loadable_scene"] instance=ExtResource("38_b1qrp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 7.73886)
 
 [node name="Bedroom" parent="." instance=ExtResource("39_h8e4i")]
-transform = Transform3D(1.15875, 0, 0, 0, 1.15875, 0, 0, 0, 1.15875, -39.7969, 0.0111146, 22.715)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -39.796, 0.0111146, 22.715)
 
 [node name="Storageroom" parent="." instance=ExtResource("28_xuqvo")]
-transform = Transform3D(0.877632, 0, 0, 0, 0.877632, 0, 0, 0, 0.877632, -2.47579, -1.32205, -6.60381)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47579, -1.32205, -6.60381)
 
 [node name="Exterior" parent="." groups=["loadable_scene"] instance=ExtResource("27_qsp4k")]
-transform = Transform3D(0.791022, 0, 0, 0, 0.791022, 0, 0, 0, 0.791022, -17.1306, 5.92461, 55.0464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1306, 5.92461, 55.0464)
 
 [node name="Kitchen" parent="." groups=["loadable_scene"] instance=ExtResource("67_rqtf5")]
-transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -44.1707, 2.86177, 3.00441)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.1707, 2.86177, 3.00441)
 
 [node name="Control room" parent="." groups=["loadable_scene"] instance=ExtResource("28_kq58d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9052, -0.391259, 0.0333636)
@@ -166,7 +166,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9052, -0.391259, 0.0333636
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56845, 1.95251, -18.0343)
 
 [node name="Hourhand hallway" parent="." groups=["loadable_scene"] instance=ExtResource("27_xuqvo")]
-transform = Transform3D(-0.00120957, 0, 1.41429, 0, 1.41429, 0, -1.41429, 0, -0.00120957, 10.2549, 0, 15.4498)
+transform = Transform3D(-0.00119735, 0, 1.4, 0, 1.4, 0, -1.4, 0, -0.00119735, 10.2549, 0, 15.4498)
 
 [node name="PartyRoomMusic" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/900_MX/Party Room music"

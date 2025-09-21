@@ -9,9 +9,11 @@
 radius = 0.6
 
 [node name="Sam" instance=ExtResource("1_bln48")]
-transform = Transform3D(1.14057, 0, 0, 0, 1.14057, 0, 0, 0, 1.14057, 0, 0, 0)
 script = ExtResource("2_ecovt")
 character_resource = ExtResource("3_o6o5y")
+
+[node name="iDLE" parent="." index="0"]
+transform = Transform3D(0.0114468, 0, 0, 0, 0.0114468, 0, 0, 0, 0.0114468, 0, 0, 0)
 
 [node name="Skeleton3D" parent="iDLE" index="0"]
 bones/0/position = Vector3(-5.55051, 90.0418, 3.74464)
@@ -136,4 +138,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.876755, 0)
 shape = SubResource("CapsuleShape3D_ecovt")
 
 [node name="Popup" parent="." index="3" instance=ExtResource("4_lrp0k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.2, 0)

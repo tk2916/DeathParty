@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://dasq5wgeyo38c"]
+[gd_scene load_steps=7 format=4 uid="uid://dasq5wgeyo38c"]
 
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_rs3ue"]
-[ext_resource type="JSON" path="res://Assets/InkFiles/OliviaDormCamera.ink.json" id="2_dpbuu"]
+[ext_resource type="PackedScene" uid="uid://cqxjk5afxrhem" path="res://Common/Popup UI/object_interact_popup.tscn" id="3_hq3ii"]
 [ext_resource type="Texture2D" uid="uid://bi24mixil7fmt" path="res://rooms/bedroom/Polaroid Camera_Olivia 3D Camera Texture.png" id="3_rs3ue"]
-[ext_resource type="PackedScene" uid="uid://djb82mqxel5gy" path="res://Common/Popup UI/Popup.tscn" id="4_rs3ue"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1l8r"]
 resource_name = "Material.003"
@@ -44,18 +43,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hvrrh")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dpbuu"]
-viewport_path = NodePath("SubViewport")
-
 [node name="PolaroidCamera" type="Node3D"]
 script = ExtResource("1_rs3ue")
-dialogue_on_interact = ExtResource("2_dpbuu")
 
 [node name="Camera_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.0195703, 0.0691475, -0.0504884)
 mesh = SubResource("ArrayMesh_by7hd")
 skeleton = NodePath("")
 
-[node name="Popup" parent="." instance=ExtResource("4_rs3ue")]
-transform = Transform3D(0.139599, 0, 0, 0, 0.0462213, 0, 0, 0, 1, 0, 0.292259, 0)
-texture = SubResource("ViewportTexture_dpbuu")
+[node name="Popup" parent="." instance=ExtResource("3_hq3ii")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.0296841, 0.332062, -0.767863)

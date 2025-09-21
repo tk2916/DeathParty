@@ -5,8 +5,6 @@ var outline: Node3D
 
 @export var character_resource: CharacterResource
 @export var dialogue_box: DialogueBoxResource = preload("res://Assets/Resources/DialogueBoxResources/main_dialogue_box_properties.tres")
-@export var starter_json: JSON = null
-@export var default_json: JSON = preload("res://Assets/InkExamples/sample_dialogue_template.json")
 
 
 func _ready() -> void:
@@ -33,17 +31,12 @@ func on_in_range(in_range: bool) -> void:
 		if character_resource.has_chats():
 			show_outline = true
 	if show_outline:
-		super (in_range)
+		super(in_range)
 
 func on_interact() -> void:
-	super ()
+	super()
 	if character_resource:
 		character_resource.start_chat()
-	elif starter_json:
-		DialogueSystem.begin_dialogue(starter_json)
-		starter_json = null
-	elif default_json:
-		DialogueSystem.begin_dialogue(default_json)
 		
 func play_animation(anim_name: String) -> void:
 	animation_player.play(anim_name)

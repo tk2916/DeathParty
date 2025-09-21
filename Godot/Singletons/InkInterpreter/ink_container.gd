@@ -9,17 +9,17 @@ var name : String
 var dialogue_lines : Array[InkNode] ## could be InkLineInfo or InkContainer
 var dialogue_choices : Array[InkChoiceInfo] ## InkChoice info
 var redirects : Dictionary[String, InkContainer]
+var visits : int = 0
 
 func _init(
     _parent_container: InkContainer,
     _name : String,
     _path : String, 
     _evaluation_stack: Array[String] = [], 
-    _condition : bool = true,
     is_redirect : bool = false,
 ) -> void:
     #print("Initial container names: ", _name)
-    super(_parent_container, _path, _evaluation_stack, _condition)
+    super(_parent_container, _path, _evaluation_stack)
     name = _name
     if parent_container:
         if is_redirect:
