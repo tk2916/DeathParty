@@ -36,6 +36,5 @@ no_depth_test = true
 render_priority = 2
 outline_render_priority = 1
 modulate = Color(0, 0, 0, 1)
-text = "Take"
 font = ExtResource("3_vkr8j")
 font_size = 82

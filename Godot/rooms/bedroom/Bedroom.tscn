@@ -2255,7 +2255,7 @@ size = Vector3(4.46228, 3.40737, 9.21515)
 material = SubResource("FogMaterial_lxtj2")
 
 [node name="Polaroid Camera" parent="." instance=ExtResource("66_dyybh")]
-transform = Transform3D(0.608386, 0, 0.648273, 0, 0.889039, 0, -0.648273, 0, 0.608386, 1.22371, 0.489549, 0.743623)
+transform = Transform3D(0.609383, 0, 0.649336, 0, 0.890497, 0, -0.649336, 0, 0.609383, 1.22371, 0.489549, 0.743623)
 outline_thickness = 0.3
 talking_object_resource = ExtResource("10_shd6j")
 
