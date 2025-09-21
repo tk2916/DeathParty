@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://iuue476upc48"]
+[gd_scene load_steps=7 format=3 uid="uid://iuue476upc48"]
 
 [ext_resource type="PackedScene" uid="uid://bvjqxnm7cpxq0" path="res://Assets/environment/cupboard/cupboard.tscn" id="1_b2yg3"]
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_mtxdq"]
 [ext_resource type="Resource" uid="uid://bl7xlmmftkyu7" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/kitchen_appliances_properties.tres" id="2_58j7v"]
 [ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="3_58j7v"]
+[ext_resource type="PackedScene" uid="uid://cqxjk5afxrhem" path="res://Common/Popup UI/object_interact_popup.tscn" id="5_ia46r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ia46r"]
 resource_local_to_scene = true
@@ -34,5 +35,8 @@ transform = Transform3D(-0.000341702, 0, -0.0803838, 0, 0.183089, 0, 0.196236, 0
 
 [node name="Cupboard5" parent="." instance=ExtResource("1_b2yg3")]
 transform = Transform3D(-0.000280965, 0, -0.0803767, 0, 0.183089, 0, 0.161355, 0, -0.000139959, 2.72913, 1.56813, 2.14629)
+
+[node name="Popup" parent="." instance=ExtResource("5_ia46r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.950652, 0.502457, 0)
 
 [editable path="InteractionDetector"]

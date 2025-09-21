@@ -64,6 +64,6 @@ transform = Transform3D(1, -3.44912e-18, -2.26902e-15, 6.84403e-19, 1, -4.98258e
 shape = SubResource("BoxShape3D_1acxu")
 
 [node name="Popup" parent="." instance=ExtResource("5_1acxu")]
-transform = Transform3D(5, -1.0842e-19, -1.38778e-16, 5.42101e-20, 5, -4.65661e-09, 1.38778e-16, 4.65661e-09, 5, 4.38368e-18, 7.73864, -0.0134773)
+transform = Transform3D(5, -1.6263e-19, -1.94289e-16, 1.0842e-19, 5, -4.65661e-09, 1.94289e-16, 4.65661e-09, 5, -2.21581, 7.73864, -0.0134773)
 
 [editable path="InteractionDetector"]
