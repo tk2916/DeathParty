@@ -1506,6 +1506,7 @@ transform = Transform3D(0.315013, 0.62868, -0.711005, 0.25441, 0.665795, 0.70142
 light_color = Color(0.528, 0, 0.99, 1)
 light_energy = 50.0
 light_volumetric_fog_energy = 10.0
+light_bake_mode = 1
 shadow_enabled = true
 shadow_opacity = 0.81
 spot_range = 6.556
@@ -1516,6 +1517,7 @@ transform = Transform3D(0.250085, 0.464448, -0.849556, 0.317712, 0.789489, 0.525
 light_color = Color(0, 0.616667, 1, 1)
 light_energy = 60.0
 light_volumetric_fog_energy = 40.0
+light_bake_mode = 1
 shadow_opacity = 0.81
 spot_range = 9.272
 spot_angle = 21.44
@@ -1525,6 +1527,7 @@ transform = Transform3D(0.24813, 0.469599, -0.847295, 0.308814, 0.790671, 0.5286
 light_color = Color(0, 0.783333, 1, 1)
 light_energy = 100.0
 light_volumetric_fog_energy = 40.0
+light_bake_mode = 1
 shadow_opacity = 0.81
 spot_range = 14.719
 spot_angle = 18.94
@@ -2207,6 +2210,9 @@ bones/53/rotation = Quaternion(-0.762785, 0.0435539, -0.003543, 0.645174)
 bones/54/rotation = Quaternion(0.540393, 0.0714632, -0.155241, 0.823874)
 bones/55/rotation = Quaternion(0.314262, 0.0937228, -0.0142154, 0.944592)
 
+[node name="Popup" parent="dino" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.816982, 2, -0.809346)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13964, 1.5615, -3.95494)
 light_color = Color(1, 0.569833, 0.11, 1)
@@ -2355,6 +2361,9 @@ autoplay = "sitttttt"
 
 [node name="shark" parent="." instance=ExtResource("85_vdfwq")]
 transform = Transform3D(0.559758, 0, 0.828656, 0, 1, 0, -0.828656, 0, 0.559758, 3.79462, -0.046867, 1.62606)
+
+[node name="Popup" parent="shark" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.643722, 2, -0.952955)
 
 [node name="FratBoyRedHat" parent="." instance=ExtResource("88_2nnqp")]
 transform = Transform3D(-0.991206, 0, 0.132326, 0, 1, 0, -0.132326, 0, -0.991206, 2.32993, -0.0593581, -3.31908)

@@ -62,7 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://b6nkql64iwq61" path="res://rooms/Ghost hallway/fire/fire-10.png" id="58_urdp6"]
 [ext_resource type="Texture2D" uid="uid://dcyx6nxctxmpd" path="res://rooms/Ghost hallway/fire/fire-11.png" id="59_65wwx"]
 [ext_resource type="Texture2D" uid="uid://bp4plqqk6pcdx" path="res://rooms/Ghost hallway/fire/fire-12.png" id="60_5rqn6"]
-[ext_resource type="PackedScene" path="res://rooms/Ghost hallway/blue_sky.tscn" id="61_u8eoh"]
+[ext_resource type="PackedScene" uid="uid://i7gdcbnkh0w4" path="res://rooms/Ghost hallway/blue_sky.tscn" id="61_u8eoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxaoo"]
 size = Vector3(13.7318, 4.49936, 7.14718)
@@ -2047,6 +2047,9 @@ transform = Transform3D(0.236781, 0.195889, -0.386931, -0.0389547, 0.448668, 0.2
 
 [node name="AnimationPlayer" parent="RedBunny" index="1"]
 autoplay = "idle"
+
+[node name="Popup" parent="RedBunny" index="3"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1.12551, 2, -0.236055)
 
 [node name="JackOLantern" parent="." instance=ExtResource("23_6dg7f")]
 transform = Transform3D(2.32887, 0, 0, 0, 2.32887, 0, 0, 0, 2.32887, 0.559151, -0.979672, -0.38602)

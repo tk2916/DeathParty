@@ -2219,12 +2219,14 @@ rotation_mode = 0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SceneLights"]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0, 0, 0)
 light_color = Color(0.6485, 0.43, 1, 1)
+light_bake_mode = 1
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SceneLights"]
 transform = Transform3D(-0.350812, 0.531941, 0.619968, 0.049527, -0.659627, 0.593995, 0.815395, 0.268926, 0.230653, 3.51498, 2.62447, 1.63089)
 light_color = Color(1, 0.55, 0, 1)
 light_energy = 90.0
 light_volumetric_fog_energy = 100.0
+light_bake_mode = 1
 shadow_enabled = true
 spot_range = 10.0
 spot_angle = 22.5
@@ -2234,6 +2236,7 @@ transform = Transform3D(0.430718, 0.0221578, 0.77742, -0.0112712, 0.888763, -0.0
 light_color = Color(1, 0.933333, 0, 1)
 light_energy = 8.111
 light_volumetric_fog_energy = 5.0
+light_bake_mode = 1
 shadow_enabled = true
 omni_range = 1.307
 omni_attenuation = 0.0
@@ -2241,12 +2244,14 @@ omni_attenuation = 0.0
 [node name="OmniLight3D2" type="OmniLight3D" parent="SceneLights"]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, -1.49448, 0.916492, 3.14307)
 light_color = Color(1, 0.685, 0.3, 1)
+light_bake_mode = 1
 omni_range = 1.052
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="SceneLights"]
 transform = Transform3D(0.889039, 0, 0, 0, 0.889039, 0, 0, 0, 0.889039, 0.252613, 1.60145, 5.56835)
 light_color = Color(0.138788, 6.65648e-05, 0.471449, 1)
 light_energy = 3.444
+light_bake_mode = 1
 omni_range = 5.612
 
 [node name="FogVolume" type="FogVolume" parent="."]
