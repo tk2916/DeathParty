@@ -2123,7 +2123,6 @@ room_area = NodePath("RoomArea")
 path_follow_node = NodePath("Path3D/PathFollow3D")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
-visible = false
 
 [node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader") instance=ExtResource("3_84fnt")]
 rowan_invite_dialogue = ExtResource("4_otruv")

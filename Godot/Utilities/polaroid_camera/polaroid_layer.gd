@@ -14,13 +14,13 @@ func _physics_process(delta) -> void:
 	# picture movement corresponds with player input	
 	#error: awsd moves player at the same time			
 	if Input.is_action_pressed("move_right"):
-		Picture.position.x += 3
-	if Input.is_action_pressed("move_left"):
 		Picture.position.x -= 3
+	if Input.is_action_pressed("move_left"):
+		Picture.position.x += 3
 	if Input.is_action_pressed("move_down"):
-		Picture.position.y += 3
-	if Input.is_action_pressed("move_up"):
 		Picture.position.y -= 3
+	if Input.is_action_pressed("move_up"):
+		Picture.position.y += 3
 	
 	#keeps image within the bounds a
 	print (Picture.position)

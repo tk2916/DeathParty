@@ -76,6 +76,7 @@ radius = 30.4386
 radius = 17.0294
 
 [node name="PolaroidCamera" type="CanvasLayer"]
+visible = false
 follow_viewport_enabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -150,7 +151,7 @@ layout_mode = 0
 offset_left = 2825.0
 offset_top = 4975.0
 offset_right = 5130.0
-offset_bottom = 6900.0
+offset_bottom = 7245.0
 color = Color(0, 0, 1, 1)
 
 [node name="ViewFinder_aim" type="TextureRect" parent="body/ViewFinder"]
