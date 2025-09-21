@@ -10,7 +10,7 @@ script = ExtResource("2_8jnbp")
 character_resource = ExtResource("3_kfods")
 
 [node name="Popup" parent="." index="0" instance=ExtResource("4_1xf02")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76913, 2.22461, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.1, 0)
 
 [node name="Skeleton3D" parent="Model" index="0"]
 bones/0/position = Vector3(0.0174506, 1.01803, -0.00183699)

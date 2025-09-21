@@ -69,4 +69,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.1)
 shape = SubResource("CapsuleShape3D_bc2ut")
 
 [node name="Popup" parent="." index="3" instance=ExtResource("4_hyqk8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 2.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.1, 0)
