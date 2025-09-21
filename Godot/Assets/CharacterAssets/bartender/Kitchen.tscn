@@ -1993,6 +1993,9 @@ autoplay = "sit laugh"
 [node name="Bartender" parent="NPCs" instance=ExtResource("55_to343")]
 transform = Transform3D(0.636334, 0, 0.771414, 0, 1, 0, -0.771414, 0, 0.636334, -5.44009, -3.10016, -1.18298)
 
+[node name="Popup" parent="NPCs/Bartender" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.731784, 2, -0.887125)
+
 [node name="Skeleton3D" parent="NPCs/Bartender/Model" index="0"]
 bones/0/position = Vector3(0.0258422, 1.01767, 0.016065)
 bones/0/rotation = Quaternion(0.0145666, 0.0400699, -0.00431307, 0.999081)
