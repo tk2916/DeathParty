@@ -155,7 +155,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.668, 2.34912, -17.0223)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61912, -3.28439, 7.73886)
 
 [node name="Bedroom" parent="." instance=ExtResource("39_h8e4i")]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -39.7969, 0.0111146, 22.715)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -39.796, 0.0111146, 22.715)
 
 [node name="Storageroom" parent="." instance=ExtResource("28_xuqvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47579, -1.32205, -6.60381)
