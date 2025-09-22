@@ -11,10 +11,10 @@
 
 extends CanvasLayer
 
-@export var rowan_invite_dialogue : JSON
-@export var example_json : JSON
-@export var on_phone_close_dialogue : JSON
-@export var on_journal_dialogue : JSON
+@export var rowan_invite_dialogue: JSON
+@export var example_json: JSON
+@export var on_phone_close_dialogue: JSON
+@export var on_journal_dialogue: JSON
 
 @export var exterior_scene_loader: SceneLoader
 
@@ -74,13 +74,11 @@ func _ready() -> void:
 	#		before referencing the player because the inital loading involves
 	#		unloading this scene which will break the reference and cause errors
 	#		(i think)
-
 	#		the additional $LoadingTimer is here because of a quirk with the
 	#		timing of that finished_loading signal, which i think is emitted before
 	#		the whole tree is ready (or something lol) - very bad to just have
 	#		a timer in here probably because that will cause crashes on slow pcs
 	#		so:
-
 	# TODO: adjust the timing of this finished_loading signal in content_loader.gd
 	#		or make a new, safer signal to use instead
 	#		so we can remove this hardcoded timer :p
@@ -110,6 +108,12 @@ func _physics_process(_delta: float) -> void:
 			if GuiSystem.in_journal == true:
 				increment_state()
 		States.USING_JOURNAL:
+			# theres some dialogue when we first open the journal which puts the dialogue system
+			# into its waiting state which blocks the input for toggling the journal (i think)
+			# so here we're manually checking for that to allow the player to close the journal
+			# with the hotkey the first time its opened - i think this is fine but if we plan
+			# to have a few places where theres dialogue in the journal then maybe there
+			# should be a global way to handle that 🫡
 			if Input.is_action_just_pressed("toggle_journal") and DialogueSystem.waiting:
 				GuiSystem.hide_journal()
 			if GuiSystem.in_journal == false:
@@ -122,6 +126,7 @@ func _on_bedroom_intro_finished() -> void:
 
 func _on_walk_complete_timer_timeout() -> void:
 	increment_state()
+
 
 func increment_state() -> void:
 	state = (state + 1) as States
