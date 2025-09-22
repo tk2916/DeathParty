@@ -412,6 +412,8 @@ func set_shadows(level: int) -> void:
 
 
 func apply_ssao(level: int) -> void:
+	# disabled for now
+	return
 	var world_environment_node: Node = get_tree().current_scene.find_child("WorldEnvironment")
 	
 	if world_environment_node is CustomWorldEnvironment:
