@@ -76,7 +76,6 @@ func _physics_process(_delta: float) -> void:
 		States.INTRO:
 			if Globals.player:
 				Globals.player.movement_disabled = true
-				print(Globals.player.movement_disabled)
 		States.WALK:
 			if Globals.player.player_velocity != Vector3.ZERO:
 				increment_state()
