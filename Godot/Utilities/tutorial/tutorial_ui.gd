@@ -66,22 +66,7 @@ var state: States:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# NOTE: we wait for the content loader to give the finished_loading signal
-	#		before referencing the player because the inital loading involves
-	#		unloading this scene which will break the reference and cause errors
-	#		(i think)
-	#		the additional $LoadingTimer is here because of a quirk with the
-	#		timing of that finished_loading signal, which i think is emitted before
-	#		the whole tree is ready (or something lol) - very bad to just have
-	#		a timer in here probably because that will cause crashes on slow pcs
-	#		so:
-	# TODO: adjust the timing of this finished_loading signal in content_loader.gd
-	#		or make a new, safer signal to use instead
-	#		so we can remove this hardcoded timer :p
 	GuiSystem.set_gui_enabled(false)
-	await ContentLoader.finished_loading
-	loading_timer.start()
-	await loading_timer.timeout
 	state = States.INTRO
 
 
