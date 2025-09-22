@@ -110,6 +110,8 @@ func _physics_process(_delta: float) -> void:
 			if GuiSystem.in_journal == true:
 				increment_state()
 		States.USING_JOURNAL:
+			if Input.is_action_just_pressed("toggle_journal") and DialogueSystem.waiting:
+				GuiSystem.hide_journal()
 			if GuiSystem.in_journal == false:
 				increment_state()
 
