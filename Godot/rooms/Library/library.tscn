@@ -1074,26 +1074,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wa8ra")
 
-[sub_resource type="GDScript" id="GDScript_508o3"]
-script/source = "extends FmodEventEmitter3D
-
-
-@onready var timer: Timer = $Timer
-
-# min and max intervals between creaks
-var min_time := 45.0
-var max_time := 180.0
-
-
-func _ready() -> void:
-	timer.wait_time = randf_range(min_time, max_time)
-
-
-func _on_timer_timeout() -> void:
-	play()
-	timer.wait_time = randf_range(min_time, max_time)
-"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tx6a"]
 resource_name = "Untitled_Artwork"
 transparency = 4
@@ -1172,6 +1152,26 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ku71a")
+
+[sub_resource type="GDScript" id="GDScript_508o3"]
+script/source = "extends FmodEventEmitter3D
+
+
+@onready var timer: Timer = $Timer
+
+# min and max intervals between creaks
+var min_time := 45.0
+var max_time := 180.0
+
+
+func _ready() -> void:
+	timer.wait_time = randf_range(min_time, max_time)
+
+
+func _on_timer_timeout() -> void:
+	play()
+	timer.wait_time = randf_range(min_time, max_time)
+"
 
 [node name="Library" type="Area3D" node_paths=PackedStringArray("room_area")]
 collision_mask = 2
@@ -1846,6 +1846,27 @@ transform = Transform3D(-0.0983471, 0, 0.995152, 0, 1, 0, -0.995152, 0, -0.09834
 [node name="FoldedChairs" parent="Props" instance=ExtResource("52_rwfot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.15962, -3.71333, 7.38065)
 
+[node name="beerpong trophie" parent="Props" instance=ExtResource("53_iso52")]
+transform = Transform3D(0.313237, 0, 0.303293, 0, 0.43601, 0, -0.303293, 0, 0.313237, 0.969747, -2.87133, 0.861133)
+
+[node name="spiderwebs" type="Node3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89104, -2.13548, 1.2603)
+
+[node name="Untitled_Artwork_001" type="MeshInstance3D" parent="Props/spiderwebs"]
+transform = Transform3D(-3.31784, -0.0200741, 0.596423, -0.506318, -0.00440443, -3.90822, 0.0218053, -3.15671, 0.00166048, -3.46318, -0.248907, -1.73505)
+mesh = SubResource("ArrayMesh_3pk5y")
+skeleton = NodePath("")
+
+[node name="Untitled_Artwork_002" type="MeshInstance3D" parent="Props/spiderwebs"]
+transform = Transform3D(-0.280918, 1.42493, -4.68321, 3.37343, -1.18189, -1.39053, -1.71584, -2.55694, -1.96711, 7.87508, -1.29629, 4.65688)
+mesh = SubResource("ArrayMesh_3pk5y")
+skeleton = NodePath("")
+
+[node name="dsf_006" type="MeshInstance3D" parent="Props/spiderwebs"]
+transform = Transform3D(4.51608, 0.0815808, -0.0625512, -0.0872657, 0.140007, -3.35891, -0.0892539, 3.99095, 0.119113, 5.7503, 0.0206535, -2.45016)
+mesh = SubResource("ArrayMesh_0h5f4")
+skeleton = NodePath("")
+
 [node name="NPCs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00599, -4.38653, 1.434)
 
@@ -2311,55 +2332,10 @@ bones/64/position = Vector3(-5.53728e-06, 7.30068, 2.6732e-06)
 [node name="AnimationPlayer" parent="NPCs/Frat boy long hair" index="1"]
 autoplay = "sit laugh"
 
-[node name="WoodCreakSound" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/000_SFX/000_Demo_Test/009_SFX_WoodCreak"
-event_guid = "{f38bbadd-9a04-4803-8491-24000f134dfa}"
-volume = 0.25
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -2)
-script = SubResource("GDScript_508o3")
+[node name="LEO" parent="NPCs" instance=ExtResource("62_mxmye")]
+transform = Transform3D(0.389252, 0.911552, 0.132494, 4.69759e-09, -0.143838, 0.989601, 0.921131, -0.385205, -0.0559893, 5.12224, 0.78757, -1.54228)
 
-[node name="Timer" type="Timer" parent="WoodCreakSound"]
-wait_time = 20.0
-autostart = true
-
-[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/outdoor ambience"
-event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
-autoplay = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
-
-[node name="IndoorAmbience" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/000_SFX/100_Environment/IndoorAmbience"
-event_guid = "{a9afe7a1-32a6-4520-90b1-e43b257c86b0}"
-autoplay = true
-volume = 0.1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 10)
-
-[node name="beerpong trophie" parent="." instance=ExtResource("53_iso52")]
-transform = Transform3D(0.313237, 0, 0.303293, 0, 0.43601, 0, -0.303293, 0, 0.313237, 0.969747, -2.87133, 0.861133)
-
-[node name="spiderwebs" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89104, -2.13548, 1.2603)
-
-[node name="Untitled_Artwork_001" type="MeshInstance3D" parent="spiderwebs"]
-transform = Transform3D(-3.31784, -0.0200741, 0.596423, -0.506318, -0.00440443, -3.90822, 0.0218053, -3.15671, 0.00166048, -3.46318, -0.248907, -1.73505)
-mesh = SubResource("ArrayMesh_3pk5y")
-skeleton = NodePath("")
-
-[node name="Untitled_Artwork_002" type="MeshInstance3D" parent="spiderwebs"]
-transform = Transform3D(-0.280918, 1.42493, -4.68321, 3.37343, -1.18189, -1.39053, -1.71584, -2.55694, -1.96711, 7.87508, -1.29629, 4.65688)
-mesh = SubResource("ArrayMesh_3pk5y")
-skeleton = NodePath("")
-
-[node name="dsf_006" type="MeshInstance3D" parent="spiderwebs"]
-transform = Transform3D(4.51608, 0.0815808, -0.0625512, -0.0872657, 0.140007, -3.35891, -0.0892539, 3.99095, 0.119113, 5.7503, 0.0206535, -2.45016)
-mesh = SubResource("ArrayMesh_0h5f4")
-skeleton = NodePath("")
-
-[node name="LEO" parent="." instance=ExtResource("62_mxmye")]
-transform = Transform3D(0.389252, 0.911552, 0.132494, 4.69759e-09, -0.143838, 0.989601, 0.921131, -0.385205, -0.0559893, 0.116254, -3.59896, -0.108278)
-
-[node name="Skeleton3D" parent="LEO/LEO MODEL" index="3"]
+[node name="Skeleton3D" parent="NPCs/LEO/LEO MODEL" index="3"]
 bones/3/position = Vector3(-1.58278, -0.000684545, 1.58994)
 bones/3/rotation = Quaternion(-0.0239648, -0.371983, -0.0563256, 0.926219)
 bones/4/rotation = Quaternion(0.00177021, 0.557329, -0.00192287, 0.830288)
@@ -2435,8 +2411,32 @@ bones/59/rotation = Quaternion(0.00498751, 0.768414, -0.00308105, 0.639927)
 bones/60/rotation = Quaternion(0.420291, 0.0369152, 0.906052, 0.0326125)
 bones/61/rotation = Quaternion(2.27315e-07, 1, 5.05588e-08, -3.06754e-08)
 
-[node name="AnimationPlayer" parent="LEO" index="1"]
+[node name="AnimationPlayer" parent="NPCs/LEO" index="1"]
 autoplay = "IDLE"
+
+[node name="WoodCreakSound" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/009_SFX_WoodCreak"
+event_guid = "{f38bbadd-9a04-4803-8491-24000f134dfa}"
+volume = 0.25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -2)
+script = SubResource("GDScript_508o3")
+
+[node name="Timer" type="Timer" parent="WoodCreakSound"]
+wait_time = 20.0
+autostart = true
+
+[node name="OutdoorAmbience" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/outdoor ambience"
+event_guid = "{5124a576-f271-4033-bde3-5a862acd37d3}"
+autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
+
+[node name="IndoorAmbience" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/100_Environment/IndoorAmbience"
+event_guid = "{a9afe7a1-32a6-4520-90b1-e43b257c86b0}"
+autoplay = true
+volume = 0.1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 10)
 
 [connection signal="timeout" from="WoodCreakSound/Timer" to="WoodCreakSound" method="_on_timer_timeout"]
 
@@ -2456,4 +2456,4 @@ autoplay = "IDLE"
 [editable path="NPCs/free hug2"]
 [editable path="NPCs/Frat boy red hat"]
 [editable path="NPCs/Frat boy long hair"]
-[editable path="LEO"]
+[editable path="NPCs/LEO"]
