@@ -1,8 +1,9 @@
 # this script handles the pop-ups at the start of the game which tell the player
 # the controls etc.
 
-# it also handles locking movement during the title screen, then showing the door
-# and enabling the scene loader for exiting the room once the tutorial is over
+# it also handles locking movement during the title screen,
+# enabling the scene loader for exiting the room once the tutorial is over,
+# and some other triggers for tutorial stuff
 
 # NOTE: tutorial_ui is probably a bad name for it because of that other non-ui
 #		stuff it does sorry lol
