@@ -5,7 +5,6 @@ class_name SceneLoader extends Interactable
 enum Direction {LEFT, RIGHT, DOWN}
 
 ## enable to give this scene loader an interactable popup
-##
 ## (disable to make the scene loader instantly tp the player when they enter its area)
 @export var interactable := true:
 	set(value):
@@ -17,9 +16,12 @@ enum Direction {LEFT, RIGHT, DOWN}
 		else:
 			%Popup.texture = null
 
-#SceneLoader functionality
+# SceneLoader functionality
+## the scene this scene loader will load
 @export var target_scene: Globals.SCENES = Globals.SCENES.Entrance
+## the teleport point within the target scene that the player will be teleported to
 @export var local_spawn_point: Globals.SPAWN_OPTIONS = Globals.SPAWN_OPTIONS.ONE
+## enable to play a door sound effect when this scene loader is used
 @export var play_door_sound: bool = false
 
 #Popup
@@ -29,6 +31,7 @@ enum Direction {LEFT, RIGHT, DOWN}
 @export var down_arrow_asset: CompressedTexture2D
 
 @export_group("")
+## the direction the arrow on the popup will point to
 @export var arrow_direction: Direction:
 	set(dir):
 		arrow_direction = dir
@@ -63,7 +66,7 @@ func is_player_facing_collider(player_model: Node3D) -> bool:
 		
 
 func on_interact() -> void:
-	super()
+	super ()
 	if !enabled: return
 	print("Teleport point for ", target_scene, " is ", teleport_point.spawn_number, " vs ", local_spawn_point)
 	ContentLoader.scene_loader_teleport(target_scene, teleport_point)
@@ -75,7 +78,7 @@ func on_interact() -> void:
 func on_in_range(in_range: bool) -> void:
 	if !enabled: return
 	if interactable:
-		super(in_range)
+		super (in_range)
 	else:
 		print("Teleport point for ", target_scene, " is ", teleport_point.spawn_number, " vs ", local_spawn_point)
 		ContentLoader.scene_loader_teleport(target_scene, teleport_point)
