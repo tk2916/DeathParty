@@ -24,8 +24,6 @@ extends CanvasLayer
 @onready var phone_controls_popup: PanelContainer = %PhoneControlsPopup
 @onready var journal_controls_popup: PanelContainer = %JournalControlsPopup
 
-var player: Player
-
 enum States {
 	INTRO, WALK, WALK_COMPLETE, UNLOCK_PHONE, USING_PHONE,
 	OPEN_JOURNAL, USING_JOURNAL, TUTORIAL_FINISHED
@@ -34,14 +32,12 @@ enum States {
 var state: States:
 	set(new_state):
 		state = new_state
-		if player == null:
-			player = get_tree().get_first_node_in_group("player")
 		match new_state:
 			States.INTRO:
 				print("TUTORIAL STEP: INTRO")
 			States.WALK:
 				print("TUTORIAL STEP: WALK")
-				player.movement_disabled = false
+				Globals.player.movement_disabled = false
 				move_controls_popup.show()
 			States.WALK_COMPLETE:
 				print("TUTORIAL STEP: WALK COMPLETE")
@@ -87,16 +83,18 @@ func _ready() -> void:
 	await ContentLoader.finished_loading
 	loading_timer.start()
 	await loading_timer.timeout
-	player = get_tree().get_first_node_in_group("player")
-	player.movement_disabled = true
 	state = States.INTRO
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	match state:
+		States.INTRO:
+			if Globals.player:
+				Globals.player.movement_disabled = true
+				print(Globals.player.movement_disabled)
 		States.WALK:
-			if player.player_velocity != Vector3.ZERO:
+			if Globals.player.player_velocity != Vector3.ZERO:
 				increment_state()
 		States.UNLOCK_PHONE:
 			if GuiSystem.in_phone == true:

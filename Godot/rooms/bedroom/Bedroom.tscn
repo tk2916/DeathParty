@@ -2870,7 +2870,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.0636847, 0, 0.577681, 0, 0.58118, 0, -0.577681, 0, 0.0636847, 1.31697, 0.0757391, 5.95902)
 
 [node name="TeleportPoint" parent="." instance=ExtResource("88_otruv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0746622, 0.648893, 1.82383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075, 0, 1.824)
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
