@@ -74,6 +74,9 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	match state:
 		States.INTRO:
+			# we're setting this in the physics process here because the player
+			# could be null if we set it during _ready or in the setter for the
+			# INTRO state (lmk if theres a better way lol)
 			if Globals.player:
 				Globals.player.movement_disabled = true
 		States.WALK:
