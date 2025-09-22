@@ -52,4 +52,4 @@ mesh = SubResource("ArrayMesh_by7hd")
 skeleton = NodePath("")
 
 [node name="Popup" parent="." instance=ExtResource("3_hq3ii")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.963436, 0.504756, -0.52859)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.0296841, 0.332062, -0.767863)

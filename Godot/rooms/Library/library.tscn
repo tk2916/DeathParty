@@ -1247,6 +1247,7 @@ light_color = Color(0.4464, 0.87358, 0.93, 1)
 light_energy = 50.0
 light_volumetric_fog_energy = 30.0
 light_specular = 0.767
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.145
 shadow_normal_bias = 0.0
@@ -1263,6 +1264,7 @@ light_color = Color(0.48, 0.939333, 1, 1)
 light_energy = 70.0
 light_volumetric_fog_energy = 3.0
 light_specular = 0.767
+light_bake_mode = 1
 shadow_enabled = true
 shadow_normal_bias = 0.0
 shadow_opacity = 0.97
@@ -1276,6 +1278,7 @@ spot_angle_attenuation = 1.62451
 transform = Transform3D(0.791234, 0.0226855, 0.611092, -0.611513, 0.0293526, 0.79069, 1.83469e-10, -0.999312, 0.0370973, 4.20921, 1.60518, 1.24518)
 light_color = Color(0.4176, 0.81722, 0.87, 1)
 light_energy = 2.4
+light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_blur = 10.0
@@ -1286,6 +1289,7 @@ spot_angle = 14.29
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SceneLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3859, -0.711992, 11.5815)
 light_color = Color(0.18, 0.849667, 1, 1)
+light_bake_mode = 1
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36763, 1.7031, 2.47758)
@@ -1955,6 +1959,9 @@ bones/63/rotation = Quaternion(0.245826, 0.0383539, -0.0108754, 0.968494)
 
 [node name="AnimationPlayer" parent="NPCs/shark" index="1"]
 autoplay = "sit chill"
+
+[node name="Popup" parent="NPCs/shark" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95034, 2, 0.647573)
 
 [node name="Nora" parent="NPCs" instance=ExtResource("44_j03r7")]
 transform = Transform3D(0.789084, 0, -0.614285, 0, 1, 0, 0.614285, 0, 0.789084, 0.631361, -0.0234952, 0.565242)
