@@ -2123,11 +2123,12 @@ path_follow_node = NodePath("Path3D/PathFollow3D")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
-[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader") instance=ExtResource("3_84fnt")]
+[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader", "polaroid_camera") instance=ExtResource("3_84fnt")]
 rowan_invite_dialogue = ExtResource("4_vr1g1")
 on_phone_close_dialogue = ExtResource("5_shd6j")
 on_journal_dialogue = ExtResource("6_yxfps")
 exterior_scene_loader = NodePath("../SceneLoader_Exterior")
+polaroid_camera = NodePath("../PolaroidCamera")
 
 [node name="RoomArea" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109923, 1.47272, 3.11237)
@@ -2260,8 +2261,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107432, 1.48649, 3.05234)
 size = Vector3(4.46228, 3.40737, 9.21515)
 material = SubResource("FogMaterial_lxtj2")
 
-[node name="Polaroid Camera" parent="." instance=ExtResource("66_dyybh")]
+[node name="PolaroidCamera" parent="." instance=ExtResource("66_dyybh")]
 transform = Transform3D(0.609383, 0, 0.649336, 0, 0.890497, 0, -0.649336, 0, 0.609383, 1.22371, 0.489549, 0.743623)
+enabled = false
 outline_thickness = 0.3
 talking_object_resource = ExtResource("10_shd6j")
 

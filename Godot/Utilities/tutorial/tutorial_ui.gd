@@ -18,6 +18,7 @@ extends CanvasLayer
 @export var on_journal_dialogue: JSON
 
 @export var exterior_scene_loader: SceneLoader
+@export var polaroid_camera: Interactable
 
 @onready var loading_timer: Timer = %LoadingTimer
 @onready var move_controls_popup: PanelContainer = %MoveControlsPopup
@@ -27,7 +28,7 @@ extends CanvasLayer
 
 enum States {
 	INTRO, WALK, WALK_COMPLETE, UNLOCK_PHONE, USING_PHONE,
-	OPEN_JOURNAL, USING_JOURNAL, TUTORIAL_FINISHED
+	OPEN_JOURNAL, USING_JOURNAL, PICK_UP_CAMERA, TUTORIAL_FINISHED
 	}
 
 var state: States:
@@ -59,6 +60,11 @@ var state: States:
 			States.USING_JOURNAL:
 				print("TUTORIAL STEP: USING JOURNAL")
 				DialogueSystem.begin_dialogue(on_journal_dialogue)
+				journal_controls_popup.hide()
+			States.PICK_UP_CAMERA:
+				print("TUTORIAL STEP: PICK UP CAMERA")
+				polaroid_camera.enabled = true
+				polaroid_camera.interaction_detector.player_interacted.connect(on_camera_interacted)
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
 				exterior_scene_loader.enabled = true
@@ -115,3 +121,8 @@ func _on_walk_complete_timer_timeout() -> void:
 
 func increment_state() -> void:
 	state = (state + 1) as States
+
+
+func on_camera_interacted() -> void:
+	if state == States.PICK_UP_CAMERA:
+		increment_state()

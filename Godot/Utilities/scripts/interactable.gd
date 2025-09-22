@@ -5,7 +5,7 @@ class_name Interactable extends Node3D
 @export var use_first_mesh: bool = true
 @export var outline_thickness: float = .7
 
-@export var talking_object_resource : TalkingObjectResource
+@export var talking_object_resource: TalkingObjectResource
 
 #@export var outline_shader : ShaderMaterial = preload("res://Assets/Shaders/OutlineShader.tres")
 var outline_shader: ShaderMaterial = preload("res://Assets/Shaders/OutlineShader/TestOutlineShader.tres")
