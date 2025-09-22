@@ -1,6 +1,13 @@
 class_name Interactable extends Node3D
 
-@export var enabled: bool = true
+@export var enabled: bool = true:
+	set(value):
+		enabled = value
+		if enabled:
+			var overlapping_bodies: Array = interaction_detector.get_overlapping_bodies()
+			for body: PhysicsBody3D in overlapping_bodies:
+				if body == Globals.player:
+					on_in_range(true)
 @export var primary_mesh: MeshInstance3D
 @export var use_first_mesh: bool = true
 @export var outline_thickness: float = .7
