@@ -8,22 +8,22 @@ var up_button: Button
 var down_button: Button
 
 #While a choice is waiting, will register ui inputs and grab the focus of the appropriate button 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !DialogueSystem.are_choices: return
 	
-	if Input.is_action_just_pressed("ui_left"):
+	if Input.is_action_just_pressed("move_left"):
 		if left_button != null:
 			left_button.grab_focus()
 			
-	if Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("move_right"):
 		if right_button != null:
 			right_button.grab_focus()
 			
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("move_up"):
 		if up_button != null:
 			up_button.grab_focus()
 			
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("move_down"):
 		if down_button != null:
 			down_button.grab_focus()
 
