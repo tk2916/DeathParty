@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="EncodableAsset" id="{5873ac28-d580-4516-9e18-e40f9e9aedf5}">
 		<property name="assetPath">
-			<value>crowd/</value>
+			<value>000_SFX/100_Environment/crowd/</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{b578e7d4-82c2-4011-885a-6204f61f86c8}</destination>
