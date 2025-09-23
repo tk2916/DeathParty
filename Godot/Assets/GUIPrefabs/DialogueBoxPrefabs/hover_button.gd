@@ -22,6 +22,8 @@ func _on_mouse_entered() -> void:
 	rtl.text = "[color=black]"+option_text+"[/color]"
 
 func _on_mouse_exited() -> void:
+	if has_focus():
+		return
 	texture_rect.texture = default_texture
 	rtl.text = "[color=white]"+option_text+"[/color]"
 

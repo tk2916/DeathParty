@@ -23,6 +23,8 @@ func _on_button_mouse_entered() -> void:
 	tween_to_color(hover_color)
 
 func _on_button_mouse_exited() -> void:
+	if button.has_focus():
+		return
 	tween_to_color(normal_color)
 
 #region Keyboard/controller naviagtion visuals
