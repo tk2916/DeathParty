@@ -1,8 +1,9 @@
 @tool
-
 class_name SceneLoader extends Interactable
 
+
 enum Direction {LEFT, RIGHT, DOWN}
+enum DoorSoundType {WOOD, METAL}
 
 ## enable to give this scene loader an interactable popup
 ## (disable to make the scene loader instantly tp the player when they enter its area)
@@ -23,6 +24,8 @@ enum Direction {LEFT, RIGHT, DOWN}
 @export var local_spawn_point: Globals.SPAWN_OPTIONS = Globals.SPAWN_OPTIONS.ONE
 ## enable to play a door sound effect when this scene loader is used
 @export var play_door_sound: bool = false
+## the type of door sound that will play (if play door sound is true)
+@export var door_sound_type: DoorSoundType = DoorSoundType.WOOD
 
 #Popup
 @export_group("assets")
@@ -42,7 +45,6 @@ enum Direction {LEFT, RIGHT, DOWN}
 				%Popup.texture = right_arrow_asset
 			Direction.DOWN:
 				%Popup.texture = down_arrow_asset
-
 
 var teleport_point: TeleportPointData
 
@@ -70,10 +72,8 @@ func on_interact() -> void:
 	if !enabled: return
 	print("Teleport point for ", target_scene, " is ", teleport_point.spawn_number, " vs ", local_spawn_point)
 	ContentLoader.scene_loader_teleport(target_scene, teleport_point)
+	handle_audio()
 		
-	if play_door_sound:
-		Sounds.play_door()
-
 
 func on_in_range(in_range: bool) -> void:
 	if !enabled: return
@@ -82,6 +82,13 @@ func on_in_range(in_range: bool) -> void:
 	else:
 		print("Teleport point for ", target_scene, " is ", teleport_point.spawn_number, " vs ", local_spawn_point)
 		ContentLoader.scene_loader_teleport(target_scene, teleport_point)
+		handle_audio()
 
-		if play_door_sound:
-			Sounds.play_door()
+
+func handle_audio() -> void:
+	if play_door_sound:
+		match door_sound_type:
+			DoorSoundType.WOOD:
+				Sounds.play_door()
+			DoorSoundType.METAL:
+				Sounds.play_metal_door()
