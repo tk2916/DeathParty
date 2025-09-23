@@ -178,7 +178,7 @@ func _process(_delta: float) -> void:
 	else:
 		pressed = false
 
-##Bind dialogue choices to directional ui inputs to start menu navigations via ui controls
+## Bind dialogue choices to directional ui inputs to start menu navigations via ui controls
 func assign_menu_focus(count: int) -> void:
 	match  count:
 		1:
