@@ -13,7 +13,7 @@ enum DoorSoundType {WOOD, METAL}
 		notify_property_list_changed()
 
 		if interactable:
-			arrow_direction = arrow_direction
+			popup_arrow_direction = popup_arrow_direction
 		else:
 			%Popup.texture = null
 
@@ -23,7 +23,10 @@ enum DoorSoundType {WOOD, METAL}
 ## the teleport point within the target scene that the player will be teleported to
 @export var local_spawn_point: Globals.SPAWN_OPTIONS = Globals.SPAWN_OPTIONS.ONE
 ## enable to play a door sound effect when this scene loader is used
-@export var play_door_sound: bool = false
+@export var play_door_sound: bool = false:
+	set(value):
+		play_door_sound = value
+		notify_property_list_changed()
 ## the type of door sound that will play (if play door sound is true)
 @export var door_sound_type: DoorSoundType = DoorSoundType.WOOD
 
@@ -35,10 +38,10 @@ enum DoorSoundType {WOOD, METAL}
 
 @export_group("")
 ## the direction the arrow on the popup will point to
-@export var arrow_direction: Direction:
+@export var popup_arrow_direction: Direction:
 	set(dir):
-		arrow_direction = dir
-		match arrow_direction:
+		popup_arrow_direction = dir
+		match popup_arrow_direction:
 			Direction.LEFT:
 				%Popup.texture = left_arrow_asset
 			Direction.RIGHT:
@@ -56,8 +59,11 @@ func _ready() -> void:
 
 
 func _validate_property(property: Dictionary) -> void:
-	if property.name == "arrow_direction":
+	if property.name == "popup_arrow_direction":
 		if not interactable:
+			property.usage = PROPERTY_USAGE_NO_EDITOR
+	if property.name == "door_sound_type":
+		if not play_door_sound:
 			property.usage = PROPERTY_USAGE_NO_EDITOR
 
 
