@@ -52,6 +52,7 @@ InventoryUtils="*res://Singletons/Utils/inventory_utils.gd"
 Sounds="*res://Singletons/sounds/sounds.tscn"
 Globals="*res://globals.gd"
 InkParser="*res://Singletons/InkInterpreter/ink_parser.gd"
+MenuFocusGrabber="*res://Singletons/menu_focus_grabber.gd"
 
 [debug]
 
