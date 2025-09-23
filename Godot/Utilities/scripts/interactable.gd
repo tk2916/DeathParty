@@ -1,6 +1,16 @@
 class_name Interactable extends Node3D
 
-@export var enabled: bool = true
+@export var enabled: bool = true:
+	set(value):
+		enabled = value
+		# call on_in_range if the player is already standing in the interactable
+		# area when the interactable gets enabled (since otherwise it wouldnt
+		# get an on_entered signal since the player's already in there)
+		if enabled:
+			var overlapping_bodies: Array = interaction_detector.get_overlapping_bodies()
+			for body: PhysicsBody3D in overlapping_bodies:
+				if body == Globals.player:
+					on_in_range(true)
 @export var primary_mesh: MeshInstance3D
 @export var use_first_mesh: bool = true
 @export var outline_thickness: float = .7

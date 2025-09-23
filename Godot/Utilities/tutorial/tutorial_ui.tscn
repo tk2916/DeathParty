@@ -5,11 +5,6 @@
 [node name="TutorialUI" type="CanvasLayer"]
 script = ExtResource("1_lunjo")
 
-[node name="LoadingTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.75
-one_shot = true
-
 [node name="MoveControlsPopup" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 visible = false

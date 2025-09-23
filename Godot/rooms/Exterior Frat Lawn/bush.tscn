@@ -45,5 +45,6 @@ shadow_mesh = SubResource("ArrayMesh_ef01n")
 
 [node name="leavebush_423" type="MeshInstance3D"]
 transform = Transform3D(0.836003, -0.577925, -0.986339, 0.144058, 0.844948, -0.815127, 1.69353, 0.213416, 0.556241, 0, 0, 0)
+lod_bias = 0.001
 mesh = SubResource("ArrayMesh_lypi8")
 skeleton = NodePath("")

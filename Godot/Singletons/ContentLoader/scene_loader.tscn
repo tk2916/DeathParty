@@ -18,7 +18,7 @@ down_arrow_asset = ExtResource("4_31qgr")
 use_first_mesh = false
 
 [node name="DoorSound" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/door"
+event_name = "event:/000_SFX/100_Environment/door"
 event_guid = "{e1b840f0-f199-4b6a-a7c9-2dc2fe5e7d57}"
 attached = false
 volume = 0.3

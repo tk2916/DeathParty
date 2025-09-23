@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://c7g8oxpo5ddcp"]
+[gd_scene format=3 uid="uid://c7g8oxpo5ddcp"]
 
 [node name="MetalDoorSound" type="FmodEventEmitter3D"]
 event_name = "event:/000_SFX/100_Environment/metal door"

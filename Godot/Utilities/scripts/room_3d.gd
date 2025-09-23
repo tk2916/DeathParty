@@ -4,17 +4,19 @@ class_name Room3D
 
 @export var room_area: CollisionShape3D
 @export var path_follow_node: PathFollow3D
+## The environment resource this room will use.
+## If left empty, it will use the WorldEnvironment in the Main scene.
 @export var room_environment: Environment
 
 #DIALOGUE
-@export var first_visit_json : JSON
+@export var first_visit_json: JSON
 
 # offsets must be changd MANUALLY if the MainCamera's default position or fov change
 # offset's x value is the desired distance from the edges of the area
 var camera_LR_offset: Vector3 = Vector3(3.8, 0, 0)
 var camera_y_offset: float
-var left_point : Vector3
-var right_point : Vector3
+var left_point: Vector3
+var right_point: Vector3
 var left_bound: Plane
 var right_bound: Plane
 var lower_bound: float
@@ -48,15 +50,15 @@ func calculate_bounds() -> void:
 	await get_tree().physics_frame # Wait a frame before calculating center - required if scene is loaded at runtime
 	room_area_center = room_area.global_transform.origin
 	room_area_shape = room_area.shape
-	background_plane = Plane(room_area.basis.z, (room_area_center - (room_area.shape.size/2 * basis)))
-	default_depth = room_area_center + ((room_area_shape.size.z/2 + 9) * basis.z)
+	background_plane = Plane(room_area.basis.z, (room_area_center - (room_area.shape.size / 2 * basis)))
+	default_depth = room_area_center + ((room_area_shape.size.z / 2 + 9) * basis.z)
 	
 	## Left and Right bounds
 	# [.....|.....] <= $RoomArea.shape.size.x ( '|' is halfway point)
 	# [.....|       <= $RoomArea.shape.size.x/2
 	# [.x...|       <= $RoomArea.shape.size.x/2 - camera_LR_offset
 	#   x...|       <= Where the camera is limited to go
-	camera_LR_offset = abs((room_area_shape.size/2 - camera_LR_offset) * basis)
+	camera_LR_offset = abs((room_area_shape.size / 2 - camera_LR_offset) * basis)
 	left_point = (room_area_center) + (camera_LR_offset * -basis.x)
 	right_point = (room_area_center) + (camera_LR_offset * basis.x)
 	
@@ -72,9 +74,9 @@ func calculate_bounds() -> void:
 	
 	## Y bounds
 	# For now, just keep the camera in the center
-	camera_y_offset = room_area_shape.size.y/2
+	camera_y_offset = room_area_shape.size.y / 2
 	
-	camera_y_offset = room_area_shape.size.y/2 - camera_y_offset
+	camera_y_offset = room_area_shape.size.y / 2 - camera_y_offset
 	var y_center: float = room_area_center.y
 	lower_bound = y_center - camera_y_offset
 	upper_bound = y_center + camera_y_offset
@@ -87,7 +89,6 @@ func calculate_bounds() -> void:
 	inner_bound = Plane(basis.z, inner_point)
 	outer_bound = Plane(-basis.z, outer_point)
 	
-
 
 func move_player_to_foreground(body: Node3D) -> void:
 	var initial_position: Vector3 = body.global_position
@@ -109,12 +110,12 @@ func _calculate_progress_ratio(pos: Vector3) -> void:
 		return
 	# calculate center, left, and rightmost points of the room's area
 	var center: float = compress_vector3(position * basis.x)
-	var leftmost_value: float = center - (room_area.shape.size.x/2)
-	var rightmost_value: float = center + (room_area.shape.size.x/2)
+	var leftmost_value: float = center - (room_area.shape.size.x / 2)
+	var rightmost_value: float = center + (room_area.shape.size.x / 2)
 	
 	var player_LR_value: float = compress_vector3(pos * basis.x)
 	
-	var player_progress_ratio: float = (player_LR_value-leftmost_value) / (rightmost_value - leftmost_value)
+	var player_progress_ratio: float = (player_LR_value - leftmost_value) / (rightmost_value - leftmost_value)
 	
 	path_follow_node.progress_ratio = player_progress_ratio
 	
@@ -212,7 +213,6 @@ func set_environment(body: Node3D) -> void:
 			# wait for clear_environment() from the previous room to run first
 			await get_tree().process_frame
 			camera.environment = room_environment
-
 
 
 # NOTE: should maybe check `if room_environment:` here too to save it running

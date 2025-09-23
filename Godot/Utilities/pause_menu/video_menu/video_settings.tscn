@@ -425,25 +425,21 @@ focus_neighbor_top = NodePath("../FilteringOptionButton")
 theme = ExtResource("2_e2l73")
 alignment = 1
 expand_icon = true
-item_count = 5
-popup/item_0/text = "Very Low"
+item_count = 2
+popup/item_0/text = "Low"
 popup/item_0/id = 0
-popup/item_1/text = "Low"
+popup/item_1/text = "High"
 popup/item_1/id = 1
-popup/item_2/text = "Medium"
-popup/item_2/id = 2
-popup/item_3/text = "High"
-popup/item_3/id = 3
-popup/item_4/text = "Ultra"
-popup/item_4/id = 4
 
 [node name="SSAOLabel" type="Label" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_e2l73")
 text = "Ambient Occlusion"
 
 [node name="SSAOOptionButton" type="OptionButton" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer" groups=["buttons"]]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{45962300-5236-4126-a2d8-95ecf3b24813}">
 		<property name="assetPath">
-			<value>crowd/party ambience freesound keus92.ogg</value>
+			<value>000_SFX/100_Environment/crowd/party ambience freesound keus92.ogg</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

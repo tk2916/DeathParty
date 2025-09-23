@@ -102,4 +102,5 @@ shadow_mesh = SubResource("ArrayMesh_t7ssk")
 [node name="PumpkinWithBeers" instance=ExtResource("1_hjxcw")]
 
 [node name="Object_234_074" parent="." index="0"]
+lod_bias = 0.25
 mesh = SubResource("ArrayMesh_8p1n3")
