@@ -1,11 +1,17 @@
 class_name PolaroidLayer extends CanvasLayer
 
+
 var Picture
 @export var viewfinder_camera: Camera2D
 
+
+func _ready() -> void:
+	Globals.polaroid_camera_ui = self
+
+
 #function for movement of camera
 func _physics_process(delta: float) -> void:
-	Picture=$PictureExample/ViewFinder
+	Picture = $PictureExample/ViewFinder
 	# viewfinder movement corresponds with player input	
 	if Input.is_action_pressed("move_right"):
 		Picture.position.x += 3
@@ -16,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_up"):
 		Picture.position.y -= 3
 	#stops viewfinder from passing the bounds of the image
-	if	$PictureExample/ViewFinder.position.x < 0:
+	if $PictureExample/ViewFinder.position.x < 0:
 		$PictureExample/ViewFinder.position.x = 0
 
 	if $PictureExample/ViewFinder.position.x > 100:
@@ -33,6 +39,6 @@ func _on_question_mark_input_event(camera: Node, event: InputEvent, event_positi
 	# detects when player clicks on question mark
 	if event is InputEventMouseButton:
 		#pops up picture taking scene and switch to 2D camera	
-		$PictureExample/Camera2D.enabled=true
+		$PictureExample/Camera2D.enabled = true
 		$PictureExample/Camera2D.make_current()
-		visible=true	
+		visible = true
