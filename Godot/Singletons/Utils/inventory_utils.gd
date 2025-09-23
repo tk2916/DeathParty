@@ -72,7 +72,7 @@ func show_item_details(
 	#duplicate.rotate(Vector3(0,1,0), deg_to_rad(180.0))
 	
 	object_viewer.set_preexisting_item(clone)
-	object_viewer.view_item_info(item_resource.name, item_resource.description)
+	object_viewer.view_item_info(item_resource)
 	if item_resource.viewed == false:
 		item_resource.viewed = true
 		if item_resource.dialogue_on_first_view != null:

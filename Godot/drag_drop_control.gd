@@ -21,12 +21,11 @@ func _ready() -> void:
 			DialogueSystem.begin_dialogue(on_reveal_dialogue)
 
 func enter_hover() -> void:
-	print("Entered hover: ", self.name)
 	super()
 	if color_rect:
 		color_rect.visible = true
+		
 func exit_hover() -> void:
-	print("Exited hover: ", self.name)
 	super()
 	if color_rect:
 		color_rect.visible = false

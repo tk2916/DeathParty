@@ -1,19 +1,27 @@
-[gd_scene load_steps=39 format=4 uid="uid://ctxn4d5hysbqv"]
+[gd_scene load_steps=41 format=4 uid="uid://ctxn4d5hysbqv"]
 
 [ext_resource type="Script" uid="uid://b7e4s6slidb3u" path="res://Assets/models/bookflip_script.gd" id="2_epq3o"]
-[ext_resource type="Texture2D" uid="uid://d4btfe8aohfoi" path="res://Assets/JournalTextures/journal_bg.png" id="3_yfr5l"]
+[ext_resource type="PackedScene" uid="uid://jsemqtn1uy4m" path="res://Assets/GUIPrefabs/JournalPrefabs/Pages/FirstPage.tscn" id="3_mp1ih"]
 [ext_resource type="PackedScene" uid="uid://gdi2x1kqfcqq" path="res://Assets/JournalTextures/tasks_display_journal.tscn" id="4_6b4ny"]
+[ext_resource type="PackedScene" uid="uid://dl87r4emuohcc" path="res://Assets/GUIPrefabs/JournalPrefabs/Pages/SecondPage.tscn" id="4_8foen"]
 [ext_resource type="PackedScene" uid="uid://mg0sman3f2yu" path="res://Assets/models/journal_tab.tscn" id="5_stup6"]
-[ext_resource type="PackedScene" uid="uid://csrnib2iw1f4u" path="res://drag_and_drop_polaroids_test.tscn" id="5_yfr5l"]
 [ext_resource type="Script" uid="uid://bigc44cfli8nx" path="res://Assets/models/journal_page_flip_collider.gd" id="7_fq2mh"]
 [ext_resource type="Texture2D" uid="uid://c0c7uxkp8a7y" path="res://Assets/models/bookflip_max_page_2.png" id="7_ieb6y"]
 [ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="8_yfr5l"]
+[ext_resource type="Texture2D" uid="uid://5h7c108d74ow" path="res://Assets/JournalTextures/Todo Icon.png" id="9_8foen"]
+[ext_resource type="Texture2D" uid="uid://cqicfnadd1nh4" path="res://Assets/JournalTextures/Diary tab.png" id="9_fq2mh"]
+[ext_resource type="Texture2D" uid="uid://dainc1le7ahoe" path="res://Assets/JournalTextures/TodoTabClosed.png" id="10_hbhch"]
+[ext_resource type="Texture2D" uid="uid://bi4ih11gjungx" path="res://Assets/JournalTextures/DiaryTabClosed.png" id="10_mp1ih"]
+[ext_resource type="Texture2D" uid="uid://bc2xbya4n41la" path="res://Assets/JournalTextures/InventoryTab.png" id="13_hbhch"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fq2mh"]
-viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
+viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mp1ih"]
-viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
+viewport_path = NodePath("Armature/Skeleton3D/Cube_005/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ieb6y"]
+size = Vector3(1.55786, 0.391174, 1.47409)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ieb6y"]
 
@@ -52,39 +60,32 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_50s38")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fq2mh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yfr5l"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("8_yfr5l")
-shader_parameter/multiplier = 2.0
+shader_parameter/ignore_lighting = true
+shader_parameter/multiplier = 0.6
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_55mpj"]
-viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2831"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_55mpj")
-albedo_texture_force_srgb = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxfhh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1evy"]
 vertex_color_use_as_albedo = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_gltg4"]
-resource_name = "bookflip_Cube_009"
+[sub_resource type="ArrayMesh" id="ArrayMesh_g4q0d"]
+resource_name = "bookflip_Cube_013"
 _surfaces = [{
-"aabb": AABB(-3.83419e-09, 0.230034, -0.886797, 1.56569, 1.58019, 1.77752),
-"attribute_data": PackedByteArray("/////8p1xT4AAAAA/////+J6/j4AAAAA/////+B6/j4AAAA//////891xT4AAIA//////996/j4AAIA//////zpZhD4AAIA//////y1ZhD4AAAAA/////wMK/D0AAAAA/////ycK/D3//38//////wAAAAD+/38//////wAAAAD+//8+/////wAAAAAAAAAA/////wBhHD8AAAAA/////+t6/j4BAAA//////+R6/j4AAIAz/////wVhHD8AAIA//////+l6/j4AAIA//////3JrPj8AAIA//////3BrPj8AAAAA/////y52YD8AAIAz/////y92YD8AAIA//////4xWfz8AAIA//////4lWfz8CAAA//////4pWfz8AAAA0/////8l1xT4AAAA//////y1ZhD7+//8+/////ycK/D3+//8+/////wVhHD8AAAA//////3BrPj8AAAA//////y92YD8BAAA/"),
-"bone_aabbs": [AABB(0.00832654, 0.24454, -0.886465, 0.0430986, 0.398839, 1.7772), AABB(0.0514152, 0.643369, -0.886465, 0.0148853, 0.388953, 1.7772), AABB(0.0514151, 1.03232, -0.886465, 0.0148953, 0.388953, 1.77719), AABB(0.00832642, 1.42127, -0.886465, 0.0430987, 0.388953, 1.7772), AABB(-3.83419e-09, 0.230034, -0.886797, 1.56569, 0.057974, 1.7772)],
+"aabb": AABB(-1.56569, 0.232258, -0.886465, 1.62606, 1.57796, 1.77736),
+"attribute_data": PackedByteArray("//////GyHj8AAAAA/////2mCAD8AAAA//////2iCAD8AAIAz//////GyHj8AAIA//////2mCAD8AAIA//////+/2Pz8AAIA//////+/2Pz8AAAAA//////X4Xz8AAAAA//////j4Xz8AAIA//////5D7fz8AAIA//////5D7fz8AAAA//////5D7fz8AAAAA/////0CQxD4AAAAA/////2iCAD8AAAAA/////2iCAD8AAAA//////0OQxD4AAIA//////2iCAD8AAIA//////xEygz4AAIA//////w0ygz4AAAAA/////3/4AT4AAIA//////3j4AT4AAAAA/////5l7JTsAAAA//////5l7JTsAAIAz/////0l9JTsAAIA///////GyHj8AAAA//////+/2Pz8AAAA///////X4Xz8AAAA//////0CQxD4AAAA//////w0ygz4AAAA//////3/4AT4AAAA/"),
+"bone_aabbs": [AABB(0.00239537, 0.244536, -0.886465, 0.0430986, 0.398839, 1.7772), AABB(0.045484, 0.643365, -0.886465, 0.0148853, 0.388953, 1.7772), AABB(0.045484, 1.03232, -0.886465, 0.0148953, 0.388953, 1.77719), AABB(0.00239525, 1.42127, -0.886465, 0.0430987, 0.388953, 1.77719), AABB(-1.56569, 0.232258, -0.886293, 1.56569, 0.057974, 1.7772)],
 "format": 34359745567,
 "index_count": 96,
-"index_data": PackedByteArray("GAABAAIAGAAAAAEAAwAYAAIAAwACAAQAGAADAAUAAAAYABkAGAAFABkAAAAZAAYACAAZAAUAGgAGABkACAAaABkACQAaAAgAGgAHAAYACQAKABoACgAHABoACgALAAcAGwAOAAwAGwANAA4ADwANABsADwAQAA0AGwARAA8ADAAcABsAGwAcABEADAASABwAFAARABwAHQAcABIAFAAcAB0AFQAUAB0AHQASABMAFQAdABYAFgAdABMAFgATABcA"),
-"lods": [4.68485e-05, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAAADAAUAAAAFAAYABwAGAAUACAAHAAUACQAHAAgACQAKAAcACgALAAcADAANAA4ADwANAAwADwAQAA0ADAARAA8ADAASABEAEwARABIAFAARABMAFQAUABMAFQATABYAFgATABcA")],
-"material": SubResource("StandardMaterial3D_jxfhh"),
+"index_data": PackedByteArray("GAACAAAAGAABAAIAAwABABgAAwAEAAEAGAAFAAMAAAAZABgAGAAZAAUAAAAGABkACAAFABkAGgAZAAYACAAZABoACQAIABoAGgAGAAcACQAaAAoACgAaAAcACgAHAAsAGwANAA4AGwAMAA0ADwAbAA4ADwAOABAAGwAPABEADAAbABwAGwARABwADAAcABIAEwAcABEAHQASABwAEwAdABwAFwAdABMAHQAUABIAFwAVAB0AFQAUAB0AFQAWABQA"),
+"lods": [0.000744115, PackedByteArray("AAABAAIAAwABAAAAAwAEAAEAAAAFAAMAAAAGAAUABwAFAAYACAAFAAcACQAIAAcACQAHAAoACgAHAAsADAANAA4ADwAMAA4ADwAOABAADAAPABEADAARABIAEwASABEAEwAUABIAFQAUABMAFQAWABQAFwAVABMA")],
+"material": SubResource("StandardMaterial3D_f1evy"),
 "primitive": 3,
-"skin_data": PackedByteArray("BAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAAAAABAAAAAACU/WoCAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAABAAAAAAD3/wcAAAAAAAAAAAAAAAAA//8AAAAAAAABAAIAAAAAAPb/CAAAAAAAAQAAAAAAAAD//wAAAAAAAAIAAwAAAAAA4v0cAgAAAAACAAMAAAAAAOL9HAIAAAAAAwAAAAAAAAD//wAAAAAAAAMAAAAAAAAA//8AAAAAAAADAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAAAAABAAAAAAAn/9cAAAAAAAEAAgAAAAAA+P8GAAAAAAACAAMAAAAAAMX+OQEAAAAA"),
+"skin_data": PackedByteArray("BAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAAAAABAAAAAACg/V4CAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAABAAAAAAD4/wYAAAAAAAAAAAAAAAAA//8AAAAAAAABAAIAAAAAAPT/CgAAAAAAAQAAAAAAAAD//wAAAAAAAAIAAwAAAAAAo/1bAgAAAAACAAMAAAAAAKH9XQIAAAAAAwAAAAAAAAD//wAAAAAAAAMAAAAAAAAA//8AAAAAAAADAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAAAAABAAAAAAAt/9EAAAAAAAEAAgAAAAAA9v8IAAAAAAACAAMAAAAAAJv+YwEAAAAA"),
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 30,
-"vertex_data": PackedByteArray("RjPMPrLWiz7u8GM/6b2DsfWNaz7u8GM/6b2DsfWNaz7kyes6RjPMPrLWiz4kBWO/6b2DsfWNaz4kBWO/C6xJP751kz4kBWO/C6xJP751kz7u8GM/Op+WP7LWiz7u8GM/Op+WP7LWiz4kBWO/bmjIP/WNaz4kBWO/bmjIP/WNaz7kyes6bmjIP/WNaz7u8GM/uphSPc6zJD+6BmQ/BWwIPK1oej5SsAs7BWwIPK1oej66BmQ/uphSPc6zJD9Y72K/BWwIPK1oej5Y72K/iciHPRsjhD9Y72K/iciHPRsjhD+6BmQ/qZhSPU/stT+6BmQ/qZhSPU/stT9Y72K/hWsIPIK15z9Y72K/hWsIPIK15z9SsAs7hWsIPIK15z+6BmQ/RjPMPrLWiz7kyes6C6xJP751kz7kyes6Op+WP7LWiz7kyes6uphSPc6zJD9SsAs7iciHPRsjhD9SsAs7qZhSPU/stT9SsAs7SndK97QIpLuEc4TzegzBuYRzhPN6DMG5SndK97QIpLuEc4TzegzBuf9///8AAP+//3///wAA/7/aiCP32whsxNqII/fbCGzEw4w788MMYcbDjDvzwwxhxsOMO/PDDGHGRfdGd7iIovuF84VzeYzC+YXzhXN5jML5RfdGd7iIovuF84VzeYzC+f///3//f///////f/9///8h992IIXeQ+yH33Yghd5D7OfPFjDlznPk588WMOXOc+TnzxYw5c5z5SndK97QIpLv/f///AAD/v9qII/fbCGzERfdGd7iIovv///9//3///yH33Yghd5D7")
+"vertex_data": PackedByteArray("yjPMvk36jD4AEmQ/4GmFtirVbT4g9hY74GmFtirVbT4AEmQ/yjPMvk36jD4S5GK/4GmFtirVbT4S5GK/TaxJv1mZlD4S5GK/TaxJv1mZlD4AEmQ/W5+Wv036jD4AEmQ/W5+Wv036jD4S5GK/jmjIvyrVbT4S5GK/jmjIvyrVbT4g9hY7jmjIvyrVbT4AEmQ/ck06PYuzJD+6BmQ/lfscO6Jnej66BmQ/lfscO6Jnej5QsAs7ck06PYuzJD9Y72K/lfscO6Jnej5Y72K/ykV3PfkihD9Y72K/ykV3PfkihD+6BmQ/YU06PS3stT9Y72K/YU06PS3stT+6BmQ/lfkcO2G15z9QsAs7lfkcO2G15z+6BmQ/lfkcO2G15z9Y72K/yjPMvk36jD4g9hY7TaxJv1mZlD4g9hY7W5+Wv036jD4g9hY7ck06PYuzJD9QsAs7ykV3PfkihD9QsAs7YU06PS3stT9QsAs7tIhK97QIWcR6jITzegw8xnqMhPN6DDzGtIhK97QIWcR6jITzegw8xv9///8AAP+//3///wAA/78kdyP32wiRuyR3I/fbCJG7O3M788MMnbk7czvzwwyduTtzO/PDDJ25uQi4iEZ3XIR5DHmMhXM8hnkMeYyFczyGuQi4iEZ3XIR5DHmMhXM8hgAA/3//fwCAAAD/f/9/AIDdCCF33YhuhN0IIXfdiG6ExQw5c8WMYobFDDlzxYxihsUMOXPFjGKGtIhK97QIWcT/f///AAD/vyR3I/fbCJG7uQi4iEZ3XIQAAP9//38AgN0IIXfdiG6E")
 }]
 blend_shape_mode = 0
 
@@ -107,8 +108,34 @@ bind/4/name = &"neutral_bone"
 bind/4/bone = -1
 bind/4/pose = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.00585831, -0.00277737, -0.234975)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ieb6y"]
-size = Vector3(1.55786, 0.391174, 1.47409)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fq2mh"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("8_yfr5l")
+shader_parameter/ignore_lighting = true
+shader_parameter/multiplier = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxfhh"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gltg4"]
+resource_name = "bookflip_Cube_009"
+_surfaces = [{
+"aabb": AABB(-3.83419e-09, 0.230034, -0.886797, 1.56569, 1.58019, 1.77752),
+"attribute_data": PackedByteArray("/////8p1xT4AAAAA/////+J6/j4AAAAA/////+B6/j4AAAA//////891xT4AAIA//////996/j4AAIA//////zpZhD4AAIA//////y1ZhD4AAAAA/////wMK/D0AAAAA/////ycK/D3//38//////wAAAAD+/38//////wAAAAD+//8+/////wAAAAAAAAAA/////wBhHD8AAAAA/////+t6/j4BAAA//////+R6/j4AAIAz/////wVhHD8AAIA//////+l6/j4AAIA//////3JrPj8AAIA//////3BrPj8AAAAA/////y52YD8AAIAz/////y92YD8AAIA//////4xWfz8AAIA//////4lWfz8CAAA//////4pWfz8AAAA0/////8l1xT4AAAA//////y1ZhD7+//8+/////ycK/D3+//8+/////wVhHD8AAAA//////3BrPj8AAAA//////y92YD8BAAA/"),
+"bone_aabbs": [AABB(0.00832654, 0.24454, -0.886465, 0.0430986, 0.398839, 1.7772), AABB(0.0514152, 0.643369, -0.886465, 0.0148853, 0.388953, 1.7772), AABB(0.0514151, 1.03232, -0.886465, 0.0148953, 0.388953, 1.77719), AABB(0.00832642, 1.42127, -0.886465, 0.0430987, 0.388953, 1.7772), AABB(-3.83419e-09, 0.230034, -0.886797, 1.56569, 0.057974, 1.7772)],
+"format": 34359745567,
+"index_count": 96,
+"index_data": PackedByteArray("GAABAAIAGAAAAAEAAwAYAAIAAwACAAQAGAADAAUAAAAYABkAGAAFABkAAAAZAAYACAAZAAUAGgAGABkACAAaABkACQAaAAgAGgAHAAYACQAKABoACgAHABoACgALAAcAGwAOAAwAGwANAA4ADwANABsADwAQAA0AGwARAA8ADAAcABsAGwAcABEADAASABwAFAARABwAHQAcABIAFAAcAB0AFQAUAB0AHQASABMAFQAdABYAFgAdABMAFgATABcA"),
+"lods": [4.68485e-05, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAAADAAUAAAAFAAYABwAGAAUACAAHAAUACQAHAAgACQAKAAcACgALAAcADAANAA4ADwANAAwADwAQAA0ADAARAA8ADAASABEAEwARABIAFAARABMAFQAUABMAFQATABYAFgATABcA")],
+"material": SubResource("StandardMaterial3D_jxfhh"),
+"primitive": 3,
+"skin_data": PackedByteArray("BAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAAAAABAAAAAACU/WoCAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAABAAAAAAD3/wcAAAAAAAAAAAAAAAAA//8AAAAAAAABAAIAAAAAAPb/CAAAAAAAAQAAAAAAAAD//wAAAAAAAAIAAwAAAAAA4v0cAgAAAAACAAMAAAAAAOL9HAIAAAAAAwAAAAAAAAD//wAAAAAAAAMAAAAAAAAA//8AAAAAAAADAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAAAAABAAAAAAAn/9cAAAAAAAEAAgAAAAAA+P8GAAAAAAACAAMAAAAAAMX+OQEAAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("RjPMPrLWiz7u8GM/6b2DsfWNaz7u8GM/6b2DsfWNaz7kyes6RjPMPrLWiz4kBWO/6b2DsfWNaz4kBWO/C6xJP751kz4kBWO/C6xJP751kz7u8GM/Op+WP7LWiz7u8GM/Op+WP7LWiz4kBWO/bmjIP/WNaz4kBWO/bmjIP/WNaz7kyes6bmjIP/WNaz7u8GM/uphSPc6zJD+6BmQ/BWwIPK1oej5SsAs7BWwIPK1oej66BmQ/uphSPc6zJD9Y72K/BWwIPK1oej5Y72K/iciHPRsjhD9Y72K/iciHPRsjhD+6BmQ/qZhSPU/stT+6BmQ/qZhSPU/stT9Y72K/hWsIPIK15z9Y72K/hWsIPIK15z9SsAs7hWsIPIK15z+6BmQ/RjPMPrLWiz7kyes6C6xJP751kz7kyes6Op+WP7LWiz7kyes6uphSPc6zJD9SsAs7iciHPRsjhD9SsAs7qZhSPU/stT9SsAs7SndK97QIpLuEc4TzegzBuYRzhPN6DMG5SndK97QIpLuEc4TzegzBuf9///8AAP+//3///wAA/7/aiCP32whsxNqII/fbCGzEw4w788MMYcbDjDvzwwxhxsOMO/PDDGHGRfdGd7iIovuF84VzeYzC+YXzhXN5jML5RfdGd7iIovuF84VzeYzC+f///3//f///////f/9///8h992IIXeQ+yH33Yghd5D7OfPFjDlznPk588WMOXOc+TnzxYw5c5z5SndK97QIpLv/f///AAD/v9qII/fbCGzERfdGd7iIovv///9//3///yH33Yghd5D7")
+}]
+blend_shape_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2an2b"]
 resource_name = "Material.009"
@@ -136,39 +163,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yfr5l"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("8_yfr5l")
-shader_parameter/multiplier = 0.6
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd17q"]
-resource_local_to_scene = true
-albedo_texture_force_srgb = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1evy"]
-vertex_color_use_as_albedo = true
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_g4q0d"]
-resource_name = "bookflip_Cube_013"
-_surfaces = [{
-"aabb": AABB(-1.56569, 0.232258, -0.886465, 1.62606, 1.57796, 1.77736),
-"attribute_data": PackedByteArray("//////GyHj8AAAAA/////2mCAD8AAAA//////2iCAD8AAIAz//////GyHj8AAIA//////2mCAD8AAIA//////+/2Pz8AAIA//////+/2Pz8AAAAA//////X4Xz8AAAAA//////j4Xz8AAIA//////5D7fz8AAIA//////5D7fz8AAAA//////5D7fz8AAAAA/////0CQxD4AAAAA/////2iCAD8AAAAA/////2iCAD8AAAA//////0OQxD4AAIA//////2iCAD8AAIA//////xEygz4AAIA//////w0ygz4AAAAA/////3/4AT4AAIA//////3j4AT4AAAAA/////5l7JTsAAAA//////5l7JTsAAIAz/////0l9JTsAAIA///////GyHj8AAAA//////+/2Pz8AAAA///////X4Xz8AAAA//////0CQxD4AAAA//////w0ygz4AAAA//////3/4AT4AAAA/"),
-"bone_aabbs": [AABB(0.00239537, 0.244536, -0.886465, 0.0430986, 0.398839, 1.7772), AABB(0.045484, 0.643365, -0.886465, 0.0148853, 0.388953, 1.7772), AABB(0.045484, 1.03232, -0.886465, 0.0148953, 0.388953, 1.77719), AABB(0.00239525, 1.42127, -0.886465, 0.0430987, 0.388953, 1.77719), AABB(-1.56569, 0.232258, -0.886293, 1.56569, 0.057974, 1.7772)],
-"format": 34359745567,
-"index_count": 96,
-"index_data": PackedByteArray("GAACAAAAGAABAAIAAwABABgAAwAEAAEAGAAFAAMAAAAZABgAGAAZAAUAAAAGABkACAAFABkAGgAZAAYACAAZABoACQAIABoAGgAGAAcACQAaAAoACgAaAAcACgAHAAsAGwANAA4AGwAMAA0ADwAbAA4ADwAOABAAGwAPABEADAAbABwAGwARABwADAAcABIAEwAcABEAHQASABwAEwAdABwAFwAdABMAHQAUABIAFwAVAB0AFQAUAB0AFQAWABQA"),
-"lods": [0.000744115, PackedByteArray("AAABAAIAAwABAAAAAwAEAAEAAAAFAAMAAAAGAAUABwAFAAYACAAFAAcACQAIAAcACQAHAAoACgAHAAsADAANAA4ADwAMAA4ADwAOABAADAAPABEADAARABIAEwASABEAEwAUABIAFQAUABMAFQAWABQAFwAVABMA")],
-"material": SubResource("StandardMaterial3D_f1evy"),
-"primitive": 3,
-"skin_data": PackedByteArray("BAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAAAAABAAAAAACg/V4CAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAABAAAAAAD4/wYAAAAAAAAAAAAAAAAA//8AAAAAAAABAAIAAAAAAPT/CgAAAAAAAQAAAAAAAAD//wAAAAAAAAIAAwAAAAAAo/1bAgAAAAACAAMAAAAAAKH9XQIAAAAAAwAAAAAAAAD//wAAAAAAAAMAAAAAAAAA//8AAAAAAAADAAAAAAAAAP//AAAAAAAABAAAAAAAAAD//wAAAAAAAAQAAAAAAAAA//8AAAAAAAAEAAAAAAAAAP//AAAAAAAAAAABAAAAAAAt/9EAAAAAAAEAAgAAAAAA9v8IAAAAAAACAAMAAAAAAJv+YwEAAAAA"),
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 30,
-"vertex_data": PackedByteArray("yjPMvk36jD4AEmQ/4GmFtirVbT4g9hY74GmFtirVbT4AEmQ/yjPMvk36jD4S5GK/4GmFtirVbT4S5GK/TaxJv1mZlD4S5GK/TaxJv1mZlD4AEmQ/W5+Wv036jD4AEmQ/W5+Wv036jD4S5GK/jmjIvyrVbT4S5GK/jmjIvyrVbT4g9hY7jmjIvyrVbT4AEmQ/ck06PYuzJD+6BmQ/lfscO6Jnej66BmQ/lfscO6Jnej5QsAs7ck06PYuzJD9Y72K/lfscO6Jnej5Y72K/ykV3PfkihD9Y72K/ykV3PfkihD+6BmQ/YU06PS3stT9Y72K/YU06PS3stT+6BmQ/lfkcO2G15z9QsAs7lfkcO2G15z+6BmQ/lfkcO2G15z9Y72K/yjPMvk36jD4g9hY7TaxJv1mZlD4g9hY7W5+Wv036jD4g9hY7ck06PYuzJD9QsAs7ykV3PfkihD9QsAs7YU06PS3stT9QsAs7tIhK97QIWcR6jITzegw8xnqMhPN6DDzGtIhK97QIWcR6jITzegw8xv9///8AAP+//3///wAA/78kdyP32wiRuyR3I/fbCJG7O3M788MMnbk7czvzwwyduTtzO/PDDJ25uQi4iEZ3XIR5DHmMhXM8hnkMeYyFczyGuQi4iEZ3XIR5DHmMhXM8hgAA/3//fwCAAAD/f/9/AIDdCCF33YhuhN0IIXfdiG6ExQw5c8WMYobFDDlzxYxihsUMOXPFjGKGtIhK97QIWcT/f///AAD/vyR3I/fbCJG7uQi4iEZ3XIQAAP9//38AgN0IIXfdiG6E")
-}]
-blend_shape_mode = 0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfr5l"]
+transparency = 1
+blend_mode = 4
 albedo_color = Color(0.313726, 0.164706, 0.0627451, 1)
 albedo_texture_force_srgb = true
 
@@ -457,19 +454,41 @@ _data = {
 &"pageFlip_003": SubResource("Animation_kqixp")
 }
 
-[node name="bookflip" type="Node3D" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node_left", "tabs_node_right")]
+[node name="bookflip" type="Node3D" node_paths=PackedStringArray("animation_player", "page1", "page2", "page1_subviewport", "page2_subviewport", "tabs_node")]
 transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
 script = ExtResource("2_epq3o")
 animation_player = NodePath("AnimationPlayer")
-page1 = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004")
-page2 = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005")
-page1_subviewport = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
-page2_subviewport = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
+page1 = NodePath("Armature/Skeleton3D/Cube_004")
+page2 = NodePath("Armature/Skeleton3D/Cube_005")
+page1_subviewport = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
+page2_subviewport = NodePath("Armature/Skeleton3D/Cube_005/SubViewport")
 viewport_texture1 = SubResource("ViewportTexture_fq2mh")
 viewport_texture2 = SubResource("ViewportTexture_mp1ih")
-journal_textures = [ExtResource("4_6b4ny"), ExtResource("3_yfr5l"), ExtResource("3_yfr5l"), ExtResource("5_yfr5l")]
-tabs_node_left = NodePath("Tabs")
-tabs_node_right = NodePath("TabsRight")
+journal_textures = [ExtResource("4_6b4ny"), ExtResource("3_mp1ih"), ExtResource("4_8foen")]
+tabs_node = NodePath("Tabs")
+
+[node name="LeftPageCollider" type="Area3D" parent="." node_paths=PackedStringArray("bookflip_instance")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00585831, 0.234975, -0.00277737)
+collision_layer = 9
+script = ExtResource("7_fq2mh")
+flip_backwards = true
+bookflip_instance = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftPageCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77, -0.009, 0)
+shape = SubResource("BoxShape3D_ieb6y")
+debug_color = Color(0.799815, 0.0309134, 1, 0.42)
+
+[node name="RightPageCollider" type="Area3D" parent="." node_paths=PackedStringArray("bookflip_instance")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00585831, 0.234975, -0.00277737)
+collision_layer = 9
+script = ExtResource("7_fq2mh")
+bookflip_instance = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightPageCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792, 0, 0)
+shape = SubResource("BoxShape3D_ieb6y")
+debug_color = Color(0.799815, 0.0309134, 1, 0.42)
 
 [node name="Cube_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.28113, 0, 0, 0, 1, 0, 0, 0, 1, -2.09726e-05, 0.0428847, 0.00150057)
@@ -517,55 +536,26 @@ bones/4/position = Vector3(0, 0, 0)
 bones/4/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/4/scale = Vector3(1, 1, 1)
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Armature/Skeleton3D" node_paths=PackedStringArray("bookflip_instance")]
-collision_layer = 9
-script = ExtResource("7_fq2mh")
-flip_backwards = true
-bookflip_instance = NodePath("../../..")
-
-[node name="Cube_004" type="MeshInstance3D" parent="Armature/Skeleton3D/AnimatableBody3D"]
-material_override = SubResource("ShaderMaterial_fq2mh")
-material_overlay = SubResource("StandardMaterial3D_g2831")
-mesh = SubResource("ArrayMesh_gltg4")
+[node name="Cube_005" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+material_override = SubResource("ShaderMaterial_yfr5l")
+mesh = SubResource("ArrayMesh_g4q0d")
 skin = SubResource("Skin_m8qil")
-skeleton = NodePath("../..")
 
-[node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004"]
+[node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Cube_005"]
 size = Vector2i(1920, 1080)
 
-[node name="Control" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport" instance=ExtResource("4_6b4ny")]
-script = null
+[node name="Cube_004" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+material_override = SubResource("ShaderMaterial_fq2mh")
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_gltg4")
+skin = SubResource("Skin_m8qil")
 
-[node name="DragAndDropPolaroidsTest" parent="Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport" instance=ExtResource("5_yfr5l")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/AnimatableBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77, -0.009, 0)
-shape = SubResource("BoxShape3D_ieb6y")
-debug_color = Color(0.799815, 0.0309134, 1, 0.42)
+[node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Cube_004"]
+size = Vector2i(1920, 1080)
 
 [node name="PageRim" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_fp78t")
 skin = SubResource("Skin_m8qil")
-
-[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="Armature/Skeleton3D" node_paths=PackedStringArray("bookflip_instance")]
-collision_layer = 9
-script = ExtResource("7_fq2mh")
-bookflip_instance = NodePath("../../..")
-
-[node name="Cube_005" type="MeshInstance3D" parent="Armature/Skeleton3D/AnimatableBody3D2"]
-material_override = SubResource("ShaderMaterial_yfr5l")
-material_overlay = SubResource("StandardMaterial3D_wd17q")
-mesh = SubResource("ArrayMesh_g4q0d")
-skin = SubResource("Skin_m8qil")
-skeleton = NodePath("../..")
-
-[node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/AnimatableBody3D2/Cube_005"]
-size = Vector2i(1920, 1080)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/AnimatableBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792, 0, 0)
-shape = SubResource("BoxShape3D_ieb6y")
-debug_color = Color(0.799815, 0.0309134, 1, 0.42)
 
 [node name="Cube_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.28113, 0, 0, 0, 1, 0, 0, 0, 1, -2.09726e-05, 0.0428847, 0.00150057)
@@ -578,64 +568,25 @@ libraries = {
 &"": SubResource("AnimationLibrary_13k6g")
 }
 
-[node name="Tabs" type="Node3D" parent="."]
-
-[node name="Tasks" parent="Tabs" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.993698, 0.112093, -9.17715e-08, 0.112093, 0.993698, 1.0075e-08, 9.23226e-08, -2.75492e-10, -1, 1.37176, 0.18146, 0.901237)
-text = "Tasks"
-color = Color(0.39319, 0.477147, 0, 1)
-offset_distance = 0.073
-
-[node name="Tasks2" parent="Tabs" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.998561, 0.0536257, -8.9641e-08, 0.0536257, 0.998561, 4.751e-09, 8.97669e-08, -6.28972e-11, -1, 1.12415, 0.209071, 0.901237)
-offset_distance = 0.08
-flip_to_page = 1
-
-[node name="Tasks3" parent="Tabs" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.999012, 0.0444389, -8.92789e-08, 0.0444389, 0.999012, 3.92816e-09, 8.93653e-08, -4.31832e-11, -1, 0.86287, 0.214905, 0.901237)
-text = "Clues"
-color = Color(0.153846, 0.250883, 0.687585, 1)
-offset_distance = 0.08
-flip_to_page = 2
-
-[node name="Tasks4" parent="Tabs" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.998926, -0.0463393, -8.53033e-08, -0.0463393, 0.998926, -4.00416e-09, 8.53973e-08, -4.69598e-11, -1, 0.60314, 0.196478, 0.901237)
-text = "Polaroids"
-color = Color(0.454584, 0.253662, 0.0638231, 1)
-offset_distance = 0.09
-flip_to_page = 3
-
-[node name="TabsRight" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59035, -1.46563e-07, 1.46477e-07)
-
-[node name="Tasks2" parent="TabsRight" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.999252, -0.0386669, -8.56672e-08, -0.0386669, 0.999252, -3.34768e-09, 8.57326e-08, -3.26885e-11, -1, 0.512181, 0.211489, 0.901237)
-text = "Polaroids"
-color = Color(0.454902, 0.254902, 0.0627451, 1)
-offset_distance = 0.07
-flip_to_page = 3
-
-[node name="Tasks3" parent="TabsRight" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.999997, 0.00232129, -8.7524e-08, 0.00232129, 0.999997, 2.03048e-10, 8.75243e-08, -1.1724e-13, -1, 0.776675, 0.221005, 0.901237)
-text = "Clues"
-color = Color(0.153846, 0.250883, 0.687585, 1)
-offset_distance = 0.08
-flip_to_page = 2
-
-[node name="Tasks4" parent="TabsRight" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.998982, 0.0451015, -8.93053e-08, 0.0451015, 0.998982, 3.98737e-09, 8.93942e-08, -4.448e-11, -1, 1.03971, 0.202247, 0.901237)
-color = Color(0.533333, 0.0627451, 0.415686, 1)
-offset_distance = 0.08
-flip_to_page = 1
-
-[node name="Tasks5" parent="TabsRight" instance=ExtResource("5_stup6")]
-transform = Transform3D(-0.995133, 0.0985382, -9.13045e-08, 0.0985382, 0.995133, 8.82721e-09, 9.173e-08, -2.12729e-10, -1, 1.30151, 0.196673, 0.904132)
-text = "Tasks"
-color = Color(0.392157, 0.478431, 0, 1)
-offset_distance = 0.07
-
 [node name="PageFlipSound" type="FmodEventEmitter2D" parent="."]
 event_name = "event:/000_SFX/000_Demo_Test/004_SFX_PageFlip"
 event_guid = "{a9436081-49dc-4597-9156-239d2f74f66d}"
 volume = 0.75
 unique_name_in_owner = true
+
+[node name="Tabs" type="Node3D" parent="."]
+
+[node name="Tasks" parent="Tabs" instance=ExtResource("5_stup6")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.0075e-08, -4.23516e-22, -1.0075e-08, 1, 1.6655, 0.18146, 0.533075)
+texture_open = ExtResource("9_8foen")
+texture_closed = ExtResource("10_hbhch")
+
+[node name="Notes" parent="Tabs" instance=ExtResource("5_stup6")]
+transform = Transform3D(1, 0, 0, 0, 1, 4.751e-09, -4.23516e-22, -4.751e-09, 1, 1.6655, 0.18146, 0.0348937)
+texture_open = ExtResource("9_fq2mh")
+texture_closed = ExtResource("10_mp1ih")
+flip_to_page = 1
+
+[node name="ArrowDown" type="Sprite3D" parent="."]
+transform = Transform3D(0.07, 0, 0, 0, -3.059797e-09, -0.07, 0, 0.07, -3.059797e-09, 1.9895197e-15, 0.33073163, -1.0674355)
+texture = ExtResource("13_hbhch")

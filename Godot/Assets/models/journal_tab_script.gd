@@ -1,16 +1,10 @@
 extends ObjectViewerInteractable
 class_name JournalTab
 
-@export var text : String
-@export var color : Color
-@export var offset_distance : float = .2
-var og_rotation : Vector3
-var default_rotation : Vector3 = Vector3(0,deg_to_rad(-180),0)
+@export var texture_open : CompressedTexture2D
+@export var texture_closed : CompressedTexture2D
 
-@onready var up_direction : Vector3
-
-var sub_viewport : Viewport
-var label : RichTextLabel
+@export var sprite3d : Sprite3D
 
 @export var flip_to_page : int
 
@@ -19,45 +13,25 @@ var disabled : bool = false
 signal tab_pressed
 
 func _ready() -> void:
-	sub_viewport = $Tab/SubViewport
-	label = sub_viewport.get_node("RichTextLabel")
-	label.text = text
-	#sub_viewport.pressed.connect(button_pressed)
-	$Cube.get_surface_override_material(0).albedo_color = color
-	var color_rect : ColorRect = sub_viewport.get_node("ColorRect")
-	color_rect.color = color
-	og_rotation = rotation
-	rotation = default_rotation
-
-func return_to_original_pos() -> void:
-	up_direction = global_transform.basis.y.normalized()
-	var offset : Vector3 = up_direction*offset_distance
-	global_position = global_position - offset
-	rotation = default_rotation
-
-func move_upward() -> void:
-	up_direction = global_transform.basis.y.normalized()
-	var offset = up_direction*offset_distance
-	global_position = global_position + offset
-	rotation = og_rotation
-
-func toggle_visible(tf : bool = !visible):
-	visible = tf
-	disabled = !tf
+	sprite3d.texture = texture_closed
 	
-func button_pressed():
+func on_tab_pressed() -> void:
 	if disabled: return
 	print(self, " Pressed!")
 	tab_pressed.emit()
 
+func tab_opened() -> void:
+	sprite3d.texture = texture_open
+
+func tab_closed() -> void:
+	sprite3d.texture = texture_closed
+
 ##INHERITED METHODS (OVERRIDDEN)
-func enter_hover():
-	pass
-	#print("Entered tab hover: ", self.name)
+func enter_hover() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
-func exit_hover():
-	pass
-	#print("Exited tab hover ", self.name)
+func exit_hover() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
-func on_mouse_up():
-	button_pressed()
+func on_mouse_up() -> void:
+	on_tab_pressed()

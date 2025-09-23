@@ -1,0 +1,121 @@
+[gd_scene load_steps=13 format=3 uid="uid://dl87r4emuohcc"]
+
+[ext_resource type="Texture2D" uid="uid://d4btfe8aohfoi" path="res://Assets/JournalTextures/journal_bg.png" id="1_luvys"]
+[ext_resource type="Shader" uid="uid://w4dg3vhd3wt6" path="res://Assets/Shaders/fade_background.gdshader" id="2_drbck"]
+[ext_resource type="Texture2D" uid="uid://dxf4gn43mrfxy" path="res://Assets/JournalTextures/News clippings.png" id="2_luvys"]
+[ext_resource type="Texture2D" uid="uid://buxqmi3ppd6wf" path="res://Assets/CharacterAssets/Polaroids/caleb_a.png" id="2_r15wx"]
+[ext_resource type="Script" uid="uid://cg1e6c7k36f8t" path="res://Assets/GUIPrefabs/JournalPrefabs/Pages/clickable_journal_item.gd" id="3_04cwh"]
+[ext_resource type="Texture2D" uid="uid://bmmi6o0bt0x36" path="res://Assets/JournalTextures/rightarrow.png" id="3_5vdxq"]
+[ext_resource type="Texture2D" uid="uid://btreux0wtuu4c" path="res://Assets/JournalTextures/MaskingTape3.png" id="3_r15wx"]
+[ext_resource type="Script" uid="uid://ckjonuqioymiy" path="res://Assets/GUIPrefabs/JournalPrefabs/Pages/cursor_hover_threed.gd" id="4_r15wx"]
+[ext_resource type="Resource" uid="uid://bnrq17odi717k" path="res://Singletons/SaveSystem/DefaultResources/JournalItemResources/caleb_polaroid_journal_item.tres" id="4_vcu4x"]
+[ext_resource type="Texture2D" uid="uid://b77p8htas15g1" path="res://Assets/JournalTextures/leftarrow.png" id="5_6jyu7"]
+[ext_resource type="Material" uid="uid://dtdypkr6clrja" path="res://Assets/Shaders/BackgroundFader.tres" id="11_4xg6k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drbck"]
+shader = ExtResource("2_drbck")
+shader_parameter/tint_strength = 0.5
+shader_parameter/tint_color = Color(0, 0, 1, 1)
+shader_parameter/exclusion_center = Vector2(0, 0)
+shader_parameter/exclusion_size = Vector2(0, 0)
+shader_parameter/exclusion_rotation = 0.0
+shader_parameter/screen_size = Vector2(1920, 1080)
+
+[node name="SecondPage" type="Control"]
+material = SubResource("ShaderMaterial_drbck")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="TextureRect" parent="."]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.03
+anchor_right = 1.0
+anchor_bottom = 1.1
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_luvys")
+expand_mode = 1
+
+[node name="CalebPolaroid" type="TextureRect" parent="Bg" node_paths=PackedStringArray("texture_rect", "background_fade")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.043
+anchor_top = 0.084
+anchor_right = 0.366
+anchor_bottom = 0.357
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.14137167
+texture = ExtResource("2_r15wx")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_04cwh")
+texture_rect = NodePath(".")
+item_resource = ExtResource("4_vcu4x")
+background_fade = NodePath("../../BackgroundFade")
+
+[node name="News clippings" type="TextureRect" parent="Bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_right = 1.0
+anchor_bottom = 0.943
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_luvys")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MaskingTape" type="TextureRect" parent="Bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057
+anchor_right = 0.411
+anchor_bottom = 0.176
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_r15wx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Arrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.797
+anchor_top = 0.841
+anchor_right = 1.0
+anchor_bottom = 0.981
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5vdxq")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_r15wx")
+
+[node name="Arrow2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.841
+anchor_right = 0.19
+anchor_bottom = 0.981
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_6jyu7")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_r15wx")
+
+[node name="BackgroundFade" type="ColorRect" parent="."]
+material = ExtResource("11_4xg6k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

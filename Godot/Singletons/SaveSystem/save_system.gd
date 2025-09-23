@@ -18,6 +18,7 @@ const DIRECTORIES : Dictionary[String, String] = {
 	TALKING_OBJECTS = "res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/",
 	PHONE_CHATS = "res://Singletons/SaveSystem/DefaultResources/ChatResources/",
 	INVENTORY_ITEMS = "res://Singletons/SaveSystem/DefaultResources/InventoryItemResources/",
+	JOURNAL_ITEMS = "res://Singletons/SaveSystem/DefaultResources/JournalItemResources/",
 }
 const DIRECTORIES_TO_DICTIONARIES : Dictionary[String, String] = {
 	DIRECTORIES.TASKS : "tasks",
@@ -25,6 +26,7 @@ const DIRECTORIES_TO_DICTIONARIES : Dictionary[String, String] = {
 	DIRECTORIES.TALKING_OBJECTS : "talking_objects",
 	DIRECTORIES.PHONE_CHATS : "phone_chats",
 	DIRECTORIES.INVENTORY_ITEMS : "inventory_items",
+	DIRECTORIES.JOURNAL_ITEMS : "journal_items",
 }
 const SLOT_TO_PATH : Dictionary[SaveSlots, String] = {
 	SaveSlots.ONE: "Singletons/SaveSystem/SaveFiles/File1/save_file.tres",
@@ -106,7 +108,8 @@ func load_into_dictionary(address : String, dict : Dictionary) -> void:
 				dict_keys.push_back(filename)
 				if !dict.has(filename):
 					dict[filename] = file.duplicate(true)
-					dict[filename].initialize()
+					var rsc : DefaultResource = dict[filename]
+					rsc.initialize()
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the directory " + address)

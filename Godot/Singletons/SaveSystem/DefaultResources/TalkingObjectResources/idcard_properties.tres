@@ -11,7 +11,6 @@ metadata/_custom_type_script = "uid://d1yny6oqf2gvp"
 
 [resource]
 script = ExtResource("2_7r1ht")
-default_chats = Dictionary[int, JSON]({})
 queue_chats = Dictionary[int, ExtResource("1_y3m1e")]({
 9: SubResource("Resource_xhv1d")
 })

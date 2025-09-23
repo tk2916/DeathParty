@@ -106,6 +106,13 @@ func hide_journal() -> void:
 	
 	guis_closed.emit()
 
+func journal_flip_to_page(page_number : int) -> void:
+	if !in_journal: return
+	journal_instance.bookflip.flip_to_page(page_number)
+
+func inspect_journal_item(journal_item_rsc : JournalItemResource) -> void:
+	object_viewer.view_journal_item_info(journal_item_rsc)
+
 func show_phone(contact_resource: ChatResource = null) -> void:
 	if contact_resource != null or hid_phone_mid_convo:
 		#DialogueSystem.text_message_box.on_back_pressed()

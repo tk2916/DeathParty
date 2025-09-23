@@ -7,14 +7,14 @@ class_name BookFlip extends Node3D
 @export var page1 : MeshInstance3D
 @export var page2 : MeshInstance3D
 
-@export var page1_subviewport : Viewport
-@export var page2_subviewport : Viewport
+@export var page1_subviewport : SubViewport
+@export var page2_subviewport : SubViewport
 
 @export var viewport_texture1 : ViewportTexture
 @export var viewport_texture2 : ViewportTexture
 
-var page1_mat : Material
-var page2_mat : Material
+var page1_mat : ShaderMaterial
+var page2_mat : ShaderMaterial
 
 @export var journal_textures : Array #either CompressedTexture2D or Control
 var journal_textures_size : int 
@@ -22,15 +22,11 @@ var journal_textures_size : int
 var page_tracker : int = 0
 var flipping : bool = false
 
-@export var tabs_node_left : Node
-@export var tabs_node_right : Node
-var left_tabs : Array[JournalTab]
-var right_tabs : Array[JournalTab]
+@export var tabs_node : Node
+var tabs : Array[JournalTab]
 
 var cur_tab : Node
 var old_tab : Node
-
-var timer : Timer = Timer.new()
 
 var tab_handler : JournalTabHandler
 
@@ -40,22 +36,20 @@ func _ready() -> void:
 	page1_subviewport.size = Vector2i(1920, 1080)
 	page2_subviewport.size = Vector2i(1920, 1080)
 	
-	for tab in tabs_node_left.get_children():
+	for tab in tabs_node.get_children():
 		if tab is JournalTab:
-			left_tabs.push_back(tab)
-	for tab in tabs_node_right.get_children():
-		if tab is JournalTab:
-			right_tabs.push_back(tab)
-	right_tabs.reverse()
+			tabs.push_back(tab)
 	
-	tab_handler = JournalTabHandler.new(left_tabs, right_tabs)
+	tab_handler = JournalTabHandler.new(self, tabs)
 	
 	cur_tab = tab_handler.get_tab(0)
 	old_tab = tab_handler.get_tab(0)
-	cur_tab.move_upward()
 	
 	page1_mat = page1.material_override
 	page2_mat = page2.material_override
+
+	page1_mat.set_shader_parameter("multiplier", 1)
+	page2_mat.set_shader_parameter("multiplier", 1)
 	
 	journal_textures_size = journal_textures.size()
 	animation_player.animation_finished.connect(_on_anim_finished)
@@ -63,33 +57,14 @@ func _ready() -> void:
 	
 	#set left page texture to first page
 	set_page(1, page_tracker)
-	
-	#timer for moving tabs to correct places
-	timer.autostart = false
-	timer.one_shot = true
-	add_child(timer)
-	timer.timeout.connect(move_tab)
-	
-	for tab in left_tabs:
-		tab.tab_pressed.connect(on_tab_pressed.bind(tab))
-	for tab in right_tabs:
-		tab.tab_pressed.connect(on_tab_pressed.bind(tab))
 
-func on_tab_pressed(tab:Node) -> void:
-	var flipBackwards : bool = tab.flip_to_page <= page_tracker
-	bookflip(flipBackwards, tab.flip_to_page)
-	
-func move_tab() -> void:
-	tab_handler.flip_page(page_tracker)
-	cur_tab = tab_handler.get_tab_from_page_number(page_tracker)
-	old_tab.return_to_original_pos()
-	if old_tab != cur_tab:
-		cur_tab.move_upward()
-		old_tab = cur_tab
+func flip_to_page(page_number : int) -> void:
+	var flipBackwards : bool = page_number <= page_tracker
+	bookflip(flipBackwards, page_number)
 
-func set_page(side_of_page : int, index : int):
-	var journal_entry = journal_textures[index]
-	var page_mat : Material = page1_mat
+func set_page(side_of_page : int, index : int) -> void:
+	var journal_entry : Variant = journal_textures[index]
+	var page_mat : ShaderMaterial = page1_mat
 	var page_subviewport : Viewport = page1_subviewport
 	var viewport_texture : ViewportTexture = viewport_texture1
 	if side_of_page == 2:
@@ -106,37 +81,38 @@ func set_page(side_of_page : int, index : int):
 		cur_subviewport = null
 		
 	elif journal_entry is PackedScene:
+		var entry_prefab : PackedScene = journal_entry
 		page_mat.set_shader_parameter("albedo_texture", viewport_texture)
 		viewport_texture.viewport_path = page_subviewport.get_path()
-		page_subviewport.add_child(journal_entry.instantiate())	
+		page_subviewport.add_child(entry_prefab.instantiate())	
 		cur_subviewport = page_subviewport
 
-func bookflip(backward : bool = false, flip_to_page : int = -1):
-	if (flipping or flip_to_page == page_tracker or flip_to_page > journal_textures_size-1):
+func bookflip(backward : bool = false, direct_flip : int = -1) -> void:
+	if (flipping or direct_flip == page_tracker or direct_flip > journal_textures_size-1):
 		return
-	var old_page_index = page_tracker
-	if !backward && (page_tracker<journal_textures_size-1 || flip_to_page != -1):
+	var old_page_index : int= page_tracker
+	if !backward && (page_tracker<journal_textures_size-1 || direct_flip != -1):
 		flipping = true;
-		if flip_to_page == -1:
+		if direct_flip == -1:
 			page_tracker = page_tracker+1  
 		else:
-			page_tracker = flip_to_page
+			page_tracker = direct_flip
 		set_page(1, old_page_index)
 		set_page(2, page_tracker)
 		animation_player.play("pageFlip")
 		page_flip_sound.play()
-		timer.start(.5)
-	elif backward && (page_tracker>0 || flip_to_page != -1):
+		tab_handler.flip_page(page_tracker)
+	elif backward && (page_tracker>0 || direct_flip != -1):
 		flipping = true;
-		if flip_to_page == -1:
+		if direct_flip == -1:
 			page_tracker = page_tracker-1  
 		else:
-			page_tracker = flip_to_page
-		set_page(1, page_tracker)
+			page_tracker = direct_flip
 		set_page(2, old_page_index)
+		set_page(1, page_tracker)
 		animation_player.play_backwards("pageFlip")
 		page_flip_sound.play()
-		timer.start(.2)
+		tab_handler.flip_page(page_tracker)
 
 func _on_anim_finished(anim_name: StringName) -> void:
 	if anim_name == "pageFlip":
