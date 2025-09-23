@@ -659,6 +659,9 @@ local_spawn_point = 1
 play_door_sound = true
 arrow_direction = 1
 
+[node name="DoorSound" parent="SceneLoader_Entrance" index="0"]
+event_name = "event:/000_SFX/100_Environment/door"
+
 [node name="Popup" parent="SceneLoader_Entrance" index="1"]
 transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, -0.5, 1.75, -0.5)
 texture = ExtResource("4_4s5wm")
