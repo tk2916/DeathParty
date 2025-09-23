@@ -1,0 +1,9 @@
+[gd_scene load_steps=0 format=3 uid="uid://c7g8oxpo5ddcp"]
+
+[node name="MetalDoorSound" type="FmodEventEmitter3D"]
+event_name = "event:/000_SFX/100_Environment/metal door"
+event_guid = "{50133a6f-3228-46ac-bce4-3dcafaec7b5b}"
+attached = false
+autoplay = true
+auto_release = true
+volume = 0.5
