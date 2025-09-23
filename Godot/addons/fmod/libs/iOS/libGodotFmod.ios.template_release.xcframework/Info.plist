@@ -21,6 +21,8 @@
 	</array>
 	<key>CFBundlePackageType</key>
 	<string>XFWK</string>
+	<key>MinimumOSVersion</key>
+	<string>12.0</string>
 	<key>XCFrameworkFormatVersion</key>
 	<string>1.0</string>
 </dict>
