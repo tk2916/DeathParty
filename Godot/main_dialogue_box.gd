@@ -148,17 +148,20 @@ func set_choices(choices : Array[InkChoiceInfo]) -> void:
 	print("Got choices: ", choices)
 	set_ui_state(UI_STATES.CHOICES)
 	var choice_rects : Array[TextureRect] = [choice_down, choice_up, choice_right, choice_left]
+	var choice_count: int = 0
 	for choice : InkChoiceInfo in choices:
 		if choice.jump == "":
 			#this is choice info text
 			choice_info.text = choice.text
 		else:
 			var last_choice_rect : TextureRect = choice_rects.pop_back()
+			choice_count += 1
 			var choice_button := LocalChoiceButton.new(last_choice_rect, choice)
 			local_choice_buttons.push_back(choice_button)
 	#hide any remaining choice rects
 	for choice_rect : TextureRect in choice_rects:
 		choice_rect.visible = false
+	assign_menu_focus(choice_count)
 
 func on_text_animator_finish() -> void:
 	super()
@@ -174,3 +177,14 @@ func _process(_delta: float) -> void:
 			pressed = true
 	else:
 		pressed = false
+
+func assign_menu_focus(count: int) -> void:
+	match  count:
+		1:
+			MenuFocusGrabber.assign_buttons(local_choice_buttons[0].button, null, null, null)
+		2:
+			MenuFocusGrabber.assign_buttons(local_choice_buttons[0].button, local_choice_buttons[1].button, null, null)
+		3:
+			MenuFocusGrabber.assign_buttons(local_choice_buttons[0].button, local_choice_buttons[1].button, local_choice_buttons[2].button, null)
+		4:
+			MenuFocusGrabber.assign_buttons(local_choice_buttons[0].button, local_choice_buttons[1].button, local_choice_buttons[2].button, local_choice_buttons[3].button)

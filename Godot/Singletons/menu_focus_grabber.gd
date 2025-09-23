@@ -8,6 +8,9 @@ var up_button: Button
 var down_button: Button
 var listen_to_ui_inputs: bool = false
 
+func _ready() -> void:
+	GuiSystem.guis_closed.connect(reset_focus_grabber)
+
 ## Prepares the script to repopulate with a new menu's layout.
 func reset_focus_grabber() -> void:
 	left_button = null
