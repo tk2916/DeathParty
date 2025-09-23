@@ -137,12 +137,12 @@ script = ExtResource("1_atbji")
 talking_object_resource = ExtResource("2_atbji")
 
 [node name="SpiderMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.313249, -0.0482559, -0.0704082, -0.0788823, 0.265976, 0.168658, 0.032612, 0.179831, -0.268344, 0.134319, -0.453188, 0.236879)
+transform = Transform3D(-0.217085, -0.0334419, -0.0487936, -0.0546663, 0.184324, 0.116881, 0.0226004, 0.124625, -0.185965, 0.134319, -0.453188, 0.236879)
 mesh = SubResource("ArrayMesh_v0poq")
 skeleton = NodePath("")
 
 [node name="BottleMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.76997, 0, 0.686739, 0, 1.67057, 0, -0.686739, 0, 1.76997, -0.134319, 0.453188, -0.236879)
+transform = Transform3D(1.02551, 0, 0.397894, 0, 0.968, 0, -0.397894, 0, 1.02551, -0.134319, 0.153188, -0.236879)
 mesh = SubResource("ArrayMesh_u0rck")
 skeleton = NodePath("")
 
