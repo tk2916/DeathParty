@@ -1,5 +1,4 @@
-#This script helps assign focus to ui menus once the keyboard/controller is used
-extends Node
+##This script helps assign focus to ui menus once the keyboard/controller is used
 
 #References to the menu button that correspond to the cardinal directions in a given ui menu
 var left_button: Button
