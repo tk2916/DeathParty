@@ -2076,6 +2076,13 @@ autoplay = true
 volume = 0.1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37159, 3.27869, -2.18579)
 
+[node name="HeatingAmbience" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/017_SFX_Heating_Pipe"
+event_guid = "{f67ef56a-57f6-460e-87ec-9430d8428f9c}"
+autoplay = true
+volume = 0.25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 4)
+
 [editable path="SceneLoader_Entrance"]
 [editable path="SceneLoader_Entrance/InteractionDetector"]
 [editable path="Room"]

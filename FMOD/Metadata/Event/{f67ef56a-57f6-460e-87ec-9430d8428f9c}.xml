@@ -5,7 +5,7 @@
 			<value>017_SFX_Heating_Pipe</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ee2216ad-7676-4c73-95fd-97f287c6f46c}</destination>
@@ -267,6 +267,8 @@
 	<object class="MixerBusEffectChain" id="{74a9259b-26d6-4cf4-943d-2fc10bd00636}">
 		<relationship name="effects">
 			<destination>{4683b8a2-f0e5-4c9f-9b82-6f01d08ffc8c}</destination>
+			<destination>{4640bb62-207f-43d2-bd1f-caf39a0c3d4b}</destination>
+			<destination>{a56d19e2-e844-4fa2-a6a7-1cbee8d31ec2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{971213a6-5f2f-4cc2-aa49-5e4f8d292fa0}" />
@@ -327,6 +329,12 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{4683b8a2-f0e5-4c9f-9b82-6f01d08ffc8c}" />
+	<object class="ThreeEQEffect" id="{4640bb62-207f-43d2-bd1f-caf39a0c3d4b}">
+		<property name="highGain">
+			<value>-20</value>
+		</property>
+	</object>
+	<object class="SpatialiserEffect" id="{a56d19e2-e844-4fa2-a6a7-1cbee8d31ec2}" />
 	<object class="AutomationPoint" id="{db573bd9-3d2d-42f5-9b44-5b2366ede29b}">
 		<property name="position">
 			<value>0</value>
