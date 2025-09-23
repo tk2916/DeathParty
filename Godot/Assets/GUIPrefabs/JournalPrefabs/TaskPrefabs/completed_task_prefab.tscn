@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://kd2yja835o1u"]
+
+[ext_resource type="Script" uid="uid://bpm4a31sjdhmq" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_container.gd" id="1_y8fbd"]
+[ext_resource type="Texture2D" uid="uid://dv67x2307768m" path="res://Assets/JournalTextures/CompletedTaskBacker.png" id="2_qujp7"]
+[ext_resource type="FontFile" uid="uid://dfd4r55gnpp15" path="res://Assets/Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="3_luig0"]
+
+[node name="TaskContainer" type="MarginContainer" node_paths=PackedStringArray("title_label", "highlight")]
+custom_minimum_size = Vector2(0, 120)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_y8fbd")
+title_label = NodePath("MarginContainer/Title")
+highlight = NodePath("Bg/Highlight")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_qujp7")
+expand_mode = 1
+
+[node name="Highlight" type="ColorRect" parent="Bg"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.266667)
+
+[node name="MarginContainer" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.88
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_luig0")
+theme_override_font_sizes/normal_font_size = 40
+text = "Panic! At the Photography club"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1

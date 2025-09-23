@@ -14,8 +14,7 @@ func instantiate() -> TaskContainer:
 	time_updated = SaveSystem.get_key("time")
 	gui_node = prefab.instantiate()
 	gui_node.task_resource = self
-	gui_node.title_label.text = "[color=black]"+name+"[/color]"
-	#gui_node.description_label.text = "[color=2b2b2b]"+description+"[/color]"
+	gui_node.title_label.text = name
 	return gui_node
 
 func update() -> void:

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://ch3ugfpbyqlan"]
 
 [ext_resource type="Script" uid="uid://bpm4a31sjdhmq" path="res://Assets/GUIPrefabs/JournalPrefabs/TaskPrefabs/task_container.gd" id="1_xlevt"]
-[ext_resource type="Texture2D" uid="uid://bmqr2h6x1qax5" path="res://Assets/JournalTextures/TaskRectangle.png" id="2_m6k3e"]
-[ext_resource type="Texture2D" uid="uid://cox4vfkpp47vq" path="res://Assets/JournalTextures/task_arrow.png" id="3_1ru7f"]
+[ext_resource type="Texture2D" uid="uid://b0t2783ypwlak" path="res://Assets/JournalTextures/ActiveTaskBacker.png" id="2_xlevt"]
+[ext_resource type="FontFile" uid="uid://dfd4r55gnpp15" path="res://Assets/Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="3_xlevt"]
 
-[node name="TaskContainer" type="MarginContainer" node_paths=PackedStringArray("title_label")]
+[node name="TaskContainer" type="MarginContainer" node_paths=PackedStringArray("title_label", "highlight")]
 custom_minimum_size = Vector2(0, 120)
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,26 +15,23 @@ size_flags_horizontal = 3
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_xlevt")
 title_label = NodePath("MarginContainer/Title")
+highlight = NodePath("Bg/Highlight")
 
 [node name="Bg" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_m6k3e")
+texture = ExtResource("2_xlevt")
 expand_mode = 1
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 2
-
-[node name="Arrow" type="TextureRect" parent="Control"]
+[node name="Highlight" type="ColorRect" parent="Bg"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.9
-anchor_top = 0.35
-anchor_right = 0.97
-anchor_bottom = 0.6
+anchor_top = 0.03
+anchor_right = 1.0
+anchor_bottom = 0.958
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_1ru7f")
-expand_mode = 1
+color = Color(1, 1, 1, 0.266667)
 
 [node name="MarginContainer" type="Control" parent="."]
 layout_mode = 2
@@ -47,14 +44,9 @@ anchor_right = 0.88
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_xlevt")
 theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "[color=black]Panic! At the Photography club"
+text = "Panic! At the Photography club"
 scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
-
-[node name="Highlight" type="ColorRect" parent="."]
-visible = false
-layout_mode = 2
-color = Color(1, 1, 1, 0.415686)

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{ee4d8a5b-b92c-4379-9446-bf59bdba0d40}">
 		<property name="assetPath">
-			<value>101_SFX_ENV_RumbleAmbience.ogg</value>
+			<value>000_SFX/100_Environment/101_SFX_ENV_RumbleAmbience.ogg</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

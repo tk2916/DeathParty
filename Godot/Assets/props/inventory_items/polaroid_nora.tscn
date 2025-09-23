@@ -7,6 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdtp8"]
 render_priority = 0
 shader = ExtResource("2_7dgbl")
+shader_parameter/ignore_lighting = true
 shader_parameter/albedo_texture = ExtResource("2_6ve5j")
 shader_parameter/multiplier = 0.8
 

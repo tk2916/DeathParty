@@ -8,18 +8,9 @@ class_name ObjectViewer extends Control
 @export var test_path : String
 var pressed : bool = false
 
-#Moves the item and camara offscreen by pushing it by a large offset
-#@export var hide_offset : int = -1000
-
 @onready var sub_viewport : SubViewport = $SubViewportContainer/SubViewport
 @onready var model_holder : Node3D =  $"SubViewportContainer/SubViewport/Model Holder"
 @onready var camera_3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
-
-# NOTE: the lines in this script that reference 'light' are commented out
-# to avoid crashes (since the directional light in the object viewer
-# was moved to the main scene)
-
-#@onready var light : DirectionalLight3D = $SubViewportContainer/SubViewport/Light
 
 #Custom background
 @onready var color_rect : ColorRect = $ColorRect
@@ -29,6 +20,8 @@ var pressed : bool = false
 @onready var exit_button_parent : Control = $ObjectViewerExit
 @onready var exit_button : Button = $ObjectViewerExit/Button
 
+@onready var journal_item_info : JournalItemInfo = $JournalItemInfo
+
 var light_up_shader : ShaderMaterial = preload("res://Assets/Shaders/LightUpShader.tres")
 
 var currently_open : bool = false
@@ -37,22 +30,24 @@ signal enabled
 
 #Places the item into the viewport and defines the "item" variable
 func set_item(item_path : String) -> void:
-	var scene : Node = load(item_path).instantiate()
+	var packed_scene : PackedScene = load(item_path)
+	var scene : Node3D = packed_scene.instantiate()
 	if scene == null:
 		print("Scene Path not working")
 		return
 	set_item_properties(scene)
 
 func set_preexisting_item(instance : Node3D) -> void:
-	var scene : Node3D = set_item_properties(instance)
+	set_item_properties(instance)
 	
 func apply_shader_to_meshes_recursive(current_node : Node) -> void:
 	if current_node is MeshInstance3D:
-		var current_material : Material = current_node.material_overlay
+		var current_mesh : MeshInstance3D = current_node
+		var current_material : Material = current_mesh.material_overlay
 		if current_material == null:
-			current_material = current_node.surface_get_material(0)
+			current_material = current_mesh.surface_get_material(0)
 		if current_material == null:
-			current_material = current_node.surface_get_material(1)
+			current_material = current_mesh.surface_get_material(1)
 		if current_material == null:
 			current_material = StandardMaterial3D.new()
 		self.material_override = light_up_shader
@@ -67,44 +62,34 @@ func set_item_properties(scene : Node3D) -> Node3D:
 	Interact.set_active_subviewport(sub_viewport)
 	remove_current_item()
 	
-	#apply shader that lights up the mesh
-	#apply_shader_to_meshes_recursive(self)
-	
-	#scene.transform.origin.y = scene.transform.origin.y + hide_offset
-	#scene.transform.origin.z = scene.transform.origin.z + hide_offset
 	model_holder.add_child(scene)
 
 	active_item = scene
-	#light.visible = true
 	parent.visible = true
 	enabled.emit(true, camera_3d)
 	return scene
 	
-func remove_current_item(queue_free : bool = true) -> void:
+func remove_current_item(remove_entirely : bool = true) -> void:
 	parent.visible = false
 	Interact.clear_active_subviewport()
-	#light.visible = false
 	#Remove ALL items in the model holder
 	enabled.emit(false, camera_3d)
 	
-	var children = model_holder.get_children()
+	var children : Array = model_holder.get_children()
 	if children.size() > 0:
 		currently_open = true
 	else:
 		currently_open = false
-	for child in children:
+	for child : Node in children:
 		model_holder.remove_child(child)
-		if queue_free and !(child is Journal):
+		if remove_entirely and !(child is Journal):
 			child.queue_free()
-		#else:
-			#REMOVE OFFSET
-			#child.transform.origin.y = child.transform.origin.y - hide_offset
-			#child.transform.origin.z = child.transform.origin.z - hide_offset
 		
 	active_item = null
 	
-func close_item_info():
+func close_item_info() -> void:
 	item_info.visible = false
+	journal_item_info.visible = false
 	exit_button_parent.visible = true
 
 #TODO
@@ -120,30 +105,28 @@ func _ready() -> void:
 		remove_current_item()
 		)
 
-func zoom(factor : float):
+func zoom(factor : float) -> void:
 	active_item.scale = active_item.scale*factor
 
-func zoom_absolute(factor : float):
+func zoom_absolute(factor : float) -> void:
 	active_item.scale = Vector3.ONE*factor
 
 #Scroll in and out of item
-func _input(event) -> void:
+func _input(event : InputEvent) -> void:
 	if active_item == null: return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed and Interact.grabbed_scroll_container == null:
 			zoom(1.15)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed and Interact.grabbed_scroll_container == null:
 			zoom(0.87)
-		#elif event.button_index == MOUSE_BUTTON_LEFT and Interact.grabbed_object == null:
-		#	GuiSystem.show_journal()
-	
+
 #Resets the position of the item
 func reset_item_position() -> void:
 	if active_item:
 		active_item.rotation.x = 0
 		active_item.rotation.y = 0
 	
-func clear_custom_background():
+func clear_custom_background() -> void:
 	for child in custom_background_container.get_children():
 		custom_background_container.remove_child(child)
 		child.queue_free()
@@ -153,7 +136,12 @@ func set_background(scene : PackedScene = null) -> void:
 	if scene:
 		custom_background_container.add_child(scene.instantiate())
 		
-func view_item_info(title : String, description : String):
-	item_info.set_text(description)
+func view_item_info(item_resource : InventoryItemResource) -> void:
+	item_info.set_text(item_resource.description)
 	exit_button_parent.visible = false
 	item_info.visible = true
+
+func view_journal_item_info(journal_item_resource : JournalItemResource) -> void:
+	journal_item_info.set_info(journal_item_resource)
+	exit_button_parent.visible = false
+	journal_item_info.visible = true

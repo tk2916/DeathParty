@@ -1,19 +1,19 @@
 class_name TaskContainer extends ThreeDGUI
 
 @export var title_label : RichTextLabel
-@export var button : Button
+@export var highlight : Control
 
 var task_displayer : TaskDisplayer
 var task_resource : TaskResource
 
 ##INHERITED
 func on_mouse_down() -> void:
-	task_displayer.set_right_page(task_resource.name, task_resource.description, task_resource.time_updated)
+	task_displayer.set_right_page(task_resource.name, task_resource.description)
 	
 func enter_hover() -> void:
 	super()
-	$Highlight.visible = true
+	highlight.visible = true
 	
 func exit_hover() -> void:
 	super()
-	$Highlight.visible = false
+	highlight.visible = false

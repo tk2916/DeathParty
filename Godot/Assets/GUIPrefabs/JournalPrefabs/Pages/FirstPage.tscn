@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://jsemqtn1uy4m"]
+
+[ext_resource type="Texture2D" uid="uid://d4btfe8aohfoi" path="res://Assets/JournalTextures/journal_bg.png" id="1_1nqiv"]
+[ext_resource type="Texture2D" uid="uid://c7fy1c5rmvgqe" path="res://Assets/JournalTextures/This journal belongs to 1.png" id="2_hgo2v"]
+[ext_resource type="Texture2D" uid="uid://bmmi6o0bt0x36" path="res://Assets/JournalTextures/rightarrow.png" id="2_iqim5"]
+[ext_resource type="Script" path="res://Assets/GUIPrefabs/JournalPrefabs/Pages/cursor_hover_threed.gd" id="3_vugr4"]
+
+[node name="FirstPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.03
+anchor_right = 1.0
+anchor_bottom = 1.1
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1nqiv")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hgo2v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Arrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.797
+anchor_top = 0.841
+anchor_right = 1.0
+anchor_bottom = 0.981
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_iqim5")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_vugr4")

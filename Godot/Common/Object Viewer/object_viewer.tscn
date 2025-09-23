@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://yory4i5rrii2"]
+[gd_scene load_steps=9 format=3 uid="uid://yory4i5rrii2"]
 
 [ext_resource type="Script" uid="uid://c5se664fk8jqq" path="res://Common/Object Viewer/object_viewer.gd" id="1_o3r5r"]
 [ext_resource type="Script" uid="uid://tr6w0ikk1pea" path="res://Common/Object Viewer/item_info_gui.gd" id="2_o7dqn"]
 [ext_resource type="Script" uid="uid://bfr8xxiuuihhi" path="res://Assets/GUIDesignScripts/resize_to_text.gd" id="3_o7dqn"]
+[ext_resource type="Script" uid="uid://b3v8ab5ipsaa" path="res://Common/Object Viewer/journal_item_info.gd" id="4_1fteh"]
+[ext_resource type="FontFile" uid="uid://bbnxos5pn23n1" path="res://Assets/Fonts/Patrick_Hand_SC/PatrickHandSC-Regular.ttf" id="4_km8sy"]
 
 [sub_resource type="Shader" id="Shader_o7dqn"]
 code = "shader_type canvas_item;
@@ -98,7 +100,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1000, 0)
 [node name="Camera3D" type="Camera3D" parent="ObjectViewer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -999.885, 2.126)
 
-[node name="ItemInfo" type="Control" parent="ObjectViewer" node_paths=PackedStringArray("object_viewer")]
+[node name="ItemInfo" type="Control" parent="ObjectViewer" node_paths=PackedStringArray("button", "object_viewer")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,6 +109,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_o7dqn")
+button = NodePath("ItemInfoExit/Button")
 object_viewer = NodePath("..")
 
 [node name="ItemInfoExit" type="ColorRect" parent="ObjectViewer/ItemInfo"]
@@ -156,6 +160,67 @@ theme_override_font_sizes/normal_font_size = 20
 text = "Blah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah BlahBlah Blah Blah"
 fit_content = true
 scroll_active = false
+
+[node name="JournalItemInfo" type="Control" parent="ObjectViewer" node_paths=PackedStringArray("text_label", "img", "button", "object_viewer")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_1fteh")
+text_label = NodePath("Text")
+img = NodePath("Image")
+button = NodePath("Button")
+object_viewer = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="ObjectViewer/JournalItemInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.223103, 0.223103, 0.223103, 0.717647)
+
+[node name="Text" type="RichTextLabel" parent="ObjectViewer/JournalItemInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.137
+anchor_right = 1.0
+anchor_bottom = 0.228
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_km8sy")
+theme_override_font_sizes/normal_font_size = 40
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Image" type="TextureRect" parent="ObjectViewer/JournalItemInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.209
+anchor_right = 1.0
+anchor_bottom = 0.705
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="ObjectViewer/JournalItemInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o7dqn")
+flat = true
 
 [node name="ObjectViewerExit" type="ColorRect" parent="ObjectViewer"]
 layout_mode = 1

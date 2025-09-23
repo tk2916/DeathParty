@@ -21,6 +21,7 @@ extends Node
 
 @export_group("environment sounds")
 @export var door: PackedScene
+@export var metal_door: PackedScene
 
 @onready var dialogue_print: FmodEventEmitter3D = %DialoguePrint
 @onready var phone_typing: FmodEventEmitter3D = %PhoneTyping
@@ -38,6 +39,10 @@ func play_journal_close() -> void:
 
 func play_door() -> void:
 	play(door)
+
+
+func play_metal_door() -> void:
+	play(metal_door)
 
 
 func play_dialogue_print() -> void:
