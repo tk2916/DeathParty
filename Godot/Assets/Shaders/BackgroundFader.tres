@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dtdypkr6clrja"]
+
+[ext_resource type="Shader" uid="uid://w4dg3vhd3wt6" path="res://Assets/Shaders/fade_background.gdshader" id="1_tgalw"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_tgalw")
+shader_parameter/tint_strength = 0.42400002014
+shader_parameter/tint_color = Color(0, 0, 0, 1)
+shader_parameter/exclusion_center = Vector2(500, 300)
+shader_parameter/exclusion_size = Vector2(100, 140)
+shader_parameter/exclusion_rotation = 8.0
+shader_parameter/screen_size = Vector2(1920, 1080)

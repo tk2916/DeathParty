@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://gdi2x1kqfcqq"]
+[gd_scene load_steps=9 format=3 uid="uid://gdi2x1kqfcqq"]
 
 [ext_resource type="Texture2D" uid="uid://d4btfe8aohfoi" path="res://Assets/JournalTextures/journal_bg.png" id="1_y3vup"]
-[ext_resource type="Texture2D" uid="uid://brm0u0exbpbh8" path="res://Assets/JournalTextures/Frame.png" id="2_resmi"]
-[ext_resource type="Texture2D" uid="uid://oc83yfhcm2cs" path="res://Assets/JournalTextures/TASKS.png" id="3_jto3t"]
-[ext_resource type="Texture2D" uid="uid://bin0rpri4iojr" path="res://Assets/JournalTextures/Underline.png" id="4_7jmn4"]
+[ext_resource type="Texture2D" uid="uid://6xjaxqclr2l0" path="res://Assets/JournalTextures/To-Do.png" id="3_7jmn4"]
+[ext_resource type="Texture2D" uid="uid://cavfm1quih2l6" path="res://Assets/JournalTextures/To-Do-Desc_backer.png" id="4_nsc2u"]
+[ext_resource type="Texture2D" uid="uid://b5e1vw3cjfqeh" path="res://Assets/JournalTextures/CompletedTasks.png" id="4_resmi"]
+[ext_resource type="FontFile" uid="uid://csg2vlq4u84fp" path="res://Assets/Fonts/Permanent_Marker/PermanentMarker-Regular.ttf" id="5_gxxjj"]
+[ext_resource type="Texture2D" uid="uid://urdip1kmoh14" path="res://Assets/JournalTextures/ActiveTasks.png" id="5_jto3t"]
 [ext_resource type="Script" uid="uid://br2ob5t1hy2ya" path="res://task_display_script.gd" id="5_nsc2u"]
-[ext_resource type="Texture2D" uid="uid://1dlgpxcvx7jl" path="res://Assets/JournalTextures/task_title_backer.png" id="8_7jmn4"]
-[ext_resource type="Texture2D" uid="uid://5g1f30ift0xa" path="res://Assets/JournalTextures/description_backer.png" id="9_nsc2u"]
+[ext_resource type="FontFile" uid="uid://dfd4r55gnpp15" path="res://Assets/Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="6_gvgsi"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("all_tasks_vbox", "rightpage_title", "rightpage_description", "rightpage_time")]
+[node name="Control" type="Control" node_paths=PackedStringArray("all_tasks_vbox", "rightpage_title", "rightpage_description", "completed_tasks_title")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,17 +18,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_nsc2u")
 all_tasks_vbox = NodePath("LeftPage/ScrollContainer/AllTasks")
-rightpage_title = NodePath("RightPage/TitleBacker/Title")
-rightpage_description = NodePath("RightPage/DescriptionBacker/TextHolder/Description")
-rightpage_time = NodePath("RightPage/DescriptionBacker/TextHolder/Time")
+rightpage_title = NodePath("RightPage/DescBacker/Title")
+rightpage_description = NodePath("RightPage/DescBacker/TextHolder/Description")
+completed_tasks_title = NodePath("LeftPage/ScrollContainer/AllTasks/CompletedTasks")
 
 [node name="Bg" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.04
-anchor_top = -0.07
-anchor_right = 1.04
-anchor_bottom = 1.13
+anchor_top = -0.03
+anchor_right = 1.0
+anchor_bottom = 1.1
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_y3vup")
@@ -42,47 +42,27 @@ anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Outline" type="TextureRect" parent="LeftPage"]
+[node name="TitleHolder" type="Control" parent="LeftPage"]
+layout_mode = 1
+anchor_left = 0.15
+anchor_top = 0.05
+anchor_right = 0.85
+anchor_bottom = 0.155
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TodoTitle" type="TextureRect" parent="LeftPage/TitleHolder"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -209.18
+offset_bottom = 209.18
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_resmi")
-expand_mode = 1
-
-[node name="TitleHolder" type="Control" parent="LeftPage"]
-layout_mode = 1
-anchor_top = 0.05
-anchor_right = 1.0
-anchor_bottom = 0.2
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="TextureRect" parent="LeftPage/TitleHolder"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3
-anchor_right = 0.7
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_jto3t")
-expand_mode = 1
+texture = ExtResource("3_7jmn4")
+expand_mode = 5
 stretch_mode = 5
-
-[node name="Divider" type="TextureRect" parent="LeftPage"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.08
-anchor_top = 0.185
-anchor_right = 0.93
-anchor_bottom = 0.19
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_7jmn4")
-expand_mode = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="LeftPage"]
 layout_mode = 1
@@ -99,6 +79,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="ActiveTasks" type="TextureRect" parent="LeftPage/ScrollContainer/AllTasks"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("5_jto3t")
+expand_mode = 1
+
+[node name="CompletedTasks" type="TextureRect" parent="LeftPage/ScrollContainer/AllTasks"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("4_resmi")
+expand_mode = 1
+
 [node name="RightPage" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.5
@@ -107,78 +99,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleBacker" type="TextureRect" parent="RightPage"]
+[node name="DescBacker" type="TextureRect" parent="RightPage"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.07
-anchor_top = 0.1
-anchor_right = 0.85
-anchor_bottom = 0.2
+anchor_left = 0.076
+anchor_right = 0.857
+anchor_bottom = 0.758
+offset_bottom = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_7jmn4")
+texture = ExtResource("4_nsc2u")
 expand_mode = 1
 
-[node name="Title" type="RichTextLabel" parent="RightPage/TitleBacker"]
+[node name="Title" type="RichTextLabel" parent="RightPage/DescBacker"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.03
-anchor_right = 0.97
+anchor_left = 0.06
+anchor_top = 0.189
+anchor_right = 0.962
+anchor_bottom = 0.31
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_gxxjj")
+theme_override_font_sizes/normal_font_size = 60
+text = "Panic! At the Photography Club"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextHolder" type="Control" parent="RightPage/DescBacker"]
+layout_mode = 1
+anchor_left = 0.06
+anchor_top = 0.33
+anchor_right = 0.928
+anchor_bottom = 0.947
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Description" type="RichTextLabel" parent="RightPage/DescBacker/TextHolder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "[color=black]Panic! At the Photography Club"
-scroll_active = false
-autowrap_mode = 0
-vertical_alignment = 1
-
-[node name="DescriptionBacker" type="TextureRect" parent="RightPage"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.07
-anchor_top = 0.25
-anchor_right = 0.85
-anchor_bottom = 0.7
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_nsc2u")
-expand_mode = 1
-
-[node name="TextHolder" type="Control" parent="RightPage/DescriptionBacker"]
-layout_mode = 1
-anchor_left = 0.03
-anchor_top = 0.05
-anchor_right = 0.97
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Time" type="RichTextLabel" parent="RightPage/DescriptionBacker/TextHolder"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.1
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[color=black]3:15 AM"
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 2
-
-[node name="Description" type="RichTextLabel" parent="RightPage/DescriptionBacker/TextHolder"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.12
-anchor_right = 1.0
-anchor_bottom = 0.7
-offset_bottom = 1.52588e-05
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "[color=black]Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah "
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_gvgsi")
+theme_override_font_sizes/normal_font_size = 45
+text = "Panic! At the Photography Club"
 scroll_active = false

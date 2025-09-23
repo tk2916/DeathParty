@@ -3,15 +3,16 @@ extends Node3D
 var mouse : Vector2
 const DIST : float = 1000.0
 
+var params : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
 var result_position : Vector3 = Vector3(-1,-1,-1)
 var grabbed_object : Node3D = null
 
 var grabbed_control : ThreeDGUI = null
 var og_grabbed_control : ThreeDGUI = null
 var grabbed_scroll_container : ScrollContainer = null
-const SCROLL_AMOUNT : int = 10
+const SCROLL_AMOUNT : int = 40
 
-var dragged_object : Node3D = null
+var dragged_object : ObjectViewerInteractable = null
 var outline_mesh : MeshInstance3D = null
 
 @onready var main_camera3d : Camera3D
@@ -29,6 +30,10 @@ func _ready() -> void:
 	og_viewport = get_viewport()
 	main_camera3d = og_viewport.get_camera_3d()
 	camera3d = main_camera3d
+
+	params.collide_with_areas = true
+	params.collision_mask = 9
+
 	var main : Node = get_tree().root.get_node_or_null("Main")
 	if main:
 		object_viewer = main.get_node("ObjectViewerCanvasLayer/ObjectViewer")
@@ -43,8 +48,9 @@ func switch_camera(enabled : bool, new_cam : Camera3D = null) -> void:
 func _input(event: InputEvent) -> void:
 	if !DialogueSystem.in_dialogue:
 		if event is InputEventMouseMotion:
-			mouse = event.position
-			mouse_position_changed.emit(event.relative)
+			var motion_event : InputEventMouseMotion = event
+			mouse = motion_event.position
+			mouse_position_changed.emit(motion_event.relative)
 			get_mouse_world_pos()
 			if cur_sub_viewport and main_page_static and result_position != Vector3(-1,-1,-1):
 				cur_sub_viewport.push_input(event)
@@ -53,23 +59,25 @@ func _input(event: InputEvent) -> void:
 				pass_input_to_collided_ui()
 		
 		elif event is InputEventMouseButton:
+			var button_event : InputEventMouseButton = event
 			#print("Input, scroll container: ", grabbed_scroll_container)
-			if event.button_index == MOUSE_BUTTON_WHEEL_UP:# and event.pressed:
+			if button_event.button_index == MOUSE_BUTTON_WHEEL_UP:# and event.pressed:
 				if grabbed_scroll_container:
 					grabbed_scroll_container.scroll_vertical = grabbed_scroll_container.scroll_vertical-SCROLL_AMOUNT
-			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:# and event.pressed:
+			elif button_event.button_index == MOUSE_BUTTON_WHEEL_DOWN:# and event.pressed:
 				if grabbed_scroll_container:
 					grabbed_scroll_container.scroll_vertical = grabbed_scroll_container.scroll_vertical+SCROLL_AMOUNT
-			elif event.button_index == MOUSE_BUTTON_LEFT:
-				if grabbed_control and event.pressed == true:
+			elif button_event.button_index == MOUSE_BUTTON_LEFT:
+				if grabbed_control and button_event.pressed == true:
 					grabbed_control.on_mouse_down()
-				if event.pressed == false: 
+				if button_event.pressed == false: 
 					#will fire even if mouse is outside of object
 					if dragged_object == null: return
 					dragged_object.on_mouse_up()
 					dragged_object = null
 				if grabbed_object and grabbed_object is ObjectViewerInteractable:
-					if event.pressed == true:
+					print("Clicked on ObjectViewerInteractable")
+					if button_event.pressed == true:
 						grabbed_object.on_mouse_down()
 						dragged_object = grabbed_object
 
@@ -105,11 +113,9 @@ func get_mouse_world_pos() -> void:
 	var start : Vector3 = camera3d.project_ray_origin(mouse)
 	#create_debug_dot(mouse)
 	var end : Vector3 = mouse_in_world_projection()
-	var params : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
+
 	params.from = start
 	params.to = end
-	
-	params.collision_mask = 9
 	
 	var result : Dictionary = space.intersect_ray(params)
 	if result.is_empty() == false:

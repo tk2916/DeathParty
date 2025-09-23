@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bffdpcyyowj58" path="res://Assets/GUIDesignScripts/scroll_container.gd" id="4_0e8cm"]
 [ext_resource type="FontFile" uid="uid://d38ksrs1tr8ej" path="res://Assets/Fonts/Inknut_Antiqua/InknutAntiqua-ExtraBold.ttf" id="4_f4b68"]
 
-[node name="DialogueBox3" type="Control" node_paths=PackedStringArray("dialogue_container", "choice_container", "image_container", "name_container")]
+[node name="DialogueBox3" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,10 +15,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_gvu50")
-dialogue_container = NodePath("TextureRect/ScrollContainer/DialogueContainer")
-choice_container = NodePath("ChoicesContainer")
-image_container = NodePath("Image")
-name_container = NodePath("ColorRect/Name")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

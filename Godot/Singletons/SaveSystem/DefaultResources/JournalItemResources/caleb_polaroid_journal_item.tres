@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="JournalItemResource" load_steps=3 format=3 uid="uid://bnrq17odi717k"]
+
+[ext_resource type="Script" uid="uid://brybuwk7l2aw7" path="res://Singletons/SaveSystem/ResourceScripts/journal_item_resource_script.gd" id="1_du3d4"]
+[ext_resource type="Texture2D" uid="uid://buxqmi3ppd6wf" path="res://Assets/CharacterAssets/Polaroids/caleb_a.png" id="2_qhb4n"]
+
+[resource]
+script = ExtResource("1_du3d4")
+texture = ExtResource("2_qhb4n")
+description = "A photo of Caleb"
+name = "CalebPolaroid"

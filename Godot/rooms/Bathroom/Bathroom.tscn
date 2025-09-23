@@ -941,6 +941,7 @@ transform = Transform3D(-0.912391, -5.06639e-07, 0.40932, -0.409321, -2.38448e-0
 
 [node name="Untitled_Artwork_005" parent="Graffitti" index="11"]
 transform = Transform3D(0.255065, -4.17233e-07, -0.966924, 0.966924, 5.96046e-08, 0.255065, -2.98023e-08, -1, 4.17233e-07, 3.9946, -0.209605, 0.188187)
+sorting_offset = 1.0
 
 [node name="graf2_003" parent="Graffitti" index="12"]
 transform = Transform3D(-0.289472, -1.74007e-07, 0.391071, -0.391071, -2.32009e-07, -0.289472, 2.90006e-07, -0.486549, -1.82677e-09, 7.58118, -1.04113, -1.09924)

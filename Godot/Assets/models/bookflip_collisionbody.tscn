@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
 [ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="3_ngl8b"]
 [ext_resource type="Texture2D" uid="uid://b10xkyr1i6p24" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
+[ext_resource type="Material" uid="uid://dlhvvfgrqs5ib" path="res://Assets/Shaders/LightUpShader.tres" id="6_0upgx"]
 [ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
@@ -49,36 +50,34 @@ viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewp
 [sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_47kpb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwflh"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_ngl8b")
+shader_parameter/ignore_lighting = true
 shader_parameter/multiplier = 0.6
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_xwflh"]
-viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0upgx"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_xwflh")
 albedo_texture_force_srgb = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8c4l8"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_ngl8b")
-shader_parameter/multiplier = 0.6
+shader_parameter/ignore_lighting = true
+shader_parameter/multiplier = 2.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qun6a"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qun6a"]
+viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7rhw"]
 resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_qun6a")
 albedo_texture_force_srgb = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rss8h"]
 size = Vector3(8.8883, 0.300507, 3.58045)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwflh"]
-transparency = 1
-albedo_texture = ExtResource("4_e2q15")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ngl8b"]
 
@@ -93,58 +92,6 @@ size = Vector3(7.30997, 0.285156, 2.29163)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_47kpb")
 bookflip = NodePath("bookflip")
-
-[node name="book_static" type="Node3D" parent="."]
-transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0.179772, -0.0935153)
-visible = false
-
-[node name="StaticPage1" type="MeshInstance3D" parent="book_static"]
-mesh = SubResource("ArrayMesh_vpnap")
-skeleton = NodePath("")
-
-[node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
-transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -0.00238484, 0.0737534, -0.0990923)
-viewport_texture1 = SubResource("ViewportTexture_0upgx")
-viewport_texture2 = SubResource("ViewportTexture_e2q15")
-
-[node name="Cube_004" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="0"]
-material_override = SubResource("ShaderMaterial_47kpb")
-material_overlay = SubResource("StandardMaterial3D_0upgx")
-
-[node name="SubViewport" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D/Cube_004" index="0"]
-size = Vector2i(512, 512)
-
-[node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770157, -0.00923359, -0.157279)
-
-[node name="Cube_005" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="0"]
-material_override = SubResource("ShaderMaterial_8c4l8")
-material_overlay = SubResource("StandardMaterial3D_qun6a")
-
-[node name="SubViewport" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2/Cube_005" index="0"]
-size = Vector2i(512, 512)
-
-[node name="CollisionShape3D" parent="bookflip/Armature/Skeleton3D/AnimatableBody3D2" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.791528, -0.00345172, -0.159947)
-
-[node name="ShowInventoryArea" type="StaticBody3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267168, -1.16783e-08)
-collision_layer = 9
-script = ExtResource("1_jth6w")
-static_page_1 = NodePath("../book_static/StaticPage1")
-inventory_items_container = NodePath("../InventoryItems")
-journal_root = NodePath("..")
-
-[node name="ShowInventoryCollider" type="CollisionShape3D" parent="ShowInventoryArea"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.0318329, -0.302822, 1.86828)
-shape = SubResource("BoxShape3D_rss8h")
-debug_color = Color(0.784314, 0, 0.0745098, 1)
-
-[node name="InventoryItems" type="Node3D" parent="." node_paths=PackedStringArray("static_page_1", "bookflip_instance")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.00238484, 0.575661, 1.71238)
-script = ExtResource("3_7ovfm")
-static_page_1 = NodePath("../book_static/StaticPage1")
-bookflip_instance = NodePath("../bookflip")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -186,13 +133,54 @@ unique_name_in_owner = true
 wait_time = 25.0
 one_shot = true
 
+[node name="book_static" type="Node3D" parent="."]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0.179772, -0.0935153)
+visible = false
+
+[node name="StaticPage1" type="MeshInstance3D" parent="book_static"]
+mesh = SubResource("ArrayMesh_vpnap")
+skeleton = NodePath("")
+
+[node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
+transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -0.00238484, 0.0737534, -0.0990923)
+viewport_texture1 = SubResource("ViewportTexture_0upgx")
+viewport_texture2 = SubResource("ViewportTexture_e2q15")
+
+[node name="Cube_005" parent="bookflip/Armature/Skeleton3D" index="0"]
+material_override = SubResource("ShaderMaterial_xwflh")
+material_overlay = SubResource("StandardMaterial3D_0upgx")
+
+[node name="Cube_004" parent="bookflip/Armature/Skeleton3D" index="1"]
+material_override = SubResource("ShaderMaterial_8c4l8")
+material_overlay = SubResource("StandardMaterial3D_e7rhw")
+
+[node name="ShowInventoryArea" type="Area3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267168, -1.16783e-08)
+collision_layer = 9
+script = ExtResource("1_jth6w")
+static_page_1 = NodePath("../book_static/StaticPage1")
+inventory_items_container = NodePath("../InventoryItems")
+journal_root = NodePath("..")
+
+[node name="ShowInventoryCollider" type="CollisionShape3D" parent="ShowInventoryArea"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.0318329, -0.302822, 1.86828)
+shape = SubResource("BoxShape3D_rss8h")
+debug_color = Color(0.784314, 0, 0.0745098, 1)
+
+[node name="InventoryItems" type="Node3D" parent="." node_paths=PackedStringArray("static_page_1", "bookflip_instance")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.00238484, 0.575661, 1.71238)
+script = ExtResource("3_7ovfm")
+static_page_1 = NodePath("../book_static/StaticPage1")
+bookflip_instance = NodePath("../bookflip")
+
 [node name="BackpackBackground" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.65118, 0, 0, 0, 3, 0, 0, 0, 2.83896, 0, 0.0441817, 0.789593)
-material_overlay = SubResource("StandardMaterial3D_xwflh")
+material_overlay = ExtResource("6_0upgx")
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_ngl8b")
 surface_material_override/0 = SubResource("StandardMaterial3D_47kpb")
 
-[node name="HideInventoryArea" type="StaticBody3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
+[node name="HideInventoryArea" type="Area3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172886, -1.57865)
 collision_layer = 9
 script = ExtResource("7_xwflh")
@@ -205,7 +193,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0427938, -0.383002, 0.34078
 shape = SubResource("BoxShape3D_47kpb")
 debug_color = Color(0.0663742, 0.326824, 0.926759, 0.42)
 
-[connection signal="tree_entered" from="ShowInventoryArea" to="ShowInventoryArea" method="_on_tree_entered"]
 [connection signal="timeout" from="Sounds/JournalMusic/MusicTimer" to="." method="_on_music_timer_timeout"]
+[connection signal="tree_entered" from="ShowInventoryArea" to="ShowInventoryArea" method="_on_tree_entered"]
 
 [editable path="bookflip"]

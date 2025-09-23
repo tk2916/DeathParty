@@ -68,14 +68,14 @@
 [ext_resource type="PackedScene" uid="uid://5ssjaesop020" path="res://Assets/CharacterAssets/free_hug_guy/free_hug_guy.tscn" id="61_5eouh"]
 [ext_resource type="PackedScene" uid="uid://h0tswjr1iy5v" path="res://Assets/environment/caution_tape.tscn" id="77_2nnqp"]
 [ext_resource type="Texture2D" uid="uid://cescg2luxp8a1" path="res://rooms/Basement/bean bag_Screenshot_2025-07-07_193553.png" id="77_jle5p"]
-[ext_resource type="VideoStream" uid="uid://durjhoccw8ld2" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
+[ext_resource type="VideoStream" path="res://rooms/Basement/Mario Kart (1).ogv" id="78_kk7s6"]
 [ext_resource type="PackedScene" uid="uid://ba200ffpgk2tg" path="res://Assets/CharacterAssets/gamers/dino_gamer/dino_gamer.tscn" id="79_g8hj1"]
 [ext_resource type="PackedScene" uid="uid://cno0dyov1i6bm" path="res://Assets/CharacterAssets/witch/witch.tscn" id="81_i5ndi"]
 [ext_resource type="PackedScene" uid="uid://b36wsq6enc3vs" path="res://Assets/CharacterAssets/chi_omega_girl/chi_omega_girl.tscn" id="82_48c5o"]
 [ext_resource type="PackedScene" uid="uid://s3crydfiatmy" path="res://Assets/CharacterAssets/cone_ghost/cone_ghost.tscn" id="83_ij3m0"]
 [ext_resource type="PackedScene" uid="uid://bagpax3yb0uf7" path="res://Assets/CharacterAssets/christmas_tree/christmas_tree.tscn" id="84_reyxf"]
 [ext_resource type="PackedScene" uid="uid://cfen8ypgv1gjf" path="res://Assets/CharacterAssets/gamers/shark_gamer/shark_gamer.tscn" id="85_vdfwq"]
-[ext_resource type="PackedScene" uid="uid://cd3gxo5pookxd" path="res://Assets/CharacterAssets/frat_boys/red_hat_frat_boy/frat_boy_red_hat.tscn" id="88_2nnqp"]
+[ext_resource type="PackedScene" uid="uid://bhn4nq3dwy343" path="res://Assets/CharacterAssets/frat_boys/red_hat_frat_boy/frat_boy_red_hat.tscn" id="88_2nnqp"]
 [ext_resource type="PackedScene" uid="uid://c8dmqdvlt6p8x" path="res://Assets/CharacterAssets/frat_boys/Long_Hair_frat_boy/frat_boy_long_hair.tscn" id="89_2nnqp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu4va"]
@@ -1490,6 +1490,7 @@ spawn_point_number = 1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.979, 0, -1.122)
 target_scene = 8
 play_door_sound = true
+door_sound_type = 1
 
 [node name="Popup" parent="SceneLoader_Storageroom" index="1"]
 transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, 0, 1.75, 0.5)

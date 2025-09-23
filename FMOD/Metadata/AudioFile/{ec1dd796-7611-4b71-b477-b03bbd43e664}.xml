@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{ec1dd796-7611-4b71-b477-b03bbd43e664}">
 		<property name="assetPath">
-			<value>outdoor ambience/city/ambience_city_traffic_train_1.ogg</value>
+			<value>000_SFX/100_Environment/outdoor ambience/city/ambience_city_traffic_train_1.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

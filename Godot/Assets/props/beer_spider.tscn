@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://wr4qtylnyyxg"]
+[gd_scene load_steps=18 format=4 uid="uid://wr4qtylnyyxg"]
 
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="1_atbji"]
 [ext_resource type="Texture2D" uid="uid://4w3syl2tw7mg" path="res://rooms/Exterior Frat Lawn/beer spider_stylized-animal-fur_albedo.png" id="1_c7jaj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://2qeysgjpdmhc" path="res://rooms/Exterior Frat Lawn/beer spider_stylized-animal-fur_normal-ogl.png" id="3_atbji"]
 [ext_resource type="Texture2D" uid="uid://dlltdyek8gmyx" path="res://rooms/Exterior Frat Lawn/beer spider_Bottle5 Color.png" id="4_chqdi"]
 [ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="7_chqdi"]
+[ext_resource type="PackedScene" uid="uid://cqxjk5afxrhem" path="res://Common/Popup UI/object_interact_popup.tscn" id="8_uoedt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5y4x"]
 resource_name = "Material.032"
@@ -137,12 +138,12 @@ script = ExtResource("1_atbji")
 talking_object_resource = ExtResource("2_atbji")
 
 [node name="SpiderMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.313249, -0.0482559, -0.0704082, -0.0788823, 0.265976, 0.168658, 0.032612, 0.179831, -0.268344, 0.134319, -0.453188, 0.236879)
+transform = Transform3D(-0.217085, -0.0334419, -0.0487936, -0.0546663, 0.184324, 0.116881, 0.0226004, 0.124625, -0.185965, 0.134319, -0.453188, 0.236879)
 mesh = SubResource("ArrayMesh_v0poq")
 skeleton = NodePath("")
 
 [node name="BottleMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.76997, 0, 0.686739, 0, 1.67057, 0, -0.686739, 0, 1.76997, -0.134319, 0.453188, -0.236879)
+transform = Transform3D(1.02551, 0, 0.397894, 0, 0.968, 0, -0.397894, 0, 1.02551, -0.134319, 0.153188, -0.236879)
 mesh = SubResource("ArrayMesh_u0rck")
 skeleton = NodePath("")
 
@@ -155,5 +156,8 @@ shape = SubResource("CylinderShape3D_c7jaj")
 [node name="CollisionShape3D" parent="InteractionDetector" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0404658, 1.48203, 0.12247)
 shape = SubResource("BoxShape3D_uoedt")
+
+[node name="Popup" parent="." instance=ExtResource("8_uoedt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22236, 1.6349, 0)
 
 [editable path="InteractionDetector"]

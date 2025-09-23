@@ -30,7 +30,7 @@ General/banks_path="res://audio/fmod banks/Desktop"
 
 config/name="Death Party"
 run/main_scene="uid://beuct1pjdlayy"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -52,6 +52,7 @@ InventoryUtils="*res://Singletons/Utils/inventory_utils.gd"
 Sounds="*res://Singletons/sounds/sounds.tscn"
 Globals="*res://globals.gd"
 InkParser="*res://Singletons/InkInterpreter/ink_parser.gd"
+InteractablePriority="*res://Singletons/Interactable/interactable_priority.gd"
 MenuFocusGrabber="*res://Singletons/menu_focus_grabber.gd"
 
 [debug]

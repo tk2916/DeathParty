@@ -1,8 +1,9 @@
 # this script handles the pop-ups at the start of the game which tell the player
 # the controls etc.
 
-# it also handles locking movement during the title screen, then showing the door
-# and enabling the scene loader for exiting the room once the tutorial is over
+# it also handles locking movement during the title screen,
+# enabling the scene loader for exiting the room once the tutorial is over,
+# and some other triggers for tutorial stuff
 
 # NOTE: tutorial_ui is probably a bad name for it because of that other non-ui
 #		stuff it does sorry lol
@@ -17,6 +18,7 @@ extends CanvasLayer
 @export var on_journal_dialogue: JSON
 
 @export var exterior_scene_loader: SceneLoader
+@export var polaroid_camera: Interactable
 
 @onready var loading_timer: Timer = %LoadingTimer
 @onready var move_controls_popup: PanelContainer = %MoveControlsPopup
@@ -24,24 +26,20 @@ extends CanvasLayer
 @onready var phone_controls_popup: PanelContainer = %PhoneControlsPopup
 @onready var journal_controls_popup: PanelContainer = %JournalControlsPopup
 
-var player: Player
-
 enum States {
 	INTRO, WALK, WALK_COMPLETE, UNLOCK_PHONE, USING_PHONE,
-	OPEN_JOURNAL, USING_JOURNAL, TUTORIAL_FINISHED
+	OPEN_JOURNAL, USING_JOURNAL, PICK_UP_CAMERA, TUTORIAL_FINISHED
 	}
 
 var state: States:
 	set(new_state):
 		state = new_state
-		if player == null:
-			player = get_tree().get_first_node_in_group("player")
 		match new_state:
 			States.INTRO:
 				print("TUTORIAL STEP: INTRO")
 			States.WALK:
 				print("TUTORIAL STEP: WALK")
-				player.movement_disabled = false
+				Globals.player.movement_disabled = false
 				move_controls_popup.show()
 			States.WALK_COMPLETE:
 				print("TUTORIAL STEP: WALK COMPLETE")
@@ -62,6 +60,11 @@ var state: States:
 			States.USING_JOURNAL:
 				print("TUTORIAL STEP: USING JOURNAL")
 				DialogueSystem.begin_dialogue(on_journal_dialogue)
+				journal_controls_popup.hide()
+			States.PICK_UP_CAMERA:
+				print("TUTORIAL STEP: PICK UP CAMERA")
+				polaroid_camera.enabled = true
+				polaroid_camera.interaction_detector.player_interacted.connect(on_camera_interacted)
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
 				exterior_scene_loader.enabled = true
@@ -70,33 +73,21 @@ var state: States:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# NOTE: we wait for the content loader to give the finished_loading signal
-	#		before referencing the player because the inital loading involves
-	#		unloading this scene which will break the reference and cause errors
-	#		(i think)
-	#		the additional $LoadingTimer is here because of a quirk with the
-	#		timing of that finished_loading signal, which i think is emitted before
-	#		the whole tree is ready (or something lol) - very bad to just have
-	#		a timer in here probably because that will cause crashes on slow pcs
-	#		so:
-	# TODO: adjust the timing of this finished_loading signal in content_loader.gd
-	#		or make a new, safer signal to use instead
-	#		so we can remove this hardcoded timer :p
 	GuiSystem.set_gui_enabled(false)
-	exterior_scene_loader.enabled = false
-	await ContentLoader.finished_loading
-	loading_timer.start()
-	await loading_timer.timeout
-	player = get_tree().get_first_node_in_group("player")
-	player.movement_disabled = true
 	state = States.INTRO
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	match state:
+		States.INTRO:
+			# we're setting this in the physics process here because the player
+			# could be null if we set it during _ready or in the setter for the
+			# INTRO state (lmk if theres a better way lol)
+			if Globals.player:
+				Globals.player.movement_disabled = true
 		States.WALK:
-			if player.player_velocity != Vector3.ZERO:
+			if Globals.player.player_velocity != Vector3.ZERO:
 				increment_state()
 		States.UNLOCK_PHONE:
 			if GuiSystem.in_phone == true:
@@ -130,3 +121,8 @@ func _on_walk_complete_timer_timeout() -> void:
 
 func increment_state() -> void:
 	state = (state + 1) as States
+
+
+func on_camera_interacted() -> void:
+	if state == States.PICK_UP_CAMERA:
+		increment_state()

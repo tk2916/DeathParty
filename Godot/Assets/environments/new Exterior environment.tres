@@ -1,0 +1,23 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://ca3e8txjiikuc"]
+
+[ext_resource type="Texture2D" uid="uid://dwro2pp3u42b3" path="res://Assets/textures/Satara Night 4K.hdr" id="1_px2vo"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_81i5n"]
+panorama = ExtResource("1_px2vo")
+energy_multiplier = 6.0
+
+[sub_resource type="Sky" id="Sky_pkvil"]
+sky_material = SubResource("PanoramaSkyMaterial_81i5n")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_pkvil")
+sky_rotation = Vector3(-0.509636, 0, 0)
+ambient_light_source = 3
+reflected_light_source = 2
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.04
+volumetric_fog_albedo = Color(0.296333, 0.24, 0.5, 1)

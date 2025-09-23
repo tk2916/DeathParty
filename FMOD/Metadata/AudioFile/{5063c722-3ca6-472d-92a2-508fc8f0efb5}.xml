@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{5063c722-3ca6-472d-92a2-508fc8f0efb5}">
 		<property name="assetPath">
-			<value>music/edgy club music demo.ogg</value>
+			<value>900_MX/edgy club music demo.ogg</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
