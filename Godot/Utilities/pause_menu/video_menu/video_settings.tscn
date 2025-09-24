@@ -141,6 +141,13 @@ horizontal_alignment = 2
 
 [node name="UpscaleLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
+tooltip_text = "Upscaling
+Controls how the 3D elements of the game are scaled from your chosen render scale to fit your monitor's output resolution
+
+Bilinear: regular upscaling, basically just stretches the image
+FSR 1.0 and FSR 2.0: upscaling using an algorithm - this tries to match the image quality of a native image in your full output resolution,
+while keeping performance closer to the cost of the chosen render scale"
+mouse_filter = 1
 theme = ExtResource("2_e2l73")
 text = "Upscaling"
 
