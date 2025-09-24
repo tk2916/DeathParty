@@ -9,6 +9,7 @@ var background_fade_shader : ShaderMaterial
 var og_zindex : int
 
 func _ready() -> void:
+	item_resource.refresh()
 	if background_fade_on_hover:
 		background_fade.visible = false
 		background_fade_shader = background_fade.material
@@ -18,6 +19,9 @@ func _ready() -> void:
 ##INHERITED
 func on_mouse_down() -> void:
 	GuiSystem.inspect_journal_item(item_resource)
+	if item_resource.talking_object_resource:
+		print("Starting chat with talking object resource")
+		item_resource.talking_object_resource.start_chat()
 
 func enter_hover() -> void:
 	super()

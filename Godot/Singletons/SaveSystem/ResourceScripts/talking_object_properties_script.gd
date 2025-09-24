@@ -36,6 +36,7 @@ func load_chats_for_room() -> void:
 		default_chat = default_chats[room]
 		
 	elif default_chats.has(Globals.SCENES.Everywhere) and default_chats[Globals.SCENES.Everywhere] != null:
+		print("Has everywhere default chat: ", name, default_chats[Globals.SCENES.Everywhere])
 		default_chat = default_chats[Globals.SCENES.Everywhere]
 
 	#set queue chats

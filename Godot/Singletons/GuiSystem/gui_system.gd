@@ -23,6 +23,7 @@ var in_gui: bool = false
 var in_phone: bool = false
 var hid_phone_mid_convo: bool = false
 var prevent_gui: bool = true
+var inspecting_journal_item : bool = false
 
 signal guis_closed
 
@@ -90,7 +91,11 @@ func show_journal(inventory_open: bool = false) -> void:
 	if journal_instance.bookflip:
 		Interact.set_active_subviewport(journal_instance.bookflip.page1_subviewport)
 	if inventory_open:
+		print("Showing inventory")
 		journal_instance.show_inventory()
+	else:
+		journal_instance.hide_inventory()
+
 	journal_open_sound.play()
 	journal_music.find_child("MusicTimer").start()
 	FmodServer.set_global_parameter_by_name("InJournal", 1)
@@ -119,7 +124,7 @@ func journal_flip_to_page(page_number : int) -> void:
 	journal_instance.bookflip.flip_to_page(page_number)
 
 func inspect_journal_item(journal_item_rsc : JournalItemResource) -> void:
-	restrict_environment_effects(true)
+	inspecting_journal_item = true
 	object_viewer.view_journal_item_info(journal_item_rsc)
 
 func show_phone(contact_resource: ChatResource = null) -> void:

@@ -49,7 +49,7 @@ func switch_camera(enabled : bool, new_cam : Camera3D = null) -> void:
 
 var last_raycast_time : float = 0
 func _input(event: InputEvent) -> void:
-	if !DialogueSystem.in_dialogue:
+	if !DialogueSystem.in_dialogue and !GuiSystem.inspecting_journal_item:
 		if event is InputEventMouseMotion:
 			var motion_event : InputEventMouseMotion = event
 			mouse = motion_event.position
@@ -84,7 +84,6 @@ func _input(event: InputEvent) -> void:
 					dragged_object.on_mouse_up()
 					dragged_object = null
 				if grabbed_object and grabbed_object is ObjectViewerInteractable:
-					print("Clicked on ObjectViewerInteractable")
 					if button_event.pressed == true:
 						grabbed_object.on_mouse_down()
 						dragged_object = grabbed_object

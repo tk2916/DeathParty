@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="JournalItemResource" load_steps=4 format=3 uid="uid://btq52uqn8fj6e"]
+
+[ext_resource type="Script" uid="uid://brybuwk7l2aw7" path="res://Singletons/SaveSystem/ResourceScripts/journal_item_resource_script.gd" id="1_cn5bn"]
+[ext_resource type="Texture2D" uid="uid://xn2adsi7qw0c" path="res://Assets/JournalTextures/partyflyer 1.png" id="2_cn5bn"]
+[ext_resource type="Resource" uid="uid://cci7qudsdqam" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/partyflier_properties.tres" id="2_yg2mg"]
+
+[resource]
+script = ExtResource("1_cn5bn")
+texture = ExtResource("2_cn5bn")
+description = "An invitation to the party"
+talking_object_resource = ExtResource("2_yg2mg")
+name = "PartyFlier"

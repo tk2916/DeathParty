@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dl87r4emuohcc"]
+[gd_scene load_steps=17 format=3 uid="uid://dl87r4emuohcc"]
 
 [ext_resource type="Texture2D" uid="uid://d4btfe8aohfoi" path="res://Assets/JournalTextures/journal_bg.png" id="1_luvys"]
 [ext_resource type="Shader" uid="uid://w4dg3vhd3wt6" path="res://Assets/Shaders/fade_background.gdshader" id="2_drbck"]
-[ext_resource type="Texture2D" uid="uid://dxf4gn43mrfxy" path="res://Assets/JournalTextures/News clippings.png" id="2_luvys"]
 [ext_resource type="Texture2D" uid="uid://buxqmi3ppd6wf" path="res://Assets/CharacterAssets/Polaroids/caleb_a.png" id="2_r15wx"]
 [ext_resource type="Script" uid="uid://cg1e6c7k36f8t" path="res://Assets/GUIPrefabs/JournalPrefabs/Pages/clickable_journal_item.gd" id="3_04cwh"]
 [ext_resource type="Texture2D" uid="uid://bmmi6o0bt0x36" path="res://Assets/JournalTextures/rightarrow.png" id="3_5vdxq"]
@@ -10,6 +9,11 @@
 [ext_resource type="Script" uid="uid://ckjonuqioymiy" path="res://Assets/GUIPrefabs/JournalPrefabs/Pages/cursor_hover_threed.gd" id="4_r15wx"]
 [ext_resource type="Resource" uid="uid://bnrq17odi717k" path="res://Singletons/SaveSystem/DefaultResources/JournalItemResources/caleb_polaroid_journal_item.tres" id="4_vcu4x"]
 [ext_resource type="Texture2D" uid="uid://b77p8htas15g1" path="res://Assets/JournalTextures/leftarrow.png" id="5_6jyu7"]
+[ext_resource type="Texture2D" uid="uid://xn2adsi7qw0c" path="res://Assets/JournalTextures/partyflyer 1.png" id="6_ikcp1"]
+[ext_resource type="Texture2D" uid="uid://duamlcooo6ftq" path="res://Assets/JournalTextures/MissingTeen 1.png" id="7_p12ml"]
+[ext_resource type="Resource" uid="uid://btq52uqn8fj6e" path="res://Singletons/SaveSystem/DefaultResources/JournalItemResources/party_flier_journal_item.tres" id="7_sbrkr"]
+[ext_resource type="Texture2D" uid="uid://ddxm8fcb7g01" path="res://Assets/JournalTextures/NewsClippings.png" id="8_sbrkr"]
+[ext_resource type="Resource" uid="uid://cuyysxobnsl56" path="res://Singletons/SaveSystem/DefaultResources/JournalItemResources/newsclipping_journal_item.tres" id="9_sbrkr"]
 [ext_resource type="Material" uid="uid://dtdypkr6clrja" path="res://Assets/Shaders/BackgroundFader.tres" id="11_4xg6k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_drbck"]
@@ -60,15 +64,49 @@ texture_rect = NodePath(".")
 item_resource = ExtResource("4_vcu4x")
 background_fade = NodePath("../../BackgroundFade")
 
-[node name="News clippings" type="TextureRect" parent="Bg"]
+[node name="Flier" type="TextureRect" parent="Bg" node_paths=PackedStringArray("texture_rect", "background_fade")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.08
-anchor_right = 1.0
+anchor_left = 0.18
+anchor_top = 0.284
+anchor_right = 0.493
 anchor_bottom = 0.943
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_luvys")
+texture = ExtResource("6_ikcp1")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_04cwh")
+texture_rect = NodePath(".")
+item_resource = ExtResource("7_sbrkr")
+background_fade = NodePath("../../BackgroundFade")
+
+[node name="NewsHeadline" type="TextureRect" parent="Bg" node_paths=PackedStringArray("texture_rect", "background_fade")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507
+anchor_right = 0.924
+anchor_bottom = 0.364
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_p12ml")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_04cwh")
+texture_rect = NodePath(".")
+item_resource = ExtResource("9_sbrkr")
+background_fade = NodePath("../../BackgroundFade")
+
+[node name="MoreClippings" type="TextureRect" parent="Bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.342
+anchor_top = 0.284
+anchor_right = 1.0
+anchor_bottom = 0.976
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_sbrkr")
 expand_mode = 1
 stretch_mode = 5
 
@@ -112,6 +150,7 @@ stretch_mode = 5
 script = ExtResource("4_r15wx")
 
 [node name="BackgroundFade" type="ColorRect" parent="."]
+visible = false
 material = ExtResource("11_4xg6k")
 layout_mode = 1
 anchors_preset = 15

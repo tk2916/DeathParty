@@ -88,6 +88,7 @@ func remove_current_item(remove_entirely : bool = true) -> void:
 	active_item = null
 	
 func close_item_info() -> void:
+	GuiSystem.inspecting_journal_item = false
 	item_info.visible = false
 	journal_item_info.visible = false
 	exit_button_parent.visible = true
