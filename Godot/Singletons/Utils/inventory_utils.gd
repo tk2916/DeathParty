@@ -60,7 +60,7 @@ func show_item_details(
 	) -> void:
 	if clickable_obj == null or not (clickable_obj is ClickableInventoryItem):
 		clickable_obj = create_clickable_item(item_resource)
-	GuiSystem.hide_journal()
+	GuiSystem.hide_journal(true)
 	var clone : ObjectViewerRotatable = ObjectViewerRotatable.new()
 	for child in clickable_obj.get_children():
 		if child is CollisionShape3D:

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="JournalItemResource" load_steps=4 format=3 uid="uid://cuyysxobnsl56"]
+
+[ext_resource type="Script" uid="uid://brybuwk7l2aw7" path="res://Singletons/SaveSystem/ResourceScripts/journal_item_resource_script.gd" id="1_krk4m"]
+[ext_resource type="Resource" uid="uid://dopwe2kwwcm30" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/newsclipping_properties.tres" id="2_8yksn"]
+[ext_resource type="Texture2D" uid="uid://duamlcooo6ftq" path="res://Assets/JournalTextures/MissingTeen 1.png" id="2_krk4m"]
+
+[resource]
+script = ExtResource("1_krk4m")
+texture = ExtResource("2_krk4m")
+description = "News Clipping"
+talking_object_resource = ExtResource("2_8yksn")
+name = "NewsClipping"

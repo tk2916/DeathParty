@@ -10,9 +10,11 @@ var og_scale : Vector3 = Vector3.ONE*.8
 const TWEEN_TIME : float = .5
 
 @export var bookflip : BookFlip
-@onready var arrow_down : Sprite3D = bookflip.get_node("ArrowDown")
+var arrow_down : Sprite3D
 
 func _ready() -> void:
+	if bookflip:
+		arrow_down = bookflip.get_node("ArrowDown")
 	normal_pos = position
 	up_pos = normal_pos - transform.basis.z.normalized()*.65
 	og_scale = scale
