@@ -358,6 +358,7 @@ func set_lod(level: int) -> void:
 
 
 # shadow filtering settings currently disabled as the docs recommend to use soft low for most projects
+# (which we have defined in our project settings)
 func apply_shadows(level: int) -> void:
 	if level == 0: # Low
 		# Shadow size
