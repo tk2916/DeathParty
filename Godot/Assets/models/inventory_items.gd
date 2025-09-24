@@ -3,7 +3,7 @@ class_name InventoryItemsContainer extends Node3D
 @export var static_page_1 : MeshInstance3D
 @export var bookflip_instance : BookFlip
 
-@onready var main_page : MeshInstance3D = bookflip_instance.page1
+var main_page : MeshInstance3D
 
 var player_inventory : Dictionary[String, InventoryItemResource]
 
@@ -32,6 +32,10 @@ func _init() -> void:
 	SaveSystem.inventory_changed.connect(on_inventory_change)
 	load_items()
 	hide_items()
+
+func _ready() -> void:
+	if bookflip_instance:
+		main_page = bookflip_instance.page1
 
 func on_inventory_change(action:String, item:InventoryItemResource) -> void:
 	var itemCount : int = item.amount_owned

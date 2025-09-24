@@ -2,11 +2,11 @@ shader_type canvas_item;
 
 uniform float tint_strength : hint_range(0.0, 1.0) = 0.5;
 uniform vec4 tint_color : source_color = vec4(0.0, 0.0, 1.0, 1.0);
-uniform vec2 exclusion_center;
+uniform vec2 exclusion_corner;
 uniform vec2 exclusion_size;
 uniform float exclusion_rotation;
-uniform vec2 screen_size;
-uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+uniform vec2 aspect_ratio;
+uniform sampler2D screen_texture : hint_screen_texture;
 
 vec2 rotate_point(vec2 point, float theta) {
 	// x' = x*cos(theta) - y*sin(theta)
@@ -21,16 +21,25 @@ vec2 rotate_point(vec2 point, float theta) {
 
 void fragment() {
 	//make rotated exclusion rectangle
-	vec2 screen_pos = SCREEN_UV * screen_size;
+	//vec2 screen_pos = SCREEN_UV * screen_size;
+	vec2 screen_pos = UV * aspect_ratio;
 	vec4 screen_color = texture(screen_texture, SCREEN_UV);
-	//rotate around rectangle origin (relative)
-	//we are rotating the screen's pixels to match the rect rotation
-	vec2 relative_pos = screen_pos-exclusion_center;
-	vec2 rotated_pos = rotate_point(relative_pos, exclusion_rotation);
-	//if the rotated version of the coordinates falls within the zone, exclude that pixel
-	if (abs(rotated_pos.y) <= exclusion_size.y && abs(rotated_pos.x) <= exclusion_size.x) {
+	
+	//make the corner the origin (to then rotate)
+	vec2 relative_pos = screen_pos-exclusion_corner;
+	
+	vec2 rotated_pos = rotate_point(relative_pos, -exclusion_rotation);
+	if (
+		rotated_pos.y >= 0.0
+		&& rotated_pos.y <= exclusion_size.y
+		&& rotated_pos.x >= 0.0
+		&& rotated_pos.x <= exclusion_size.x
+	) {
 		COLOR = screen_color;
 	} else {
-		COLOR = mix(screen_color, tint_color, tint_strength);
+		
+		vec3 tinted_rgb = mix(screen_color.rgb, tint_color.rgb, tint_strength);
+        float final_alpha = screen_color.a; //store alpha separately
+		COLOR = vec4(tinted_rgb, final_alpha);
 	}
 }

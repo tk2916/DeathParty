@@ -1,7 +1,7 @@
 extends Node3D
 
 var mouse : Vector2
-const DIST : float = 1000.0
+const DIST : float = 3.0
 
 var params : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
 var result_position : Vector3 = Vector3(-1,-1,-1)
@@ -26,6 +26,8 @@ var main_page_static : MeshInstance3D
 
 signal mouse_position_changed(delta : Vector2)
 
+const RAYCAST_INTERVAL = 0.016
+
 func _ready() -> void:
 	og_viewport = get_viewport()
 	main_camera3d = og_viewport.get_camera_3d()
@@ -45,18 +47,24 @@ func switch_camera(enabled : bool, new_cam : Camera3D = null) -> void:
 	else:
 		camera3d = new_cam
 
+var last_raycast_time : float = 0
 func _input(event: InputEvent) -> void:
-	if !DialogueSystem.in_dialogue:
+	if !DialogueSystem.in_dialogue and !GuiSystem.inspecting_journal_item:
 		if event is InputEventMouseMotion:
 			var motion_event : InputEventMouseMotion = event
 			mouse = motion_event.position
 			mouse_position_changed.emit(motion_event.relative)
 			get_mouse_world_pos()
-			if cur_sub_viewport and main_page_static and result_position != Vector3(-1,-1,-1):
-				cur_sub_viewport.push_input(event)
-				og_grabbed_control = grabbed_control
-				grabbed_control = convert_position(result_position, cur_sub_viewport, main_page_static)
-				pass_input_to_collided_ui()
+
+			##Throttle raycasts
+			var current_time : float = Time.get_ticks_msec() / 1000.0
+			if current_time - last_raycast_time > RAYCAST_INTERVAL:
+				if cur_sub_viewport and main_page_static and result_position != Vector3(-1,-1,-1):
+					cur_sub_viewport.push_input(event)
+					og_grabbed_control = grabbed_control
+					grabbed_control = convert_position(result_position, cur_sub_viewport, main_page_static)
+					pass_input_to_collided_ui()
+					last_raycast_time = current_time
 		
 		elif event is InputEventMouseButton:
 			var button_event : InputEventMouseButton = event
@@ -76,7 +84,6 @@ func _input(event: InputEvent) -> void:
 					dragged_object.on_mouse_up()
 					dragged_object = null
 				if grabbed_object and grabbed_object is ObjectViewerInteractable:
-					print("Clicked on ObjectViewerInteractable")
 					if button_event.pressed == true:
 						grabbed_object.on_mouse_down()
 						dragged_object = grabbed_object
