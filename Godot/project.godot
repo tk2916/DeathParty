@@ -39,6 +39,7 @@ Sounds="*res://Singletons/sounds/sounds.tscn"
 Globals="*res://globals.gd"
 InkParser="*res://Singletons/InkInterpreter/ink_parser.gd"
 InteractablePriority="*res://Singletons/Interactable/interactable_priority.gd"
+MenuFocusGrabber="*res://Singletons/menu_focus_grabber.gd"
 
 [debug]
 

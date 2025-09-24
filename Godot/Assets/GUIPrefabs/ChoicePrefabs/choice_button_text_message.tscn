@@ -66,5 +66,7 @@ mouse_default_cursor_shape = 2
 flat = true
 
 [connection signal="resized" from="ChoicePanel/MarginContainer/RichTextLabel" to="." method="_on_rich_text_label_resized"]
+[connection signal="focus_entered" from="ChoicePanel/MarginContainer/RichTextLabel/Button" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="ChoicePanel/MarginContainer/RichTextLabel/Button" to="." method="_on_button_focus_exited"]
 [connection signal="mouse_entered" from="ChoicePanel/MarginContainer/RichTextLabel/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="ChoicePanel/MarginContainer/RichTextLabel/Button" to="." method="_on_button_mouse_exited"]

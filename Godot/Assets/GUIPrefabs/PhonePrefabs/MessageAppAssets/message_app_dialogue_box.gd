@@ -212,6 +212,8 @@ func set_choices(choices: Array[InkChoiceInfo]) -> void:
 	var scrollbar : VScrollBar = dialogue_scroll_container.get_v_scroll_bar()
 	var max_scroll_length : float = scrollbar.max_value
 	dialogue_scroll_container.scroll_vertical = int(max_scroll_length)
+	#allows player to enter menu navigation through ui_up or ui_down
+	MenuFocusGrabber.assign_buttons(null, null, choices_array[0].button.button, choices_array[-1].button.button)
 
 func pause_conversation() -> void:
 	var revert_one_line : bool = false #if we stopped the conversation early, it should be one line behind when they come back
