@@ -1,5 +1,7 @@
 extends Node
 
+var world_environment : CustomWorldEnvironment
+
 var gui_dict: Dictionary[String, Control]
 var journal: PackedScene = preload("res://Assets/models/bookflip_collisionbody.tscn")
 var journal_instance: Journal
@@ -28,7 +30,7 @@ func _ready() -> void:
 	tree = get_tree()
 	var main: Node3D = tree.root.get_node_or_null("Main")
 	if main == null: return
-	
+	world_environment = main.get_node("WorldEnvironment")
 	journal_instance = journal.instantiate()
 	
 	journal_open_sound = journal_instance.get_node("Sounds/JournalOpenSound")
@@ -41,28 +43,22 @@ func _ready() -> void:
 	for obj in gui_objects:
 		gui_dict[obj.name] = obj
 
-func set_gui_enabled(toggle: bool) -> void:
-	prevent_gui = !toggle
-
 func _physics_process(_delta: float) -> void:
 	if prevent_gui or (DialogueSystem.in_dialogue and in_phone == false): return
 	if Input.is_action_just_pressed("toggle_journal"):
 		if in_journal:
 			hide_journal()
 		else:
-			#var title_screen : CanvasLayer = get_tree().get_first_node_in_group("title_screen")
-			#if title_screen != null and title_screen.visible == true:
-				#return
 			show_journal()
 
 	elif Input.is_action_just_pressed("toggle_phone"):
 		if in_phone:
 			hide_phone()
 		else:
-			#var title_screen : CanvasLayer = get_tree().get_first_node_in_group("title_screen")
-			#if title_screen != null and title_screen.visible == true:
-				#return
 			show_phone()
+
+func set_gui_enabled(toggle: bool) -> void:
+	prevent_gui = !toggle
 
 func close_all_guis() -> void:
 	in_gui = false
@@ -77,12 +73,22 @@ func check_for_open_guis() -> bool:
 			break
 	return any_open_guis
 
+func restrict_environment_effects(toggle : bool) -> void:
+	if toggle:
+		world_environment.set_sdfgi(0)
+		world_environment.set_ssil(0)
+	else:
+		world_environment.set_sdfgi(1)
+		world_environment.set_ssil(1)
+
 func show_journal(inventory_open: bool = false) -> void:
+	restrict_environment_effects(true)
 	close_all_guis()
 	journal_instance.reset_properties()
 	inventory_showing = false
 	object_viewer.set_preexisting_item(journal_instance)
-	Interact.set_active_subviewport(journal_instance.bookflip.page1_subviewport)
+	if journal_instance.bookflip:
+		Interact.set_active_subviewport(journal_instance.bookflip.page1_subviewport)
 	if inventory_open:
 		journal_instance.show_inventory()
 	journal_open_sound.play()
@@ -92,8 +98,10 @@ func show_journal(inventory_open: bool = false) -> void:
 	in_gui = true
 	in_journal = true
 	
-func hide_journal() -> void:
+func hide_journal(keep_restrictions : bool = false) -> void:
 	if not in_journal: return
+	if !keep_restrictions:
+		restrict_environment_effects(false)
 	close_all_guis()
 	Sounds.play_journal_close()
 	journal_music.stop()
@@ -111,6 +119,7 @@ func journal_flip_to_page(page_number : int) -> void:
 	journal_instance.bookflip.flip_to_page(page_number)
 
 func inspect_journal_item(journal_item_rsc : JournalItemResource) -> void:
+	restrict_environment_effects(true)
 	object_viewer.view_journal_item_info(journal_item_rsc)
 
 func show_phone(contact_resource: ChatResource = null) -> void:

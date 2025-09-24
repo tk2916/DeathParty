@@ -12,6 +12,9 @@ var current_phone_resource : ChatResource
 var current_character_resource : TalkingObjectResource
 var current_conversation : Array[InkLineInfo]
 
+## VARIABLE SETTER FILE
+var set_variables_file : JSON = preload("res://Assets/InkFiles/Act 1 Variables.json")
+
 ## STATES
 var in_dialogue : bool = false
 var are_choices : bool = false
@@ -50,6 +53,8 @@ func _ready() -> void:
 		canvas_layer = main.get_node("CanvasLayer")
 		text_message_box = canvas_layer.get_node("Phone/Phone/Screen/Background/MessageApp")
 		notification_box = canvas_layer.get_node("PhoneNotifications/VBoxContainer")
+		##run through initial variable-setting
+		begin_dialogue(set_variables_file)
 
 ## START/PAUSE/END DIALOGUE
 func show_dialogue_box(in_phone : bool) -> void:

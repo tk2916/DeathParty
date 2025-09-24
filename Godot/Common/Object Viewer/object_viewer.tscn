@@ -57,7 +57,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.223103, 0.223103, 0.223103, 0.717647)
+color = Color(0.16, 0.16, 0.16, 0.8235294)
 
 [node name="Blur" type="Panel" parent="ObjectViewer"]
 modulate = Color(0.162066, 0.162066, 0.162066, 1)

@@ -16,10 +16,10 @@
 shader = ExtResource("2_drbck")
 shader_parameter/tint_strength = 0.5
 shader_parameter/tint_color = Color(0, 0, 1, 1)
-shader_parameter/exclusion_center = Vector2(0, 0)
+shader_parameter/exclusion_corner = Vector2(0, 0)
 shader_parameter/exclusion_size = Vector2(0, 0)
 shader_parameter/exclusion_rotation = 0.0
-shader_parameter/screen_size = Vector2(1920, 1080)
+shader_parameter/aspect_ratio = Vector2(0, 0)
 
 [node name="SecondPage" type="Control"]
 material = SubResource("ShaderMaterial_drbck")
@@ -45,10 +45,10 @@ expand_mode = 1
 [node name="CalebPolaroid" type="TextureRect" parent="Bg" node_paths=PackedStringArray("texture_rect", "background_fade")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.043
-anchor_top = 0.084
-anchor_right = 0.366
-anchor_bottom = 0.357
+anchor_left = 0.137
+anchor_top = 0.07
+anchor_right = 0.275
+anchor_bottom = 0.361
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.14137167
