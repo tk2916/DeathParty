@@ -131,7 +131,7 @@ func _on_preset_4_pressed() -> void:
 
 # ultra
 func _on_preset_5_pressed() -> void:
-	aa_option_button.selected = 5 # 8x MSAA
+	aa_option_button.selected = 4 # 4x MSAA
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
 	shadow_size_option_button.selected = 1 # high shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)

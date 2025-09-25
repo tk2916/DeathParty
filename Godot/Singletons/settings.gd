@@ -321,8 +321,6 @@ func apply_aa(mode: int) -> void:
 			get_viewport().msaa_3d = Viewport.MSAA_2X
 		4:
 			get_viewport().msaa_3d = Viewport.MSAA_4X
-		5:
-			get_viewport().msaa_3d = Viewport.MSAA_8X
 
 
 func set_aa(mode: int) -> void:
