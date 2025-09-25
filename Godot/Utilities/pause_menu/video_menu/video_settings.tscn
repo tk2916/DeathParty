@@ -294,6 +294,7 @@ layout_mode = 2
 theme = ExtResource("2_e2l73")
 
 [node name="Preset1" type="Button" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/PresetsContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_e2l73")
@@ -318,6 +319,7 @@ theme = ExtResource("2_e2l73")
 text = "High"
 
 [node name="Preset5" type="Button" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/PresetsContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_e2l73")
