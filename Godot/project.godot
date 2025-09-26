@@ -10,20 +10,6 @@ config_version=5
 
 [Fmod]
 
-General/auto_initialize=true
-General/channel_count=1024
-General/is_live_update_enabled=true
-General/is_memory_tracking_enabled=false
-"Software Format/sample_rate"=48000
-"Software Format/speaker_mode"=3
-"Software Format/raw_speaker_count"=0
-General/default_listener_count=1
-General/should_load_by_name=false
-DSP/dsp_buffer_size=512
-DSP/dsp_buffer_count=4
-"3D Settings/doppler_scale"=1.0
-"3D Settings/distance_factor"=1.0
-"3D Settings/rolloff_scale"=1.0
 General/banks_path="res://audio/fmod banks/Desktop"
 
 [application]
@@ -53,6 +39,7 @@ Sounds="*res://Singletons/sounds/sounds.tscn"
 Globals="*res://globals.gd"
 InkParser="*res://Singletons/InkInterpreter/ink_parser.gd"
 InteractablePriority="*res://Singletons/Interactable/interactable_priority.gd"
+MenuFocusGrabber="*res://Singletons/menu_focus_grabber.gd"
 
 [debug]
 
@@ -74,8 +61,9 @@ layout/style_directory={}
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/initial_position_type=0
+window/size/mode=4
 window/stretch/mode="canvas_items"
+window/size/mode.editor=0
 
 [dotnet]
 
