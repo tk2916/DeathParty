@@ -1,26 +1,20 @@
-[gd_scene load_steps=39 format=3 uid="uid://d0sd1bp5esd04"]
+[gd_scene load_steps=45 format=3 uid="uid://d0sd1bp5esd04"]
 
-[ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
 [ext_resource type="Texture2D" uid="uid://g8gi1go6brft" path="res://Assets/PNGAssets/viewfinder_final.png" id="3_42nwo"]
 [ext_resource type="Texture2D" uid="uid://c7sn438n6fn2n" path="res://Assets/PNGAssets/green_lens.png" id="4_a6jrl"]
-[ext_resource type="Script" uid="uid://cg5lhigmboc73" path="res://Utilities/polaroid_camera/view_finder.gd" id="5_hbg1w"]
 [ext_resource type="Script" uid="uid://bd5wy6rj1xank" path="res://Utilities/polaroid_camera/filter_control.gd" id="5_omcg7"]
 [ext_resource type="Shader" uid="uid://dflfu0c1r3cql" path="res://Utilities/pause_menu/background_blur.gdshader" id="5_ph0pu"]
-[ext_resource type="Shader" path="res://Utilities/polaroid_camera/polaroid_layer_unblur.gdshader" id="6_7wtwj"]
+[ext_resource type="Shader" uid="uid://cx7fj2cmeblbc" path="res://Utilities/polaroid_camera/polaroid_layer_unblur.gdshader" id="6_7wtwj"]
 [ext_resource type="Texture2D" uid="uid://cy5s70jehrwrr" path="res://Assets/PNGAssets/viewfinder.png" id="6_8fs6k"]
 [ext_resource type="Script" uid="uid://qfuy0m0xcjwf" path="res://Utilities/polaroid_camera/picturetake.gd" id="6_or4cw"]
-[ext_resource type="Shader" path="res://Utilities/polaroid_camera/polaroid_layer.gdshader" id="7_42nwo"]
+[ext_resource type="Shader" uid="uid://ccc6w6g5spnr7" path="res://Utilities/polaroid_camera/polaroid_layer.gdshader" id="7_42nwo"]
 [ext_resource type="Texture2D" uid="uid://bv6px42lbjq5f" path="res://Assets/PNGAssets/temp_rotate_arrow.png" id="11_42nwo"]
 [ext_resource type="Texture2D" uid="uid://djidfl63ug16b" path="res://Assets/PNGAssets/inner_ring.png" id="12_7wtwj"]
 [ext_resource type="Texture2D" uid="uid://cdvberuogb0k" path="res://Assets/PNGAssets/base_final.png" id="13_qpijf"]
 [ext_resource type="Texture2D" uid="uid://8cmqnmgxkmiu" path="res://Assets/PNGAssets/filter_color_dots.png" id="14_pxotk"]
 [ext_resource type="Texture2D" uid="uid://bvyh22qg3pxas" path="res://Assets/PNGAssets/N.png" id="15_7wtwj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4tks"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_or4cw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ifkd"]
+[sub_resource type="GDScript" id="GDScript_8fs6k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_42nwo"]
 shader = ExtResource("7_42nwo")
@@ -75,24 +69,28 @@ radius = 30.4386
 [sub_resource type="CircleShape2D" id="CircleShape2D_omcg7"]
 radius = 17.0294
 
-[node name="PolaroidCamera" type="CanvasLayer"]
-visible = false
-follow_viewport_enabled = true
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lj084"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(1e-05, 1.01586e-05)
-anchor_mode = 0
-ignore_rotation = false
-zoom = Vector2(1.045, 1.045)
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.0
-drag_top_margin = 0.0
-drag_right_margin = 0.0
-drag_bottom_margin = 0.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fs6k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ngt84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hx8qq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vn1g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4tks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_or4cw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40lq2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idotc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ifkd"]
+
+[node name="PolaroidCamera" type="CanvasLayer"]
+follow_viewport_enabled = true
 
 [node name="body" type="Node2D" parent="."]
 
@@ -101,27 +99,7 @@ offset_top = -2.0
 offset_right = 1280.0
 offset_bottom = 718.0
 scale = Vector2(1.43, 1.43)
-texture = ExtResource("1_t72bm")
 expand_mode = 1
-
-[node name="shoot" type="Button" parent="body/MainImage"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = -1.0
-offset_right = 1283.0
-offset_bottom = 721.0
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_c4tks")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_or4cw")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8ifkd")
-script = ExtResource("6_or4cw")
-
-[node name="flash" type="ColorRect" parent="body/MainImage/shoot"]
-visible = false
-layout_mode = 0
-offset_left = -12.0
-offset_top = -8.0
-offset_right = 1307.0
-offset_bottom = 746.0
 
 [node name="ViewFinder" type="TextureRect" parent="body"]
 unique_name_in_owner = true
@@ -133,25 +111,25 @@ offset_bottom = 3963.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_42nwo")
 expand_mode = 1
-script = ExtResource("5_hbg1w")
+script = SubResource("GDScript_8fs6k")
 
 [node name="blur_new" type="ColorRect" parent="body/ViewFinder"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_42nwo")
 layout_mode = 0
-offset_left = -2280.0
-offset_top = -4125.0
-offset_right = 7580.0
-offset_bottom = 5545.0
+offset_left = -1495.0
+offset_top = 270.0
+offset_right = 5175.0
+offset_bottom = 4105.0
 color = Color(1, 0, 0, 1)
 
 [node name="unblur" type="ColorRect" parent="body/ViewFinder/blur_new"]
 material = SubResource("ShaderMaterial_qpijf")
 layout_mode = 0
-offset_left = 2825.0
-offset_top = 4975.0
-offset_right = 5130.0
-offset_bottom = 7245.0
+offset_left = 2025.0
+offset_top = 615.0
+offset_right = 4330.0
+offset_bottom = 2885.0
 color = Color(0, 0, 1, 1)
 
 [node name="ViewFinder_aim" type="TextureRect" parent="body/ViewFinder"]
@@ -214,10 +192,11 @@ texture = ExtResource("13_qpijf")
 offset = Vector2(-525, 209.92)
 
 [node name="filter_base_button" type="Button" parent="body/ViewFinder/filter_control/filter_base"]
-offset_left = -158.183
-offset_top = -158.181
-offset_right = 154.817
-offset_bottom = 172.819
+top_level = true
+offset_left = 942.0
+offset_top = 99.0
+offset_right = 1188.0
+offset_bottom = 334.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4q0hv")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_42nwo")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ph0pu")
@@ -328,10 +307,57 @@ offset_bottom = 364.995
 texture = ExtResource("15_7wtwj")
 expand_mode = 1
 
-[connection signal="button_up" from="body/MainImage/shoot" to="." method="_on_shoot_button_up"]
-[connection signal="pressed" from="body/MainImage/shoot" to="body/MainImage/shoot" method="_on_pressed"]
+[node name="shoot" type="Button" parent="body/ViewFinder/filter_control"]
+visibility_layer = 1023
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 134.0
+offset_right = 1277.0
+offset_bottom = 854.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lj084")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8fs6k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ngt84")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hx8qq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8vn1g")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_c4tks")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_or4cw")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_40lq2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_idotc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8ifkd")
+script = ExtResource("6_or4cw")
+
+[node name="flash" type="ColorRect" parent="body/ViewFinder/filter_control/shoot"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1e-05, 1.01586e-05)
+anchor_mode = 0
+ignore_rotation = false
+zoom = Vector2(1.045, 1.045)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+
 [connection signal="pressed" from="body/ViewFinder/filter_control/filter_base/filter_base_button" to="body/ViewFinder/filter_control" method="_on_filter_base_button_pressed"]
 [connection signal="input_event" from="body/ViewFinder/filter_control/filter_base/Area2D" to="body/ViewFinder/filter_control" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="body/ViewFinder/filter_control/rotate_left _button/left_button" to="body/ViewFinder/filter_control" method="_on_left_button_pressed"]
 [connection signal="pressed" from="body/ViewFinder/filter_control/rotate_right_button/right_button" to="body/ViewFinder/filter_control" method="_on_right_button_pressed"]
 [connection signal="area_shape_entered" from="body/ViewFinder/filter_control/selector" to="body/ViewFinder/filter_control" method="_on_selector_area_shape_entered"]
+[connection signal="pressed" from="body/ViewFinder/filter_control/shoot" to="body/ViewFinder/filter_control/shoot" method="_on_pressed"]

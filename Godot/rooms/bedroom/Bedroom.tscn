@@ -20,7 +20,7 @@
 [ext_resource type="JSON" path="res://Assets/InkFiles/OliviaDormJournal.ink.json" id="6_yxfps"]
 [ext_resource type="PackedScene" uid="uid://b8ucr48tcuk2p" path="res://rooms/bedroom/dorm desk.glb" id="7_7a5mm"]
 [ext_resource type="Texture2D" uid="uid://dke1flebhebj4" path="res://rooms/bedroom/polaroids and poster_study date wiht nora.png" id="7_84fnt"]
-[ext_resource type="PackedScene" uid="uid://dpc3qxhnh5xme" path="res://Assets/environment/bedroom_door.tscn" id="7_vr1g1"]
+[ext_resource type="PackedScene" path="res://Assets/environment/bedroom_door.tscn" id="7_vr1g1"]
 [ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="8_8bc0i"]
 [ext_resource type="PackedScene" uid="uid://bjlg5o0t38qqs" path="res://rooms/bedroom/shoe rack.glb" id="9_l0p45"]
 [ext_resource type="Resource" uid="uid://bijwy7mhohjk3" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/camera_properties.tres" id="10_shd6j"]
@@ -2077,6 +2077,7 @@ shadow_mesh = SubResource("ArrayMesh_o7qs3")
 resource_name = "Material.014"
 cull_mode = 2
 albedo_texture = ExtResource("81_5smtm")
+roughness = 0.834764
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rx7x6"]
 _surfaces = [{
