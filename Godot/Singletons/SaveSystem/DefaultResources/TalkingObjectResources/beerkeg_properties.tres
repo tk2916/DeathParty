@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="TalkingObjectResource" load_steps=5 format=3 uid="uid://b0sea5wx3dt8f"]
 
 [ext_resource type="JSON" path="res://Assets/InkFiles/OliviaKitchenBeerKeg.ink.json" id="2_n73rp"]
-[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="2_x6k0s"]
-[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="3_25m8l"]
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="2_x6k0s"]
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="3_25m8l"]
 
 [sub_resource type="Resource" id="Resource_x6k0s"]
 script = ExtResource("2_x6k0s")

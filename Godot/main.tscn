@@ -14,12 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://dph5ihe40llhe" path="res://rooms/Exterior Frat Lawn/Exterior.tscn" id="27_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://bqae87n6emy8q" path="res://rooms/Hourhand hallway/Hourhand hallway.tscn" id="27_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://bpjb4k8tcm014" path="res://rooms/control room/Controlroom.tscn" id="28_kq58d"]
-[ext_resource type="Script" uid="uid://kp3w3bjsanur" path="res://cell_visualizer.gd" id="28_qsp4k"]
+[ext_resource type="Script" path="res://cell_visualizer.gd" id="28_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://c7033b4susyvc" path="res://rooms/Storage Room/Storageroom.tscn" id="28_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://ch4fuk8qiva6x" path="res://rooms/Ghost hallway/Ghost hallway.tscn" id="29_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
-[ext_resource type="PackedScene" uid="uid://o1miuonfuk7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
+[ext_resource type="PackedScene" uid="uid://bschhxvd0bvn7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
 [ext_resource type="PackedScene" uid="uid://c44l5t4o5i1qg" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
 [ext_resource type="PackedScene" uid="uid://byfsccg4kb4bw" path="res://polaroid_pop_up.tscn" id="57_vke2r"]
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
-[ext_resource type="PackedScene" uid="uid://c4aonpguu6u11" path="res://Assets/CharacterAssets/bartender/Kitchen.tscn" id="67_rqtf5"]
+[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/bartender/Kitchen.tscn" id="67_rqtf5"]
 
 [sub_resource type="Resource" id="Resource_a6jrf"]
 metadata/__load_path__ = "res://Assets/InkExamples/example.ink7.json"
@@ -93,28 +93,19 @@ visible = false
 process_mode = 3
 
 [node name="PolaroidCamera" parent="." node_paths=PackedStringArray("viewfinder_camera") instance=ExtResource("55_e71vb")]
-visible = false
 script = ExtResource("65_uatky")
-viewfinder_camera = NodePath("PictureExample/Camera2D")
+viewfinder_camera = NodePath("Camera2D")
 
-[node name="ViewFinder" parent="PolaroidCamera/PictureExample" index="0"]
-top_level = true
-light_mask = 2
-visibility_layer = 2
-
-[node name="TextureRect" type="ColorRect" parent="PolaroidCamera/shoot" index="0"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="shoot" parent="PolaroidCamera/body/MainImage" index="0"]
+offset_right = 1287.0
+offset_bottom = 734.0
 
 [node name="Polaroid" parent="." instance=ExtResource("57_vke2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.2135, 0)
+visible = false
 
-[node name="Polaroid_image" parent="Polaroid/bookmark_tab/Polaroid_frame" index="0" node_paths=PackedStringArray("Camera_2D", "polaroid_camera", "View_Finder", "object_viewer")]
-Camera_2D = NodePath("../../../../PolaroidCamera/PictureExample/Camera2D")
+[node name="Polaroid_image" parent="Polaroid/bookmark_tab/Polaroid_frame" index="0" node_paths=PackedStringArray("polaroid_camera")]
 polaroid_camera = NodePath("../../../../PolaroidCamera")
-View_Finder = NodePath("../../../../PolaroidCamera/PictureExample/ViewFinder")
-object_viewer = NodePath("../../../../ObjectViewerCanvasLayer")
 
 [node name="WorldBoundary" type="Area3D" parent="."]
 collision_mask = 2
@@ -374,8 +365,6 @@ anchor_bottom = 0.1
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="button_up" from="PolaroidCamera/shoot" to="Polaroid" method="_on_shoot_button_up"]
-[connection signal="pressed" from="PolaroidCamera/shoot" to="Polaroid/bookmark_tab/Polaroid_frame/Polaroid_image" method="_on_shoot_pressed"]
 [connection signal="body_entered" from="WorldBoundary" to="Player" method="_on_world_boundary_body_entered"]
 
 [editable path="ObjectViewerCanvasLayer"]
