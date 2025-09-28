@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btreux0wtuu4c"
-path="res://.godot/imported/MaskingTape3.png-c9a4830e76875617b4a6530b447ca98e.ctex"
+uid="uid://dv6sgae1nmmfj"
+path="res://.godot/imported/placeholder_image.png-2474e5b1808fe768c78d89d43fdb00cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/JournalTextures/MaskingTape3.png"
-dest_files=["res://.godot/imported/MaskingTape3.png-c9a4830e76875617b4a6530b447ca98e.ctex"]
+source_file="res://Assets/PNGAssets/placeholder_image.png"
+dest_files=["res://.godot/imported/placeholder_image.png-2474e5b1808fe768c78d89d43fdb00cf.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 extends Button
 @export var question_mark : Area3D
 @export var Polaroid_image : MeshInstance3D
-
+@export var scene: Node2D
 
 func _on_pressed():
 	print("CLICEKD BUTTON")
@@ -16,5 +16,6 @@ func _on_pressed():
 	await tween.finished
 	#await get_tree().create_timer(1.2).timeout
 	await get_tree().create_timer(0.3).timeout
+	scene.visible=false
 	if(Polaroid_image):
 		Polaroid_image.turn_off()

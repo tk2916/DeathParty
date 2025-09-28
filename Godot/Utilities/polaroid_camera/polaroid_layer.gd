@@ -3,7 +3,7 @@ class_name PolaroidLayer extends CanvasLayer
 
 @export var viewfinder_camera: Camera2D
 #variable hold the image that the camera is looking at  
-var Picture= ""
+@export var Picture: TextureRect
 
 func _ready() -> void:
 	Globals.polaroid_camera_ui = self
@@ -12,7 +12,7 @@ func _ready() -> void:
 func _physics_process(delta) -> void:
 	# picture movement corresponds with player input	
 	#error: awsd moves player at the same time		
-	if (Picture!=""):	
+	#if (Picture!=""):	
 		if Input.is_action_pressed("move_right"):
 			Picture.position.x -= 3
 		if Input.is_action_pressed("move_left"):
@@ -24,7 +24,7 @@ func _physics_process(delta) -> void:
 	
 	#keeps image within the bounds 
 
-		if Picture.position.x > 0:
+		if  Picture.position.x > 0:
 			Picture.position.x =0
 	
 		if	Picture.position.x < -(Picture.size.x*Picture.scale.x-get_viewport().size.x):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://beuct1pjdlayy"]
+[gd_scene load_steps=33 format=3 uid="uid://beuct1pjdlayy"]
 
 [ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://yory4i5rrii2" path="res://Common/Object Viewer/object_viewer.tscn" id="2_a6jrf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmink41yr1q8i" path="res://Utilities/dev_menu/dev_menu.tscn" id="4_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://vkp1p25gspml" path="res://Utilities/dev_menu/dev_menu_teleport_button.tscn" id="5_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://cus1t6k7nkpyv" path="res://phone_notifications.tscn" id="9_kq58d"]
+[ext_resource type="Script" uid="uid://qfuy0m0xcjwf" path="res://Utilities/polaroid_camera/picturetake.gd" id="12_kq58d"]
 [ext_resource type="Environment" uid="uid://x61s5mmwqag1" path="res://Assets/environments/main_world_environment.tres" id="15_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://bm1q5w4b7f5ma" path="res://phone_gui.tscn" id="20_d13ii"]
 [ext_resource type="Script" uid="uid://bsmd1wgqjsl83" path="res://game_logic.gd" id="26_lswn8"]
@@ -19,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ch4fuk8qiva6x" path="res://rooms/Ghost hallway/Ghost hallway.tscn" id="29_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://b8jbowdnorp1f" path="res://Utilities/pause_menu/pause_menu.tscn" id="37_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://3iwh0xc60rih" path="res://rooms/Basement/Basement.tscn" id="38_b1qrp"]
-[ext_resource type="PackedScene" uid="uid://bschhxvd0bvn7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
+[ext_resource type="PackedScene" uid="uid://o1miuonfuk7" path="res://rooms/Bathroom/Bathroom.tscn" id="39_come4"]
 [ext_resource type="PackedScene" uid="uid://c44l5t4o5i1qg" path="res://rooms/bedroom/Bedroom.tscn" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://d3cv36i34m681" path="res://rooms/Library/library.tscn" id="41_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://busrnnhrujsqx" path="res://rooms/party_room/party_room.tscn" id="41_gngh3"]
@@ -28,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bgcdtx87j476" path="res://Utilities/stats.tscn" id="56_e71vb"]
 [ext_resource type="PackedScene" uid="uid://byfsccg4kb4bw" path="res://polaroid_pop_up.tscn" id="57_vke2r"]
 [ext_resource type="Script" uid="uid://bjhwro6hrfg4p" path="res://Utilities/polaroid_camera/polaroid_layer.gd" id="65_uatky"]
-[ext_resource type="PackedScene" path="res://Assets/CharacterAssets/bartender/Kitchen.tscn" id="67_rqtf5"]
+[ext_resource type="PackedScene" uid="uid://c4aonpguu6u11" path="res://Assets/CharacterAssets/bartender/Kitchen.tscn" id="67_rqtf5"]
 
 [sub_resource type="Resource" id="Resource_a6jrf"]
 metadata/__load_path__ = "res://Assets/InkExamples/example.ink7.json"
@@ -92,13 +93,15 @@ visible = false
 [node name="Stats" parent="." instance=ExtResource("56_e71vb")]
 process_mode = 3
 
-[node name="PolaroidCamera" parent="." node_paths=PackedStringArray("viewfinder_camera") instance=ExtResource("55_e71vb")]
+[node name="PolaroidCamera" parent="." node_paths=PackedStringArray("viewfinder_camera", "Picture") instance=ExtResource("55_e71vb")]
+visible = false
 script = ExtResource("65_uatky")
 viewfinder_camera = NodePath("Camera2D")
+Picture = NodePath("body/MainImage")
 
-[node name="shoot" parent="PolaroidCamera/body/MainImage" index="0"]
-offset_right = 1287.0
-offset_bottom = 734.0
+[node name="shoot" parent="PolaroidCamera/body/ViewFinder/filter_control" index="6" node_paths=PackedStringArray("scene")]
+script = ExtResource("12_kq58d")
+scene = NodePath("../../..")
 
 [node name="Polaroid" parent="." instance=ExtResource("57_vke2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.2135, 0)

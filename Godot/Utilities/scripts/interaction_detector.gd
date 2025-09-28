@@ -14,6 +14,7 @@ var player_currently_in_range : bool = false
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_currently_in_range:
 		player_interacted.emit()
+
 	
 func _on_body_entered(body: Node3D) -> void:
 	print("On body entered: ", body)

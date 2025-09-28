@@ -1,20 +1,18 @@
 [gd_scene load_steps=45 format=3 uid="uid://d0sd1bp5esd04"]
 
+[ext_resource type="Texture2D" uid="uid://dv6sgae1nmmfj" path="res://Assets/PNGAssets/placeholder_image.png" id="1_8fs6k"]
 [ext_resource type="Texture2D" uid="uid://g8gi1go6brft" path="res://Assets/PNGAssets/viewfinder_final.png" id="3_42nwo"]
 [ext_resource type="Texture2D" uid="uid://c7sn438n6fn2n" path="res://Assets/PNGAssets/green_lens.png" id="4_a6jrl"]
 [ext_resource type="Script" uid="uid://bd5wy6rj1xank" path="res://Utilities/polaroid_camera/filter_control.gd" id="5_omcg7"]
 [ext_resource type="Shader" uid="uid://dflfu0c1r3cql" path="res://Utilities/pause_menu/background_blur.gdshader" id="5_ph0pu"]
 [ext_resource type="Shader" uid="uid://cx7fj2cmeblbc" path="res://Utilities/polaroid_camera/polaroid_layer_unblur.gdshader" id="6_7wtwj"]
 [ext_resource type="Texture2D" uid="uid://cy5s70jehrwrr" path="res://Assets/PNGAssets/viewfinder.png" id="6_8fs6k"]
-[ext_resource type="Script" uid="uid://qfuy0m0xcjwf" path="res://Utilities/polaroid_camera/picturetake.gd" id="6_or4cw"]
 [ext_resource type="Shader" uid="uid://ccc6w6g5spnr7" path="res://Utilities/polaroid_camera/polaroid_layer.gdshader" id="7_42nwo"]
 [ext_resource type="Texture2D" uid="uid://bv6px42lbjq5f" path="res://Assets/PNGAssets/temp_rotate_arrow.png" id="11_42nwo"]
 [ext_resource type="Texture2D" uid="uid://djidfl63ug16b" path="res://Assets/PNGAssets/inner_ring.png" id="12_7wtwj"]
 [ext_resource type="Texture2D" uid="uid://cdvberuogb0k" path="res://Assets/PNGAssets/base_final.png" id="13_qpijf"]
 [ext_resource type="Texture2D" uid="uid://8cmqnmgxkmiu" path="res://Assets/PNGAssets/filter_color_dots.png" id="14_pxotk"]
 [ext_resource type="Texture2D" uid="uid://bvyh22qg3pxas" path="res://Assets/PNGAssets/N.png" id="15_7wtwj"]
-
-[sub_resource type="GDScript" id="GDScript_8fs6k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_42nwo"]
 shader = ExtResource("7_42nwo")
@@ -89,16 +87,20 @@ radius = 17.0294
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ifkd"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2aog"]
+
 [node name="PolaroidCamera" type="CanvasLayer"]
 follow_viewport_enabled = true
 
 [node name="body" type="Node2D" parent="."]
 
 [node name="MainImage" type="TextureRect" parent="body"]
-offset_top = -2.0
-offset_right = 1280.0
-offset_bottom = 718.0
+offset_left = -449.0
+offset_top = -261.0
+offset_right = 1039.0
+offset_bottom = 562.0
 scale = Vector2(1.43, 1.43)
+texture = ExtResource("1_8fs6k")
 expand_mode = 1
 
 [node name="ViewFinder" type="TextureRect" parent="body"]
@@ -111,7 +113,6 @@ offset_bottom = 3963.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_42nwo")
 expand_mode = 1
-script = SubResource("GDScript_8fs6k")
 
 [node name="blur_new" type="ColorRect" parent="body/ViewFinder"]
 show_behind_parent = true
@@ -329,7 +330,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_or4cw")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_40lq2")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_idotc")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8ifkd")
-script = ExtResource("6_or4cw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g2aog")
 
 [node name="flash" type="ColorRect" parent="body/ViewFinder/filter_control/shoot"]
 visible = false
