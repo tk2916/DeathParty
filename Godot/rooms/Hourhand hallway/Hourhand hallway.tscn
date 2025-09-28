@@ -36,6 +36,9 @@ size = Vector3(25, 2, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dr676"]
 size = Vector3(5.10004, 2, 0.1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vssp0"]
+size = Vector3(32.8532, 0.978088, 13.0097)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rs8om"]
 resource_local_to_scene = true
 size = Vector3(5.28977, 2.96014, 1.64386)
@@ -929,9 +932,6 @@ shadow_mesh = SubResource("ArrayMesh_idoxc")
 resource_local_to_scene = true
 size = Vector3(6.58365, 2.80212, 2.04828)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vssp0"]
-size = Vector3(32.8532, 0.978088, 13.0097)
-
 [node name="Hourhand hallway" type="Area3D" node_paths=PackedStringArray("room_area")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("2_xgvqn")
@@ -960,6 +960,15 @@ debug_color = Color(0, 0.595, 0.7, 1)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9191, -0.636362, 1.40023)
 shape = SubResource("BoxShape3D_dr676")
 debug_color = Color(0, 0.595, 0.7, 1)
+
+[node name="Floor" type="StaticBody3D" parent="." groups=["material_concrete"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.39438e-08, -1.52106, 1.69164)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 5.32947, -0.53537, -0.175595)
+shape = SubResource("BoxShape3D_vssp0")
 
 [node name="SceneLoader_Storageroom" parent="." instance=ExtResource("13_1ehwm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.01516, -1.32767, 0.633325)
@@ -2131,7 +2140,6 @@ target_scene = 12
 play_door_sound = true
 right_arrow_asset = null
 down_arrow_asset = ExtResource("3_df5mx")
-arrow_direction = 2
 
 [node name="Popup" parent="SceneLoader_Control room" index="1"]
 transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 1, 2, -1.75)
@@ -2140,15 +2148,6 @@ texture = ExtResource("21_df5mx")
 [node name="CollisionShape3D" parent="SceneLoader_Control room/InteractionDetector" index="0"]
 transform = Transform3D(1, 0, -3.37508e-13, 0, 1, 0, 3.37508e-13, 0, 1, 1.19286, 1.23943, 0.0798111)
 shape = SubResource("BoxShape3D_df5mx")
-
-[node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.39438e-08, -1.52106, 1.69164)
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 5.32947, -0.53537, -0.175595)
-shape = SubResource("BoxShape3D_vssp0")
 
 [node name="headlight pipes" parent="." instance=ExtResource("20_dr676")]
 transform = Transform3D(-3.0907e-08, 0, -1.7717, 0, 0.723525, 0, 0.707069, 0, -7.74436e-08, 1.37824, 0.912523, 1.67323)
@@ -2183,6 +2182,20 @@ light_energy = 30.0
 shadow_enabled = true
 spot_range = 6.198
 spot_angle = 37.81
+
+[node name="ElectricalHum" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/012_SFX_ElectricHum"
+event_guid = "{5400becd-0db7-41ef-9585-f90cc8bc9bad}"
+autoplay = true
+volume = 0.25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50000006, 0.6, 1.6)
+
+[node name="ElectricalHum2" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/012_SFX_ElectricHum"
+event_guid = "{5400becd-0db7-41ef-9585-f90cc8bc9bad}"
+autoplay = true
+volume = 0.25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.6, 1.8000004)
 
 [editable path="SceneLoader_Storageroom"]
 [editable path="SceneLoader_Storageroom/InteractionDetector"]
