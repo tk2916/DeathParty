@@ -65,7 +65,6 @@ func offload() -> void:
 				deactivate = false
 				break
 		if !deactivate: return
-	print("Offloading in ", scene.name, ": ", name)
 	super()
 
 func load_async(loading_in : bool = true) -> void:

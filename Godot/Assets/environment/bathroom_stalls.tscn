@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://sg61lf70webv"]
+[gd_scene load_steps=5 format=3 uid="uid://sg61lf70webv"]
 
 [ext_resource type="PackedScene" uid="uid://d0ub3da87w3lj" path="res://rooms/Bathroom/Bathroom stalls.glb" id="1_684i0"]
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_vhonx"]
 [ext_resource type="Resource" uid="uid://dny7mkak8b8m1" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/stalls_properties.tres" id="3_684i0"]
+[ext_resource type="PackedScene" uid="uid://cqxjk5afxrhem" path="res://Common/Popup UI/object_interact_popup.tscn" id="4_vhonx"]
 
 [node name="Bathroom stalls" instance=ExtResource("1_684i0")]
 script = ExtResource("2_vhonx")
 talking_object_resource = ExtResource("3_684i0")
+
+[node name="Popup" parent="." index="2" instance=ExtResource("4_vhonx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8310876, 0.5323596, 0)

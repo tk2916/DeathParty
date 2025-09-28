@@ -614,7 +614,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.8225
 target_scene = 3
 local_spawn_point = 1
 play_door_sound = true
-arrow_direction = 1
 
 [node name="Popup" parent="SceneLoader_PartyRoom" index="1"]
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.63, 1.75, -1.5)

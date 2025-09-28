@@ -37,7 +37,6 @@ func set_active(_active : bool, initial_load : bool) -> void:
 		if active and obj.toggled:
 			obj.load_in()
 		else:
-			print("Deciding not to load in ", obj.name, " because: ", active, ", ", obj.toggled)
 			obj.offload()
 	scene.cell_debugger.update_cell(self)
 
