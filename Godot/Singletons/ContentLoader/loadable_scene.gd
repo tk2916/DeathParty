@@ -31,7 +31,7 @@ func _init(
 	
 	room = instance as Room3D
 
-	file = load(filepath)
+	#file = load(filepath)
 	#print("Initializing Scene for ", name)
 
 	if room:
@@ -55,6 +55,7 @@ func load_in() -> Node3D:
 	##UI
 	
 	max_objects_per_frame = cell_manager.max_objects_per_frame
+	file = load(filepath)
 	instance = file.instantiate()
 	instance.ready.connect(func() -> void:
 		print(name, " finished loading")
@@ -81,6 +82,7 @@ func offload() -> void:
 	load_files(false)
 	cell_debugger.offload()
 	cell_manager.offload()
+	file = null
 
 func on_first_visit() -> void:
 	if first_visit_json:
