@@ -53,7 +53,6 @@ func add_new_to_cache(filepath : String, tree : InkTree) -> void:
 	ink_tree_cache[filepath] = tree
 
 func get_content() -> Array[InkNode]:
-	#var current_path : String = current_address.container.path + str(current_address.index)
 	var nodes : Array[InkNode] = address_to_node(address)
 	address.index += 1
 
@@ -97,7 +96,7 @@ func get_first_message(json : JSON) -> InkLineInfo:
 	return first_message[0]
 
 func address_to_node(current_address : InkAddress) -> Array[InkNode]:
-	print("------ GETTNG NODE at ", current_address.container.path + "." + str(current_address.index))
+	print("------ GETTING NODE at ", current_address.container.path + "." + str(current_address.index))
 	var container : InkContainer = current_address.container
 	var index : int = current_address.index
 	if index < container.dialogue_lines.size():

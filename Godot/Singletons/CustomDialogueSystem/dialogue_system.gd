@@ -76,15 +76,15 @@ func begin_dialogue(file : JSON, in_phone : bool = false) -> void:
 	Ink.from_JSON(file)
 	display_content()
 
-func resume_dialogue(address : InkAddress) -> void:
+func resume_dialogue(address : InkAddress, in_phone : bool = true) -> void:
 	if in_dialogue:
 		pause_dialogue()
 		#print("You can't resume a chat while in a dialogue!")
 		return
 
-	print("Resuming dialogue")
+	print("Resuming dialogue: ", address)
 	in_dialogue = true
-	show_dialogue_box(true)
+	show_dialogue_box(in_phone)
 	Ink.from_address(address)
 	display_content()
 
@@ -101,14 +101,18 @@ func end_dialogue() -> void:
 			current_character_resource.end_chat()
 	current_conversation = []
 
-func pause_dialogue(revert_address : bool = false) -> void: #ONLY FOR PHONE CONVERSATIONS
-	if current_phone_resource == null or current_dialogue_box == null: return
+func pause_dialogue(revert_address : bool = false) -> void:
 	are_choices = false
-	#GuiSystem.hid_phone_mid_convo = hiding_phone
-	if revert_address:
+	if revert_address: #for when you pause but the system is already on the next line
 		Ink.address.index -= 1
 		current_conversation.pop_back()
-	current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy
+	
+	if current_dialogue_box:
+		current_character_resource.pause_chat()
+		current_dialogue_box.visible = false
+		current_dialogue_box.queue_free()
+	elif current_phone_resource:
+		current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy 
 	print("Pausing dialogue")
 	in_dialogue = false
 ##
@@ -163,6 +167,7 @@ func get_first_message(json : JSON) -> InkLineInfo:
 
 func display_content() -> void:
 	var content : Variant = Ink.get_content()
+	print("Display content called: ", content[0])
 	'''
 	Ink.get_content() returns Array[InkNode]
 	InkNode can be InkLineInfo or InkChoiceInfo
@@ -173,7 +178,8 @@ func display_content() -> void:
 			end_dialogue()
 		elif line.text[0] == "/":
 			await match_command(line.text)
-			display_content()
+			#print("Match command: ", line.text)
+			#display_content()
 		else:
 			current_dialogue_box.add_line(line)
 			current_conversation.push_back(line)
@@ -183,6 +189,9 @@ func display_content() -> void:
 			choices.push_back(choice)
 		are_choices = true
 		current_dialogue_box.set_choices(choices)
+
+	if waiting:
+		waiting = false
 
 ## PROCESS COMMANDS
 func match_command(text_ : String) -> void:
@@ -203,6 +212,8 @@ func match_command(text_ : String) -> void:
 	parameters_array.push_back(current_parameter)
 	print("Parameters array: ", parameters_array)
 	#match the first parameters (the command)
+
+	var display_content_after : bool = true
 	match(parameters_array[0]):
 		"/give_item":
 			var item_name : String = parameters_array[1]
@@ -215,10 +226,14 @@ func match_command(text_ : String) -> void:
 			SaveSystem.set_key("has_item_flag", true)
 			if item_name == "Journal" or SaveSystem.item_exists(item_name).model != null:
 				#wait for inventory preview to close
-				current_dialogue_box.visible = false
+				pause_dialogue()
 				await GuiSystem.guis_closed
-			waiting = false
-			current_dialogue_box.visible = true
+
+			if !in_dialogue:
+				display_content_after = false
+				print("Resuming dialogue")
+				resume_dialogue(current_character_resource.paused_ink_address, false)
+				print("Resume dialogue finished")
 		"/remove_item":
 			#alerts if you don't have enough items
 			var result : int = SaveSystem.remove_item(parameters_array[1])
@@ -295,6 +310,9 @@ func match_command(text_ : String) -> void:
 			var npc_model : NPC = ContentLoader.get_active_npc(character_name).npc
 			if npc_model:
 				npc_model.play_animation(animation_name)
+
+	if display_content_after:
+		display_content()
 
 ## ADVANCE DIALOGUE
 func skip() -> void:
