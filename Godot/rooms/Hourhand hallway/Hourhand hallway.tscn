@@ -2183,6 +2183,18 @@ shadow_enabled = true
 spot_range = 6.198
 spot_angle = 37.81
 
+[node name="ElectricalHum" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/012_SFX_ElectricHum"
+event_guid = "{5400becd-0db7-41ef-9585-f90cc8bc9bad}"
+autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50000006, 0.6, 1.6)
+
+[node name="ElectricalHum2" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/000_SFX/000_Demo_Test/012_SFX_ElectricHum"
+event_guid = "{5400becd-0db7-41ef-9585-f90cc8bc9bad}"
+autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.6, 1.8000004)
+
 [editable path="SceneLoader_Storageroom"]
 [editable path="SceneLoader_Storageroom/InteractionDetector"]
 [editable path="SceneLoader_Control room"]
