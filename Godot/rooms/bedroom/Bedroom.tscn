@@ -1,4 +1,4 @@
-[gd_scene load_steps=247 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=272 format=4 uid="uid://bgkgxvk46r4l3"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -33,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://d1lqvnti86824" path="res://rooms/bedroom/bed shelf_Image_2.png" id="15_iik62"]
 [ext_resource type="PackedScene" uid="uid://coofv85sr5rrg" path="res://rooms/bedroom/cactus.glb" id="15_lwekq"]
 [ext_resource type="Texture2D" uid="uid://b2ciulhkvptco" path="res://rooms/bedroom/bed shelf_Image_6.png" id="16_1xr1m"]
-[ext_resource type="PackedScene" uid="uid://bf33in3d2kinf" path="res://rooms/bedroom/cork board.glb" id="16_i33k8"]
 [ext_resource type="PackedScene" uid="uid://c5rhah4rw0jyh" path="res://Assets/props/desk_lamp/simple lamp.glb" id="17_bmvp4"]
 [ext_resource type="Texture2D" uid="uid://2ds4ukncbqw5" path="res://rooms/bedroom/bed shelf_Image_7.png" id="17_i6yd4"]
 [ext_resource type="Texture2D" uid="uid://cymuljxvbxb1x" path="res://rooms/bedroom/bed shelf_Image_8.png" id="18_bs3sl"]
@@ -74,17 +73,26 @@
 [ext_resource type="PackedScene" uid="uid://r11twgabwx5k" path="res://Assets/environment/bookshelves/dorm_bookshelf.tscn" id="50_shd6j"]
 [ext_resource type="Texture2D" uid="uid://cgvs4fwjt83jn" path="res://rooms/bedroom/punk posters_IMG_0684.png" id="51_kvlly"]
 [ext_resource type="Texture2D" uid="uid://6p5vltopl887" path="res://rooms/bedroom/punk posters_IMG_4143.png" id="53_5smtm"]
+[ext_resource type="Script" uid="uid://bn1qsu53uxsg0" path="res://rooms/bedroom/cork_board.gd" id="54_8ahpd"]
 [ext_resource type="Texture2D" uid="uid://q8smajfubmrv" path="res://rooms/bedroom/punk posters_corkboard.png" id="54_p0j85"]
 [ext_resource type="Texture2D" uid="uid://bt5m0rdvonpdq" path="res://rooms/bedroom/punk posters_poster_medium_IMGtexture.png" id="55_ope5w"]
+[ext_resource type="PackedScene" uid="uid://cqxjk5afxrhem" path="res://Common/Popup UI/object_interact_popup.tscn" id="55_wkd24"]
 [ext_resource type="PackedScene" uid="uid://btmj6vlpb2pyw" path="res://rooms/bedroom/desk stuff.glb" id="56_0hleh"]
+[ext_resource type="Texture2D" uid="uid://d3aasjrkvul3x" path="res://rooms/bedroom/cork board_IMG_0610.png" id="56_60c37"]
 [ext_resource type="Texture2D" uid="uid://cjxqcrbdqmfmj" path="res://rooms/bedroom/punk posters_poster_large_IMGtexture.png" id="56_h68os"]
 [ext_resource type="Texture2D" uid="uid://byv3mpq87j1iq" path="res://rooms/bedroom/punk posters_polaroid.png" id="57_1qprw"]
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="57_6hcck"]
+[ext_resource type="Texture2D" uid="uid://bkevcxay1mvug" path="res://rooms/bedroom/cork board_IMG_0611.png" id="57_damqq"]
 [ext_resource type="Texture2D" uid="uid://ckxw6ylxp6q2" path="res://rooms/bedroom/punk posters_Screenshot_2025-08-14_at_11.39.png" id="58_b70md"]
+[ext_resource type="Texture2D" uid="uid://dqgkyvg6yjoct" path="res://rooms/bedroom/cork board_Screenshot_2025-08-07_at_2.png" id="58_f0vbm"]
+[ext_resource type="Texture2D" uid="uid://cwqbgfy8uvuac" path="res://rooms/bedroom/cork board_Screenshot_2025-08-07_at_2_3.png" id="59_67da1"]
 [ext_resource type="Texture2D" uid="uid://dq7aci6ookcke" path="res://rooms/bedroom/punk posters_DSCF9727+copy+Resize1_4wit character (1) (1).png" id="59_x8yhf"]
+[ext_resource type="Texture2D" uid="uid://duwknufr33vdr" path="res://rooms/bedroom/cork board_IMG_4143.png" id="60_fpfis"]
 [ext_resource type="Texture2D" uid="uid://ce85eqd7s8bgo" path="res://rooms/bedroom/punk posters_IMG_2004.webp" id="60_otruv"]
+[ext_resource type="Texture2D" uid="uid://cvct4yvesnw1i" path="res://rooms/bedroom/cork board_corkboard.png" id="61_upx0q"]
 [ext_resource type="Texture2D" uid="uid://dvixxs4ofg1hj" path="res://rooms/bedroom/punk posters_Image_2.jpg" id="62_vr1g1"]
 [ext_resource type="Texture2D" uid="uid://bgdnqggiql0ln" path="res://rooms/bedroom/punk posters_Style baseloose.png" id="63_shd6j"]
+[ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="63_yquho"]
 [ext_resource type="PackedScene" uid="uid://dasq5wgeyo38c" path="res://Assets/props/polaroid_camera_collectable.tscn" id="66_dyybh"]
 [ext_resource type="PackedScene" uid="uid://5dyu4rpk5qa6" path="res://rooms/bedroom/LEO.glb" id="70_b33ja"]
 [ext_resource type="Texture2D" uid="uid://jhllv8yv42pa" path="res://rooms/bedroom/carn poster_carn stranglers.png" id="81_5smtm"]
@@ -861,6 +869,224 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gvogj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lq6du"]
+resource_name = "Material.035"
+cull_mode = 2
+albedo_texture = ExtResource("56_60c37")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6rb5d"]
+_surfaces = [{
+"aabb": AABB(-1.68676, 0, -2.13921, 3.37352, 1e-05, 4.27841),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.035",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bwyxn"]
+resource_name = "cork board_Plane"
+_surfaces = [{
+"aabb": AABB(-1.68676, 0, -2.13921, 3.37352, 1e-05, 4.27841),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_lq6du"),
+"name": "Material.035",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6rb5d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljuaw"]
+resource_name = "Material.036"
+cull_mode = 2
+albedo_texture = ExtResource("57_damqq")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i0381"]
+_surfaces = [{
+"aabb": AABB(-1.68676, 0, -2.13921, 3.37352, 1e-05, 4.27841),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.036",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ones2"]
+resource_name = "cork board_Plane_002"
+_surfaces = [{
+"aabb": AABB(-1.68676, 0, -2.13921, 3.37352, 1e-05, 4.27841),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_ljuaw"),
+"name": "Material.036",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i0381")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ailkt"]
+resource_name = "Material.037"
+cull_mode = 2
+albedo_texture = ExtResource("58_f0vbm")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jb6i3"]
+_surfaces = [{
+"aabb": AABB(-1.68676, 0, -2.13921, 3.37352, 1e-05, 4.27841),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.037",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1dn0v"]
+resource_name = "cork board_Plane_003"
+_surfaces = [{
+"aabb": AABB(-1.68676, 0, -2.13921, 3.37352, 1e-05, 4.27841),
+"attribute_data": PackedByteArray("hgZ4+Xj5hgZ4+Xj5hgaGBg=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_ailkt"),
+"name": "Material.037",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jb6i3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_am6j4"]
+resource_name = "Material.038"
+cull_mode = 2
+albedo_texture = ExtResource("59_67da1")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gw7gy"]
+_surfaces = [{
+"aabb": AABB(-1.68676, 0, -2.13921, 3.37352, 1e-05, 4.27841),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.038",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAP//AAD//wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v0osj"]
+resource_name = "cork board_Plane_006"
+_surfaces = [{
+"aabb": AABB(-1.68676, 0, -2.13921, 3.37352, 1e-05, 4.27841),
+"attribute_data": PackedByteArray("pwpX9Vf1pwpX9Vf1pwqnCg=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_am6j4"),
+"name": "Material.038",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP///7///wAAAAD/v///AAD///+/AAAAAAAA/7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gw7gy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebva4"]
+resource_name = "Material.227"
+cull_mode = 2
+albedo_texture = ExtResource("60_fpfis")
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqt4a"]
+resource_name = "Material.039"
+cull_mode = 2
+albedo_texture = ExtResource("61_upx0q")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4g2yi"]
+_surfaces = [{
+"aabb": AABB(-0.0258021, -0.715491, -1.07933, 0.111908, 1.43098, 2.15866),
+"format": 34896613377,
+"index_count": 222,
+"index_data": PackedByteArray("GAABAAIAAgABAAMAAgADAAQAGAACAAQAAQAZAAMABAADABkAGAAaAAEAAQAaABkAGAAEABsABAAZABsAGAAGABoAGgAFABkAGgAGAAUAGQAHABsAGQAFAAcAGwAAABgAGAAAAAYAGwAHAAAABgAJAAUABQAKAAcABQAJAAoABwALAAAABwAKAAsAAAAIAAYABgAIAAkAAAALAAgACQANAAoACgAOAAsACgANAA4ACwAPAAgACwAOAA8ACAAMAAkACQAMAA0ACAAPAAwADQAcAA4ADgAdAA8ADgAcAB0ADwAeAAwADwAdAB4ADAAfAA0ADQAfABwADAAeAB8AHAAgAB0AHQAhAB4AHQAgACEAHgAiAB8AHgAhACIAHwAjABwAHAAjACAAHwAiACMAIAAkACEAIQAlACIAIQAkACUAIgAmACMAIgAlACYAIwAnACAAIAAnACQAIwAmACcAEAAlACQAEQAmACUAEQAlABAAEgAnACYAEgAmABEAEwAkACcAEwAnABIAEAAkABMAFQASABEAFwASABUAFwATABIAFQARABQAFAARABAAFgATABcAFAAQABYAFgAQABMA"),
+"lods": [0.00517136, PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAACAAQAAQAFAAMABAADAAUAAAAGAAEAAQAGAAUAAAAEAAcABAAFAAcAAAAIAAYABgAJAAUABgAIAAkABQAKAAcABQAJAAoABwALAAAAAAALAAgABwAKAAsACAAMAAkACQANAAoACQAMAA0ACgAOAAsACgANAA4ACwAPAAgACAAPAAwACwAOAA8ADAAQAA0ADQARAA4ADQAQABEADgASAA8ADgARABIADwATAAwADAATABAADwASABMAFAARABAAFQARABQAFQASABEAFAAQABYAFgAQABMAFwASABUAFgATABcAFwATABIA")],
+"name": "Material.227",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("IkF8AFIAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAAAACJBgv+s/wAAIkF8AKz/AAAiQYL/UgAAACc6NgEx/wAAJzrI/jH/AAAnOsj+zQAAACc6NgHNAAAA9ytg/uz+AAD3K2D+EgEAAPcrngESAQAA9yueAez+AAAAAC34LgUAAAAA0QcuBQAAAADRB9D6AAAAAC340PoAADYf0QcuBQAANh/RB9D6AAA2Hy34LgUAADYfLfjQ+gAAik0AAAAAAACKTf////8AAIpNAAD//wAAik3//wAAAAAQJYgCrgEAABAliAJQ/gAAECV2/VD+AAAQJXb9rgEAACsVTwQj/QAAKxWv+yP9AAArFa/72wIAACsVTwTbAgAAAADu+fn7AAAAAO75BQQAAAAAEAYFBAAAAAAQBvn7AAA=")
+}, {
+"aabb": AABB(-0.0121578, -0.671786, -1.03562, 1e-05, 1.34357, 2.07125),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Material.039",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5mgqd"]
+resource_name = "cork board_Cube_098"
+_surfaces = [{
+"aabb": AABB(-0.0258021, -0.715491, -1.07933, 0.111908, 1.43098, 2.15866),
+"attribute_data": PackedByteArray("o9FBcD3Vsu091Rlwo9GJ7f/////iorDX//+w1+Ki//+j0ev/PdWw16PRw9c91f//PdX//6PRw9c91bDXo9Hr/z3VGXCj0Ynto9FBcD3Vsu3/0CfradCkcv/QpHJp0Cfr/9Dr2GnQw/7/0MP+adDr2P/QpHJp0Cfr/9An62nQpHL/0MP+adDr2P/Q69hp0MP+4f9e2C2jIdgAo17YtP8h2ILRfnA90SvtgtFN7T3RoHCb///XxaT71Uaj/9cc/vvVAKPr/y2j4dcAo8PXLaPO/4LRzv890fHXgtHh1z3Rvf9Go73/xaTr2Eaj8dfFpMP+AKNthbT/qYXh/22FLaOphYLRTe090aBwgtF+cD3RK+1Go8uFHP7Ph5v/y4XFpM+H4f/D17T/zv/h/+v/tP/h14LR4dc90b3/gtHO/z3R8deb//HXHP7D/pv/vf8c/uvY39EZcN/Rsu1YpD2HiP49h4j+pNiI/gr/39H//9/RsNff0bDX39H//9/Rsu3f0RlwWKQK/1ikpNjf0Rlw39Gy7X6js9di/7PXYv+z1+yjH9d+o7PX9P4f1/T+H9dYpI3W7KMf14j+jdbf0f//39Gw136jFth+o5j/fqOY/+yjXdh+oxbY7KNR/+yjUf9YpKTY7KNd2FikCv/f0bLt39EZcGL/F4Z+oxeGfqMXhvT+q4Zi/xeG7KOrhuyjq4aI/j2H9P6rhlikPYff0bDX39H//2L/mP9i/xbYYv8W2PT+Uf9i/5j/9P5d2PT+XdiI/gr/9P5R/4j+pNiI/o3WWKSN1g=="),
+"format": 34896613399,
+"index_count": 222,
+"index_data": PackedByteArray("VAABAAIAVABVAAEABAAFAAYABAAHAAUARQBWAEcARQBXAFYAUQBYAFMAUQBZAFgAWgAJAFsAWgALAAkADABcAA4ADABdAFwAEABeAF8AEAATAF4AOQBgADsAOQBhAGAAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAYgADAGMAYgAAAAMAJAAlACYAJAAnACUAKAApACoAKAArACkALABkAC4ALABlAGQAZgBnAGgAZgBpAGcAagBrAGwAagBtAGsAbgANAG8AbgAPAA0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOABwADoAOABxAHAAcgBzAHQAcgB1AHMAdgB3AHgAdgB5AHcAegASAHsAegARABIAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARAB8AEYARAB9AHwAfgB/AIAAfgCBAH8AggCDAIQAggCFAIMAhgAIAIcAhgAKAAgASABJAEoASABLAEkATABNAE4ATABPAE0AUACIAFIAUACJAIgAigCLAIwAigCNAIsAjgCPAJAAjgCRAI8ALQCSAC8ALQCTAJIA"),
+"lods": [0.00517136, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEA")],
+"material": SubResource("StandardMaterial3D_ebva4"),
+"name": "Material.227",
+"primitive": 3,
+"uv_scale": Vector4(1.57164, 2.03825, 0, 0),
+"vertex_count": 148,
+"vertex_data": PackedByteArray("IkF8AFIA2D3//wAA////P///AAAAAP8/IkF8AKz/2D3//wAAAAD/v/////////+//////wAA/7///wAA////vyJBfABSAAAA/////wAAAAAiQYL/UgAAAP//AAAAAAAA//8AAP//AIAiQYL/rP/jkv///////wCAIkF8AKz/45L/////AAD/vyJBgv+s/ybCIkGC/1IAJcL/////////vzYf0QfQ+v+/AADRBy4F/782H9EHLgX/vwAA0QfQ+v+/Nh8t+ND6AAAAANEH0PoAADYf0QfQ+gAAAAAt+ND6AAA2Hy34LgX/PwAALfjQ+v8/Nh8t+ND6/z8AAC34LgX/PzYf0QcuBQCAAAAt+C4FAIA2Hy34LgUAgAAA0QcuBQCAIkF8AFIAYBInOjYBMf9gEiJBfACs/2ASJzo2Ac0AYBInOjYBzQDBPvcrngHs/sE+Jzo2ATH/wT73K54BEgHBPvcrngESAUAPAADRB9D6AAD3K54B7P5ADwAA0QcuBQAAIkF8AKz/AwAnOsj+Mf8AACJBgv+s/wAAJzo2ATH/AAAnOjYBMf9MjvcrYP7s/kyOJzrI/jH/TI73K54B7P5MjvcrngHs/gAAAAAt+ND6AAD3K2D+7P4AAAAA0QfQ+gAAIkGC/6z/YBInOsj+zQBgEiJBgv9SAGASJzrI/jH/YBInOsj+Mf89wfcrYP4SAT3BJzrI/s0APcH3K2D+7P49wfcrYP7s/kAPAAAt+C4FAAD3K2D+EgFADwAALfjQ+gAAIkGC/1IAAAAnOjYBzQAAACJBfABSAAAAJzrI/s0AAAAnOsj+zQAAAPcrngESAQAAJzo2Ac0AAAD3K2D+EgEAAPcrYP4SAQAAAADRBy4FAAD3K54BEgEAAAAALfguBQAAik0AAAAA/z+KTQAA////PwAA7vn5+wAAAADu+QUEAAAAAO75BQQAAAAAEAYFBAAAik0AAAAAAACKTf//AAAAAIpN/////wCAik0AAP//AICKTf//////v4pN//8AAP+/AAAQBvn7AAAAAO75+fsAAIpNAAAAANg9ik0AAP//2D0QJYgCUP5ADxAliAKuAUAPECWIAq4BcxErFU8EI/1zERAliAJQ/nMRKxVPBNsCcxErFU8E2wKKFQAAEAb5+4oVKxVPBCP9ihUAABAGBQSKFYpNAAD//+OSik3/////45IQJXb9UP4AABAliAJQ/gAAECWIAlD+AAArFa/7I/0AABAldv1Q/gAAKxVPBCP9AAArFU8EI/0AAAAA7vn5+wAAKxWv+yP9AAAAABAG+fsAAIpN/////ybCik3//wAAJcIQJXb9rgFADxAldv1Q/kAPECV2/VD+cxErFa/72wJzERAldv2uAXMRKxWv+yP9cxErFa/7I/2KFQAA7vkFBIoVKxWv+9sCihUAAO75+fuKFYpN//8AAAAAik0AAAAAAAAQJYgCrgEAABAldv2uAQAAECV2/a4BAAArFU8E2wIAABAliAKuAQAAKxWv+9sCAAArFa/72wIAAAAAEAYFBAAAKxVPBNsCAwAAAO75BQQAAAAAEAYFBAAAAAAQBvn7AAANKYaUAAD/fwAA/38NKYaU/38AAP9/AAD/fwAA/38AAJEYJoD///9//v9xmP///3//f////3/+//9////+f/n/////f3jrDKl46wyp////f////3////9/////f////3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9///8kSbZtJEm2bSRJtm0kSbZtgiHAkIIhwJCCIcCQgiHAkK5HonD/P/9/rkeicP8//39UVf9/VFX/f1VV/39UVf9//n/3//9//v//f////n/3/3VR/3//P/9/dVH/f////7+17ds2te3bNrXt2za17ds2Pe+BoT3vgaE974GhPe+BoaLwUTj/P/9/ovBROP8//3///6qq//+qquH/var//1RV/v+4bEcT/39HE/9//v+4bP7/dVH/P/9///+Jrv8//38AAP9/AAD/f/8//3//P/9//z//f/8//3////9/////f/9/////f///////f////3////+//z//fw0phpQNKYaUrkeicK5HonC1SJNutUiTbrVIk261SJNunUrEap1KxGqdSsRqnUrEav5/+f//f///dVH/f3VR/3+8/0DU//8p1P//KdT//ynUcln/f3JZ/39yWf9/cln/f3jrDKl46wypovBROKLwUTiT7kk3k+5JN5PuSTeT7kk3xOpiNcTqYjXE6mI1xOpiNf7/cZhyGP9/4P+drv7/dVH+/ypU/v8qVP7/KlT+/ypU/v+Mpv//jKb//4ym/v+Mpv8//3//P/9/")
+}, {
+"aabb": AABB(-0.0121578, -0.671786, -1.03562, 1e-05, 1.34357, 2.07125),
+"attribute_data": PackedByteArray("EAcm8V/3dg0QB3YNX/cm8Q=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_qqt4a"),
+"name": "Material.039",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/P/9//z//f/8//3//P/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4g2yi")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w60h2"]
+size = Vector3(4.285, 6.895, 4.455)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7orw5"]
 resource_name = "Material.009"
@@ -2123,12 +2349,13 @@ path_follow_node = NodePath("IntroCameraPath/PathFollow3D")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
-[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader", "polaroid_camera") instance=ExtResource("3_84fnt")]
+[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader", "polaroid_camera", "corkboard_popup") instance=ExtResource("3_84fnt")]
 rowan_invite_dialogue = ExtResource("4_vr1g1")
 on_phone_close_dialogue = ExtResource("5_shd6j")
 on_journal_dialogue = ExtResource("6_yxfps")
 exterior_scene_loader = NodePath("../SceneLoader_Exterior")
 polaroid_camera = NodePath("../PolaroidCamera")
+corkboard_popup = NodePath("../CorkBoard/corkboardPopup")
 
 [node name="IntroCameraPath" type="Path3D" parent="."]
 curve = SubResource("Curve3D_tluma")
@@ -2542,14 +2769,65 @@ shadow_enabled = true
 [node name="Chair" parent="." instance=ExtResource("8_8bc0i")]
 transform = Transform3D(0.998259, 0, -0.102315, 0, 1.00349, 0, 0.102315, 0, 0.998259, -0.776669, 0.361875, 0.718062)
 
-[node name="CorkBoard" parent="." instance=ExtResource("16_i33k8")]
+[node name="CorkBoard" type="Node3D" parent="." node_paths=PackedStringArray("title")]
 transform = Transform3D(1.12343, 0, 0, 0, 1.12343, 0, 0, 0, 1.12343, -0.926211, 1.4748, -1.18352)
+script = ExtResource("54_8ahpd")
+title = NodePath("../TitleScreen")
+metadata/_custom_type_script = "uid://bea7y4hurcesx"
 
-[node name="Plane_003" parent="CorkBoard" index="2"]
+[node name="corkboardPopup" parent="CorkBoard" instance=ExtResource("55_wkd24")]
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 1.1864907, 0, 0)
 visible = false
+
+[node name="Background" parent="CorkBoard/corkboardPopup" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.407059, 0)
+flip_h = true
+
+[node name="NameLabel" parent="CorkBoard/corkboardPopup" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.482307, 0)
+text = "TAKE!"
+
+[node name="TakeLabel" parent="CorkBoard/corkboardPopup" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.400618, 0)
+text = "Photo"
+
+[node name="Plane" type="MeshInstance3D" parent="CorkBoard"]
+transform = Transform3D(0.0729188, -0.000291963, -0.0368833, -0.0341202, 7.5833e-05, -0.0788243, 0.000296584, 0.0805068, -5.95114e-05, 0.540885, -0.267181, 0.0054332)
+mesh = SubResource("ArrayMesh_bwyxn")
+skeleton = NodePath("")
+
+[node name="Plane_002" type="MeshInstance3D" parent="CorkBoard"]
+transform = Transform3D(0.0780044, -0.000303278, 0.021529, 0.0199162, -4.42904e-05, -0.0843217, 0.000304808, 0.0805068, 3.47127e-05, -0.577576, 0.269528, 0.00292575)
+mesh = SubResource("ArrayMesh_ones2")
+skeleton = NodePath("")
+
+[node name="Plane_003" type="MeshInstance3D" parent="CorkBoard"]
+transform = Transform3D(0.0796156, -0.0011204, -0.0128601, -0.0118932, 0.000337242, -0.0860711, 0.00115793, 0.0804989, 0.000181596, -0.360226, 0.0598366, 0.00254118)
+visible = false
+mesh = SubResource("ArrayMesh_1dn0v")
+skeleton = NodePath("")
+
+[node name="Plane_004" type="MeshInstance3D" parent="CorkBoard"]
+transform = Transform3D(0.0654618, -0.00025112, 7.64634e-12, -2.28624e-11, -7.80371e-09, -0.0707632, 0.00025112, 0.0654618, -8.43567e-09, 0.388082, -0.0405736, 0.00561392)
+mesh = SubResource("ArrayMesh_v0osj")
+skeleton = NodePath("")
+
+[node name="Cube_043" type="MeshInstance3D" parent="CorkBoard"]
+transform = Transform3D(0.0012658, 0, 0.78465, 0, 0.784651, 0, -0.78465, 0, 0.0012658, 0.00883514, -0.0216107, -0.0165143)
+mesh = SubResource("ArrayMesh_5mgqd")
+skeleton = NodePath("")
 
 [node name="Evidence" parent="CorkBoard" instance=ExtResource("30_ke8q4")]
 transform = Transform3D(0.900741, 0, 0, 0, 0.900741, 0, 0, 0, 0.900741, -0.0322255, 0.0498521, 0.0131065)
+
+[node name="InteractionDetector" parent="CorkBoard" node_paths=PackedStringArray("collision_shape") instance=ExtResource("63_yquho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43036, 0, 0)
+collision_shape = NodePath("CollisionShape3D2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CorkBoard/InteractionDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37, 0.165, 0)
+shape = SubResource("BoxShape3D_w60h2")
+debug_color = Color(0.43529412, 0, 0.015686275, 1)
 
 [node name="StarRug" parent="." groups=["material_carpet"] instance=ExtResource("20_y7msa")]
 transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.120105, 1.50737)
@@ -2910,11 +3188,12 @@ visible = false
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
+[connection signal="player_interacted" from="CorkBoard/InteractionDetector" to="CorkBoard" method="_on_interaction_detector_player_interacted"]
 
 [editable path="SceneLoader_Exterior"]
 [editable path="SceneLoader_Exterior/InteractionDetector"]
 [editable path="Bed"]
 [editable path="Closet"]
 [editable path="Desk/DeskObjects"]
-[editable path="CorkBoard"]
+[editable path="CorkBoard/corkboardPopup"]
 [editable path="LEO"]

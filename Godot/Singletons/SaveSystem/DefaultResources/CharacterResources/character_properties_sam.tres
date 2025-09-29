@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://q7v0audy1ra8" path="res://Assets/CharacterAssets/Polaroids/sam_a.png" id="1_iqqf2"]
 [ext_resource type="Texture2D" uid="uid://x0uifydcxtx1" path="res://Assets/CharacterAssets/Polaroids/sam_b.png" id="2_a7tjk"]
 [ext_resource type="Texture2D" uid="uid://b4kctexnnjkj0" path="res://Assets/CharacterAssets/sam/sam_circle.png" id="2_qv81c"]
-[ext_resource type="Script" uid="uid://d1yny6oqf2gvp" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="4_01lyg"]
+[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="4_01lyg"]
 [ext_resource type="JSON" path="res://Assets/InkFiles/library_Sam_tattoo_dialogue.json" id="5_ckqm1"]
 
 [sub_resource type="Resource" id="Resource_3k1y8"]

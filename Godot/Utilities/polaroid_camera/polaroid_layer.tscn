@@ -1,46 +1,351 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0sd1bp5esd04"]
+[gd_scene load_steps=45 format=3 uid="uid://d0sd1bp5esd04"]
 
-[ext_resource type="Texture2D" uid="uid://bl8cxq775ju5e" path="res://Assets/PNGAssets/PictureExample.png" id="1_t72bm"]
-[ext_resource type="Texture2D" uid="uid://d16vdeadxk8ym" path="res://Assets/PNGAssets/temp_CameraViewfinder.png" id="2_wiexo"]
-[ext_resource type="Script" uid="uid://cg5lhigmboc73" path="res://Utilities/polaroid_camera/view_finder.gd" id="5_hbg1w"]
-[ext_resource type="Script" uid="uid://qfuy0m0xcjwf" path="res://Utilities/polaroid_camera/picturetake.gd" id="6_or4cw"]
+[ext_resource type="Texture2D" uid="uid://dv6sgae1nmmfj" path="res://Assets/PNGAssets/placeholder_image.png" id="1_8fs6k"]
+[ext_resource type="Texture2D" uid="uid://g8gi1go6brft" path="res://Assets/PNGAssets/viewfinder_final.png" id="3_42nwo"]
+[ext_resource type="Texture2D" uid="uid://c7sn438n6fn2n" path="res://Assets/PNGAssets/green_lens.png" id="4_a6jrl"]
+[ext_resource type="Script" uid="uid://bd5wy6rj1xank" path="res://Utilities/polaroid_camera/filter_control.gd" id="5_omcg7"]
+[ext_resource type="Shader" uid="uid://dflfu0c1r3cql" path="res://Utilities/pause_menu/background_blur.gdshader" id="5_ph0pu"]
+[ext_resource type="Shader" uid="uid://cx7fj2cmeblbc" path="res://Utilities/polaroid_camera/polaroid_layer_unblur.gdshader" id="6_7wtwj"]
+[ext_resource type="Texture2D" uid="uid://cy5s70jehrwrr" path="res://Assets/PNGAssets/viewfinder.png" id="6_8fs6k"]
+[ext_resource type="Shader" uid="uid://ccc6w6g5spnr7" path="res://Utilities/polaroid_camera/polaroid_layer.gdshader" id="7_42nwo"]
+[ext_resource type="Texture2D" uid="uid://bv6px42lbjq5f" path="res://Assets/PNGAssets/temp_rotate_arrow.png" id="11_42nwo"]
+[ext_resource type="Texture2D" uid="uid://djidfl63ug16b" path="res://Assets/PNGAssets/inner_ring.png" id="12_7wtwj"]
+[ext_resource type="Texture2D" uid="uid://cdvberuogb0k" path="res://Assets/PNGAssets/base_final.png" id="13_qpijf"]
+[ext_resource type="Texture2D" uid="uid://8cmqnmgxkmiu" path="res://Assets/PNGAssets/filter_color_dots.png" id="14_pxotk"]
+[ext_resource type="Texture2D" uid="uid://bvyh22qg3pxas" path="res://Assets/PNGAssets/N.png" id="15_7wtwj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_42nwo"]
+shader = ExtResource("7_42nwo")
+shader_parameter/lod = 2.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpijf"]
+shader = ExtResource("6_7wtwj")
+shader_parameter/lod = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4q0hv"]
+shader = ExtResource("5_ph0pu")
+shader_parameter/strength = 5.0
+shader_parameter/mix_percentage = 0.3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4q0hv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42nwo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ph0pu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7wtwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpijf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pxotk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bid8k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_47y0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4hu4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gnj1l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tiy8x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4q0hv"]
+radius = 24.6864
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lj084"]
+radius = 32.5862
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6jrl"]
+radius = 30.5665
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fs6k"]
+radius = 31.3516
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngt84"]
+radius = 30.4386
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_omcg7"]
+radius = 17.0294
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lj084"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fs6k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ngt84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hx8qq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vn1g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4tks"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_or4cw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ps1x1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40lq2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gt8th"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idotc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ifkd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2aog"]
 
 [node name="PolaroidCamera" type="CanvasLayer"]
 follow_viewport_enabled = true
 
-[node name="PictureExample" type="TextureRect" parent="."]
-offset_left = -13.0
-offset_top = -18.0
-offset_right = 1303.0
-offset_bottom = 735.0
-scale = Vector2(1, 1.0079)
-texture = ExtResource("1_t72bm")
+[node name="body" type="Node2D" parent="."]
+
+[node name="MainImage" type="TextureRect" parent="body"]
+offset_left = -449.0
+offset_top = -261.0
+offset_right = 1039.0
+offset_bottom = 562.0
+scale = Vector2(1.43, 1.43)
+texture = ExtResource("1_8fs6k")
 expand_mode = 1
 
-[node name="ViewFinder" type="TextureRect" parent="PictureExample" node_paths=PackedStringArray("viewfinder_camera")]
+[node name="ViewFinder" type="TextureRect" parent="body"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 1226.0
-offset_bottom = 632.0
-texture = ExtResource("2_wiexo")
+top_level = true
+offset_left = 272.0
+offset_top = -67.0
+offset_right = 5255.0
+offset_bottom = 3963.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_42nwo")
 expand_mode = 1
-script = ExtResource("5_hbg1w")
-viewfinder_camera = NodePath("../Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="PictureExample"]
-position = Vector2(23, 24.804)
-scale = Vector2(1e-05, 1.0079e-05)
+[node name="blur_new" type="ColorRect" parent="body/ViewFinder"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_42nwo")
+layout_mode = 0
+offset_left = -1495.0
+offset_top = 270.0
+offset_right = 5175.0
+offset_bottom = 4105.0
+color = Color(1, 0, 0, 1)
+
+[node name="unblur" type="ColorRect" parent="body/ViewFinder/blur_new"]
+material = SubResource("ShaderMaterial_qpijf")
+layout_mode = 0
+offset_left = 2025.0
+offset_top = 615.0
+offset_right = 4330.0
+offset_bottom = 2885.0
+color = Color(0, 0, 1, 1)
+
+[node name="ViewFinder_aim" type="TextureRect" parent="body/ViewFinder"]
+layout_mode = 1
+offset_left = 1385.0
+offset_top = 1685.0
+offset_right = 1462.0
+offset_bottom = 1757.0
+scale = Vector2(9, 9)
+texture = ExtResource("6_8fs6k")
+expand_mode = 1
+
+[node name="Blur" type="Panel" parent="body/ViewFinder"]
+visible = false
+show_behind_parent = true
+material = SubResource("ShaderMaterial_4q0hv")
+layout_mode = 0
+offset_left = -540.0
+offset_top = -15.0
+offset_right = 5985.0
+offset_bottom = 3720.0
+
+[node name="filter" type="TextureRect" parent="body/ViewFinder"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 590.0
+offset_top = 905.0
+offset_right = 2925.0
+offset_bottom = 3045.0
+texture = ExtResource("4_a6jrl")
+expand_mode = 1
+
+[node name="filter_control" type="Node2D" parent="body/ViewFinder" node_paths=PackedStringArray("left_button", "right_button", "filter_base_button", "lens", "ViewFinder", "filter_letter")]
+position = Vector2(-1345, -335)
+scale = Vector2(5, 5)
+script = ExtResource("5_omcg7")
+left_button = NodePath("rotate_left _button/left_button")
+right_button = NodePath("rotate_right_button/right_button")
+filter_base_button = NodePath("filter_base/filter_base_button")
+lens = NodePath("../filter")
+ViewFinder = NodePath("..")
+filter_letter = NodePath("filter_letter")
+
+[node name="inner_ring" type="TextureRect" parent="body/ViewFinder/filter_control"]
+custom_minimum_size = Vector2(0, 100)
+offset_left = 276.0
+offset_top = 69.0
+offset_right = 1978.49
+offset_bottom = 1734.18
+scale = Vector2(0.58, 0.48)
+texture = ExtResource("12_7wtwj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="filter_base" type="Sprite2D" parent="body/ViewFinder/filter_control"]
+position = Vector2(1059.73, 354.82)
+rotation = 6.28319
+scale = Vector2(0.547, 0.547)
+texture = ExtResource("13_qpijf")
+offset = Vector2(-525, 209.92)
+
+[node name="filter_base_button" type="Button" parent="body/ViewFinder/filter_control/filter_base"]
+top_level = true
+offset_left = 942.0
+offset_top = 99.0
+offset_right = 1188.0
+offset_bottom = 334.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4q0hv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_42nwo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ph0pu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_7wtwj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qpijf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_pxotk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bid8k")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_47y0a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q4hu4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gnj1l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tiy8x")
+button_mask = 7
+
+[node name="Area2D" type="Area2D" parent="body/ViewFinder/filter_control/filter_base"]
+visible = false
+position = Vector2(-1.99946, 2.00272e-05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/Area2D"]
+position = Vector2(-1.78604, -4.34783)
+scale = Vector2(7.347, 7.604)
+shape = SubResource("CircleShape2D_4q0hv")
+
+[node name="white_filter" type="Sprite2D" parent="body/ViewFinder/filter_control/filter_base"]
+position = Vector2(-1050, 447.5)
+texture = ExtResource("14_pxotk")
+offset = Vector2(525.434, -235.649)
+
+[node name="white" type="Area2D" parent="body/ViewFinder/filter_control/filter_base/white_filter"]
+position = Vector2(965, -435)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/white_filter/white"]
+position = Vector2(-0.71484, -5.97836)
+shape = SubResource("CircleShape2D_lj084")
+
+[node name="red_filter" type="Sprite2D" parent="body/ViewFinder/filter_control/filter_base"]
+position = Vector2(-6.91414e-06, -71.9346)
+
+[node name="red" type="Area2D" parent="body/ViewFinder/filter_control/filter_base/red_filter"]
+position = Vector2(1.78572, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/red_filter/red"]
+position = Vector2(-1.78581, -11.7018)
+shape = SubResource("CircleShape2D_a6jrl")
+
+[node name="blue_filter" type="Sprite2D" parent="body/ViewFinder/filter_control/filter_base"]
+position = Vector2(1.63435, 70.2997)
+
+[node name="blue" type="Area2D" parent="body/ViewFinder/filter_control/filter_base/blue_filter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/blue_filter/blue"]
+position = Vector2(0.183916, 13.3367)
+shape = SubResource("CircleShape2D_8fs6k")
+
+[node name="green_filter" type="Sprite2D" parent="body/ViewFinder/filter_control/filter_base"]
+position = Vector2(70.2748, 1.63487)
+
+[node name="green" type="Area2D" parent="body/ViewFinder/filter_control/filter_base/green_filter"]
+position = Vector2(-440.275, 150.865)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ViewFinder/filter_control/filter_base/green_filter/green"]
+position = Vector2(452.225, -149.135)
+shape = SubResource("CircleShape2D_ngt84")
+
+[node name="rotate_left _button" type="Sprite2D" parent="body/ViewFinder/filter_control"]
+visible = false
+position = Vector2(1026, 430)
+scale = Vector2(0.0997929, 0.0997929)
+texture = ExtResource("11_42nwo")
+
+[node name="left_button" type="Button" parent="body/ViewFinder/filter_control/rotate_left _button"]
+offset_left = -170.0
+offset_top = -170.0
+offset_right = 170.0
+offset_bottom = 170.0
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="rotate_right_button" type="Sprite2D" parent="body/ViewFinder/filter_control"]
+visible = false
+position = Vector2(1098, 428)
+rotation = 3.14159
+scale = Vector2(0.108901, 0.106676)
+texture = ExtResource("11_42nwo")
+
+[node name="right_button" type="Button" parent="body/ViewFinder/filter_control/rotate_right_button"]
+anchors_preset = -1
+anchor_bottom = 0.00295858
+offset_left = -169.0
+offset_top = -168.0
+offset_right = 169.0
+offset_bottom = 171.0
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="selector" type="Area2D" parent="body/ViewFinder/filter_control"]
+visible = false
+position = Vector2(1085, 272)
+
+[node name="selector_shape" type="CollisionShape2D" parent="body/ViewFinder/filter_control/selector"]
+position = Vector2(-71, 82)
+shape = SubResource("CircleShape2D_omcg7")
+
+[node name="filter_letter" type="TextureRect" parent="body/ViewFinder/filter_control"]
+offset_left = 963.86
+offset_top = 350.995
+offset_right = 977.86
+offset_bottom = 364.995
+texture = ExtResource("15_7wtwj")
+expand_mode = 1
+
+[node name="shoot" type="Button" parent="body/ViewFinder/filter_control"]
+visibility_layer = 1023
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 134.0
+offset_right = 1277.0
+offset_bottom = 854.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lj084")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8fs6k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ngt84")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hx8qq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8vn1g")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_c4tks")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_or4cw")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_40lq2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_idotc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8ifkd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g2aog")
+
+[node name="flash" type="ColorRect" parent="body/ViewFinder/filter_control/shoot"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1e-05, 1.01586e-05)
 anchor_mode = 0
 ignore_rotation = false
-zoom = Vector2(1.1, 1.26)
+zoom = Vector2(1.045, 1.045)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
@@ -51,16 +356,9 @@ drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 
-[node name="shoot" type="Button" parent="."]
-offset_left = -5.0
-offset_top = -8.0
-offset_right = 1278.0
-offset_bottom = 715.0
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_c4tks")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_or4cw")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ps1x1")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_gt8th")
-script = ExtResource("6_or4cw")
-
-[connection signal="button_up" from="shoot" to="." method="_on_shoot_button_up"]
-[connection signal="pressed" from="shoot" to="shoot" method="_on_pressed"]
+[connection signal="pressed" from="body/ViewFinder/filter_control/filter_base/filter_base_button" to="body/ViewFinder/filter_control" method="_on_filter_base_button_pressed"]
+[connection signal="input_event" from="body/ViewFinder/filter_control/filter_base/Area2D" to="body/ViewFinder/filter_control" method="_on_area_2d_input_event"]
+[connection signal="pressed" from="body/ViewFinder/filter_control/rotate_left _button/left_button" to="body/ViewFinder/filter_control" method="_on_left_button_pressed"]
+[connection signal="pressed" from="body/ViewFinder/filter_control/rotate_right_button/right_button" to="body/ViewFinder/filter_control" method="_on_right_button_pressed"]
+[connection signal="area_shape_entered" from="body/ViewFinder/filter_control/selector" to="body/ViewFinder/filter_control" method="_on_selector_area_shape_entered"]
+[connection signal="pressed" from="body/ViewFinder/filter_control/shoot" to="body/ViewFinder/filter_control/shoot" method="_on_pressed"]
