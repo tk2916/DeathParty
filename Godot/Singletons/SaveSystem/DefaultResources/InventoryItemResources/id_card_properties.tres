@@ -6,10 +6,9 @@
 
 [resource]
 script = ExtResource("2_gi3kb")
-description = "Wallet"
+description = "Jack's lost wallet"
 model = ExtResource("1_3t4u5")
 inventory_scale = 2.0
-inventory_position = Vector2(1, 0.6)
-amount_owned = 0
+inventory_position = Vector2(-1, 0.6)
 dialogue_on_first_view = ExtResource("1_07afw")
 name = "Wallet"
