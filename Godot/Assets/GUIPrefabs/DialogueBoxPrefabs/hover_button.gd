@@ -22,9 +22,20 @@ func _on_mouse_entered() -> void:
 	rtl.text = "[color=black]"+option_text+"[/color]"
 
 func _on_mouse_exited() -> void:
+	if has_focus():
+		return
 	texture_rect.texture = default_texture
 	rtl.text = "[color=white]"+option_text+"[/color]"
 
+#region Keyboard/controller naviagtion visuals
+func _on_focus_entered() -> void:
+	texture_rect.texture = hover_texture
+	rtl.text = "[color=black]"+option_text+"[/color]"
+	
+func _on_focus_exited() -> void:
+	texture_rect.texture = default_texture
+	rtl.text = "[color=white]"+option_text+"[/color]"
+#endregion
 
 func _on_pressed() -> void:
 	var click_sound: FmodEventEmitter3D = click_sound_scene.instantiate()

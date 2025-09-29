@@ -13,7 +13,7 @@ var active_item : Node3D
 @export var capture_drag : bool = true
 @export var rotatable_object : bool = true
 
-func _ready():
+func _ready() -> void:
 	active_item = get_parent()
 	input_capture_on_drag = false
 
@@ -28,18 +28,15 @@ func _mouse_exit() -> void:
 
 
 #TODO: Properly bind the inputs to the input map instead of manually checking for it in the code
-func _input(event) -> void:
+func _input(event : InputEvent) -> void:
 	#When the mouse moves if the button is clicked moves the item relative to the mouse movement
 	if pressed and event is InputEventMouseMotion:
 		if active_item != null:
 			#NOTE: Rotation a bit sensitive, might want to try some manipulating
 			active_item.rotate_x(event.relative.y * 0.005)
 			active_item.rotate_y(event.relative.x * 0.005)
-
-func _unhandled_input(event: InputEvent) -> void:
-	pass
-
-func _physics_process(delta : float) -> void:
+			
+func _physics_process(_delta : float) -> void:
 	#TODO: Change this into an actual input 
 	if Input.is_action_just_pressed("dialogic_default_action") and mouse_in_object:
 		pressed = true

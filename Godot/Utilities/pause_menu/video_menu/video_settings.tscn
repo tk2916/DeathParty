@@ -141,6 +141,13 @@ horizontal_alignment = 2
 
 [node name="UpscaleLabel" type="Label" parent="PanelContainer/TabContainer/Display/MarginContainer/DisplayGridContainer"]
 layout_mode = 2
+tooltip_text = "Upscaling
+Controls how the 3D elements of the game are scaled from your chosen render scale to fit your monitor's output resolution
+
+Bilinear: regular upscaling, basically just stretches the image
+FSR 1.0 and FSR 2.0: upscaling using an algorithm - this tries to match the image quality of a native image in your full output resolution,
+while keeping performance closer to the cost of the chosen render scale"
+mouse_filter = 1
 theme = ExtResource("2_e2l73")
 text = "Upscaling"
 
@@ -287,6 +294,7 @@ layout_mode = 2
 theme = ExtResource("2_e2l73")
 
 [node name="Preset1" type="Button" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/PresetsContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_e2l73")
@@ -311,6 +319,7 @@ theme = ExtResource("2_e2l73")
 text = "High"
 
 [node name="Preset5" type="Button" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/PresetsContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_e2l73")
@@ -371,7 +380,7 @@ focus_neighbor_top = NodePath("../FilteringOptionButton")
 theme = ExtResource("2_e2l73")
 alignment = 1
 expand_icon = true
-item_count = 6
+item_count = 5
 popup/item_0/text = "Disabled"
 popup/item_0/id = 0
 popup/item_1/text = "FXAA"
@@ -382,8 +391,6 @@ popup/item_3/text = "MSAA 2x"
 popup/item_3/id = 3
 popup/item_4/text = "MSAA 4x"
 popup/item_4/id = 4
-popup/item_5/text = "MSAA 8x"
-popup/item_5/id = 5
 
 [node name="LODLabel" type="Label" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -399,17 +406,13 @@ focus_neighbor_top = NodePath("../FilteringOptionButton")
 theme = ExtResource("2_e2l73")
 alignment = 1
 expand_icon = true
-item_count = 5
-popup/item_0/text = "Very Low"
+item_count = 3
+popup/item_0/text = "Low"
 popup/item_0/id = 0
-popup/item_1/text = "Low"
+popup/item_1/text = "Medium"
 popup/item_1/id = 1
-popup/item_2/text = "Medium"
+popup/item_2/text = "High"
 popup/item_2/id = 2
-popup/item_3/text = "High"
-popup/item_3/id = 3
-popup/item_4/text = "Ultra"
-popup/item_4/id = 4
 
 [node name="ShadowSizeLabel" type="Label" parent="PanelContainer/TabContainer/Quality/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2

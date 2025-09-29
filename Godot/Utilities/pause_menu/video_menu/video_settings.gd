@@ -1,32 +1,32 @@
 extends Control
 
-@onready var fullscreen_option_button : OptionButton = %FullscreenOptionButton
-@onready var monitor_option_button : OptionButton = %MonitorOptionButton
-@onready var vsync_option_button : OptionButton = %VSyncOptionButton
+@onready var fullscreen_option_button: OptionButton = %FullscreenOptionButton
+@onready var monitor_option_button: OptionButton = %MonitorOptionButton
+@onready var vsync_option_button: OptionButton = %VSyncOptionButton
 
-@onready var scale_slider : HSlider = %ScaleSlider
-@onready var scale_label : Label = %ScaleLabel
+@onready var scale_slider: HSlider = %ScaleSlider
+@onready var scale_label: Label = %ScaleLabel
 
-@onready var upscale_option_button : OptionButton = %UpscaleOptionButton
-@onready var sharpness_label : Label = %SharpnessLabel
-@onready var sharpness_container : Container = %SharpnessContainer
-@onready var sharpness_slider : HSlider = %SharpnessSlider
-@onready var sharpness_spin_box : SpinBox = %SharpnessSpinBox
+@onready var upscale_option_button: OptionButton = %UpscaleOptionButton
+@onready var sharpness_label: Label = %SharpnessLabel
+@onready var sharpness_container: Container = %SharpnessContainer
+@onready var sharpness_slider: HSlider = %SharpnessSlider
+@onready var sharpness_spin_box: SpinBox = %SharpnessSpinBox
 
-@onready var fps_slider : HSlider = %FPSSlider
-@onready var fps_spin_box : SpinBox = %FPSSpinBox
+@onready var fps_slider: HSlider = %FPSSlider
+@onready var fps_spin_box: SpinBox = %FPSSpinBox
 @onready var fps_limit_off_label: Label = %FPSLimitOffLabel
 
-@onready var stats_option_button : OptionButton = %StatsOptionButton
+@onready var stats_option_button: OptionButton = %StatsOptionButton
 
-@onready var filtering_option_button : OptionButton = %FilteringOptionButton
-@onready var aa_option_button : OptionButton = %AAOptionButton
-@onready var lod_option_button : OptionButton = %LODOptionButton
-@onready var shadow_size_option_button : OptionButton = %ShadowSizeOptionButton
+@onready var filtering_option_button: OptionButton = %FilteringOptionButton
+@onready var aa_option_button: OptionButton = %AAOptionButton
+@onready var lod_option_button: OptionButton = %LODOptionButton
+@onready var shadow_size_option_button: OptionButton = %ShadowSizeOptionButton
 
-@onready var ssao_option_button : OptionButton = %SSAOOptionButton
+@onready var ssao_option_button: OptionButton = %SSAOOptionButton
 
-var last_monitor_count : int
+var last_monitor_count: int
 
 
 func _ready() -> void:
@@ -68,29 +68,28 @@ func set_monitor_options() -> void:
 	monitor_option_button.clear()
 
 	last_monitor_count = DisplayServer.get_screen_count()
-	var select_i : int = 0
+	var select_i: int = 0
 	for i in range(last_monitor_count):
 		var is_current := ""
 		if i == DisplayServer.window_get_current_screen():
 			is_current = " (Current)"
 			select_i = i
-		monitor_option_button.add_item("Monitor %s%s" % [i,is_current])
+		monitor_option_button.add_item("Monitor %s%s" % [i, is_current])
 
 	monitor_option_button.select(select_i)
 
 
 # PRESET BUTTONS
 
-
 # very low
 func _on_preset_1_pressed() -> void:
 	aa_option_button.selected = 0 # AA disabled
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 0 # very low shadows
+	shadow_size_option_button.selected = 0 # low shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 0
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 1 # low LOD
+	lod_option_button.selected = 0 # low LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
@@ -98,11 +97,11 @@ func _on_preset_1_pressed() -> void:
 func _on_preset_2_pressed() -> void:
 	aa_option_button.selected = 0 # AA disabled
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 1 # low shadows
+	shadow_size_option_button.selected = 0 # low shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 2
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 2 # medium LOD
+	lod_option_button.selected = 0 # low LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
@@ -110,11 +109,11 @@ func _on_preset_2_pressed() -> void:
 func _on_preset_3_pressed() -> void:
 	aa_option_button.selected = 3 # 2x MSAA
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 2 # medium shadows
+	shadow_size_option_button.selected = 1 # high shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 4
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 3 # high LOD
+	lod_option_button.selected = 1 # medium LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
@@ -122,30 +121,30 @@ func _on_preset_3_pressed() -> void:
 func _on_preset_4_pressed() -> void:
 	aa_option_button.selected = 4 # 4x MSAA
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 2 # medium shadows
+	shadow_size_option_button.selected = 1 # high shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 5
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 3 # high LOD
+	lod_option_button.selected = 2 # high LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
 # ultra
 func _on_preset_5_pressed() -> void:
-	aa_option_button.selected = 5 # 8x MSAA
+	aa_option_button.selected = 4 # 4x MSAA
 	aa_option_button.emit_signal("item_selected", aa_option_button.selected)
-	shadow_size_option_button.selected = 3 # high shadows
+	shadow_size_option_button.selected = 1 # high shadows
 	shadow_size_option_button.emit_signal("item_selected", shadow_size_option_button.selected)
 	ssao_option_button.selected = 5
 	ssao_option_button.emit_signal("item_selected", ssao_option_button.selected)
-	lod_option_button.selected = 4 # ultra LOD
+	lod_option_button.selected = 2 # high LOD
 	lod_option_button.emit_signal("item_selected", lod_option_button.selected)
 
 
 # DISPLAY SETTINGS
 
 
-func _on_fullscreen_option_button_item_selected(value : int) -> void:
+func _on_fullscreen_option_button_item_selected(value: int) -> void:
 	Settings.set_fullscreen(value)
 
 
@@ -233,7 +232,7 @@ func clamp_fps_value(value: float) -> float:
 	return value
 
 
-func hide_or_show_fps_limit_label(value : float) -> void:
+func hide_or_show_fps_limit_label(value: float) -> void:
 	if value == 0:
 		fps_spin_box.hide()
 		fps_limit_off_label.show()

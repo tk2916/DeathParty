@@ -12,19 +12,20 @@ extends Node
 		#ContentLoader.direct_teleport_player("Library"))
 
 func _ready() -> void:
-	SaveSystem.add_task("Second Task")
-	SaveSystem.add_task("A third task")
-	SaveSystem.add_task("A third task")
-	SaveSystem.add_task("Second Task")
-	SaveSystem.add_task("Second Task")
-	SaveSystem.add_task("Second Task")
-	SaveSystem.add_task("Second Task")
-	#SaveSystem.add_task("Second Task")
+	pass
+	# SaveSystem.add_task("Second Task")
+	# SaveSystem.add_task("A third task")
+	# SaveSystem.add_task("A third task")
+	# SaveSystem.add_task("Second Task")
+	# SaveSystem.add_task("Second Task")
+	# SaveSystem.add_task("Second Task")
+	# SaveSystem.add_task("Second Task")
+	# #SaveSystem.add_task("Second Task")
 	
-	SaveSystem.add_item("Nora's Polaroid")
-	SaveSystem.add_item("Olivia's Polaroid")
-	SaveSystem.add_item("Scissors")
-	SaveSystem.add_item("Pill Bottle")
+	# SaveSystem.add_item("Nora's Polaroid")
+	# SaveSystem.add_item("Olivia's Polaroid")
+	# SaveSystem.add_item("Scissors")
+	# SaveSystem.add_item("Pill Bottle")
 	#SaveSystem.add_item("Polaroid Camera")
 	#SaveSystem.add_item("ID Card")
 

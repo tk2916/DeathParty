@@ -88,7 +88,7 @@
 					{
 						"b": [
 							"\n",
-							"^[Frat Bro 1] For sure, go on up!",
+							"^[Frat Boy 1] For sure, go on up!",
 							"\n",
 							{
 								"->": "2nd_floor_hall"
@@ -107,7 +107,7 @@
 					{
 						"b": [
 							"\n",
-							"^[Frat Bro 1] Sorry, dude. Can't let you upstairs, frat house rules.",
+							"^[Frat Boy 1] Sorry, dude. Can't let you upstairs, frat house rules.",
 							"\n",
 							"^[Olivia] So everyone upstairs is in the frat?",
 							"\n",
@@ -115,7 +115,7 @@
 							"\n",
 							"^[Olivia] ...well, rule of cool is out. How else can I get up there?",
 							"\n",
-							"^[Frat Bro 1] You probably want to talk to the Prez about that.",
+							"^[Frat Boy 1] You probably want to talk to the Prez about that.",
 							"\n",
 							"^/give_task \"2nd Floor Access\"",
 							"\n",

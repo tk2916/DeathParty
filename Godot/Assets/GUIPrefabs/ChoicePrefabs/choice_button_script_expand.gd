@@ -23,7 +23,17 @@ func _on_button_mouse_entered() -> void:
 	tween_to_color(hover_color)
 
 func _on_button_mouse_exited() -> void:
+	if button.has_focus():
+		return
 	tween_to_color(normal_color)
+
+#region Keyboard/controller naviagtion visuals
+func _on_button_focus_entered() -> void:
+	tween_to_color(hover_color)
+	
+func _on_button_focus_exited() -> void:
+	tween_to_color(normal_color)
+#endregion
 
 func _on_rich_text_label_resized() -> void:
 	if resize_control:

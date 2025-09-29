@@ -4,6 +4,8 @@ class_name TalkingObjectResource extends DefaultResource
 var upcoming_chats : Array[JSON] = []
 var default_chat : JSON
 
+var paused_ink_address : InkAddress
+
 ## ORDER: Room-specific -> Everywhere
 @export var default_chats : Dictionary[Globals.SCENES, JSON] = {}
 @export var queue_chats : Dictionary[Globals.SCENES, JSONArray] = {}
@@ -36,6 +38,7 @@ func load_chats_for_room() -> void:
 		default_chat = default_chats[room]
 		
 	elif default_chats.has(Globals.SCENES.Everywhere) and default_chats[Globals.SCENES.Everywhere] != null:
+		print("Has everywhere default chat: ", name, default_chats[Globals.SCENES.Everywhere])
 		default_chat = default_chats[Globals.SCENES.Everywhere]
 
 	#set queue chats
@@ -80,6 +83,10 @@ func end_chat(_current_conversation : Array[InkLineInfo] = []) -> void:
 	if queue_chats.has(ContentLoader.active_scene_enum):
 		var scene_chats : Array[JSON] = queue_chats[ContentLoader.active_scene_enum].json_array
 		scene_chats.pop_front()
+
+func pause_chat() -> void:
+	#save current InkTree address
+	paused_ink_address = DialogueSystem.current_address #saves current variables
 	
 func has_chats() -> bool:
 	print("Checking has chats for ", name, " default chat: ", default_chat, " first chat: ", first_chat)
