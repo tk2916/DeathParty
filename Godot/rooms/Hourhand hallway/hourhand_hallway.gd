@@ -6,7 +6,6 @@ func _ready() -> void:
 
 func handle_player_entrance(body: Node3D) -> void:
 	remove_all_bounds(body)
-	rotate_player(body)
 	
 	keep_camera_on_player(body)
 	var hourhand_camera_offset_LR: Vector3 = Vector3(0, 0, 20)
