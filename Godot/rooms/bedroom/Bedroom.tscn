@@ -1,4 +1,4 @@
-[gd_scene load_steps=272 format=4 uid="uid://bgkgxvk46r4l3"]
+[gd_scene load_steps=274 format=4 uid="uid://c44l5t4o5i1qg"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dke1flebhebj4" path="res://rooms/bedroom/polaroids and poster_study date wiht nora.png" id="7_84fnt"]
 [ext_resource type="PackedScene" uid="uid://dpc3qxhnh5xme" path="res://Assets/environment/bedroom_door.tscn" id="7_vr1g1"]
 [ext_resource type="PackedScene" uid="uid://d07m4x3hmx0nt" path="res://rooms/bedroom/dorm chair.glb" id="8_8bc0i"]
+[ext_resource type="Material" uid="uid://bp1gi4mgkplho" path="res://Assets/Shaders/OutlineShader/TestOutlineShader.tres" id="9_60c37"]
 [ext_resource type="PackedScene" uid="uid://bjlg5o0t38qqs" path="res://rooms/bedroom/shoe rack.glb" id="9_l0p45"]
 [ext_resource type="Resource" uid="uid://bijwy7mhohjk3" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/camera_properties.tres" id="10_shd6j"]
 [ext_resource type="PackedScene" uid="uid://bgeyi70mq0w08" path="res://rooms/bedroom/dorm string lights.glb" id="12_0ajex"]
@@ -73,7 +74,7 @@
 [ext_resource type="PackedScene" uid="uid://r11twgabwx5k" path="res://Assets/environment/bookshelves/dorm_bookshelf.tscn" id="50_shd6j"]
 [ext_resource type="Texture2D" uid="uid://cgvs4fwjt83jn" path="res://rooms/bedroom/punk posters_IMG_0684.png" id="51_kvlly"]
 [ext_resource type="Texture2D" uid="uid://6p5vltopl887" path="res://rooms/bedroom/punk posters_IMG_4143.png" id="53_5smtm"]
-[ext_resource type="Script" uid="uid://bn1qsu53uxsg0" path="res://rooms/bedroom/cork_board.gd" id="54_8ahpd"]
+[ext_resource type="Script" path="res://rooms/bedroom/cork_board.gd" id="54_8ahpd"]
 [ext_resource type="Texture2D" uid="uid://q8smajfubmrv" path="res://rooms/bedroom/punk posters_corkboard.png" id="54_p0j85"]
 [ext_resource type="Texture2D" uid="uid://bt5m0rdvonpdq" path="res://rooms/bedroom/punk posters_poster_medium_IMGtexture.png" id="55_ope5w"]
 [ext_resource type="PackedScene" uid="uid://cqxjk5afxrhem" path="res://Common/Popup UI/object_interact_popup.tscn" id="55_wkd24"]
@@ -83,6 +84,7 @@
 [ext_resource type="Texture2D" uid="uid://byv3mpq87j1iq" path="res://rooms/bedroom/punk posters_polaroid.png" id="57_1qprw"]
 [ext_resource type="PackedScene" uid="uid://bogmo756b3xlx" path="res://rooms/bedroom/laundry basket.glb" id="57_6hcck"]
 [ext_resource type="Texture2D" uid="uid://bkevcxay1mvug" path="res://rooms/bedroom/cork board_IMG_0611.png" id="57_damqq"]
+[ext_resource type="Texture2D" uid="uid://dyv30oenjkqi8" path="res://Assets/PNGAssets/BackgroundLeft.png" id="57_f0vbm"]
 [ext_resource type="Texture2D" uid="uid://ckxw6ylxp6q2" path="res://rooms/bedroom/punk posters_Screenshot_2025-08-14_at_11.39.png" id="58_b70md"]
 [ext_resource type="Texture2D" uid="uid://dqgkyvg6yjoct" path="res://rooms/bedroom/cork board_Screenshot_2025-08-07_at_2.png" id="58_f0vbm"]
 [ext_resource type="Texture2D" uid="uid://cwqbgfy8uvuac" path="res://rooms/bedroom/cork board_Screenshot_2025-08-07_at_2_3.png" id="59_67da1"]
@@ -1086,7 +1088,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4g2yi")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w60h2"]
-size = Vector3(4.285, 6.895, 4.455)
+size = Vector3(13.34, 3.67, 4.705)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7orw5"]
 resource_name = "Material.009"
@@ -2433,8 +2435,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075, 0, 1.824)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48049, 0, 5.078)
 target_scene = 9
 play_door_sound = true
-enabled = false
 use_first_mesh = true
+outline_thickness = null
+talking_object_resource = ExtResource("9_60c37")
+enabled = null
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.5, 1.75, 0)
@@ -2497,9 +2501,9 @@ material = SubResource("FogMaterial_lxtj2")
 
 [node name="PolaroidCamera" parent="." instance=ExtResource("66_dyybh")]
 transform = Transform3D(0.609383, 0, 0.649336, 0, 0.890497, 0, -0.649336, 0, 0.609383, 1.22371, 0.489549, 0.743623)
-enabled = false
 outline_thickness = 0.3
 talking_object_resource = ExtResource("10_shd6j")
+enabled = false
 
 [node name="Particles" type="Node3D" parent="."]
 
@@ -2781,14 +2785,15 @@ visible = false
 
 [node name="Background" parent="CorkBoard/corkboardPopup" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.407059, 0)
-flip_h = true
+texture = ExtResource("57_f0vbm")
 
 [node name="NameLabel" parent="CorkBoard/corkboardPopup" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.482307, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08159971, 0.4823072, 0)
 text = "TAKE!"
 
 [node name="TakeLabel" parent="CorkBoard/corkboardPopup" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.400618, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29784387, 0.4006183, 0)
+pixel_size = 0.0016
 text = "Photo"
 
 [node name="Plane" type="MeshInstance3D" parent="CorkBoard"]
