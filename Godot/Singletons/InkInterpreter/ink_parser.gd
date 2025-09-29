@@ -116,13 +116,20 @@ func match_eval_cmd(new_container : InkContainer, path : String, next:Variant) -
 					"System",
 					"end",
 				)
+		"nop":
+			InkLineInfo.new(
+					new_container,
+					path,
+					"System",
+					"nop",
+				)
 		_:
 			was_command = false
 	return was_command
 
 func classify_line(arr_index : int, new_container : InkContainer, next : Variant) -> void:
 	var path : String = new_container.path + "." + str(arr_index)
-
+	new_container.total_nodes_inclusive += 1;
 	if match_eval_cmd(new_container, path, next): return #if it's a command
 
 	# NESTING

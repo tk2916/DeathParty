@@ -7,6 +7,7 @@ A container is an ARRAY in the tree.
 
 var name : String
 var dialogue_lines : Array[InkNode] ## could be InkLineInfo or InkContainer
+var total_nodes_inclusive : int
 var dialogue_choices : Array[InkChoiceInfo] ## InkChoice info
 var redirects : Dictionary[String, InkContainer]
 var visits : int = 0

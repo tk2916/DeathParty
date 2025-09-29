@@ -19,8 +19,6 @@ var address : InkAddress
 func from_JSON(json: JSON) -> void:
 	var tree : InkTree = check_cache(json)
 	var container : InkContainer = tree.containers["root"]
-	#if tree.containers.has("PartyInvite"):
-	#	print("PARTYINVITE CONTAINER: \n" + tree.containers["PartyInvite"].tostring())
 	var index : int = 0
 	address = InkAddress.new(tree, container, index)
 	print("Start address: ", address.container.name, ", ", address.index)
@@ -54,7 +52,10 @@ func add_new_to_cache(filepath : String, tree : InkTree) -> void:
 
 func get_content() -> Array[InkNode]:
 	var nodes : Array[InkNode] = address_to_node(address)
+	print("GetContent() Address: ", address.container.path, ".", address.index)
 	address.index += 1
+	if nodes.is_empty():
+		return get_content()
 
 	var first_node : InkNode = nodes[0]
 	
@@ -95,16 +96,26 @@ func get_first_message(json : JSON) -> InkLineInfo:
 	address = old_address
 	return first_message[0]
 
+func find_node_with_path(container : InkContainer, index : int) -> InkNode:
+	var path : String = container.path + "." + str(index)
+	for line : InkNode in container.dialogue_lines:
+		if line.path == path:
+			return line
+	return null
+
 func address_to_node(current_address : InkAddress) -> Array[InkNode]:
 	print("------ GETTING NODE at ", current_address.container.path + "." + str(current_address.index))
 	var container : InkContainer = current_address.container
 	var index : int = current_address.index
-	if index < container.dialogue_lines.size():
+	if index < container.total_nodes_inclusive:
+		var next_item : InkNode = find_node_with_path(container, index)
+		if next_item == null:
+			return []
 		#print("------ Dialogue lines in order: ")
 		#for line in container.dialogue_lines:
 		#	print(line.tostring())
-		print("Selected line: ", container.dialogue_lines[index].tostring())
-		return [container.dialogue_lines[index]]
+		print("Selected line: ", next_item.tostring())
+		return [find_node_with_path(container, index)]
 	else:
 		print("Returning choices")
 		var as_ink_nodes : Array[InkNode] = []
@@ -152,6 +163,7 @@ func redirect_path_to_address(current_address : InkAddress, path : String) -> In
 	else: # 0.c-1 (always starts with zero)
 		var container_name : String = path_array[0]
 		var new_container : InkContainer
+		var new_index : int = 0
 
 		if container_name == "0":
 			#sometimes it is 0.c-0 (from root redirect table), sometimes 0.8.s (from a sub-container)
@@ -159,9 +171,17 @@ func redirect_path_to_address(current_address : InkAddress, path : String) -> In
 			for n in range(1, final_index+1):
 				var item : String = path_array[n]
 				if item.is_valid_int(): 
-					#sub-container
-					var sub_container : InkContainer = new_container.dialogue_lines[int(item)]
-					new_container = sub_container
+					var index : int = int(item)
+					var next : InkNode = find_node_with_path(new_container, index)
+					#var next : InkNode = new_container.dialogue_lines[index]
+					if next is InkContainer:
+						#sub-container
+						var sub_container : InkContainer = next
+						new_container = sub_container
+					else:
+						#address within container
+						print("New index is ", index)
+						new_index = index
 				else: 
 					#redirect table container
 					var redirect_table : Dictionary[String, InkContainer] = new_container.redirects
@@ -170,6 +190,7 @@ func redirect_path_to_address(current_address : InkAddress, path : String) -> In
 			#container is referenced by name
 			#get container from tree (root)
 			new_container = current_address.tree.containers[container_name]
-			
-		return InkAddress.new(current_address.tree, new_container, 0)
+		
+		print("New container: ", new_container.path, " new index: ", new_index)
+		return InkAddress.new(current_address.tree, new_container, new_index)
 	

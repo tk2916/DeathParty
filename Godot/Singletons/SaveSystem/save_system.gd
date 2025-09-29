@@ -205,7 +205,7 @@ func set_key(key:String, value:Variant) -> void:
 			value = true
 		elif value == "false":
 			value = false
-	print("global decl set key function: ", key, " value: ", value)
+	print("set key function: ", key, " value: ", value)
 	player_data.variable_dict[key] = value
 	if key == "time":
 		time_changed.emit(value)

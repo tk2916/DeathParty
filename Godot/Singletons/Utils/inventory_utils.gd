@@ -76,4 +76,5 @@ func show_item_details(
 	if item_resource.viewed == false:
 		item_resource.viewed = true
 		if item_resource.dialogue_on_first_view != null:
+			await clone.get_tree().process_frame
 			DialogueSystem.begin_dialogue(item_resource.dialogue_on_first_view)

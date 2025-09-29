@@ -56,7 +56,7 @@ func start_chat() -> void:
 		return
 	if paused_ink_address:
 		print("Chat is in progress: ", name)
-		DialogueSystem.resume_dialogue(paused_ink_address)
+		DialogueSystem.resume_dialogue(paused_ink_address, self)
 	else:
 		DialogueSystem.begin_dialogue(new_json, true)
 	chat_in_progress = true
