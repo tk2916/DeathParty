@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="1_4ukq4"]
 [ext_resource type="JSON" path="res://Assets/InkFiles/OliviaKitchenCupsFloor.ink.json" id="2_4ukq4"]
-[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="3_ubud7"]
+[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="3_ubud7"]
 
 [sub_resource type="Resource" id="Resource_8d8or"]
 script = ExtResource("1_4ukq4")
@@ -11,7 +11,6 @@ metadata/_custom_type_script = "uid://d1yny6oqf2gvp"
 
 [resource]
 script = ExtResource("3_ubud7")
-default_chats = Dictionary[int, JSON]({})
 queue_chats = Dictionary[int, ExtResource("1_4ukq4")]({
 10: SubResource("Resource_8d8or")
 })

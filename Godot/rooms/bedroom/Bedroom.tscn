@@ -1,4 +1,4 @@
-[gd_scene load_steps=272 format=4 uid="uid://c44l5t4o5i1qg"]
+[gd_scene load_steps=272 format=4 uid="uid://bgkgxvk46r4l3"]
 
 [ext_resource type="Texture2D" uid="uid://di3fxmhwsgn4v" path="res://rooms/bedroom/Bedroom_IMG_4162.png" id="1_aasoq"]
 [ext_resource type="Script" uid="uid://bh46on0pmp3la" path="res://rooms/bedroom/bedroom.gd" id="1_lxtj2"]
@@ -1086,7 +1086,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4g2yi")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w60h2"]
-size = Vector3(16.875, 8.68, 4.625)
+size = Vector3(4.285, 6.895, 4.455)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7orw5"]
 resource_name = "Material.009"
@@ -2349,12 +2349,13 @@ path_follow_node = NodePath("IntroCameraPath/PathFollow3D")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_0t478")]
 
-[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader", "polaroid_camera") instance=ExtResource("3_84fnt")]
+[node name="TutorialUI" parent="." node_paths=PackedStringArray("exterior_scene_loader", "polaroid_camera", "corkboard_popup") instance=ExtResource("3_84fnt")]
 rowan_invite_dialogue = ExtResource("4_vr1g1")
 on_phone_close_dialogue = ExtResource("5_shd6j")
 on_journal_dialogue = ExtResource("6_yxfps")
 exterior_scene_loader = NodePath("../SceneLoader_Exterior")
 polaroid_camera = NodePath("../PolaroidCamera")
+corkboard_popup = NodePath("../CorkBoard/corkboardPopup")
 
 [node name="IntroCameraPath" type="Path3D" parent="."]
 curve = SubResource("Curve3D_tluma")
@@ -2774,18 +2775,19 @@ script = ExtResource("54_8ahpd")
 title = NodePath("../TitleScreen")
 metadata/_custom_type_script = "uid://bea7y4hurcesx"
 
-[node name="Popup" parent="CorkBoard" instance=ExtResource("55_wkd24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25312, 0, 0)
+[node name="corkboardPopup" parent="CorkBoard" instance=ExtResource("55_wkd24")]
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 1.1864907, 0, 0)
+visible = false
 
-[node name="Background" parent="CorkBoard/Popup" index="0"]
+[node name="Background" parent="CorkBoard/corkboardPopup" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.407059, 0)
 flip_h = true
 
-[node name="NameLabel" parent="CorkBoard/Popup" index="1"]
+[node name="NameLabel" parent="CorkBoard/corkboardPopup" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.482307, 0)
 text = "TAKE!"
 
-[node name="TakeLabel" parent="CorkBoard/Popup" index="2"]
+[node name="TakeLabel" parent="CorkBoard/corkboardPopup" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.400618, 0)
 text = "Photo"
 
@@ -2823,9 +2825,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43036, 0, 0)
 collision_shape = NodePath("CollisionShape3D2")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="CorkBoard/InteractionDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59, 0.165, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37, 0.165, 0)
 shape = SubResource("BoxShape3D_w60h2")
-debug_color = Color(0.978336, 0, 0.397004, 0.42)
+debug_color = Color(0.43529412, 0, 0.015686275, 1)
 
 [node name="StarRug" parent="." groups=["material_carpet"] instance=ExtResource("20_y7msa")]
 transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.137042, -0.120105, 1.50737)
@@ -3193,5 +3195,5 @@ visible = false
 [editable path="Bed"]
 [editable path="Closet"]
 [editable path="Desk/DeskObjects"]
-[editable path="CorkBoard/Popup"]
+[editable path="CorkBoard/corkboardPopup"]
 [editable path="LEO"]

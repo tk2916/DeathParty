@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/json_array.gd" id="2_sgh7i"]
 [ext_resource type="JSON" path="res://Assets/InkFiles/int_entrance_Olivia_snack_table_interact.json" id="2_w0pv4"]
 [ext_resource type="JSON" path="res://Assets/InkFiles/int_entrance_Olivia_snack_table_interact2.json" id="3_hiopq"]
-[ext_resource type="Script" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="3_w0pv4"]
+[ext_resource type="Script" uid="uid://b3ieaqolkasnx" path="res://Singletons/SaveSystem/ResourceScripts/talking_object_properties_script.gd" id="3_w0pv4"]
 
 [sub_resource type="Resource" id="Resource_ekoog"]
 script = ExtResource("2_sgh7i")

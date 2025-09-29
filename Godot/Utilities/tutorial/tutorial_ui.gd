@@ -19,6 +19,7 @@ extends CanvasLayer
 
 @export var exterior_scene_loader: SceneLoader
 @export var polaroid_camera: Interactable
+@export var corkboard_popup: Node3D
 
 @onready var loading_timer: Timer = %LoadingTimer
 @onready var move_controls_popup: PanelContainer = %MoveControlsPopup
@@ -65,10 +66,12 @@ var state: States:
 				print("TUTORIAL STEP: PICK UP CAMERA")
 				polaroid_camera.enabled = true
 				polaroid_camera.interaction_detector.player_interacted.connect(on_camera_interacted)
+				corkboard_popup.show()
 			States.TAKE_PICTURE:
 				print("TUTORIAL STEP: TAKE PICTURE")
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
+				corkboard_popup.hide()
 				exterior_scene_loader.enabled = true
 				queue_free()
 	
