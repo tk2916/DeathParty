@@ -28,6 +28,7 @@ var current_address : InkAddress:
 ## CONSTANTS or UTILITIES
 const INK_FILE_PATH : String = "res://Assets/InkFiles/"
 const INK_EXAMPLES_FILE_PATH : String = "res://Assets/InkExamples/"
+const default_char_resource : CharacterResource = preload("res://Singletons/SaveSystem/DefaultResources/CharacterResources/character_properties_unknown.tres")
 var phone_notification_prefab : PackedScene = preload("res://phone_notification.tscn")
 var dialogue_advance_sound: PackedScene = preload("res://Utilities/dialogue_advance_sound.tscn")
 var new_message_sound_scene: PackedScene = preload("res://audio/new_message_sound.tscn") 
@@ -67,23 +68,31 @@ func show_dialogue_box(in_phone : bool) -> void:
 func begin_dialogue(file : JSON, in_phone : bool = false) -> void:
 	assert(file != null, "You forgot to assign a JSON file!")
 	if in_dialogue:
+		print("In dialogue already")
 		pause_dialogue()
 		#print("You can't start a new chat while in a dialogue!")
 		return
+	if current_character_resource == null:
+		current_character_resource = default_char_resource
 	print("Beginning dialogue")
 	in_dialogue = true
 	show_dialogue_box(in_phone)
 	Ink.from_JSON(file)
 	display_content()
 
-func resume_dialogue(address : InkAddress, in_phone : bool = true) -> void:
+func resume_dialogue(address : InkAddress, talking_resource : DefaultResource, in_phone : bool = true) -> void:
 	if in_dialogue:
+		print("In dialogue already2")
 		pause_dialogue()
 		#print("You can't resume a chat while in a dialogue!")
 		return
 
 	print("Resuming dialogue: ", address)
 	in_dialogue = true
+	if in_phone:
+		current_phone_resource = talking_resource
+	else:
+		current_character_resource = talking_resource
 	show_dialogue_box(in_phone)
 	Ink.from_address(address)
 	display_content()
@@ -102,17 +111,22 @@ func end_dialogue() -> void:
 	current_conversation = []
 
 func pause_dialogue(revert_address : bool = false) -> void:
+	if !in_dialogue: return
 	are_choices = false
 	if revert_address: #for when you pause but the system is already on the next line
 		Ink.address.index -= 1
 		current_conversation.pop_back()
 	
-	if current_dialogue_box:
+	print("trying to pause: ", current_dialogue_box, current_character_resource)
+	if current_dialogue_box and current_character_resource:
+		print("Pausing in character")
 		current_character_resource.pause_chat()
 		current_dialogue_box.visible = false
 		current_dialogue_box.queue_free()
+		current_character_resource = null
 	elif current_phone_resource:
-		current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy 
+		current_phone_resource.pause_chat(current_conversation) # stores Inky hierarchy
+		current_phone_resource = null 
 	print("Pausing dialogue")
 	in_dialogue = false
 ##
@@ -176,6 +190,8 @@ func display_content() -> void:
 		var line : InkLineInfo = content[0]
 		if line.speaker == "System" and line.text == "end":
 			end_dialogue()
+		elif line.speaker == "System" and line.text == "nop":
+			display_content()
 		elif line.text[0] == "/":
 			await match_command(line.text)
 			#print("Match command: ", line.text)
@@ -224,15 +240,17 @@ func match_command(text_ : String) -> void:
 			writing /give_item and /has_item right after each other
 			'''
 			SaveSystem.set_key("has_item_flag", true)
+			var current_char : DefaultResource = current_character_resource
 			if item_name == "Journal" or SaveSystem.item_exists(item_name).model != null:
 				#wait for inventory preview to close
+				print("In /give_item ", item_name)
 				pause_dialogue()
 				await GuiSystem.guis_closed
 
 			if !in_dialogue:
 				display_content_after = false
-				print("Resuming dialogue")
-				resume_dialogue(current_character_resource.paused_ink_address, false)
+				print("Resuming dialogue", current_char)
+				resume_dialogue(current_char.paused_ink_address, current_char, false)
 				print("Resume dialogue finished")
 		"/remove_item":
 			#alerts if you don't have enough items

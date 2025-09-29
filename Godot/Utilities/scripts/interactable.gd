@@ -1,16 +1,5 @@
 class_name Interactable extends Node3D
 
-@export var enabled: bool = true:
-	set(value):
-		enabled = value
-		# call on_in_range if the player is already standing in the interactable
-		# area when the interactable gets enabled (since otherwise it wouldnt
-		# get an on_entered signal since the player's already in there)
-		if enabled:
-			var overlapping_bodies: Array = interaction_detector.get_overlapping_bodies()
-			for body: PhysicsBody3D in overlapping_bodies:
-				if body == Globals.player:
-					on_in_range(true)
 @export var primary_mesh: MeshInstance3D
 @export var use_first_mesh: bool = true
 @export var outline_thickness: float = .7
@@ -21,6 +10,19 @@ class_name Interactable extends Node3D
 var outline_shader: ShaderMaterial = preload("res://Assets/Shaders/OutlineShader/TestOutlineShader.tres")
 var interaction_detector_file: PackedScene = preload("res://Entities/interaction_detector.tscn")
 var interaction_detector: InteractionDetector
+
+@export var enabled: bool = true:
+	set(value):
+		enabled = value
+		# call on_in_range if the player is already standing in the interactable
+		# area when the interactable gets enabled (since otherwise it wouldnt
+		# get an on_entered signal since the player's already in there)
+		if enabled and interaction_detector:
+			print("Checking if enabled: ", interaction_detector)
+			var overlapping_bodies: Array = interaction_detector.get_overlapping_bodies()
+			for body: PhysicsBody3D in overlapping_bodies:
+				if body == Globals.player:
+					on_in_range(true)
 
 var popup: Node3D
 var surface_material: StandardMaterial3D = null

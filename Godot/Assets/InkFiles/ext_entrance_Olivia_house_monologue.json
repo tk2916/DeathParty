@@ -1,1 +1,27 @@
-{"inkVersion":21,"root":[["^[Olivia]The Durand Mansion. This place always gives me the creeps.","\n","^Though now I guess it's just the DIE frat house.","\n","^Hard to say which is scarier.","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+{
+  "inkVersion": 21,
+  "root": [
+    [
+      "^[Olivia]The Durand Mansion. This place always gives me the creeps.",
+      "\n",
+      "^Though now I guess it's just the DIE frat house.",
+      "\n",
+      "^Hard to say which is scarier.",
+      "\n",
+      "end",
+      [
+        "done",
+        {
+          "#f": 5,
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "#f": 1
+    }
+  ],
+  "listDefs": {}
+}

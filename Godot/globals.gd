@@ -17,7 +17,7 @@ enum SCENES {
 	GhostHallway = 13,
 }
 
-const SCENES_STR : Dictionary[String, SCENES] = {
+const SCENES_STR: Dictionary[String, SCENES] = {
 	"Everywhere" = SCENES.Everywhere,
 	"Nowhere" = SCENES.Nowhere,
 	"Entrance" = SCENES.Entrance,
@@ -35,8 +35,8 @@ const SCENES_STR : Dictionary[String, SCENES] = {
 }
 ##
 
-func get_scene_name(scene_enum : Globals.SCENES) -> String:
-	for sc_name : String in Globals.SCENES_STR:
+func get_scene_name(scene_enum: Globals.SCENES) -> String:
+	for sc_name: String in Globals.SCENES_STR:
 		if Globals.SCENES_STR[sc_name] == scene_enum:
 			return sc_name
 	return ""
@@ -48,4 +48,6 @@ enum SPAWN_OPTIONS {
 	FOUR,
 }
 
-var player : Player
+var player: Player
+
+var polaroid_camera_ui: CanvasLayer

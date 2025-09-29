@@ -19,6 +19,7 @@ extends CanvasLayer
 
 @export var exterior_scene_loader: SceneLoader
 @export var polaroid_camera: Interactable
+@export var corkboard_popup: Node3D
 
 @onready var loading_timer: Timer = %LoadingTimer
 @onready var move_controls_popup: PanelContainer = %MoveControlsPopup
@@ -28,7 +29,7 @@ extends CanvasLayer
 
 enum States {
 	INTRO, WALK, WALK_COMPLETE, UNLOCK_PHONE, USING_PHONE,
-	OPEN_JOURNAL, USING_JOURNAL, PICK_UP_CAMERA, TUTORIAL_FINISHED
+	OPEN_JOURNAL, USING_JOURNAL, PICK_UP_CAMERA, TAKE_PICTURE, TUTORIAL_FINISHED
 	}
 
 var state: States:
@@ -65,8 +66,12 @@ var state: States:
 				print("TUTORIAL STEP: PICK UP CAMERA")
 				polaroid_camera.enabled = true
 				polaroid_camera.interaction_detector.player_interacted.connect(on_camera_interacted)
+				corkboard_popup.show()
+			States.TAKE_PICTURE:
+				print("TUTORIAL STEP: TAKE PICTURE")
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
+				corkboard_popup.hide()
 				exterior_scene_loader.enabled = true
 				queue_free()
 	
@@ -108,6 +113,9 @@ func _physics_process(_delta: float) -> void:
 			if Input.is_action_just_pressed("toggle_journal") and DialogueSystem.waiting:
 				GuiSystem.hide_journal()
 			if GuiSystem.in_journal == false:
+				increment_state()
+		States.TAKE_PICTURE:
+			if Globals.polaroid_camera_ui.visible:
 				increment_state()
 
 

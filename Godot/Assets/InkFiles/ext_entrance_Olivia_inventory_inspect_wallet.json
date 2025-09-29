@@ -1,1 +1,75 @@
-{"inkVersion":21,"root":[["ev",{"VAR?":"met_Jack"},"/ev",[{"->":".^.b","c":true},{"b":["\n","^[Olivia]Of course Jack would have a scuffed up image.","\n","^Oh well, I better give this back to him.","\n",{"->":"0.5"},null]}],[{"->":".^.b"},{"b":["\n","^[Olivia]Of course the image is scuffed up. At least I have a name.","\n","^How many Jacks could possibly be at this party?","\n",{"->":"0.5"},null]}],"nop","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev",false,{"VAR=":"met_Jack"},"/ev","end",null],"#f":1}],"listDefs":{}}
+{
+  "inkVersion": 21,
+  "root": [
+    [
+      "ev",
+      {
+        "VAR?": "met_Jack"
+      },
+      "/ev",
+      [
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "\n",
+            "^[Olivia]Of course Jack would have a scuffed up image.",
+            "\n",
+            "^Oh well, I better give this back to him.",
+            "\n",
+            {
+              "->": "0.5"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        {
+          "->": ".^.b"
+        },
+        {
+          "b": [
+            "\n",
+            "^[Olivia]Of course the image is scuffed up. At least I have a name.",
+            "\n",
+            "^How many Jacks could possibly be at this party?",
+            "\n",
+            {
+              "->": "0.5"
+            },
+            null
+          ]
+        }
+      ],
+      "nop",
+      "\n",
+      "end",
+      [
+        "done",
+        {
+          "#f": 5,
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "global decl": [
+        "ev",
+        false,
+        {
+          "VAR=": "met_Jack"
+        },
+        "/ev",
+        "end",
+        null
+      ],
+      "#f": 1
+    }
+  ],
+  "listDefs": {}
+}
