@@ -66,12 +66,11 @@ var state: States:
 				print("TUTORIAL STEP: PICK UP CAMERA")
 				polaroid_camera.enabled = true
 				polaroid_camera.interaction_detector.player_interacted.connect(on_camera_interacted)
-				corkboard_popup.show()
 			States.TAKE_PICTURE:
 				print("TUTORIAL STEP: TAKE PICTURE")
+				corkboard_popup.show()
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
-				corkboard_popup.hide()
 				exterior_scene_loader.enabled = true
 				queue_free()
 	
@@ -116,6 +115,7 @@ func _physics_process(_delta: float) -> void:
 				increment_state()
 		States.TAKE_PICTURE:
 			if Globals.polaroid_camera_ui.visible:
+				corkboard_popup.hide()
 				increment_state()
 
 
