@@ -2,11 +2,11 @@
 	"inkVersion": 21.0,
 	"root": [
 		[
-			"^[Frat Boy 1]Hey, you good?",
+			"^[Red Hat]Hey, you good?",
 			"\n",
 			"^[Olivia]Yea, I'm fine.",
 			"\n",
-			"^[Frat Boy 1]Cool. Listen, the library is for cooling off, so just relax and let your feet rest.",
+			"^[Red Hat]Cool. Listen, the library is for cooling off, so just relax and let your feet rest.",
 			"\n",
 			"^[Olivia]Appreciate it.",
 			"\n",
