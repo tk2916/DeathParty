@@ -1,80 +1,19 @@
-[gd_scene load_steps=23 format=4 uid="uid://bgrnyakmgghyq"]
+[gd_scene load_steps=15 format=3 uid="uid://bgrnyakmgghyq"]
 
 [ext_resource type="Script" uid="uid://bxxt4jkxn55ob" path="res://Assets/models/journal_root.gd" id="1_47kpb"]
 [ext_resource type="Script" uid="uid://12xwkrptykvs" path="res://Assets/models/journal_show_inventory.gd" id="1_jth6w"]
 [ext_resource type="PackedScene" uid="uid://ctxn4d5hysbqv" path="res://Assets/models/bookflip_model.tscn" id="2_7ovfm"]
 [ext_resource type="Script" uid="uid://wi8scqg3b40v" path="res://Assets/models/inventory_items.gd" id="3_7ovfm"]
-[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="3_ngl8b"]
 [ext_resource type="Texture2D" uid="uid://b10xkyr1i6p24" path="res://Assets/JournalTextures/olivia_backpack.png" id="4_e2q15"]
 [ext_resource type="Material" uid="uid://dlhvvfgrqs5ib" path="res://Assets/Shaders/LightUpShader.tres" id="6_0upgx"]
 [ext_resource type="Script" uid="uid://b8bi3jgsmswia" path="res://Assets/models/hide_inventory_area.gd" id="7_xwflh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqehn"]
-vertex_color_use_as_albedo = true
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_8532d"]
-_surfaces = [{
-"aabb": AABB(-1.56652, 0.230034, -0.886797, 3.13221, 0.0621335, 1.77752),
-"format": 34896613377,
-"index_count": 96,
-"index_data": PackedByteArray("GAABAAIAGAAAAAEAAwAYAAIAAwACAAQAGAADAAUAAAAYABkAGAAFABkAAAAZAAYACAAZAAUAGgAGABkACAAaABkACQAaAAgAGgAHAAYACQAKABoACgAHABoACgALAAcAGwANAA4AGwAPAA0ADAAPABsADAAQAA8AGwARAAwADgAcABsAGwAcABEADgASABwAFAARABwAHQAcABIAFAAcAB0AFQAUAB0AHQASABMAFQAdABYAFgAdABMAFgATABcA"),
-"lods": [7.79399e-05, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAAADAAUAAAAFAAYABwAGAAUACAAHAAUACQAHAAgACQAKAAcACgALAAcADAANAA4ADAAPAA0ADAAQAA8ADgARAAwADgASABEAEwARABIAFAARABMAFQAUABMAFQATABYAFgATABcA")],
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 30,
-"vertex_data": PackedByteArray("oKCHsfL/AAAIgAAA8v8AAAiAAAD5fwAAoKCHsQAAAAAIgAAAAAAAAGrA2+4AAAAAasDb7vL/AAA04Iex8v8AADTgh7EAAAAA//8AAAAAAAD//wAA+X8AAP//AADy/wAAXV89xAwAAAD2f1MU//8AAF1fPcT//wAA9n9TFAWAAAD2f1MUDAAAAJI///8MAAAAkj////7/AADJHxfB//8AAMkfF8EMAAAAAAD9DQwAAAAAAP0NBYAAAAAA/Q3+/wAAoKCHsfl/AABqwNvu+X8AADTgh7H5fwAAXV89xAWAAACSP/7/BYAAAMkfF8EFgAAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_vpnap"]
-resource_name = "book_static_Cube_009"
-_surfaces = [{
-"aabb": AABB(-1.56652, 0.230034, -0.886797, 3.13221, 0.0621335, 1.77752),
-"attribute_data": PackedByteArray("/////7piAAD/////PH8AAP////88f/9//////7pi////////PH////////8sQv///////yxCAAD/////gR8AAP////+BH/7//////wAA/v//////AAD/f/////8AAAAA/////2Cc////////PH8AAP////9gnAAA/////zx//3//////PH////////9qvv///////2q+AAD/////deAAAP////914P///////1X/////////Vf//f/////9V/wAA/////7pi/3//////LEL/f/////+BH/9//////2Cc/3//////ar7/f/////914P9/"),
-"format": 34896613407,
-"index_count": 96,
-"index_data": PackedByteArray("GAABAAIAGAAAAAEAAwAYAAIAAwACAAQAGAADAAUAAAAYABkAGAAFABkAAAAZAAYACAAZAAUAGgAGABkACAAaABkACQAaAAgAGgAHAAYACQAKABoACgAHABoACgALAAcAGwANAA4AGwAPAA0ADAAPABsADAAQAA8AGwARAAwADgAcABsAGwAcABEADgASABwAFAARABwAHQAcABIAFAAcAB0AFQAUAB0AHQASABMAFQAdABYAFgAdABMAFgATABcA"),
-"lods": [7.79399e-05, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAAADAAUAAAAFAAYABwAGAAUACAAHAAUACQAHAAgACQAKAAcACgALAAcADAANAA4ADAAPAA0ADAAQAA8ADgARAAwADgASABEAEwARABIAFAARABMAFQAUABMAFQATABYAFgATABcA")],
-"material": SubResource("StandardMaterial3D_sqehn"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 30,
-"vertex_data": PackedByteArray("oKCHsfL/5P0IgAAA8v/l/AiAAAD5f+X8oKCHsQAA5P0IgAAAAADl/GrA2+4AAP//asDb7vL///804Iex8v/b/TTgh7EAANv9//8AAAAA0fz//wAA+X/R/P//AADy/9H8XV89xAwA7P32f1MU///s/F1fPcT//+z99n9TFAWA7Pz2f1MUDADs/JI///8MAPf/kj////7/9//JHxfB///T/ckfF8EMANP9AAD9DQwAyvwAAP0NBYDK/AAA/Q3+/8r8oKCHsfl/5P1qwNvu+X///zTgh7H5f9v9XV89xAWA7P2SP/7/BYD3/8kfF8EFgNP9tH3ZvqR8Ub6kfFG+tH3ZvqR8Ub7/f/+//3//v9Q+VQLUPlUCRz5wA0c+cANHPnAD3j5DAlY+UwPePkMCVj5TA1Y+UwP3f/u/93/7v6J90L6ifdC+h3xDvod8Q76HfEO+tH3Zvv9//7/UPlUC3j5DAvd/+7+ifdC+")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_8532d")
+[ext_resource type="PackedScene" uid="uid://xoifv6ugs47r" path="res://new_book_static.tscn" id="9_8c4l8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0upgx"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D/Cube_004/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_e2q15"]
 viewport_path = NodePath("Armature/Skeleton3D/AnimatableBody3D2/Cube_005/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwflh"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("3_ngl8b")
-shader_parameter/ignore_lighting = true
-shader_parameter/multiplier = 0.6
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0upgx"]
-resource_local_to_scene = true
-albedo_texture_force_srgb = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c4l8"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("3_ngl8b")
-shader_parameter/ignore_lighting = true
-shader_parameter/multiplier = 2.0
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_qun6a"]
-viewport_path = NodePath("Armature/Skeleton3D/Cube_004/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7rhw"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_qun6a")
-albedo_texture_force_srgb = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rss8h"]
 size = Vector3(8.8883, 0.300507, 3.58045)
@@ -88,10 +27,11 @@ albedo_texture = ExtResource("4_e2q15")
 [sub_resource type="BoxShape3D" id="BoxShape3D_47kpb"]
 size = Vector3(7.30997, 0.285156, 2.29163)
 
-[node name="BookflipBody" type="Node3D" node_paths=PackedStringArray("bookflip") groups=["journal"]]
+[node name="BookflipBody" type="Node3D" node_paths=PackedStringArray("bookflip", "static_page") groups=["journal"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_47kpb")
 bookflip = NodePath("bookflip")
+static_page = NodePath("new_book_static/Page animate R")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -133,32 +73,22 @@ unique_name_in_owner = true
 wait_time = 25.0
 one_shot = true
 
-[node name="book_static" type="Node3D" parent="."]
-transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0.179772, -0.0935153)
-visible = false
-
-[node name="StaticPage1" type="MeshInstance3D" parent="book_static"]
-mesh = SubResource("ArrayMesh_vpnap")
-skeleton = NodePath("")
-
 [node name="bookflip" parent="." instance=ExtResource("2_7ovfm")]
 transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -0.00238484, 0.0737534, -0.0990923)
 viewport_texture1 = SubResource("ViewportTexture_0upgx")
 viewport_texture2 = SubResource("ViewportTexture_e2q15")
 
-[node name="Cube_005" parent="bookflip/Armature/Skeleton3D" index="0"]
-material_override = SubResource("ShaderMaterial_xwflh")
-material_overlay = SubResource("StandardMaterial3D_0upgx")
+[node name="Skeleton3D" parent="bookflip/new_book_animated/Armature" index="0"]
+bones/0/position = Vector3(2.688972e-19, 0.06413985, 0)
+bones/0/rotation = Quaternion(0, 1.1920929e-07, 0, 1)
+bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/rotation = Quaternion(0, 0, 0, 1)
 
-[node name="Cube_004" parent="bookflip/Armature/Skeleton3D" index="1"]
-material_override = SubResource("ShaderMaterial_8c4l8")
-material_overlay = SubResource("StandardMaterial3D_e7rhw")
-
-[node name="ShowInventoryArea" type="Area3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
+[node name="ShowInventoryArea" type="Area3D" parent="." node_paths=PackedStringArray("inventory_items_container", "journal_root")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267168, -1.16783e-08)
 collision_layer = 9
 script = ExtResource("1_jth6w")
-static_page_1 = NodePath("../book_static/StaticPage1")
 inventory_items_container = NodePath("../InventoryItems")
 journal_root = NodePath("..")
 
@@ -167,10 +97,9 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.0318329, -0.302822, 1
 shape = SubResource("BoxShape3D_rss8h")
 debug_color = Color(0.784314, 0, 0.0745098, 1)
 
-[node name="InventoryItems" type="Node3D" parent="." node_paths=PackedStringArray("static_page_1", "bookflip_instance")]
+[node name="InventoryItems" type="Node3D" parent="." node_paths=PackedStringArray("bookflip_instance")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.00238484, 0.575661, 1.71238)
 script = ExtResource("3_7ovfm")
-static_page_1 = NodePath("../book_static/StaticPage1")
 bookflip_instance = NodePath("../bookflip")
 
 [node name="BackpackBackground" type="MeshInstance3D" parent="."]
@@ -180,11 +109,10 @@ cast_shadow = 0
 mesh = SubResource("PlaneMesh_ngl8b")
 surface_material_override/0 = SubResource("StandardMaterial3D_47kpb")
 
-[node name="HideInventoryArea" type="Area3D" parent="." node_paths=PackedStringArray("static_page_1", "inventory_items_container", "journal_root")]
+[node name="HideInventoryArea" type="Area3D" parent="." node_paths=PackedStringArray("inventory_items_container", "journal_root")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172886, -1.57865)
 collision_layer = 9
 script = ExtResource("7_xwflh")
-static_page_1 = NodePath("../book_static/StaticPage1")
 inventory_items_container = NodePath("../InventoryItems")
 journal_root = NodePath("..")
 
@@ -193,7 +121,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0427938, -0.383002, 0.34078
 shape = SubResource("BoxShape3D_47kpb")
 debug_color = Color(0.0663742, 0.326824, 0.926759, 0.42)
 
+[node name="new_book_static" parent="." instance=ExtResource("9_8c4l8")]
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -0.00238484, 0.13023275, -0.099092305)
+visible = false
+
 [connection signal="timeout" from="Sounds/JournalMusic/MusicTimer" to="." method="_on_music_timer_timeout"]
 [connection signal="tree_entered" from="ShowInventoryArea" to="ShowInventoryArea" method="_on_tree_entered"]
 
 [editable path="bookflip"]
+[editable path="bookflip/new_book_animated"]
+[editable path="new_book_static"]

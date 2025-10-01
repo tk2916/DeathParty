@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ydhnvq6o3qs8"]
+
+[ext_resource type="Shader" uid="uid://ddcx35eckfbrh" path="res://Assets/Shaders/brightness_shader.gdshader" id="1_xgg3e"]
+[ext_resource type="Texture2D" uid="uid://ck5gn7jpcc7f" path="res://max_page_2.png" id="2_1bacm"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xgg3e")
+shader_parameter/ignore_lighting = true
+shader_parameter/albedo_texture = ExtResource("2_1bacm")
+shader_parameter/brightness = 1.0000000149012
+shader_parameter/contrast = 1.10000001639132

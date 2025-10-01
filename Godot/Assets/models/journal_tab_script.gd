@@ -28,6 +28,7 @@ func tab_closed() -> void:
 
 ##INHERITED METHODS (OVERRIDDEN)
 func enter_hover() -> void:
+	print("Entered tab hover: ", name)
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 func exit_hover() -> void:

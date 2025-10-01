@@ -21,7 +21,6 @@ vec2 rotate_point(vec2 point, float theta) {
 
 void fragment() {
 	//make rotated exclusion rectangle
-	//vec2 screen_pos = SCREEN_UV * screen_size;
 	vec2 screen_pos = UV * aspect_ratio;
 	vec4 screen_color = texture(screen_texture, SCREEN_UV);
 	

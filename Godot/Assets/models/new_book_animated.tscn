@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl6eco6i5wbuc"]
+
+[ext_resource type="PackedScene" uid="uid://ctrycn1cfwboa" path="res://Assets/models/new_book_animated.glb" id="1_hntr6"]
+[ext_resource type="Material" uid="uid://ydhnvq6o3qs8" path="res://Assets/models/Materials/page2_material.tres" id="2_cr7qh"]
+[ext_resource type="Material" uid="uid://dpxjlhdphxfdl" path="res://Assets/models/Materials/page1_material.tres" id="3_a0cwl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hntr6"]
+albedo_color = Color(0.3790695, 0.18451437, 0.051489726, 1)
+
+[node name="new_book_animated" instance=ExtResource("1_hntr6")]
+
+[node name="Back" parent="." index="0"]
+material_overlay = SubResource("StandardMaterial3D_hntr6")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(2.688972e-19, 0.0680004, -0.014477063)
+bones/0/rotation = Quaternion(0.63805884, 9.178967e-08, 7.606254e-08, 0.76998764)
+bones/1/rotation = Quaternion(0.04919109, 0, 1.172807e-08, 0.9987894)
+bones/2/rotation = Quaternion(0.049191095, 3.5848086e-15, 1.172807e-08, 0.9987894)
+bones/3/rotation = Quaternion(0.049191095, -7.114039e-15, 1.172807e-08, 0.9987894)
+
+[node name="Page animate L" parent="Armature/Skeleton3D" index="0"]
+material_overlay = ExtResource("2_cr7qh")
+
+[node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Page animate L" index="0"]
+
+[node name="Page animate R" parent="Armature/Skeleton3D" index="1"]
+material_overlay = ExtResource("3_a0cwl")
+
+[node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Page animate R" index="0"]
+
+[node name="AnimationPlayer" parent="." index="3"]
+speed_scale = 1.5

@@ -9,4 +9,5 @@ render_priority = 0
 shader = ExtResource("1_p6dcq")
 shader_parameter/ignore_lighting = true
 shader_parameter/albedo_texture = ExtResource("2_p6dcq")
-shader_parameter/multiplier = 1.0
+shader_parameter/brightness = 1.0000000149012
+shader_parameter/contrast = 1.0

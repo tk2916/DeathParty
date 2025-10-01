@@ -45,15 +45,15 @@ func _ready() -> void:
 	cur_tab = tab_handler.get_tab(0)
 	old_tab = tab_handler.get_tab(0)
 	
-	page1_mat = page1.material_override
-	page2_mat = page2.material_override
+	page1_mat = page1.material_overlay
+	page2_mat = page2.material_overlay
 
 	page1_mat.set_shader_parameter("multiplier", 1)
 	page2_mat.set_shader_parameter("multiplier", 1)
 	
 	journal_textures_size = journal_textures.size()
 	animation_player.animation_finished.connect(_on_anim_finished)
-	animation_player.play("idle")
+	animation_player.play("Idle")
 	
 	#set left page texture to first page
 	set_page(1, page_tracker)
@@ -99,7 +99,7 @@ func bookflip(backward : bool = false, direct_flip : int = -1) -> void:
 			page_tracker = direct_flip
 		set_page(1, old_page_index)
 		set_page(2, page_tracker)
-		animation_player.play("pageFlip")
+		animation_player.play("Flip Front")
 		page_flip_sound.play()
 		tab_handler.flip_page(page_tracker)
 	elif backward && (page_tracker>0 || direct_flip != -1):
@@ -110,12 +110,12 @@ func bookflip(backward : bool = false, direct_flip : int = -1) -> void:
 			page_tracker = direct_flip
 		set_page(2, old_page_index)
 		set_page(1, page_tracker)
-		animation_player.play_backwards("pageFlip")
+		animation_player.play("Flip Back")
 		page_flip_sound.play()
 		tab_handler.flip_page(page_tracker)
 
 func _on_anim_finished(anim_name: StringName) -> void:
-	if anim_name == "pageFlip":
+	if anim_name == "Flip Back" or anim_name == "Flip Front":
 		set_page(1, page_tracker)
 		flipping = false
 		animation_player.play("idle")

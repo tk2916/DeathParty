@@ -7,7 +7,6 @@ resource_local_to_scene = true
 shader = ExtResource("1_tgalw")
 shader_parameter/tint_strength = 0.5470000259825
 shader_parameter/tint_color = Color(0, 0, 0, 1)
-shader_parameter/exclusion_center = Vector2(395.52, 230.596)
 shader_parameter/exclusion_corner = Vector2(263, 53)
 shader_parameter/exclusion_size = Vector2(264.96, 355.136)
 shader_parameter/exclusion_rotation = -8.1

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cqicfnadd1nh4" path="res://Assets/JournalTextures/Diary tab.png" id="2_s7cof"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kt7j"]
-size = Vector3(0.2675647, 0.18322966, 0.5041505)
+size = Vector3(0.36278963, 0.2792369, 0.5041505)
 
 [node name="TabArea3D" type="Area3D" node_paths=PackedStringArray("sprite3d") groups=["object_viewer_interactable"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -13,7 +13,7 @@ script = ExtResource("1_1kt7j")
 sprite3d = NodePath("Sprite3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007672372, 0.06844193, 0.017577995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012800993, 0.11644556, 0.017577993)
 shape = SubResource("BoxShape3D_1kt7j")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
