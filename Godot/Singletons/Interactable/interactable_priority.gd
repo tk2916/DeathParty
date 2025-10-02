@@ -1,36 +1,54 @@
 extends Node
+# This handles the priority of interactables. It determines which object the
+# player will interact with if there are 2 or more possible interactables in range.
 
-#This is the interactable priorty. It determines which objects the player will interact with if there are
-#2 or more possible interactables in range.
 
-var interactable_priority : Array = []
-var active_interactable : InteractionDetector = null
+var interactable_priority_list : Array = []
+var active_interactable : Interactable = null
 
-func add_interactable(interactable : InteractionDetector):
-	print("Interactable: ", interactable)
-	#Disable Active
+
+# NOTE: these enable and disable funcs took InteractionDetectors as parameters
+#		, i changed them to take Interactables so some of these methods like
+#		disable() getting called are probably unsafe for now
+#			- jack
+func add_interactable(interactable : Interactable) -> void:
+	print("adding ", interactable.name, " to interactable priority list")
+
+	# if there's an active interactable, disable it
+
+	# NOTE: do we need to disable anything ? if we're setting the new
+	#		interactable to active in the same frame, and there's only one
+	#		active at a time, won't that have the desired behaviour anyway ?
+	#			- jack
 	if active_interactable != null:
 		active_interactable.disable()
+
+	# then add the new interactable,
+	interactable_priority_list.append(interactable)
 	
-	#Add the new interactable
-	interactable_priority.append(interactable)
-	
-	#Set active to new one
-	active_interactable = interactable_priority[-1]
+	# set it as the active interactable,
+	active_interactable = interactable_priority_list[-1]
+
+	# and enable it
 	active_interactable.enable()
 
-func remove_interactable(interactable : InteractionDetector):
-	print("Remove Object")
-	#If the chosen interactable is the active one : Remove it and replace it with the next active
+
+func remove_interactable(interactable : Interactable) -> void:
+	print("removing ", interactable.name, " from interactable priority list")
+	
+	# if this interactable is the active one, remove it and make
+	# the next one in the list active
 	if interactable == active_interactable:
+		# NOTE: again, i wonder if disabling is necessary here
+		#			- jack
 		active_interactable.disable()
-		interactable_priority.pop_back()
-		if not interactable_priority.is_empty():
-			active_interactable = interactable_priority[-1]
+		interactable_priority_list.pop_back()
+		if not interactable_priority_list.is_empty():
+			active_interactable = interactable_priority_list[-1]
 			active_interactable.enable()
+
+	# otherwise, just remove it from the list
 	else:
-		#Find the interactable and remove it
-		for i in range(interactable_priority.size()-1):
-			if interactable == interactable_priority[i]:
-				interactable.disable()
-				interactable_priority.pop_at(i)
+		var i: int = interactable_priority_list.find(interactable)
+		interactable.disable()
+		interactable_priority_list.pop_at(i)
