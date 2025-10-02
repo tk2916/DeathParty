@@ -143,9 +143,9 @@ size = Vector3(5, 2, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_b70md"]
 size = Vector3(1, 1, 0.585815)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_otruv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wkd24"]
 resource_local_to_scene = true
-size = Vector3(2.11575, 3.9035, 1.73522)
+size = Vector3(1.61938, 2.80212, 2.04828)
 
 [sub_resource type="FogMaterial" id="FogMaterial_lxtj2"]
 density = 0.07
@@ -2432,17 +2432,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075, 0, 1.824)
 
 [node name="SceneLoader_Exterior" parent="." instance=ExtResource("6_x8yhf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48049, 0, 5.078)
-target_scene = 9
 play_door_sound = true
-use_first_mesh = true
-enabled = false
 
 [node name="Popup" parent="SceneLoader_Exterior" index="1"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.5, 1.75, 0)
+texture = null
 
-[node name="CollisionShape3D" parent="SceneLoader_Exterior/InteractionDetector" index="0"]
-transform = Transform3D(0.999951, 0, 0.00989586, 0, 1, 0, -0.00989586, 0, 0.999951, 1.30716, 0.550691, 0.117994)
-shape = SubResource("BoxShape3D_otruv")
+[node name="CollisionShape3D" parent="SceneLoader_Exterior/@Area3D@24738" index="0"]
+shape = SubResource("BoxShape3D_wkd24")
 
 [node name="SceneLights" type="Node3D" parent="."]
 
@@ -3190,10 +3187,12 @@ visible = false
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
+[connection signal="body_entered" from="SceneLoader_Exterior/InteractionDetector" to="SceneLoader_Exterior/InteractionDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneLoader_Exterior/InteractionDetector" to="SceneLoader_Exterior/InteractionDetector" method="_on_body_exited"]
 [connection signal="player_interacted" from="CorkBoard/InteractionDetector" to="CorkBoard" method="_on_interaction_detector_player_interacted"]
 
 [editable path="SceneLoader_Exterior"]
-[editable path="SceneLoader_Exterior/InteractionDetector"]
+[editable path="SceneLoader_Exterior/@Area3D@24738"]
 [editable path="Bed"]
 [editable path="Closet"]
 [editable path="Desk/DeskObjects"]

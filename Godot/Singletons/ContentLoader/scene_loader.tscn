@@ -10,12 +10,12 @@
 resource_local_to_scene = true
 size = Vector3(1.61938, 2.80212, 2.04828)
 
-[node name="SceneLoader" type="Node3D"]
+[node name="SceneLoader" type="Area3D"]
 script = ExtResource("1_6wayg")
 left_arrow_asset = ExtResource("2_xpaum")
 right_arrow_asset = ExtResource("3_0sak6")
 down_arrow_asset = ExtResource("4_31qgr")
-use_first_mesh = false
+metadata/_custom_type_script = "uid://f5ke07o2mygi"
 
 [node name="DoorSound" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/000_SFX/100_Environment/door"
@@ -33,10 +33,13 @@ no_depth_test = true
 fixed_size = true
 texture = ExtResource("2_xpaum")
 
-[node name="InteractionDetector" parent="." instance=ExtResource("3_ur62n")]
+[node name="@Area3D@24738" parent="." instance=ExtResource("3_ur62n")]
 
-[node name="CollisionShape3D" parent="InteractionDetector" index="0"]
+[node name="CollisionShape3D" parent="@Area3D@24738" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144353, 1.23943, 0.0798109)
 shape = SubResource("BoxShape3D_ur62n")
 
-[editable path="InteractionDetector"]
+[connection signal="body_entered" from="InteractionDetector" to="InteractionDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionDetector" to="InteractionDetector" method="_on_body_exited"]
+
+[editable path="@Area3D@24738"]

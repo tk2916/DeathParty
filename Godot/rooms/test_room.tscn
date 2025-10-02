@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwpwymdb6ufaa"]
+
+[ext_resource type="Script" uid="uid://23e11u4fm3n6" path="res://Utilities/scripts/room_3d.gd" id="1_5k1p0"]
+[ext_resource type="PackedScene" uid="uid://b8kaqd0dtqsp1" path="res://Entities/player.tscn" id="2_w7ic5"]
+[ext_resource type="PackedScene" uid="uid://dasq5wgeyo38c" path="res://Assets/props/polaroid_camera_collectable.tscn" id="3_62iyx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7ic5"]
+size = Vector3(10, 5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_62iyx"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8kare"]
+size = Vector3(10, 0.1, 10)
+
+[node name="TestRoom" type="Area3D" node_paths=PackedStringArray("room_area")]
+script = ExtResource("1_5k1p0")
+room_area = NodePath("CollisionShape3D")
+metadata/_custom_type_script = "uid://23e11u4fm3n6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_w7ic5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_62iyx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_8kare")
+
+[node name="Player" parent="." instance=ExtResource("2_w7ic5")]
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
+
+[node name="PolaroidCamera" parent="." instance=ExtResource("3_62iyx")]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, -2, 0, -2)

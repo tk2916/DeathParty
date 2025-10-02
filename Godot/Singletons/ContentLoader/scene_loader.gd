@@ -53,6 +53,7 @@ var teleport_point: TeleportPointData
 
 const POPUP_SCALE = .1
 
+
 func _ready() -> void:
 	super ()
 	popup.scale = Vector3.ONE * POPUP_SCALE
@@ -71,7 +72,7 @@ func is_player_facing_collider(player_model: Node3D) -> bool:
 	var player_forward: Vector3 = - player_model.transform.basis.z
 	var dot_product: float = player_forward.dot(self.transform.basis.z)
 	return dot_product > 0 # facing towards if > 0
-		
+
 
 func on_interact() -> void:
 	super ()
@@ -79,7 +80,7 @@ func on_interact() -> void:
 	print("Teleport point for ", target_scene, " is ", teleport_point.spawn_number, " vs ", local_spawn_point)
 	ContentLoader.scene_loader_teleport(target_scene, teleport_point)
 	handle_audio()
-		
+
 
 func on_in_range(in_range: bool) -> void:
 	if !enabled: return

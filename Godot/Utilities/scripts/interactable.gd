@@ -1,4 +1,4 @@
-class_name Interactable extends Node3D
+class_name Interactable extends Area3D
 
 @export var primary_mesh: MeshInstance3D
 @export var use_first_mesh: bool = true
@@ -10,6 +10,10 @@ class_name Interactable extends Node3D
 var outline_shader: ShaderMaterial = preload("res://Assets/Shaders/OutlineShader/TestOutlineShader.tres")
 var interaction_detector_file: PackedScene = preload("res://Entities/interaction_detector.tscn")
 var interaction_detector: InteractionDetector
+var surface_material: StandardMaterial3D = null
+
+var popup: Node3D
+
 
 @export var enabled: bool = true:
 	set(value):
@@ -18,14 +22,15 @@ var interaction_detector: InteractionDetector
 		# area when the interactable gets enabled (since otherwise it wouldnt
 		# get an on_entered signal since the player's already in there)
 		if enabled and interaction_detector:
-			print("Checking if enabled: ", interaction_detector)
 			var overlapping_bodies: Array = interaction_detector.get_overlapping_bodies()
 			for body: PhysicsBody3D in overlapping_bodies:
 				if body == Globals.player:
 					on_in_range(true)
 
-var popup: Node3D
-var surface_material: StandardMaterial3D = null
+
+func _enter_tree() -> void:
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 
 
 func _ready() -> void:
@@ -53,7 +58,7 @@ func _ready() -> void:
 	if popup:
 		popup.visible = false
 
-		
+
 func create_outline() -> void:
 	#print("Creating outline")
 	if primary_mesh == null: return
@@ -62,7 +67,8 @@ func create_outline() -> void:
 	new_shader.set_shader_parameter("alpha", 0)
 	new_shader.set_shader_parameter("thickness", outline_thickness)
 	surface_material.next_pass = new_shader
-	
+
+
 func toggle_popup(on: bool) -> void:
 	if popup:
 		popup.visible = on
@@ -86,7 +92,21 @@ func on_interact() -> void:
 	toggle_popup(false)
 	if talking_object_resource:
 		talking_object_resource.start_chat()
-	
+
+
 func on_in_range(in_range: bool) -> void:
 	if !enabled: return
 	toggle_popup(in_range)
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body == Globals.player:
+		print("player entered interactable range of ", name)
+		if !enabled: return
+		toggle_popup(true)
+
+
+func _on_body_exited(body: Node3D) -> void:
+	if body == Globals.player:
+		print("player exited interactable range of ", name)
+		toggle_popup(true)
