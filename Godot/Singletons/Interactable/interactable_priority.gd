@@ -35,7 +35,7 @@ func add_interactable(interactable : Interactable) -> void:
 
 func remove_interactable(interactable : Interactable) -> void:
 	print("removing ", interactable.name, " from interactable priority list")
-	
+
 	# if this interactable is the active one, remove it and make
 	# the next one in the list active
 	if interactable == active_interactable:

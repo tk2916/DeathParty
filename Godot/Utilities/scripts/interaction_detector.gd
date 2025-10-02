@@ -2,37 +2,3 @@
 ## To use, make an InteractionDetector instance a child of the node that the user interacts with
 ## then manually create a collision object as a child of the created instance
 class_name InteractionDetector extends Area3D
-
-@export var collision_shape : CollisionShape3D
-
-signal player_interacted()
-signal player_in_range(tf : bool)
-
-var player_currently_in_range : bool = false
-
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and player_currently_in_range:
-		player_interacted.emit()
-
-
-func _on_body_entered(body: Node3D) -> void:
-	print("On body entered: ", body)
-	if body.is_in_group("player"):
-		#Add the interaction to the priority
-		InteractablePriority.add_interactable(self)
-
-func _on_body_exited(body : Node3D) -> void:
-	if body.is_in_group("player"):
-		#Add interaction to the priority
-		InteractablePriority.remove_interactable(self)
-		pass
-		
-#Enables the Detector
-func enable():
-	player_currently_in_range = true
-	player_in_range.emit(true)
-
-func disable():
-	player_currently_in_range = false
-	player_in_range.emit(false)
