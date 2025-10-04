@@ -70,7 +70,7 @@ var state: States:
 				polaroid_camera.interaction_detector.player_interacted.connect(on_camera_interacted)
 			States.TAKE_PICTURE:
 				print("TUTORIAL STEP: TAKE PICTURE")
-				polaroid_camera.enabled = false
+				polaroid_camera.queue_free()
 				corkboard_popup.show()
 				toggle_corkboard_interactable.emit(true)
 			States.TUTORIAL_FINISHED:
