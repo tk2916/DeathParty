@@ -83,10 +83,12 @@ func toggle_popup(on: bool) -> void:
 
 ##OVERRIDE THESE METHODS (but call super() at the beginning)
 func on_interact() -> void:
+	if !enabled :return
 	toggle_popup(false)
 	if talking_object_resource:
 		talking_object_resource.start_chat()
-	
+
+
 func on_in_range(in_range: bool) -> void:
 	if !enabled: return
 	toggle_popup(in_range)
