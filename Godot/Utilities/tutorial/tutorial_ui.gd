@@ -12,6 +12,8 @@
 
 extends CanvasLayer
 
+signal toggle_corkboard_interactable(value: bool)
+
 @export var rowan_invite_dialogue: JSON
 @export var example_json: JSON
 @export var on_phone_close_dialogue: JSON
@@ -69,8 +71,10 @@ var state: States:
 			States.TAKE_PICTURE:
 				print("TUTORIAL STEP: TAKE PICTURE")
 				corkboard_popup.show()
+				toggle_corkboard_interactable.emit(true)
 			States.TUTORIAL_FINISHED:
 				print("TUTORIAL STEP: FINISHED")
+				toggle_corkboard_interactable.emit(false)
 				exterior_scene_loader.enabled = true
 				queue_free()
 	

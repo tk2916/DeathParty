@@ -2824,6 +2824,7 @@ transform = Transform3D(0.900741, 0, 0, 0, 0.900741, 0, 0, 0, 0.900741, -0.03222
 
 [node name="InteractionDetector" parent="CorkBoard" node_paths=PackedStringArray("collision_shape") instance=ExtResource("63_yquho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43036, 0, 0)
+monitoring = false
 collision_shape = NodePath("CollisionShape3D2")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="CorkBoard/InteractionDetector"]
@@ -3190,6 +3191,7 @@ visible = false
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="intro_finished" from="." to="TutorialUI" method="_on_bedroom_intro_finished"]
+[connection signal="toggle_corkboard_interactable" from="TutorialUI" to="CorkBoard" method="_on_tutorial_ui_toggle_corkboard_interactable"]
 [connection signal="player_interacted" from="CorkBoard/InteractionDetector" to="CorkBoard" method="_on_interaction_detector_player_interacted"]
 
 [editable path="SceneLoader_Exterior"]
