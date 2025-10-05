@@ -1,9 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://i3ggmp3f5py"]
+[gd_scene load_steps=7 format=3 uid="uid://i3ggmp3f5py"]
 
 [ext_resource type="PackedScene" uid="uid://cfw0wk6bmu4yf" path="res://rooms/Bathroom/fancy mirror.glb" id="1_3mnr6"]
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_ki1oi"]
 [ext_resource type="Resource" uid="uid://co380fcd1cwx" path="res://Singletons/SaveSystem/DefaultResources/TalkingObjectResources/mirror_properties.tres" id="3_ki1oi"]
+[ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="4_yop7e"]
+[ext_resource type="PackedScene" uid="uid://cqxjk5afxrhem" path="res://Common/Popup UI/object_interact_popup.tscn" id="5_n8ulg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8ulg"]
+resource_local_to_scene = true
+size = Vector3(2.56747, 3.33673, 5.72421)
 
 [node name="fancy mirror" instance=ExtResource("1_3mnr6")]
 script = ExtResource("2_ki1oi")
 talking_object_resource = ExtResource("3_ki1oi")
+
+[node name="InteractionDetector" parent="defaultMaterial" index="0" instance=ExtResource("4_yop7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63555914, 0, 0)
+
+[node name="CollisionShape3D" parent="defaultMaterial/InteractionDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.592, -2.1487594, 2.5165372)
+shape = SubResource("BoxShape3D_n8ulg")
+
+[node name="Popup" parent="." index="1" instance=ExtResource("5_n8ulg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.859035, 0.22805095, 0.4172926)
+
+[editable path="defaultMaterial/InteractionDetector"]

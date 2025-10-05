@@ -9,5 +9,4 @@ script = ExtResource("3_a6phg")
 default_chats = Dictionary[int, JSON]({
 5: ExtResource("1_foupo")
 })
-queue_chats = Dictionary[int, ExtResource("1_ytpva")]({})
 name = "Mirror"

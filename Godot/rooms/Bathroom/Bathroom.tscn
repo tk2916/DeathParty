@@ -823,103 +823,6 @@ spot_angle = 38.67
 [node name="TissueDispenser" parent="." instance=ExtResource("18_alw3p")]
 transform = Transform3D(1.0254, 0, 0, 0, 1.0254, 0, 0, 0, 1.0254, 5.34513, -0.557334, -2.59834)
 
-[node name="DiscoLights" parent="." instance=ExtResource("13_uea66")]
-transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, -2.05757, 1.09594, -0.286055)
-
-[node name="Circle" parent="DiscoLights" index="0"]
-transform = Transform3D(0.5763, 0.794436, 0.191702, -0.803065, 0.594002, -0.0474195, -0.151543, -0.126622, 0.980307, 2.38918, -0.283545, 0.0468913)
-
-[node name="Spot" parent="DiscoLights" index="1"]
-transform = Transform3D(0.287923, 0.358925, 0.887847, -0.905447, -0.199897, 0.374442, 0.311875, -0.911709, 0.267432, 2.40237, -0.0998568, -0.0481966)
-visible = false
-light_energy = 60.0
-light_volumetric_fog_energy = 60.0
-shadow_enabled = true
-spot_range = 9.19
-
-[node name="Spot_001" parent="DiscoLights" index="2"]
-transform = Transform3D(0.559438, -0.179883, 0.809118, -0.807012, 0.104503, 0.581216, -0.189106, -0.978122, -0.0867054, 2.5521, -0.165921, 0.027992)
-light_energy = 50.0
-light_volumetric_fog_energy = 30.0
-shadow_enabled = true
-spot_angle = 33.5
-
-[node name="Circle_001" parent="DiscoLights" index="3"]
-transform = Transform3D(-0.063885, 0.838673, -0.540877, -0.931027, 0.145054, 0.334885, 0.359315, 0.524965, 0.77156, 2.29104, -0.102164, -0.108478)
-
-[node name="Spot_002" parent="DiscoLights" index="4"]
-transform = Transform3D(0.533298, -0.460403, 0.709664, -0.718449, 0.196359, 0.66729, -0.446571, -0.865721, -0.226058, 0.162205, -0.128613, -0.183566)
-light_energy = 50.0
-light_volumetric_fog_energy = 30.0
-shadow_enabled = true
-
-[node name="Circle_002" parent="DiscoLights" index="5"]
-transform = Transform3D(0.515027, 0.723033, 0.460403, -0.735232, 0.648751, -0.196359, -0.440661, -0.237373, 0.865721, 0.0364693, -0.269323, -0.156847)
-
-[node name="Spot_003" parent="DiscoLights" index="6"]
-transform = Transform3D(-0.812031, 0.530588, 0.243071, 0.426687, 0.255587, 0.867533, 0.398177, 0.808178, -0.43394, -2.47697, -0.163111, 0.0365365)
-light_energy = 50.0
-light_volumetric_fog_energy = 30.0
-shadow_enabled = true
-spot_angle = 29.5
-
-[node name="Circle_003" parent="DiscoLights" index="7"]
-transform = Transform3D(-0.739817, 0.267293, -0.617436, 0.431351, 0.892713, -0.130386, 0.516342, -0.362794, -0.775741, -2.52617, -0.332756, 0.128093)
-
-[node name="Spot_004" parent="DiscoLights" index="8"]
-transform = Transform3D(-0.637333, 0.234673, 0.733986, 0.660944, -0.323233, 0.677255, 0.396182, 0.916761, 0.050901, -2.57129, -0.192044, 0.0677738)
-light_energy = 50.0
-light_volumetric_fog_energy = 30.0
-shadow_enabled = true
-
-[node name="Circle_004" parent="DiscoLights" index="9"]
-transform = Transform3D(-0.648884, 0.720636, -0.244203, 0.641884, 0.690778, 0.332886, 0.408579, 0.0592541, -0.910799, -2.72284, -0.310445, 0.0743298)
-
-[node name="LigthM_1_ligthm_low_0_001" parent="DiscoLights" index="10"]
-lod_bias = 0.1
-
-[node name="LigthM_1_ligthm_low_0_002" parent="DiscoLights" index="11"]
-lod_bias = 0.1
-
-[node name="LigthM_1_ligthm_low_0_004" parent="DiscoLights" index="12"]
-lod_bias = 0.1
-
-[node name="Spot_006" type="SpotLight3D" parent="DiscoLights"]
-transform = Transform3D(0.559438, -0.179884, 0.809118, -0.807012, 0.104503, 0.581216, -0.189106, -0.978122, -0.0867054, 2.39129, 0.0636328, 0.158897)
-light_color = Color(0.530296, 0.729198, 1, 1)
-light_energy = 30.0
-light_volumetric_fog_energy = 50.0
-spot_range = 6.485
-spot_angle = 19.69
-spot_angle_attenuation = 0.18
-
-[node name="Spot_007" type="SpotLight3D" parent="DiscoLights"]
-transform = Transform3D(0.533298, -0.460403, 0.709664, -0.718449, 0.196359, 0.66729, -0.446571, -0.865721, -0.226058, 0.162205, -0.128613, -0.0338112)
-light_color = Color(0.283333, 1, 0, 1)
-light_energy = 60.0
-light_volumetric_fog_energy = 100.0
-spot_range = 5.087
-spot_angle = 19.81
-spot_angle_attenuation = 0.5
-
-[node name="Spot_008" type="SpotLight3D" parent="DiscoLights"]
-transform = Transform3D(-0.966622, 0.055526, 0.250119, 0.251714, 0.387852, 0.886686, -0.0477748, 0.920048, -0.388883, -2.57129, -0.127364, 0.15681)
-light_color = Color(1, 0, 0.8, 1)
-light_energy = 30.0
-light_volumetric_fog_energy = 50.0
-spot_range = 4.416
-spot_angle = 31.87
-
-[node name="Spot_005" type="SpotLight3D" parent="DiscoLights"]
-transform = Transform3D(0.295993, 0.0420794, 0.954263, -0.9548, 0.0415825, 0.294326, -0.0272955, -0.998249, 0.0524855, 2.59767, 0.00751197, -0.114384)
-light_color = Color(0.530296, 0.729198, 1, 1)
-light_energy = 50.0
-light_volumetric_fog_energy = 30.0
-shadow_enabled = true
-spot_range = 4096.0
-spot_angle = 18.75
-spot_angle_attenuation = 0.18
-
 [node name="Graffitti" parent="." instance=ExtResource("22_l3jgi")]
 transform = Transform3D(0.9525, -8.93032e-05, -0.0298424, 0.000101212, 0.952968, 0.000378703, 0.0298424, -0.000381687, 0.9525, -6.70712, -1.22399, -0.862577)
 
@@ -953,21 +856,6 @@ transform = Transform3D(0.665455, 0, -0.0807764, 0, 0.73915, 0, 0.0807764, 0, 0.
 
 [node name="HotDogStand" parent="." instance=ExtResource("22_htvqj")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -5.80337, -2.39737, 0.687645)
-
-[node name="Trash" parent="." instance=ExtResource("29_k4jsb")]
-transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, -6.76523, -2.27469, 3.08761)
-
-[node name="Trash4" parent="." instance=ExtResource("29_k4jsb")]
-transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 4.78379, -2.3267, 2.83544)
-
-[node name="Trash5" parent="." instance=ExtResource("29_k4jsb")]
-transform = Transform3D(2.25094, -0.097877, 0.192091, 0.20707, 1.06397, 0.017671, -0.281313, 3.23339e-17, 1.55003, 4.31585, -2.27261, 4.31167)
-
-[node name="Trash2" parent="." instance=ExtResource("29_k4jsb")]
-transform = Transform3D(0.943827, 0, 0.545864, 0, 1.09031, 0, -0.545864, 0, 0.943827, -2.45483, -2.27874, -2.47596)
-
-[node name="Trash3" parent="." instance=ExtResource("29_k4jsb")]
-transform = Transform3D(1.07575, 0, 0.177607, 0, 1.09031, 0, -0.177607, 0, 1.07575, 4.96, -2.24424, -2.71536)
 
 [node name="Props" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30499, -0.0395622, 1.87925)
@@ -1087,6 +975,120 @@ transform = Transform3D(0.127471, 0.196502, -0.0269827, -0.007392, 0.0367586, 0.
 [node name="Cup10" parent="Props/CupsOnFloor2" instance=ExtResource("30_3wfjx")]
 transform = Transform3D(-0.011095, 0.22973, 0.05187, 0.2355, 0.0113736, -8.48408e-10, -0.0025022, 0.0518095, -0.229998, -1.83378, 0.936977, 1.82708)
 
+[node name="Trash" type="Node3D" parent="Props"]
+
+[node name="Trash" parent="Props/Trash" instance=ExtResource("29_k4jsb")]
+transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, -2.4602404, -2.2351277, 1.20836)
+
+[node name="Trash4" parent="Props/Trash" instance=ExtResource("29_k4jsb")]
+transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 9.088779, -2.2871377, 0.9561899)
+
+[node name="Trash5" parent="Props/Trash" instance=ExtResource("29_k4jsb")]
+transform = Transform3D(2.25094, -0.097877, 0.192091, 0.20707, 1.06397, 0.017671, -0.281313, 3.23339e-17, 1.55003, 8.62084, -2.2330477, 2.4324198)
+
+[node name="Trash2" parent="Props/Trash" instance=ExtResource("29_k4jsb")]
+transform = Transform3D(0.943827, 0, 0.545864, 0, 1.09031, 0, -0.545864, 0, 0.943827, 1.8501599, -2.2391777, -4.3552103)
+
+[node name="Trash3" parent="Props/Trash" instance=ExtResource("29_k4jsb")]
+transform = Transform3D(1.07575, 0, 0.177607, 0, 1.09031, 0, -0.177607, 0, 1.07575, 9.26499, -2.2046778, -4.59461)
+
+[node name="DiscoLights" parent="Props" instance=ExtResource("13_uea66")]
+transform = Transform3D(1.09031, 0, 0, 0, 1.09031, 0, 0, 0, 1.09031, 2.2474198, 1.1355022, -2.1653051)
+
+[node name="Circle" parent="Props/DiscoLights" index="0"]
+transform = Transform3D(0.5763, 0.794436, 0.191702, -0.803065, 0.594002, -0.0474195, -0.151543, -0.126622, 0.980307, 2.38918, -0.283545, 0.0468913)
+
+[node name="Spot" parent="Props/DiscoLights" index="1"]
+transform = Transform3D(0.287923, 0.358925, 0.887847, -0.905447, -0.199897, 0.374442, 0.311875, -0.911709, 0.267432, 2.40237, -0.0998568, -0.0481966)
+visible = false
+light_energy = 60.0
+light_volumetric_fog_energy = 60.0
+shadow_enabled = true
+spot_range = 9.19
+
+[node name="Spot_001" parent="Props/DiscoLights" index="2"]
+transform = Transform3D(0.559438, -0.179883, 0.809118, -0.807012, 0.104503, 0.581216, -0.189106, -0.978122, -0.0867054, 2.5521, -0.165921, 0.027992)
+light_energy = 50.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+spot_angle = 33.5
+
+[node name="Circle_001" parent="Props/DiscoLights" index="3"]
+transform = Transform3D(-0.063885, 0.838673, -0.540877, -0.931027, 0.145054, 0.334885, 0.359315, 0.524965, 0.77156, 2.29104, -0.102164, -0.108478)
+
+[node name="Spot_002" parent="Props/DiscoLights" index="4"]
+transform = Transform3D(0.533298, -0.460403, 0.709664, -0.718449, 0.196359, 0.66729, -0.446571, -0.865721, -0.226058, 0.162205, -0.128613, -0.183566)
+light_energy = 50.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+
+[node name="Circle_002" parent="Props/DiscoLights" index="5"]
+transform = Transform3D(0.515027, 0.723033, 0.460403, -0.735232, 0.648751, -0.196359, -0.440661, -0.237373, 0.865721, 0.0364693, -0.269323, -0.156847)
+
+[node name="Spot_003" parent="Props/DiscoLights" index="6"]
+transform = Transform3D(-0.812031, 0.530588, 0.243071, 0.426687, 0.255587, 0.867533, 0.398177, 0.808178, -0.43394, -2.47697, -0.163111, 0.0365365)
+light_energy = 50.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+spot_angle = 29.5
+
+[node name="Circle_003" parent="Props/DiscoLights" index="7"]
+transform = Transform3D(-0.739817, 0.267293, -0.617436, 0.431351, 0.892713, -0.130386, 0.516342, -0.362794, -0.775741, -2.52617, -0.332756, 0.128093)
+
+[node name="Spot_004" parent="Props/DiscoLights" index="8"]
+transform = Transform3D(-0.637333, 0.234673, 0.733986, 0.660944, -0.323233, 0.677255, 0.396182, 0.916761, 0.050901, -2.57129, -0.192044, 0.0677738)
+light_energy = 50.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+
+[node name="Circle_004" parent="Props/DiscoLights" index="9"]
+transform = Transform3D(-0.648884, 0.720636, -0.244203, 0.641884, 0.690778, 0.332886, 0.408579, 0.0592541, -0.910799, -2.72284, -0.310445, 0.0743298)
+
+[node name="LigthM_1_ligthm_low_0_001" parent="Props/DiscoLights" index="10"]
+lod_bias = 0.1
+
+[node name="LigthM_1_ligthm_low_0_002" parent="Props/DiscoLights" index="11"]
+lod_bias = 0.1
+
+[node name="LigthM_1_ligthm_low_0_004" parent="Props/DiscoLights" index="12"]
+lod_bias = 0.1
+
+[node name="Spot_006" type="SpotLight3D" parent="Props/DiscoLights"]
+transform = Transform3D(0.559438, -0.179884, 0.809118, -0.807012, 0.104503, 0.581216, -0.189106, -0.978122, -0.0867054, 2.39129, 0.0636328, 0.158897)
+light_color = Color(0.530296, 0.729198, 1, 1)
+light_energy = 30.0
+light_volumetric_fog_energy = 50.0
+spot_range = 6.485
+spot_angle = 19.69
+spot_angle_attenuation = 0.18
+
+[node name="Spot_007" type="SpotLight3D" parent="Props/DiscoLights"]
+transform = Transform3D(0.533298, -0.460403, 0.709664, -0.718449, 0.196359, 0.66729, -0.446571, -0.865721, -0.226058, 0.162205, -0.128613, -0.0338112)
+light_color = Color(0.283333, 1, 0, 1)
+light_energy = 60.0
+light_volumetric_fog_energy = 100.0
+spot_range = 5.087
+spot_angle = 19.81
+spot_angle_attenuation = 0.5
+
+[node name="Spot_008" type="SpotLight3D" parent="Props/DiscoLights"]
+transform = Transform3D(-0.966622, 0.055526, 0.250119, 0.251714, 0.387852, 0.886686, -0.0477748, 0.920048, -0.388883, -2.57129, -0.127364, 0.15681)
+light_color = Color(1, 0, 0.8, 1)
+light_energy = 30.0
+light_volumetric_fog_energy = 50.0
+spot_range = 4.416
+spot_angle = 31.87
+
+[node name="Spot_005" type="SpotLight3D" parent="Props/DiscoLights"]
+transform = Transform3D(0.295993, 0.0420794, 0.954263, -0.9548, 0.0415825, 0.294326, -0.0272955, -0.998249, 0.0524855, 2.59767, 0.00751197, -0.114384)
+light_color = Color(0.530296, 0.729198, 1, 1)
+light_energy = 50.0
+light_volumetric_fog_energy = 30.0
+shadow_enabled = true
+spot_range = 4096.0
+spot_angle = 18.75
+spot_angle_attenuation = 0.18
+
 [node name="NPCs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38037, -2.15731, 1.0661)
 
@@ -1103,10 +1105,10 @@ transform = Transform3D(0.996899, 0, -0.0786855, 0, 1, 0, 0.0786855, 0, 0.996899
 transform = Transform3D(0.667819, 0, 0.744323, 0, 1, 0, -0.744323, 0, 0.667819, -0.395593, -0.194828, 0.09628)
 
 [node name="Bunny" parent="NPCs" instance=ExtResource("21_hbt0t")]
-transform = Transform3D(-0.968731, 0, 0.248115, 0, 1, 0, -0.248115, 0, -0.968731, 7.92395, -0.239568, -2.85654)
+transform = Transform3D(-0.968731, 0, 0.248115, 0, 1, 0, -0.248115, 0, -0.968731, 7.92395, -0.239568, -3.5211515)
 
 [node name="Bunny2" parent="NPCs" instance=ExtResource("35_rjeq7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.98782, -0.240322, -3.62567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5971465, -0.24032211, -3.4242635)
 
 [node name="cop" parent="NPCs" instance=ExtResource("34_jy5jw")]
 transform = Transform3D(0.650456, 0, 0.759544, 0, 1, 0, -0.759544, 0, 0.650456, 0.904997, -0.232421, -1.38849)
@@ -1233,7 +1235,7 @@ transform = Transform3D(0.862797, 0, 0, 0, 0.862797, 0, 0, 0, 0.862797, -1.34222
 [editable path="SceneLoader_PartyRoom/InteractionDetector"]
 [editable path="WallLamp"]
 [editable path="WallLamp2"]
-[editable path="DiscoLights"]
 [editable path="Graffitti"]
 [editable path="Graffitti/InteractionDetector"]
+[editable path="Props/DiscoLights"]
 [editable path="NPCs/free hug2"]

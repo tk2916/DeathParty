@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rjlwmibbgl3v"]
+[gd_scene load_steps=11 format=3 uid="uid://rjlwmibbgl3v"]
 
 [ext_resource type="PackedScene" uid="uid://dyu7jnww1pkd6" path="res://rooms/Exterior Frat Lawn/wallet and ID.glb" id="1_704gp"]
 [ext_resource type="Script" uid="uid://bea7y4hurcesx" path="res://Utilities/scripts/interactable.gd" id="2_v34je"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3dt1w7lckdyq" path="res://Entities/interaction_detector.tscn" id="3_v34je"]
 [ext_resource type="Texture2D" uid="uid://bvqt45fuhspqd" path="res://rooms/Exterior Frat Lawn/ID card_Jack ID Texture.png" id="4_q3tvc"]
 [ext_resource type="Texture2D" uid="uid://b5iyw6h1dsf42" path="res://rooms/Exterior Frat Lawn/wallet and ID_Wallet_IMGTexture.png" id="5_f65id"]
+[ext_resource type="PackedScene" uid="uid://cqxjk5afxrhem" path="res://Common/Popup UI/object_interact_popup.tscn" id="7_iin1x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2b2ao"]
 transparency = 1
@@ -34,7 +35,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_704gp")
 [node name="InteractionDetector" parent="." index="2" instance=ExtResource("3_v34je")]
 
 [node name="CollisionShape3D" parent="InteractionDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193758, 0.512483, 0.362533)
+transform = Transform3D(1.295, 0, 0, 0, 1.295, 0, 0, 0, 1.295, -0.193758, 0.512483, 0.362533)
 shape = SubResource("BoxShape3D_08i33")
+
+[node name="Popup" parent="." index="3" instance=ExtResource("7_iin1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1716704, 1.348774, -0.7389456)
 
 [editable path="InteractionDetector"]

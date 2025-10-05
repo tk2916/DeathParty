@@ -9,5 +9,4 @@ script = ExtResource("3_aecd8")
 default_chats = Dictionary[int, JSON]({
 6: ExtResource("1_ku1ym")
 })
-queue_chats = Dictionary[int, ExtResource("2_4gpxa")]({})
 name = "Basement Door"
